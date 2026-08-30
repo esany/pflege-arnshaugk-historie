@@ -1,194 +1,378 @@
-# Transdisziplinärer Literatur- und Quellenassistent für Pflege Arnshaugk
+# Persönlicher Archivar und transdisziplinäre Forschungsassistenz
 
-## Zweck
+**Status:** aktueller Konzept- und Arbeitsstand, noch keine finale Architektur
 
-Dieses Dokument beschreibt eine methodische und technische Architektur für einen Forschungsassistenten, der die Literatur- und Quellenarbeit im Projekt *Pflege Arnshaugk* unterstützt. Ziel ist ausdrücklich nicht nur ein PDF-Chat oder eine semantische Suche, sondern ein provenance-first System, das Forschungsfragen, Begriffe, Forschungstraditionen, Quellen, Claims, Evidenz, Widersprüche und Synthesen nachvollziehbar miteinander verknüpft.
+**Letzte grundlegende Überarbeitung:** 2026-08-30
 
-## Ausgangspunkt
+**Zentrale Issues:** #1, #2, #9, #10
 
-Transdisziplinäre historische Forschung kombiniert häufig sehr unterschiedliche Wissensformen: Geschichtswissenschaft, historische Geographie, Archäologie, Umweltgeschichte, Hydrologie, Ökologie, Forstgeschichte, Rechtsgeschichte, Besitz- und Verwaltungsgeschichte, Kartographiegeschichte, Ortsnamenforschung, Regionalgeschichte und gegebenenfalls naturwissenschaftliche Rekonstruktionen. Diese Felder verwenden unterschiedliche Begriffe, Skalen, Evidenztypen und Qualitätskriterien.
+---
 
-Ein Assistenzsystem darf diese Unterschiede nicht durch ein einheitliches Relevanz- oder Evidenzranking verwischen. Seine Aufgabe sollte vielmehr darin bestehen, die Unterschiede explizit zu machen, Übersetzungen zwischen Fachsprachen vorzuschlagen und jede Synthese auf ihre Quellen und methodischen Voraussetzungen zurückführbar zu halten.
+## 1. Zweck dieses Dokuments
 
-## Methodisches Rückgrat
+Dieses Dokument konsolidiert den aktuellen Denkstand für eine Forschungsumgebung im Projekt *Pflege Arnshaugk*.
 
-### 1. Scoping Review
+Das Zielbild hat sich gegenüber dem ersten Entwurf präzisiert: Gesucht wird nicht primär ein „KI-Literaturassistent“ oder ein großer Knowledge Graph, sondern zunächst ein **persönlicher Archivar für den realen historischen Forschungsalltag**. Auf einer belastbar erschlossenen Literatur- und Quellenbasis soll später eine methodisch anspruchsvolle, transdisziplinäre Forschungsassistenz aufbauen können.
 
-Zu Beginn wird der Forschungsraum möglichst breit kartiert. Ziel ist nicht sofortige Evidenzbewertung, sondern die Erfassung von Disziplinen, Begriffsfamilien, Quellentypen, Zeiträumen, Räumen, Akteuren und Forschungsnarrativen.
+Wichtig ist die Trennung zwischen:
 
-### 2. Meta-Narrative Review
+- **Nutzerzielen und tatsächlichen Forschungsbedarfen**,
+- **wissenschaftlichen Qualitätsanforderungen**,
+- **Capabilities**, die ein späteres System braucht,
+- **Hypothesen über mögliche technische Lösungen**,
+- **validierten Entscheidungen und Requirements**.
 
-Die Meta-Narrative Review eignet sich besonders für Gegenstände, die in verschiedenen Forschungstraditionen unterschiedlich konzeptualisiert werden. Der Assistent sollte daher rekonstruieren:
+Frühere Fassungen dieses Dokuments haben plausible Lösungsansätze teilweise zu früh als Architektur oder MVP formuliert. Diese Überarbeitung korrigiert das.
 
-- welche Forschungstraditionen einen Gegenstand untersuchen,
-- welche Begriffe und Definitionen sie verwenden,
-- welche Theorien und Modelle zugrunde liegen,
-- welche Methoden als legitim gelten,
-- welche Quellen oder Datentypen bevorzugt werden,
-- wie sich diese Traditionen historisch entwickelt haben,
-- wo sie miteinander übereinstimmen oder in Konflikt geraten.
+---
 
-Zentrale Prinzipien sind Pragmatismus, Pluralismus, Historizität, Kontestation und Reflexivität.
+## 2. Aktuelles Zielbild
 
-### 3. Critical Interpretive Synthesis
+### 2.1 Persönlicher Archivar
 
-CIS dient dazu, aus heterogener Literatur analytische Konzepte zu entwickeln, statt nur Ergebnisse zu aggregieren. Dies ist für historische Raum- und Landschaftsrekonstruktionen wichtig, weil Begriffe wie Teich, Sumpf, Hutung, Trift, Gemeinheit, Flur, Gehölz, Forst, Grenze, Nutzung oder Besitz je nach Zeit und Quellengattung unterschiedliche Bedeutungen haben können.
+Der persönliche Archivar soll grundlegende Literatur- und Quellenarbeit deutlich erleichtern.
 
-### 4. Realist Reasoning
+Er soll insbesondere helfen:
 
-Wo kausale oder funktionale Fragen auftreten, sollte der Assistent Context–Mechanism–Outcome-artig arbeiten: Unter welchen Bedingungen wirkt ein Prozess, durch welchen Mechanismus und mit welchem Ergebnis? Dies verhindert zu einfache Aussagen wie „Teiche entstanden wegen Fischwirtschaft“, wenn Besitzrecht, Relief, Wasserführung, Herrschaft, Arbeitsorganisation und Markt gleichzeitig relevant sein können.
+- Literatur, Editionen und Quellen wiederzufinden,
+- bildbasierte Editionen, Regesten und Scans per OCR oder vorhandenem Volltext zu erschließen,
+- relevante Volltextauszüge schnell zu finden,
+- konkrete Fundstellen mit Seite, Blatt oder Regestnummer auszugeben,
+- bibliographische Verwaltung mit Zotero zu koppeln,
+- historische Namen, Schreibweisen, Synonyme und Fachbegriffe zu berücksichtigen,
+- wiederkehrende Schritte perspektivisch zu automatisieren,
+- zentrale Funktionen möglichst unabhängig von einem einzelnen KI-Anbieter verfügbar zu halten.
 
-### 5. Claim–Evidence Mapping
+Der Archivar soll ausdrücklich **keine bloße „Chat mit PDFs“-Oberfläche** sein. Ein Quellenbefund muss auf überprüfbare Literatur/Quelle und konkrete Fundstelle zurückführbar bleiben.
 
-Jede belastbare Aussage sollte in atomare Claims zerlegt werden. Jeder Claim erhält Verknüpfungen zu:
+### 2.2 Langfristige transdisziplinäre Forschungsassistenz
 
-- Quelle,
-- genauer Fundstelle,
-- Evidenztyp,
-- räumlicher Gültigkeit,
-- zeitlicher Gültigkeit,
-- Unsicherheit,
-- unterstützenden Claims,
-- widersprechenden Claims,
-- abgeleiteten Schlussfolgerungen.
+Auf dem erschlossenen Bestand soll perspektivisch eine wissenschaftliche Assistenzschicht aufbauen, die bei komplexen Forschungsfragen unterstützt:
 
-Damit kann später geprüft werden, welche Aussagen direkt auf Primärquellen beruhen und welche nur sekundär tradiert werden.
+- Forschungsfragen strukturieren,
+- Forschungstraditionen und disziplinäre Perspektiven unterscheiden,
+- historische und fachsprachliche Terminologien aufeinander beziehen,
+- Claims und Evidenzbezüge sichtbar machen,
+- Widersprüche und Kontestationen analysieren,
+- räumliche und zeitliche Gültigkeit von Aussagen differenzieren,
+- Suchlücken von Evidenzlücken unterscheiden,
+- nachvollziehbare Synthesen unterstützen.
 
-## Wissenschaftliche Assistenzoperationen
+Diese Funktionen sind **strategisches Ziel**, aber Methodik, Datenmodell und technische Form sind noch zu untersuchen.
 
-### Problem Framing
+---
 
-Der Assistent hilft, Forschungsgegenstand, Erkenntnisinteresse, Raum, Zeitraum und relevante Skalen explizit zu formulieren.
+## 3. Methodisches Vorgehen der Konzeptentwicklung
 
-### Question Decomposition
+Die zentrale Korrektur des bisherigen Arbeitsstands lautet:
 
-Forschungsfragen werden in deskriptive, kausale, chronologische, räumliche, rechtliche, funktionale und interpretative Teilfragen zerlegt.
+> Nicht von einer früh erfundenen Architektur rückwärts auf den Forschungsprozess schließen, sondern vom realen Zielbild und Problemraum vorwärts zu Capabilities, Rollen und erst danach zu Architektur und Implementation arbeiten.
 
-### Epistemic Scoping
-
-Der Assistent schlägt relevante Disziplinen und Forschungstraditionen vor, auch wenn deren Terminologie von der Ausgangsfrage abweicht.
-
-### Begriffsexpansion und historische Terminologie
-
-Zu jedem Kernbegriff werden moderne Synonyme, historische Schreibweisen, ältere Rechts- und Verwaltungsbegriffe, regionale Varianten, lateinische bzw. fremdsprachige Entsprechungen und angrenzende Begriffe verwaltet.
-
-Beispiel für historische Gewässer- und Nutzungsforschung: Teich, Weiher, Hälter, Fischbehälter, Wasser, Lache, Sumpf, Bruch, Ried, Moor, Graben, Mühlgraben, Wehr, Damm, Teichstatt, Teichwiese, Hutung, Trift, Gemeinheit, Anger, Holz, Gehölz, Forst, Schlag, Grenze, Rain, Malbaum, Flur, Hufe, Vorwerk.
-
-### Search Expansion
-
-Suchstrategien werden versioniert und aus Begriffsfamilien zusammengesetzt. Suchläufe werden mit Datum, Katalog/Archiv/Datenbank, Query und Ergebnisumfang gespeichert.
-
-### Citation Chaining
-
-Backward und Forward Citation Chaining sowie bibliographische Kopplung helfen, Forschungsschulen, Standardwerke und isolierte Literaturcluster zu erkennen.
-
-### Quellen- und Evidenztypisierung
-
-Der Assistent unterscheidet mindestens:
-
-- archivalische Primärquelle,
-- historische Karte/Riss,
-- Urkunde,
-- Amtsbuch/Rechnung/Register,
-- Flurbuch/Kataster,
-- Chronik/Beschreibung,
-- archäologischer Befund,
-- naturwissenschaftliche Messung,
-- Modellierung,
-- Sekundärliteratur,
-- Review,
-- unbelegte Traditionsaussage.
-
-### Methodenspezifische Qualitätsprüfung
-
-Es gibt keine universelle Evidenzhierarchie. Eine historische Karte wird nach Entstehungszweck, Maßstab, Vermessungspraxis, Generalisierung und Provenienz beurteilt; eine archivalische Beschreibung nach Überlieferungskontext und Interessenlage; naturwissenschaftliche Daten nach Messdesign und Unsicherheit. Die Qualitätsprüfung erfolgt innerhalb des jeweiligen Evidenztyps.
-
-### Kontestationsanalyse
-
-Widersprüche werden nicht automatisch „aufgelöst“. Der Assistent klassifiziert mögliche Ursachen:
-
-- unterschiedliche Definitionen,
-- unterschiedliche Zeitpunkte,
-- unterschiedliche räumliche Skalen,
-- verschiedene Quellengattungen,
-- abweichende Methoden,
-- tatsächlicher empirischer Widerspruch,
-- Tradierung eines Fehlers.
-
-### Synthese
-
-Synthesen unterscheiden zwischen:
-
-1. innerhalb einer Forschungstradition gut gestützten Aussagen,
-2. traditionsübergreifend konvergierenden Aussagen,
-3. plausiblen, aber indirekten Rekonstruktionen,
-4. offenen Kontroversen,
-5. echten Forschungslücken.
-
-## Git als Forschungsprovenienz
-
-Git sollte nicht primär als Speicher für PDFs verstanden werden, sondern als Provenienzsystem für den Forschungsprozess. Änderungen an Forschungsfragen, Begriffen, Suchstrategien, Bewertungen und Synthesen werden versioniert.
-
-Vorgeschlagene Struktur:
+Vorgehensmodell:
 
 ```text
-research/
-├── questions/
-├── concepts/
-├── traditions/
-├── search/
-│   ├── queries/
-│   └── runs/
-├── corpus/
-├── sources/
-├── claims/
-├── evidence/
-├── contradictions/
-├── places/
-├── chronology/
-├── synthesis/
-└── decisions/
+Zielbild / Forschungsalltag
+        ↓
+Problem- und Workflow-Map
+        ↓
+Leane State-of-the-Art-Analyse
+        ↓
+Capability Map
+        ↓
+Rollen- / Kompetenzmodell
+        ↓
+Transdisziplinäres Gesamtkonzept
+        ↓
+validierte Architekturentscheidungen
+        ↓
+Requirements / MVP / Implementation
 ```
 
-Zusätzlich:
+Details siehe Issue #10.
 
-```text
-docs/
-├── research-design/
-├── methods/
-└── source-guides/
-```
+### Warum „leaner State of the Art“?
 
-## Epistemic Literature Graph
+Ziel ist kein enzyklopädischer Marktüberblick. Für jede Problemklasse sollen die stärksten, relevantesten und wiederverwendbaren Ansätze identifiziert werden:
 
-Kernobjekte:
+1. Welches Problem lösen sie?
+2. Aus welcher wissenschaftlichen oder technischen Tradition stammen sie?
+3. Wie reif sind sie?
+4. Sind sie offen, automatisierbar und integrierbar?
+5. Welche Provenienz- und Datenmodelle nutzen sie?
+6. Welche Lock-ins erzeugen sie?
+7. Wie gut passen sie zu heterogenen historischen Quellen?
+8. Wie werden Qualität und Fehler gemessen?
+9. Was kann übernommen werden, statt neu gebaut zu werden?
+10. Welche Lücke bleibt für das eigene Konzept?
 
-```text
-ResearchQuestion
-  ├── Subquestion
-  ├── Concept
-  ├── Place
-  ├── TimeRange
-  └── ResearchTradition
+---
 
-ResearchTradition
-  ├── Concept
-  ├── Theory
-  ├── Method
-  └── QualityCriterion
+## 4. Wissensgovernance
 
-Claim
-  ├── asserted_by -> Source
-  ├── supported_by -> Evidence
-  ├── contradicts -> Claim
-  ├── applies_to -> Place
-  ├── applies_to -> TimeRange
-  └── derived_into -> Synthesis
-```
+**Chat ist Werkstatt; GitHub ist Projektgedächtnis.**
 
-## Spezifische Relevanz für Pflege Arnshaugk
+Wichtige Erkenntnisse sollen nicht ausschließlich in einem Chatverlauf verbleiben. Zielbilder, offene Fragen, Hypothesen, Research-Befunde, Entscheidungen und verworfene Ansätze werden in Issues oder versionierten Dokumenten festgehalten.
 
-Für die historische Landschafts- und Raumanalyse sollte der Assistent nicht nur wissenschaftliche Literatur, sondern auch archivalische Quellengattungen aktiv erschließen. Besonders relevant sind:
+Siehe Issue #9.
+
+### Issue-/Artefakttypen
+
+- Zielbild
+- Problem / Pain Point
+- Research Question
+- Hypothese / Lösungsansatz
+- State of the Art
+- Capability
+- Role / Competency
+- Decision / ADR
+- Requirement
+- Implementation
+
+Wichtig ist, dass diese Typen nicht miteinander verwechselt werden. Ein Brainstorming-Vorschlag ist noch keine Anforderung; eine plausible Architektur ist noch keine Entscheidung.
+
+---
+
+## 5. Belastbare Nutzerbedarfe
+
+### 5.1 OCR und Volltexterschließung
+
+Benötigt wird eine robuste Erschließung von:
+
+- born-digital Texten,
+- PDFs mit vorhandenem Textlayer,
+- Bild-PDFs,
+- Scans und Seitenbildern,
+- Editionen und Regesten,
+- perspektivisch ggf. Handschriften/HTR.
+
+Wissenschaftliche Mindestanforderungen:
+
+- Seiten-/Blatt-/Regestbezug bleibt erhalten,
+- OCR wird als OCR gekennzeichnet,
+- Roh-OCR, Korrektur und Transkription bleiben unterscheidbar,
+- historische Orthographie wird nicht still normalisiert,
+- Fehler bei Orts-/Personennamen sind besonders zu berücksichtigen,
+- jede relevante Textstelle ist zur Fundstelle rückführbar.
+
+### 5.2 Volltextsuche und Quellenexperte
+
+Benötigt werden:
+
+- exakte Suche,
+- Kontexttreffer,
+- historische Schreibvarianten,
+- Namenvarianten,
+- kontrollierte Synonym-/Begriffsexpansion,
+- Filter auf bibliographische und inhaltliche Kontexte,
+- fundstellengenaue Ausgabe.
+
+Semantische Suche, Embeddings oder RAG sind mögliche Ergänzungen, aber derzeit **keine festgelegten Anforderungen**.
+
+### 5.3 Zotero-Kopplung
+
+Der Nutzer möchte die fachliche Literatur-/Quellenkopplung eher über Zotero als direkt über den physischen Dateispeicher führen.
+
+Daraus entsteht die starke Hypothese, Zotero als zentrale bibliographische Referenzschicht zu nutzen. Zu prüfen sind u. a.:
+
+- Item-/Attachment-Referenzen,
+- lokale/Web-APIs,
+- Collections und Tags,
+- Volltextzugriff,
+- Better-BibTeX-/Plugin-Ökosystem,
+- Umgang mit nicht-klassischen Quellen und archivalischen Einheiten.
+
+„Zotero ist Source of Truth“ ist aktuell **Hypothese**, keine abgeschlossene Architekturentscheidung.
+
+### 5.4 Automatisierung und KI-Unabhängigkeit
+
+Belastbare Zielvorgaben sind:
+
+- wiederkehrende Schritte automatisieren,
+- Kernfunktionen perspektivisch auch per Skript ausführen,
+- keine Abhängigkeit von einem einzelnen KI-/Cloud-Anbieter,
+- KI nur dort einsetzen, wo sie zusätzlichen Nutzen bringt.
+
+Daraus folgt die zu prüfende Architekturhypothese „script-first / local-first / AI-optional“.
+
+Konkrete Vorschläge wie Python CLI, SQLite, FTS5, `.local/`, Embeddings oder Befehle wie `archivar sync` bleiben bis zur State-of-the-Art-Prüfung technische Kandidaten.
+
+---
+
+## 6. Wissenschaftliche Leitplanken
+
+Unabhängig von der späteren Architektur gelten bereits einige wichtige Forschungsprinzipien.
+
+### Quellenbefund vor Interpretation
+
+Eine generierte Zusammenfassung darf nicht wie ein Quellenbefund erscheinen. Fundstelle, Textbefund und Interpretation müssen unterscheidbar bleiben.
+
+### OCR ersetzt niemals die Quelle
+
+OCR ist eine Erschließungsschicht und kann fehlerhaft sein. Besonders historische Eigennamen, Flurnamen, Rechtsbegriffe und seltene Schreibweisen sind kritisch.
+
+### Provenienz
+
+Relevante Befunde sollen möglichst zurückführbar sein auf:
+
+- Werk / Quelle,
+- konkrete Fundstelle,
+- Herkunft des Textes,
+- ggf. Verarbeitungsschritte,
+- Korrekturen und Unsicherheit.
+
+### Keine naive universelle Evidenzhierarchie
+
+Historische Quellen, Karten, archäologische Befunde, naturwissenschaftliche Messungen und moderne Fachliteratur haben unterschiedliche Qualitätskriterien. Eine transdisziplinäre Assistenz darf sie nicht unreflektiert in ein einziges Ranking pressen.
+
+### Kontestation statt vorschneller Auflösung
+
+Widersprüche können aus unterschiedlichen Definitionen, Zeiten, Räumen, Skalen, Methoden oder tatsächlichen empirischen Konflikten entstehen. Das System soll diese Unterschiede sichtbar machen.
+
+### Human-in-the-loop
+
+Bei wissenschaftlich relevanten Transformationen und Interpretationen bleibt menschliche Kontrolle zentral.
+
+---
+
+## 7. Zu untersuchende State-of-the-Art-Felder
+
+Die geplante Analyse soll mindestens folgende Bereiche abdecken:
+
+### Literatur- und Wissensmanagement
+
+- Zotero und Plugin-Ökosystem
+- Personal Knowledge Management
+- Research Knowledge Management
+- bibliographische Standards und Citation Workflows
+
+### Digitale Quellenerschließung
+
+- Digital Humanities
+- OCR historischer Drucke
+- Fraktur-OCR
+- HTR / Handschriftenerkennung
+- Layout-/Seitenformate wie ALTO, hOCR, PAGE XML
+- Korpusaufbereitung
+
+### Information Retrieval
+
+- Volltextsuche
+- Fuzzy Search
+- linguistische Suche
+- historische Query Expansion
+- Named Entity Recognition für historische Daten
+- Hybrid Search
+- semantische Suche / RAG
+
+### Forschungsdaten und Provenienz
+
+- Forschungsdatenmanagement
+- FAIR-Prinzipien
+- Provenienzmodelle
+- Versionierung
+- Reproduzierbarkeit
+- Data Lineage
+
+### Wissenschaftliche Synthese
+
+Als methodische Kandidaten, nicht als festgelegte Kette:
+
+- Scoping Review
+- Meta-Narrative Review
+- Critical Interpretive Synthesis
+- Realist Review / Reasoning
+- Claim–Evidence Mapping
+- bibliometrische Exploration
+- Citation Chaining
+- Knowledge Organization / Ontologien / Knowledge Graphs
+
+### Automatisierung
+
+- lokale Research Toolchains
+- CLI-/Pipeline-Design
+- Workflow-Orchestrierung
+- idempotente Datenverarbeitung
+- KI-Provider-Abstraktion
+- Offline-/Local-AI-Optionen
+
+---
+
+## 8. Vorläufige Capability Map
+
+Diese Liste ist ein **Arbeitsentwurf**, der aus #10 validiert und vervollständigt werden muss.
+
+### Acquisition / Referencing
+
+- Literatur und Quellen identifizieren
+- bibliographisch eindeutig referenzieren
+- vorhandene Bestände/Collections nutzen
+
+### Textualization
+
+- Volltext erkennen
+- OCR/HTR auslösen oder integrieren
+- Seiten-/Regeststruktur bewahren
+- Korrekturen nachvollziehbar halten
+
+### Retrieval
+
+- exakte Suche
+- Varianten-/Fuzzy-Suche
+- historische Begriffsexpansion
+- Filter und Kontext
+- ggf. semantische/hybride Suche
+
+### Provenance
+
+- Quelle und Fundstelle verbinden
+- Transformationen kennzeichnen
+- Forschungsentscheidungen dokumentieren
+
+### Research Assistance
+
+- Fragen strukturieren
+- Suchstrategien entwickeln
+- Forschungstraditionen unterscheiden
+- Evidenz und Widersprüche analysieren
+- Synthesen unterstützen
+
+### Automation
+
+- wiederholbare Verarbeitung
+- Änderungs-/Sync-Erkennung
+- reproduzierbare Such-/Processing-Runs
+- KI optionierbar halten
+
+---
+
+## 9. Vorläufige Rollen- und Kompetenzkandidaten
+
+Rollen werden erst nach der Capability-/State-of-the-Art-Analyse belastbar definiert. Derzeit relevant erscheinen:
+
+- **Historiker / Domänenforscher:** Fragestellung, Quellenkritik, Kontext, fachliche Validierung
+- **Archivar / Informationswissenschaft:** Erschließung, Provenienz, Findmittel, Quellengattungen
+- **Bibliotheks-/Literaturmanagement-Kompetenz:** Zotero, Metadaten, Identifier, Zitationsworkflows
+- **Digital Humanities:** digitale Editionen, Korpora, Text-/Quellenmodelle
+- **OCR/HTR-Kompetenz:** historische Drucke, Fraktur, Handschriften, Qualitätsmessung
+- **Information Retrieval / NLP:** Suche, Query Expansion, Entity Recognition, Ranking
+- **Knowledge Organization / Ontologie:** Begriffsmodelle, kontrollierte Vokabulare, semantische Beziehungen
+- **Research Methods / Evidence Synthesis:** Reviewmethoden, transdisziplinäre Synthese, Kontestationen
+- **Forschungsdatenmanagement:** FAIR, Provenienz, Reproduzierbarkeit, Lizenzierung
+- **Software Engineering:** Automatisierung, APIs, CLI, Integration, Tests
+- **Data/Search Engineering:** Indexierung, lokale Datenhaltung, Performance
+- **AI/LLM Engineering:** optionale KI-Funktionen, Provider-Abstraktion, Evaluation
+- **Urheberrecht/Datenschutz:** öffentliche vs. private Volltexte, Lizenzen
+- **UX für Forschung:** Interaktion mit Fundstellen, Suche und wissenschaftlicher Kontrolle
+
+Diese Rollen können später als menschliche Verantwortungsbereiche, technische Module oder ggf. spezialisierte Agenten umgesetzt werden. Diese Ebenen sollen nicht vorschnell vermischt werden.
+
+---
+
+## 10. Historischer Anwendungskontext Pflege Arnshaugk
+
+Das Konzept muss nicht nur moderne Fachliteratur, sondern heterogene historische Quellengruppen berücksichtigen.
+
+Relevante Kandidaten sind beispielsweise:
 
 - Forst-, Flur-, Hutungs- und Grenzrisse,
 - Jagd- und Forstkarten,
@@ -196,73 +380,121 @@ Für die historische Landschafts- und Raumanalyse sollte der Assistent nicht nur
 - Teich- und Wasserrechtsakten,
 - Grenzstreitigkeiten,
 - Hutungs- und Triftstreitigkeiten,
-- Gemeinheitsteilungen,
-- Flurbereinigungs- und Separationsunterlagen,
+- Gemeinheitsteilungen und Separation,
 - Kataster- und Flurbücher,
 - Lehnsakten und Besitzregister,
 - Amtsrechnungen,
 - Fischerei- und Teichrechnungen,
-- Mühlenakten,
-- Wasserbauakten,
+- Mühlen- und Wasserbauakten,
 - Orts- und Landesbeschreibungen,
 - ältere topographische Karten und Meilenblätter,
 - historische Luftbilder,
-- Geländemodelle und LiDAR als moderne Vergleichsebene.
+- Geländemodelle/LiDAR als moderne Vergleichsebene.
 
-Für jede Quellengattung sollte eine eigene Suchterminologie hinterlegt werden, da Archive diese Bestände häufig nicht nach heutigen Sachbegriffen erschließen.
+Diese Vielfalt ist ein Grund, warum Informationswissenschaft, historische Quellenkritik, Digital Humanities, Retrieval und transdisziplinäre Synthesemethoden gemeinsam betrachtet werden müssen.
 
-## Assistenzfragen, die das System beantworten sollte
+---
 
-- Welche Literaturcluster habe ich mit meiner bisherigen Terminologie wahrscheinlich übersehen?
-- Welche historischen Begriffe könnten denselben Gegenstand bezeichnen?
-- Welche Aussagen beruhen nur auf Sekundärliteratur?
-- Welche Primärquelle wird immer wieder zitiert, ohne neu geprüft zu werden?
-- Wo widersprechen sich Quellen tatsächlich und wo nur scheinbar?
-- Welche Forschungstraditionen betrachten denselben Raum mit unterschiedlichen Methoden?
-- Welche räumlichen und zeitlichen Gültigkeitsbereiche werden in einer Aussage vermischt?
-- Wo existieren nur Kartennachweise, aber keine schriftlichen Belege – oder umgekehrt?
-- Welche Schlussfolgerungen hängen an einer einzigen Quelle?
-- Welche offenen Fragen sind echte Evidenzlücken und welche bloß Suchlücken?
+## 11. Evaluation als notwendige Kompetenz
 
-## Technische Bausteine
+Ein späteres System darf nicht nur „interessant wirken“. Jede Capability braucht passende Qualitätskriterien.
 
-Bestehende Open-Source-Komponenten können integriert oder als Vorbild genutzt werden:
+Beispiele:
 
-- OpenAlex als offener scholarly graph,
-- ASReview für Human-in-the-loop Screening,
-- litsearchr für Suchbegriffsexpansion,
-- revtools für Review-Workflows,
-- Open Knowledge Maps/Headstart für explorative Wissenskarten,
-- Citation-Network-Werkzeuge für Forward-/Backward-Chaining.
+### OCR
 
-Die eigentliche Innovation für dieses Projekt ist jedoch die methodologische Schicht darüber: Traditionsmodellierung, Begriffsgeschichte, Quellenkritik, Claim–Evidence-Provenienz, Kontestationsanalyse und reflexive Synthese.
+- Character/Word Error Rate
+- Fehler bei Namen und historischen Termini
+- Erhalt von Seiten-/Regeststruktur
 
-## MVP
+### Retrieval
 
-Ein erster MVP sollte fünf Dinge zuverlässig können:
+- Recall
+- Precision
+- bekannte Testfälle / Goldstandard-Suchen
+- Transparenz der Query Expansion
 
-1. Forschungsfragen und Unterfragen versioniert verwalten.
-2. Begriffe und historische Synonyme als kontrolliertes, erweiterbares Vokabular führen.
-3. Quellen/Literatur mit Provenienz und Fundstellen erfassen.
-4. Atomare Claims mit Evidenz, Ort, Zeit und Unsicherheit verknüpfen.
-5. Offene Widersprüche, Suchlücken und Forschungsentscheidungen sichtbar machen.
+### Fundstellen
 
-## Leitprinzipien
+- korrekte Referenz auf Werk/Quelle
+- korrekte Seite/Regest
+- keine erfundenen Belege
 
-- Human-in-the-loop statt vollautomatischer Review.
-- Quellenbeleg vor generierter Zusammenfassung.
-- Unsicherheit explizit statt implizit.
-- Keine universelle Evidenzhierarchie.
-- Historische Terminologie als eigenes Forschungsobjekt.
-- Raum und Zeit als First-Class-Entities.
-- Jede Synthese muss auf Claims und Quellen rückführbar sein.
-- Git-Commits dokumentieren Änderungen des Forschungsstands und der Forschungsentscheidungen.
+### Automatisierung
 
-## Nächste Umsetzungsschritte
+- Idempotenz
+- Reproduzierbarkeit
+- Fehlertoleranz
+- nachvollziehbare Processing Runs
 
-1. Datenmodell für Question, Concept, Tradition, Source, Claim, Evidence, Place und TimeRange definieren.
-2. YAML/JSON-Schemas für die Kernobjekte anlegen.
-3. kontrolliertes Vokabular für die ersten Forschungsfragen aufbauen.
-4. Archiv- und Literatur-Suchprotokoll definieren.
-5. Claim–Evidence-Workflow an einem konkreten Fall (z. B. historische Teiche/Gewässerstrukturen) testen.
-6. danach automatisierte Hilfen für Query Expansion, Citation Chaining und Widerspruchserkennung ergänzen.
+### Wissenschaftliche Assistenz
+
+- Trennung von Befund und Interpretation
+- Provenienz
+- Unsicherheitsdarstellung
+- fachliche Validität
+- tatsächliche Zeitersparnis ohne Qualitätsverlust
+
+---
+
+## 12. Aktuelle Hypothesenliste
+
+### Stark, aber noch zu prüfen
+
+- Zotero als zentrale bibliographische Kopplung
+- script-first / local-first / AI-optional
+- lokale Volltext-/Suchschicht zusätzlich zu Zotero
+- Trennung kuratierter Forschungsdaten von regenerierbaren technischen Daten
+
+### Offen
+
+- SQLite/FTS5
+- konkrete OCR-/HTR-Engine
+- Volltextformate
+- semantische Suche / RAG
+- Embeddings
+- Knowledge Graph
+- Claim–Evidence-Datenmodell
+- Umfang der Git-Ablage von Textauszügen
+- konkrete CLI-Struktur
+
+### Zurückgestuft / veraltet
+
+- „Claim–Evidence Graph zuerst bauen“
+- „YAML-Schemas der Forschungsobjekte als erster MVP“
+- „feste Methodenkette Scoping → Meta-Narrative → CIS → Realist → Claim Graph“
+- „Zotero ist bereits entschieden der Source of Truth“
+- „SQLite/FTS ist bereits gesetzte Zielarchitektur“
+- „Phase 1/Phase 2 ist bereits eine verbindliche Implementation Roadmap“
+
+Diese Ansätze bleiben als Forschungs- oder Architekturhypothesen erhalten, müssen aber durch #10 validiert werden.
+
+---
+
+## 13. Nächster Arbeitsstand
+
+Die nächsten Arbeiten sind **Research und Konzeptklärung**, nicht sofortige Implementierung:
+
+1. Zielbild/Pain Points weiter aufnehmen und in Issues dokumentieren.
+2. Problem- und Workflow-Map erstellen.
+3. Leane State-of-the-Art-Recherche pro Problemklasse durchführen.
+4. Capability Map validieren und vervollständigen.
+5. Rollen-/Kompetenzmatrix daraus ableiten.
+6. Transdisziplinäres Gesamtkonzept formulieren.
+7. Bestehende technische Hypothesen bewerten: accepted / rejected / superseded.
+8. Erst danach Architekturentscheidungen, Requirements und MVP definieren.
+
+---
+
+## 14. Verknüpfte Issues
+
+- #1 – aktueller Research-Design-/Arbeitsstand
+- #2 – Zielbild persönlicher Archivar
+- #3 – Zotero-Hypothese
+- #4 – OCR-/Volltext-Capability
+- #5 – Retrieval-/Fundstellen-Capability
+- #6 – Git-Provenienz
+- #7 – langfristige transdisziplinäre Forschungsassistenz
+- #8 – Automatisierung/KI-Unabhängigkeit
+- #9 – Wissensgovernance
+- #10 – State-of-the-Art-/Capability-/Rollen-Research-Plan
