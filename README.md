@@ -36,11 +36,25 @@ Lean bedeutet: **so wenig unnötige technische Komplexität wie möglich, aber s
 
 ## Kanonischer Einstieg
 
-Der konsolidierte menschenlesbare Stand steht in:
+Der konsolidierte menschenlesbare Konzeptstand steht in:
 
 `docs/research-design/transdisziplinaerer-literaturassistent.md`
 
-Kanonische Issues:
+Die Ablage- und Ownership-Regeln für substantielle Research-Ergebnisse stehen in:
+
+`docs/research/README.md`
+
+Dabei gilt:
+
+```text
+Issue = Work Owner / Scope / Status / Decisions / Verweise
+Research-Datei im Repo = ausführlicher kanonischer Forschungsinhalt
+Code = erst konkrete technische Umsetzung / begrenzter Prototyp
+```
+
+Nicht jedes Finding erhält ein neues Issue. Neue Issues entstehen nur für eigenständige Work-/Research-/Decision-Scope nach #23.
+
+Kanonische Steuerungs-Issues:
 
 - **#1** – aktueller Gesamt-/Research-Design-Stand
 - **#9** – Governance / HITL / wissenschaftliche Nachvollziehbarkeit / kein Wissensmonopol
@@ -48,7 +62,19 @@ Kanonische Issues:
 - **#22** – Kompetenzlandkarte für Discovery, Requirements, Risiko, SOTA und Evaluation
 - **#23** – Issue-Ownership / Traceability
 - **#24** – Software-/Systemkompetenzen, Arbeitsteilung und Lean Development
-- **#25** – Chat↔Repo-Wissensmonopol-/Konsistenzaudit
+- **#26** – Arbeitsplan der aktuellen Discovery-/SOTA-/Requirements-Phase
+- **#27** – ausführbare autonome Issue-Kette bis Architecture Readiness
+- **#44** – nur echte Decisions / Dependencies / externe Validierung
+- **#45** – gemeinsames Research-/Evidence-/SOTA-Protokoll
+
+Aktuelle ausführbare Work Packages:
+
+- **#28–#30** – Problem-/Need-Baseline, reale Research Workflows, Research-Question-Portfolio
+- **#31–#39** – gezielte fachliche und technische SOTA-Stränge C1–C9
+- **#40** – Risk / Constraint / Rights / Failure Review
+- **#41** – Capability Map + Quality Attributes
+- **#42** – Requirements Baseline + Acceptance Criteria
+- **#43** – Architecture-Readiness-Gate
 
 Fachlicher Scope / Qualitätsanforderungen:
 
@@ -108,6 +134,7 @@ Prior-Art-Befund
 - **#11** completed alter Concept Audit
 - **#17** superseded – Vokabular/Begriffsmodelle integriert
 - **#18** superseded – Expertise-/Method Packs integriert
+- **#25** abgeschlossener Wissensmonopol-/Restartability-Audit
 
 ## Leitformeln
 
