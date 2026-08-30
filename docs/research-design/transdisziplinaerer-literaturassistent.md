@@ -1,74 +1,81 @@
-# Persönlicher Archivar und transdisziplinäre Forschungsassistenz
+# Histo-Orla – transdisziplinäre historische Forschungsassistenz
 
-**Status:** aktueller Konzept- und Arbeitsstand, noch keine finale Architektur
-
-**Letzte grundlegende Überarbeitung:** 2026-08-30
-
-**Zentrale Issues:** #1, #2, #9, #10
+**Status:** aktueller konsolidierter Konzept- und Arbeitsstand; noch keine finale Architektur  
+**Letzte grundlegende Überarbeitung:** 2026-08-30  
+**Zentrale Issues:** #1, #9, #10, #13–#16, #19–#21
 
 ---
 
-## 1. Zweck dieses Dokuments
+## 1. Zweck
 
-Dieses Dokument konsolidiert den aktuellen Denkstand für eine Forschungsumgebung im Projekt *Pflege Arnshaugk*.
+Dieses Dokument ist der versionierte, menschenlesbare Konzeptstand für die Forschungsumgebung im Projekt *Pflege Arnshaugk / Histo-Orla*.
 
-Das Zielbild hat sich gegenüber dem ersten Entwurf präzisiert: Gesucht wird nicht primär ein „KI-Literaturassistent“ oder ein großer Knowledge Graph, sondern zunächst ein **persönlicher Archivar für den realen historischen Forschungsalltag**. Auf einer belastbar erschlossenen Literatur- und Quellenbasis soll später eine methodisch anspruchsvolle, transdisziplinäre Forschungsassistenz aufbauen können.
+Die ursprüngliche Idee eines „persönlichen Archivars“ wurde erweitert und korrigiert. Der Archivar bleibt eine wichtige Spezialkompetenz für Bestand, Provenienz, Erschließung, Fundstellen und Recherche – er ist aber **nicht das gesamte Zielsystem und keine epistemische Oberinstanz**.
 
-Wichtig ist die Trennung zwischen:
+Das Ziel ist eine transdisziplinäre historische Forschungsassistenz, die einen historisch interessierten Research Owner ohne vorausgesetzte Spezialausbildung dabei unterstützt,
 
-- **Nutzerzielen und tatsächlichen Forschungsbedarfen**,
-- **wissenschaftlichen Qualitätsanforderungen**,
-- **Capabilities**, die ein späteres System braucht,
-- **Hypothesen über mögliche technische Lösungen**,
-- **validierten Entscheidungen und Requirements**.
+- belastbare Quellen und Forschungsliteratur zu finden und zu erschließen,
+- fachwissenschaftliche Probleme überhaupt erst präzise zu formulieren,
+- die richtigen Begriffe, Gegenstandsmodelle, Methoden und Quellenlogiken der beteiligten Disziplinen zu aktivieren,
+- regionale Befunde in territorialen, reichsweiten und europäischen Zusammenhängen zu erklären,
+- Befund, Interpretation, Kontroverse, Unsicherheit und Evidenzgrenze sichtbar zu halten,
+- und einen dauerhaft nachvollziehbaren wissenschaftlichen Forschungszustand zu erzeugen.
 
-Frühere Fassungen dieses Dokuments haben plausible Lösungsansätze teilweise zu früh als Architektur oder MVP formuliert. Diese Überarbeitung korrigiert das.
+**Leitgedanke:**
 
----
-
-## 2. Aktuelles Zielbild
-
-### 2.1 Persönlicher Archivar
-
-Der persönliche Archivar soll grundlegende Literatur- und Quellenarbeit deutlich erleichtern.
-
-Er soll insbesondere helfen:
-
-- Literatur, Editionen und Quellen wiederzufinden,
-- bildbasierte Editionen, Regesten und Scans per OCR oder vorhandenem Volltext zu erschließen,
-- relevante Volltextauszüge schnell zu finden,
-- konkrete Fundstellen mit Seite, Blatt oder Regestnummer auszugeben,
-- bibliographische Verwaltung mit Zotero zu koppeln,
-- historische Namen, Schreibweisen, Synonyme und Fachbegriffe zu berücksichtigen,
-- wiederkehrende Schritte perspektivisch zu automatisieren,
-- zentrale Funktionen möglichst unabhängig von einem einzelnen KI-Anbieter verfügbar zu halten.
-
-Der Archivar soll ausdrücklich **keine bloße „Chat mit PDFs“-Oberfläche** sein. Ein Quellenbefund muss auf überprüfbare Literatur/Quelle und konkrete Fundstelle zurückführbar bleiben.
-
-### 2.2 Langfristige transdisziplinäre Forschungsassistenz
-
-Auf dem erschlossenen Bestand soll perspektivisch eine wissenschaftliche Assistenzschicht aufbauen, die bei komplexen Forschungsfragen unterstützt:
-
-- Forschungsfragen strukturieren,
-- Forschungstraditionen und disziplinäre Perspektiven unterscheiden,
-- historische und fachsprachliche Terminologien aufeinander beziehen,
-- Claims und Evidenzbezüge sichtbar machen,
-- Widersprüche und Kontestationen analysieren,
-- räumliche und zeitliche Gültigkeit von Aussagen differenzieren,
-- Suchlücken von Evidenzlücken unterscheiden,
-- nachvollziehbare Synthesen unterstützen.
-
-Diese Funktionen sind **strategisches Ziel**, aber Methodik, Datenmodell und technische Form sind noch zu untersuchen.
+> Der Nutzer darf unsauber fragen; das System muss wissenschaftlich sauber arbeiten.
 
 ---
 
-## 3. Methodisches Vorgehen der Konzeptentwicklung
+## 2. Forschungsziel und Scope
 
-Die zentrale Korrektur des bisherigen Arbeitsstands lautet:
+### 2.1 Geschichte als transdisziplinäres Querschnittsthema
 
-> Nicht von einer früh erfundenen Architektur rückwärts auf den Forschungsprozess schließen, sondern vom realen Zielbild und Problemraum vorwärts zu Capabilities, Rollen und erst danach zu Architektur und Implementation arbeiten.
+Der Forschungsgegenstand ist nicht auf eine einzelne Epoche oder Disziplin begrenzt. Relevante Perspektiven umfassen insbesondere:
 
-Vorgehensmodell:
+- Sozialgeschichte
+- Wirtschafts- und Agrargeschichte
+- Herrschafts-, Adels-, Hof- und Verwaltungsgeschichte
+- Reichs- und Territorialgeschichte
+- Diplomatie-, Netzwerk-, Mobilitäts- und Reisegeschichte
+- Kirchengeschichte / Konfessionsgeschichte
+- historische Geographie und Kulturlandschaft
+- Umweltgeschichte / historische Ökologie / Hydrologie
+- Archäologie, Siedlungs- und Landschaftsarchäologie
+- Volkskunde / Europäische Ethnologie
+- historische Anthropologie und Sachkulturforschung
+- Onomastik / Toponymie
+- historische Kartographie
+- Bau- und Architekturgeschichte / Denkmalpflege bei Bedarf
+- historische Demographie und Rechtsgeschichte bei Bedarf
+
+Zeitlich reicht der Horizont vom Früh-/Hochmittelalter über Spätmittelalter und Frühe Neuzeit bis in Übergänge zur Moderne.
+
+### 2.2 Regional verankert, europäisch verflochten
+
+Der regionale Raum ist **Anker, nicht analytische Grenze**.
+
+```text
+Mikro / Ort / Gut / Familie
+        ↓↑
+Region / Herrschaft / Territorium
+        ↓↑
+Reich / dynastische und konfessionelle Räume
+        ↓↑
+Europa / Höfe / Universitäten / Diplomatie / Militär / Reisen
+```
+
+Leitformel:
+
+> **Regionaler Fokus für Tiefenschärfe – europäischer Horizont für Erklärung.**
+
+Kernräume sind Ostthüringen/Orla, Vogtland, Saalfeld und angrenzende thüringische Räume, Sachsen/Kursachsen, Franken, Egerland, Lausitz/Bautzen; weitere Räume werden aktiviert, wenn reale historische Verflechtungen sie erfordern.
+
+---
+
+## 3. Research-first statt Architektur-first
+
+Technische Architektur wird aus nachgewiesenen Forschungsbedarfen abgeleitet, nicht umgekehrt.
 
 ```text
 Zielbild / Forschungsalltag
@@ -79,422 +86,690 @@ Leane State-of-the-Art-Analyse
         ↓
 Capability Map
         ↓
-Rollen- / Kompetenzmodell
+Expertise-/Kompetenzprofile
         ↓
-Transdisziplinäres Gesamtkonzept
+Transdisziplinäres Assistenzkonzept
         ↓
 validierte Architekturentscheidungen
         ↓
 Requirements / MVP / Implementation
 ```
 
-Details siehe Issue #10.
+### Technische Subsidiarität
 
-### Warum „leaner State of the Art“?
+Keine Datenbank, Agentenarchitektur, Ontologie, RAG-Schicht, Knowledge Graph, HTR-Pipeline oder eigene Anwendung wird eingeführt, nur weil sie technisch plausibel ist.
 
-Ziel ist kein enzyklopädischer Marktüberblick. Für jede Problemklasse sollen die stärksten, relevantesten und wiederverwendbaren Ansätze identifiziert werden:
+Eine technische Komponente muss ein belegtes Forschungs-, Qualitäts-, Auditierbarkeits- oder Wiederholungsproblem lösen.
 
-1. Welches Problem lösen sie?
-2. Aus welcher wissenschaftlichen oder technischen Tradition stammen sie?
-3. Wie reif sind sie?
-4. Sind sie offen, automatisierbar und integrierbar?
-5. Welche Provenienz- und Datenmodelle nutzen sie?
-6. Welche Lock-ins erzeugen sie?
-7. Wie gut passen sie zu heterogenen historischen Quellen?
-8. Wie werden Qualität und Fehler gemessen?
-9. Was kann übernommen werden, statt neu gebaut zu werden?
-10. Welche Lücke bleibt für das eigene Konzept?
+**Lean gilt für Entwicklung, nicht für Inhaltsarbeit.** Fachliche Komplexität darf nicht reduziert werden, um die Technik einfacher zu machen.
 
 ---
 
-## 4. Wissensgovernance
+## 4. Governing Principles
 
-**Chat ist Werkstatt; GitHub ist Projektgedächtnis.**
+### 4.1 Wissenschaftliche Standards stehen über Nutzerformulierung und Technik
 
-Wichtige Erkenntnisse sollen nicht ausschließlich in einem Chatverlauf verbleiben. Zielbilder, offene Fragen, Hypothesen, Research-Befunde, Entscheidungen und verworfene Ansätze werden in Issues oder versionierten Dokumenten festgehalten.
+Jede aktivierte Disziplin arbeitet nach ihren eigenen einschlägigen wissenschaftlichen Standards, Terminologien, Quellenkritiken, Methoden und Evidenzregeln.
 
-Siehe Issue #9.
+Diese Standards dürfen **nicht abgeschwächt** werden durch:
 
-### Issue-/Artefakttypen
+- unscharfe oder unwissenschaftliche Nutzerformulierungen,
+- Wunsch nach einer einfachen Geschichte,
+- Vermittlungsziele,
+- UI- oder Darstellungsanforderungen,
+- Datenmodelle,
+- Retrieval-/RAG-/Agentenlogik,
+- Automatisierungs- oder Implementierungsvereinfachungen.
 
-- Zielbild
-- Problem / Pain Point
-- Research Question
-- Hypothese / Lösungsansatz
-- State of the Art
-- Capability
-- Role / Competency
-- Decision / ADR
-- Requirement
-- Implementation
+Technik und Nutzereingabe werden an wissenschaftliche Anforderungen übersetzt; wissenschaftliche Anforderungen werden nicht an Convenience angepasst.
 
-Wichtig ist, dass diese Typen nicht miteinander verwechselt werden. Ein Brainstorming-Vorschlag ist noch keine Anforderung; eine plausible Architektur ist noch keine Entscheidung.
+### 4.2 Human-in-the-loop ohne Nutzer-Micromanagement
+
+Human-in-the-loop bedeutet nicht ständige Bestätigung jeder Routinehandlung.
+
+Die Assistenz soll Routine-Methodik, Repository-Mechanik, Recherchevorbereitung, deterministische Ableitungen und Synchronisation soweit möglich selbst übernehmen. Konsequenzielle Arbeit muss aber erklärbar, überprüfbar, anfechtbar, stoppbar und korrigierbar bleiben.
+
+Der Research Owner kontrolliert insbesondere:
+
+- Forschungsinteresse und Prioritäten,
+- normative/materiale Systemänderungen,
+- Zugang/Rechte, die nur er klären kann,
+- folgenschwere Publikations-/Nutzungsentscheidungen,
+- echte wissenschaftliche Urteile, die unabhängige menschliche Fachprüfung erfordern.
+
+### 4.3 Progressive Disclosure / maximale menschliche Lesbarkeit
+
+Menschliche Lesbarkeit bedeutet nicht methodische Vereinfachung.
+
+Eine Ausgabe kann verständlich beginnen und bei Bedarf bis zu Fachbegriffen, Methoden, Quelle, Fundstelle, Alternativen und Entscheidungspfad aufgeklappt werden.
+
+Konsequenzielle Schritte sollen sinngemäß rekonstruierbar sein als:
+
+```text
+Problem
+→ fachliche Anforderung / Evidenz
+→ angewandte Kompetenz / Methode
+→ Quelle / Fundstelle
+→ Befund
+→ Interpretation
+→ Unsicherheit / Alternative
+→ Konsequenz / nächster Schritt
+```
+
+### 4.4 Kein Wissensmonopol im Chat oder Modell
+
+Chat ist Werkstatt. GitHub ist dauerhaftes Projektgedächtnis.
+
+Konsequenzielle Zielbilder, Research-Befunde, offene Fragen, Hypothesen, Entscheidungen, verworfene Ansätze und methodische Änderungen müssen aus Repository/Quellen rekonstruierbar sein.
+
+Unverzichtbare Begründungen dürfen nicht nur in Chat-Historie, verborgenem Modellzustand oder Agentenkommunikation existieren.
+
+### 4.5 Methodenkonforme KI ≠ unabhängige Expertenvalidierung
+
+Eine KI kann methodengeleitet arbeiten, Quellen korrekt referenzieren und Fachliteratur einbeziehen. Das ist nicht automatisch gleichbedeutend mit unabhängiger qualifizierter Fachvalidierung.
+
+Stärkere Validierung wird proportional zur Konsequenz einer Aussage erforderlich.
 
 ---
 
-## 5. Belastbare Nutzerbedarfe
+## 5. Forschungsebenen strikt trennen
 
-### 5.1 OCR und Volltexterschließung
+Mindestens folgende Ebenen müssen unterscheidbar bleiben:
 
-Benötigt wird eine robuste Erschließung von:
+```text
+Originalquelle / materieller Befund
+→ digitale Instanz / OCR / Transkription
+→ fachliche Beobachtung / Befund
+→ Normalisierung / Identifikation
+→ Claim
+→ fachliche Interpretation
+→ transdisziplinäre Synthese
+```
 
-- born-digital Texten,
-- PDFs mit vorhandenem Textlayer,
-- Bild-PDFs,
-- Scans und Seitenbildern,
-- Editionen und Regesten,
-- perspektivisch ggf. Handschriften/HTR.
+Spätere Ebenen dürfen frühere nicht stillschweigend umschreiben.
 
-Wissenschaftliche Mindestanforderungen:
+Ein Regest ist nicht die Urkunde; OCR ist nicht das Original; eine normalisierte Person ist nicht die gelesene Namensform; eine plausible historische Erklärung ist nicht der Quellenbefund.
 
-- Seiten-/Blatt-/Regestbezug bleibt erhalten,
-- OCR wird als OCR gekennzeichnet,
-- Roh-OCR, Korrektur und Transkription bleiben unterscheidbar,
-- historische Orthographie wird nicht still normalisiert,
-- Fehler bei Orts-/Personennamen sind besonders zu berücksichtigen,
-- jede relevante Textstelle ist zur Fundstelle rückführbar.
+---
 
-### 5.2 Volltextsuche und Quellenexperte
+## 6. Persönlicher Archivar als Spezialkompetenz
+
+Der Archivar / Quellen- und Bestandsspezialist unterstützt insbesondere:
+
+- Literatur, Editionen und Quellen wiederfinden,
+- Archive, Bestände und Findmittel erschließen,
+- Provenienz und Registraturbildner rekonstruieren,
+- Quellenarten und Überlieferungsstufen unterscheiden,
+- Scans, Editionen und Regesten erschließen,
+- exakte Fundstellen bereitstellen,
+- historische Suchbegriffe und Archivsprache nutzen,
+- bibliographische Referenzen und ggf. Zotero koppeln.
+
+Er steht **nicht** über den anderen Disziplinen.
+
+---
+
+## 7. Assistenz-Ökosystem und Expertise Routing
+
+### 7.1 Rollenlogik
+
+#### Research Owner
+
+Gibt Erkenntnisinteresse, Prioritäten, Relevanz und Forschungsrichtung vor. Muss nicht Spezialist für Archivistik, Paläographie, Mediävistik, Datenmodellierung oder Software sein.
+
+#### Research Coordinator
+
+Übersetzt Fragen, zerlegt Probleme, aktiviert relevante Kompetenzen und integriert Ergebnisse. Er ist Orchestrator, **keine epistemische Oberinstanz**.
+
+#### Spezialkompetenzen / Fachassistenten
+
+Problemabhängig werden z. B. aktiviert:
+
+- Archivistik / Diplomatik / Quellenkunde
+- Paläographie / HTR
+- Editionswissenschaft / historische Philologie
+- Mediävistik / Landes- und Herrschaftsgeschichte
+- Frühneuzeitforschung
+- Sozial-, Wirtschafts- und Agrargeschichte
+- Adels-, Hof- und Diplomatiegeschichte
+- Reichs- und Territorialgeschichte
+- Archäologie / Siedlungs-/Landschaftsarchäologie
+- historische Geographie / Kulturlandschaft
+- Umweltgeschichte / Geoarchäologie / Hydrologie
+- Volkskunde / Europäische Ethnologie / historische Anthropologie
+- Onomastik / Toponymie
+- Prosopographie / historische Netzwerkforschung
+- Bibliographie / Information Retrieval
+- Forschungsdaten / Provenienz
+- technische Spezialkompetenzen wie OCR, IR, GIS, Automation, NLP
+
+Ob daraus technisch mehrere Agents, ein Modell mit Kompetenzprofilen, Fachretrieval, Tools, Services oder eine andere Architektur werden, bleibt offen.
+
+**Fachliche Modularität ist Requirement; Multi-Agent-Technik ist nur eine Hypothese.**
+
+### 7.2 Fachliche Problemübersetzung
+
+Eine Kernfähigkeit lautet:
+
+```text
+Laienbeobachtung / unscharfe Frage
+→ mögliche fachliche Problembegriffe
+→ konkurrierende Begriffsmodelle
+→ historische / regionale Terminologie
+→ moderne analytische Begriffe
+→ Quellengattungen / Archivsprache
+→ einschlägige Methoden
+→ relevante Disziplinen
+→ Fallstricke
+→ Rechercheansätze
+```
+
+Die Rückübersetzung für den Nutzer vereinfacht die Sprache, **nicht die Wissenschaft**.
+
+---
+
+## 8. Expertise Profiles: was echte Fachkompetenz ausmacht
+
+Eine Fachrolle ist kein Rollenprompt wie „Du bist Mediävist“.
+
+Zieldefinition:
+
+```text
+Expertise
+= Fachgebiet
+× Epoche
+× Region
+× Fachsprache
+× Begriffs-/Gegenstandsmodelle
+× Quellentyp / Überlieferungslogik
+× Methodik
+× Forschungsstand
+× Qualitätsregeln
+× transdisziplinäre Schnittstellen
+```
+
+Für jede priorisierte Kompetenz muss #10 mindestens untersuchen:
+
+1. Problemklassen / Geltungsbereich
+2. Fachsprache und zentrale Begriffe
+3. historische, regionale und archivische Terminologie
+4. Begriffs- und Gegenstandsmodelle
+5. typische Primärquellen und Überlieferung
+6. Methoden / Playbooks
+7. zulässige Schlussarten
+8. fachliche Qualitäts-/Falsifikationskriterien
+9. typische Fehlschlüsse
+10. aktuelle Forschung und wichtige Kontroversen
+11. relevante Handbücher, Lexika, Bibliographien, Journals
+12. Editionen, Regesten, Datenbanken und Forschungsinfrastrukturen
+13. regionale Archive / Bestände / Findmittel
+14. historische Suchterminologie / Schreibvarianten / lateinische Begriffe
+15. transdisziplinäre Schnittstellen
+16. Grenzen von AI/Automation
+17. Trigger für unabhängige Spezialistenvalidierung
+
+### Beispiele für sprachliche Präzision
+
+- `Ministeriale` ist nicht synonym mit „Adliger“ oder „Beamter“.
+- `Regest` ist eine editorische/erschließende Repräsentation, nicht die Quelle selbst.
+- `Vogtei`, `Lehnswesen`, `Grundherrschaft`, `Patronat`, `Amt` und `Herrschaft` dürfen nicht ineinander geschoben werden.
+- Begriffe wie `Ostsiedlung`, `Landesausbau` oder `Territorialisierung` benötigen Historiographie- und Begriffskritik.
+
+Das System soll ein **fachliches Begriffsnetz** statt bloßer Synonymlisten unterstützen: Ober-/Unterbegriffe, historische ↔ analytische Begriffe, regionale/zeitliche Gültigkeit, konkurrierende Modelle, Archivterminologie und überholte Forschungsbegriffe.
+
+---
+
+## 9. Regionalisierte Spitzenexpertise
+
+Regionaler Fokus ist mehr als ein Filter.
+
+Eine belastbare Fachrolle soll wissen:
+
+- wie sich Territorien, Herrschaften und Verwaltungsräume historisch verändern,
+- welche regionalen Forschungs- und Landesgeschichtstraditionen existieren,
+- welche Archive, Bestände, Serien und Findmittel einschlägig sind,
+- welche Editions- und Regestenwerke vorhanden sind,
+- welche regionalen Zeitschriften/Jahrbücher/Bibliographien relevant sind,
+- welche Quellengattungen regional typischerweise überliefert oder verloren sind,
+- welche historischen Suchbegriffe und Schreibweisen in der Region vorkommen,
+- welche Nachbar- oder Vergleichsräume methodisch sinnvoll sind,
+- wann ein regionaler Befund nur durch reichsweite oder europäische Verflechtung erklärbar wird.
+
+„Absolute Expertise“ ist ein Zielniveau, keine Behauptung von KI-Unfehlbarkeit. Sie muss durch qualifiziertes Retrieval, aktuelle Forschung, kontrollierte Referenzen, methodische Regeln und ggf. echte externe Fachprüfung abgesichert werden.
+
+---
+
+## 10. Historische Akteure: Erklärung statt bloßer Netzwerkknoten
+
+Ein zukünftiges Akteursmodell darf Personen nicht nur als Knoten und Beziehungen speichern.
+
+Zunächst zu untersuchende historische Erklärungscapability:
+
+```text
+Akteur in konkreter historischer Situation
+→ soziale / institutionelle Position
+→ belegte Beziehungen und Abhängigkeiten
+→ Ressourcen
+→ Informationshorizont
+→ zeitgenössisch mögliche Handlungsoptionen
+→ Zwänge / Risiken / Anreize
+→ beobachtete Handlung
+→ mögliche Motive / Erklärungen
+→ alternative Erklärungen
+→ Quellenbasis / Aussagegrenzen
+```
+
+Wichtige Schutzregel: keine nachträglich elegante „innere Logik“ erfinden.
+
+Motive, Interessen, Wissen oder Loyalitäten sind nur soweit formulierbar, wie Quellen und fachliche Methode sie tragen. Dieselbe Handlung kann aus adelsgeschichtlicher, sozialhistorischer, reichspolitischer, konfessioneller, wirtschaftlicher oder diplomatiegeschichtlicher Perspektive unterschiedlich erklärt werden.
+
+Diese Perspektiven bleiben zunächst sichtbar getrennt, bevor eine begründete Synthese erfolgt.
+
+---
+
+## 11. Discrepancy Reasoning
+
+Unterschiedliche Quellen/Befunde werden nicht vorschnell als einfacher Konflikt behandelt.
+
+```text
+zwei Aussagen unterscheiden sich
+→ echter Widerspruch?
+→ anderer Zeitstand?
+→ andere Quellengattung / Überlieferungsstufe?
+→ anderer institutioneller Blickwinkel / Zweck?
+→ andere Begrifflichkeit?
+→ abhängige Quellen?
+→ anderer räumlicher Maßstab?
+→ unterschiedliche Interessen der Akteure?
+→ historiographische Differenz?
+→ erst danach bewerten
+```
+
+Ein Widerspruch kann real bleiben. Ziel ist keine Harmonisierung, sondern methodisch saubere Diagnose der Differenz.
+
+---
+
+## 12. Quellen, OCR, Retrieval und persönliches Forschungsarchiv
+
+### 12.1 Grundpipeline
+
+```text
+Quelle finden
+→ übernehmen / referenzieren
+→ Original erhalten
+→ Volltext/OCR/HTR erzeugen
+→ bibliographisch/provenienzseitig erfassen
+→ durchsuchen
+→ lesen / annotieren
+→ zitieren
+→ analysieren / synthetisieren
+```
+
+### 12.2 OCR / HTR
+
+Mindestanforderungen:
+
+- Originalbild/-datei unverändert halten
+- OCR/HTR als Derivat kennzeichnen
+- Roh-OCR von korrigierter/normalisierter Transkription unterscheiden
+- Seiten-/Blatt-/Regeststruktur erhalten
+- historische Orthographie nicht still normalisieren
+- Personen-/Orts-/Flurnamen besonders evaluieren
+- jede Textstelle zur Quelle/Fundstelle zurückführen
+
+Formate/Tools wie ALTO, hOCR, PAGE XML, OCRmyPDF, Kraken, OCR4all oder Transkribus sind Prüfgegenstände, keine Vorentscheidung.
+
+### 12.3 Retrieval
 
 Benötigt werden:
 
-- exakte Suche,
-- Kontexttreffer,
-- historische Schreibvarianten,
-- Namenvarianten,
-- kontrollierte Synonym-/Begriffsexpansion,
-- Filter auf bibliographische und inhaltliche Kontexte,
-- fundstellengenaue Ausgabe.
+- exakte lexikalische Suche
+- Kontexttreffer
+- historische Schreib- und Namenvarianten
+- kontrollierte Query Expansion
+- Filter nach Werk, Zeitraum, Quellentyp, Sammlung, Tags
+- exakte Fundstellen
+- transparente Suchstrategie
 
-Semantische Suche, Embeddings oder RAG sind mögliche Ergänzungen, aber derzeit **keine festgelegten Anforderungen**.
+Semantische Suche, Embeddings, RAG oder Knowledge Graph bleiben Hypothesen.
 
-### 5.3 Zotero-Kopplung
+### 12.4 Zotero
 
-Der Nutzer möchte die fachliche Literatur-/Quellenkopplung eher über Zotero als direkt über den physischen Dateispeicher führen.
-
-Daraus entsteht die starke Hypothese, Zotero als zentrale bibliographische Referenzschicht zu nutzen. Zu prüfen sind u. a.:
-
-- Item-/Attachment-Referenzen,
-- lokale/Web-APIs,
-- Collections und Tags,
-- Volltextzugriff,
-- Better-BibTeX-/Plugin-Ökosystem,
-- Umgang mit nicht-klassischen Quellen und archivalischen Einheiten.
-
-„Zotero ist Source of Truth“ ist aktuell **Hypothese**, keine abgeschlossene Architekturentscheidung.
-
-### 5.4 Automatisierung und KI-Unabhängigkeit
-
-Belastbare Zielvorgaben sind:
-
-- wiederkehrende Schritte automatisieren,
-- Kernfunktionen perspektivisch auch per Skript ausführen,
-- keine Abhängigkeit von einem einzelnen KI-/Cloud-Anbieter,
-- KI nur dort einsetzen, wo sie zusätzlichen Nutzen bringt.
-
-Daraus folgt die zu prüfende Architekturhypothese „script-first / local-first / AI-optional“.
-
-Konkrete Vorschläge wie Python CLI, SQLite, FTS5, `.local/`, Embeddings oder Befehle wie `archivar sync` bleiben bis zur State-of-the-Art-Prüfung technische Kandidaten.
+Zotero als zentrale bibliographische Kopplung ist eine starke Hypothese, keine Entscheidung. Zu prüfen sind Desktop/Web API, Fulltext-Zugriff, Collections/Tags, Attachment-Referenzen, Pyzotero, Better BibTeX und Eignung für archivalische/nichtklassische Quellen.
 
 ---
 
-## 6. Wissenschaftliche Leitplanken
+## 13. Wissenschaftlicher Forschungszustand vs. Vermittlung
 
-Unabhängig von der späteren Architektur gelten bereits einige wichtige Forschungsprinzipien.
+Histo-Orla endet beim belastbaren, menschenlesbar erklärbaren **Forschungszustand**.
 
-### Quellenbefund vor Interpretation
+```text
+Quelle
+→ Befund
+→ Evidenzstatus
+→ Claim
+→ Relation
+→ fachliche Interpretation
+→ Kontroverse / Alternative
+→ Unsicherheit / Aussagegrenze
+→ transdisziplinär integrierter Forschungszustand
+```
 
-Eine generierte Zusammenfassung darf nicht wie ein Quellenbefund erscheinen. Fundstelle, Textbefund und Interpretation müssen unterscheidbar bleiben.
+Vermittlung ist nachgelagert:
 
-### OCR ersetzt niemals die Quelle
+```text
+Forschungszustand
+→ Kontext
+→ Adressat
+→ Zweck
+→ Medium
+→ Auswahl
+→ Sprache / Tiefe
+→ Dramaturgie / Darstellung
+```
 
-OCR ist eine Erschließungsschicht und kann fehlerhaft sein. Besonders historische Eigennamen, Flurnamen, Rechtsbegriffe und seltene Schreibweisen sind kritisch.
+Eine Vermittlungsaussage darf den Forschungszustand **nicht rückwirkend verändern**.
 
-### Provenienz
+Die Vermittlung kann an ein nachgelagertes System wie `rgk-main-ssot` übergeben werden. Eine technische Schnittstelle ist noch nicht festgelegt. Später ist ein schlanker, menschenlesbarer Übergabevertrag zu untersuchen, der Aussage, Quellen/Fundstellen, Status, Aussagegrenzen, Kontroversen und Rückverfolgbarkeit bewahrt.
 
-Relevante Befunde sollen möglichst zurückführbar sein auf:
-
-- Werk / Quelle,
-- konkrete Fundstelle,
-- Herkunft des Textes,
-- ggf. Verarbeitungsschritte,
-- Korrekturen und Unsicherheit.
-
-### Keine naive universelle Evidenzhierarchie
-
-Historische Quellen, Karten, archäologische Befunde, naturwissenschaftliche Messungen und moderne Fachliteratur haben unterschiedliche Qualitätskriterien. Eine transdisziplinäre Assistenz darf sie nicht unreflektiert in ein einziges Ranking pressen.
-
-### Kontestation statt vorschneller Auflösung
-
-Widersprüche können aus unterschiedlichen Definitionen, Zeiten, Räumen, Skalen, Methoden oder tatsächlichen empirischen Konflikten entstehen. Das System soll diese Unterschiede sichtbar machen.
-
-### Human-in-the-loop
-
-Bei wissenschaftlich relevanten Transformationen und Interpretationen bleibt menschliche Kontrolle zentral.
+Histo-Orla muss keine Besucherdramaturgie, Social-Media-Sprache oder Ausstellungserzählung optimieren.
 
 ---
 
-## 7. Zu untersuchende State-of-the-Art-Felder
+## 14. Internes Prior Art
 
-Die geplante Analyse soll mindestens folgende Bereiche abdecken:
+### 14.1 `paleo-type`
 
-### Literatur- und Wissensmanagement
+`paleo-type` ist internes Referenzmodell für Forschungsgovernance und methodische Strenge.
 
-- Zotero und Plugin-Ökosystem
-- Personal Knowledge Management
-- Research Knowledge Management
-- bibliographische Standards und Citation Workflows
+Übertragbare Prinzipien:
 
-### Digitale Quellenerschließung
+- Forschungsergebnis vor Systementwicklung
+- Governing Objective / klare Präzedenz
+- technische Subsidiarität
+- kein Wissensmonopol im Chat
+- one fact, one canonical owner
+- Original / Derivat / Interpretation trennen
+- persistenter Identifier ≠ exakt inspizierte Datei
+- Research Question → Evidence → Method → Claim
+- Kompetenzen problemabhängig aktivieren
+- Aktivität ≠ wissenschaftlicher Reifegrad
+- AI-Provenienz nur bei konsequenzieller Nutzung
+- Validierung proportional zur Konsequenz
+- AI-as-method → Evaluation verpflichtend
+- operational ownership + explainability + challengeability
+- progressive disclosure
+- methodenkonforme AI ≠ independent expert validation
+- materielle Systemänderungen: Analyse → Requirements → Konzept → Owner-Zulassung → Umsetzung → Tests/Loss Checks → Result Review
 
+Nicht automatisch übertragen werden konkrete Schemas, Projektgrenzen, G1–G6-Gates oder paläographiespezifische Strukturen.
+
+### 14.2 `rgk-main-ssot`
+
+RGK ist internes Prior Art für relationale Forschungslogik und die Forschung↔Vermittlung-Grenze.
+
+Belegt sind u. a.:
+
+- Darstellung folgt Modell, nicht umgekehrt
+- neutrale Identitäten
+- Claim → Evidence → Interpretation
+- projektbezogene Quellenfunktionen
+- Abweichungen als Erkenntnisobjekte
+- mehrere Sichten auf denselben Wissenszustand
+- Provenienz vor Wirkung
+- Lean Development ≠ Inhaltsreduktion
+
+Reichere alte Working Notes (`relationales_befund_vermittlungsmodell...`, `durchlauf_logik...` u. a.) sind im historischen Handoff-Manifest dokumentiert, im aktuellen `main` aber nicht unmittelbar vorhanden. Inhalte daraus gelten bis zur Rekonstruktion/Lektüre nicht als gesichertes Prior Art.
+
+Transferklassifikation: `inherit | adapt | research | reject`.
+
+Siehe #21.
+
+---
+
+## 15. State-of-the-Art-Programm (#10)
+
+Die Recherche muss zwei große Ebenen gleichberechtigt abdecken.
+
+### A. Forschungsinfrastruktur / technische und methodische Unterstützung
+
+- Archiv-/Informationswissenschaft
+- Zotero / Literaturmanagement / PKM/RKM
 - Digital Humanities
-- OCR historischer Drucke
-- Fraktur-OCR
-- HTR / Handschriftenerkennung
-- Layout-/Seitenformate wie ALTO, hOCR, PAGE XML
-- Korpusaufbereitung
-
-### Information Retrieval
-
-- Volltextsuche
-- Fuzzy Search
-- linguistische Suche
-- historische Query Expansion
-- Named Entity Recognition für historische Daten
-- Hybrid Search
-- semantische Suche / RAG
-
-### Forschungsdaten und Provenienz
-
-- Forschungsdatenmanagement
-- FAIR-Prinzipien
-- Provenienzmodelle
-- Versionierung
-- Reproduzierbarkeit
-- Data Lineage
-
-### Wissenschaftliche Synthese
-
-Als methodische Kandidaten, nicht als festgelegte Kette:
-
-- Scoping Review
-- Meta-Narrative Review
-- Critical Interpretive Synthesis
-- Realist Review / Reasoning
-- Claim–Evidence Mapping
-- bibliometrische Exploration
-- Citation Chaining
+- OCR / HTR
+- Korpuslinguistik / Information Retrieval
+- historische NER / NLP
 - Knowledge Organization / Ontologien / Knowledge Graphs
+- RAG / Hybrid Retrieval / AI-Assistance
+- Forschungsdaten / Provenienz / FAIR / Reproduzierbarkeit
+- Review-/Evidence-Synthesis-Methoden
+- Research Software Engineering / Automation
+- Evaluation / Human-in-the-loop
 
-### Automatisierung
+### B. Fachwissenschaftliche Forschungstraditionen und Expertise
 
-- lokale Research Toolchains
-- CLI-/Pipeline-Design
-- Workflow-Orchestrierung
-- idempotente Datenverarbeitung
-- KI-Provider-Abstraktion
-- Offline-/Local-AI-Optionen
+- historische Quellenkritik / Historiographie
+- Landes-/Regionalgeschichte
+- Mittelalterforschung
+- Archäologie / Siedlungs-/Landschaftsarchäologie
+- historische Geographie / Kulturlandschaft
+- Umweltgeschichte / Geoarchäologie
+- Volkskunde / Europäische Ethnologie
+- Sozial-, Wirtschafts-, Agrargeschichte
+- Adel / Herrschaft / Hof
+- Recht / Verwaltung
+- Dreißigjähriger Krieg / Militärgeschichte
+- Reichs-/Territorialgeschichte
+- Onomastik / Kartographie / Baugeschichte / Demographie nach Bedarf
+- Connected / Entangled / Transregional History
+- historische Netzwerkforschung / Prosopographie
+- Diplomatie / New Diplomatic History
+- Mobilitäts-/Reisegeschichte
+- Universitäts-/Bildungsgeschichte
+- Konfessions-, Ordens- und Kreuzzugsgeschichte bei Bedarf
+- Spatial History / Spatial Humanities
+
+### C. Regionale Expertiseebene
+
+Je Kernfach zusätzlich:
+
+- regionaler Forschungsstand
+- relevante Autoren/Forschungstraditionen
+- Zeitschriften/Jahrbücher/Reihen/Bibliographien
+- Archive und Bestandsgruppen
+- Findmittel/Portale
+- Editionen/Regesten/Urkundenbücher
+- historische/archivische Terminologie
+- Quellenverluste und Überlieferungslücken
+- Territorial-/Verwaltungschronologie
+- sinnvolle Vergleichsräume
+- aktuelle regionale Kontroversen
+
+### D. Bewertungskriterien
+
+Jeder Ansatz wird u. a. geprüft auf:
+
+- Forschungsproblem / Kompetenzgewinn
+- wissenschaftliche Herkunft / Community
+- Reife und Pflege
+- Offenheit / Automatisierbarkeit
+- Daten-/Provenienzmodell
+- Lock-in
+- Eignung für heterogene historische Quellen
+- Qualitätsmetriken
+- Human Auditability
+- Fachstandard-Konformität
+- Wiederverwendbarkeit
+- tatsächliche Lücke für Histo-Orla
 
 ---
 
-## 8. Vorläufige Capability Map
+## 16. Evaluation
 
-Diese Liste ist ein **Arbeitsentwurf**, der aus #10 validiert und vervollständigt werden muss.
+### OCR/HTR
 
-### Acquisition / Referencing
-
-- Literatur und Quellen identifizieren
-- bibliographisch eindeutig referenzieren
-- vorhandene Bestände/Collections nutzen
-
-### Textualization
-
-- Volltext erkennen
-- OCR/HTR auslösen oder integrieren
-- Seiten-/Regeststruktur bewahren
-- Korrekturen nachvollziehbar halten
+- CER / WER
+- Fehler bei Namen, Zahlen, historischen Begriffen
+- Erhalt physischer/logischer Struktur
 
 ### Retrieval
 
-- exakte Suche
-- Varianten-/Fuzzy-Suche
-- historische Begriffsexpansion
-- Filter und Kontext
-- ggf. semantische/hybride Suche
+- Recall / Precision
+- transparente Query Expansion
+- historische Varianten
+- Test-/Goldfälle
 
-### Provenance
+### Provenienz / Fundstellen
 
-- Quelle und Fundstelle verbinden
-- Transformationen kennzeichnen
-- Forschungsentscheidungen dokumentieren
-
-### Research Assistance
-
-- Fragen strukturieren
-- Suchstrategien entwickeln
-- Forschungstraditionen unterscheiden
-- Evidenz und Widersprüche analysieren
-- Synthesen unterstützen
-
-### Automation
-
-- wiederholbare Verarbeitung
-- Änderungs-/Sync-Erkennung
-- reproduzierbare Such-/Processing-Runs
-- KI optionierbar halten
-
----
-
-## 9. Vorläufige Rollen- und Kompetenzkandidaten
-
-Rollen werden erst nach der Capability-/State-of-the-Art-Analyse belastbar definiert. Derzeit relevant erscheinen:
-
-- **Historiker / Domänenforscher:** Fragestellung, Quellenkritik, Kontext, fachliche Validierung
-- **Archivar / Informationswissenschaft:** Erschließung, Provenienz, Findmittel, Quellengattungen
-- **Bibliotheks-/Literaturmanagement-Kompetenz:** Zotero, Metadaten, Identifier, Zitationsworkflows
-- **Digital Humanities:** digitale Editionen, Korpora, Text-/Quellenmodelle
-- **OCR/HTR-Kompetenz:** historische Drucke, Fraktur, Handschriften, Qualitätsmessung
-- **Information Retrieval / NLP:** Suche, Query Expansion, Entity Recognition, Ranking
-- **Knowledge Organization / Ontologie:** Begriffsmodelle, kontrollierte Vokabulare, semantische Beziehungen
-- **Research Methods / Evidence Synthesis:** Reviewmethoden, transdisziplinäre Synthese, Kontestationen
-- **Forschungsdatenmanagement:** FAIR, Provenienz, Reproduzierbarkeit, Lizenzierung
-- **Software Engineering:** Automatisierung, APIs, CLI, Integration, Tests
-- **Data/Search Engineering:** Indexierung, lokale Datenhaltung, Performance
-- **AI/LLM Engineering:** optionale KI-Funktionen, Provider-Abstraktion, Evaluation
-- **Urheberrecht/Datenschutz:** öffentliche vs. private Volltexte, Lizenzen
-- **UX für Forschung:** Interaktion mit Fundstellen, Suche und wissenschaftlicher Kontrolle
-
-Diese Rollen können später als menschliche Verantwortungsbereiche, technische Module oder ggf. spezialisierte Agenten umgesetzt werden. Diese Ebenen sollen nicht vorschnell vermischt werden.
-
----
-
-## 10. Historischer Anwendungskontext Pflege Arnshaugk
-
-Das Konzept muss nicht nur moderne Fachliteratur, sondern heterogene historische Quellengruppen berücksichtigen.
-
-Relevante Kandidaten sind beispielsweise:
-
-- Forst-, Flur-, Hutungs- und Grenzrisse,
-- Jagd- und Forstkarten,
-- Guts- und Rittergutsvermessungen,
-- Teich- und Wasserrechtsakten,
-- Grenzstreitigkeiten,
-- Hutungs- und Triftstreitigkeiten,
-- Gemeinheitsteilungen und Separation,
-- Kataster- und Flurbücher,
-- Lehnsakten und Besitzregister,
-- Amtsrechnungen,
-- Fischerei- und Teichrechnungen,
-- Mühlen- und Wasserbauakten,
-- Orts- und Landesbeschreibungen,
-- ältere topographische Karten und Meilenblätter,
-- historische Luftbilder,
-- Geländemodelle/LiDAR als moderne Vergleichsebene.
-
-Diese Vielfalt ist ein Grund, warum Informationswissenschaft, historische Quellenkritik, Digital Humanities, Retrieval und transdisziplinäre Synthesemethoden gemeinsam betrachtet werden müssen.
-
----
-
-## 11. Evaluation als notwendige Kompetenz
-
-Ein späteres System darf nicht nur „interessant wirken“. Jede Capability braucht passende Qualitätskriterien.
-
-Beispiele:
-
-### OCR
-
-- Character/Word Error Rate
-- Fehler bei Namen und historischen Termini
-- Erhalt von Seiten-/Regeststruktur
-
-### Retrieval
-
-- Recall
-- Precision
-- bekannte Testfälle / Goldstandard-Suchen
-- Transparenz der Query Expansion
-
-### Fundstellen
-
-- korrekte Referenz auf Werk/Quelle
-- korrekte Seite/Regest
+- korrekte Quelle / Edition
+- korrekte Seite / Folio / Regest
 - keine erfundenen Belege
+- Inspektionsstatus klar
 
-### Automatisierung
+### Expertise Routing
 
-- Idempotenz
-- Reproduzierbarkeit
-- Fehlertoleranz
-- nachvollziehbare Processing Runs
+- relevante Disziplinen identifiziert?
+- passende Fachbegriffe/Modelle aktiviert?
+- Quellen- und Methodenlogik korrekt?
+- regionale und zeitliche Grenzen erkannt?
+- Nachbardisziplinen rechtzeitig aktiviert?
 
-### Wissenschaftliche Assistenz
+### Expertentiefe
 
-- Trennung von Befund und Interpretation
-- Provenienz
-- Unsicherheitsdarstellung
-- fachliche Validität
-- tatsächliche Zeitersparnis ohne Qualitätsverlust
+- reale Fachmethoden statt allgemeiner Themenkenntnis
+- aktuelle Forschung / Kontroversen
+- regionale Archive/Bestände/Literatur
+- Fachvokabular korrekt historisiert
+
+### Epistemische Kalibrierung
+
+Unterscheidbar bleiben:
+
+- direkt beobachteter Quellenbefund
+- quellenkritisch gut gestützte Rekonstruktion
+- verbreitete Forschungsinterpretation
+- konkurrierende Forschungsposition
+- plausible indirekte Hypothese
+- offene Forschungsfrage
+- echte Evidenzlücke
+
+### Akteurs-/Netzwerkanalyse
+
+- Beziehung wirklich belegt oder nur Ko-Präsenz?
+- Wissensstand/Handlungsoptionen zeitgenössisch plausibel und belegt?
+- alternative Erklärungen sichtbar?
+- keine Motivpsychologie ohne Evidenz?
+
+### Automation / AI
+
+- Reproduzierbarkeit / Idempotenz
+- Failure Modes
+- AI-Provenienz bei konsequenzieller Nutzung
+- Evaluation bei systematischer Corpus-Level-Automation
+- keine Scheinautorität durch Modellkonsens
 
 ---
 
-## 12. Aktuelle Hypothesenliste
+## 17. Aktuelle Hypothesen und Nicht-Entscheidungen
 
-### Stark, aber noch zu prüfen
+### Validierte Ziele
+
+- wissenschaftlich belastbarer persönlicher Forschungszustand
+- fachwissenschaftliche Übersetzung für einen Laien-Research-Owner
+- transdisziplinäre Expertise Routing
+- regionale Spitzenexpertise mit europäischem Horizont
+- Human-in-the-loop / maximale Auditierbarkeit
+- kein Wissensmonopol im Chat
+- Automatisierbarkeit und möglichst geringe Provider-Abhängigkeit
+- Trennung Forschung ↔ Vermittlung
+
+### Starke, aber zu prüfende Hypothesen
 
 - Zotero als zentrale bibliographische Kopplung
-- script-first / local-first / AI-optional
-- lokale Volltext-/Suchschicht zusätzlich zu Zotero
-- Trennung kuratierter Forschungsdaten von regenerierbaren technischen Daten
+- script-/local-first / AI-optional
+- lokale Such-/Volltextschicht
+- kontrollierte Fachvokabulare / Begriffsnetze
+- modulare Fachprofile / Retrieval-Kontexte / Tools
 
 ### Offen
 
-- SQLite/FTS5
 - konkrete OCR-/HTR-Engine
 - Volltextformate
-- semantische Suche / RAG
-- Embeddings
-- Knowledge Graph
-- Claim–Evidence-Datenmodell
-- Umfang der Git-Ablage von Textauszügen
-- konkrete CLI-Struktur
+- Datenbank / SQLite / FTS
+- RAG / Embeddings / Hybrid Search
+- Knowledge Graph / Ontologie
+- konkretes Claim-/Evidence-Datenmodell
+- konkrete Akteurs-/Event-/Relationsrepräsentation
+- echte Multi-Agent-Architektur
+- technische Schnittstelle zu RGK/Vermittlung
 
-### Zurückgestuft / veraltet
+### Zurückgestuft / superseded
 
-- „Claim–Evidence Graph zuerst bauen“
-- „YAML-Schemas der Forschungsobjekte als erster MVP“
-- „feste Methodenkette Scoping → Meta-Narrative → CIS → Realist → Claim Graph“
-- „Zotero ist bereits entschieden der Source of Truth“
-- „SQLite/FTS ist bereits gesetzte Zielarchitektur“
-- „Phase 1/Phase 2 ist bereits eine verbindliche Implementation Roadmap“
-
-Diese Ansätze bleiben als Forschungs- oder Architekturhypothesen erhalten, müssen aber durch #10 validiert werden.
-
----
-
-## 13. Nächster Arbeitsstand
-
-Die nächsten Arbeiten sind **Research und Konzeptklärung**, nicht sofortige Implementierung:
-
-1. Zielbild/Pain Points weiter aufnehmen und in Issues dokumentieren.
-2. Problem- und Workflow-Map erstellen.
-3. Leane State-of-the-Art-Recherche pro Problemklasse durchführen.
-4. Capability Map validieren und vervollständigen.
-5. Rollen-/Kompetenzmatrix daraus ableiten.
-6. Transdisziplinäres Gesamtkonzept formulieren.
-7. Bestehende technische Hypothesen bewerten: accepted / rejected / superseded.
-8. Erst danach Architekturentscheidungen, Requirements und MVP definieren.
+- persönlicher Archivar als gesamte Oberinstanz
+- Claim–Evidence Graph zuerst bauen
+- YAML-Schemas als erster MVP
+- feste Methodenkette Scoping → Meta-Narrative → CIS → Realist → Claim Graph
+- Zotero bereits entschieden als Source of Truth
+- SQLite/FTS bereits gesetzte Architektur
+- Multi-Agent aus Fachrollen ableiten
+- Vermittlungsanforderungen in den wissenschaftlichen Kernzustand schreiben
 
 ---
 
-## 14. Verknüpfte Issues
+## 18. Nächste Arbeit
 
-- #1 – aktueller Research-Design-/Arbeitsstand
-- #2 – Zielbild persönlicher Archivar
+Noch keine breite Implementation.
+
+1. Zielbild/Pain Points weiter vervollständigen.
+2. internes Prior Art `paleo-type` und RGK systematisch extrahieren, aber nicht ungeprüft kopieren.
+3. leane, web-basierte State-of-the-Art-Analyse #10 durchführen.
+4. Expertise Profiles je priorisierter Fachkompetenz erstellen.
+5. Capability Map daraus ableiten/validieren.
+6. Human-readable wissenschaftliche Views und fachliche Übersetzung spezifizieren.
+7. Akteurs-/Discrepancy-/Multi-Scale-Capabilities gegen Fachmethoden prüfen.
+8. Hypothesen accepted/rejected/superseded klassifizieren.
+9. erst danach Daten-/Systemarchitektur und MVP bestimmen.
+
+---
+
+## 19. Issue-Landkarte
+
+- #1 – zentraler Research-Design-/Arbeitsstand
+- #2 – persönlicher Archivar; inzwischen Spezialrolle statt Gesamtziel
 - #3 – Zotero-Hypothese
-- #4 – OCR-/Volltext-Capability
-- #5 – Retrieval-/Fundstellen-Capability
-- #6 – Git-Provenienz
+- #4 – OCR-/Volltexterschließung
+- #5 – Retrieval / historische Query Expansion / Fundstellen
+- #6 – Git-/Provenienzprinzip
 - #7 – langfristige transdisziplinäre Forschungsassistenz
-- #8 – Automatisierung/KI-Unabhängigkeit
-- #9 – Wissensgovernance
-- #10 – State-of-the-Art-/Capability-/Rollen-Research-Plan
+- #8 – Automatisierung / KI-Unabhängigkeit
+- #9 – Governance: HITL, Auditierbarkeit, Projektgedächtnis
+- #10 – State-of-the-Art → Capabilities → Expertise Profiles → Konzept
+- #11 – Concept Audit / Korrekturen
+- #12 – internes Prior Art `paleo-type`
+- #13 – Geschichte als Querschnitt / Expertise Routing
+- #14 – regional verankert, europäisch verflochten
+- #15 – Expertenmodell: Tiefe, Kontroversen, Unsicherheit
+- #16 – regionalisierte Spitzenexpertise
+- #19 – Assistenz-Ökosystem: Fachsprache, Modelle, Methoden
+- #20 – Boundary Forschung ↔ Vermittlung / Übergabe an RGK
+- #21 – internes Prior Art `rgk-main-ssot`
+
+---
+
+## 20. Leitformeln
+
+> **Der persönliche Archivar ist ein Spezialist im Forschungsteam – nicht das Forschungsteam selbst.**
+
+> **Nicht eine Antwort mit Experten-Ton, sondern fachlich begründete Perspektiven mit sichtbarer Evidenz, Kontroverse und Unsicherheit.**
+
+> **Nicht nur wissen, welches Fach zuständig ist – sondern auf Fachniveau wissen, was die Region dazu hergibt, wo man sucht, wie man prüft und welche anderen Disziplinen widersprechen oder ergänzen müssen.**
+
+> **Der Nutzer darf unsauber fragen; das System muss wissenschaftlich sauber arbeiten.**
+
+> **Die Rückübersetzung vereinfacht die Sprache, nicht die Wissenschaft.**
+
+> **Forschung erzeugt den belastbaren Zustand. Vermittlung erzeugt adressatenspezifische Sichten darauf.**
+
+> **Technik dient der Forschung; sie definiert ihre wissenschaftlichen Standards nicht.**
+
+> **Kein Wissensmonopol im Chat.**
