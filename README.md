@@ -17,13 +17,17 @@ Der frühere Begriff „persönlicher Archivar“ bleibt als wichtige Spezialrol
 ```text
 Zielbild / Forschungsalltag
         ↓
-Problem- und Workflow-Map
+Need-/Pain-/Workflow-Analyse
+        ↓
+Problem-, Risiko- und Open-Question-Map
         ↓
 Leane State-of-the-Art-Analyse
         ↓
 Capability Map
         ↓
-Expertise-/Kompetenzprofile
+Kompetenzabdeckung + Expertise Profiles
+        ↓
+Quality / Evaluation / Requirements Traceability
         ↓
 Transdisziplinäres Assistenzkonzept
         ↓
@@ -38,18 +42,27 @@ Der konsolidierte aktuelle Stand steht in:
 
 `docs/research-design/transdisziplinaerer-literaturassistent.md`
 
-Wichtige Issues:
+Kanonische Navigation:
 
 - **#1** – zentraler Research-Design-/Arbeitsstand
 - **#9** – Governance: Human-in-the-loop, wissenschaftliche Nachvollziehbarkeit, kein Wissensmonopol
 - **#10** – Research Plan: State of the Art → Capabilities → Expertise Profiles → Konzept
+- **#22** – Kompetenzlandkarte für Discovery, Requirements, Risiko, SOTA, Evaluation und Systemdesign
+- **#23** – Issue-Governance: kanonische Ownership, Konsolidierung und Traceability
+
+Fachlicher Scope / Qualitätsanforderungen:
+
 - **#13** – Geschichte als transdisziplinäres Querschnittsthema / Expertise Routing
 - **#14** – regional verankert, europäisch verflochten
 - **#15** – Expertenmodell mit fachlicher Tiefe, Kontroversen und Unsicherheit
 - **#16** – regionalisierte Spitzenexpertise
 - **#19** – Assistenz-Ökosystem mit eigener Fachsprache, Begriffsmodellen und Methoden
 - **#20** – harte Grenze Forschungszustand ↔ Vermittlung / mögliche Übergabe an RGK
-- **#21** – internes Prior Art aus `rgk-main-ssot`
+
+Interne Prior-Art-Issues:
+
+- **#12** – `paleo-type`
+- **#21** – `rgk-main-ssot`
 
 ## Interne Referenzprojekte
 
@@ -63,15 +76,23 @@ Internes Prior Art für relationale Modellmuster, Claim → Evidence → Interpr
 
 Beide Projekte werden als Prior Art geprüft; konkrete Schemas oder Architekturen werden **nicht automatisch** übernommen.
 
-## Aktuelle Kernbedarfe / Hypothesen
+## Aktuelle Quellen-/Infrastrukturbedarfe und Hypothesen
 
 - **#2** persönlicher Archivar – Spezialrolle/Basisfunktion, nicht Gesamtziel
 - **#3** Zotero als bibliographische Kopplung – Hypothese
 - **#4** OCR-/Volltexterschließung – validierter Bedarf, Lösung offen
 - **#5** Volltextsuche / historische Query Expansion / fundstellenfähige Recherche – validierter Bedarf
 - **#6** Git-/Provenienzprinzip – konkrete Datenarchitektur offen
-- **#7** transdisziplinäre Forschungsassistenz – strategisches Ziel
 - **#8** Automatisierung und KI-Unabhängigkeit – Zielvorgabe, Architektur offen
+
+## Konsolidierte historische Issues
+
+- **#7** superseded – Zielbild in #1/#13/#15/#19 aufgegangen
+- **#11** completed – Concept-Audit-Snapshot
+- **#17** superseded – Fachvokabular/Begriffsmodelle in #16/#19/#22 aufgegangen
+- **#18** superseded – Expertise-/Method Packs in #10/#16/#19/#22 aufgegangen
+
+Details zur kanonischen Ownership stehen in #23.
 
 ## Leitformeln
 
@@ -82,5 +103,7 @@ Beide Projekte werden als Prior Art geprüft; konkrete Schemas oder Architekture
 > **Regionaler Fokus für Tiefenschärfe – europäischer Horizont für Erklärung.**
 
 > **Technik dient der Forschung; sie definiert ihre wissenschaftlichen Standards nicht.**
+
+> **Issues sind Arbeits- und Entscheidungseinheiten, keine parallelen Wahrheitsspeicher.**
 
 > **Kein Wissensmonopol im Chat.**
