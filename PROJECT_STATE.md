@@ -60,11 +60,24 @@ Kanonische Artefakte:
 
 Diese Cases sind **nicht abgeschlossen**. Sie dürfen neue Requirement-/Architecture-Candidates erzeugen. Sie blockieren die Architektur nicht pauschal, können aber eine architecture-driving Invariante falsifizieren und damit gezieltes Reopening auslösen.
 
-### Architektur / Integration
+### Architektur / Integration / technische Spikes
 
 - **#48** – Architecture Execution Control
 - **#49** – Zotero ↔ OneDrive ↔ Histo-Orla Integration Spike, read-first
 - **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten
+- **#51** – Document-/Findspot-Pipeline / Source→Excerpt-Roundtrip
+- **#52** – OCR/HTR Processor Contract + research-critical Benchmark Harness
+- **#53** – Historical Retrieval Baseline: Exact, Varianten, Query Log, Findspots
+- **#54** – Candidate→Review→Promotion + deterministic invariant enforcement
+- **#55** – Human-readable Research Audit View
+- **#56** – Rights Admission, Credentials und External-Processing Guards
+- **#57** – Provider Removal, Export und Restartability
+- **#58** – Architekturvarianten, Trade-off-/Loss-Matrix, ADRs, MVP Cut
+- **#59** – MVP Development & Verification; aktuell durch #58 blockiert
+
+Architecture Index:
+
+`docs/architecture/README.md`
 
 Kanonischer Contract #50:
 
@@ -118,31 +131,37 @@ Kein continuation-critical State darf ausschließlich in Chat/Modellzustand verb
 
 Normale offene Forschung, reversible Architekturfragen und technische Experimente sind keine #44-Blocker.
 
-## 6. Aktueller kritischer Architekturpfad
+## 6. Aktueller kritischer Architektur-/Delivery-Pfad
 
 ```text
 #50 Canonical State / Identity Contract
         ↓
 #49 Zotero/OneDrive Source Resolver
         ↓
-Document / Findspot Pipeline
+#51 Document / Findspot Pipeline
+        ├─→ #52 OCR/HTR End-to-End
+        └─→ #53 Historical Retrieval End-to-End
+
+#50 ─→ #54 Promotion / Invariants
+#50 ─→ #56 Rights Admission
+#50 ─→ #55 Audit Contract
+#50 ─→ #57 synthetic Provider-Removal / Export
+
+belastbare Evidence aus #49–#57
         ↓
-OCR/HTR + Historical Retrieval
+#58 Architecture Variants / ADRs / MVP Cut
         ↓
-Candidate→Review→Promotion + Audit
-        ↓
-Rights / Provider Removal / Restartability
-        ↓
-Architecture Variants / ADRs / MVP Cut
+#59 MVP Development / Verification
 ```
 
 Parallel möglich:
 
-- read-only Zotero/API-Probing;
-- synthetische Invariant-/Promotion-Tests;
-- Rights-Admission-Contract;
-- OCR/HTR Benchmark-Harness auf isoliertem Testmaterial;
-- Audit-View-Contract;
+- #49 read-only Zotero/API-Probing;
+- #50/#54 synthetische Invariant-/Promotion-Tests;
+- #56 Rights-Admission-Contract;
+- #52 OCR/HTR Benchmark-Harness auf isoliertem Testmaterial;
+- #55 Audit-View-Contract;
+- #57 synthetische Export-/Removal-Tests;
 - Live Research #46/#47.
 
 ## 7. Research-Design-Dokument: Status
@@ -167,40 +186,28 @@ Siehe `docs/research-design/README.md`.
 
 Bis #43 war technische Implementierung bewusst nachgeordnet; deshalb enthält das Repository bislang wenig Anwendungscode.
 
-Das ist **für die abgeschlossene Research-/Requirements-Phase erklärbar**, darf ab der aktuellen Architekturphase aber nicht zu einem dauerhaften Delivery-Defizit werden.
+Das war **für die abgeschlossene Research-/Requirements-Phase methodisch richtig**. Ab der aktuellen Phase besitzt Delivery nun explizite technische Work Owner #49–#59.
 
-Technische Arbeit wird ab jetzt als eigenständige testbare Work Packages geführt. Der aktuelle technische Kern ist noch **Architecture/Spike**, nicht produktiver MVP-Code.
+Der aktuelle technische Stand ist überwiegend **Architecture Contract / Spike / Benchmark**, noch nicht produktiver MVP-Code.
 
-Vor Implementierung sind insbesondere zu bearbeiten:
-
-1. Canonical State / Identity Contract (#50)
-2. Zotero/OneDrive Integration (#49)
-3. Document/Findspot Pipeline
-4. OCR/HTR Benchmark & Processor Boundary
-5. Historical Retrieval Baseline
-6. Candidate/Promotion & deterministic invariant enforcement
-7. Research Audit View
-8. Rights Admission / Credential Boundary
-9. Provider Removal / Export / Restartability
-10. Architecture Variants + ADR + MVP Cut
-
-Die eigenständigen technischen Work Owner werden unter #48 geführt.
+Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert, bis eine belastbare Architektur-/MVP-Entscheidung vorliegt. Kleine diskriminierende Prototypen und Test-Harnesses sind vorher ausdrücklich zulässig.
 
 ## 9. Nächste ausführbare Aktionen
 
-Case-unabhängig zuerst:
+Case-unabhängig sofort:
 
-1. #50 Contract gegen #42/#45 reviewen und synthetische Invariant-Tests spezifizieren.
-2. #49 read-only Zotero/OneDrive Mapping und Identifier-/Locator-Grenzen prüfen.
-3. technische Work Packages aus #43/#48 als eigenständige Issues mit DoD sichtbar machen.
-4. Architecture-/Development-Index im Repo führen.
+1. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
+2. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
+3. **#56** Rights-Admission-/Credential-Contract spezifizieren.
+4. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
+5. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
+6. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
 
-Danach bzw. parallel:
+Mit realen Cases anschließend:
 
-5. U1/U2/U4 als reale Falsifikation für Source/Instance/Findspot/OCR/Retrieval verwenden.
-6. 2–3 Architekturvarianten vergleichend bewerten.
-7. ADRs und kleinsten hinreichenden MVP-Schnitt ableiten.
-8. erst dann produktiven Implementationspfad festziehen.
+7. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
+8. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
+9. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
 
 ## 10. Handoff-Test
 
