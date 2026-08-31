@@ -1,133 +1,140 @@
-# Histo-Orla – Technical Discovery / Architecture Research Index
+# Histo-Orla – Technical Delivery / Evolutionary Architecture Index
 
-**Technical Discovery Owner:** #48  
-**Requirements:** #42 `reconciliation-active`  
-**Architecture Gate:** #43 `reopened / reassessment-required`  
-**Current admission:** `architecture decision not admitted / technical discovery allowed`  
+**Technical Lead / Delivery Owner:** #48  
+**MVP Development:** #59  
+**Requirements / Acceptance:** #42  
 **Project Handoff:** `/AGENTS.md` + `/PROJECT_STATE.md`
 
 ## Zweck
 
-Dieses Verzeichnis enthält technische Research-/Feasibility-/Assurance-Artefakte und später – **erst nach erneutem #43 PASS** – Architecture Decisions/ADRs.
+Dieses Verzeichnis enthält technische Delivery-, Architecture-, Assurance- und Entscheidungsartefakte für ein **privates, leanes und agiles Forschungssystem**.
 
-Der aktuelle Stand ist technisch Greenfield. Ein Contract, Spike oder SOTA-Vergleich ist **kein** Beleg, dass eine Zielarchitektur bereits entschieden ist.
+Architecture ist kein separates Vorab-Gate. Sie entsteht **just in time** aus realen MVP-Akzeptanzkriterien, technischen Risiken und laufender Nutzung.
 
-Kanonische Phasenklärung:
+Kanonische MVP-Akzeptanz:
 
-`../research/synthesis/phase-reconciliation.md`
+`../research/synthesis/mvp-acceptance.md`
 
-## Aktueller Leitpfad
-
-```text
-Live Research / Domain Methods
-        ↓
-#42 Requirements Reconciliation
-        ↕
-#48 Technical Discovery / Engineering Advisory
-        ↓
-#43 Architecture Readiness Re-Gate
-        ↓ nur bei PASS
-#58 Architecture Variants / ADR / MVP Cut
-        ↓
-#59 Development / Verification
-```
-
-## #48 – führende technische Verantwortung vor dem Re-Gate
-
-#48 besitzt:
-
-- technische SOTA-/Best-Practice-Recherche;
-- Existing-Tool-/Integration-/Feasibility-Vergleich;
-- technische Risiken, Dependencies, Migration, Lock-in, Kosten;
-- Priorisierung technischer Unknowns;
-- kleine reversible Spikes/Benchmarks mit konkreter Forschungsfrage;
-- Rückgabe von `feasibility finding | architecture hypothesis | requirement candidate`.
-
-#48 besitzt nicht:
-
-- Domain Method Truth (#60);
-- historische Findings (#46/#47);
-- accepted Requirements (#42);
-- Zielarchitektur/Stack/MVP vor #43 PASS.
-
-## Technical Intake Gate
+## Leitpfad
 
 ```text
-PROBLEM / OBSERVED FRICTION
-DOMAIN / WORK OWNER
-EVIDENCE / REAL FIXTURE
-CURRENT STATUS
-TECHNICAL QUESTION
-SOTA / EXISTING TOOL OPTIONS
-SMALLEST DISCRIMINATING TEST
-WHAT MAY BE LEARNED
-WHAT MAY NOT BE DECIDED YET
-RETURN TARGET
+Acceptance Criterion / realer Pain
+→ kleinste nutzbare technische Option
+→ vorhandene Tools/Standards prüfen
+→ bei materiellem Risiko kurzer Spike/Benchmark
+→ implementieren
+→ realen Case testen
+→ behalten | anpassen | ersetzen
 ```
 
-## Aktive Research-/Feasibility-Pakete
+## Aktive Work Owner
 
-- **#49** – Zotero ↔ OneDrive Source-of-Bytes / Metadata Boundary, read-first
-- **#50** – Canonical Research State / Source Identity; technology-neutral Contract-Hypothesen zu bereits accepted Invarianten
-- **#51** – Document-/Findspot-Pipeline, bounded research/spike
-- **#52** – OCR/HTR Benchmark Research
-- **#53** – Historical Retrieval Baseline / Benchmark
-- **#54** – Candidate/Promotion / formal prüfbare Invarianten, feasibility
-- **#55** – Human-readable Audit Research/Prototype
-- **#56** – Rights Admission / Credentials / External Processing
-- **#57** – Provider Removal / Export / fresh-context Restartability
-- **#61** – Work-Context / Method-Conformance / Handoff als **Technical Assurance Research Hypothesis**
+### Delivery / Technical Lead
+
+- **#48** – Lean MVP Delivery, Technical Lead, evolutionäre Architektur
+- **#59** – aktive MVP-Implementierung und Verification
+
+### Integration / Kernzustand
+
+- **#49** – Zotero ↔ OneDrive Integration
+- **#50** – Canonical Research State / Source Identity
+- **#51** – Document-/Findspot-Pipeline
+
+### Retrieval / Processing / Assurance
+
+- **#52** – OCR/HTR Benchmark/Integration
+- **#53** – Historical Retrieval
+- **#54** – Candidate/Promotion / formal prüfbare Invarianten
+- **#55** – Human-readable Audit
+- **#56** – Rights / Credentials / External Processing
+- **#57** – Provider Removal / Export / Restartability
+- **#61** – Work-Context / Method-Conformance / Handoff Technical Research
+
+### Architecture Decisions
+
+- **#58** – just-in-time Architecture Decision / ADR Support; kein globales Blocking-Gate
 
 ### Fachliche Upstream-Schnittstelle
 
-- **#60** – Domain Method Profiles / Method Truth.
+- **#60** – Domain Method Profiles / Method Truth
+- **#42** – accepted Requirements / MVP Acceptance Criteria
 
-#61 darf erst aus realen #60-Profilen ableiten, welche fachlich geklärten Teile tatsächlich formal/machine-checkable sind. Es besitzt keine Method Truth und friert derzeit kein Workflowmodell ein.
+## Walking Skeleton
 
-## HOLD / Downstream
+Erster nutzbarer Slice-Kandidat:
 
-- **#58** – Architecture Decision Package: HOLD bis #42 Reconciliation + #43 PASS + belastbare #48 Evidence
-- **#59** – MVP Development: BLOCKED bis #42 + #43 + #58
+```text
+Zotero / Source Metadata
+→ OneDrive Source Bytes oder kontrollierte Testdatei
+→ Source / inspected Instance / Findspot
+→ Text/OCR soweit verfügbar
+→ Exact + Variant Search
+→ Excerpt / Observation
+→ Finding / Historical Hypothesis / Research Hook
+→ Method-/Evidence-Status
+→ Audit / Persistenz / Handoff
+```
 
-Keine produktive Stack-/Frameworkwahl vor diesem Gate.
+Der Slice darf inkrementell entstehen. Jeder Teil soll so früh wie möglich real nutzbar sein.
 
-## Aktuelle Artefakte
+## Entscheidungsregel
 
-- `contracts/canonical-research-state.md` – #50; working technology-neutral contract, nicht physisches Schema/ADR
-- `assurance/method-conformance-work-context.md` – #61; Working Research / Architecture Hypothesis, keine accepted Requirement-/ADR-Quelle
-- `assurance/live-pilot-system-analysis-chat-2026-08-31.md` – #61; reale Pilot-Evidence und Requirement-Candidates aus dem Chat-/Work-Context
-- `assurance/knowledge-work-project-learnings.md` – #61; pilot-abgeleitete, nicht bindende Transfer-Learnings für zukünftige Wissensarbeitsprojekte
+### Reversible Entscheidungen
+
+Darf #48 früh treffen und bei Bedarf refactoren, sofern Acceptance/Constraints eingehalten werden, z. B.:
+
+- Library-/Framework-Auswahl ohne schweren Lock-in;
+- lokale Modulstruktur;
+- UI-/CLI-Prototyp;
+- Test-/Build-Tooling;
+- Adapterimplementierung.
+
+### Explizite ADR-/Owner-Entscheidung
+
+Nur wenn materiell, z. B.:
+
+- schwer reversible Persistenz-/Datenmodellentscheidung;
+- Cloud-/Provider-/Kosten-/Privacy-Lock-in;
+- bedeutende Migration;
+- Security-/Rights-Konsequenz;
+- zwei Optionen mit verschiedenen wissenschaftlichen Verlust-/Integritätsfolgen.
 
 ## Technische Grundregeln
 
-- Problem/Requirement vor Lösung.
-- Existing tools / Standards vor Eigenentwicklung.
-- Dev informiert Requirements; Dev besitzt sie nicht.
-- Fachsemantik nicht aus technischer Convenience ableiten.
-- deterministische Regeln nur dort erzwingen, wo die wissenschaftliche Semantik bereits geklärt und accepted ist.
-- Source/Instance/Derivative/Findspot nicht verschmelzen.
-- Provider/Produkt ist Lösung, nicht Requirement.
-- kleine reversible Tests vor dauerhaften Entscheidungen.
-- AI/RAG/KG/Multi-Agent/Workflow-/Policy-Plattformen nur bei demonstriertem Need und diskriminierender Evidence.
-- Technical Research/Spike ≠ Development-Fortschritt.
+- Domain-Akzeptanzkriterien führen;
+- Fachmethode (#60) und technische Umsetzung bleiben getrennte Verantwortlichkeiten;
+- keine Technologie als Requirement tarnen;
+- vorhandene Tools/Standards vor Eigenbau;
+- deterministische Invarianten deterministisch, sobald formal geklärt;
+- fail closed on wissenschaftlicher Promotion, nicht auf offene Exploration;
+- Source/Instance/Derivative/Findspot nicht aus Convenience verschmelzen;
+- read-first bei externen Integrationen;
+- Secrets/Credentials niemals im Repo;
+- Provider muss entfernbar bleiben, soweit Research-State-Integrität betroffen ist;
+- kleine vertikale Produktinkremente vor isolierten Architekturstudien;
+- keine KG/RAG/Multi-Agent/Workflow-/Policy-Plattform ohne konkreten Trigger.
 
-## Was Technical Discovery jetzt besonders klären soll
+## Method Conformance
 
-Problemgetrieben, nicht als vorgezogene Produktliste:
+`assurance/method-conformance-work-context.md` bleibt Technical Research/Architecture Hypothesis.
 
-- Bibliography/source integration;
-- Source-Byte storage/sync/local-first und OneDrive/Zotero-Grenze;
-- portable/restartable research state / provenance;
-- document/derivative/findspot pipeline;
-- OCR/HTR/layout processing;
-- exact/historical information retrieval;
-- machine-checkable validation, soweit fachlich formalisiert;
-- audit/research UX;
-- rights/security/credentials;
-- Betrieb/Performance erst bei realem Bedarf.
+Es darf den MVP parallel härten, blockiert Development aber nicht pauschal. Formalisiert werden nur Method-/Evidence-/Handoff-Regeln, deren Semantik durch #42/#60 ausreichend geklärt ist.
 
-## Leitregel
+## Delivery-Fortschritt
 
-> **Dev exploriert früh, entscheidet spät.**
+```text
+nutzbarer Slice
++ bestandene Acceptance-/Regression-/Invariant-Tests
++ sichtbare Debt/Uncertainty
+= realer Fortschritt
+```
 
-> **Greenfield ist technische Freiheit, nicht fachliche Definitionsmacht.**
+Nicht nötig ist ein monatelanger Vorab-Architekturabschluss.
+
+## Leitformeln
+
+> **Architecture is a means, not a phase gate.**
+
+> **Dev entscheidet reversible Technik früh, wissenschaftliche Bedeutung nie eigenmächtig.**
+
+> **Früh nutzbar, fachlich ehrlich, technisch austauschbar.**
