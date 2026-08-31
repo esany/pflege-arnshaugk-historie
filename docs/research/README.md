@@ -77,6 +77,7 @@ docs/research/
     capability-map.md
     requirements-baseline.md
     requirements-extensions.md
+    requirements-structure.md
     architecture-readiness.md
     phase-reconciliation.md
 
@@ -105,7 +106,7 @@ Keine Future-Proof-Leerstruktur.
 | #31–#39 | SOTA C1–C9 | `sota/` |
 | #40 | Risk/Constraint Review | `synthesis/risks-constraints.md` |
 | #41 | Capability/Quality Synthesis | `synthesis/capability-map.md` |
-| #42 | Accepted Requirements | `synthesis/requirements-baseline.md` + `synthesis/requirements-extensions.md` |
+| #42 | Accepted Requirements / Structure / Traceability | `synthesis/requirements-baseline.md`, `synthesis/requirements-extensions.md`, `synthesis/requirements-structure.md` |
 | #43 | historischer Architecture-Readiness-Stand | `synthesis/architecture-readiness.md` |
 | #45 | Research-/Evidence-/Source-Protokoll | `source-identity-protocol.md` + Issue-Protokoll |
 | #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md` |
@@ -129,6 +130,43 @@ Vision / Need
 
 Methodik darf nicht aus Prompt-/Modellplausibilität zur bindenden Fachmethode werden. Umgekehrt ist ein akzeptiertes Systemrequirement kein technischer Lösungsvorschlag.
 
+## Requirements: innere Struktur / Authority / Dependencies
+
+Kanonischer Vertrag:
+
+`docs/research/synthesis/requirements-structure.md`
+
+Für neue bzw. materiell geänderte Requirements werden mindestens auseinandergehalten:
+
+```text
+Requirement Identity / Role
+Motivation / Driver
+Origin / Source / Evidence
+Domain Authority / Acceptance Authority
+Scope / Exclusions
+Dependencies / Relations
+Criticality / Architecture Significance
+Acceptance / Verification
+Risk / Forbidden Loss
+Status
+```
+
+Wichtige Ownership-Trennung:
+
+- `Source` = konkrete Herkunft/Begründung des Requirements;
+- `Domain Authority` = fachliche Kompetenz, die seine Semantik besitzt;
+- `#42` = kanonischer Lifecycle-Owner accepted Requirements;
+- `#48/#59` = technische Ableitung/Umsetzung;
+- `Verification Authority` = je nach Requirement Softwaretest, Domain Review, Owner Acceptance, unabhängige Fachvalidierung etc.
+
+`Criticality` ist nicht gleich aktueller Delivery-Reihenfolge. Delivery wird dynamisch aus Nutzen, Dependencies, Risiko, Reversibilität und aktuellem Research-Pain priorisiert.
+
+Die technische Ableitung ist eine separate #48-Sicht:
+
+`docs/architecture/requirements-derivation.md`
+
+Keine Big-Bang-Umschreibung: bestehende Requirements werden bei aktiver Bearbeitung clusterweise nachgezogen.
+
 ## Live Research Cases
 
 Live Cases sind echte historische Forschung und zugleich Failure-/Adequacy-Tests für das System. Sie dürfen Capability-/Quality-/Requirement-Candidates erzeugen. Ein Einzelfall allein erzwingt keine Technologie.
@@ -144,8 +182,9 @@ Vor `reviewable/completed` oder einem materiellen Chat-Handoff:
 3. Quellen/Fundstellen/Provenienz ausreichend sichtbar?
 4. Search Boundaries und Unsicherheit dokumentiert?
 5. Method-/Requirement-Status korrekt getrennt?
-6. echte Blocker in #44?
-7. `PROJECT_STATE.md` nachgezogen, wenn phasenübergreifender State/Ownership/Dependency materiell geändert wurde?
-8. kann ein neuer Bearbeiter ohne Chat fortsetzen?
+6. bei aktiv bearbeiteten Requirements Motivation/Origin/Authority/Scope/Dependencies ausreichend sichtbar?
+7. echte Blocker in #44?
+8. `PROJECT_STATE.md` nachgezogen, wenn phasenübergreifender State/Ownership/Dependency materiell geändert wurde?
+9. kann ein neuer Bearbeiter ohne Chat fortsetzen?
 
 Wenn nein: Handoff ist nicht vollständig.
