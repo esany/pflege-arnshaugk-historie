@@ -4,11 +4,14 @@
 **Status:** `completed-synthesis / requirements-baseline-v0.1`  
 **Inputs:** #28–#41; fachliche Requirements-/Scope-Owner #9/#13–#16/#19/#20/#24; Live-Research Requirement Candidates #46/#47.  
 **Methodik:** Scholarly Requirements Engineering; fachgebundene Quality/Acceptance gemäß #45.  
-**Zweck:** architecture-driving Anforderungen definieren, **ohne Architektur/Technologie vorwegzunehmen**.
+**Zweck:** architecture-driving Anforderungen definieren, **ohne Architektur/Technologie vorwegzunehmen**.  
+**Aktuelle innere Struktur / Authority / Traceability für neue bzw. materiell bearbeitete Requirements:** `docs/research/synthesis/requirements-structure.md`.
 
 ---
 
 # 1. Leseregel
+
+Diese Datei bleibt die **accepted Baseline v0.1 und historische Provenienz**. Die ursprünglichen Requirements werden nicht per Big-Bang umgeschrieben. Bei neuer oder materieller Bearbeitung gelten zusätzlich die Strukturregeln aus `requirements-structure.md`, insbesondere die Trennung von Requirement Source, Domain Authority, canonical Requirement Owner, Acceptance/Verification Authority, Scope, Dependencies, Criticality und Architecture Significance.
 
 Requirement-Status:
 
@@ -17,15 +20,23 @@ Requirement-Status:
 - `deferred-research` – plausibel, aber für v0.1 noch nicht hinreichend oder nicht architecture-blocking;
 - `architecture-choice` – keine Anforderung, sondern später zu vergleichende Lösung.
 
-Priorität:
+Historische Priorität der Baseline:
 
 - **P0** – architecture-driving / wissenschaftlich fundamental / cross-cutting;
 - **P1** – zentrale analytische Funktion nach Grundkern;
 - **P2** – später iterativ vertiefbar.
 
+Wichtig ab `requirements-structure.md`:
+
+> **Diese historische P0/P1/P2-Klassifikation ist nicht alleinige Delivery-Reihenfolge.** Wissenschaftliche Kritikalität, Architecture Significance und aktuelle Delivery-Priorität werden künftig getrennt betrachtet.
+
 Jedes Requirement folgt soweit relevant:
 
 `Need/Pain → Capability → Invariante → Requirement → Acceptance/Test → Risk → SOTA`.
+
+Die aktuelle erweiterte Traceability lautet für aktiv bearbeitete Requirements:
+
+`Driver/Motivation → Origin/Evidence → Domain Authority → Capability/Invariante → Requirement → Scope/Dependencies/Criticality → Acceptance/Verification → technische Derivation #48 → Implementation/Verification #59`.
 
 ---
 
@@ -593,6 +604,8 @@ Diese Requirements müssen Architekturvarianten explizit erfüllen/vergleichen:
 11. **ADRQ-11 Lean Admission:** REQ-LEAN-001.
 12. **ADRQ-12 Research/Mediation Separation:** REQ-BND-001.
 
+Diese Shortlist bleibt historische/inhaltliche Architektur-Clusterung der Baseline. Die aktuelle technische Ableitung nutzt zusätzlich `docs/architecture/requirements-derivation.md` mit expliziten Concerns, Dependencies, Research Questions und Candidate Approaches.
+
 ---
 
 # 12. Requirement Dependency Map
@@ -627,6 +640,8 @@ REQ-BND-001
 REQ-LEAN-001
 REQ-EPI-004/005
 ```
+
+Diese v0.1-Map ist **eine erste inhaltliche Abhängigkeitssicht**, nicht die vollständige technische Build-Reihenfolge. Neue Relationstypen `requires | refines | constrains | conflicts_with | supersedes` werden gemäß `requirements-structure.md` bei aktiver Bearbeitung präzisiert.
 
 ---
 
@@ -713,7 +728,7 @@ These do **not** block architecture comparison:
 - web/desktop/CLI application framework;
 - sync/job orchestration technology.
 
-These must be evaluated **after** #43 against the architecture-driving shortlist.
+Diese bleiben technische Kandidaten. Ihre Prüfung folgt aktuell `docs/architecture/requirements-derivation.md` und nicht einem separaten Vorab-Gate.
 
 ---
 
@@ -760,4 +775,4 @@ Critical tests: SRC-004, OCR-001/002/003, RET-001/003/005, WF-002, STATE-001/002
 
 `Sufficient for Architecture Readiness assessment.`
 
-Further requirement splitting can continue during architecture/design if it does not alter scientific meaning; no current missing requirement class blocks comparison of architecture options.
+Diese historische Sättigungsbegründung bleibt Provenienz des v0.1-Durchlaufs. Die aktuelle iterative Requirements-Arbeit läuft weiter über `requirements-extensions.md` und `requirements-structure.md`; technische Ableitungen werden just in time nach `docs/architecture/requirements-derivation.md` geprüft.
