@@ -1,201 +1,126 @@
-# Histo-Orla – Phase Reconciliation: Lean/Agile MVP Delivery
+# Histo-Orla – Phase Reconciliation: content-driven Research, Requirements & Technical Delivery
 
-**Status:** `owner-resolved / build-admitted / 2026-08-31`  
-**Requirements / Acceptance Owner:** #42  
-**Technical Lead / Delivery Owner:** #48  
-**MVP Development:** #59  
+**Status:** `owner-resolved / active / 2026-08-31`  
+**Requirements Owner:** #42  
+**Technical Lead:** #48  
+**Development / Verification:** #59  
 **Domain Method Research:** #60  
 **Live Research:** #46/#47
 
 ## 1. Owner-Entscheidung
 
-Histo-Orla ist ein **privates, leanes und agiles Forschungssystem**. Time-to-first-use ist ein harter Produktwert. Das Projekt soll nicht erst nach monatelanger Vorab-Research-/Architecture-Phase nutzbar werden.
+Histo-Orla ist ein privates, leanes und agiles Forschungssystem. `MVP` wird **nicht mehr als kanonische Projektphase oder zusätzliche Requirement-Schicht verwendet**.
 
-Der Research Owner hat am 31.08.2026 verbindlich präzisiert:
+Die bisher erarbeiteten wissenschaftlichen, funktionalen, technischen, Governance- und Quality-Anforderungen bleiben vollständig wirksam. Live-/Domain-Research präzisiert und ergänzt sie. Die zentrale Frage ist nicht „Was gehört in den MVP?“, sondern:
 
-1. Die im Domain-Research-/Methodenstrang formulierten **Systemanforderungen sind Owner-accepted MVP-Akzeptanzkriterien**.
-2. Das MVP wird **jetzt inkrementell gebaut** und im realen Forschungsgebrauch gehärtet.
-3. Fachmethodischer SOTA, technische SOTA/Best Practice, Requirements-Schärfung und Architekturentwicklung laufen **parallel und rückgekoppelt**, soweit sie konkrete Entscheidungen oder Qualitätsrisiken tragen.
-4. Nicht jede methodische oder technische Ungewissheit blockiert Development. Sie muss als Status/Research Debt sichtbar bleiben und darf wissenschaftliche Promotion nicht vortäuschen.
-5. Architektur ist **evolutionär / just-in-time**: so viel Design vor einer Entscheidung wie für Reversibilität, Integrität, Sicherheit und wissenschaftliche Qualität nötig; nicht mehr.
+> **Welche Anforderungen gelten, was ist fachlich bereits hinreichend verstanden, und mit welchen möglichst einfachen, hochwertigen und reversiblen Mitteln erfüllen wir sie?**
 
-Diese Entscheidung hebt die wissenschaftlichen Schutzinvarianten nicht auf. Sie ändert den Delivery-Modus.
-
-## 2. Korrektur des vorigen Re-Gate-Modells
-
-Die vorherige Reconciliation hatte #42/#43 so stark als Vorab-Gates interpretiert, dass produktive Entwicklung bis zu einer erneuten vollständigen Readiness-Prüfung blockiert wurde. Für den privaten, leanen Projektkontext ist das zu schwergewichtig.
-
-Der richtige Modus ist:
+## 2. Aktuelle Arbeitslogik
 
 ```text
-Owner-accepted MVP Acceptance Criteria (#42 + Domain-Inputs)
-        ↓
-Walking Skeleton / kleinster nutzbarer Vertical Slice (#59/#48)
+Live Research / reale Problem- und Quellenarbeit (#46/#47)
         ↕
-Live Research (#46/#47) + Domain Method SOTA (#60)
+Domain Method SOTA / Operationalisierung (#60)
         ↕
-Requirements-/Acceptance-Schärfung (#42)
+Accepted Requirements + Extensions (#42)
         ↕
-Just-in-time Technical SOTA / Feasibility / Architecture (#48)
+Technical Lead: SOTA / Best Practice / Existing Tools / Umsetzung (#48)
+        ↕
+Development & Verification (#59)
         ↓
-inkrementelle nutzbare Slices
-        ↓
-kontinuierliche technische + wissenschaftliche Verification
+reale Nutzung
+        ↺
+Findings / Method-/Requirement-/Technical Deltas
 ```
 
-Kein separates monatelanges Architecture-Vorprojekt.
+Es gibt kein monatelanges Vorab-Gate, aber auch keine künstliche Delivery-Phase, die die fachliche Arbeit verdrängt.
 
-## 3. Was weiterhin hart gilt
-
-Mindestens:
+## 3. Was hart gilt
 
 - Source / Representation / inspected Instance / Derivative / Findspot / Finding / Interpretation nicht still verschmelzen;
 - AI output ist keine Evidenz und keine unabhängige Fachvalidierung;
 - Unsicherheit / unresolved / contradiction sind zulässige Zustände;
-- Findspots und Provenienz müssen erhalten bleiben;
-- formal prüfbare Invarianten sollen deterministisch erzwungen werden;
-- kuratierter Research State soll chat-/providerunabhängig, exportierbar und restartbar sein;
-- exakte/auditierbare Retrieval-Baseline darf nicht von LLM abhängen;
+- Fundstellen und Provenienz bleiben erhalten;
+- formal prüfbare Invarianten werden deterministisch abgesichert, sobald ihre Semantik geklärt ist;
+- kuratierter Research State ist chat-/providerunabhängig, exportierbar und restartbar;
+- exakte/auditierbare Retrieval-Baseline funktioniert ohne LLM;
 - Rights/Privacy/External Processing bleiben explizit;
 - Research und Mediation bleiben getrennt;
-- Domain Method Truth bleibt Eigentum der Fachdomäne (#60), nicht des Dev-Stacks.
+- Domain Method Truth bleibt Eigentum der Fachdomäne (#60), nicht des Dev-Stacks;
+- SOTA und Best Practice sind Basis der wissenschaftlichen und technischen Mittelwahl.
 
-Diese Regeln begrenzen die Implementierung, blockieren aber nicht den Start eines kleinen nutzbaren Systems.
+## 4. Requirements
 
-## 4. MVP-Akzeptanzlogik
+Kanonisch:
 
-Kanonischer Acceptance Overlay:
+- `docs/research/synthesis/requirements-baseline.md`;
+- `docs/research/synthesis/requirements-extensions.md`;
+- bindende Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints.
 
-`docs/research/synthesis/mvp-acceptance.md`
+Neue Domain-/Case-Befunde können Requirements präzisieren oder ergänzen. Sie reduzieren bestehende Requirements nicht still.
 
-Grundsatz:
+## 5. Technical Lead #48
 
-> **Die Domain-Anforderungen sind Akzeptanzkriterien des Systems.**
-
-Das bedeutet nicht, dass vor dem ersten Start sämtliche Fachprofile fertig erforscht sein müssen. Das System muss jedoch den geforderten wissenschaftlichen Arbeitsmodus **tragen, sichtbar machen und schrittweise vollständig erfüllen können**.
-
-Wichtige Unterscheidung:
-
-```text
-usable increment
-= real nutzbarer Teil des Systems mit bestandenen Slice-Akzeptanztests
-
-MVP complete
-= alle owner-accepted MVP-Akzeptanzkriterien sind für den vereinbarten privaten Scope erfüllt
-```
-
-So kann Nutzung sofort beginnen, ohne die Qualitätsdefinition des MVP zu verwässern.
-
-## 5. Führender Dev-/Engineering-Owner #48
-
-#48 ist ab jetzt **Technical Lead / Lean MVP Delivery & Architecture Owner**.
+#48 besitzt die technische Einordnung, Priorisierung und Umsetzung **unter** den akzeptierten Requirements.
 
 ### Darf / soll
 
-- den technischen Backlog nach Nutzerwert, Risiko, Dependency und kleinster nutzbarer Lieferung priorisieren;
-- SOTA/Best Practice **just in time** für konkrete technische Entscheidungen prüfen;
-- vorhandene Tools/Standards vor Eigenbau evaluieren;
-- reversible Technologieentscheidungen selbstständig treffen und bei Bedarf refactoren;
-- Walking Skeleton und kleine Vertical Slices implementieren;
-- Integrationen/Spikes direkt in nutzbare Produktinkremente überführen, wenn Acceptance Tests bestehen;
-- technische Debt sichtbar halten statt vorab alles zu lösen;
-- Architektur evolutionär aus realer Nutzung entwickeln;
-- bei jeder Iteration technische und wissenschaftliche Akzeptanztests automatisieren, soweit formal möglich.
+- aktuelle technische SOTA-/Best-Practice-/Existing-Tool-Landschaft für konkrete Anforderungen prüfen;
+- Anforderungen nach Dependency, Risiko, fachlichem Nutzen und Reversibilität in umsetzbare Inkremente schneiden;
+- reversible Technologieentscheidungen selbstständig treffen und refactoren;
+- Feasibility-Spikes/Benchmarks einsetzen, wenn sie reale Unknowns diskriminieren;
+- technische Architecture/Contracts nur so tief vorziehen, wie für Integrität, Reversibilität, Sicherheit und Wartbarkeit erforderlich;
+- Umsetzung und Tests eng an realen #46/#47-Fällen verifizieren.
 
 ### Darf nicht
 
-- Fachsemantik oder Method Truth aus technischer Convenience definieren;
-- owner-accepted Akzeptanzkriterien still abschwächen;
-- wissenschaftliche Unsicherheit durch Datenmodell/UI eliminieren;
-- irreversible/teure/lock-in-relevante Entscheidungen ohne explizite Begründung/ADR treffen;
-- KI als kanonischen Truth Store oder Evidenzinstanz verwenden;
-- Infrastruktur ohne konkreten aktuellen Nutzen auf Vorrat bauen.
+- Fachsemantik/Method Truth erfinden;
+- Requirements still abschwächen oder streichen;
+- wissenschaftliche Unsicherheit durch technische Convenience eliminieren;
+- Infrastruktur auf Vorrat aufbauen;
+- irreversible/teure/lock-in-/rights-relevante Entscheidungen ohne explizite Begründung/ADR treffen.
 
-Leitregel:
+## 6. Technical Delivery ist kein eigener Wissensowner
 
-> **Dev entscheidet reversible Technik früh, wissenschaftliche Bedeutung nie eigenmächtig.**
+#59 implementiert und verifiziert akzeptierte Requirements. Es ist kein eigener Produkt-Scope und keine Phase, die #46/#47/#60 ersetzt.
 
-## 6. Agile technische Entscheidungsregel
+Technische Arbeit beginnt dort, wo ein Requirement-/Constraint-Cluster hinreichend klar ist. Noch offene fachliche Semantik bleibt bei #60/#42 sichtbar und wird nicht technisch erfunden.
 
-Vor einer technischen Entscheidung nur so viel Research wie nötig:
+## 7. Just-in-time Architecture
 
-```text
-konkretes Acceptance Criterion / Pain
-→ bestehende Lösung / Standard prüfen
-→ kleinste plausible Option
-→ falls Risiko/Ungewissheit materiell: kurzer Spike/Benchmark
-→ implementieren
-→ im realen Case testen
-→ behalten | anpassen | ersetzen
-```
+Architekturarbeit findet laufend statt. Ein expliziter ADR unter #58 ist nur nötig, wenn eine Entscheidung materiell/schwer reversibel ist, z. B.:
 
-### ADR nur wenn nötig
-
-Expliziter ADR/Owner-Entscheid insbesondere bei:
-
-- schwer reversibler Persistenz-/Datenmodellentscheidung;
-- relevantem Provider-/Cloud-/Kosten-/Privacy-Lock-in;
-- bedeutender Migration;
+- Persistenz-/Datenmodell-Lock-in;
+- Cloud-/Provider-/Kosten-/Privacy-Lock-in;
+- bedeutende Migration;
 - Security-/Rights-Konsequenz;
-- konkurrierenden Optionen mit materiell verschiedenen wissenschaftlichen Folgen.
+- Optionen mit materiell unterschiedlichen wissenschaftlichen Verlusten.
 
-Reversible Library-/Framework-/UI-Entscheidungen brauchen keinen großen Vorab-Gate-Prozess.
+Reversible Library-/Framework-/UI-Details brauchen keine große Vorab-Zeremonie.
 
-## 7. Domain Research und Development laufen parallel
+## 8. Inhaltlicher Stand / nächste Prioritäten
 
-#60 muss weiter fachliche Methoden härten. Das blockiert nicht pauschal den MVP-Bau.
+### Domain / Research
 
-Beispiel:
+1. #46/#47 reale Forschung fortführen.
+2. #60: erster SOTA-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik an realen NHUB-Fällen.
+3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
+4. neue fachlich belastbare Systembedarfe direkt unter #42 als Requirement Extensions führen.
 
-```text
-heute verfügbares Diplomatik-Profil = method-candidate
-→ System kann es als Candidate referenzieren/anwenden
-→ Ergebnisse bleiben entsprechend candidate/exploratory
-→ Profile wird durch #60 verbessert
-→ System übernimmt neue Version
-→ betroffene Findings können review-needed werden
-```
+### Technical parallel
 
-So wird wissenschaftliche Unsicherheit **modelliert**, statt Development anzuhalten oder falsche Sicherheit zu erzeugen.
+5. #48 mappt aktive Requirements auf technische SOTA/Best Practice und vorhandene Werkzeuge.
+6. #49 Zotero↔OneDrive read-first als konkrete Integrationsfrage weiter prüfen.
+7. #50/#51 Source/Instance/Findspot/Provenienz technisch so einfach wie hinreichend absichern.
+8. #53 Exact Search und #55 Audit früh dort umsetzen, wo sie reale Forschung unmittelbar tragen.
+9. #57 Restartability/Research-ready Availability mit frischem Kontext testen.
 
-## 8. Erste Delivery-Priorität
+## 9. Leitformeln
 
-Der erste Walking Skeleton soll den unmittelbaren privaten Forschungsworkflow nutzbar machen:
-
-```text
-Zotero / Source Metadata
-→ OneDrive Source Bytes oder kontrollierte Testdatei
-→ Source / Instance / Findspot
-→ Text/OCR soweit verfügbar
-→ exakte/variantenfähige Suche
-→ Observation / Excerpt
-→ Finding / Hypothesis / Research Hook mit Status
-→ Method-/Evidence-Bezug soweit verfügbar
-→ Audit / Handoff / persistenter Research State
-```
-
-Nicht alles muss im ersten Commit vollständig sein. Aber jeder Slice muss real benutzbar und rückführbar auf MVP-Akzeptanzkriterien sein.
-
-## 9. Architekturstatus
-
-Histo-Orla bleibt technisch Greenfield, aber **Greenfield ist kein Grund für Delivery-Stopp**.
-
-Aktuell nicht vorab festgelegt:
-
-- endgültiger Runtime-/UI-/Backend-Stack;
-- endgültige Persistenz-/Search-/OCR-/Workflow-Technologie;
-- KG/RAG/Multi-Agent/Workflow-Plattform.
-
-Diese Entscheidungen entstehen aus konkreten Slices und werden nur dort gehärtet, wo Reversibilität/Qualität es verlangt.
-
-## 10. Leitformeln
-
-> **Privat, lean, agil: früh nutzbar werden, im realen Forschen härten.**
-
-> **Alle Domain-Systemanforderungen sind MVP-Akzeptanzkriterien.**
-
-> **Architecture is a means, not a phase gate.**
+> **Requirements führen den Systemumfang; Lean/Agile optimiert die Mittel.**
 
 > **Fachdomänen führen. Technologie dient.**
 
 > **Dev informiert und implementiert Requirements; Dev besitzt Method Truth nicht.**
+
+> **State of the Art und Best Practice sind Basis der Mittelwahl.**
