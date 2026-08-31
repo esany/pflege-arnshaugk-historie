@@ -19,7 +19,7 @@ Aktuelle Hauptphase:
 
 ```text
 Requirements
-→ Architecture Contracts / Invariants
+→ Architecture Contracts / Invariants / Assurance
 → reversible Integrations-/Technik-Spikes
 → Thin Vertical Slice
 → Architekturvarianten + Trade-offs
@@ -30,7 +30,7 @@ Requirements
 
 Architecture Execution Owner: **#48**.
 
-Parallel läuft weiterhin reale historische Forschung als eigenständiger Research- und Falsifikationsstrang, insbesondere #46/#47. Seit dem Methodik-Audit vom 31.08.2026 läuft zusätzlich #60 als cross-cutting Research Work Package zur **SOTA-basierten Operationalisierung domänenspezifischer Fachmethoden**.
+Parallel läuft weiterhin reale historische Forschung als eigenständiger Research- und Falsifikationsstrang, insbesondere #46/#47. Seit dem Methodik-Audit vom 31.08.2026 läuft zusätzlich #60 als cross-cutting Research Work Package zur **SOTA-basierten Operationalisierung domänenspezifischer Fachmethoden**. Seit dem Work-Context-/Method-Conformance-Audit läuft außerdem #61 als P0 Architecture/Assurance Work Package zur **strukturellen Absicherung von Work Context, Method Application, Promotion und Handoff**.
 
 ## 2. Abgeschlossene Baselines / Gates
 
@@ -82,11 +82,38 @@ Aktuelle Statusregel:
 #60     = domänenspezifische Methoden-Operationalisierung
 #46/#47 = historische Live-Fälle + Method Stress/Validation
 #42     = accepted Requirements
-#48ff   = technische Architektur/Delivery
+#48ff   = technische Architektur/Delivery/Assurance
 Prompt  = austauschbares Ausführungsartefakt, niemals Method Truth
 ```
 
 Die aktuelle Requirements Baseline bleibt dabei **unverändert**. #60 operationalisiert insbesondere `REQ-EPI-001`; Requirement-Deltas werden erst nach SOTA- und Live-Case-Nachweis als Candidates an #42 zurückgespielt.
+
+### Work-Context / Method-Conformance / Handoff Assurance
+
+- **#61** – Executable Work-Context, Method-Conformance und Handoff Contract, `active-research / P0 architecture-assurance / cross-cutting`
+
+#61 schließt die zweite Lücke nach #60:
+
+```text
+Method Truth
+= Was ist fachlich eine zulässige Methode?
+Owner #60
+
+Method Conformance
+= Wurde diese Methode in diesem Work Context korrekt referenziert,
+  angewandt, geprüft und nur durch erlaubte Übergänge promoted?
+Owner #61 + #50/#54/#55/#57
+```
+
+Leitregel:
+
+> **Exploration darf offen sein. Promotion ist fail-closed gegenüber fehlender Method-/Evidence-/Validation-Grundlage.**
+
+Kanonisches Assurance-Artefakt:
+
+`docs/architecture/assurance/method-conformance-work-context.md`
+
+SOTA-/Best-Practice-Referenzrahmen: schema-as-contract / machine-readable validation, W3C PROV, RO-Crate / Workflow Run RO-Crate, Policy-as-Code als Pattern; keine Tool-/RDF-/OPA-/Workflow-Engine-Pflichtentscheidung.
 
 ### #46 – aktuelle Leit-/Makrofrage nach jüngsten Research-Updates
 
@@ -120,16 +147,17 @@ Expertise Routing soll dabei nicht bei Disziplinlabels enden, sondern **Evidence
 
 - **#48** – Architecture Execution Control
 - **#49** – Zotero ↔ OneDrive ↔ Histo-Orla Integration Spike, read-first
-- **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten
+- **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten + Method-/Work-/Review-Provenienz
 - **#51** – Document-/Findspot-Pipeline / Source→Excerpt-Roundtrip
 - **#52** – OCR/HTR Processor Contract + research-critical Benchmark Harness
 - **#53** – Historical Retrieval Baseline: Exact, Varianten, Query Log, Findspots
-- **#54** – Candidate→Review→Promotion + deterministic invariant enforcement
+- **#54** – Candidate→Review→Promotion + deterministic invariant enforcement, inkl. Method-/Authority-Transition Guards
 - **#55** – Human-readable Research Audit View
 - **#56** – Rights Admission, Credentials und External-Processing Guards
-- **#57** – Provider Removal, Export und Restartability
+- **#57** – Provider Removal, Export und Restartability inkl. fresh-context Role/Method/Evidence Resume
 - **#58** – Architekturvarianten, Trade-off-/Loss-Matrix, ADRs, MVP Cut
 - **#59** – MVP Development & Verification; aktuell durch #58 blockiert
+- **#61** – Work-Context / Method-Conformance / Handoff Assurance
 
 Architecture Index:
 
@@ -138,6 +166,10 @@ Architecture Index:
 Kanonischer Contract #50:
 
 `docs/architecture/contracts/canonical-research-state.md`
+
+Assurance Contract/Research #61:
+
+`docs/architecture/assurance/method-conformance-work-context.md`
 
 ## 4. Aktuelle cross-cutting Owner Constraints
 
@@ -152,7 +184,7 @@ Zotero
 
 Histo-Orla
 = wissenschaftlicher Research State: Evidenz, Findings, Claims, Discrepancies,
-  Validation, Provenienz-/Findspot-Bezug
+  Validation, Provenienz-/Findspot-/Method-Application-Bezug
 ```
 
 Keine dieser externen Schichten ist alleiniger kanonischer Research-State-Owner.
@@ -177,7 +209,7 @@ Source / Überlieferung
 
 ### Methodische Autorität / kein Prompt als Fachmethode
 
-Bindender gemeinsamer Forschungsrahmen bleibt #45. Domänenspezifische Methodik wird unter #60 operationalisiert. Für consequential Research gilt bereits accepted `REQ-EPI-001`: führende Domäne, domänenspezifische Methode, Evidenzmaßstab und zulässige Schlussart müssen nachvollziehbar sein; ein Rollenprompt ist kein Fachmethodennachweis.
+Bindender gemeinsamer Forschungsrahmen bleibt #45. Domänenspezifische Methodik wird unter #60 operationalisiert. Für consequential Research gilt accepted `REQ-EPI-001`: führende Domäne, domänenspezifische Methode, Evidenzmaßstab und zulässige Schlussart müssen nachvollziehbar sein; ein Rollenprompt ist kein Fachmethodennachweis.
 
 Status- und Ownership-Karte:
 
@@ -188,26 +220,38 @@ Leittrennung:
 ```text
 Vision
 ≠ Work Order
+≠ Domain Method Profile
+≠ Method Application
 ≠ Observation/Finding
 ≠ historische Hypothese
 ≠ Methodenhypothese
 ≠ Requirement Candidate
 ≠ accepted Requirement
 ≠ Architecture Choice
-≠ Prompt
+≠ Prompt / Model Run
 ```
 
-### Chat / Handoff
+### Chat / Work Context / Handoff
 
 `AGENTS.md` ist bindender Repo-Vertrag.
 
 Kein continuation-critical State darf ausschließlich in Chat/Modellzustand verbleiben.
 
-Aktueller Governance-Audit:
+**Neu bindend seit Commit `59e74b1`:** §13 verlangt für substanzielle Arbeit zusätzlich zum Repo-Bootstrap eine explizit rekonstruierbare Work-Context-/Authority-/Method-/Handoff-Grenze. Mindestinhalt: primäre Funktion, Work Owner, bounded Scope/Exclusions, leading/controlling Domains, applicable Method/Quality Frame, MAY/MUST NOT, Stop/Handoff, Return Condition und Persistence Target.
+
+Für consequential Research gilt:
+
+- `method-candidate` darf Exploration anleiten;
+- reguläre consequential operative Methodik benötigt `working-method` oder höher;
+- fehlende Method-/Evidence-/Validation-Grundlage blockiert **Promotion**, nicht offene Exploration;
+- gerichtete Hauptübergabe: `Domain Research → Domain Review/Requirements → Architecture/Dev → scholarly adequacy return → Research NEXT ACTION`;
+- independent specialist validation bleibt getrennt.
+
+Früherer Governance-Audit:
 
 `docs/governance/work-context-handoff-audit.md`
 
-Befund: Der Anti-Wissensmonopol-/Repo-Bootstrap ist stark. Noch nicht bindend operationalisiert ist jedoch eine generische **Work-Context-/Authority-Schicht** für alle substantielle Chats (primäre Funktion, bounded Scope, MAY/MUST NOT, Stop/Handoff, Return Condition). Eine entsprechende `AGENTS.md`-Schärfung ist derzeit **Empfehlung, nicht bereits bindende Regel**; sie benötigt Owner-Admit, bevor sie als materielle Governanceänderung promoted wird.
+Seine damalige `owner-admission-pending`-Empfehlung zur Work-Context-Schicht ist durch die aktuelle bindende `AGENTS.md`-Regel superseded. Technische Operationalisierung: #61.
 
 ## 5. Aktuelle Blocker / Decisions
 
@@ -215,14 +259,14 @@ Befund: Der Anti-Wissensmonopol-/Repo-Bootstrap ist stark. Noch nicht bindend op
 
 Normale offene Forschung, reversible Architekturfragen und technische Experimente sind keine #44-Blocker.
 
-Die im Governance-Audit empfohlene Work-Context-Schärfung blockiert laufende Research-/Architecture-Arbeit nicht. Sie wird deshalb nicht als Blocker behandelt; eine bindende Promotion in `AGENTS.md` erfolgt nur nach explizitem Owner-Admit.
+Die Work-Context-Schärfung ist inzwischen owner-admitted und bindend; kein offener Owner-Blocker bleibt daraus.
 
-Die fachmethodische Operationalisierung #60 ist ebenfalls **kein allgemeiner Architekturblocker**. Sie kann jedoch gezielte Requirement-/Acceptance- oder Architektur-Reopenings auslösen, wenn reale Domain Profiles eine bisherige architecture-driving Annahme falsifizieren.
+Die fachmethodische Operationalisierung #60 und Method-Conformance-Assurance #61 sind **keine allgemeinen Architekturblocker**. Sie können jedoch gezielte Requirement-/Acceptance- oder Architektur-Reopenings auslösen, wenn reale Domain Profiles/Thin-Slice-Tests eine bisherige architecture-driving Annahme falsifizieren.
 
 ## 6. Aktueller kritischer Architektur-/Delivery-Pfad
 
 ```text
-#50 Canonical State / Identity Contract
+#50 Canonical State / Identity / Method-Provenance Contract
         ↓
 #49 Zotero/OneDrive Source Resolver
         ↓
@@ -230,12 +274,15 @@ Die fachmethodische Operationalisierung #60 ist ebenfalls **kein allgemeiner Arc
         ├─→ #52 OCR/HTR End-to-End
         └─→ #53 Historical Retrieval End-to-End
 
-#50 ─→ #54 Promotion / Invariants
+#60 Domain Method Profiles ─────┐
+                               ├─→ #61 Method Conformance / Work Context
+#50 ────────────────────────────┘          │
+#50 ─→ #54 Promotion / Invariants ←────────┤
+#50 ─→ #55 Audit Contract ←────────────────┤
+#50 ─→ #57 Restartability ←────────────────┘
 #50 ─→ #56 Rights Admission
-#50 ─→ #55 Audit Contract
-#50 ─→ #57 synthetic Provider-Removal / Export
 
-belastbare Evidence aus #49–#57
+belastbare Evidence aus #49–#57/#61
         ↓
 #58 Architecture Variants / ADRs / MVP Cut
         ↓
@@ -249,16 +296,17 @@ Parallel möglich:
 - #56 Rights-Admission-Contract;
 - #52 OCR/HTR Benchmark-Harness auf isoliertem Testmaterial;
 - #55 Audit-View-Contract;
-- #57 synthetische Export-/Removal-Tests;
+- #57 synthetische Export-/Removal-/Resume-Tests;
 - Live Research #46/#47;
-- Domain Method Profile Research #60.
+- Domain Method Profile Research #60;
+- #61 SOTA-/Contract-Arbeit und synthetische Work-Context-/Method-Transition-Fixtures.
 
-Zusätzlicher Restartability-Test aus aktuellem `paleo-type`-Prior-Art, für #49/#57 zu prüfen:
+Zusätzlicher Restartability-Test aus aktuellem `paleo-type`-Prior-Art, für #49/#57/#61 zu prüfen:
 
 ```text
-Identifiability
-≠ Reproducibility
-≠ Research-ready Availability
+Identifiability / Retrievability
+≠ Staged in target context
+≠ actually inspectable for the target NEXT ACTION
 ```
 
 Wenn eine NEXT ACTION direkte Quelleninspektion verlangt, muss ein frischer autorisierter Work Context die tatsächlich benötigte Instanz über einen dokumentierten zulässigen Pfad öffnen können; bekannte Source Identity allein genügt nicht.
@@ -285,13 +333,13 @@ Siehe `docs/research-design/README.md`.
 
 Bis #43 war technische Implementierung bewusst nachgeordnet; deshalb enthält das Repository bislang wenig Anwendungscode.
 
-Das war **für die abgeschlossene Research-/Requirements-Phase methodisch richtig**. Ab der aktuellen Phase besitzt Delivery nun explizite technische Work Owner #49–#59.
+Das war **für die abgeschlossene Research-/Requirements-Phase methodisch richtig**. Ab der aktuellen Phase besitzt Delivery nun explizite technische Work Owner #49–#59/#61.
 
-Der aktuelle technische Stand ist überwiegend **Architecture Contract / Spike / Benchmark**, noch nicht produktiver MVP-Code.
+Der aktuelle technische Stand ist überwiegend **Architecture Contract / Spike / Benchmark / Assurance Research**, noch nicht produktiver MVP-Code.
 
-Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert, bis eine belastbare Architektur-/MVP-Entscheidung vorliegt. Kleine diskriminierende Prototypen und Test-Harnesses sind vorher ausdrücklich zulässig.
+Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert, bis eine belastbare Architektur-/MVP-Entscheidung vorliegt. Kleine diskriminierende Prototypen, machine-readable Contract-Projektionen, Validatoren und Test-Harnesses sind vorher ausdrücklich zulässig, wenn sie auf accepted Requirements rückführbar sind.
 
-#60 ist **keine technische Systementwicklung**, sondern fachwissenschaftliche Methodenforschung/Operationalisierung mit möglicher downstream Requirements-Wirkung.
+#60 ist **keine technische Systementwicklung**, sondern fachwissenschaftliche Methodenforschung/Operationalisierung mit möglicher downstream Requirements-Wirkung. #61 ist technische/architektonische Assurance-Operationalisierung und darf Method Truth nicht besitzen.
 
 ## 9. Nächste ausführbare Aktionen
 
@@ -299,33 +347,41 @@ Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert
 
 1. Ersten SOTA-Block **Diplomatik / Urkundenlehre + Editionswissenschaft/Textkritik** durchführen; konkrete Methodenliteratur/Standards fundstellenfähig dokumentieren.
 2. Daraus erstes Domain Method Profile gemäß `domain-method-profile-contract.md` bauen und an NHUB-II-Fällen testen, einschließlich mindestens eines Overclaim-/Counterexample-Falls.
-3. Danach **Archivistik / Provenienz / Registraturkunde** sowie **historische Philologie / mittellateinische Semantik / Hermeneutik** operationalisieren.
-4. Weitere Profile problemgetrieben aus #46/#47 priorisieren; keine vollständige Methoden-Enzyklopädie vorab.
-5. Requirement-Deltas zunächst nur als Candidates führen; #42 bleibt bis zur nachgewiesenen Generalisierbarkeit unverändert.
+3. Dabei zusätzlich Method Applicability/Routing, Multi-Method Composition, Method Version Drift, mandatory vs. conditional gates und Review-Independence als fachliche Fragen explizit prüfen.
+4. Danach **Archivistik / Provenienz / Registraturkunde** sowie **historische Philologie / mittellateinische Semantik / Hermeneutik** operationalisieren.
+5. Weitere Profile problemgetrieben aus #46/#47 priorisieren; keine vollständige Methoden-Enzyklopädie vorab.
+6. Requirement-Deltas zunächst nur als Candidates führen; #42 bleibt bis zur nachgewiesenen Generalisierbarkeit unverändert.
 
 ### Live Research
 
-6. #46 entlang der aktualisierten Makrofrage fortführen: Source-local Erschließung + Zeitscheiben-/Situations-Dossiers + Evidence-Demand-Routing; dabei Case-Methodik als Candidate behandeln, wenn das passende Domain Profile noch nicht validiert ist.
-7. NHUB-II-/CDS-/Lehnbuch-/Saalfeld-Kollation nach den aktuellen #45-/Source-Identity-Regeln fortsetzen.
-8. Triptis 1212 und weitere Situationen nicht aus einem Einzeltext kausal erklären, sondern Hypothesen klar vom direkten Quellenbefund trennen und spätere fachliche Anschlussanalyse unter #60 routen.
-9. RC-U2-09…18 nur über Cross-Use-Case-/SOTA-/Requirement-Prüfung weiterpromovieren.
+7. #46 entlang der aktualisierten Makrofrage fortführen: Source-local Erschließung + Zeitscheiben-/Situations-Dossiers + Evidence-Demand-Routing; dabei Case-Methodik als Candidate behandeln, wenn das passende Domain Profile noch nicht `working-method` ist.
+8. NHUB-II-/CDS-/Lehnbuch-/Saalfeld-Kollation nach den aktuellen #45-/Source-Identity-Regeln fortsetzen.
+9. Triptis 1212 und weitere Situationen nicht aus einem Einzeltext kausal erklären, sondern Hypothesen klar vom direkten Quellenbefund trennen und spätere fachliche Anschlussanalyse unter #60 routen.
+10. RC-U2-09…18 nur über Cross-Use-Case-/SOTA-/Requirement-Prüfung weiterpromovieren.
+
+### Method Conformance / Assurance #61
+
+11. Aus dem ersten realen #60-Profile die **kleinste machine-readable Projektion** formal bereits entschiedener Semantik ableiten; keine zweite Method Truth erzeugen.
+12. Minimalen Work-Order-/Work-Context-/Method-Application-/Handoff-Vertrag gegen Triptis 1212 + zweiten U2-Fall testen.
+13. SOTA-Pattern gegen kleinste Lösung diskriminieren: JSON-Schema-artiger Contract, lokale Transition-/Validatorlogik, W3C-PROV-/RO-Crate-Kompatibilität; OPA/Workflow Engine/RDF nur bei realem Trigger.
+14. `fail closed on promotion, not on exploration` mit negativen Fixtures belegen.
 
 ### Case-unabhängig / Architecture
 
-10. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
-11. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
-12. **#56** Rights-Admission-/Credential-Contract spezifizieren.
-13. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
-14. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
-15. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
-16. Fresh-context Source-Availability in #49/#57 gegen reale OneDrive-/Zotero-Pfade testen.
+15. **#50** aktualisierten Contract prüfen und synthetische Invariant-Tests ableiten.
+16. **#54** Promotion-/Method-/Authority-Transition-Regeln gegen mindestens zehn positive/negative Fixtures konkretisieren.
+17. **#56** Rights-Admission-/Credential-Contract spezifizieren.
+18. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
+19. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
+20. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten; #55 bis Method Application/Profile/Review auditieren, #57 fresh-context Role/Method/Evidence Resume testen.
 
 ### Nach belastbaren Spikes / Falsifikation
 
-17. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
-18. #60-Methodenprofile ebenfalls als wissenschaftliche Acceptance-/Failure-Quelle für bestehende Architekturannahmen nutzen, ohne Methodenentscheidungen technisch zu usurpieren.
-19. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
-20. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
+21. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
+22. #60-Methodenprofile ebenfalls als wissenschaftliche Acceptance-/Failure-Quelle für bestehende Architekturannahmen nutzen, ohne Methodenentscheidungen technisch zu usurpieren.
+23. #61-Method-Conformance- und Handoff-Fixtures als Assurance-Gate in den Thin Slice aufnehmen.
+24. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
+25. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
 
 ## 10. Handoff-Test
 
@@ -337,6 +393,8 @@ Ein neuer Chat/Bearbeiter soll nach Lesen von:
 4. zuständigem Work-Owner-Issue + dessen Artefakt
 
 ohne vorherige Chat-Historie produktiv fortsetzen können.
+
+Seit der bindenden Work-Context-Schärfung reicht reine Dokumentauffindbarkeit nicht: Der neue Bearbeiter muss zusätzlich primäre Funktion/Authority, bounded Scope, applicable Method/Quality Frame, Evidence Availability, nächste erlaubte Aktion und Handoff-/Return-Bedingung korrekt rekonstruieren können.
 
 Wenn dies nach einer materiellen Änderung nicht mehr stimmt, muss dieser State vor Abschluss der Arbeit nachgezogen werden.
 
