@@ -355,14 +355,15 @@ Erst auf dieser Ebene darf nach einer historischen Erklärung gefragt werden. `m
 
 ---
 
-## 10. Erste Volltextkontrolle der neu bereitgestellten Editionen – Stand 2026-08-31
+## 10. Volltextkontrolle der neu bereitgestellten Editionen – laufender Stand 2026-08-31
 
 ### NHUB II – Urkundenbuch des Hochstifts Naumburg, Teil 2
 
-Der erste breite Variantenlauf liefert bislang **keinen bestätigten Treffer**, der einen der neu ergänzten Orla-Orte sicher identifiziert. Er zeigt zugleich typische Homonymfallen.
+Der bisherige Satz, der erste Variantenlauf habe keinen bestätigten Treffer für einen neu ergänzten Orla-Ort geliefert, ist **überholt**. Das Register identifiziert `Moxa, Saale-Orla-Kreis` ausdrücklich und verweist auf einen dichten Urkundenkomplex von 1296. Damit liegt im bereitgestellten Band ein erster bestätigter Zielort des erweiterten Suchraums vor. Der Band ist damit ausdrücklich **noch nicht ausgeschöpft**; weitere Register-/Varianten- und Kontextläufe folgen.
 
 #### EX-U2-0001 – `Heinrico de Nuendorff` – Kandidat, nicht als Ziel-Neundorf promoviert
 
+- **source_id:** `SRC-ED-0001`
 - **Edition:** *Urkundenbuch des Hochstifts Naumburg*, Teil 2
 - **Urkunde:** Nr. 282, Glauchau, Juli 1256
 - **Kontext:** Friedrich von Schönburg überlässt dem Nonnenkloster Remse Besitz in Tauschwitz.
@@ -376,13 +377,113 @@ Der erste breite Variantenlauf liefert bislang **keinen bestätigten Treffer**, 
 - **methodischer Wert:** zeigt, warum `Neundorf` nicht als bloßer Stringtreffer behandelt werden darf.
 - **Kontextnacharbeit:** Das bisherige Exzerpt ist für eine Analyse von Stiftungs-/Akteursmotiven **zu dünn**. Bei Wiederaufnahme müssen Rechtsgeschäft, Begünstigter, ggf. Begründung, Gegen-/Zustimmungsleistungen und der soziale Status der Zeugen aus dem Gesamtstück ergänzt werden.
 
+#### EX-U2-0002 – Bernico `de Knev`, 1280 – bestätigter Altenburger Vergleichskomplex
+
+- **source_id:** `SRC-ED-0001`
+- **Urkunde:** NHUB II Nr. 478
+- **Datum / Ort:** 1. Mai 1280, Altenburg
+- **Fundstelle:** gedruckter Text endet auf S. 517; Beginn auf der vorangehenden Druckseite; exakte Anfangsseite beim Scan-Mapping noch zu fixieren
+- **Überlieferungs-/Editionsapparat:** Druck auch UB Altenburg Nr. 261; Regest Dobenecker IV Nr. 1796. Die Edition vermerkt `Bergerhand 10` und die Verwendung als Diktatvorlage für UB Altenburg Nr. 430. Eine spätere Rückaufschrift erinnert an Bernico und an Adelheid, seine Ehefrau, mit Memorialleistungen.
+- **entity_status:** `confirmed – Knau/Altenburg; rejected as evidence for Knau/Orla`
+- **historical_excerpt:**
+
+> `In nomine domini amen. Henricus dei gracia burgravius in Aldenburg universis Christi fidelibus in perpetuum. Quoniam ex divina pietate in elemosinarum largicione peccatorum fit remissio, satagendum est hominibus, ut, si quam peccati sibi contagionem attraxerint, hanc elemosinis et misericordie operibus abluant et abstergant. Igitur tenore presencium declaramus, quod Bernico miles dictus de Knev feodalis noster de rebus a deo sibi collatis elemosinam faciens unum mansum in villa Rodesizc et limitibus eius situm solventem singulis annis in festo sancti Bartholomei Aldenburgensis mensure tritici quatuor modios, siliginis quinque, ordei duodecim, rapule unum, papaveris quartale et agnum in pascha per manus nostras contulit ecclesie sancte Marie virginis in Aldenburg cum unanimi heredum suorum consensu iure perpetuo possidendum. Hic eciam mansus cum sua area, que vulgo hovereite dicitur, connexus est alteri manso, quem Richardus de Roneberc civis in Aldenburg et sui heredes a prefata ecclesia in feodo possident, qui in signum homagii singulis annis in festo assumpcionis sancte Marie in talento cere domino preposito respondebunt. Verum quia prefatus miles sigillo proprio non utebatur, hanc collacionem sub sigillo nostro conscribi et antedicte ecclesie tradi peciit in munimen. Testes horum sunt: Conradus de Zarowe, Iohannes de Remze, Henricus de Studenschen, Eberhardus Pipper, Theodericus de Gerstenberg, milites, et alii quam plures. Acta sunt hec anno domini M°.CC°.LXXX°., indictionis anno octavo, kalend. maii in presencia domini nostri Menheri Nunburgensis episcopi, qui hanc collacionem banni sentencia stabilivit anno pontificatus sui octavo.`
+
+- **explicit motive/reason:** `elemosina` / remission-of-sins rhetoric is explicit in the charter; because the edition identifies a chancery/dictation model, the formulaic character must be evaluated before treating it as Bernico's individual psychological motive.
+- **action constellation:** Bernico, knight and feudal man of the Altenburg burgrave, gives one mansus at Rositz to St Mary's at Altenburg; **unanimous consent of his heirs** is explicit; the burgrave seals because Bernico has no own seal; Bishop Meinher stabilizes the donation by ban; a second mansus and annual wax due show an existing tenure/economic linkage.
+- **direct support:** donation, feudal status, heir consent, quantified dues, ecclesiastical beneficiary, witness milieu and episcopal confirmation.
+- **does not support:** any connection to Knau/Orla; a unique personal motive beyond the charter's stated/formulaic religious rationale.
+- **research hooks:** compare heir-consent formulas, Memorialvermerke for Bernico/Adelheid, Bergerkloster acquisition strategies, and the institutional relation between Burggravschaft Altenburg, Naumburg and the convent.
+
+#### Moxa – bestätigter Orla-Zielort und zusammenhängendes Dossier 1296
+
+Das Orts-/Personenregister identifiziert ausdrücklich **`Moxa, Saale-Orla-Kreis`** und führt die Formen `Muschowe, Muscowe, Muzchav, Muzschowe, Muzshowe`. Genannt werden u. a. Adelheid, Hermann, Heinrich, Hermann, Gotwin, Pilgrim, Rudolf und der Schwiegersohn Heinrich von Stünzhain. Die folgenden Stücke 730, 732, 733 und 734 gehören **als Transaktions- und Familienkomplex zusammen** und dürfen nicht als vier isolierte Namensnennungen gelesen werden.
+
+#### EX-U2-0003 – NHUB II Nr. 730 – Verkauf durch Hermann von Moxa, 22. April 1296
+
+- **source_id:** `SRC-ED-0001`
+- **Datum / Ort:** 22. April 1296, Altenburg
+- **gedruckte Seite:** S. 760–761
+- **Überlieferung:** Abschrift vor 1682, StA Altenburg, Abt. H, Schönbergsche Sammlung Nr. 93, fol. 142r–142v, nach Ausfertigung; weitere Abschrift StadtA Altenburg, C II Nr. 11, fol. 73v–74r; Druck UB Altenburg Nr. 393. Die Edition weist einen älteren fehlerhaften Datierungsstrang zu 1209/1299 zurück und begründet 1296 aus dem Urkundenverband.
+- **entity_status:** `confirmed – Moxa, Saale-Orla-Kreis, through the edition's register identification`
+- **historical_excerpt:**
+
+> `Nos Henricus scultetus, Conradus de Waldenburg Fridericus de Gluchowe, Henricus de Dolen, Nicolaus de Zqvickowe, Henricus Clypeator, Rudegerus de Hebersbach, Henricus Monetarius, Vrizko de Vranckenberg, Cunradus Egrerius, cives in Aldenburg, tenore presentium recognoscimus et fatemur, quod Hermannus de Muzschowe in presentia nostra publice protestatus est se amicabiliter pro sexaginta marcis et dimidia vendidisse bona sua in Lohm dominis de monte sancte Marie virginis in Aldenburc et amicabiliter omnem solucionem eorundem bonorum congruis temporibus a prefatis dominis se recepisse nihilominus protestans se et generum suum Henricum de Studenheim debere et velle omnem actionem sive impetitionem cuiuslibet persone a predictis bonis amovere et maxime uxorem ipsius Hermanni cum omnibus pueris suis et sorores uxoris eius ad venerabilem dominum nostrum Brunonem Nuwenburgensem episcopum adducere, ut dotalitio et iam dictis bonis abrenuncient, secundum quod se fassi sunt ad manus ipsius episcopi promisisse, quia iam dictus dominus episcopus vice et nomine advocati de Plawe commoditatis causa resignationem ipsorum bonorum a prefatis personis recipere est rogatus. In horum scriptorum testimonium presentem paginam sigillo civitatis Aldenburgensis dedimus communitam. Datum Aldenburg, anno domini millesimo CC°XC°VI°, proxima dominica ante diem sancti Georgii martyris.`
+
+- **counterperformance:** 60½ Mark; Hermann acknowledges full payment.
+- **family/property rights:** wife, children and wife's sisters are explicitly relevant because dower/property claims must be renounced; son-in-law Heinrich von Stünzhain acts with Hermann as guarantor for clearing claims.
+- **institutional context:** Altenburg civic authority records/seals the transaction; Bishop Bruno is to receive resignations in the Vogt of Plauen's name.
+- **explicit motive statement:** **none for the sale itself**. `amicabiliter` describes peaceful/amicable procedure, not a demonstrated motive.
+- **direct support:** sale, price/payment, layered family claims, guarantor role, episcopal/vogt jurisdictional mechanism.
+- **does not support:** debt, poverty, piety, marital conflict or forced sale as motive.
+- **research hooks:** identify Lohma property history; reconstruct Hermann–Adelheid–children–Stünzhain kinship; compare dower renunciation practice; search whether the 60½ Mark can be connected to debts, purchases, memoria or other transactions.
+
+#### EX-U2-0004 – NHUB II Nr. 732 – Krieg als expliziter Verfahrenszwang
+
+- **source_id:** `SRC-ED-0001`
+- **Datum / Ort:** [vor 4. Mai] 1296, Zwickau
+- **gedruckte Seite:** unmittelbar vor Nr. 733 auf S. 763/764; exaktes Seitenmapping am Scan noch festzuhalten
+- **Überlieferung:** Ausfertigung StA Altenburg, Urkunde [1296], Pergament, fragmentarisches Siegel Heinrichs von Plauen; Rückaufschrift `Littera advocati de Plau de bonis in villa Lom`; Abschriften StadtA Altenburg C II Nr. 11 fol. 237r–237v und Wagner-Collectaneen; Druck UB Vögte I Nr. 311; UB Altenburg Nr. 395.
+- **historical_excerpt:**
+
+> `Venerabili domino suo B(runoni) Nuenburgensi episcopo H(einricus) advocatus de Plawen, quicquid poterit obsequii et honoris. Quia ecclesia sancte virginis Marie in Aldenburch comparavit bona in villa Lom quondam Hermanni de Muzchav, que quidem bona iam dictus Hermannus ab omni actione et impetitione cuiuslibet persone absolvere firmiter promisit et maxime uxorem suam cum sororibus suis earundem bonorum dothalicio abrenuncciare spopondit, et hoc propter gwerras terre comode ad manus nostras fieri non potest, petimus, ut vice nostra et nomine a predictis dominabus et Hermanni pueris resignationem antedictorum bonorum recipiatis nichilominus ipsa bona litteris vestris munientes omnes invasores eorum banni sentencia feriendo. Datum Zwikau presentibus et testibus domino fratre abbate de Puzau, domino Rudolfo viceplebano in Zwikau, domino H. plebano in Kempniz et aliis fide dignis.`
+
+- **explicit constraint:** `propter gwerras terre` – because of war in the land, the normal resignation before the Vogt cannot conveniently occur.
+- **action constellation:** Vogt Heinrich of Plauen delegates receipt of wife/sisters/children's resignations to Bishop Bruno, asking him to protect the goods by ecclesiastical ban.
+- **direct support:** war affects legal-administrative procedure; dower/family claims are central; secular and episcopal authority cooperate.
+- **does not support:** war as motive for Hermann's original sale. The text explains the **procedure**, not the economic/religious reason for selling.
+- **research hooks:** identify the relevant `gwerras terre` political conflict; compare delegated jurisdiction during warfare; examine whether the conflict changed mobility, court accessibility or property enforcement in the Orla–Pleißen transition zone.
+
+#### EX-U2-0005 – NHUB II Nr. 733 – Allod, Patronat, Kapelle, Liturgie und institutionelle Nutzung
+
+- **source_id:** `SRC-ED-0001`
+- **Datum:** [vor 4. Mai] 1296
+- **gedruckte Seiten:** S. 764–765
+- **Überlieferung:** Ausfertigung StA Altenburg, Urkunde 1296 o. T., Pergament; Siegel Bischof Brunos; Rückaufschrift `De allodio et parrochia cum suis attinenciis in Lora`; Diktat `Bergerhand 6`; Abschriften StadtA Altenburg C II Nr. 11 fol. 236r–237r und Wagner-Collectaneen; Druck UB Vögte I Nr. 312; UB Altenburg Nr. 396.
+- **historical_excerpt:**
+
+> `In nomine sancte et individue trinitatis amen. Bruno dei gratia Nuenburcgensis episcopus universis Christi fidelibus tam modernis quam posteris salutem in domino Ihesu Christo. Licet ex sequela remunerationis eterne iugum domini suave et onus eius ipso attestante iudicetur leve, tamen, quia corporalibus indigemus alimentis, necessarium nobis est, ut, qui altaribus deservimus secundum apostolum, etiam de altaribus alimoniam consequamur. Igitur cum Heinricus et Heinricus senior et iunior viri nobiles advocati de Plawe pie devotionis accensi facula contulerint ecclesie sancte Marie virginis in Aldenburc allodium in Lom cum omnibus suis appendiciis videlicet iure patronatus parrochialis ecclesie ibidem cum capella in Lubem predicte ecclesie filia et aliis attinentiis suis mobilibus et immobilibus quondam Hermanni de Muschowe, qui ea cum omnibus suis heredibus rite et rationabiliter libere resignavit propter observantiam missarum gloriose virginis Marie et sancte Anne matris eius in prefata ecclesia celebrandarum perpetuo, nos spiritale et salubre statutum ... confirmamus ...`
+
+> `... Insuper in anniversariis domini Rudolfi et Heinrici fratris sui, cuius mediante pecunia dicta bona ecclesie sancte Marie virginis in Aldenburc sunt contracta, ad refectionem dominorum dabuntur decem solidi et duo ad candelas, que per noctes et dies anniversarios ardendo iugiter perseverent. Verum ut hec omnia in stabili vigore permaneant, presentem paginam desuper conscribi fecimus sigilli nostri tutamine roboratam.`
+
+- **objects/rights:** allod in Lohma, parish patronage, dependent chapel in Langenleuba-Niederhain, movable/immovable appurtenances.
+- **religious/memorial purpose explicit:** perpetual masses for the Virgin Mary and St Anne; anniversaries of Rudolf and his brother Heinrich, with specified convent food/candle payments.
+- **economic/institutional context:** the charter explicitly links liturgical service to material sustenance of those serving at altars; the property supports recurring institutional obligations.
+- **agency/institutional design:** the Vögte Heinrich senior/junior transfer the package; Hermann and heirs have resigned it; Bishop Bruno confirms. The remainder of the charter regulates the parish's use for the convent and its vicar/institutional arrangements, while spiritual accountability remains within Naumburg's ecclesiastical structure.
+- **source-function caution:** the pious language belongs to a confirmation/endowment charter and is partly formulaic/normative. It is evidence of the **charter's articulated institutional-religious rationale**, not automatically Hermann of Moxa's personal sale motive.
+- **research hooks:** reconstruct Rudolf/Heinrich whose money financed the acquisition; compare memorial economies; study how patronage and chapel rights are bundled with landed property; compare clerical income and convent sustenance clauses.
+
+#### EX-U2-0006 – NHUB II Nr. 734 – Adelheid und die Erben verzichten; bischöfliche Sanktion
+
+- **source_id:** `SRC-ED-0001`
+- **Datum / Ort:** [1296] 6. Mai, Zeitz
+- **gedruckte Seite:** S. 766
+- **Überlieferung:** Ausfertigung StA Altenburg, Urkunde 1296 Mai 6, Pergament, wasserfleckig; Hängesiegel verloren; Rückaufschrift `B. XXVI. De bonis in Lora`; Ausstellerausfertigung; Abschrift Wagner-Collectaneen; Druck UB Altenburg Nr. 397.
+- **historical_excerpt:**
+
+> `Nos Bruno dei gratia Nuumburgensis episcopus protestamur, quod Adelheidis uxor Hermanni dicti de Muscowe una cum suis heredibus Henrico, Hermanno, Gotwino, Pilgrimo bonis sitis in Lom coram nobis rite et rationabiliter abrenuntiavit et quod idem Hermannus maritus prelibate domine una cum genero suo Henrico dicto de Studenheim ad manus nostras promiserunt ab omnibus predicta bona inpetentibus et precipue a sororibus sepe diete femine Adelheidis ecclesiam sancte Marie virginis in Aldenburch efficere liberam et solutam. Huius rei testes sunt, qui aderant, videlicet: dominus Iohannes dictus de Hanveit et dominus Theodericus dictus de Ovwe, Henricus de Amlungesdorf advocatus, Hermannus camerarius dictus de Drusscin necnon Hermannus de Timendorf, Hermannus de Nuumburch, cives in Cice, et quam plures alii fide digni. Ut autem hec dicta robur obtineant firmitatis, volumus et preeipimus omnia in hiis gestis statuta et ordinata per excommunicationis sententiam firmiter observari. Datum in Cice, in dominica, qua cantatur Exaudi.`
+
+- **family constellation explicit:** Adelheid acts by renunciation together with heirs Heinrich, Hermann, Gotwin and Pilgrim; husband Hermann and son-in-law Heinrich of Stünzhain guarantee clearance of claims, especially those of Adelheid's sisters.
+- **institutional/legal enforcement:** Bishop Bruno receives/records the renunciation and orders observance under sentence of excommunication.
+- **direct support:** women and heirs possess legally relevant claims that require explicit extinguishment; kin relations materially shape alienability of the property.
+- **does not support:** whether Adelheid welcomed, resisted or was coerced into renunciation; the charter records legal completion, not her interior motive.
+- **research hooks:** compare female dower/renunciation charters from Naumburg/Altenburg/Vogtland; identify whether Adelheid's sisters later litigate; trace the heirs; distinguish legal capacity, consent formula and possible power asymmetry rather than collapsing them into either `agency` or `coercion`.
+
+#### Dossierbefund Moxa 1296 – noch keine Motivsynthese
+
+Die Stücke 730/732/733/734 ergeben bereits eine belastbare **Akteurs- und Verfahrenskette**:
+
+`Hermann von Moxa → Verkauf in Lohma an Bergerkloster → 60½ Mark / Zahlung → Frau, Kinder und Schwestern der Frau als Anspruchsträger → Schwiegersohn als Garant → Vogt von Plauen als weltliche Rechtsinstanz → Krieg verhindert Normalverfahren → Bischof Bruno übernimmt Resignation/Schutz → Vögte übertragen Allod + Patronat + Kapelle → liturgische/Memorialpflichten werden institutionell fixiert.`
+
+Das ist quellenmäßig erheblich dichter als ein bloßer Ortsbeleg. Zugleich bleiben Motivfragen offen. **Nicht belegt** ist bisher, weshalb Hermann verkaufte. Denkbare Erklärungen wie Liquidität, Verschuldung, politische Lage, Familienstrategie oder Frömmigkeit sind nur Hypothesen, bis weitere Quellen sie diskriminieren. Ebenso darf die in Nr. 733 explizite liturgische Begründung nicht rückwirkend als persönliches Motiv Hermanns ausgegeben werden.
+
 #### Kontextbefund: Naumburger Ministerialität
 
 NHUB II enthält für 1249 eine Überlieferung, in der Markgraf Heinrich von Meißen die Hälfte von Ministerialen überträgt, die er von der Naumburger Kirche innehat. Das ist **kein Ortsbeleg für den Suchraum**, aber ein wichtiger Kontextbeleg für die Frage, wie `Ministerialität` in der regionalen Herrschaftsüberlieferung tatsächlich dokumentiert wird. Er wird im Hauptartefakt nur verwendet, wenn eine konkrete Orla-Person oder Besitzbeziehung daran anschließt.
 
 ### CDS 1381–1395
 
-Der erste breite Ortslauf liefert bislang keine sicher identifizierten Treffer für die erweiterten Zielorte. Der Band bleibt wichtig als spätere wettinische Kontrollschicht; die Suche muss stärker über Herrschafts-, Personen- und Besitzcluster sowie die Register erfolgen.
+Der erste breite Ortslauf liefert bislang keine sicher identifizierten Treffer für die erweiterten Zielorte. Der Band bleibt wichtig als spätere wettinische Kontrollschicht; die Suche muss stärker über Herrschafts-, Personen- und Besitzcluster sowie die Register erfolgen. Dieser Stand ist **nicht** als ausgeschöpfter Corpus-Negativbefund zu behandeln.
 
 ### Lehnbuch Friedrichs des Strengen 1349/50
 
@@ -442,7 +543,8 @@ Erst wenn mehrere vergleichbare Exzerpte vorliegen:
 
 Noch nicht als vollständig durchsucht gelten:
 
-- NHUB II für alle historischen Varianten aus Ortsnamenbüchern und für kontextuelle Akteurs-/Transaktionscluster;
+- NHUB II für alle historischen Varianten aus Ortsnamenbüchern und für kontextuelle Akteurs-/Transaktionscluster; **Moxa ist jetzt als erster bestätigter Zielort auf Dossierniveau begonnen, aber der Band ist nicht gesättigt**;
+- die Moxa-Serie außerhalb der Stücke 730/732/733/734 sowie Vor-/Nachgeschichte der Familie und des Lohma-Besitzes;
 - CDS 1381–1395 über vollständige Register- und Personencluster;
 - Lehnbuch 1349/50 visuell;
 - Dobenecker;
