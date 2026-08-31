@@ -95,6 +95,8 @@ Keine produktive Stack-/Frameworkwahl vor diesem Gate.
 
 - `contracts/canonical-research-state.md` – #50; working technology-neutral contract, nicht physisches Schema/ADR
 - `assurance/method-conformance-work-context.md` – #61; Working Research / Architecture Hypothesis, keine accepted Requirement-/ADR-Quelle
+- `assurance/live-pilot-system-analysis-chat-2026-08-31.md` – #61; reale Pilot-Evidence und Requirement-Candidates aus dem Chat-/Work-Context
+- `assurance/knowledge-work-project-learnings.md` – #61; pilot-abgeleitete, nicht bindende Transfer-Learnings für zukünftige Wissensarbeitsprojekte
 
 ## Technische Grundregeln
 
