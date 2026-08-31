@@ -2,7 +2,7 @@
 
 ## Zweck
 
-Dieses Verzeichnis ist der kanonische Ort für **substantielle, versionierte Research-Artefakte** aus der Arbeitskette #27–#45.
+Dieses Verzeichnis ist der kanonische Ort für **substantielle, versionierte Research-Artefakte** aus der Arbeitskette #27–#45 sowie für eigenständige, reale historische Research-Fälle, die nach #23 einen eigenen Work Owner besitzen.
 
 GitHub Issues bleiben die **Work Owner**. Sie besitzen Auftrag, Scope, Status, Abhängigkeiten, Decision-/Blocker-Hinweise und eine kompakte Ergebniszusammenfassung. Umfangreiche Befunde, Tabellen, Research Reviews, Baselines und abgeleitete Kataloge sollen jedoch nicht dauerhaft nur in Issue-Kommentaren liegen.
 
@@ -29,6 +29,17 @@ Neue Issues werden nur nach #23 angelegt, wenn ein eigenständiger Research-/Dec
 Einzelne Findings, Quellenhinweise, Literaturbefunde oder kleine Korrekturen werden im zuständigen Work Package verarbeitet und – wenn substantiell – in dessen Research-Artefakt persistiert.
 
 Keine Issue-Explosion als Ersatz für Informationsarchitektur.
+
+## Live Research Cases
+
+Repräsentative Use Cases aus #29/#30 dürfen als **echte historische Forschung** weitergeführt werden, wenn daraus ein eigenständiger Research-Scope mit eigener Definition of Done entsteht. In diesem Fall gilt dieselbe Ownership-Regel:
+
+```text
+Case-Issue = Work Owner / Scope / Status / nächste Aktionen
+Case-Datei = ausführlicher historischer Forschungsstand / Source Ledger / Findings / Grenzen
+```
+
+Ein Live-Fall darf Capability-, Quality- und Requirement-Candidates erzeugen. Diese werden jedoch nicht allein aus einem Einzelfall zu Requirements promoviert, sondern erst über die Synthese #41/#42 und das Gate #43 geprüft.
 
 ## Wann genügt das Issue selbst?
 
@@ -65,6 +76,9 @@ docs/research/
     c8-research-state-auditability.md
     c9-capability-allocation.md
 
+  cases/
+    u2-knau-orlagau-quellenbefunde.md
+
   synthesis/
     risks-constraints.md
     capability-map.md
@@ -74,7 +88,7 @@ docs/research/
 
 Diese Dateinamen sind **Arbeitskonventionen, keine unveränderliche Architektur**. Wenn ein Artefakt zu groß oder fachlich sinnvoll teilbar wird, darf es nach tatsächlichem Bedarf aufgeteilt werden. Wenn mehrere kleine Artefakte gemeinsam lesbarer sind, dürfen sie zusammenbleiben.
 
-## Zuordnung zur aktuellen Issue-Kette
+## Zuordnung zur aktuellen Issue-Kette und Live Research
 
 | Issue | Work Owner | bevorzugtes Research-Artefakt bei substantiellem Umfang |
 |---|---|---|
@@ -94,6 +108,7 @@ Diese Dateinamen sind **Arbeitskonventionen, keine unveränderliche Architektur*
 | #41 | Capability/Quality Synthesis | `docs/research/synthesis/capability-map.md` |
 | #42 | Requirements Baseline | `docs/research/synthesis/requirements-baseline.md` |
 | #43 | Architecture Readiness | `docs/research/synthesis/architecture-readiness.md` |
+| #46 | Live Research U2: Knau/Orlagau | `docs/research/cases/u2-knau-orlagau-quellenbefunde.md` |
 
 ## Was bleibt im Issue?
 
