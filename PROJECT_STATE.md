@@ -7,22 +7,28 @@
 
 > Diese Datei ist die zentrale Navigations-/Handoff-Sicht. Kanonische Detailwahrheit liegt in Requirements-, Research-, Method-, Architecture- und Development-Artefakten.
 
-## 1. Aktuelle Phase
+## 1. Aktuelle Phase / Owner-Klärung
 
-Owner-Entscheidung 31.08.2026:
+Histo-Orla ist ein **privates, leanes und agiles Forschungssystem**.
 
-> **Histo-Orla ist ein privates, leanes und agiles Forschungssystem. Die im Domain-Research-/Methodenstrang formulierten Systemanforderungen sind MVP-Akzeptanzkriterien. Das MVP wird jetzt inkrementell gebaut und im realen Forschungsgebrauch gehärtet.**
+Verbindlich gilt:
+
+> **Die gesamte bereits gemeinsam erarbeitete und akzeptierte Requirements-/Quality-/Governance-Basis bleibt für den privaten MVP aktiv. Domain-/Live-Research- und Methodenanforderungen ergänzen und schärfen diese Basis.**
+
+> **Lean optimiert Mittel, Reihenfolge, Reversibilität und Time-to-Value – nicht den Anspruch. Agil heißt inkrementell vollständig werden – nicht Anforderungen vergessen.**
 
 Kanonisch:
 
+- `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/mvp-acceptance.md`
+- `docs/governance/lean-agile-non-regression.md`
 - `docs/research/synthesis/phase-reconciliation.md`
-- #44 DD-001 (resolved owner decision)
+- #44 DD-001 + Non-Regression-Amendment
 
 Aktueller Arbeitsfluss:
 
 ```text
-Owner-accepted MVP Acceptance Criteria (#42)
+vollständige aktive MVP Acceptance (#42)
         ↓
 Walking Skeleton / Lean MVP Delivery (#48/#59)
         ↕
@@ -39,7 +45,27 @@ kontinuierliche technische + wissenschaftliche Verification
 
 **Architecture ist kein separates Vorab-Gate mehr, sondern evolutionäre Delivery-Arbeit.**
 
-## 2. Baselines und aktuelle Präzedenz
+## 2. Non-Regression / Qualitätsinterpretation
+
+Die Begriffe `lean`, `agil`, `privat`, `MVP`, `Walking Skeleton`, `Greenfield`, neue Tools/Frameworks oder neue Phasen dürfen bestehenden accepted Scope **nicht implizit superseden**.
+
+Für den privaten MVP gilt mindestens die Vereinigung aus:
+
+1. accepted Requirements aus `requirements-baseline.md`;
+2. `mvp-acceptance.md`;
+3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints;
+4. owner-accepted Systemanforderungen aus #46/#47/#60;
+5. späteren expliziten Acceptance-Deltas unter #42.
+
+Materielle Scope-/Qualitätsreduktion benötigt ein explizites Requirement-/Acceptance-Delta mit Grund, Konsequenz/Loss, Alternative und Owner-Entscheidung.
+
+`nicht im aktuellen Slice` bedeutet **nicht** `nicht MVP`.
+
+Ein Slice darf klein in der Breite sein, muss innerhalb seines behaupteten Scopes aber wissenschaftlich und technisch korrekt sein. Fehlende Fähigkeiten werden sichtbar als fehlend/partial/research-needed geführt und nicht durch vereinfachte Semantik simuliert.
+
+State of the Art und Best Practice bleiben Basis der wissenschaftlichen und technischen Mittelwahl. Just-in-time Research reduziert Vorlauf, nicht Qualitätsanspruch.
+
+## 3. Baselines und aktuelle Präzedenz
 
 Der erste Durchlauf #28–#43 bleibt als v0.1 Discovery-/SOTA-/Requirements-/Readiness-Provenienz erhalten.
 
@@ -49,12 +75,12 @@ Der erste Durchlauf #28–#43 bleibt als v0.1 Discovery-/SOTA-/Requirements-/Rea
 - #31–#39 SOTA C1–C9 – completed für damalige Entscheidungen
 - #40 Risks/Constraints – completed
 - #41 Capability/Quality – completed
-- #42 Requirements Baseline v0.1 – accepted baseline + aktive MVP-Acceptance-Schärfung
-- #43 früheres Gate – durch Owner-Entscheidung in **continuous/evolutionary readiness** überführt
+- #42 Requirements Baseline v0.1 – accepted baseline + aktive MVP-Acceptance-/Coverage-Schärfung
+- #43 früheres Gate – in continuous/evolutionary readiness überführt
 
-Neue Domain-/Case-Befunde dürfen Requirements/Acceptance weiter schärfen, blockieren aber Development nicht pauschal.
+Neue Domain-/Case-Befunde dürfen Requirements/Acceptance weiter schärfen, blockieren Development nicht pauschal und reduzieren alte Acceptance nicht still.
 
-## 3. Aktive fachliche Work Owner
+## 4. Aktive fachliche Work Owner
 
 ### #46 – U2 Knau/Orlagau
 
@@ -83,34 +109,44 @@ Erste Priorität:
 3. historische Philologie / mittellateinische Semantik / Hermeneutik;
 4. weitere Profile problemgetrieben aus #46/#47.
 
-Method Profiles dürfen als `method-candidate` bereits explorativ verwendet werden. Fehlende Reife muss sichtbar bleiben und darf keinen höheren epistemischen Status vortäuschen.
+Method Profiles dürfen als `method-candidate` explorativ verwendet werden. Fehlende Reife muss sichtbar bleiben und darf keinen höheren epistemischen Status vortäuschen.
 
-## 4. Requirements / MVP Acceptance
+## 5. Requirements / MVP Acceptance – #42
 
-### #42
-
-Einziger Owner akzeptierter Systemanforderungen und MVP-Akzeptanzkriterien.
+#42 ist einziger Owner akzeptierter Systemanforderungen und MVP-Akzeptanzkriterien.
 
 Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/mvp-acceptance.md`
+- `docs/governance/lean-agile-non-regression.md`
 
-Owner-Regel:
+#42 führt die vollständige Acceptance-Basis monoton weiter, bis ein Kriterium explizit geändert/superseded/owner-deferred wird.
 
-> **Alle Systemanforderungen aus dem Domain-Research-/Methodenstrang gelten für den privaten Scope als MVP-Akzeptanzkriterien.**
+Pflichtstatus je aktivem Kriterium für Delivery:
 
-Sie werden inkrementell implementiert und getestet. Method Truth selbst bleibt trotzdem #60-Eigentum und darf technisch nicht erfunden werden.
+```text
+not-started
+in-progress
+implemented
+verified
+partial
+blocked
+research-needed
+owner-deferred
+```
 
-## 5. Technical Lead / Delivery
+`owner-deferred` erfordert explizite Owner-Entscheidung.
+
+## 6. Technical Lead / Delivery
 
 ### #48 – Lean MVP Delivery / Technical Lead
 
 Auftrag:
 
+- vollständige Acceptance-Coverage sichtbar halten;
 - technischen Backlog nach Nutzerwert, Risiko, Dependency und kleinster nutzbarer Lieferung priorisieren;
-- SOTA/Best Practice **just in time** für konkrete Entscheidungen prüfen;
-- vorhandene Tools/Standards vor Eigenbau;
+- SOTA/Best Practice und Existing Tools **just in time** für konkrete Entscheidungen prüfen;
 - reversible technische Entscheidungen früh treffen und refactorbar halten;
 - Integrationen/Spikes direkt in nutzbare Slices überführen;
 - evolutionäre Architektur;
@@ -119,13 +155,14 @@ Auftrag:
 Authority Boundary:
 
 - Dev besitzt keine fachwissenschaftliche Method Truth;
-- Dev darf Acceptance Criteria nicht still abschwächen;
+- Dev darf Acceptance Criteria nicht still abschwächen, streichen oder zu `nicht MVP` umdeuten;
 - irreversible/teure/lock-in-relevante Entscheidungen brauchen explizite Begründung/ADR/ggf. #44;
-- keine Infrastruktur auf Vorrat.
+- keine Infrastruktur auf Vorrat;
+- keine Prototyp-/Happy-Path-Qualität als erfüllte Acceptance deklarieren.
 
 ### #59 – MVP Development & Verification
 
-**Aktiv.** Ziel ist jetzt ein real nutzbarer Walking Skeleton, nicht erst eine spätere Implementierung nach einem großen Architecture Gate.
+**Aktiv.** Ziel ist ein real nutzbarer Walking Skeleton als erster Vertical Slice und danach inkrementelle Erfüllung der vollständigen privaten MVP-Acceptance.
 
 Erster Slice-Kandidat:
 
@@ -141,11 +178,13 @@ Zotero / Source Metadata
 → Audit / Persistenz / Handoff
 ```
 
+Der Skeleton ist Lieferreihenfolge, nicht Scope-Reduktion.
+
 ### #58 – Architecture Decisions / ADRs
 
-Nicht mehr Blocking-Gate. Wird **just in time** benutzt, wenn eine materielle technische Entscheidung Vergleich/ADR braucht.
+Nicht Blocking-Gate. Wird just in time benutzt, wenn eine materielle technische Entscheidung Vergleich/ADR braucht.
 
-## 6. Technische Teilpakete
+## 7. Technische Teilpakete
 
 - **#49** – Zotero ↔ OneDrive, read-first Integration
 - **#50** – Canonical Research State / Source Identity
@@ -158,13 +197,11 @@ Nicht mehr Blocking-Gate. Wird **just in time** benutzt, wenn eine materielle te
 - **#57** – Provider Removal / Export / Restartability
 - **#61** – Work-Context / Method-Conformance / Handoff Technical Research; parallel hardening, kein globaler Development-Blocker
 
-Diese Pakete sollen bevorzugt als kleine verticale Produktinkremente statt isolierte Architekturstudien umgesetzt werden.
+Diese Pakete werden bevorzugt als kleine vertikale Produktinkremente umgesetzt. Ihre Reihenfolge bestimmt #48 nach Dependency/Risiko/Nutzerwert; ihre Priorisierung hebt accepted Scope nicht auf.
 
-## 7. MVP Acceptance – zentrale Kriterien
+## 8. MVP Acceptance – Kern
 
-Vollständiger Owner-accepted Overlay:
-
-`docs/research/synthesis/mvp-acceptance.md`
+Vollständiger Overlay: `docs/research/synthesis/mvp-acceptance.md`. Baseline bleibt zusätzlich gültig.
 
 Kern:
 
@@ -180,11 +217,12 @@ Kern:
 - portable/restartable/chat-unabhängige State;
 - Zotero/OneDrive/Histo-Orla-Verantwortung;
 - formale Invarianten deterministisch, soweit formal geklärt;
-- private, progressive, human-readable UX.
+- private, progressive, human-readable UX;
+- technische Lösung auf SOTA/Best Practice, Existing Tools und kleinste hinreichende Architektur zurückführen.
 
-`usable increment` darf früher existieren; `MVP complete` erst bei bestandenem Acceptance-Overlay für den privaten Scope.
+`usable increment` darf früher existieren; `MVP complete` erst bei bestandener **vollständiger aktiver Acceptance** für den privaten Scope.
 
-## 8. Source / Storage Responsibility
+## 9. Source / Storage Responsibility
 
 ```text
 OneDrive = Source of Bytes
@@ -194,39 +232,42 @@ Histo-Orla = wissenschaftlicher Research State
 
 Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
-## 9. Blocker / Owner Decisions
+## 10. Blocker / Owner Decisions
 
 #44 ist Decision/Dependency Register.
 
 Aktuell:
 
-- **DD-001 resolved:** privates lean/agiles Delivery-Modell; Domain-Systemanforderungen = MVP-Akzeptanzkriterien; Build jetzt, wissenschaftlich/technisch im realen Einsatz härten.
+- **DD-001 resolved + Amendment:** build now / harden while using; vollständige bestehende Acceptance bleibt aktiv; Lean/Agile reduziert Scope/Qualität nicht.
 
 Kein allgemeiner Development-Blocker aus #42/#43/#60/#61.
 
-## 10. Nächste ausführbare Aktionen
+## 11. Nächste ausführbare Aktionen
 
 ### Delivery
 
-1. #48/#59 Walking Skeleton konkretisieren und implementieren.
-2. minimalen projekt-/testbaren technischen Stack auswählen – reversibel, vorhandene Tools bevorzugt.
-3. #49 zuerst soweit nötig: Zotero read-only + OneDrive/Test-Byte-Auflösung.
-4. #50/#51: kleinsten persistenten Source/Instance/Findspot-State für den Slice implementieren.
-5. #53: Exact Search früh nutzbar machen; Varianten danach inkrementell.
-6. #55: einfache menschenlesbare Audit-Ausgabe aus demselben State.
-7. #54: nur bereits formal klare Invarianten automatisiert testen.
+1. #48/#59 Acceptance-Coverage-Map aus Baseline + MVP-Overlay + bindenden Constraints erstellen; nichts still auslassen.
+2. daraus ersten korrekten Vertical Slice implementieren.
+3. minimalen technischen Stack auswählen – reversibel, SOTA/Best Practice prüfen, Existing Tools bevorzugen.
+4. #49: Zotero read-only + OneDrive/Test-Byte-Auflösung soweit für Slice nötig.
+5. #50/#51: persistenten Source/Instance/Findspot-State für den Slice implementieren.
+6. #53: Exact Search früh nutzbar machen; Varianten inkrementell nachziehen.
+7. #55: menschenlesbare Audit-Ausgabe aus demselben State.
+8. #54: formal klare Invarianten automatisiert testen.
+9. weitere aktive Acceptance nach Dependency/Risiko/Nutzerwert nachziehen, nicht als `später = nicht MVP` behandeln.
 
 ### Parallel Domain
 
-8. #46/#47 reale Forschung fortführen.
-9. #60 Diplomatik-/Editions-Profil SOTA-basiert härten und direkt im laufenden MVP-Workflow testen.
-10. neue fachliche Anforderungen direkt als Acceptance-Deltas an #42 zurückgeben; kein monatelanges Warten auf vollständige Fachprofile.
+10. #46/#47 reale Forschung fortführen.
+11. #60 Diplomatik-/Editions-Profil SOTA-basiert härten und im laufenden MVP-Workflow testen.
+12. neue fachliche Systemanforderungen als Acceptance-Deltas an #42 zurückgeben.
 
-### Just-in-time Architecture
+### Just-in-time Architecture / Research
 
-11. #58/ADR nur aufrufen, wenn eine Entscheidung materiell, schwer reversibel oder wissenschaftlich folgenreich wird.
+13. #58/ADR nur bei materiellen, schwer reversiblen oder wissenschaftlich folgenreichen Entscheidungen.
+14. technische/fachliche SOTA-Recherche proportional zur konkreten Entscheidung; keine monatelange Vorstudie, aber auch kein Raten.
 
-## 11. Handoff-Test
+## 12. Handoff-Test
 
 Ein neuer Chat muss nach
 
@@ -234,17 +275,20 @@ Ein neuer Chat muss nach
 
 ohne alten Chat erkennen können:
 
-- aktuelles MVP-Ziel und Acceptance Criteria;
+- vollständige aktive MVP-Acceptance;
+- aktuellen Slice und Acceptance-Coverage-Status;
 - primäre Funktion/Authority;
-- laufenden Delivery-Slice;
 - Method-/Evidence-Status;
-- offene technische/fachliche Debt;
+- was implementiert/verifiziert/partial/blocked/research-needed ist;
+- welche Anforderungen später priorisiert, aber nicht gestrichen sind;
 - nächste Aktion und Persistenzort.
 
 Leitformeln:
 
-> **Privat, lean, agil: früh nutzbar werden, im realen Forschen härten.**
+> **Lean heißt kleinste hinreichende Lösung – nicht kleinster Anspruch.**
 
-> **Architecture is a means, not a phase gate.**
+> **Agil heißt inkrementell vollständig werden – nicht Anforderungen vergessen.**
+
+> **State of the Art und Best Practice sind Basis der Mittelwahl.**
 
 > **Fachdomänen führen. Technologie dient.**
