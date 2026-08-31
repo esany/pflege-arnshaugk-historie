@@ -6,19 +6,17 @@ Ziel ist ein **funktionierendes, dauerhaft nutzbares Forschungswerkzeug**, das b
 
 ## Pflicht-Bootstrap / Handoff
 
-Vor substantieller Arbeit am Projekt zuerst lesen:
+Vor substantieller Arbeit:
 
-1. **`AGENTS.md`** – bindende repo-weite Arbeits-, Work-Context-, Persistenz- und Handoff-Regeln
-2. **`PROJECT_STATE.md`** – aktueller phasenübergreifender Projektstand
-3. diesen `README.md`
+1. `AGENTS.md`
+2. `PROJECT_STATE.md`
+3. dieses `README.md`
 4. zuständiges Work-Owner-Issue
 5. dessen kanonische Artefakte
 
 > **Chat ist Werkstatt. GitHub ist Projektgedächtnis.**
 
-Kein für die Fortsetzung notwendiger Forschungs-, Requirements-, Architektur-, Entwicklungs- oder Entscheidungsstand darf ausschließlich in einem Chat oder Modellzustand verbleiben.
-
-Für substantielle Arbeit gilt zusätzlich der bindende Work-Context-Vertrag aus `AGENTS.md` §13: primäre Funktion, Work Owner, bounded Scope/Exclusions, fachlicher Method-/Quality-Frame, Authority-Grenzen, Stop/Handoff, Return Condition und kanonischer Persistenzort müssen aus dem Repository rekonstruierbar sein.
+Für substantielle Arbeit gilt zusätzlich `AGENTS.md` §13: primäre Funktion, Work Owner, bounded Scope, Method-/Quality-Frame, Authority-Grenzen, Stop/Handoff, Return Condition und Persistenzort müssen rekonstruierbar sein.
 
 ## Präzedenz
 
@@ -29,250 +27,182 @@ konkreter Forschungsauftrag / Nutzer-Pain
 → State of the Art + internes Prior Art
 → validierte Needs / Capabilities / Quality Attributes
 → Requirements + Acceptance Criteria
-→ Architektur / Assurance / Design
+→ Architecture Readiness
+→ Architektur / Design
 → Development / Integration
 → technische + wissenschaftliche Verifikation
-→ reales MVP / Nutzung
+→ MVP / Nutzung
 → Evaluation / Iteration
 ```
 
 **Fachdomänen führen. Technologie dient.**  
 **Dev informiert Requirements; Dev besitzt sie nicht.**
 
-Lean bedeutet: **so wenig unnötige technische Komplexität wie möglich, aber so viel funktionierendes System wie nötig**, um validierte Nutzer- und Forschungsanforderungen hochwertig zu erfüllen.
+## Aktuelle Phase – Reconciliation vor Architekturentscheidung
 
-## Aktuelle Phase
+Der erste Durchlauf #28–#43 erzeugte eine v0.1 Discovery-/SOTA-/Requirements-Baseline und zunächst das Gate `architecture-ready-with-bounded-research-debt`.
 
-Discovery, SOTA, Risk/Constraints, Capability-/Quality-Synthese, Requirements und Architecture Readiness wurden in **#28–#43 abgeschlossen**.
+Der vertiefte Live Case #46 und die daraus entstandene fachwissenschaftliche Methodenschicht #60 haben gezeigt, dass diese Readiness erneut geprüft werden muss. Deshalb sind **#42 Requirements und #43 Architecture Readiness reopened**.
 
-Gate-Ergebnis #43:
+Aktuell gilt:
 
-**`architecture-ready-with-bounded-research-debt`**
+**`architecture decision not admitted / technical discovery allowed`**
 
-Aktuelle Phase:
+Kanonisch:
 
-```text
-Requirements
-→ Architecture Contracts / Invariants / Assurance
-→ reversible technische/integrative Spikes
-→ Thin Vertical Slice
-→ Architekturvarianten / Trade-offs
-→ ADRs
-→ MVP-Schnitt
-→ Development / Verification
-```
+`docs/research/synthesis/phase-reconciliation.md`
 
-Aktueller Architecture Execution Owner: **#48**.
-
-### Aktive fachliche Research-Workstreams
-
-- **#46** – U2 Knau/Orlagau, historische Live-Forschung / Falsifikation
-- **#47** – U1 Orlagau Teich-/Feuchtkulturlandschaft, historische Live-Forschung / Falsifikation
-- **#60** – Domain Method Profiles: SOTA-basierte fachwissenschaftliche Method Truth / Operationalisierung
-
-#60 ist die methodische Mittelschicht zwischen Vision/Kompetenzlandkarte und Requirements. Ein Domain Method Profile ist kein Prompt und keine Agentenrolle; es muss Fach-SOTA, Quellenlogik, Playbook, Inferenzvertrag, Evidence Appetite, QA/Falsifikation, Interfaces und AI-/Automation-Grenzen nachweisen und an realen Fällen getestet werden.
-
-### Aktive Architektur-/Technik-/Assurance-Workstreams
-
-- **#48** – Architecture Execution Control
-- **#49** – Zotero ↔ OneDrive ↔ Histo-Orla Integration, read-first
-- **#50** – Canonical Research State / Source Identity / Method-/Work-/Review-Provenienz
-- **#51** – Document-/Findspot-Pipeline
-- **#52** – OCR/HTR Contract + Benchmark
-- **#53** – Historical Retrieval Baseline
-- **#54** – Candidate→Review→Promotion + deterministische Transition-/Invariant-Grenzen
-- **#55** – Human-readable Research Audit View
-- **#56** – Rights Admission / Credentials / External Processing
-- **#57** – Provider Removal / Export / fresh-context Restartability
-- **#61** – Executable Work-Context / Method-Conformance / Handoff Assurance
-- **#58** – Architekturvarianten / ADR / MVP Cut
-- **#59** – MVP Development & Verification; aktuell downstream von #58
-
-## Method Truth vs. Method Conformance
-
-Aktuell verbindliche Trennung:
+Arbeitsfluss:
 
 ```text
-METHOD TRUTH
-Was ist fachlich ein zulässiges Vorgehen?
-→ #60 / Fachdomäne / docs/research/methods/
-
-METHOD CONFORMANCE
-Wurde diese Methode in diesem konkreten Work Context korrekt referenziert,
-angewandt, geprüft und nur durch erlaubte Übergänge promoted?
-→ #61 + #50/#54/#55/#57
+#46/#47 Live Research / Problem Discovery
+        ↕
+#60 Domain Method SOTA / Operationalisierung
+        ↓
+#42 Requirements Reconciliation
+        ↕
+#48 Technical Discovery / Engineering Advisory
+        ↓
+#43 Architecture Readiness Re-Gate
+        ↓ nur bei PASS
+#58 Architecture Decision / ADR / MVP Cut
+        ↓
+#59 Development / Verification
 ```
+
+### Softwaretechnologischer Stand
+
+Histo-Orla ist **technisch Greenfield**:
+
+- kein produktiver Anwendungscode;
+- kein gewählter Runtime-/UI-/Backend-Stack;
+- keine entschiedene Persistenz-, Search-, OCR- oder Workflow-Technologie;
+- keine validierte Zielarchitektur.
+
+Vorhanden sind wissenschaftliche Invarianten, Requirements v0.1, technische SOTA-/Allocation-Prinzipien und bounded Research-/Feasibility-Hypothesen. Das ist noch keine Systemarchitektur.
+
+## Aktive fachliche Owner
+
+- **#46** – U2 Knau/Orlagau Live Research
+- **#47** – U1 Teich-/Feuchtkulturlandschaft Live Research
+- **#60** – Domain Method Profiles / fachwissenschaftliche Method Truth
+- **#42** – einziger Owner akzeptierter Requirements; aktuell Reconciliation
+- **#43** – Architecture Readiness Re-Gate
+
+Methodenbasis:
+
+- `docs/research/methods/README.md`
+- `docs/research/methods/domain-method-profile-contract.md`
+- #45 Research-/Evidence-Protokoll
+- `docs/research/source-identity-protocol.md`
+
+## Führender technischer Owner vor dem Re-Gate
+
+**#48 – Technical Discovery / Engineering Advisory**
+
+#48 darf und soll:
+
+- technische SOTA/Best Practice und vorhandene Tools untersuchen;
+- Feasibility, Integrationen, Migration, Lock-in, Kosten und Dependencies prüfen;
+- technische Unknowns priorisieren;
+- kleine reversible Spikes/Benchmarks durchführen, wenn sie eine konkrete Research-/Requirement-Frage diskriminieren;
+- Ergebnisse an #42/#60 als Findings/Candidates zurückgeben.
+
+#48 darf vor #43 PASS **nicht**:
+
+- Fachsemantik definieren;
+- Requirements akzeptieren;
+- Zielarchitektur, produktiven Stack oder MVP-Schnitt festlegen.
 
 Leitregel:
 
-> **Exploration darf offen sein. Promotion ist fail-closed gegenüber fehlender Method-/Evidence-/Validation-Grundlage.**
+> **Dev exploriert früh, entscheidet spät.**
 
-Ein `method-candidate` darf explorative Forschung unterstützen. Consequential operative Fachmethodik benötigt `working-method` oder höher. Software darf formal prüfbare Preconditions/Transitions erzwingen; sie darf historische Wahrheit nicht simulieren.
+## Technische Research-/Feasibility-Workstreams
 
-## Kanonische Artefakte
+- **#49** – Zotero ↔ OneDrive Integration, read-first feasibility
+- **#50** – Canonical Research State / Source Identity
+- **#51** – Document-/Findspot-Pipeline
+- **#52** – OCR/HTR Benchmark Research
+- **#53** – Historical Retrieval Baseline
+- **#54** – Promotion / formal prüfbare Invarianten
+- **#55** – Human-readable Audit
+- **#56** – Rights / Credentials / External Processing
+- **#57** – Provider Removal / Restartability
+- **#61** – Work-Context / Method-Conformance / Handoff als Technical Assurance Research Hypothesis
 
-### Foundational Research Design
+Diese Pakete liefern **Research/Feasibility Evidence**, nicht automatisch Architekturfortschritt.
+
+### HOLD
+
+- **#58** – Architekturvarianten / ADR / MVP Cut: HOLD bis #42 + #43 PASS
+- **#59** – produktive MVP-Entwicklung: BLOCKED bis #42 + #43 + #58
+
+## Method Truth vs. technische Conformance
+
+```text
+METHOD TRUTH
+→ #60 / Fachdomäne / SOTA
+
+TECHNICAL CONFORMANCE RESEARCH
+→ #61 / #48
+→ untersucht nur, welche bereits fachlich geklärten Teile später formal prüfbar sind
+→ Requirement-Deltas zurück an #42
+```
+
+Ein Prompt oder technischer Contract ist keine Fachmethode.
+
+## Quellen-/Storage-Verantwortung
+
+```text
+OneDrive = Source of Bytes
+Zotero   = bibliographische/archivische Verwaltung + Attachment-Referenzen
+Histo-Orla = wissenschaftlicher Research State
+```
+
+Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/Instance-Identität.
+
+## Kanonische Einstiege
+
+### Foundational Design
 
 - `docs/research-design/transdisziplinaerer-literaturassistent.md`
-- `docs/research-design/README.md` – Status/Präzedenz
+- `docs/research-design/README.md`
 
-Das Design-Dokument bleibt foundational, ist aber nach #28–#43 **nicht mehr alleiniger aktueller Operations-/Requirements-/Architecture-State**.
+Foundational, aber nicht alleiniger aktueller Operations-/Requirements-/Architecture-State.
 
-### Research Governance / Fachmethodik / Quellen
+### Research / Requirements
 
 - `docs/research/README.md`
 - `docs/research/source-identity-protocol.md`
-- `docs/research/methods/README.md`
-- `docs/research/methods/domain-method-profile-contract.md`
-- Issue **#45** – Research-/Evidence-Protokoll
-- Issue **#60** – Domain Method Profiles
-
-### Discovery / SOTA / Synthese
-
+- `docs/research/methods/`
 - `docs/research/discovery/`
 - `docs/research/sota/`
-- `docs/research/synthesis/risks-constraints.md`
-- `docs/research/synthesis/capability-map.md`
 - `docs/research/synthesis/requirements-baseline.md`
-- `docs/research/synthesis/architecture-readiness.md`
+- `docs/research/synthesis/architecture-readiness.md` – historischer Gate-Report
+- `docs/research/synthesis/phase-reconciliation.md` – aktueller Reassessment-State
 
-### Architecture / Assurance
+### Technical Discovery / Architecture Research
 
 - `docs/architecture/README.md`
-- `docs/architecture/contracts/canonical-research-state.md` – #50
-- `docs/architecture/assurance/method-conformance-work-context.md` – #61
-
-Weitere Architekturartefakte entstehen nur bei realem Inhalt; keine Future-Proof-Leerstruktur.
-
-## Aktuelle Verantwortungstrennung für Quellen
-
-Research-Owner-Constraint:
-
-```text
-OneDrive
-= Source of Bytes / primärer physischer Speicher der Quellen- und Literaturdateien
-
-Zotero
-= bibliographische/archivische Verwaltung, Collections, Tags, Notes,
-  Attachment-Referenzen
-
-Histo-Orla
-= wissenschaftlicher Research State: Evidenz, Findings, Claims,
-  Discrepancies, Validation, Provenienz-/Findspot-/Method-Application-Bezug
-```
-
-Physischer Pfad, Zotero-Key oder OneDrive-ID ersetzen nicht still die wissenschaftliche Source-/Instance-Identität.
-
-## Verantwortungs- und Handoff-Topologie
-
-```text
-Domain / Source Research (#46/#47)
-→ bei fachmethodischer Friktion: #60
-→ bei generalisierbarem Systembedarf: Domain Review / Requirements #42
-→ bei accepted technical need: Architecture #48ff
-→ bounded Development #59
-→ technische Verification
-→ scholarly adequacy return
-→ Research NEXT ACTION
-```
-
-Cross-cutting:
-
-- **#9 / `AGENTS.md`** besitzt Governance, Authority/Handoff und Anti-Wissensmonopol;
-- **#60** besitzt fachliche Method Truth;
-- **#42** ist einziger Owner akzeptierter Requirements;
-- **#50** besitzt Canonical-State-Responsibilities;
-- **#54/#61** besitzen formal prüfbare Transition-/Conformance-Enforcement, nicht Fachwahrheit;
-- **#55** rendert Audit aus demselben State;
-- **#57** prüft tatsächliche fresh-context Fortsetzbarkeit;
-- **#48** koordiniert Architektur;
-- unabhängige qualifizierte Fachvalidierung bleibt ein eigener Review-Typ, nicht AI-Selbstreview.
+- `docs/architecture/contracts/canonical-research-state.md`
+- `docs/architecture/assurance/method-conformance-work-context.md` – Working Research/Hypothesis, keine ADR
 
 ## Governing Principles
 
-- **Wissenschaft vor Convenience:** Fachstandards dürfen nicht durch Nutzerformulierung, Technik, UI oder Vermittlungsziele abgeschwächt werden.
-- **Method Truth vor Prompt:** Fachwissenschaftliche Methodik kommt aus Fach-SOTA und validierten Domain Profiles, nicht aus Rollenprompt oder Modellplausibilität.
-- **Fail closed on promotion, not exploration:** offene Forschung bleibt möglich; hoher epistemischer Status braucht nachweisbare Method-/Evidence-/Validation-Grundlage.
-- **Human-in-the-loop + Auditierbarkeit:** Routinearbeit darf automatisiert werden; consequential work muss erklärbar, anfechtbar, korrigierbar und fachlich überprüfbar bleiben.
-- **Kein Wissensmonopol:** Repo muss jederzeit handoff-fähig sein.
-- **Research → Delivery:** Research/Requirements dienen der Entwicklung eines funktionierenden Systems.
-- **Technische Subsidiarität:** vorhandene Werkzeuge vor Eigenentwicklung; deterministische/spezialisierte Verfahren vor GenAI, wo sie geeigneter sind.
-- **Provider-Unabhängigkeit des Research State:** externe Dienste dürfen kuratiertes Forschungswissen nicht monopolisieren.
-- **Forschung ≠ Vermittlung:** Vermittlung ist nachgelagert und darf nicht in den Research State zurückschreiben.
-
-## Issue Ownership
-
-Wichtige Steuerungs-/Governance-Owner:
-
-- **#1** – Gesamtstand / Zielbild
-- **#9** – Governance, HITL, Transparenz, kein Wissensmonopol, Work Context/Handoff
-- **#10** – Research-to-Delivery-Prozess
-- **#22** – Kompetenzlandkarte
-- **#23** – Issue Ownership / Traceability
-- **#24** – Software-/Systemkompetenzen / technische Arbeitsteilung
-- **#42** – accepted Requirements
-- **#44** – ausschließlich echte Decisions / Dependencies / externe Validierung
-- **#45** – Research-/Evidence-Protokoll
-- **#48** – Architecture Execution
-- **#60** – Domain Method Profiles
-- **#61** – Method-Conformance / Work-Context / Handoff Assurance
-
-Regel:
-
-```text
-Issue
-= Work Owner / Scope / Status / Dependencies / kurze Synthese / nächste Aktion
-
-versioniertes Artefakt
-= substantieller kanonischer Research-/Architecture-/Decision-Inhalt
-
-Code / Validator / Test Harness
-= konkrete technische Umsetzung oder begrenzter diskriminierender Prototyp
-```
-
-Neue Issues nur für eigenständige Work Packages, testbare Spikes/Hypothesen, Decisions/ADRs oder Audits – nicht für jedes Finding.
-
-## Interne Referenzprojekte
-
-- **#12 `paleo-type`** – Prior Art für Governance, Evidence/Provenance, HITL, Restartability, Quality, machine-readable Contracts/Validatoren und technische Subsidiarität.
-- **#21 `rgk-main-ssot`** – Prior Art für Claim/Evidence/Interpretation, relationale Muster, Discrepancy Reasoning und Forschung↔Vermittlung.
-
-Prior Art ist Challenge/Input, keine direkte Architekturquelle.
+- Wissenschaft vor Convenience.
+- Method Truth vor Prompt/Technik.
+- Kein Wissensmonopol im Chat.
+- Exploration offen; Promotion nur mit ausreichender Method-/Evidence-/Validation-Grundlage.
+- technische Subsidiarität: vorhandene Werkzeuge vor Eigenbau.
+- Provider-Unabhängigkeit des kuratierten Research State.
+- Dev informiert Requirements; Dev besitzt sie nicht.
+- **Greenfield bedeutet technische Freiheit – nicht fachliche Definitionsmacht.**
 
 ## Handoff-Test
 
-Ein neuer kompetenter Bearbeiter muss nach Lesen von:
+Ein neuer kompetenter Bearbeiter muss nach
 
-```text
-AGENTS.md
-→ PROJECT_STATE.md
-→ README.md
-→ zuständiges Owner-Issue
-→ kanonisches Artefakt
-```
+`AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne vorherige Chat-Historie produktiv fortsetzen können.
-
-Seit `AGENTS.md` §13 bedeutet das nicht nur „Dateien finden“, sondern auch korrekt rekonstruieren:
-
-- primäre Funktion / Authority Boundary;
-- bounded Scope / Exclusions;
-- applicable Method/Quality Frame;
-- tatsächlich verfügbare Evidenz;
-- nächste erlaubte Aktion;
-- Stop/Handoff/Return Condition;
-- kanonischen Persistenzort.
-
-Wenn das nicht möglich ist, ist der Projektstand **handoff-incomplete**.
-
-## Leitformeln
-
-> **Der Nutzer darf unsauber fragen; das System muss wissenschaftlich sauber arbeiten.**
-
-> **Die Rückübersetzung vereinfacht die Sprache, nicht die Wissenschaft.**
-
-> **Fachdomänen führen. Technologie dient.**
-
-> **Dev informiert Requirements; Dev besitzt sie nicht.**
-
-> **Kein Handoff hängt vom Gedächtnis eines Chats ab.**
+ohne alten Chat aktuelle Phase, Authority, Scope, Methodenstatus, Evidenz, nächste erlaubte Aktion und Return/Handoff korrekt rekonstruieren können.
