@@ -1,65 +1,83 @@
 # Histo-Orla – Ablage- und Ownership-Regeln für Research-Ergebnisse
 
+**Projekt-Bootstrap:** `/AGENTS.md` → `/PROJECT_STATE.md` → `/README.md`  
+**Research Governance:** #45  
+**Issue Ownership:** #23
+
 ## Zweck
 
-Dieses Verzeichnis ist der kanonische Ort für **substantielle, versionierte Research-Artefakte** aus der Arbeitskette #27–#45 sowie für eigenständige, reale historische Research-Fälle, die nach #23 einen eigenen Work Owner besitzen.
+Dieses Verzeichnis ist der kanonische Ort für **substantielle, versionierte Research-Artefakte** sowie eigenständige historische Live-Research-Fälle.
 
-GitHub Issues bleiben die **Work Owner**. Sie besitzen Auftrag, Scope, Status, Abhängigkeiten, Decision-/Blocker-Hinweise und eine kompakte Ergebniszusammenfassung. Umfangreiche Befunde, Tabellen, Research Reviews, Baselines und abgeleitete Kataloge sollen jedoch nicht dauerhaft nur in Issue-Kommentaren liegen.
+GitHub Issues bleiben die **Work Owner**. Sie besitzen Auftrag, Scope, Status, Abhängigkeiten, Decision-/Blocker-Hinweise und eine kompakte Ergebniszusammenfassung. Umfangreiche Befunde, Tabellen, Quellenapparate, Research Reviews, Baselines und abgeleitete Kataloge liegen versioniert im Repo.
 
 Grundregel:
 
 ```text
-Issue = Arbeit steuern / Status / Entscheidungen / Verweise
-Markdown im Repo = substantieller kanonischer Forschungsinhalt
-Code = erst konkrete technische Umsetzung
-```
+Issue
+= Arbeit steuern / Status / Dependencies / Entscheidungen / Verweise
 
-Damit gilt weiterhin:
+Research-Datei
+= substantieller kanonischer Forschungsinhalt
+
+Chat
+= Werkstatt / transient
+
+Code
+= konkrete technische Umsetzung oder begrenzter diskriminierender Prototyp
+```
 
 > **Chat ist Werkstatt; GitHub ist Projektgedächtnis.**
 
-und innerhalb GitHub:
+Repo-weite Handoff-/Persistenzregeln stehen verbindlich in `/AGENTS.md`.
 
-> **Issues steuern Arbeit. Versionierte Research-Artefakte tragen den ausführlichen Forschungsstand.**
+## One fact / one canonical home
+
+Wenn ein substanzielles Artefakt existiert:
+
+- Datei = ausführlicher kanonischer Inhalt;
+- Issue = Work Owner + Status + Kurzsynthese + offene Punkte + Verweis;
+- `PROJECT_STATE.md` = phasenübergreifende Navigations-/Handoff-Sicht;
+- Chat = transient;
+- spätere Views/Reports = abgeleitete Darstellung.
+
+Keine parallele manuelle Pflege desselben Vollinhalts in Issue und Datei.
 
 ## Kein neues Issue für jedes Finding
 
-Neue Issues werden nur nach #23 angelegt, wenn ein eigenständiger Research-/Decision-/Work-Scope mit eigener Definition of Done vorliegt.
+Neue Issues werden nur nach #23 angelegt, wenn ein eigenständiger Research-/Decision-/Work-Scope mit eigener Definition of Done entsteht.
 
-Einzelne Findings, Quellenhinweise, Literaturbefunde oder kleine Korrekturen werden im zuständigen Work Package verarbeitet und – wenn substantiell – in dessen Research-Artefakt persistiert.
+Einzelne Findings, Quellenhinweise, Literaturbefunde oder kleine Korrekturen werden im zuständigen Work Package verarbeitet und – wenn substantiell – in dessen Artefakt persistiert.
 
-Keine Issue-Explosion als Ersatz für Informationsarchitektur.
+## Bindendes Source-Identity-Protokoll
 
-## Live Research Cases
+Für tragende Quellen gilt:
 
-Repräsentative Use Cases aus #29/#30 dürfen als **echte historische Forschung** weitergeführt werden, wenn daraus ein eigenständiger Research-Scope mit eigener Definition of Done entsteht. In diesem Fall gilt dieselbe Ownership-Regel:
+`docs/research/source-identity-protocol.md`
+
+Work Owner: #45.
+
+Es trennt mindestens:
 
 ```text
-Case-Issue = Work Owner / Scope / Status / nächste Aktionen
-Case-Datei = ausführlicher historischer Forschungsstand / Source Ledger / Findings / Grenzen
+historische Source / Überlieferung
+→ Edition / Katalog / Reproduktion
+→ konkrete digitale/physische Instanz
+→ Derivat / OCR / HTR / Transkription
+→ exakte Fundstelle / Exzerpt
+→ Finding / Interpretation
 ```
 
-Ein Live-Fall darf Capability-, Quality- und Requirement-Candidates erzeugen. Diese werden jedoch nicht allein aus einem Einzelfall zu Requirements promoviert, sondern erst über die Synthese #41/#42 und das Gate #43 geprüft.
+URL, Viewer-Seite oder Dateipfad allein sind keine Quellenidentität. Persistente Identifier, konkrete Instanz, Inspection Status, Print-/Scan-Seitenmapping und Derivatstatus werden proportional zur Forschungsrelevanz nachvollziehbar gehalten.
 
-## Wann genügt das Issue selbst?
+## Research-Artefaktstruktur
 
-Das Issue genügt, wenn der Arbeitsstand:
-
-- kurz und übersichtlich bleibt,
-- keinen größeren Quellen-/Literaturapparat benötigt,
-- keine umfangreichen Tabellen/Registersichten enthält,
-- und ohne Scroll-/Kommentarrekonstruktion vollständig verständlich bleibt.
-
-Sobald ein Ergebnis zu einem eigenständigen Research-Artefakt wird, soll es als versionierte Datei persistiert werden.
-
-## Geplante leane Ablagestruktur
-
-Die Struktur wird nur erzeugt, wenn tatsächlich Inhalt anfällt. Keine leeren Future-Proof-Verzeichnisse.
-
-Vorgesehene Pfade:
+Aktuell vorhanden bzw. kanonisch genutzt:
 
 ```text
 docs/research/
+  README.md
+  source-identity-protocol.md
+
   discovery/
     problem-baseline.md
     workflows.md
@@ -76,62 +94,88 @@ docs/research/
     c8-research-state-auditability.md
     c9-capability-allocation.md
 
-  cases/
-    u2-knau-orlagau-quellenbefunde.md
-
   synthesis/
     risks-constraints.md
     capability-map.md
     requirements-baseline.md
     architecture-readiness.md
+
+  cases/
+    u2-knau-orlagau-quellenbefunde.md
+    u2-orlagau-suchraum-quellenexzerpte.md
+    u1-orlagau-grenzraum-teichlandschaft.md
+    orlagau-source-ledger.md
 ```
 
-Diese Dateinamen sind **Arbeitskonventionen, keine unveränderliche Architektur**. Wenn ein Artefakt zu groß oder fachlich sinnvoll teilbar wird, darf es nach tatsächlichem Bedarf aufgeteilt werden. Wenn mehrere kleine Artefakte gemeinsam lesbarer sind, dürfen sie zusammenbleiben.
+Die Struktur wächst nur bei tatsächlichem Inhalt. Keine Future-Proof-Leerstruktur.
 
-## Zuordnung zur aktuellen Issue-Kette und Live Research
+## Zuordnung zu Work Ownern
 
-| Issue | Work Owner | bevorzugtes Research-Artefakt bei substantiellem Umfang |
+| Issue | Work Owner | kanonisches Artefakt / Bereich |
 |---|---|---|
-| #28 | Problem-/Need-/Pain-/Risk-Baseline | `docs/research/discovery/problem-baseline.md` |
-| #29 | Workflows U1–U4 | `docs/research/discovery/workflows.md` |
-| #30 | Research-Question-Portfolio | `docs/research/discovery/research-questions.md` |
-| #31 | SOTA C1 | `docs/research/sota/c1-quellen-archiv-provenienz.md` |
-| #32 | SOTA C2 | `docs/research/sota/c2-problemuebersetzung-terminologie.md` |
-| #33 | SOTA C3 | `docs/research/sota/c3-expertise-routing.md` |
-| #34 | SOTA C6 | `docs/research/sota/c6-source-dependence-discrepancy.md` |
-| #35 | SOTA C7 | `docs/research/sota/c7-ocr-htr-retrieval.md` |
-| #36 | SOTA C4 | `docs/research/sota/c4-regionalitaet-multiscale.md` |
-| #37 | SOTA C5 | `docs/research/sota/c5-akteurs-handlungslogik.md` |
-| #38 | SOTA C8 | `docs/research/sota/c8-research-state-auditability.md` |
-| #39 | SOTA C9 | `docs/research/sota/c9-capability-allocation.md` |
-| #40 | Risk/Constraint Review | `docs/research/synthesis/risks-constraints.md` |
-| #41 | Capability/Quality Synthesis | `docs/research/synthesis/capability-map.md` |
-| #42 | Requirements Baseline | `docs/research/synthesis/requirements-baseline.md` |
-| #43 | Architecture Readiness | `docs/research/synthesis/architecture-readiness.md` |
-| #46 | Live Research U2: Knau/Orlagau | `docs/research/cases/u2-knau-orlagau-quellenbefunde.md` |
+| #28 | Problem-/Need-/Pain-Baseline | `discovery/problem-baseline.md` |
+| #29 | Workflows U1–U4 | `discovery/workflows.md` |
+| #30 | Research-Question-Portfolio | `discovery/research-questions.md` |
+| #31 | SOTA C1 | `sota/c1-quellen-archiv-provenienz.md` |
+| #32 | SOTA C2 | `sota/c2-problemuebersetzung-terminologie.md` |
+| #33 | SOTA C3 | `sota/c3-expertise-routing.md` |
+| #34 | SOTA C6 | `sota/c6-source-dependence-discrepancy.md` |
+| #35 | SOTA C7 | `sota/c7-ocr-htr-retrieval.md` |
+| #36 | SOTA C4 | `sota/c4-regionalitaet-multiscale.md` |
+| #37 | SOTA C5 | `sota/c5-akteurs-handlungslogik.md` |
+| #38 | SOTA C8 | `sota/c8-research-state-auditability.md` |
+| #39 | SOTA C9 | `sota/c9-capability-allocation.md` |
+| #40 | Risk/Constraint Review | `synthesis/risks-constraints.md` |
+| #41 | Capability/Quality Synthesis | `synthesis/capability-map.md` |
+| #42 | Requirements Baseline | `synthesis/requirements-baseline.md` |
+| #43 | Architecture Readiness | `synthesis/architecture-readiness.md` |
+| #45 | Research-/Evidence-/Source-Protokoll | `source-identity-protocol.md` + Issue-Protokoll |
+| #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md` |
+| #47 | Live Research U1 Teich-/Feuchtlandschaft | `cases/u1-orlagau-grenzraum-teichlandschaft.md` |
+| #46/#47 | gemeinsamer Source-Identity-Ledger | `cases/orlagau-source-ledger.md` |
+
+Architekturartefakte ab #48ff liegen **nicht** unter `docs/research/`, sondern werden über `docs/architecture/README.md` indexiert.
+
+## Live Research Cases
+
+Repräsentative Use Cases aus #29/#30 dürfen als **echte historische Forschung** weiterlaufen, wenn ein eigenständiger Scope/DoD besteht.
+
+```text
+Case Issue
+= Work Owner / Scope / Status / nächste Aktionen
+
+Case-Datei
+= historischer Forschungsstand / Findings / Grenzen / Search Boundaries
+
+Source Ledger / Exzerptregister
+= Quellenidentität bzw. fundstellenfähiges Material
+```
+
+Live Cases dürfen Capability-/Quality-/Requirement-Candidates erzeugen. Ein Einzelfall allein erzwingt keine Systemarchitektur. Materiell neue generalisierbare Invarianten werden gegen #41/#42 und die laufende Architektur geprüft.
+
+Aktuell laufen #46 und #47 weiterhin `in-research / working-research`.
 
 ## Was bleibt im Issue?
 
-Auch wenn eine Datei existiert, hält das Issue mindestens:
+Mindestens:
 
-- aktuellen Status;
+- aktueller Status;
 - Scope / Research Question;
 - führende Fachdomänen;
 - Abhängigkeiten;
-- Link/Pfad zum kanonischen Research-Artefakt;
+- Link/Pfad zum kanonischen Artefakt;
 - kurze Ergebniszusammenfassung;
 - wichtigste offene Punkte;
 - Sättigungs-/Abschlussstatus;
 - Blocker bzw. Verweis auf #44;
 - nächste Aktion.
 
-Das Issue soll **nicht** den vollständigen Artefaktinhalt spiegeln.
+Das Issue spiegelt nicht den vollständigen Artefaktinhalt.
 
 ## Was gehört in die Research-Datei?
 
 Je nach Arbeitspaket insbesondere:
 
-- Problem-/Need-/Pain-Einträge und deren Provenienz;
 - genaue Research Questions und Scope;
 - Suchstrategie / Search Boundaries;
 - Fachbegriffe und konkurrierende Modelle;
@@ -140,44 +184,32 @@ Je nach Arbeitspaket insbesondere:
 - Kontroversen / Alternativen;
 - domänenspezifische Methoden-/Qualitätsbefunde;
 - Risiken / Failure Modes;
-- Capability-/Quality-Implikationen;
-- Requirement Candidates;
-- verworfene Ansätze und Begründungen, wenn für spätere Entscheidungen relevant;
+- Capability-/Quality-/Requirement-Implikationen;
+- verworfene Ansätze, wenn für spätere Entscheidungen relevant;
 - Sättigungsbegründung.
 
 ## Register und Tabellen
 
-Markdown ist der Default, solange es lesbar bleibt.
+Markdown ist Default, solange lesbar.
 
-TSV/CSV oder andere strukturierte Formate werden erst eingesetzt, wenn:
+TSV/CSV/strukturierte Formate erst, wenn:
 
-- ein Register deutlich tabellarisch wächst,
-- maschinelle Verarbeitung einen realen Nutzen bringt,
-- oder Konsistenz/Filterung mit Markdown unverhältnismäßig wird.
+- ein Register deutlich tabellarisch wächst;
+- maschinelle Verarbeitung realen Nutzen bringt;
+- oder Konsistenz/Filterung in Markdown unverhältnismäßig wird.
 
-Kein Schema-/Datenbankbau nur aus Vorsorge.
+Kein Schema-/Datenbankbau aus Vorsorge.
 
-## Code und technische Artefakte
+## Handoff-Check für Research
 
-Research-Ergebnisse gehören **nicht in Anwendungscode**.
+Vor `reviewable/completed` oder vor einem materiellen Chat-Handoff:
 
-Code entsteht erst, wenn eine technische Capability/Requirement umgesetzt oder ein begrenzter Prototyp/Test zur Diskriminierung einer technischen Frage benötigt wird.
+1. substantieller Stand im kanonischen Artefakt?
+2. Issue-Status und nächste Aktion aktuell?
+3. Quellen/Fundstellen/Provenienz ausreichend sichtbar?
+4. Search Boundaries und Unsicherheit dokumentiert?
+5. echte Blocker in #44?
+6. `PROJECT_STATE.md` nur dann nachgezogen, wenn sich phasenübergreifender State/Ownership/Dependency materiell geändert hat?
+7. kann ein neuer Bearbeiter ohne Chat fortsetzen?
 
-Technische Tests/Prototypen müssen auf Requirements/Research Findings zurückverweisen; sie werden nicht zum Ersatz für den fachlichen Research State.
-
-## Entscheidungen
-
-Echte Blocker/Owner-Decisions werden nach #44 geführt. Architekturentscheidungen/ADRs entstehen erst in der entsprechenden späteren Phase.
-
-Ein Research-Artefakt darf eine Empfehlung enthalten, aber eine Empfehlung ist noch keine getroffene Entscheidung.
-
-## One fact / one canonical home
-
-Wenn ein substanzielles Artefakt existiert:
-
-- Datei = ausführlicher kanonischer Inhalt;
-- Issue = Work Owner + Status + Kurzsynthese + Verweis;
-- Chat = transient;
-- spätere Views/Reports = abgeleitete Darstellung.
-
-Keine parallele manuelle Pflege desselben Vollinhalts in Issue und Datei.
+Wenn nein: Handoff ist nicht vollständig.
