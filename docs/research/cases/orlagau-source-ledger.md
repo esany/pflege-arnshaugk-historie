@@ -16,19 +16,28 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 ## SRC-ED-0001 – Urkundenbuch des Hochstifts Naumburg, Teil 2
 
 - **source_type:** wissenschaftliche Edition / Urkundenbuch
-- **canonical_citation:** Hans K. Schulze (Hg.), auf Vorarbeiten von Felix Rosenfeld und Walter Möllenberg, bearbeitet von Hans Patze und Josef Dolle, *Urkundenbuch des Hochstifts Naumburg, Teil 2 (1207–1304)*, Quellen und Forschungen zur Geschichte Sachsen-Anhalts, Bd. 2, Köln/Weimar/Wien: Böhlau, 2000.
+- **canonical_citation:** Hans K. Schulze (Hg.), auf der Grundlage der Vorarbeiten von Felix Rosenfeld und Walter Möllenberg, bearbeitet von Hans Patze und Josef Dolle, *Urkundenbuch des Hochstifts Naumburg. Teil 2 (1207–1304)*, Quellen und Forschungen zur Geschichte Sachsen-Anhalts 2, Köln/Weimar/Wien: Böhlau, 2000.
+- **bibliographic_identity_status:** `verified from inspected title and imprint pages of the user-provided instance`
 - **source_instance_status:** `user-provided digital instance; scholarly edition inspected`
 - **uploaded/local filename:** `UB Naumburg 2-2000.pdf`
-- **public digital provider:** `not yet verified`
-- **public landing page:** `not yet verified`
+- **series:** `Quellen und Forschungen zur Geschichte Sachsen-Anhalts ; Bd. 2`
+- **ISBN-10:** `3-412-14499-1` — verified from imprint page
+- **ISBN-13:** `978-3-412-14499-9` — verified independently in publisher/library catalogues
+- **K10plus PPN:** `1152991957`
+- **verified permanent bibliographic record:** `https://katalog.ub.uni-heidelberg.de/titel/65118363`
+- **publisher record:** `https://www.vandenhoeck-ruprecht-verlage.com/themen-entdecken/buecher-zum-sonderpreis/41414/urkundenbuch-des-hochstifts-naumburg`
+- **SLUB catalogue discovery:** SLUB catalogue contains a record for volume 2; exact public full-text digital object for this 2000 volume has not yet been verified as the canonical online instance.
+- **public full-text digital provider:** `not yet verified`
+- **public full-text landing page:** `not yet verified`
 - **URN:** `not yet verified`
 - **DOI / Handle / ARK / PURL:** `not yet verified`
 - **IIIF:** `not yet verified`
-- **ISBN:** `not yet verified from inspected title/imprint page`
-- **scan/page mapping:** `to record during systematic collation`
-- **rights/licence:** `not yet verified for public digital instance`
-- **notes:** Edition enthält Regesten, Volltexte, Archiv-/Überlieferungsangaben und Register. Historische Editionssignaturen werden nicht still als aktuelle Archivsignaturen behandelt.
-- **next verification:** Titelseite/Impressum exakt kollationieren; öffentliche Bibliotheks-/Digitalisatinstanz, URN/PURL und ggf. Katalog-ID ermitteln.
+- **scan/page mapping:** `mandatory per excerpt; PDF image page and printed page must be distinguished`
+- **rights/licence:** `not yet verified for a public digital full-text instance`
+- **edition_scope_caveat:** The introduction explicitly states that documents in which the institutions/persons relevant to the edition occur **only through witness mention** are no longer included. Therefore a negative result in NHUB II does **not** establish absence from contemporary witness lists or from medieval documentary transmission generally.
+- **editorial_history_caveat:** The introduction documents substantial incompleteness in earlier Rosenfeld/Möllenberg material, later autopsy and supplementation by Patze/Dolle, more than 50 archives/libraries consulted, 188 newly added charter numbers and more than 85 substantially supplemented/newly transcribed texts. Historical archive shelfmarks in the apparatus may be obsolete and must be concorded where a present-day archival claim is made.
+- **notes:** Edition contains regesta, full texts, archival/transmission apparatus, place/person index, subject index and seal apparatus. Editorial place identifications are recorded as editorial evidence, not silently converted into source wording.
+- **next verification:** Resolve a trustworthy public full-text instance, if one exists; capture persistent digital-object identifier/URN/IIIF where published; maintain printed-page ↔ scan-page mapping for each excerpt.
 
 ## SRC-ED-0002 – Codex diplomaticus Saxoniae I/B 1
 
@@ -36,31 +45,39 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **canonical_citation:** Hubert Ermisch (Hg.), *Urkunden der Markgrafen von Meißen und Landgrafen von Thüringen 1381–1395*, Codex diplomaticus Saxoniae regiae, I. Hauptteil, Abteilung B, Bd. 1, Leipzig 1899.
 - **source_instance_status:** `user-provided digital instance; scholarly edition inspected`
 - **uploaded/local filename:** `cds1b1-Ermisch-1899.pdf`
-- **public digital provider:** `not yet verified`
-- **public landing page:** `not yet verified`
+- **authoritative online edition / project:** Institut für Sächsische Geschichte und Volkskunde (ISGV), Codex diplomaticus Saxoniae
+- **verified band landing page:** `https://codex.isgv.de/codex.php?band=cds1b1`
+- **verified page-addressing pattern:** individual printed pages can be addressed through the ISGV edition, e.g. `https://codex.isgv.de/codex.php?a=b&band=cds1b1&s=379`; exact page links must be captured per excerpt rather than inferred globally.
+- **Sächsische Akademie project/publication record:** `https://www.saw-leipzig.de/de/forschung/projekte/codex-diplomaticus-saxoniae/publikationen` — lists CDS I/B 1 as an online volume.
+- **Qucosa / repository object:** project context indicates online digital availability, but the exact persistent Qucosa object identifier for this volume has not yet been verified in this ledger.
 - **URN:** `not yet verified`
 - **DOI / Handle / ARK / PURL:** `not yet verified`
 - **IIIF:** `not yet verified`
-- **scan/page mapping:** `to record during systematic collation`
-- **rights/licence:** `not yet verified for public digital instance`
-- **notes:** Wegen Erscheinungsjahr sind mehrere Digitalisate plausibel; keines wird ohne Prüfung als kanonische Instanz eingetragen.
-- **next verification:** Titelseite/Serienangabe kollationieren; bevorzugte öffentliche Digitalisatinstanz mit persistentem Identifier und stabiler Seitenreferenz bestimmen.
+- **scan/page mapping:** `to record per excerpt; ISGV printed-page address preferred where stable`
+- **rights/licence:** `not yet verified for underlying page-image object`
+- **notes:** The ISGV online edition is a strong reproducible access point for page-level checking. It must still be distinguished from the 1899 printed edition and from the user-provided PDF instance.
+- **next verification:** Resolve exact repository/digital-object identifier behind the online page images, including URN/PURL/IIIF if published; verify title/imprint/series directly in the uploaded scan before final bibliographic normalization.
 
 ## SRC-ED-0003 – Lehnbuch Friedrichs des Strengen 1349/1350
 
-- **source_type:** Edition / Lehnbuch; bibliographische Detailidentität noch zu vervollständigen
-- **canonical_citation:** `not yet fully verified from title/imprint page`
+- **source_type:** wissenschaftliche Edition / Lehnbuch
+- **canonical_citation:** Woldemar Lippert und Hans Beschorner (Hg.), *Das Lehnbuch Friedrichs des Strengen. Markgrafen von Meissen und Landgrafen von Thüringen 1349/1350*, Aus den Schriften der Sächsischen Kommission für Geschichte 8, Leipzig: B. G. Teubner, 1903.
+- **bibliographic_identity_status:** `verified against SLUB catalogue; title/imprint of the user-provided scan still to be visually concorded`
 - **source_instance_status:** `user-provided image-based scan; text layer insufficient for systematic search`
 - **uploaded/local filename:** `Das Lehnbuch Friedrichs des Strengen ... 1349/1350`
-- **public digital provider:** `not yet verified`
-- **public landing page:** `not yet verified`
+- **verified public provider:** `SLUB Dresden`
+- **verified catalogue record:** `https://katalog.slub-dresden.de/id/0-165495571X`
+- **catalogue details:** Leipzig: Teubner 1903; online edition Dresden: SLUB 2016; series `Aus den Schriften der Sächsischen Kommission für Geschichte ; 8`; original SLUB shelfmark reported in the catalogue as `35.8.7744`.
+- **ISGV/HOV bibliographic corroboration:** ISGV bibliographic apparatus identifies Lippert/Beschorner and the 1903 edition; exact persistent ISGV record URL to be captured if used as a citation route.
+- **public digital-object landing page:** `not yet captured separately from catalogue record`
 - **URN:** `not yet verified`
 - **DOI / Handle / ARK / PURL:** `not yet verified`
 - **IIIF:** `not yet verified`
 - **scan/page mapping:** `mandatory during visual register/page pass`
 - **rights/licence:** `not yet verified`
-- **notes:** Keine bibliographischen Details ergänzen, bevor Titelblatt/Impressum visuell geprüft wurden. Register- und Seitenauswertung muss am Scan erfolgen.
-- **next verification:** Titelblatt/Impressum, Herausgeber, Reihe, Erscheinungsort/-jahr, Digitalisatprovider und persistenten Identifier verifizieren.
+- **manuscript_relation:** The printed edition must not be conflated with the surviving chancery/copial manuscript tradition. Sächsisches Staatsarchiv online records for Bestand 10004 Kopiale provide relevant manuscript context; each manuscript witness must receive its own source_id if directly used.
+- **notes:** Register- and page-level work must be performed visually on the scan. No completeness claim from OCR/full-text search is admissible.
+- **next verification:** Open the SLUB digital object from the catalogue, record the persistent object URL, URN and IIIF manifest if exposed; visually verify title/imprint in the uploaded scan; establish scan ↔ printed-page mapping.
 
 ---
 
@@ -69,16 +86,17 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 ### SRC-AR-0001 – LATh EGA 6-11-0028 Nr. 5855
 
 - **source_type:** Archivale / Rechnung
-- **archive_institution:** Landesarchiv Thüringen, Standort/Bestand im Katalog exakt zu verifizieren
-- **current_shelfmark:** `EGA 6-11-0028 Nr. 5855` (aus bisherigem Katalognachweis; genaue institutionelle Schreibweise noch zu kollationieren)
+- **archive_institution:** Landesarchiv Thüringen; exact current repository unit/location to verify from catalogue record
+- **current_shelfmark:** `EGA 6-11-0028 Nr. 5855` (working transcription of catalogue form; institutional punctuation/form still to be copied verbatim from the record)
 - **record_title:** „Rechnung über die in den Teichen des Amtes Arnshaugk gefangenen Fische von 1536 bis 1540“
 - **record_date_or_range:** 1536–1540
 - **source_instance_status:** `archive catalogue only / original not yet inspected`
-- **catalogue_persistent_url:** `not yet captured in ledger`
+- **catalogue_discovery_url:** `https://www.archive-in-thueringen.de/de/findbuch/view/searchall/Rechnung%2Bamt%2Bborna/bestand/24614/systematik/165332`
+- **catalogue_persistence_status:** `stable-looking findbuch route captured; item-level persistent identifier still to verify`
 - **digital_object:** `not yet verified`
 - **URN / Handle / PURL:** `not yet verified`
-- **notes:** Katalog nennt u. a. Lichtenau und `Treber (Dreba[?])`; die Identifikation Dreba ist ausdrücklich noch zu prüfen und darf nicht als Quellenwortlaut behandelt werden.
-- **next verification:** Persistenten Katalogdatensatz sichern; Bestand/Provenienz vollständig auslesen; Digitalisatstatus prüfen; Original bzw. Digitalisat inspizieren.
+- **notes:** Catalogue description mentions Lichtenau and `Treber (Dreba[?])`; the identification Dreba is expressly uncertain in the catalogue context and is not source wording until the archival text is inspected.
+- **next verification:** Capture exact item-level catalogue record and provenance; verify digitalisation status; inspect original/digital images; read `Treber` palaeographically and extract account context before any identification is promoted.
 
 ### SRC-AR-0002 – LATh EGA 6-11-0032 Nr. 174
 
