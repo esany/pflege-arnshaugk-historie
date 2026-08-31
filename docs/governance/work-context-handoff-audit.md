@@ -22,7 +22,7 @@ Leitfragen:
 
 ## 2. Aktueller Live-Research-State: explizite Fragestellung ist sichtbar
 
-Der aktuell aktive U2-Work-Owner bleibt #46. Seit dem letzten `PROJECT_STATE.md`-Snapshot wurde sein Forschungsrahmen materiell geschärft.
+Der aktuell aktive U2-Work-Owner bleibt #46. Seit dem vorherigen `PROJECT_STATE.md`-Snapshot wurde sein Forschungsrahmen materiell geschärft.
 
 ### 2.1 Aktuelle Makrofrage
 
@@ -51,7 +51,7 @@ Dabei ist strikt getrennt:
 Kanonische methodische Vertiefungen:
 
 - `docs/research/cases/u2-transdisziplinaere-rekonstruktionsmatrix.md`
-- `docs/research/cases/u2-quellenzentrierte-erschliessung-sota.md` bzw. der im Commit `24bbe67` angelegte SOTA-/Best-Practice-Artefaktpfad des U2-Workstreams.
+- `docs/research/cases/u2-quellenerschliessung-sota-best-practice.md`
 
 Der neue Arbeitsgrundsatz lautet sinngemäß:
 
@@ -66,7 +66,9 @@ source-local first
 → Synthese
 ```
 
-Damit ist die laufende explizite Fragestellung **repo-seitig vorhanden und rekonstruierbar**. Sie ist jedoch im aktuellen Root-`PROJECT_STATE.md` noch nicht ausreichend sichtbar; der Handoff-Snapshot ist gegenüber den jüngsten #46-Commits nachgezogen werden müssen.
+Diese Schärfung ist inzwischen auch im Research-Protocol-Owner #45 aufgenommen: reine `leading disciplines`-Angaben reichen für transdisziplinäre Rekonstruktionsfragen nicht; je aktivierter Domäne ist ein **Evidence Demand** mit benötigten Quellen-/Materialklassen, Such-/Archivvokabular, Methode, erlaubter Inferenz, Blindstellen und diskriminierender/falsifizierender Evidenz zu dokumentieren. `evidence-starved / not-assessable` bleibt zulässig.
+
+Damit ist die laufende explizite Fragestellung **repo-seitig vorhanden und rekonstruierbar**. Sie war jedoch im vorherigen Root-`PROJECT_STATE.md` nicht ausreichend sichtbar; dieser Handoff-Snapshot wurde im Zuge dieses Audits nachgezogen.
 
 ## 3. Bewertung des Anti-Wissensmonopol-Musters in Histo-Orla
 
@@ -78,7 +80,7 @@ Projektweit bestehen inzwischen mehrere redundanzarme, sich ergänzende Schutzsc
 2. Root-`AGENTS.md` verbietet continuation-critical State ausschließlich in Chat/Modell/Scratchpad.
 3. `PROJECT_STATE.md` ist phasenübergreifende Handoff-/Navigationssicht.
 4. Issues besitzen Work Ownership; substantielle Inhalte gehören in versionierte Artefakte.
-5. #45 verlangt für Research Frage, Scope, führende Domänen, Evidenz, Search Boundaries und Persistenz.
+5. #45 verlangt für Research Frage, Scope, führende Domänen, Evidenz, Search Boundaries und Persistenz; für komplexe Rekonstruktion inzwischen zusätzlich Evidence Demand je Domäne.
 6. `docs/research/source-identity-protocol.md` verhindert Quellen-/Instanz-/Fundstellenverlust.
 7. #42/#43/#48ff verhindern, dass Dev/Architektur still Requirements oder Fachsemantik übernimmt.
 8. Handoff Gate in `AGENTS.md` verlangt Fortsetzbarkeit ohne Chat.
@@ -162,7 +164,7 @@ Der Domain Review dokumentiert ausdrücklich seine Nicht-Autoritäten und verwen
 
 ### Empfehlung: jeder **substantielle Work Context** braucht einen minimalen, aus dem Repository abgeleiteten Scope – aber nicht jeder Chat ein neues Issue/Formular/Promptpaket.
 
-Für Research ist dies in #45 teilweise bereits bindend:
+Für Research ist dies in #45 bereits weitgehend bindend:
 
 ```text
 precise question
@@ -172,6 +174,8 @@ source/evidence classes
 search vocabulary
 intended decision/capability consequence
 ```
+
+Für transdisziplinäre Rekonstruktion kommt hinzu: führende/controlling Domänen müssen einen konkreten Evidence Demand erzeugen und dürfen nicht nur Labels bleiben.
 
 Was noch fehlt, ist eine **generische Work-Context-Schicht**, die auch Domain Review, Architecture, Dev und Governance abdeckt.
 
@@ -318,17 +322,17 @@ Daraus folgt als Architecture-/Verification-Candidate, nicht als neue Technologi
 
 > Wenn die aktuelle NEXT ACTION direkte Quelleninspektion benötigt, muss ein frischer autorisierter Work Context einen dokumentierten, zulässigen Zugriffspfad auf die tatsächlich benötigte Instanz besitzen. `known source` ist nicht automatisch `source accessible now`.
 
-Das sollte in #49/#57 als Fresh-context-Restart-Test aufgenommen werden, bevor die Zotero/OneDrive-Integration als restartbar gilt.
+Das wurde im Zuge dieses Audits als zusätzliche Verifikation an #49 und #57 gespiegelt. Es operationalisiert bestehende `REQ-SRC-002`, `REQ-STATE-001` und #43 EXP-07; es ist **kein neues Requirement** und keine Storage-Technologieentscheidung.
 
-## 10. Aktueller Handoff-Failure-Test: `PROJECT_STATE.md` ist bereits veraltet
+## 10. Handoff-Failure-Test und Korrektur: `PROJECT_STATE.md`
 
-Die Einführung von `PROJECT_STATE.md` war richtig, aber die jüngsten U2-Commits zeigen eine reale Schwachstelle:
+Die Einführung von `PROJECT_STATE.md` war richtig, aber die jüngsten U2-Commits haben eine reale Schwachstelle gezeigt:
 
-- Snapshot enthält #46 als aktiven Live Case;
-- er enthält noch nicht die neue Makrofrage;
-- er enthält noch nicht die neuen methodischen U2-Artefakte / Evidence-Demand-/Situations-Dossier-Schärfung.
+- der Snapshot kannte #46 als aktiven Live Case;
+- er enthielt noch nicht die neue Makrofrage;
+- er enthielt noch nicht die neuen methodischen U2-Artefakte / Evidence-Demand-/Situations-Dossier-Schärfung.
 
-Damit gilt aktuell:
+Vor Korrektur galt damit:
 
 ```text
 Bootstrap-Regel korrekt
@@ -337,9 +341,11 @@ Bootstrap-Regel korrekt
 - zentrale Handoff-Sicht nicht vollständig frisch
 ```
 
-Das System bleibt rekonstruierbar, weil der Bootstrap das Work-Owner-Issue verlangt. Die zusätzliche `PROJECT_STATE`-Orientierung ist aber schwächer als vorgesehen.
+Das System blieb rekonstruierbar, weil der Bootstrap das Work-Owner-Issue verlangt. Die zusätzliche `PROJECT_STATE`-Orientierung war aber schwächer als vorgesehen.
 
-Empfohlener Trigger:
+Im Zuge dieses Audits wurde `PROJECT_STATE.md` aktualisiert.
+
+Empfohlener dauerhafter Trigger:
 
 `PROJECT_STATE.md` muss spätestens vor Abschluss eines substantiellen Chats aktualisiert werden, wenn mindestens eines materiell geändert wurde:
 
@@ -360,12 +366,12 @@ Nicht jedes neue Finding gehört dort hinein.
 | Chat darf nicht Wahrheitsspeicher sein | Projektprompt + AGENTS + Issues + Artefakte | **stark** |
 | Fresh repo bootstrap | projektweit verpflichtend | **stark** |
 | One fact / one canonical home | explizit | **stark** |
-| Research Scope vor Recherche | #45 explizit | **stark für Research** |
+| Research Scope vor Recherche | #45 explizit; Evidence Demand inzwischen ergänzt | **stark für Research** |
 | Persistenz realer U2-Fortschritte | jüngste Commits zeigen konsequente Nutzung | **stark** |
-| Neue Session kennt aktuelle Leitfrage sofort aus Top-Level-Handoff | `PROJECT_STATE` hinter #46 | **mittel / nachzuziehen** |
+| Neue Session kennt aktuelle Leitfrage aus Top-Level-Handoff | `PROJECT_STATE` im Audit nachgezogen | **gut, freshness bleibt Prozessrisiko** |
 | Chat weiß seine konkrete Rolle/Authority | nicht generisch operationalisiert | **mittel** |
 | Domain↔Dev-Handoff | konzeptionell stark, aber kein generischer Work-Context-Contract | **mittel-gut** |
-| Fresh-context Source-Byte-Verfügbarkeit | durch OneDrive-Zielbild geplant, noch nicht empirisch verifiziert | **offen** |
+| Fresh-context Source-Byte-Verfügbarkeit | als #49/#57-Test aufgenommen, noch nicht empirisch verifiziert | **offen** |
 | Modellunabhängige Prozessgrenzen | implizit, paleo-type weiter | **mittel** |
 | Unabhängige Fachvalidierung ≠ AI Review | explizit | **stark** |
 
