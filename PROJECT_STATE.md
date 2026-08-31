@@ -30,7 +30,7 @@ Requirements
 
 Architecture Execution Owner: **#48**.
 
-Parallel läuft weiterhin reale historische Forschung als eigenständiger Research- und Falsifikationsstrang, insbesondere #46/#47.
+Parallel läuft weiterhin reale historische Forschung als eigenständiger Research- und Falsifikationsstrang, insbesondere #46/#47. Seit dem Methodik-Audit vom 31.08.2026 läuft zusätzlich #60 als cross-cutting Research Work Package zur **SOTA-basierten Operationalisierung domänenspezifischer Fachmethoden**.
 
 ## 2. Abgeschlossene Baselines / Gates
 
@@ -62,6 +62,32 @@ Kanonische Artefakte:
 
 Diese Cases sind **nicht abgeschlossen**. Sie dürfen neue Requirement-/Architecture-Candidates erzeugen. Sie blockieren die Architektur nicht pauschal, können aber eine architecture-driving Invariante falsifizieren und damit gezieltes Reopening auslösen.
 
+### Cross-cutting Fachmethoden-Operationalisierung
+
+- **#60** – Domain Method Profiles v0.1, `in-research / cross-cutting-method-work-package`
+
+#60 besitzt die bislang fehlende Operationalisierungsschicht zwischen Kompetenz-/Visionsebene (#16/#19/#22) und akzeptierten Systemanforderungen (#42). Ziel sind keine Rollenprompts, sondern **SOTA-belegte, an Live-Quellen testbare Domain Method Profiles** mit Fachbegriffen/Gegenstandsmodellen, Quellen-/Materiallogik, ausführbaren Playbooks, Inferenzregeln, Evidence Appetite/Search Vocabulary, QA/Falsifikation, transdisziplinären Übergaben und AI-/Automation-Grenzen.
+
+Kanonische Methoden-Wissensbasis:
+
+- `docs/research/methods/README.md` – Status-/Ownership-Karte: Vision vs. Methode vs. Work Order vs. Hypothese vs. Requirement vs. Architektur vs. Prompt;
+- `docs/research/methods/domain-method-profile-contract.md` – Vertrag für Aufbau, SOTA-Nachweis, Live-Case-Test und Promotion von Domain Method Profiles.
+
+Aktuelle Statusregel:
+
+```text
+#16/#19 = Vision / fachliches Zielniveau
+#22     = Kompetenzinventar / Routing-Scope
+#45     = bindender cross-cutting Research-/Evidence-Rahmen
+#60     = domänenspezifische Methoden-Operationalisierung
+#46/#47 = historische Live-Fälle + Method Stress/Validation
+#42     = accepted Requirements
+#48ff   = technische Architektur/Delivery
+Prompt  = austauschbares Ausführungsartefakt, niemals Method Truth
+```
+
+Die aktuelle Requirements Baseline bleibt dabei **unverändert**. #60 operationalisiert insbesondere `REQ-EPI-001`; Requirement-Deltas werden erst nach SOTA- und Live-Case-Nachweis als Candidates an #42 zurückgespielt.
+
 ### #46 – aktuelle Leit-/Makrofrage nach jüngsten Research-Updates
 
 Der U2-Forschungsrahmen wurde am 31.08.2026 materiell geschärft. Aktuelle Leitfrage:
@@ -71,8 +97,8 @@ Der U2-Forschungsrahmen wurde am 31.08.2026 materiell geschärft. Aktuelle Leitf
 Kanonische neue Arbeitsartefakte:
 
 - `docs/research/cases/u2-orlagau-zeitscheiben-herrschaftsnetz.md` – Zeitscheiben, Herrschaftsschichten und Beziehungsnetze;
-- `docs/research/cases/u2-transdisziplinaere-rekonstruktionsmatrix.md` – historische Situations-/Problem-Dossiers, Evidence Demand und transdisziplinäre Lebenswelt-Rekonstruktion;
-- `docs/research/cases/u2-quellenerschliessung-sota-best-practice.md` – SOTA/Best Practice für quellenzentrierte Erschließung, `source-local first → scope expansion second`.
+- `docs/research/cases/u2-transdisziplinaere-rekonstruktionsmatrix.md` – historische Situations-/Problem-Dossiers, Evidence Demand und transdisziplinäre Lebenswelt-Rekonstruktion; **case-derived method extension/candidate**, kein universeller Pflichtstandard;
+- `docs/research/cases/u2-quellenerschliessung-sota-best-practice.md` – SOTA/Best Practice für quellenzentrierte Erschließung, `source-local first → scope expansion second`; **working-method candidate**, unter #60 domänenspezifisch zu validieren.
 
 Aktueller methodischer Pilot ist u. a. **Triptis 1212 / `nimia paupertas`**: die explizite Quellenbegründung bleibt vom Ursachenerklärungsraum getrennt; ökonomische, institutionelle, soziale, räumliche, ökologische, politische oder religiöse Ursachen sind nur über eigene Evidenzpfade zu prüfen.
 
@@ -88,7 +114,7 @@ Quelle / quellennahe Beobachtung
 → transdisziplinäre Synthese
 ```
 
-Expertise Routing soll dabei nicht bei Disziplinlabels enden, sondern **Evidence Routing** erzeugen: je aktivierter Domäne Frage, benötigte Quellen-/Materialklassen, Fach-/Archivvokabular, Methode, zulässige Schlussart, Blindstellen und diskriminierende/falsifizierende Evidenz.
+Expertise Routing soll dabei nicht bei Disziplinlabels enden, sondern **Evidence Routing** erzeugen. Die konkrete fachliche Operationalisierung dieses Prinzips wird jedoch nicht mehr aus dem Live Case selbst generalisiert, sondern unter #60 aus den jeweiligen Fachmethoden erarbeitet und getestet.
 
 ### Architektur / Integration / technische Spikes
 
@@ -149,6 +175,28 @@ Source / Überlieferung
 → Claim / Interpretation / Synthesis
 ```
 
+### Methodische Autorität / kein Prompt als Fachmethode
+
+Bindender gemeinsamer Forschungsrahmen bleibt #45. Domänenspezifische Methodik wird unter #60 operationalisiert. Für consequential Research gilt bereits accepted `REQ-EPI-001`: führende Domäne, domänenspezifische Methode, Evidenzmaßstab und zulässige Schlussart müssen nachvollziehbar sein; ein Rollenprompt ist kein Fachmethodennachweis.
+
+Status- und Ownership-Karte:
+
+`docs/research/methods/README.md`
+
+Leittrennung:
+
+```text
+Vision
+≠ Work Order
+≠ Observation/Finding
+≠ historische Hypothese
+≠ Methodenhypothese
+≠ Requirement Candidate
+≠ accepted Requirement
+≠ Architecture Choice
+≠ Prompt
+```
+
 ### Chat / Handoff
 
 `AGENTS.md` ist bindender Repo-Vertrag.
@@ -168,6 +216,8 @@ Befund: Der Anti-Wissensmonopol-/Repo-Bootstrap ist stark. Noch nicht bindend op
 Normale offene Forschung, reversible Architekturfragen und technische Experimente sind keine #44-Blocker.
 
 Die im Governance-Audit empfohlene Work-Context-Schärfung blockiert laufende Research-/Architecture-Arbeit nicht. Sie wird deshalb nicht als Blocker behandelt; eine bindende Promotion in `AGENTS.md` erfolgt nur nach explizitem Owner-Admit.
+
+Die fachmethodische Operationalisierung #60 ist ebenfalls **kein allgemeiner Architekturblocker**. Sie kann jedoch gezielte Requirement-/Acceptance- oder Architektur-Reopenings auslösen, wenn reale Domain Profiles eine bisherige architecture-driving Annahme falsifizieren.
 
 ## 6. Aktueller kritischer Architektur-/Delivery-Pfad
 
@@ -200,7 +250,8 @@ Parallel möglich:
 - #52 OCR/HTR Benchmark-Harness auf isoliertem Testmaterial;
 - #55 Audit-View-Contract;
 - #57 synthetische Export-/Removal-Tests;
-- Live Research #46/#47.
+- Live Research #46/#47;
+- Domain Method Profile Research #60.
 
 Zusätzlicher Restartability-Test aus aktuellem `paleo-type`-Prior-Art, für #49/#57 zu prüfen:
 
@@ -222,7 +273,7 @@ Für aktuelle Detailfragen gilt:
 
 ```text
 Research Design Principles
-→ aktuelle Research/SOTA-Artefakte
+→ aktuelle Research/SOTA-/Methods-Artefakte
 → #42 Requirements
 → #43 Gate
 → #48ff Architecture Contracts / Spikes / ADRs
@@ -240,30 +291,41 @@ Der aktuelle technische Stand ist überwiegend **Architecture Contract / Spike /
 
 Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert, bis eine belastbare Architektur-/MVP-Entscheidung vorliegt. Kleine diskriminierende Prototypen und Test-Harnesses sind vorher ausdrücklich zulässig.
 
+#60 ist **keine technische Systementwicklung**, sondern fachwissenschaftliche Methodenforschung/Operationalisierung mit möglicher downstream Requirements-Wirkung.
+
 ## 9. Nächste ausführbare Aktionen
+
+### Fachmethodik #60
+
+1. Ersten SOTA-Block **Diplomatik / Urkundenlehre + Editionswissenschaft/Textkritik** durchführen; konkrete Methodenliteratur/Standards fundstellenfähig dokumentieren.
+2. Daraus erstes Domain Method Profile gemäß `domain-method-profile-contract.md` bauen und an NHUB-II-Fällen testen, einschließlich mindestens eines Overclaim-/Counterexample-Falls.
+3. Danach **Archivistik / Provenienz / Registraturkunde** sowie **historische Philologie / mittellateinische Semantik / Hermeneutik** operationalisieren.
+4. Weitere Profile problemgetrieben aus #46/#47 priorisieren; keine vollständige Methoden-Enzyklopädie vorab.
+5. Requirement-Deltas zunächst nur als Candidates führen; #42 bleibt bis zur nachgewiesenen Generalisierbarkeit unverändert.
 
 ### Live Research
 
-1. #46 entlang der aktualisierten Makrofrage fortführen: Source-local Erschließung + Zeitscheiben-/Situations-Dossiers + Evidence-Demand-Routing.
-2. NHUB-II-/CDS-/Lehnbuch-/Saalfeld-Kollation nach den aktuellen #46-Stop-/Qualitätsregeln fortsetzen.
-3. Triptis 1212 und weitere Situationen nicht aus einem Einzeltext kausal erklären, sondern konkurrierende Hypothesen über disziplinspezifische Evidenzpfade prüfen.
-4. RC-U2-09…18 nur über Cross-Use-Case-/SOTA-/Requirement-Prüfung weiterpromovieren.
+6. #46 entlang der aktualisierten Makrofrage fortführen: Source-local Erschließung + Zeitscheiben-/Situations-Dossiers + Evidence-Demand-Routing; dabei Case-Methodik als Candidate behandeln, wenn das passende Domain Profile noch nicht validiert ist.
+7. NHUB-II-/CDS-/Lehnbuch-/Saalfeld-Kollation nach den aktuellen #45-/Source-Identity-Regeln fortsetzen.
+8. Triptis 1212 und weitere Situationen nicht aus einem Einzeltext kausal erklären, sondern Hypothesen klar vom direkten Quellenbefund trennen und spätere fachliche Anschlussanalyse unter #60 routen.
+9. RC-U2-09…18 nur über Cross-Use-Case-/SOTA-/Requirement-Prüfung weiterpromovieren.
 
 ### Case-unabhängig / Architecture
 
-5. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
-6. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
-7. **#56** Rights-Admission-/Credential-Contract spezifizieren.
-8. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
-9. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
-10. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
-11. Fresh-context Source-Availability in #49/#57 gegen reale OneDrive-/Zotero-Pfade testen.
+10. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
+11. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
+12. **#56** Rights-Admission-/Credential-Contract spezifizieren.
+13. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
+14. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
+15. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
+16. Fresh-context Source-Availability in #49/#57 gegen reale OneDrive-/Zotero-Pfade testen.
 
 ### Nach belastbaren Spikes / Falsifikation
 
-12. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
-13. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
-14. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
+17. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
+18. #60-Methodenprofile ebenfalls als wissenschaftliche Acceptance-/Failure-Quelle für bestehende Architekturannahmen nutzen, ohne Methodenentscheidungen technisch zu usurpieren.
+19. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
+20. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
 
 ## 10. Handoff-Test
 
