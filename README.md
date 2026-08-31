@@ -1,8 +1,22 @@
 # pflege-arnshaugk-historie / Histo-Orla
 
-Arbeitsrepository für historische Forschung zur Pflege Arnshaugk und für die Entwicklung einer **transdisziplinären historischen Forschungsassistenz**.
+Arbeitsrepository für historische Forschung zur Pflege Arnshaugk/Orla und für die Entwicklung einer **transdisziplinären historischen Forschungsassistenz**.
 
-Der frühere Begriff „persönlicher Archivar“ bleibt als wichtige Spezialrolle erhalten, ist aber **nicht das Gesamtziel**. Ziel ist ein **funktionierendes, dauerhaft nutzbares Forschungswerkzeug**, das belastbare Quellenarbeit, fachliche Problemübersetzung, regionalisierte Spitzenexpertise, transdisziplinäre Analyse und nachvollziehbare Synthese unterstützt.
+Ziel ist ein **funktionierendes, dauerhaft nutzbares Forschungswerkzeug**, das belastbare Quellenarbeit, fachliche Problemübersetzung, regionalisierte Expertise, transdisziplinäre Analyse und einen nachvollziehbaren, restartbaren Forschungszustand unterstützt.
+
+## Pflicht-Bootstrap / Handoff
+
+Vor substantieller Arbeit am Projekt zuerst lesen:
+
+1. **`AGENTS.md`** – bindende repo-weite Arbeits-, Persistenz- und Handoff-Regeln
+2. **`PROJECT_STATE.md`** – aktueller phasenübergreifender Projektstand
+3. diesen `README.md`
+4. zuständiges Work-Owner-Issue
+5. dessen kanonische Artefakte
+
+> **Chat ist Werkstatt. GitHub ist Projektgedächtnis.**
+
+Kein für die Fortsetzung notwendiger Forschungs-, Requirements-, Architektur-, Entwicklungs- oder Entscheidungsstand darf ausschließlich in einem Chat oder Modellzustand verbleiben.
 
 ## Präzedenz
 
@@ -25,116 +39,162 @@ konkreter Forschungsauftrag / Nutzer-Pain
 
 Lean bedeutet: **so wenig unnötige technische Komplexität wie möglich, aber so viel funktionierendes System wie nötig**, um validierte Nutzer- und Forschungsanforderungen hochwertig zu erfüllen.
 
-## Governing Principles
+## Aktuelle Phase
 
-- **Wissenschaft vor Convenience:** Fachstandards der jeweils aktivierten Disziplin dürfen weder durch unscharfe Nutzerfragen noch durch Technik, UI oder Vermittlungsziele abgeschwächt werden.
-- **Human-in-the-loop + Auditierbarkeit:** Routinearbeit darf Assistenz/Software übernehmen; consequential work muss erklärbar, anfechtbar, stoppbar und fachlich überprüfbar bleiben.
-- **Kein Wissensmonopol im Chat:** Chat ist Werkstatt; GitHub ist dauerhaftes Projektgedächtnis.
-- **Research first, aber mit Delivery-Ziel:** SOTA/Requirements dienen der Umsetzung eines funktionierenden Systems, nicht einem Konzeptpapier als Selbstzweck.
-- **Technische Subsidiarität:** vorhandene Werkzeuge vor Eigenentwicklung; deterministische/spezialisierte Verfahren vor generativer KI, wo sie die Aufgabe besser lösen.
-- **Forschung ≠ Vermittlung:** Histo-Orla erzeugt den belastbaren Forschungszustand. Zielgruppen-/medienbezogene Vermittlung ist nachgelagert und kann z. B. an `rgk-main-ssot` übergeben werden.
+Discovery, SOTA, Risk/Constraints, Capability-/Quality-Synthese, Requirements und Architecture Readiness wurden in **#28–#43 abgeschlossen**.
 
-## Kanonischer Einstieg
+Gate-Ergebnis #43:
 
-Der konsolidierte menschenlesbare Konzeptstand steht in:
+**`architecture-ready-with-bounded-research-debt`**
+
+Aktuelle Phase:
+
+```text
+Requirements
+→ Architecture Contracts / Invariants
+→ reversible technische/integrative Spikes
+→ Thin Vertical Slice
+→ Architekturvarianten / Trade-offs
+→ ADRs
+→ MVP-Schnitt
+→ Development / Verification
+```
+
+Aktueller Architecture Execution Owner: **#48**.
+
+### Aktive Architektur-/Technik-Workstreams
+
+- **#48** – Architecture Execution Control
+- **#49** – Zotero ↔ OneDrive ↔ Histo-Orla Integration, read-first
+- **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten
+
+Weitere eigenständig testbare technische Work Packages aus dem Gate werden unter #48 geführt.
+
+### Laufende Live Research Cases
+
+- **#46** – U2 Knau/Orlagau, weiterhin `in-research / working-research`
+- **#47** – U1 Orlagau Teich-/Feuchtkulturlandschaft, weiterhin `in-research / working-research`
+
+Die Cases sind nicht abgeschlossen. Sie laufen parallel als reale Forschung und Falsifikation der allgemeinen Architekturannahmen. Sie blockieren die Architektur nicht pauschal, können aber neue generalisierbare Invarianten aufdecken.
+
+## Kanonische Artefakte
+
+### Foundational Research Design
 
 `docs/research-design/transdisziplinaerer-literaturassistent.md`
 
-Die Ablage- und Ownership-Regeln für substantielle Research-Ergebnisse stehen in:
+Status/Präzedenz dazu:
 
-`docs/research/README.md`
+`docs/research-design/README.md`
 
-Dabei gilt:
+Das Design-Dokument bleibt foundational, ist aber nach #28–#43 **nicht mehr alleiniger aktueller Operations-/Requirements-/Architecture-State**.
 
-```text
-Issue = Work Owner / Scope / Status / Decisions / Verweise
-Research-Datei im Repo = ausführlicher kanonischer Forschungsinhalt
-Code = erst konkrete technische Umsetzung / begrenzter Prototyp
-```
+### Research Governance / Ablage
 
-Nicht jedes Finding erhält ein neues Issue. Neue Issues entstehen nur für eigenständige Work-/Research-/Decision-Scope nach #23.
+- `docs/research/README.md`
+- `docs/research/source-identity-protocol.md`
+- Issue **#45** – Research-/Evidence-Protokoll
 
-Kanonische Steuerungs-Issues:
+### Discovery / SOTA / Synthese
 
-- **#1** – aktueller Gesamt-/Research-Design-Stand
-- **#9** – Governance / HITL / wissenschaftliche Nachvollziehbarkeit / kein Wissensmonopol
-- **#10** – Research Plan: Discovery → SOTA → Capabilities → Requirements → Dev → Evaluation
-- **#22** – Kompetenzlandkarte für Discovery, Requirements, Risiko, SOTA und Evaluation
-- **#23** – Issue-Ownership / Traceability
-- **#24** – Software-/Systemkompetenzen, Arbeitsteilung und Lean Development
-- **#26** – Arbeitsplan der aktuellen Discovery-/SOTA-/Requirements-Phase
-- **#27** – ausführbare autonome Issue-Kette bis Architecture Readiness
-- **#44** – nur echte Decisions / Dependencies / externe Validierung
-- **#45** – gemeinsames Research-/Evidence-/SOTA-Protokoll
+- `docs/research/discovery/`
+- `docs/research/sota/`
+- `docs/research/synthesis/risks-constraints.md`
+- `docs/research/synthesis/capability-map.md`
+- `docs/research/synthesis/requirements-baseline.md`
+- `docs/research/synthesis/architecture-readiness.md`
 
-Aktuelle ausführbare Work Packages:
+### Architecture
 
-- **#28–#30** – Problem-/Need-Baseline, reale Research Workflows, Research-Question-Portfolio
-- **#31–#39** – gezielte fachliche und technische SOTA-Stränge C1–C9
-- **#40** – Risk / Constraint / Rights / Failure Review
-- **#41** – Capability Map + Quality Attributes
-- **#42** – Requirements Baseline + Acceptance Criteria
-- **#43** – Architecture-Readiness-Gate
+- `docs/architecture/contracts/canonical-research-state.md` – #50
 
-Fachlicher Scope / Qualitätsanforderungen:
+Weitere Architekturartefakte entstehen nur bei realem Inhalt; keine Future-Proof-Leerstruktur.
 
-- **#13** – transdisziplinäres Querschnittsthema / Expertise Routing
-- **#14** – regional verankert, europäisch verflochten
-- **#15** – fachliche Tiefe, Kontroversen und Unsicherheit
-- **#16** – regionalisierte Spitzenexpertise
-- **#19** – Fachkompetenz: Sprache, Modelle, Quellen und Methoden
-- **#20** – Forschungszustand ↔ Vermittlung / Übergabegrenze
+## Aktuelle Verantwortungstrennung für Quellen
 
-Quellen-/Infrastrukturthemen:
-
-- **#2** persönlicher Archivar – Spezialrolle
-- **#3** Zotero – Hypothese
-- **#4** OCR/HTR/Volltext – validierter Bedarf
-- **#5** Retrieval / historische Query Expansion / Fundstellen – validierter Bedarf
-- **#6** Git-/Provenienzprinzip – Umsetzung offen
-- **#8** Automatisierung / KI-Unabhängigkeit – Zielvorgabe, Architektur offen
-
-## Interne Referenzprojekte / Analyseschnittstellen
-
-### `paleo-type` – #12
-
-Prior Art für Forschungsgovernance, Evidenz/Provenienz, Human-in-the-loop, Operational Ownership, Progressive Disclosure, Restartability, proportionale Validierung, Lean und technische Subsidiarität.
-
-### `rgk-main-ssot` – #21
-
-Prior Art für relationale Modellmuster, Claim → Evidence → Interpretation, projektbezogene Quellenfunktionen, Discrepancy Reasoning, Zeit-/Raum-/Akteursbezug sowie die Grenze Forschung ↔ Vermittlung.
-
-Gemeinsamer Transferpfad:
+Research-Owner-Constraint:
 
 ```text
-Prior-Art-Befund
-→ exakte Herkunft / Ursprungsproblem
-→ Relevanz für Histo-Orla
-→ führende Fachdomäne(n)
-→ externer State of the Art
-→ Nutzerwert / Risiko / Capability
-→ Quality Criterion / Requirement Candidate
-→ erst dann lean technische Realisierung
+OneDrive
+= Source of Bytes / primärer physischer Speicher der Quellen- und Literaturdateien
+
+Zotero
+= bibliographische/archivische Verwaltung, Collections, Tags, Notes,
+  Attachment-Referenzen
+
+Histo-Orla
+= wissenschaftlicher Research State: Evidenz, Findings, Claims,
+  Discrepancies, Validation, Provenienz-/Findspot-Bezug
 ```
 
-**Keine direkte Kante `Referenzprojekt → Implementation`.**
+Physischer Pfad, Zotero-Key oder OneDrive-ID ersetzen nicht still die wissenschaftliche Source-/Instance-Identität.
 
-## Repräsentative reale Designfälle
+## Governing Principles
 
-#10 hält konkrete Testfälle fest, darunter:
+- **Wissenschaft vor Convenience:** Fachstandards dürfen nicht durch Nutzerformulierung, Technik, UI oder Vermittlungsziele abgeschwächt werden.
+- **Human-in-the-loop + Auditierbarkeit:** Routinearbeit darf automatisiert werden; consequential work muss erklärbar, anfechtbar, korrigierbar und fachlich überprüfbar bleiben.
+- **Kein Wissensmonopol:** Repo muss jederzeit handoff-fähig sein.
+- **Research → Delivery:** Research/Requirements dienen der Entwicklung eines funktionierenden Systems.
+- **Technische Subsidiarität:** vorhandene Werkzeuge vor Eigenentwicklung; deterministische/spezialisierte Verfahren vor GenAI, wo sie geeigneter sind.
+- **Provider-Unabhängigkeit des Research State:** externe Dienste dürfen kuratiertes Forschungswissen nicht monopolisieren.
+- **Forschung ≠ Vermittlung:** Vermittlung ist nachgelagert und darf nicht in den Research State zurückschreiben.
 
-- historische Teich-/Niederungs-/Landnutzungsstrukturen vor 1800 mit Forst-/Flur-/Hutungs-/Grenzrissen, Wasser-/Teich-/Mühlenakten, Rechnungen, Kataster/Flurbüchern, älteren Karten und räumlichen Vergleichsdaten;
-- mittelalterliche Vogtei-/Ministerialitäts-/Herrschaftsfragen;
-- frühneuzeitliche adlige Akteurs-/Handlungslogik in regionalen und europäischen Verflechtungen;
-- OCR-/Retrieval-/Fundstellenarbeit im persönlichen Quellenbestand.
+## Issue Ownership
 
-## Konsolidierte historische Issues
+Wichtige Steuerungs-/Governance-Owner:
 
-- **#7** superseded
-- **#11** completed alter Concept Audit
-- **#17** superseded – Vokabular/Begriffsmodelle integriert
-- **#18** superseded – Expertise-/Method Packs integriert
-- **#25** abgeschlossener Wissensmonopol-/Restartability-Audit
+- **#1** – Gesamtstand / Zielbild
+- **#9** – Governance, HITL, Transparenz, kein Wissensmonopol
+- **#10** – Research-to-Delivery-Prozess
+- **#22** – Kompetenzlandkarte
+- **#23** – Issue Ownership / Traceability
+- **#24** – Software-/Systemkompetenzen / technische Arbeitsteilung
+- **#44** – ausschließlich echte Decisions / Dependencies / externe Validierung
+- **#45** – Research-/Evidence-Protokoll
+- **#48** – aktuelle Architecture Execution
+
+Abgeschlossene Phase:
+
+- **#27** – Execution Control bis Architecture Readiness
+- **#28–#43** – Discovery → SOTA → Risk → Capability → Requirements → Gate
+
+Regel:
+
+```text
+Issue
+= Work Owner / Scope / Status / Dependencies / kurze Synthese / nächste Aktion
+
+versioniertes Artefakt
+= substantieller kanonischer Research-/Architecture-/Decision-Inhalt
+
+Code
+= konkrete technische Umsetzung oder begrenzter diskriminierender Prototyp
+```
+
+Neue Issues nur für eigenständige Work Packages, testbare Spikes/Hypothesen, Decisions/ADRs oder Audits – nicht für jedes Finding.
+
+## Interne Referenzprojekte
+
+- **#12 `paleo-type`** – Prior Art für Governance, Evidence/Provenance, HITL, Restartability, Quality und technische Subsidiarität.
+- **#21 `rgk-main-ssot`** – Prior Art für Claim/Evidence/Interpretation, relationale Muster, Discrepancy Reasoning und Forschung↔Vermittlung.
+
+Prior Art ist Challenge/Input, keine direkte Architekturquelle.
+
+## Handoff-Test
+
+Ein neuer kompetenter Bearbeiter muss nach Lesen von:
+
+```text
+AGENTS.md
+→ PROJECT_STATE.md
+→ README.md
+→ zuständiges Owner-Issue
+→ kanonisches Artefakt
+```
+
+ohne vorherige Chat-Historie produktiv fortsetzen können.
+
+Wenn das nicht möglich ist, ist der Projektstand **handoff-incomplete**.
 
 ## Leitformeln
 
@@ -144,8 +204,6 @@ Prior-Art-Befund
 
 > **Fachdomänen führen. Technologie dient.**
 
-> **Lean hält Entwicklung auf den konkreten Forschungsauftrag und nachweisbaren Nutzerwert fokussiert.**
+> **Dev informiert Requirements; Dev besitzt sie nicht.**
 
-> **Regionaler Fokus für Tiefenschärfe – europäischer Horizont für Erklärung.**
-
-> **Kein Wissensmonopol im Chat.**
+> **Kein Handoff hängt vom Gedächtnis eines Chats ab.**
