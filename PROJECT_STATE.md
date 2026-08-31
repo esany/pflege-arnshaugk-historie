@@ -25,6 +25,8 @@ Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
+- `docs/research/synthesis/requirements-structure.md`
+- `docs/architecture/requirements-derivation.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -38,7 +40,9 @@ Domain Method SOTA / Operationalisierung (#60)
         ↕
 Accepted Requirements + Extensions (#42)
         ↕
-Technical Lead: SOTA / Best Practice / Existing Tools / Umsetzung (#48)
+Requirement Structure / Authority / Dependencies (#42)
+        ↕
+Technical Derivation: Concerns / SOTA / Options (#48)
         ↕
 Development & Verification (#59)
         ↓
@@ -56,6 +60,39 @@ Aktive Systemanforderungen bestehen mindestens aus:
 3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints;
 4. späteren explizit akzeptierten Deltas unter #42.
 
+### Innere Requirement-Struktur
+
+Kanonischer Arbeitsvertrag:
+
+`docs/research/synthesis/requirements-structure.md`
+
+Für neue oder materiell geänderte Requirements werden mindestens auseinandergehalten:
+
+```text
+Requirement Identity / Role
+Motivation / Driver
+Origin / Source / Evidence
+Domain Authority / Acceptance Authority / Delivery / Verification Authority
+Scope / Exclusions
+Dependencies / Relations
+Criticality
+Architecture Significance
+Acceptance / Verification
+Risks / Forbidden Loss
+Status
+```
+
+Wichtig:
+
+- `Source` = konkrete Herkunft/Begründung des Requirements;
+- `Domain Authority` = Kompetenz, die seine fachliche Bedeutung besitzt;
+- `#42` = kanonischer Requirements-Lifecycle-Owner;
+- `#48/#59` = technische Ableitung/Umsetzung, nicht fachliche Semantik;
+- `Criticality` ≠ `Delivery Priority`;
+- Delivery-Reihenfolge wird dynamisch nach Nutzen, Dependencies, Risiko, Reversibilität und aktuellem Research-Pain bestimmt.
+
+Keine Big-Bang-Migration: bestehende Requirements werden clusterweise nachgezogen, sobald sie technisch/fachlich aktiv bearbeitet werden.
+
 Materielle Scope-/Qualitätsänderungen benötigen ein explizites Requirement-/Decision-Delta. Neue Buzzwords, Tools, Frameworks oder Phasenbegriffe ändern keinen akzeptierten Scope implizit.
 
 Delivery-/Verification-Status wird in `docs/development/requirements-coverage.md` geführt.
@@ -68,7 +105,7 @@ Delivery-/Verification-Status wird in `docs/development/requirements-coverage.md
 - #31–#39 SOTA C1–C9 – completed für damalige Entscheidungen
 - #40 Risks/Constraints – completed
 - #41 Capability/Quality – completed
-- #42 Requirements Baseline + accepted Extensions – aktiver Requirements Owner
+- #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
 
 Die Baselines bleiben gültig, werden aber durch reale Research-/Methodenbefunde präzisiert.
@@ -100,14 +137,17 @@ Aktuelle Priorität:
 
 ## 5. Requirements Owner #42
 
-#42 ist einziger Owner akzeptierter Systemanforderungen.
+#42 ist einziger Owner akzeptierter Systemanforderungen und ihres Lifecycles.
 
 Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
+- `docs/research/synthesis/requirements-structure.md`
 
 Neue fachlich belastbare Systembedarfe aus #46/#47/#60 gehen als Requirement-Deltas dorthin. Fachmethodische Wahrheit selbst bleibt #60-Eigentum.
+
+Das bisherige einzelne Feld `Owner` wird künftig semantisch getrennt in Originating/Domain Authority, Acceptance Authority, Technical Delivery und Verification Authority. Die Baseline wird nicht auf Vorrat komplett umgeschrieben, sondern bei aktiver Bearbeitung migriert.
 
 ## 6. Technical Lead #48
 
@@ -120,6 +160,24 @@ Neue fachlich belastbare Systembedarfe aus #46/#47/#60 gehen als Requirement-Del
 - evolutionäre Architektur;
 - technische Acceptance-/Regression-/Invariant-Tests;
 - Rückgabe fachlicher/Requirements-Fragen an #42/#60.
+
+Kanonischer Ableitungsvertrag:
+
+`docs/architecture/requirements-derivation.md`
+
+Technische Ableitung erfolgt nicht direkt `Requirement → Technologie`, sondern:
+
+```text
+Requirement / Cluster
+→ System Responsibility
+→ Architecture Concern / Quality Attribute
+→ Technical Research Question
+→ Existing Tools / Standards / Patterns
+→ Candidate Approach
+→ Trade-off / Risk / Reversibility
+→ implement-reversible | spike/benchmark | ADR | #44
+→ Implementation / Verification
+```
 
 #48 besitzt nicht:
 
@@ -175,19 +233,25 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
 
+### Requirements / Struktur
+
+5. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
+6. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
+7. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
+
 ### Technisch parallel
 
-5. #48 mappt aktive Requirements auf aktuellen technischen SOTA/Best Practice und vorhandene Werkzeuge.
-6. #49 Zotero↔OneDrive weiter prüfen.
-7. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
-8. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
-9. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
+8. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards nach `docs/architecture/requirements-derivation.md`.
+9. #49 Zotero↔OneDrive weiter prüfen.
+10. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
+11. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
+12. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
 
 ## 11. Blocker / Decisions
 
 #44 bleibt Register für echte Blocker und Owner-Entscheidungen.
 
-Die frühere DD-001-Entscheidung bleibt historische Provenienz; die aktuelle Steuerung benötigt keine `MVP`-Schicht. Die vollständigen Requirements bleiben unverändert wirksam.
+Aktuell entsteht aus der Requirements-Strukturschärfung kein #44-Blocker. Sie ändert keinen akzeptierten Scope, sondern verbessert Traceability, Authority- und Dependency-Klarheit.
 
 ## 12. Handoff-Test
 
@@ -199,14 +263,18 @@ ohne alten Chat erkennen können:
 
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
+- Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
 - primäre Funktion/Authority;
 - Method-/Evidence-Status;
+- technische Ableitungsfragen vs. bereits entschiedene Mittel;
 - technischen Delivery-/Verification-Status;
 - offene Debt/Blocker;
 - nächste Aktion und Persistenzort.
 
 > **Fachdomänen führen. Technologie dient.**
 
-> **Requirements führen den Systemumfang. Lean/Agile optimiert die Mittel.**
+> **Requirements erklären Warum/Was; technische Derivation klärt Designfragen; ADRs entscheiden Mittel.**
+
+> **Criticality ist nicht Delivery-Reihenfolge.**
 
 > **State of the Art und Best Practice sind Basis der Mittelwahl.**
