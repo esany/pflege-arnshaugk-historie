@@ -30,6 +30,8 @@ Requirements
 
 Architecture Execution Owner: **#48**.
 
+Parallel läuft weiterhin reale historische Forschung als eigenständiger Research- und Falsifikationsstrang, insbesondere #46/#47.
+
 ## 2. Abgeschlossene Baselines / Gates
 
 - #28 Problem-/Need-/Pain-Baseline – completed
@@ -59,6 +61,34 @@ Kanonische Artefakte:
 - **#47** – U1 Orlagau Teich-/Feuchtkulturlandschaft, `in-research / working-research`
 
 Diese Cases sind **nicht abgeschlossen**. Sie dürfen neue Requirement-/Architecture-Candidates erzeugen. Sie blockieren die Architektur nicht pauschal, können aber eine architecture-driving Invariante falsifizieren und damit gezieltes Reopening auslösen.
+
+### #46 – aktuelle Leit-/Makrofrage nach jüngsten Research-Updates
+
+Der U2-Forschungsrahmen wurde am 31.08.2026 materiell geschärft. Aktuelle Leitfrage:
+
+> **Wie verändern sich soziale, kirchliche, dynastische, grundherrliche und administrative Organisation des Orla-Grenzraums zwischen ca. 1200 und 1400, welche älteren Rechte und Netzwerke überleben diese Veränderungen, und wie werden Boden, Wege, Kirchen, Abgaben, Wasser und Menschen in diesen Strukturen verfügbar gemacht oder geschützt?**
+
+Kanonische neue Arbeitsartefakte:
+
+- `docs/research/cases/u2-orlagau-zeitscheiben-herrschaftsnetz.md` – Zeitscheiben, Herrschaftsschichten und Beziehungsnetze;
+- `docs/research/cases/u2-transdisziplinaere-rekonstruktionsmatrix.md` – historische Situations-/Problem-Dossiers, Evidence Demand und transdisziplinäre Lebenswelt-Rekonstruktion;
+- `docs/research/cases/u2-quellenerschliessung-sota-best-practice.md` – SOTA/Best Practice für quellenzentrierte Erschließung, `source-local first → scope expansion second`.
+
+Aktueller methodischer Pilot ist u. a. **Triptis 1212 / `nimia paupertas`**: die explizite Quellenbegründung bleibt vom Ursachenerklärungsraum getrennt; ökonomische, institutionelle, soziale, räumliche, ökologische, politische oder religiöse Ursachen sind nur über eigene Evidenzpfade zu prüfen.
+
+Aktuelle methodische Schärfung:
+
+```text
+Quelle / quellennahe Beobachtung
+→ research hooks / Evidence Demand
+→ begründete Scope-Erweiterung
+→ disziplinspezifische Evidenzpfade
+→ Cross-Evidence-Abgleich
+→ konkurrierende Erklärungen
+→ transdisziplinäre Synthese
+```
+
+Expertise Routing soll dabei nicht bei Disziplinlabels enden, sondern **Evidence Routing** erzeugen: je aktivierter Domäne Frage, benötigte Quellen-/Materialklassen, Fach-/Archivvokabular, Methode, zulässige Schlussart, Blindstellen und diskriminierende/falsifizierende Evidenz.
 
 ### Architektur / Integration / technische Spikes
 
@@ -125,11 +155,19 @@ Source / Überlieferung
 
 Kein continuation-critical State darf ausschließlich in Chat/Modellzustand verbleiben.
 
+Aktueller Governance-Audit:
+
+`docs/governance/work-context-handoff-audit.md`
+
+Befund: Der Anti-Wissensmonopol-/Repo-Bootstrap ist stark. Noch nicht bindend operationalisiert ist jedoch eine generische **Work-Context-/Authority-Schicht** für alle substantielle Chats (primäre Funktion, bounded Scope, MAY/MUST NOT, Stop/Handoff, Return Condition). Eine entsprechende `AGENTS.md`-Schärfung ist derzeit **Empfehlung, nicht bereits bindende Regel**; sie benötigt Owner-Admit, bevor sie als materielle Governanceänderung promoted wird.
+
 ## 5. Aktuelle Blocker / Decisions
 
 **#44 enthält derzeit keinen Gate-blockierenden Owner-/Rights-/External-Validation-Fall.**
 
 Normale offene Forschung, reversible Architekturfragen und technische Experimente sind keine #44-Blocker.
+
+Die im Governance-Audit empfohlene Work-Context-Schärfung blockiert laufende Research-/Architecture-Arbeit nicht. Sie wird deshalb nicht als Blocker behandelt; eine bindende Promotion in `AGENTS.md` erfolgt nur nach explizitem Owner-Admit.
 
 ## 6. Aktueller kritischer Architektur-/Delivery-Pfad
 
@@ -164,6 +202,16 @@ Parallel möglich:
 - #57 synthetische Export-/Removal-Tests;
 - Live Research #46/#47.
 
+Zusätzlicher Restartability-Test aus aktuellem `paleo-type`-Prior-Art, für #49/#57 zu prüfen:
+
+```text
+Identifiability
+≠ Reproducibility
+≠ Research-ready Availability
+```
+
+Wenn eine NEXT ACTION direkte Quelleninspektion verlangt, muss ein frischer autorisierter Work Context die tatsächlich benötigte Instanz über einen dokumentierten zulässigen Pfad öffnen können; bekannte Source Identity allein genügt nicht.
+
 ## 7. Research-Design-Dokument: Status
 
 `docs/research-design/transdisziplinaerer-literaturassistent.md` bleibt ein **foundational design document** mit weiterhin gültigen Governing Principles und fachlichem Zielbild.
@@ -194,20 +242,28 @@ Produktive Implementierung ist bewusst in #59 gebündelt und durch #58 blockiert
 
 ## 9. Nächste ausführbare Aktionen
 
-Case-unabhängig sofort:
+### Live Research
 
-1. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
-2. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
-3. **#56** Rights-Admission-/Credential-Contract spezifizieren.
-4. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
-5. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
-6. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
+1. #46 entlang der aktualisierten Makrofrage fortführen: Source-local Erschließung + Zeitscheiben-/Situations-Dossiers + Evidence-Demand-Routing.
+2. NHUB-II-/CDS-/Lehnbuch-/Saalfeld-Kollation nach den aktuellen #46-Stop-/Qualitätsregeln fortsetzen.
+3. Triptis 1212 und weitere Situationen nicht aus einem Einzeltext kausal erklären, sondern konkurrierende Hypothesen über disziplinspezifische Evidenzpfade prüfen.
+4. RC-U2-09…18 nur über Cross-Use-Case-/SOTA-/Requirement-Prüfung weiterpromovieren.
 
-Mit realen Cases anschließend:
+### Case-unabhängig / Architecture
 
-7. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
-8. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
-9. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
+5. **#50** Contract fertig prüfen und synthetische Invariant-Tests ableiten.
+6. **#54** Promotion-/Invariant-Regeln gegen synthetische Fixtures konkretisieren.
+7. **#56** Rights-Admission-/Credential-Contract spezifizieren.
+8. **#49** read-only Zotero-/OneDrive-Identifier-/Locator-Mapping empirisch prüfen, sobald Zugang/Fixture verfügbar ist.
+9. **#51** Document-/Findspot-Contract synthetisch beginnen; realer Byte-Slice folgt #49.
+10. **#52/#53/#55/#57** parallel als Harness/Contract vorbereiten, soweit ihre Abhängigkeiten erfüllt sind.
+11. Fresh-context Source-Availability in #49/#57 gegen reale OneDrive-/Zotero-Pfade testen.
+
+### Nach belastbaren Spikes / Falsifikation
+
+12. U1/U2/U4 als Falsifikation für Source/Instance/Findspot/OCR/Retrieval/Audit verwenden.
+13. **#58** 2–3 Architekturvarianten vergleichen und ADR/MVP Cut ableiten.
+14. **#59** produktiven Thin Slice implementieren und wissenschaftlich + technisch verifizieren.
 
 ## 10. Handoff-Test
 
@@ -221,3 +277,14 @@ Ein neuer Chat/Bearbeiter soll nach Lesen von:
 ohne vorherige Chat-Historie produktiv fortsetzen können.
 
 Wenn dies nach einer materiellen Änderung nicht mehr stimmt, muss dieser State vor Abschluss der Arbeit nachgezogen werden.
+
+Materialer `PROJECT_STATE`-Update-Trigger sind insbesondere Änderungen an:
+
+- aktiver Leit-/Makrofrage oder Work-Owner-Scope;
+- Phase/Gate;
+- kritischer Dependency/Blocker;
+- nächstem ausführbaren Hauptschritt;
+- cross-cutting Owner Constraint;
+- Requirement-/Architecture-/Decision-Status.
+
+Einzelne Findings gehören weiterhin in ihre kanonischen Work-Owner-Artefakte und nicht in diesen Handoff-Snapshot.
