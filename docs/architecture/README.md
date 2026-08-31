@@ -15,6 +15,11 @@ Kanonische Requirements:
 
 - `../research/synthesis/requirements-baseline.md`
 - `../research/synthesis/requirements-extensions.md`
+- `../research/synthesis/requirements-structure.md`
+
+Kanonische technische Ableitungslogik:
+
+- `requirements-derivation.md`
 
 Delivery-/Verification-Coverage:
 
@@ -24,14 +29,20 @@ Delivery-/Verification-Coverage:
 
 ```text
 accepted Requirement / realer Pain
-→ technische SOTA / Best Practice / Existing Tools
-→ kleinste hinreichende Option
-→ bei materiellem Unknown Spike/Benchmark
+→ Motivation / Scope / Dependencies / Criticality verstehen
+→ System Responsibility / Architecture Concern
+→ Technical Research Question
+→ technische SOTA / Best Practice / Existing Tools / Standards
+→ Candidate Approach
+→ Risiko / Loss / Reversibilität
+→ implement-reversible | Spike/Benchmark | ADR | #44
 → implementieren
 → fachlich + technisch testen
 → realen Case nutzen
 → behalten | anpassen | ersetzen
 ```
+
+Direkte Ableitung `Requirement → bevorzugte Technologie` ist zu vermeiden.
 
 ## Aktive Work Owner
 
@@ -63,8 +74,58 @@ accepted Requirement / realer Pain
 ### Fachliche Upstream-Schnittstelle
 
 - **#60** – Domain Method Profiles / Method Truth
-- **#42** – accepted Requirements
+- **#42** – accepted Requirements / Structure / Traceability
 - **#46/#47** – reale Research-/Problem-/Verification-Fälle
+
+## Requirement → Architecture Derivation
+
+`requirements-derivation.md` definiert die #48-Sicht.
+
+Materielle technische Arbeit beginnt mit einer Derivation Card bzw. einer entsprechend nachvollziehbaren Kurzform:
+
+```text
+Requirements / Scope
+→ System Responsibilities
+→ Architecture Concerns / Quality Attributes
+→ Dependencies
+→ Technical Research Questions
+→ Existing Tools / Standards / Patterns
+→ Candidate Approaches
+→ Trade-offs / Loss / Reversibility
+→ Decision Class
+→ Verification Target
+```
+
+Damit bleibt die fachliche Requirement Truth unter #42 unangetastet, während #48 Lösungsräume gezielt untersuchen kann.
+
+### Quality / Failure Scenarios
+
+Für architecture-significant Anforderungen kann ein kleines Quality Scenario verwendet werden:
+
+```text
+context / environment
+trigger / stimulus
+betroffenes Objekt / responsibility
+expected response
+measurable pass condition
+failure / scientific or technical loss
+```
+
+Das ist eine lean adaptierte Nutzung etablierter QAW/ATAM-Prinzipien, kein formales Enterprise-Gate.
+
+## Dependency-getriebene Planung
+
+Technische Reihenfolge wird nicht allein aus P0/P1 abgeleitet. #48 berücksichtigt mindestens:
+
+- semantic prerequisite;
+- data prerequisite;
+- runtime prerequisite;
+- verification prerequisite;
+- integration prerequisite;
+- risk prerequisite;
+- enabler relationship.
+
+Ein kleiner Enabler darf vor einem wissenschaftlich kritischeren Requirement geliefert werden, wenn dadurch dessen belastbare Umsetzung erst möglich wird. Die fachliche Kritikalität ändert sich dadurch nicht.
 
 ## Entscheidungsregel
 
@@ -79,6 +140,7 @@ Nur wenn materiell, z. B. schwer reversible Persistenz-/Datenmodellentscheidung,
 ## Technische Grundregeln
 
 - akzeptierte Requirements führen;
+- Requirement Source, Domain Authority, Acceptance Authority und technische Umsetzung nicht vermischen;
 - Fachmethode (#60) und technische Umsetzung bleiben getrennte Verantwortlichkeiten;
 - keine Technologie als Requirement tarnen;
 - aktueller SOTA / Best Practice / Existing Tools vor Eigenbau;
@@ -97,12 +159,15 @@ Nur wenn materiell, z. B. schwer reversible Persistenz-/Datenmodellentscheidung,
 
 ```text
 Requirement
++ nachvollziehbare technische Derivation
 + belastbare Implementierung
 + passende Verification
 + sichtbare Debt/Uncertainty
 = technischer Fortschritt
 ```
 
-> **Requirements führen den Umfang. Lean/Agile optimiert die Mittel.**
+> **Requirements erklären Warum/Was. Architecture Derivation klärt Designfragen. ADRs entscheiden Mittel.**
+
+> **Criticality ist nicht Delivery-Reihenfolge.**
 
 > **Dev entscheidet reversible Technik früh, wissenschaftliche Bedeutung nie eigenmächtig.**
