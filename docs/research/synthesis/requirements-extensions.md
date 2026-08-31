@@ -3,7 +3,8 @@
 **Status:** `accepted / active / iterative`  
 **Requirements Owner:** #42  
 **Inputs:** #46/#47 Live Research, #60 Domain Method Research, Owner Constraints  
-**Baseline:** `docs/research/synthesis/requirements-baseline.md`
+**Baseline:** `docs/research/synthesis/requirements-baseline.md`  
+**Innere Struktur / Authority / Traceability:** `docs/research/synthesis/requirements-structure.md`
 
 ## 1. Zweck
 
@@ -17,6 +18,8 @@ Es ist **keine MVP-Schicht und keine zweite Produktdefinition**. Die aktive Syst
 4. späteren explizit akzeptierten Deltas unter #42.
 
 Fachwissenschaftliche **Method Truth** bleibt #60/SOTA-gebunden. Dieses Artefakt beschreibt, was das System tragen und überprüfbar machen muss.
+
+Neue und materiell geänderte Requirements folgen `requirements-structure.md`; bestehende Extensions werden bei aktiver Bearbeitung schrittweise um Motivation/Origin, Authority, Scope, Dependencies, Criticality/Architecture Significance und Verification ergänzt.
 
 ## 2. Accepted Extensions
 
