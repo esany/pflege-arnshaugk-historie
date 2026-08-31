@@ -4,7 +4,9 @@
 **Owner:** #59 Development & Verification  
 **Technical Lead:** #48  
 **Requirements Owner:** #42  
-**Governance:** `docs/governance/lean-agile-non-regression.md`
+**Governance:** `docs/governance/lean-agile-non-regression.md`  
+**Requirement structure:** `docs/research/synthesis/requirements-structure.md`  
+**Technical derivation:** `docs/architecture/requirements-derivation.md`
 
 ## 1. Zweck
 
@@ -17,6 +19,8 @@ Sie ist keine zweite Requirement Truth. Kanonische Anforderungen liegen in:
 3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints.
 
 Ein Requirement verschwindet nicht durch Priorisierung, Chat-Wechsel, neue Technikbegriffe oder einen anderen Delivery-Schnitt.
+
+**Criticality / Architecture Significance ≠ aktuelle Delivery-Priorität.** Delivery wird unter #48/#59 dynamisch aus fachlichem Nutzen, Dependencies, Risiko, Reversibilität, Aufwand und aktuellem Research-Pain priorisiert.
 
 ## 2. Statusmodell
 
@@ -105,7 +109,22 @@ Regeln:
 
 **Extensions:** 13 / 13 represented.
 
-## 5. Current content-driven priorities
+## 5. Strukturmigration bei aktiver Bearbeitung
+
+Keine Big-Bang-Umschreibung. Wenn ein Requirement/Cluster aktiv technisch oder fachlich bearbeitet wird, wird seine strukturierte Sicht nach `requirements-structure.md` soweit nötig ergänzt:
+
+```text
+Motivation / Origin
+Domain Authority / Acceptance Authority
+Scope / Exclusions
+Dependencies
+Criticality / Architecture Significance
+Acceptance / Verification
+```
+
+#48 leitet daraus nach `requirements-derivation.md` System Responsibilities, Architecture Concerns und Technical Research Questions ab.
+
+## 6. Current content-driven priorities
 
 Delivery-Priorisierung richtet sich nach dem aktuellen fachlichen/requirements-seitigen Stand, nicht nach einer separaten Produktphase.
 
@@ -126,7 +145,7 @@ Delivery-Priorisierung richtet sich nach dem aktuellen fachlichen/requirements-s
 
 Eine technische Implementierung darf beginnen, sobald ein Requirement-/Constraint-Cluster hinreichend klar ist. Sie ist **keine eigene Phase, die fachliche Arbeit ersetzt oder ihr vorausläuft**.
 
-## 6. Update Rule
+## 7. Update Rule
 
 Jede materielle Implementierung aktualisiert in demselben Work Cycle:
 
