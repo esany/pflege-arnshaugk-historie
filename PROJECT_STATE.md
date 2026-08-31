@@ -22,6 +22,7 @@ Kanonisch:
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/mvp-acceptance.md`
 - `docs/governance/lean-agile-non-regression.md`
+- `docs/development/mvp-coverage.md` – Delivery-Coverage, keine zweite Requirement Truth
 - `docs/research/synthesis/phase-reconciliation.md`
 - #44 DD-001 + Non-Regression-Amendment
 
@@ -121,6 +122,10 @@ Kanonisch:
 - `docs/research/synthesis/mvp-acceptance.md`
 - `docs/governance/lean-agile-non-regression.md`
 
+Delivery Coverage:
+
+- `docs/development/mvp-coverage.md` – **39/39 Baseline-Requirements + 38/38 MVP-Overlay-Kriterien repräsentiert**; Status-/Implementation-/Verification-Sicht, keine zweite Requirement Truth.
+
 #42 führt die vollständige Acceptance-Basis monoton weiter, bis ein Kriterium explizit geändert/superseded/owner-deferred wird.
 
 Pflichtstatus je aktivem Kriterium für Delivery:
@@ -162,7 +167,9 @@ Authority Boundary:
 
 ### #59 – MVP Development & Verification
 
-**Aktiv.** Ziel ist ein real nutzbarer Walking Skeleton als erster Vertical Slice und danach inkrementelle Erfüllung der vollständigen privaten MVP-Acceptance.
+**Aktiv.** `docs/development/mvp-coverage.md` ist die aktuelle Delivery-Coverage-Sicht. Noch existiert kein produktiver Anwendungscode; die Coverage ist daher überwiegend `not-started/research-needed`, mit einigen Governance-/Delivery-Kriterien bereits `in-progress`.
+
+Ziel ist ein real nutzbarer Walking Skeleton als erster Vertical Slice und danach inkrementelle Erfüllung der vollständigen privaten MVP-Acceptance.
 
 Erster Slice-Kandidat:
 
@@ -246,21 +253,21 @@ Kein allgemeiner Development-Blocker aus #42/#43/#60/#61.
 
 ### Delivery
 
-1. #48/#59 Acceptance-Coverage-Map aus Baseline + MVP-Overlay + bindenden Constraints erstellen; nichts still auslassen.
-2. daraus ersten korrekten Vertical Slice implementieren.
+1. **ERLEDIGT:** initiale Acceptance-Coverage erstellt: `docs/development/mvp-coverage.md` mit 39/39 Baseline-Requirements und 38/38 MVP-Overlay-Kriterien.
+2. daraus ersten wissenschaftlich/technisch korrekten Vertical Slice unter #48/#59 implementieren.
 3. minimalen technischen Stack auswählen – reversibel, SOTA/Best Practice prüfen, Existing Tools bevorzugen.
 4. #49: Zotero read-only + OneDrive/Test-Byte-Auflösung soweit für Slice nötig.
 5. #50/#51: persistenten Source/Instance/Findspot-State für den Slice implementieren.
 6. #53: Exact Search früh nutzbar machen; Varianten inkrementell nachziehen.
 7. #55: menschenlesbare Audit-Ausgabe aus demselben State.
 8. #54: formal klare Invarianten automatisiert testen.
-9. weitere aktive Acceptance nach Dependency/Risiko/Nutzerwert nachziehen, nicht als `später = nicht MVP` behandeln.
+9. jede materielle Implementierungsänderung aktualisiert `mvp-coverage.md`; weitere aktive Acceptance nach Dependency/Risiko/Nutzerwert nachziehen, nicht als `später = nicht MVP` behandeln.
 
 ### Parallel Domain
 
 10. #46/#47 reale Forschung fortführen.
 11. #60 Diplomatik-/Editions-Profil SOTA-basiert härten und im laufenden MVP-Workflow testen.
-12. neue fachliche Systemanforderungen als Acceptance-Deltas an #42 zurückgeben.
+12. neue fachliche Systemanforderungen als Acceptance-Deltas an #42 zurückgeben und in Coverage ergänzen.
 
 ### Just-in-time Architecture / Research
 
@@ -276,7 +283,8 @@ Ein neuer Chat muss nach
 ohne alten Chat erkennen können:
 
 - vollständige aktive MVP-Acceptance;
-- aktuellen Slice und Acceptance-Coverage-Status;
+- `docs/development/mvp-coverage.md` und den aktuellen Coverage-Status;
+- aktuellen Slice;
 - primäre Funktion/Authority;
 - Method-/Evidence-Status;
 - was implementiert/verifiziert/partial/blocked/research-needed ist;
