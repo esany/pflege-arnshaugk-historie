@@ -20,23 +20,37 @@ Vor substantieller Arbeit:
 
 Histo-Orla ist **privat, lean und agil**.
 
-Owner-Entscheidung vom 31.08.2026:
+Verbindliche Owner-Klärung vom 31.08.2026:
 
-- die im Domain-Research-/Methodenstrang formulierten **Systemanforderungen sind MVP-Akzeptanzkriterien**;
-- Development startet jetzt inkrementell;
+- die **gesamte bereits akzeptierte Requirements-/Quality-/Governance-Basis bleibt für den privaten MVP aktiv**;
+- die im Domain-/Live-Research- und Methodenstrang formulierten Systemanforderungen ergänzen und schärfen diese Basis;
+- Development läuft inkrementell und früh nutzbar;
 - fachlicher SOTA, technische SOTA/Best Practice, Requirements-Schärfung und Architekturentwicklung laufen parallel zum realen Einsatz;
-- keine monatelange Vorab-Architektur als Voraussetzung für Nutzung;
-- wissenschaftliche Schutzinvarianten bleiben hart.
+- wissenschaftliche und technische Qualitätsmaßstäbe werden durch `lean`, `agil`, `privat`, `MVP`, `Walking Skeleton` oder `Greenfield` **nicht reduziert**.
 
 Kanonisch:
 
+- `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/mvp-acceptance.md`
+- `docs/governance/lean-agile-non-regression.md`
 - `docs/research/synthesis/phase-reconciliation.md`
+
+### Non-Regression
+
+> **Lean optimiert Mittel, Reihenfolge, Reversibilität und Time-to-Value – nicht den Anspruch.**
+
+> **Agil heißt inkrementell vollständig werden – nicht Anforderungen vergessen.**
+
+Ein neuer Begriff, eine neue Phase, ein Tool oder Architekturpattern superseded bestehenden accepted Scope niemals implizit. Materielle Scope-/Qualitätsreduktion benötigt ein explizites Requirement-/Acceptance-Delta mit Konsequenzsicht und Owner-Entscheidung.
+
+`nicht im aktuellen Slice` bedeutet **nicht** `nicht MVP`.
+
+State of the Art und Best Practice sind Basis der wissenschaftlichen und technischen Mittelwahl, proportional zur Tragweite der Entscheidung. Just-in-time Research reduziert Vorlauf, nicht Qualitätsanspruch.
 
 ## Aktuelle Phase
 
 ```text
-Owner-accepted MVP Acceptance Criteria (#42)
+vollständige aktive MVP Acceptance (#42)
         ↓
 Walking Skeleton / Lean MVP Delivery (#48/#59)
         ↕
@@ -55,9 +69,17 @@ kontinuierliche technische + wissenschaftliche Verification
 
 ## MVP
 
-Der MVP ist das private System, das die owner-accepted Domain-Akzeptanzkriterien tatsächlich im Forschungsworkflow trägt.
+Der MVP ist das private System, das die **gesamte aktive owner-accepted Acceptance-Basis** tatsächlich im Forschungsworkflow trägt.
 
-Frühe nutzbare Inkremente sind ausdrücklich erwünscht. `MVP complete` wird erst behauptet, wenn die Kriterien aus `docs/research/synthesis/mvp-acceptance.md` für den privaten Scope erfüllt sind.
+Diese Basis ist mindestens die Vereinigung aus:
+
+1. `docs/research/synthesis/requirements-baseline.md`;
+2. `docs/research/synthesis/mvp-acceptance.md`;
+3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints;
+4. owner-accepted Systemanforderungen aus #46/#47/#60;
+5. späteren Acceptance-Deltas unter #42.
+
+Frühe nutzbare Inkremente sind ausdrücklich erwünscht. `MVP complete` wird erst behauptet, wenn die vollständige aktive Acceptance für den privaten Scope erfüllt und verifiziert ist.
 
 Erster Walking-Skeleton-Kandidat:
 
@@ -73,6 +95,8 @@ Zotero / Source Metadata
 → Audit / persistenter Research State / Handoff
 ```
 
+Der Skeleton ist eine **Lieferreihenfolge**, nicht die Definition des vollständigen MVP-Scopes. Ein Slice darf klein in der Breite sein, muss innerhalb seines behaupteten Scopes aber wissenschaftlich und technisch korrekt sein.
+
 ## Aktive Owner
 
 ### Domain / Research
@@ -80,7 +104,7 @@ Zotero / Source Metadata
 - **#46** – U2 Knau/Orlagau Live Research
 - **#47** – U1 Teich-/Feuchtkulturlandschaft Live Research
 - **#60** – Domain Method Profiles / fachwissenschaftliche Method Truth
-- **#42** – accepted Requirements + MVP Acceptance Criteria
+- **#42** – accepted Requirements + vollständige MVP Acceptance Criteria
 
 ### Technical Lead / Delivery
 
@@ -105,12 +129,20 @@ Zotero / Source Metadata
 
 Dev darf reversible technische Entscheidungen früh treffen, bestehende Tools/Standards bevorzugen und refactoren.
 
+Dev muss dabei:
+
+- den vollständigen Acceptance-Scope kennen und sichtbar halten;
+- SOTA/Best Practice für konkrete Entscheidungen proportional prüfen;
+- fehlende Kriterien als `not-started | in-progress | partial | blocked | research-needed` sichtbar führen;
+- die leanste **hinreichende** Lösung wählen, nicht den Anspruch verkleinern.
+
 Dev darf **nicht**:
 
 - Fachsemantik oder Method Truth erfinden;
-- owner-accepted Akzeptanzkriterien still abschwächen;
+- owner-accepted Akzeptanzkriterien still abschwächen, streichen oder zu `nicht MVP` umdeuten;
 - AI zur Evidenz-/Truth-Instanz machen;
 - wissenschaftliche Unsicherheit aus Convenience eliminieren;
+- Prototyp-/Happy-Path-Qualität als erfüllte Acceptance ausgeben;
 - irreversible/teure/lock-in-relevante Entscheidungen ohne explizite Begründung treffen.
 
 Leitregel:
@@ -143,6 +175,11 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 
 ## Kanonische Einstiege
 
+### Governance
+
+- `AGENTS.md`
+- `docs/governance/lean-agile-non-regression.md`
+
 ### Research / Requirements / MVP
 
 - `docs/research/README.md`
@@ -160,15 +197,19 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 
 ## Governing Principles
 
-- **Privat, lean, agil: früh nutzbar werden, im realen Forschen härten.**
+- **Lean heißt kleinste hinreichende Lösung – nicht kleinster Anspruch.**
+- **Agil heißt inkrementell vollständig werden – nicht Anforderungen vergessen.**
+- **State of the Art und Best Practice sind Basis der Mittelwahl.**
 - Fachdomänen führen. Technologie dient.
-- Domain-Anforderungen sind MVP-Akzeptanzkriterien.
+- Die vollständige accepted Requirements-/Quality-Basis bleibt MVP-relevant, bis sie explizit geändert wird.
+- Domain-Anforderungen ergänzen/schärfen die Acceptance.
 - Method Truth kommt aus Fach-SOTA, nicht aus Prompt/Technik.
 - Kein Wissensmonopol im Chat.
 - Exploration offen; wissenschaftliche Promotion bleibt evidenz-/methodengebunden.
 - vorhandene Tools/Standards vor Eigenbau;
 - Provider-Unabhängigkeit des kuratierten Research State;
 - Architecture ist Mittel zur Lieferung, kein Selbstzweck.
+- **Neue Buzzwords ändern keinen akzeptierten Scope ohne explizites Delta.**
 
 ## Handoff-Test
 
@@ -176,4 +217,4 @@ Ein neuer kompetenter Bearbeiter muss nach
 
 `AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne alten Chat aktuelle Aufgabe, Authority, Acceptance Criteria, Methodenstatus, Evidenz, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
+ohne alten Chat aktuelle Aufgabe, Authority, **vollständige aktive Acceptance**, Methodenstatus, Evidenz, Delivery-Status je Kriterium, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
