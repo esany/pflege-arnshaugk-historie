@@ -1,38 +1,44 @@
 # Histo-Orla – Technical Delivery / Evolutionary Architecture Index
 
-**Technical Lead / Delivery Owner:** #48  
-**MVP Development:** #59  
-**Requirements / Acceptance:** #42  
+**Technical Lead:** #48  
+**Development / Verification:** #59  
+**Requirements:** #42  
 **Project Handoff:** `/AGENTS.md` + `/PROJECT_STATE.md`
 
 ## Zweck
 
-Dieses Verzeichnis enthält technische Delivery-, Architecture-, Assurance- und Entscheidungsartefakte für ein **privates, leanes und agiles Forschungssystem**.
+Dieses Verzeichnis enthält technische Research-, Delivery-, Architecture-, Assurance- und Entscheidungsartefakte für das private Histo-Orla-Forschungssystem.
 
-Architecture ist kein separates Vorab-Gate. Sie entsteht **just in time** aus realen MVP-Akzeptanzkriterien, technischen Risiken und laufender Nutzung.
+Architecture ist kein separates Vorab-Gate. Sie entsteht just in time aus **akzeptierten Requirements, technischen Risiken und realer Nutzung**.
 
-Kanonische MVP-Akzeptanz:
+Kanonische Requirements:
 
-`../research/synthesis/mvp-acceptance.md`
+- `../research/synthesis/requirements-baseline.md`
+- `../research/synthesis/requirements-extensions.md`
+
+Delivery-/Verification-Coverage:
+
+- `../development/requirements-coverage.md`
 
 ## Leitpfad
 
 ```text
-Acceptance Criterion / realer Pain
-→ kleinste nutzbare technische Option
-→ vorhandene Tools/Standards prüfen
-→ bei materiellem Risiko kurzer Spike/Benchmark
+accepted Requirement / realer Pain
+→ technische SOTA / Best Practice / Existing Tools
+→ kleinste hinreichende Option
+→ bei materiellem Unknown Spike/Benchmark
 → implementieren
-→ realen Case testen
+→ fachlich + technisch testen
+→ realen Case nutzen
 → behalten | anpassen | ersetzen
 ```
 
 ## Aktive Work Owner
 
-### Delivery / Technical Lead
+### Technical Lead / Development
 
-- **#48** – Lean MVP Delivery, Technical Lead, evolutionäre Architektur
-- **#59** – aktive MVP-Implementierung und Verification
+- **#48** – Technical Lead: lean Umsetzung, SOTA/Best Practice, evolutionäre Architektur
+- **#59** – System Development & Verification
 
 ### Integration / Kernzustand
 
@@ -52,89 +58,51 @@ Acceptance Criterion / realer Pain
 
 ### Architecture Decisions
 
-- **#58** – just-in-time Architecture Decision / ADR Support; kein globales Blocking-Gate
+- **#58** – just-in-time ADR Support bei materiellen/schwer reversiblen Entscheidungen
 
 ### Fachliche Upstream-Schnittstelle
 
 - **#60** – Domain Method Profiles / Method Truth
-- **#42** – accepted Requirements / MVP Acceptance Criteria
-
-## Walking Skeleton
-
-Erster nutzbarer Slice-Kandidat:
-
-```text
-Zotero / Source Metadata
-→ OneDrive Source Bytes oder kontrollierte Testdatei
-→ Source / inspected Instance / Findspot
-→ Text/OCR soweit verfügbar
-→ Exact + Variant Search
-→ Excerpt / Observation
-→ Finding / Historical Hypothesis / Research Hook
-→ Method-/Evidence-Status
-→ Audit / Persistenz / Handoff
-```
-
-Der Slice darf inkrementell entstehen. Jeder Teil soll so früh wie möglich real nutzbar sein.
+- **#42** – accepted Requirements
+- **#46/#47** – reale Research-/Problem-/Verification-Fälle
 
 ## Entscheidungsregel
 
 ### Reversible Entscheidungen
 
-Darf #48 früh treffen und bei Bedarf refactoren, sofern Acceptance/Constraints eingehalten werden, z. B.:
-
-- Library-/Framework-Auswahl ohne schweren Lock-in;
-- lokale Modulstruktur;
-- UI-/CLI-Prototyp;
-- Test-/Build-Tooling;
-- Adapterimplementierung.
+Darf #48 früh treffen und refactoren, sofern Requirements/Constraints eingehalten werden, z. B. Libraries, lokale Modulstruktur, UI/CLI-Schnitt, Test-/Build-Tooling und Adapterimplementierung.
 
 ### Explizite ADR-/Owner-Entscheidung
 
-Nur wenn materiell, z. B.:
-
-- schwer reversible Persistenz-/Datenmodellentscheidung;
-- Cloud-/Provider-/Kosten-/Privacy-Lock-in;
-- bedeutende Migration;
-- Security-/Rights-Konsequenz;
-- zwei Optionen mit verschiedenen wissenschaftlichen Verlust-/Integritätsfolgen.
+Nur wenn materiell, z. B. schwer reversible Persistenz-/Datenmodellentscheidung, Provider-/Privacy-Lock-in, bedeutende Migration, Security-/Rights-Konsequenz oder wissenschaftlich unterschiedliche Loss-Risiken.
 
 ## Technische Grundregeln
 
-- Domain-Akzeptanzkriterien führen;
+- akzeptierte Requirements führen;
 - Fachmethode (#60) und technische Umsetzung bleiben getrennte Verantwortlichkeiten;
 - keine Technologie als Requirement tarnen;
-- vorhandene Tools/Standards vor Eigenbau;
-- deterministische Invarianten deterministisch, sobald formal geklärt;
-- fail closed on wissenschaftlicher Promotion, nicht auf offene Exploration;
+- aktueller SOTA / Best Practice / Existing Tools vor Eigenbau;
+- deterministische Invarianten deterministisch, sobald fachlich/formal geklärt;
 - Source/Instance/Derivative/Findspot nicht aus Convenience verschmelzen;
-- read-first bei externen Integrationen;
 - Secrets/Credentials niemals im Repo;
-- Provider muss entfernbar bleiben, soweit Research-State-Integrität betroffen ist;
-- kleine vertikale Produktinkremente vor isolierten Architekturstudien;
-- keine KG/RAG/Multi-Agent/Workflow-/Policy-Plattform ohne konkreten Trigger.
+- Provider-/Chat-Unabhängigkeit des kuratierten Research State;
+- kleine fachlich korrekte Inkremente statt Infrastruktur auf Vorrat;
+- keine KG/RAG/Multi-Agent/Workflow-/Policy-Plattform ohne konkreten Requirement-Trigger.
 
 ## Method Conformance
 
-`assurance/method-conformance-work-context.md` bleibt Technical Research/Architecture Hypothesis.
+`assurance/method-conformance-work-context.md` bleibt Technical Research/Architecture Hypothesis. Formalisiert werden nur Method-/Evidence-/Handoff-Regeln, deren Semantik durch #42/#60 hinreichend geklärt ist.
 
-Es darf den MVP parallel härten, blockiert Development aber nicht pauschal. Formalisiert werden nur Method-/Evidence-/Handoff-Regeln, deren Semantik durch #42/#60 ausreichend geklärt ist.
-
-## Delivery-Fortschritt
+## Fortschritt
 
 ```text
-nutzbarer Slice
-+ bestandene Acceptance-/Regression-/Invariant-Tests
+Requirement
++ belastbare Implementierung
++ passende Verification
 + sichtbare Debt/Uncertainty
-= realer Fortschritt
+= technischer Fortschritt
 ```
 
-Nicht nötig ist ein monatelanger Vorab-Architekturabschluss.
-
-## Leitformeln
-
-> **Architecture is a means, not a phase gate.**
+> **Requirements führen den Umfang. Lean/Agile optimiert die Mittel.**
 
 > **Dev entscheidet reversible Technik früh, wissenschaftliche Bedeutung nie eigenmächtig.**
-
-> **Früh nutzbar, fachlich ehrlich, technisch austauschbar.**
