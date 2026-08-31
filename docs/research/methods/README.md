@@ -3,24 +3,18 @@
 **Status:** `working-method-governance / v0.1`  
 **Work Owner:** #60  
 **Bindende Oberregeln:** `AGENTS.md`, #45, `docs/research/source-identity-protocol.md`  
-**Accepted Requirements:** #42 / `docs/research/synthesis/requirements-baseline.md`  
+**Accepted Requirements:** #42 / `requirements-baseline.md` + `requirements-extensions.md`  
 **Stand:** 2026-08-31
 
 ## 1. Zweck
 
-Diese Datei beantwortet eine einzige Governance-Frage:
+Diese Datei beantwortet:
 
 > **Wo lebt welche Art methodischer Wahrheit – und welchen epistemischen Status besitzt sie?**
 
 Sie verhindert, dass Vision, fachwissenschaftliche Methode, Arbeitsauftrag, Hypothese, Requirement, Architekturentscheidung und Prompt still miteinander verschmelzen.
 
-Histo-Orla entwickelt gleichzeitig reale historische Forschung und ein Forschungssystem. Diese Ebenen dürfen sich gegenseitig informieren, aber nicht gegenseitig als Evidenz ersetzen.
-
----
-
 ## 2. Präzedenz der methodischen Wahrheit
-
-Für methodische Fragen gilt innerhalb des Repositorys:
 
 ```text
 bindende Research-Governance / akzeptierte Requirements
@@ -33,216 +27,117 @@ bindende Research-Governance / akzeptierte Requirements
 → Prompts / Chat / Modellwissen
 ```
 
-Wichtig:
+Case Learning darf generische Methodik challengen, wird aber nicht allein durch Formulierung zu bindender Methodik. Nutzerformulierungen definieren Erkenntnisinteresse, Qualitätsanspruch und Needs, nicht automatisch die fachwissenschaftliche Operationalisierung.
 
-- Eine ältere bindende Regel kann durch einen neueren **akzeptierten** methodischen Beschluss ersetzt werden; bloß jüngere Prosa besitzt nicht automatisch Vorrang.
-- Case Learning darf generische Methodik challengen, wird aber nicht allein durch Formulierung zu bindender Methodik.
-- Nutzerformulierungen beschreiben Erkenntnisinteresse, gewünschte Qualität und Pains. Sie sind kein Ersatz für die fachwissenschaftliche Operationalisierung.
+## 3. Kanonische Orte
 
----
+| Zustand | Kanonischer Owner / Ort | Bedeutung |
+|---|---|---|
+| Governance / wissenschaftliche Invarianten | `AGENTS.md`, #9, #23, #45 | bindende Arbeits-/Evidenz-/Handoff-Regeln |
+| Source-/Fundstellenmethode | `docs/research/source-identity-protocol.md` | bindender Umgang mit Quelle, Instanz, Derivat, Fundstelle |
+| Vision / fachliches Zielniveau | #16, #19 | gewünschte Forschungsfähigkeit / Spitzenexpertise |
+| Kompetenzinventar | #22 | welche Kompetenzen benötigt werden |
+| Accepted Requirements | #42 + `requirements-baseline.md` + `requirements-extensions.md` | was das System leisten muss |
+| Domain Method Profile | `docs/research/methods/` unter #60 | SOTA-belegte domänenspezifische Fachmethodik |
+| Historical Work Owner | #46/#47 etc. | Forschungsfrage, Scope, Status, nächste Arbeit |
+| Historical Evidence/Findings | Case-Artefakte + Source Ledger/Exzerpte | Quellenbefund, Evidenz, Hypothesen, Synthese |
+| Method Candidate aus Live Case | Case-Artefakt, explizit `candidate/working-method` | gegen #60/#45 zu prüfende methodische Friktion/Verbesserung |
+| Architecture / Solution | #48ff, Contracts, ADRs | technische Realisierung akzeptierter Requirements |
+| Prompt | transient | Ausführungshilfe, keine wissenschaftliche Autorität |
 
-## 3. Kanonische Orte und ihre Bedeutung
-
-| Zustand | Kanonischer Owner / Ort | Bedeutung | Darf daraus unmittelbar Architektur folgen? |
-|---|---|---|---|
-| **Governance / wissenschaftliche Invarianten** | `AGENTS.md`, #9, #23, #45 | bindende Arbeits-/Evidenz-/Handoff-Regeln | nur über Requirements/Constraints |
-| **Source-/Fundstellenmethode** | `docs/research/source-identity-protocol.md` unter #45 | bindender Umgang mit Quelle, Instanz, Derivat, Fundstelle, Zitation | nur soweit bereits Requirement/Constraint |
-| **Vision / fachliches Zielniveau** | #16, #19 | beschreibt, welche Art Spitzenexpertise gewünscht und wissenschaftlich nötig ist | nein |
-| **Kompetenzinventar / Routing-Scope** | #22 | welche Meta- und Fachkompetenzen grundsätzlich benötigt werden | nein |
-| **Accepted Requirements** | #42 + `requirements-baseline.md` | verifizierbare Systemanforderungen; einzig kanonischer Ort für akzeptierte Requirements | ja, als Input für #48ff |
-| **Domain Method Profile** | `docs/research/methods/` unter #60 | domänenspezifisch operationalisierte, SOTA-belegte Fachmethodik | zunächst Capability/Acceptance; Requirement nur nach Promotion |
-| **Historical Work Owner** | #46/#47 etc. | Forschungsfrage, Scope, Status, nächste Arbeit, kurze Synthese | nein |
-| **Historical Evidence/Findings** | jeweilige Case-Artefakte + Source Ledger/Exzerpte | Quellenbefund, Evidenz, Hypothesen, Synthese | nur indirekt als Requirement Evidence |
-| **Method Candidate aus Live Case** | Case-Artefakt, explizit `candidate/working-method` | beobachtete Verbesserung/Friktion, die gegen #60/#45 geprüft werden muss | nein |
-| **Architecture / Solution** | #48ff, Contracts, ADRs | technische Realisierung akzeptierter Needs/Requirements | bereits downstream |
-| **Prompt** | Ausführungsartefakt / transient | Hilfsmittel zur Durchführung; keine wissenschaftliche Autorität | nein |
-
----
-
-## 4. Status-Taxonomie – Begriffe nicht vermischen
+## 4. Status-Taxonomie
 
 ### `vision`
-
-Gewünschte Forschungsfähigkeit, Qualitätsambition oder Nutzererlebnis.
-
-Beispiel: „Das System soll wie ein Team regionaler Spitzenexpert:innen denken können.“
-
-**Nicht:** konkrete Methode, historische Hypothese oder Requirement.
+Gewünschte Forschungsfähigkeit oder Qualitätsambition. Keine konkrete Methode oder Requirement.
 
 ### `work_order`
-
-Konkreter Auftrag, der Forschung oder Validierung erzeugen soll.
-
-Mindestform:
-
-```text
-question / objective
-owner
-inputs
-method / quality frame
-outputs
-scope / exclusions
-dependencies
-Definition of Done
-```
-
-Ein Work Order besitzt keinen Wahrheitswert über seinen Gegenstand.
+Konkreter Forschungs-/Validierungsauftrag mit Frage, Owner, Inputs, Method/Quality Frame, Scope, Outputs, Dependencies und DoD.
 
 ### `observation`
-
-Quellen-/materialnah erhobenes Merkmal mit Fundstellenbezug. Muss zwischen source-explicit, editorial-explicit, source-structural usw. unterscheiden können.
+Quellen-/materialnahes Merkmal mit Fundstellenbezug.
 
 ### `finding`
-
-Durch eine benannte Fachmethode aus Evidenz gestützter Forschungsbefund. Enthält Geltungsbereich und Grenzen.
+Durch benannte Fachmethode aus Evidenz gestützter Befund mit Geltungsbereich und Grenzen.
 
 ### `historical_hypothesis`
-
-Falsifizierbare historische Erklärung oder Beziehungshypothese.
-
-Muss mindestens besitzen:
-
-```text
-hypothesis
-supporting observations
-competing explanations
-what would strengthen it
-what would weaken/falsify it
-scope
-status
-```
+Falsifizierbare historische Erklärung oder Beziehungshypothese mit supporting observations, competing explanations und Falsifikationsbedingungen.
 
 ### `method_hypothesis`
-
-Annahme darüber, welches fachwissenschaftliche Vorgehen für einen Problemtyp angemessen ist. Muss gegen Methoden-SOTA und reale Cases geprüft werden.
+Zu prüfende Annahme über fachwissenschaftliches Vorgehen.
 
 ### `system/solution_hypothesis`
-
-Annahme darüber, wie eine Capability technisch/organisatorisch umgesetzt werden könnte. Gehört nicht in den fachlichen Wahrheitskern.
+Zu prüfende technische/organisatorische Lösungsidee.
 
 ### `requirement_candidate`
-
-Aus beobachtetem Need/Pain/Finding abgeleiteter möglicher Systembedarf. Noch nicht akzeptiert.
+Aus Need/Pain/Finding abgeleiteter möglicher Systembedarf, noch nicht akzeptiert.
 
 ### `accepted_requirement`
-
 Nur ein im Requirements-Owner #42 akzeptierter, tracebarer und prüfbarer Systembedarf.
 
 ### `architecture_choice / ADR`
-
-Entscheidung über technische Umsetzung unter #48ff. Darf wissenschaftliche Methode nicht neu definieren.
+Technische Entscheidung unter #48ff; darf wissenschaftliche Methode nicht neu definieren.
 
 ### `prompt`
+Austauschbarer Ausführungsmechanismus; kann Methode unterstützen, ist aber nicht die Methode.
 
-Austauschbarer Ausführungsmechanismus. Ein Prompt kann eine bereits definierte Methode operational ausführen helfen; er **ist nicht die Methode**.
-
----
-
-## 5. Was derzeit wirklich bindende Methodik ist
-
-Aktuell bindend/canonical:
+## 5. Was derzeit bindend ist
 
 1. `AGENTS.md` – Repository-/Handoff-/Präzedenzregeln.
-2. #45 – gemeinsamer Research-/Evidence-Rahmen: Domain/Evidence/Inference/Terminology/Provenance/Falsification fit, Search Boundaries, Sättigung, Evidenzstatus.
-3. `docs/research/source-identity-protocol.md` – Quellen-/Instanz-/Fundstellen-/Digitalisat-/Zitiertrennung.
-4. #42 – akzeptierte wissenschaftliche Systemanforderungen, insbesondere `REQ-EPI-001`: consequential analysis benötigt nachvollziehbare führende Domänen, domänenspezifische Methoden, Evidenzmaßstäbe und zulässige Schlussarten; ein Rollenprompt ist ausdrücklich kein Beleg fachlicher Expertise.
+2. #45 – cross-cutting Research-/Evidence-Rahmen.
+3. `source-identity-protocol.md` – Quellen-/Instanz-/Fundstellen-/Digitalisat-/Zitiertrennung.
+4. #42 – akzeptierte Systemanforderungen, einschließlich `REQ-EPI-001` sowie der neuen Method-/Research-Extensions in `requirements-extensions.md`.
 
-Noch **nicht** ausreichend als generische bindende Methodik operationalisiert:
+Noch nicht ausreichend als generische Fachmethodik operationalisiert sind die konkreten Playbooks, Inferenzregeln, Evidence Appetite, fachlichen Stop-/Falsifikationsregeln und SOTA-Bibliographien der priorisierten Disziplinen. Diese Lücke ist Scope von #60.
 
-- die vollständigen methodischen Playbooks der einzelnen historischen Fachdomänen;
-- die genaue Ersterschließungsmethode je Quellengattung über den gemeinsamen Kern hinaus;
-- die domänenspezifischen Stop-/Falsifikations-/Negativbefundregeln für alle priorisierten Disziplinen;
-- die konkrete Evidence Appetite / Search Vocabulary / SOTA-Bibliographie je Fach.
+## 6. Status bestehender strategischer und Live-Artefakte
 
-Diese Lücke ist Work Scope von #60.
+- #16/#19 = `vision / strategic requirement source`.
+- #22 = `competence map / research workframe`.
+- #45 = `binding cross-cutting research protocol`.
+- #46/#47 = `live historical research + method stress cases`.
+- `u2-transdisziplinaere-rekonstruktionsmatrix.md` = case-derived method extension / candidate.
+- `u2-quellenerschliessung-sota-best-practice.md` = SOTA-backed working method candidate; in #60 domänenspezifisch zu prüfen.
 
----
+## 7. Schutz vor KI-Sumpf
 
-## 6. Status bestehender strategischer und Live-Research-Artefakte
+Eine Methode ist höchstens Hypothese/Candidate, wenn sie nicht beantworten kann:
 
-### #16 / #19
-
-**Status:** `vision / strategic requirement source`.
-
-Sie definieren mit großer fachlicher Schärfe das Zielniveau: eigene Fachsprache, Begriffsmodelle, Quellenwelten, Methoden, Forschungsstand, Regionalisierung und transdisziplinäre Schnittstellen. Sie sind jedoch **keine fertigen Domain Method Profiles**.
-
-### #22
-
-**Status:** `competence map / research workframe`.
-
-#22 beantwortet „Welche Kompetenzen müssen vorhanden sein?“. Es ersetzt nicht die Frage „Wie arbeitet diese konkrete Fachkompetenz an diesem Quellentyp methodisch korrekt?“.
-
-### #45
-
-**Status:** `binding cross-cutting research protocol`.
-
-#45 gibt gemeinsame wissenschaftliche Mindestregeln vor. Es soll nicht die Methodik sämtlicher Fachdisziplinen vereinheitlichen.
-
-### #46 / #47
-
-**Status:** `live historical research + method stress cases`.
-
-Dort entstehen reale Findings und methodische Friktionen. Neue methodische Schemata in Case-Dokumenten sind solange `working/candidate`, bis sie über #60 oder #45 generalisiert/promoted wurden.
-
-Insbesondere:
-
-- `u2-transdisziplinaere-rekonstruktionsmatrix.md` = **case-derived method extension / candidate**, kein generischer Pflichtstandard.
-- `u2-quellenerschliessung-sota-best-practice.md` = **SOTA-backed working method candidate** für quellenzentrierte modulare Erschließung; muss in #60 domänenspezifisch getestet werden.
-
----
-
-## 7. Schutz vor „KI-Sumpf“
-
-Ein Artefakt ist wissenschaftlich verdächtig, wenn es hauptsächlich aus plausibel klingenden Kategorien besteht, aber nicht beantworten kann:
-
-- welche Fachtradition/Methode diese Kategorien begründet;
-- für welchen Problem-/Quellentyp sie gelten;
+- welche Fachtradition/Methode sie begründet;
+- für welchen Problem-/Quellentyp sie gilt;
 - welche maßgebliche Literatur/Standards sie tragen;
-- welche Evidenz ein Fach für welchen Schluss benötigt;
-- welche Schlüsse ausdrücklich verboten sind;
-- wodurch das Vorgehen falsifiziert oder als unzureichend erkannt wird;
-- wie es an einer realen Quelle getestet wurde;
-- welche Teile deterministische Regeln, fachliches Urteil oder bloße AI-Heuristik sind.
-
-Solche Artefakte dürfen höchstens `method_hypothesis` oder `working-candidate` sein.
+- welche Evidenz für welchen Schluss benötigt wird;
+- welche Schlüsse verboten sind;
+- wodurch sie falsifiziert/als unzureichend erkannt wird;
+- wie sie an realen Quellen getestet wurde;
+- welche Teile Regel, Spezialalgorithmus, Fachurteil oder AI-Heuristik sind.
 
 **Sprachliche Plausibilität ist kein Methodennachweis.**
 
----
-
-## 8. Domain Method Profiles – die fehlende Operationalisierung
-
-Der operative Methodenweg lautet künftig:
+## 8. Operativer Methodenweg
 
 ```text
 #16/#19 Vision
     ↓
-#22 relevante Kompetenz identifizieren
+#22 relevante Kompetenz
     ↓
-#60 Domain Method Profile aus fachlichem SOTA erarbeiten
+#60 Domain Method Profile aus fachlichem SOTA
     ↓
-#45 cross-cutting Qualitäts-/Provenienzregeln anwenden
+#45 Qualitäts-/Provenienzregeln
     ↓
-#46/#47 an echten Quellen/Befunden testen
+#46/#47 reale Quellen-/Befundtests
     ↓
 adopt | adapt | reject | remain-case-specific
     ↓
-Capability-/Acceptance-Delta
+Requirement-/Acceptance-Delta
     ↓
-falls generalisierbar: Requirement Candidate → #42
+falls akzeptiert: #42 Requirements
     ↓
-falls akzeptiert: Architektur #48ff
+#48/#59 technische Umsetzung / Verification
 ```
 
-Damit ist Fachmethodik eine eigene Schicht zwischen „Kompetenz benennen“ und „System bauen“.
-
----
+Damit ist Fachmethodik die Mittelschicht zwischen Kompetenzinventar und technischer Umsetzung; sie ist keine separate Produktphase.
 
 ## 9. Priorität
-
-#60 beginnt mit den tatsächlich benötigten Profilen der Live-Forschung. Kein Versuch, vorab eine Enzyklopädie aller historischen Methoden zu erstellen.
-
-Erste Priorität:
 
 1. Diplomatik / Urkundenlehre + Editionswissenschaft/Textkritik;
 2. Archivistik / Provenienz / Registraturkunde;
@@ -250,10 +145,6 @@ Erste Priorität:
 4. anschließend problemgetrieben Herrschaft/Recht/Sozialstruktur, Kirche/Kloster/Orden/Memoria, Prosopographie/Netzwerke, Familie/Gender/Besitz, Wirtschaft/Ressourcen, Raum/Archäologie;
 5. für U1 parallel die tatsächlich aktivierten Landschafts-/Umwelt-/Hydrologie-/Kartographieprofile.
 
-Die Reihenfolge kann durch neue discriminating findings aus #46/#47 geändert werden.
-
----
-
 ## 10. Leitregel
 
-> **Die Vision sagt, was für Forschung wir ermöglichen wollen. Die Fachwissenschaft sagt, wie man dafür methodisch arbeitet. Requirements machen den notwendigen Systembedarf prüfbar. Architektur entscheidet erst danach, wie er technisch realisiert wird.**
+> **Die Vision sagt, was für Forschung wir ermöglichen wollen. Die Fachwissenschaft sagt, wie man dafür methodisch arbeitet. Requirements machen den notwendigen Systembedarf prüfbar. Technik realisiert ihn mit möglichst einfachen, hochwertigen Mitteln.**
