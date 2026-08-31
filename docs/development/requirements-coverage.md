@@ -13,7 +13,7 @@ Diese Datei ist die monotone **Delivery-/Verification-Sicht auf alle aktiven Sys
 Sie ist keine zweite Requirement Truth. Kanonische Anforderungen liegen in:
 
 1. `docs/research/synthesis/requirements-baseline.md` – 39 accepted Requirements/Constraints;
-2. `docs/research/synthesis/requirements-extensions.md` – 12 accepted Extensions aus Live-/Domain-Research;
+2. `docs/research/synthesis/requirements-extensions.md` – 13 accepted Extensions aus Live-/Domain-Research;
 3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints.
 
 Ein Requirement verschwindet nicht durch Priorisierung, Chat-Wechsel, neue Technikbegriffe oder einen anderen Delivery-Schnitt.
