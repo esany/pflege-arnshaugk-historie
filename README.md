@@ -1,8 +1,8 @@
 # pflege-arnshaugk-historie / Histo-Orla
 
-Arbeitsrepository für historische Forschung zur Pflege Arnshaugk/Orla und für die Entwicklung einer **transdisziplinären historischen Forschungsassistenz**.
+Arbeitsrepository für historische Forschung zur Pflege Arnshaugk/Orla und für die Entwicklung einer **privaten, transdisziplinären historischen Forschungsassistenz**.
 
-Ziel ist ein **funktionierendes, dauerhaft nutzbares Forschungswerkzeug**, das belastbare Quellenarbeit, fachliche Problemübersetzung, regionalisierte Expertise, transdisziplinäre Analyse und einen nachvollziehbaren, restartbaren Forschungszustand unterstützt.
+Ziel ist ein **früh nutzbares, dauerhaft belastbares Forschungswerkzeug**, das Quellenarbeit, fachliche Problemübersetzung, domänenspezifische Methoden, transdisziplinäre Analyse und einen nachvollziehbaren, restartbaren Forschungszustand unterstützt.
 
 ## Pflicht-Bootstrap / Handoff
 
@@ -16,141 +16,120 @@ Vor substantieller Arbeit:
 
 > **Chat ist Werkstatt. GitHub ist Projektgedächtnis.**
 
-Für substantielle Arbeit gilt zusätzlich `AGENTS.md` §13: primäre Funktion, Work Owner, bounded Scope, Method-/Quality-Frame, Authority-Grenzen, Stop/Handoff, Return Condition und Persistenzort müssen rekonstruierbar sein.
+## Produktmodus
 
-## Präzedenz
+Histo-Orla ist **privat, lean und agil**.
 
-```text
-konkreter Forschungsauftrag / Nutzer-Pain
-→ führende Fachdomäne(n)
-→ wissenschaftliche Standards / Domain Method / Evidenzbedarf
-→ State of the Art + internes Prior Art
-→ validierte Needs / Capabilities / Quality Attributes
-→ Requirements + Acceptance Criteria
-→ Architecture Readiness
-→ Architektur / Design
-→ Development / Integration
-→ technische + wissenschaftliche Verifikation
-→ MVP / Nutzung
-→ Evaluation / Iteration
-```
+Owner-Entscheidung vom 31.08.2026:
 
-**Fachdomänen führen. Technologie dient.**  
-**Dev informiert Requirements; Dev besitzt sie nicht.**
-
-## Aktuelle Phase – Reconciliation vor Architekturentscheidung
-
-Der erste Durchlauf #28–#43 erzeugte eine v0.1 Discovery-/SOTA-/Requirements-Baseline und zunächst das Gate `architecture-ready-with-bounded-research-debt`.
-
-Der vertiefte Live Case #46 und die daraus entstandene fachwissenschaftliche Methodenschicht #60 haben gezeigt, dass diese Readiness erneut geprüft werden muss. Deshalb sind **#42 Requirements und #43 Architecture Readiness reopened**.
-
-Aktuell gilt:
-
-**`architecture decision not admitted / technical discovery allowed`**
+- die im Domain-Research-/Methodenstrang formulierten **Systemanforderungen sind MVP-Akzeptanzkriterien**;
+- Development startet jetzt inkrementell;
+- fachlicher SOTA, technische SOTA/Best Practice, Requirements-Schärfung und Architekturentwicklung laufen parallel zum realen Einsatz;
+- keine monatelange Vorab-Architektur als Voraussetzung für Nutzung;
+- wissenschaftliche Schutzinvarianten bleiben hart.
 
 Kanonisch:
 
-`docs/research/synthesis/phase-reconciliation.md`
+- `docs/research/synthesis/mvp-acceptance.md`
+- `docs/research/synthesis/phase-reconciliation.md`
 
-Arbeitsfluss:
+## Aktuelle Phase
 
 ```text
-#46/#47 Live Research / Problem Discovery
+Owner-accepted MVP Acceptance Criteria (#42)
+        ↓
+Walking Skeleton / Lean MVP Delivery (#48/#59)
         ↕
-#60 Domain Method SOTA / Operationalisierung
-        ↓
-#42 Requirements Reconciliation
+Live Research (#46/#47)
         ↕
-#48 Technical Discovery / Engineering Advisory
+Domain Method SOTA / Operationalisierung (#60)
+        ↕
+Requirements-/Acceptance-Schärfung (#42)
+        ↕
+Just-in-time Technical SOTA / Architecture (#48/#58)
         ↓
-#43 Architecture Readiness Re-Gate
-        ↓ nur bei PASS
-#58 Architecture Decision / ADR / MVP Cut
-        ↓
-#59 Development / Verification
+kontinuierliche technische + wissenschaftliche Verification
 ```
 
-### Softwaretechnologischer Stand
+**Architecture is a means, not a phase gate.**
 
-Histo-Orla ist **technisch Greenfield**:
+## MVP
 
-- kein produktiver Anwendungscode;
-- kein gewählter Runtime-/UI-/Backend-Stack;
-- keine entschiedene Persistenz-, Search-, OCR- oder Workflow-Technologie;
-- keine validierte Zielarchitektur.
+Der MVP ist das private System, das die owner-accepted Domain-Akzeptanzkriterien tatsächlich im Forschungsworkflow trägt.
 
-Vorhanden sind wissenschaftliche Invarianten, Requirements v0.1, technische SOTA-/Allocation-Prinzipien und bounded Research-/Feasibility-Hypothesen. Das ist noch keine Systemarchitektur.
+Frühe nutzbare Inkremente sind ausdrücklich erwünscht. `MVP complete` wird erst behauptet, wenn die Kriterien aus `docs/research/synthesis/mvp-acceptance.md` für den privaten Scope erfüllt sind.
 
-## Aktive fachliche Owner
+Erster Walking-Skeleton-Kandidat:
+
+```text
+Zotero / Source Metadata
+→ OneDrive Source Bytes oder kontrollierte Testdatei
+→ Source / inspected Instance / Findspot
+→ Text/OCR soweit verfügbar
+→ Exact + Variant Search
+→ Excerpt / Observation
+→ Finding / Historical Hypothesis / Research Hook
+→ Method-/Evidence-Status
+→ Audit / persistenter Research State / Handoff
+```
+
+## Aktive Owner
+
+### Domain / Research
 
 - **#46** – U2 Knau/Orlagau Live Research
 - **#47** – U1 Teich-/Feuchtkulturlandschaft Live Research
 - **#60** – Domain Method Profiles / fachwissenschaftliche Method Truth
-- **#42** – einziger Owner akzeptierter Requirements; aktuell Reconciliation
-- **#43** – Architecture Readiness Re-Gate
+- **#42** – accepted Requirements + MVP Acceptance Criteria
 
-Methodenbasis:
+### Technical Lead / Delivery
 
-- `docs/research/methods/README.md`
-- `docs/research/methods/domain-method-profile-contract.md`
-- #45 Research-/Evidence-Protokoll
-- `docs/research/source-identity-protocol.md`
+- **#48** – Lean MVP Delivery / Technical Lead / evolutionary Architecture
+- **#59** – aktive MVP-Implementierung und Verification
+- **#58** – just-in-time Architecture Decisions / ADRs nur bei materiellen Entscheidungen
 
-## Führender technischer Owner vor dem Re-Gate
+### Technische Teilpakete
 
-**#48 – Technical Discovery / Engineering Advisory**
-
-#48 darf und soll:
-
-- technische SOTA/Best Practice und vorhandene Tools untersuchen;
-- Feasibility, Integrationen, Migration, Lock-in, Kosten und Dependencies prüfen;
-- technische Unknowns priorisieren;
-- kleine reversible Spikes/Benchmarks durchführen, wenn sie eine konkrete Research-/Requirement-Frage diskriminieren;
-- Ergebnisse an #42/#60 als Findings/Candidates zurückgeben.
-
-#48 darf vor #43 PASS **nicht**:
-
-- Fachsemantik definieren;
-- Requirements akzeptieren;
-- Zielarchitektur, produktiven Stack oder MVP-Schnitt festlegen.
-
-Leitregel:
-
-> **Dev exploriert früh, entscheidet spät.**
-
-## Technische Research-/Feasibility-Workstreams
-
-- **#49** – Zotero ↔ OneDrive Integration, read-first feasibility
+- **#49** – Zotero ↔ OneDrive Integration
 - **#50** – Canonical Research State / Source Identity
 - **#51** – Document-/Findspot-Pipeline
-- **#52** – OCR/HTR Benchmark Research
-- **#53** – Historical Retrieval Baseline
-- **#54** – Promotion / formal prüfbare Invarianten
+- **#52** – OCR/HTR Benchmark / Integration
+- **#53** – Historical Retrieval
+- **#54** – Promotion / deterministische Invarianten
 - **#55** – Human-readable Audit
 - **#56** – Rights / Credentials / External Processing
 - **#57** – Provider Removal / Restartability
-- **#61** – Work-Context / Method-Conformance / Handoff als Technical Assurance Research Hypothesis
+- **#61** – Work-Context / Method-Conformance / Handoff Technical Research; unterstützt Delivery, blockiert sie nicht pauschal
 
-Diese Pakete liefern **Research/Feasibility Evidence**, nicht automatisch Architekturfortschritt.
+## Dev Authority Boundary
 
-### HOLD
+Dev darf reversible technische Entscheidungen früh treffen, bestehende Tools/Standards bevorzugen und refactoren.
 
-- **#58** – Architekturvarianten / ADR / MVP Cut: HOLD bis #42 + #43 PASS
-- **#59** – produktive MVP-Entwicklung: BLOCKED bis #42 + #43 + #58
+Dev darf **nicht**:
 
-## Method Truth vs. technische Conformance
+- Fachsemantik oder Method Truth erfinden;
+- owner-accepted Akzeptanzkriterien still abschwächen;
+- AI zur Evidenz-/Truth-Instanz machen;
+- wissenschaftliche Unsicherheit aus Convenience eliminieren;
+- irreversible/teure/lock-in-relevante Entscheidungen ohne explizite Begründung treffen.
+
+Leitregel:
+
+> **Dev entscheidet reversible Technik früh, wissenschaftliche Bedeutung nie eigenmächtig.**
+
+## Method Truth
+
+#60 operationalisiert Fachmethoden SOTA-basiert. Das System muss auch unfertige Methodik ehrlich tragen können:
 
 ```text
-METHOD TRUTH
-→ #60 / Fachdomäne / SOTA
-
-TECHNICAL CONFORMANCE RESEARCH
-→ #61 / #48
-→ untersucht nur, welche bereits fachlich geklärten Teile später formal prüfbar sind
-→ Requirement-Deltas zurück an #42
+method-candidate
+→ Exploration möglich
+→ consequential Promotion bleibt begrenzt
+→ Profile wird im realen Case gehärtet
+→ neue Version kann Review alter Findings auslösen
 ```
 
-Ein Prompt oder technischer Contract ist keine Fachmethode.
+Method Truth ist kein Vorab-Blocker für das gesamte Development, sondern ein parallel wachsender fachlicher Bestandteil des MVP.
 
 ## Quellen-/Storage-Verantwortung
 
@@ -164,40 +143,32 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 
 ## Kanonische Einstiege
 
-### Foundational Design
-
-- `docs/research-design/transdisziplinaerer-literaturassistent.md`
-- `docs/research-design/README.md`
-
-Foundational, aber nicht alleiniger aktueller Operations-/Requirements-/Architecture-State.
-
-### Research / Requirements
+### Research / Requirements / MVP
 
 - `docs/research/README.md`
 - `docs/research/source-identity-protocol.md`
 - `docs/research/methods/`
-- `docs/research/discovery/`
-- `docs/research/sota/`
 - `docs/research/synthesis/requirements-baseline.md`
-- `docs/research/synthesis/architecture-readiness.md` – historischer Gate-Report
-- `docs/research/synthesis/phase-reconciliation.md` – aktueller Reassessment-State
+- `docs/research/synthesis/mvp-acceptance.md`
+- `docs/research/synthesis/phase-reconciliation.md`
 
-### Technical Discovery / Architecture Research
+### Technical Delivery
 
 - `docs/architecture/README.md`
 - `docs/architecture/contracts/canonical-research-state.md`
-- `docs/architecture/assurance/method-conformance-work-context.md` – Working Research/Hypothesis, keine ADR
+- `docs/architecture/assurance/method-conformance-work-context.md`
 
 ## Governing Principles
 
-- Wissenschaft vor Convenience.
-- Method Truth vor Prompt/Technik.
+- **Privat, lean, agil: früh nutzbar werden, im realen Forschen härten.**
+- Fachdomänen führen. Technologie dient.
+- Domain-Anforderungen sind MVP-Akzeptanzkriterien.
+- Method Truth kommt aus Fach-SOTA, nicht aus Prompt/Technik.
 - Kein Wissensmonopol im Chat.
-- Exploration offen; Promotion nur mit ausreichender Method-/Evidence-/Validation-Grundlage.
-- technische Subsidiarität: vorhandene Werkzeuge vor Eigenbau.
-- Provider-Unabhängigkeit des kuratierten Research State.
-- Dev informiert Requirements; Dev besitzt sie nicht.
-- **Greenfield bedeutet technische Freiheit – nicht fachliche Definitionsmacht.**
+- Exploration offen; wissenschaftliche Promotion bleibt evidenz-/methodengebunden.
+- vorhandene Tools/Standards vor Eigenbau;
+- Provider-Unabhängigkeit des kuratierten Research State;
+- Architecture ist Mittel zur Lieferung, kein Selbstzweck.
 
 ## Handoff-Test
 
@@ -205,4 +176,4 @@ Ein neuer kompetenter Bearbeiter muss nach
 
 `AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne alten Chat aktuelle Phase, Authority, Scope, Methodenstatus, Evidenz, nächste erlaubte Aktion und Return/Handoff korrekt rekonstruieren können.
+ohne alten Chat aktuelle Aufgabe, Authority, Acceptance Criteria, Methodenstatus, Evidenz, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
