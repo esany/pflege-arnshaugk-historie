@@ -180,3 +180,158 @@ Wenn eine Plattform diese Datei nicht automatisch lädt, muss die Projekt-/Works
 > **Die Rückübersetzung vereinfacht die Sprache, nicht die Wissenschaft.**
 
 > **Kein Handoff hängt vom Gedächtnis eines Chats ab.**
+
+## 13. Verbindlicher Work-Context-, Methoden- und Handoff-Vertrag
+
+Für jede **substanzielle** Arbeit reicht Repo-Bootstrap allein nicht. Vor der eigentlichen Ausführung muss der aktuelle Work Context aus Repository-State und Auftrag so bestimmt sein, dass Scope, Autorität und Methodik nicht still aus Chat-/Modellplausibilität entstehen.
+
+Das ist ein **Arbeitsfunktionsvertrag**, keine Agentenklasse und kein neuer Truth Store.
+
+### 13.1 Primäre Arbeitsfunktion
+
+Ein substantieller Work Context muss zu jedem Zeitpunkt eine primäre Funktion erkennen lassen, zum Beispiel:
+
+- Domain / Source Research;
+- Cross-disciplinary Domain Review / Requirements;
+- Architecture / Development / Research Software Engineering;
+- Governance / Owner-Decision Support;
+- Qualified Independent Specialist Review.
+
+Mehrere Fachkompetenzen dürfen gleichzeitig aktiv sein. Entscheidend ist, dass nicht mehrere inkompatible **Autoritäten** still gleichzeitig ausgeübt werden.
+
+Ein Rollen-/Funktionswechsel ist zulässig, muss aber an einer materiellen Authority-Grenze als expliziter Handoff oder klarer Work-Context-Wechsel erfolgen.
+
+### 13.2 Minimaler Start-/Resume-Context
+
+Vor substantieller Arbeit muss aus dem kanonischen State mindestens rekonstruierbar sein:
+
+```text
+PRIMARY FUNCTION
+CURRENT CANONICAL TASK / WORK OWNER
+PURPOSE / BOUNDED QUESTION OR TASK
+SCOPE / EXCLUSIONS
+LEADING + CONTROLLING DOMAINS / REQUIRED COMPETENCIES
+APPLICABLE METHOD / QUALITY FRAME
+REQUIRED CANONICAL CONTEXT + EVIDENCE
+MAY DECIDE / DO
+MUST NOT DECIDE / DO
+STOP / HANDOFF WHEN
+COMPLETION / RETURN CONDITION
+CANONICAL PERSISTENCE TARGET
+```
+
+Diese Informationen sollen soweit möglich aus bestehenden Ownern, Artefakten und Requirements **abgeleitet** werden. Der Nutzer soll kein Verwaltungsformular ausfüllen und keine deterministisch lösbaren Rollen-/Pfad-/Validatorfragen entscheiden müssen.
+
+Nicht jeder triviale Chat benötigt diese Zeremonie. Sobald Research-, Requirements-, Architektur-, Development-, Decision- oder andere continuation-critical Arbeit entsteht, gilt der Vertrag.
+
+### 13.3 Domain Method Profiles und Method Status
+
+Domänenspezifische Fachmethodik wird unter #60 / `docs/research/methods/` operationalisiert. Ein Fachlabel oder Rollenprompt ist kein Methodennachweis.
+
+Für consequential Research gilt:
+
+- `method-candidate` darf Exploration, Hypothesenbildung und Tests anleiten;
+- als reguläre consequential operative Fachmethode darf nur `working-method` oder höher verwendet werden;
+- fehlt ein hinreichend validiertes Domain Method Profile, darf die Forschung als `candidate / exploratory / method-debt` fortgeführt werden, aber **nicht durch Modellplausibilität consequential promoted** werden;
+- `validated-method` darf nur behauptet werden, wenn die im Profilvertrag geforderte unabhängige/qualifizierte Validierung tatsächlich vorliegt;
+- konkrete Method Application, Finding und Prompt bleiben voneinander getrennte Zustände.
+
+Leitregel:
+
+> **Exploration darf offen sein. Promotion ist fail-closed gegenüber fehlender Method-/Evidence-/Validation-Grundlage.**
+
+### 13.4 Formale Invarianten vs. wissenschaftliches Urteil
+
+Gemäß `REQ-WF-001` müssen formal prüfbare Schutzregeln technisch/deterministisch erzwungen werden, sobald die entsprechende Implementationsschicht vorhanden ist; sie dürfen nicht dauerhaft nur Prompt-Compliance bleiben.
+
+Maschinenprüfbar sind beispielsweise – soweit im jeweiligen Contract formalisiert:
+
+- erforderliche Referenzen/Parentage;
+- Status-/Authority-Transitionen;
+- zulässiger Method-Status vor consequential Promotion;
+- vorhandener Work Owner / Scope / Persistence Target;
+- Evidence-/Findspot-Referenz für evidenzielle Findings;
+- Trennung AI-Output vs. Evidence;
+- erforderliche Review-/Validation-Klasse;
+- Handoff-Vollständigkeit;
+- Referenzintegrität und History-Erhalt.
+
+**Nicht** deterministisch als fachliche Wahrheit zu entscheiden sind insbesondere:
+
+- historische Interpretation;
+- Quellenlesung, soweit sie fachliches Urteil verlangt;
+- Identität/Relation/Motiv, wenn Evidenz sie nicht formal entscheidet;
+- fachliche Suffizienz eines Arguments jenseits formal etablierter Gates;
+- unabhängige Expert:innenübereinstimmung.
+
+Software darf wissenschaftliches Urteil strukturieren, begrenzen und auditierbar machen, aber nicht durch Validatorlogik simulieren.
+
+### 13.5 Gerichtete Handoffs an Authority-/Kompetenzgrenzen
+
+Ein materieller Handoff muss so viel strukturierten Zustand übertragen, dass der empfangende Work Context ohne alten Chat korrekt weiterarbeiten kann.
+
+Mindestens proportional zur Konsequenz:
+
+```text
+FROM FUNCTION
+TO FUNCTION
+TRIGGER
+CANONICAL TASK / OWNER
+EVIDENCE / INPUT
+ESTABLISHED
+UNRESOLVED / NOT INVESTIGATED
+APPLICABLE REQUIREMENTS / METHODS
+REQUEST
+MAY
+MUST NOT
+NON-GOALS
+ACCEPTANCE / RETURN CONDITION
+CANONICAL PERSISTENCE TARGET
+```
+
+Verbindliche Hauptrichtung:
+
+```text
+Domain/Source Research
+→ Domain Review / Requirements
+→ bei akzeptiertem technischen Bedarf: Architecture/Dev
+→ technische Verifikation
+→ scholarly adequacy return review
+→ Research NEXT ACTION
+```
+
+Dev darf einen unklaren fachlichen Auftrag **nicht** aus technischer Convenience selbst präzisieren. Fehlt eine materiell notwendige Fachsemantik, Requirement-/Owner-Grundlage oder Acceptance-Grenze, wird die betroffene Entscheidung zurückgegeben statt erfunden.
+
+Umgekehrt darf Domain Research keine Architekturentscheidung allein deshalb setzen, weil sie im Einzelfall plausibel erscheint.
+
+### 13.6 Unabhängige Fachvalidierung
+
+AI-assisted Domain Research, AI-assisted Domain Review und methodenkonforme interne Review sind **keine** unabhängige qualifizierte Fachvalidierung.
+
+Wo Konsequenz/Fachstandard unabhängige Validierung verlangt, erfolgt ein eigener Specialist-Handoff mit exakter Evidenz, Review-Frage, Alternativen, Kontextgrenzen, Validation Scope und residualer Unsicherheit.
+
+Der nicht-spezialisierte Research Owner wird nicht als Ersatz-Spezialist verwendet.
+
+### 13.7 Restartability-Test
+
+Ein Work Context gilt nicht als restartbar, nur weil Dokumente existieren.
+
+Ein neuer kompetenter, autorisierter Bearbeiter muss aus Repository + kontrollierter Evidenz ohne alten Chat bestimmen können:
+
+1. was die aktuelle Aufgabe ist;
+2. welche primäre Funktion/Autorität gilt;
+3. welche Method Profiles/Requirements gelten und welchen Status sie besitzen;
+4. welche Evidenz tatsächlich verfügbar und relevant ist;
+5. welche nächste Aktion erlaubt ist;
+6. wann/wohin ein Handoff erfolgen muss;
+7. wo der resultierende State kanonisch persistiert wird.
+
+Wenn die aktuelle NEXT ACTION direkte Quelleninspektion verlangt, muss die benötigte konkrete Instanz im autorisierten Work Context tatsächlich erreichbar/inspectable sein; bloße Identifizierbarkeit oder theoretische Reproduzierbarkeit genügt nicht.
+
+### 13.8 Technische Operationalisierung
+
+Der verbindliche Governance-Vertrag definiert **was** abgesichert werden muss, nicht **welches Tool** dies implementiert.
+
+Aktueller Architecture/Assurance Owner für die technische Operationalisierung ist #61, mit Schnittstellen zu #50 Canonical State, #54 Promotion/Invariants, #55 Audit View und #57 Restartability.
+
+Technologie wird gegen State of the Art / Best Practice und die kleinste hinreichende Lösung geprüft. Maschinenlesbare Contracts, Provenance-/Research-Object-Standards, Policy-/Transition-Enforcement oder Validatoren sind Kandidaten; kein Standard/Framework wird allein wegen Vollständigkeit eingeführt.
