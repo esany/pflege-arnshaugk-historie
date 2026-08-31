@@ -34,6 +34,8 @@ Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
+- `docs/research/synthesis/requirements-structure.md`
+- `docs/architecture/requirements-derivation.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -47,7 +49,9 @@ Domain Method SOTA / Operationalisierung (#60)
         ↕
 Accepted Requirements + Extensions (#42)
         ↕
-Technical Lead: SOTA / Best Practice / Existing Tools / Umsetzung (#48)
+Requirement Structure / Authority / Dependencies (#42)
+        ↕
+Technical Derivation: Concerns / SOTA / Options (#48)
         ↕
 Development & Verification (#59)
         ↓
@@ -66,6 +70,14 @@ Aktive Basis:
 - 13 accepted Extensions aus vertieftem Live-/Domain-Research in `requirements-extensions.md`;
 - bindende Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints.
 
+Innere Struktur und Traceability:
+
+`docs/research/synthesis/requirements-structure.md`
+
+Für neue bzw. materiell bearbeitete Requirements werden insbesondere Motivation, konkrete Herkunft/Evidence, Domain Authority, Acceptance Authority, Scope, Dependencies, Criticality, Architecture Significance und Verification unterschieden. `#42` besitzt den Requirement-Lifecycle; fachliche Kompetenz besitzt die Semantik; #48/#59 besitzen technische Ableitung/Umsetzung.
+
+`Criticality` ist ausdrücklich **nicht** dasselbe wie aktuelle Delivery-Reihenfolge.
+
 Delivery-/Verification-Coverage:
 
 `docs/development/requirements-coverage.md`
@@ -79,13 +91,29 @@ Neue Begriffe, Tools, Frameworks oder Phasen superseden bestehenden accepted Sco
 - **#46** – U2 Knau/Orlagau Live Research
 - **#47** – U1 Teich-/Feuchtkulturlandschaft Live Research
 - **#60** – Domain Method Profiles / fachwissenschaftliche Method Truth
-- **#42** – accepted Requirements
+- **#42** – accepted Requirements / Lifecycle / Traceability
 
 ### Technical Lead / Development
 
 - **#48** – Technical Lead: lean Umsetzung, SOTA/Best Practice, evolutionäre Architektur
 - **#59** – System Development & Verification
 - **#58** – just-in-time ADRs bei materiellen/schwer reversiblen Entscheidungen
+
+Technische Ableitungslogik:
+
+`docs/architecture/requirements-derivation.md`
+
+```text
+Requirement / Cluster
+→ System Responsibility
+→ Architecture Concern / Quality Attribute
+→ Technical Research Question
+→ Existing Tools / Standards / Patterns
+→ Candidate Approach
+→ Trade-off / Reversibility
+→ implement | spike/benchmark | ADR | #44
+→ Verification
+```
 
 ### Technische Teilpakete
 
@@ -107,7 +135,9 @@ Dev darf reversible technische Entscheidungen früh treffen, bestehende Tools/St
 Dev muss:
 
 - den vollständigen Requirement-Scope kennen und sichtbar halten;
+- Motivation, Scope, Dependencies und fachliche Authority der aktiv bearbeiteten Requirements verstehen;
 - SOTA/Best Practice für konkrete Entscheidungen proportional prüfen;
+- zunächst Architecture Concerns und Technical Research Questions ableiten, bevor eine konkrete Technologie zur Lösung erklärt wird;
 - fehlende/partielle Umsetzung sichtbar führen;
 - die leanste **hinreichende** Lösung wählen, nicht den Anspruch verkleinern.
 
@@ -115,6 +145,7 @@ Dev darf nicht:
 
 - Fachsemantik oder Method Truth erfinden;
 - akzeptierte Requirements still abschwächen oder streichen;
+- technische Präferenz als Requirement Source behandeln;
 - AI zur Evidenz-/Truth-Instanz machen;
 - wissenschaftliche Unsicherheit aus Convenience eliminieren;
 - Prototypqualität als vollständige Erfüllung ausgeben;
@@ -155,11 +186,13 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 - `docs/research/methods/`
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
+- `docs/research/synthesis/requirements-structure.md`
 - `docs/research/synthesis/phase-reconciliation.md`
 
 ### Technical Delivery
 
 - `docs/architecture/README.md`
+- `docs/architecture/requirements-derivation.md`
 - `docs/development/requirements-coverage.md`
 - `docs/architecture/contracts/canonical-research-state.md`
 - `docs/architecture/assurance/method-conformance-work-context.md`
@@ -176,6 +209,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 - vorhandene Tools/Standards vor Eigenbau;
 - Provider-Unabhängigkeit des kuratierten Research State;
 - Architecture ist Mittel zur Umsetzung, kein Selbstzweck.
+- **Requirement Source, fachliche Authority, Requirement Lifecycle und technische Umsetzung sind unterschiedliche Verantwortlichkeiten.**
 
 ## Handoff-Test
 
@@ -183,4 +217,4 @@ Ein neuer kompetenter Bearbeiter muss nach
 
 `AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne alten Chat aktuelle Aufgabe, Authority, vollständige aktive Requirements, Methodenstatus, Evidenz, technischen Delivery-/Verification-Status, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
+ohne alten Chat aktuelle Aufgabe, Authority, vollständige aktive Requirements, Motivation/Origin/Dependencies aktiv bearbeiteter Requirements, Methodenstatus, Evidenz, technische Ableitungsfragen, Delivery-/Verification-Status, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
