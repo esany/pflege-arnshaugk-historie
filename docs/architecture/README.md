@@ -15,7 +15,7 @@ Es ist kein Ablageort für spekulative Future-Proof-Designs. Dateien entstehen n
 
 ```text
 #42 Requirements
-→ Architecture Contracts
+→ Architecture Contracts / Invariants / Assurance
 → reversible Spikes / Benchmarks
 → Thin Vertical Slice
 → Variantenvergleich / Trade-offs
@@ -31,17 +31,24 @@ Es ist kein Ablageort für spekulative Future-Proof-Designs. Dateien entstehen n
 
 - **#48** – Architecture Execution Control
 - **#49** – Zotero ↔ OneDrive Source-of-Bytes / Metadata / Research-State Boundary
-- **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten
+- **#50** – Canonical Research State / Source Identity / providerunabhängige Invarianten + Method-/Work-/Review-Provenienz
 
 ### P0/P1 Contracts, Spikes und Verification
 
 - **#51** – Document-/Findspot-Pipeline / Source→Excerpt-Roundtrip
 - **#52** – OCR/HTR Processor Contract + research-critical Benchmark Harness
 - **#53** – Historical Retrieval Baseline: Exact, Varianten, Query Log, Findspots
-- **#54** – Candidate→Review→Promotion + deterministic invariant enforcement
-- **#55** – Human-readable Research Audit View
+- **#54** – Candidate→Review→Promotion + deterministic invariant enforcement, einschließlich Method-/Authority-Transition Guards
+- **#55** – Human-readable Research Audit View bis Method Application/Profile/Review
 - **#56** – Rights Admission, Credentials und External-Processing Guards
-- **#57** – Provider Removal, Export und Restartability
+- **#57** – Provider Removal, Export und fresh-context Restartability
+- **#61** – Executable Work-Context, Method-Conformance und Handoff Assurance
+
+### Fachliche Upstream-Schnittstelle
+
+- **#60** – Domain Method Profiles; besitzt fachliche Method Truth/SOTA, nicht technische Enforcement.
+
+#61 operationalisiert formal prüfbare Conformance- und Handoff-Invarianten aus #42/#60, ohne wissenschaftliches Urteil zu determinisieren.
 
 ### Decision / Delivery
 
@@ -51,11 +58,18 @@ Es ist kein Ablageort für spekulative Future-Proof-Designs. Dateien entstehen n
 ## Dependency Map
 
 ```text
-#50 Canonical State / Identity
-   ├─→ #54 Promotion / Invariants
+#50 Canonical State / Identity / Method Provenance
+   ├─→ #54 Promotion / Transition Invariants
    ├─→ #56 Rights Admission
    ├─→ #55 Audit Contract
-   └─→ #57 synthetic provider-removal tests
+   └─→ #57 Provider Removal / Resume
+
+#60 Domain Method Profiles ─────┐
+                               ├─→ #61 Method Conformance / Work Context
+#50 ────────────────────────────┘          │
+                                           ├─→ #54
+                                           ├─→ #55
+                                           └─→ #57
 
 #49 Zotero / OneDrive Resolver
    ↓
@@ -63,18 +77,19 @@ Es ist kein Ablageort für spekulative Future-Proof-Designs. Dateien entstehen n
    ├─→ #52 OCR/HTR End-to-End
    └─→ #53 Historical Retrieval End-to-End
 
-#50 + #49 + #51 + #53 + #54 + #56 + #57
+belastbare Evidence aus #49–#57/#61
    ↓
 #58 Architecture Variants / ADR / MVP Cut
    ↓
 #59 Development / Verification
 ```
 
-#52 und #55 können teilweise parallel vorbereitet werden. Live Research #46/#47 dient als reale Falsifikation und muss für die case-unabhängigen Contracts nicht vollständig abgeschlossen sein.
+Live Research #46/#47 dient als reale Falsifikation. #60/#61 blockieren Exploration nicht pauschal; sie sichern, dass fehlende Method-/Evidence-/Validation-Grundlage nicht durch Modellplausibilität zu consequential State promoted wird.
 
-## Aktuelles Artefakt
+## Aktuelle Artefakte
 
 - `contracts/canonical-research-state.md` – #50
+- `assurance/method-conformance-work-context.md` – #61
 
 Weitere Dateien werden erst bei substantiellem Inhalt erzeugt.
 
@@ -83,13 +98,27 @@ Weitere Dateien werden erst bei substantiellem Inhalt erzeugt.
 - kein Stack ohne Requirement-/Acceptance-Bezug;
 - Provider/Produkt ist Lösung, nicht Requirement;
 - deterministische Invarianten soweit möglich deterministisch erzwingen;
+- **fail closed on promotion, not on exploration**;
+- Fachmethode (#60) und deren technische Conformance (#61/#54) bleiben getrennte Verantwortlichkeiten;
 - Source/Instance/Derivative/Findspot nicht aus technischer Convenience verschmelzen;
+- Method Profile, konkrete Method Application, Work Context, Review/Validation und Prompt/Model Run nicht still verschmelzen;
 - read-first bei externen Integrationen;
 - Secrets/Credentials niemals im Repo;
 - jeder Spike: Hypothese → Setup → Test → Ergebnis → Failure Modes → Disposition;
 - jeder Provider muss prinzipiell entfernbar sein, ohne kuratierten Research State epistemisch zu zerstören;
 - reale U1/U2/U4-Cases falsifizieren Architektur, definieren sie aber nicht allein;
-- produktiver Code folgt Architecture Decision/MVP Cut; diskriminierende Prototypen dürfen vorher entstehen.
+- produktiver Code folgt Architecture Decision/MVP Cut; diskriminierende Prototypen, Validatoren und Contract-Projektionen dürfen vorher entstehen, wenn sie auf accepted Requirements rückführbar sind.
+
+## SOTA-/Best-Practice-Referenzrahmen für Assurance
+
+#61 prüft technologieoffen insbesondere:
+
+- schema-as-contract / maschinenlesbare Validierung;
+- W3C PROV für Activity-/Entity-/Agent- und Revisionsprovenienz;
+- RO-Crate / Workflow Run RO-Crate für portable Research Objects und Ausführungsprovenienz;
+- Policy-as-Code als Pattern für getrennte Policy Definition und Enforcement.
+
+Keiner dieser Ansätze ist allein durch Aufnahme in den Referenzrahmen als Zieltechnologie entschieden. Bevorzugt wird die kleinste hinreichende, lokal auditierbare und providerunabhängige Lösung.
 
 ## Development Visibility
 
@@ -101,10 +130,10 @@ Damit gilt ab jetzt:
 Technical Contract/Spike ohne Ergebnis
 ≠ Development-Fortschritt
 
-getestete Architecture Evidence
+getestete Architecture/Assurance Evidence
 → Decision
 → implementierter MVP
-→ Verification
+→ technische + wissenschaftliche Verification
 = Delivery-Fortschritt
 ```
 
