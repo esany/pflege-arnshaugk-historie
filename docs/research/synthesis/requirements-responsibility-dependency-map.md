@@ -36,6 +36,7 @@ interactions / constraints = explizit, wenn materiell
 
 ### Fach-/Regelkompetenzen
 
+- Research Owner / User Value / Research Pain
 - Research Integrity / Scholarly Requirements Engineering
 - Diplomatik / Urkundenlehre
 - Editionswissenschaft / Textkritik
@@ -93,6 +94,7 @@ interactions / constraints = explizit, wenn materiell
 | `REQ-BND-*` | Research Integrity + Mediation Owner | Architecture boundaries; Authorization; State separation | constrains UI/export/write paths; Research State must not be back-written by mediation |
 | `REQ-MTH-*` | jeweilige Fachdomäne + #60 + Research Integrity | Domain Modeling; Provenance; Validation; Handoff/Assurance | depends on REQ-EPI-001/VAL/WF; method status constrains promotion, not exploration |
 | `REQ-RSCH-*` | jeweilige Fachdomäne + #60 + Research Integrity | State/Domain Modeling; Audit/Handoff | depends on Source/Method/Uncertainty; routes Evidence Demand across domains |
+| `REQ-TRACE-*` | Research Owner für Goal/Nutzen/Pain + Research Integrity/Requirements Engineering | Software Architecture/RSE; Provenance/Audit; Validation; Test; CI/Automation | requires WF/LEAN/STATE; verbindet upstream G/N/P mit Decision/Delivery/Verification und realem Feedback; Owner-Feedback ≠ wissenschaftliche Evidence |
 
 ## 4. Bereits explizit bekannte Requirement-Abhängigkeiten
 
@@ -174,6 +176,32 @@ REQ-SYN-001 Evidence axes distinct
 REQ-SYN-002 synthesis preserves alternatives
 ```
 
+### Value / Decision / Delivery / Feedback
+
+```text
+G-* / N-* / P-*  (#28)
+        ↓ upstream driver
+REQ-TRACE-001
+    requires REQ-WF-001
+    requires REQ-LEAN-001
+    requires REQ-STATE-001
+        ↓
+#48 technical derivation / decision
+        ↓
+#59 implementation + verification
+        ↓
+#63 real owner/workflow feedback
+        ↺
+confirm | pain-persists | regression | new-pain | new-need | requirement-change
+```
+
+Wechselwirkungen:
+
+- `REQ-WF-001` liefert das Prinzip der deterministischen Erzwingung; `REQ-TRACE-001` wendet es auf die Wert-/Delivery-Kette an.
+- `REQ-LEAN-001` begrenzt die Mittelwahl; `REQ-TRACE-001` verhindert, dass „lean“ vom ursprünglichen Need/Pain oder accepted Scope entkoppelt wird.
+- `REQ-STATE-001` stellt sicher, dass die Trace-/Feedback-Kette chat-/providerunabhängig fortsetzbar bleibt.
+- `owner-workflow-acceptance` ist Verification Coupling zwischen fachlichem/produktbezogenem Nutzen und technischer Delivery; sie darf nicht durch Unit-/CI-Tests allein erfüllt werden.
+
 ## 5. Wechselwirkungen, die #48 explizit prüfen muss
 
 Für architecture-significant Requirements reicht eine lineare Dependency nicht. #48 prüft mindestens:
@@ -185,7 +213,8 @@ Für architecture-significant Requirements reicht eine lineare Dependency nicht.
 - **shared failure domain:** ein technischer Ausfall verletzt mehrere Requirements gleichzeitig;
 - **verification coupling:** mehrere Requirements können mit demselben Fixture/Gold Case geprüft werden;
 - **rights/security coupling:** externe Verarbeitung verändert Zulässigkeit anderer Funktionen;
-- **domain coupling:** ein technischer State wird von mehreren Fachmethoden unterschiedlich gelesen und darf sie nicht flatten.
+- **domain coupling:** ein technischer State wird von mehreren Fachmethoden unterschiedlich gelesen und darf sie nicht flatten;
+- **value coupling:** eine technisch bestandene Funktion kann den zugrunde liegenden Research-Pain trotzdem nicht lösen; reale Nutzung bleibt daher relevante Verification-/Feedback-Ebene.
 
 Beispiele:
 
@@ -194,10 +223,11 @@ Beispiele:
 - Progressive Disclosure ↔ epistemische Transparenz: UI darf Komplexität reduzieren, nicht Evidenzstatus verstecken.
 - Automation ↔ Human Control: mechanische Arbeit automatisieren, epistemische Promotion nicht still automatisieren.
 - Retrieval Recall ↔ False Merge Risk: mehr fuzzy Expansion kann Entity-Fehlzusammenführungen erhöhen.
+- Technische Testabdeckung ↔ reale Nutzer-/Research-Wirkung: beides ist nötig, wenn die Acceptance tatsächlichen Workflow-Nutzen verlangt.
 
 ## 6. Migrationsregel
 
-Die 39 Baseline-Requirements besitzen bereits überwiegend fachliche `Owner`- und Capability-Angaben. Die 13 Extensions besitzen diese Struktur noch nicht vollständig als eigene Felder.
+Die 39 Baseline-Requirements besitzen bereits überwiegend fachliche `Owner`- und Capability-Angaben. Die 14 Extensions besitzen diese Struktur noch nicht vollständig als eigene Felder.
 
 Keine Big-Bang-Umschreibung. Aber **bevor ein Requirement architecture-/implementation-significant bearbeitet oder als verified markiert wird**, müssen mindestens vorhanden sein:
 
@@ -209,10 +239,12 @@ dependencies = typisiert oder none-known | unresolved
 material interactions / constraints
 ```
 
-#48/#59 dürfen fehlende fachliche Authority nicht selbst ergänzen; Rückgabe an #42/#60 bzw. zuständige Fachdomäne.
+#48/#59 dürfen fehlende fachliche Authority nicht selbst ergänzen; Rückgabe an #42/#60 bzw. zuständige Fachdomäne. `REQ-TRACE-001` ist bereits vollständig strukturiert und wird durch #62/#63 deterministisch begleitet.
 
 ## 7. Leitregel
 
 > **Jedes Requirement hat einen Lifecycle-Owner. Jedes fachlich relevante Requirement hat eine fachliche Authority. Jede technische Umsetzung hat eine Delivery-Kompetenz. Diese drei Rollen sind nicht dasselbe.**
 
 > **Eine fehlende Dependency-Angabe bedeutet unbekannt – niemals automatisch unabhängig.**
+
+> **Technische Erfüllung ist nicht automatisch Nutzer-/Research-Wirkung; wo Acceptance reale Nutzung verlangt, muss der Feedback-Pfad geschlossen werden.**
