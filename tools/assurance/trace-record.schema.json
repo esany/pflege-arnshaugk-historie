@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://histo-orla.local/schema/value-decision-delivery-trace-v0.1.json",
+  "title": "Histo-Orla Value Decision Delivery Trace Records v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "records"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "$defs": {
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "kind", "status", "materiality", "requirement_refs",
+        "driver_refs", "governance_refs", "decision_refs",
+        "implementation_refs", "implementation_files", "verification_refs",
+        "feedback_outcome", "requires_delta", "delta_refs", "notes"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^(DEC|IMP|FB)-[A-Z0-9-]+$"},
+        "kind": {"enum": ["decision", "implementation", "feedback"]},
+        "status": {"enum": ["proposed", "active", "implemented", "verified", "open", "resolved", "superseded"]},
+        "materiality": {"enum": ["mechanical", "local-reversible", "material", "scope-or-quality"]},
+        "requirement_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^REQ-[A-Z]+-[0-9]{3}$"}
+        },
+        "driver_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^[GNP]-[0-9]{3}$"}
+        },
+        "governance_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^GOV-[A-Z0-9-]+$"}
+        },
+        "decision_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^DEC-[A-Z0-9-]+$"}
+        },
+        "implementation_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "pattern": "^IMP-[A-Z0-9-]+$"}
+        },
+        "implementation_files": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "verification_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "owner_decision_ref": {"type": "string", "minLength": 1},
+        "decision_not_required_reason": {"type": "string", "minLength": 1},
+        "source_ref": {"type": "string", "minLength": 1},
+        "feedback_outcome": {
+          "enum": [null, "confirms", "pain-persists", "regression", "new-pain", "new-need", "requirement-change", "no-change"]
+        },
+        "requires_delta": {"type": "boolean"},
+        "delta_refs": {
+          "type": "array", "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "notes": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"kind": {"const": "feedback"}}, "required": ["kind"]},
+          "then": {
+            "required": ["source_ref"],
+            "properties": {
+              "implementation_refs": {"minItems": 1},
+              "feedback_outcome": {"type": "string"}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"kind": {"enum": ["decision", "implementation"]}}, "required": ["kind"]},
+          "then": {
+            "properties": {
+              "requirement_refs": {"minItems": 1},
+              "governance_refs": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"materiality": {"const": "scope-or-quality"}}, "required": ["materiality"]},
+          "then": {"required": ["owner_decision_ref"]}
+        },
+        {
+          "if": {"properties": {"requires_delta": {"const": true}}, "required": ["requires_delta"]},
+          "then": {"properties": {"delta_refs": {"minItems": 1}}}
+        }
+      ]
+    }
+  }
+}
