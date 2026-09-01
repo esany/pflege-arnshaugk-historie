@@ -1,0 +1,125 @@
+{
+  "schema_version": "0.1",
+  "records": [
+    {
+      "id": "REQ-LEAN-001",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": [
+        "Software Architecture / Research Software Engineering",
+        "Requirements/Fachowner controlling"
+      ],
+      "controlling_competence": [
+        "Research Owner"
+      ],
+      "technical_delivery_competence": [
+        "Software Architecture / Modular Systems Design",
+        "Dependency / Supply-Chain / Maintainability Engineering"
+      ],
+      "verification_authority": [
+        "#42 Requirements Owner",
+        "#48 Technical Lead"
+      ],
+      "dependency_status": "none-known",
+      "relations": [],
+      "interactions": [],
+      "criticality": "fundamental",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": [
+        "owner-workflow-acceptance"
+      ],
+      "verification_evidence_refs": [],
+      "decision_refs": [],
+      "notes": "Constrains technical means and component admission; does not reduce accepted scientific/technical scope."
+    },
+    {
+      "id": "REQ-SRC-004",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": [
+        "RDM / Provenienz / Forschungsdatenmanagement",
+        "Quellenkunde / Diplomatik / Editionswissenschaft"
+      ],
+      "controlling_competence": [
+        "Informationswissenschaft / IR"
+      ],
+      "technical_delivery_competence": [
+        "Domain Modeling",
+        "Data Engineering / Lifecycle",
+        "Provenance / Audit",
+        "Validation / Invariant Enforcement",
+        "Test / Verification Engineering"
+      ],
+      "verification_authority": [
+        "deterministic roundtrip test",
+        "Domain/source-method review"
+      ],
+      "dependency_status": "known",
+      "relations": [
+        {"type": "requires", "target": "REQ-SRC-001"},
+        {"type": "requires", "target": "REQ-SRC-002"},
+        {"type": "requires", "target": "REQ-OCR-001", "note": "conditional for OCR/HTR-derived material"},
+        {"type": "requires", "target": "REQ-OCR-002", "note": "conditional for OCR/HTR-derived material"}
+      ],
+      "interactions": [
+        {
+          "type": "verification-coupling",
+          "with": "REQ-OCR-002",
+          "note": "The same source→derivative→findspot roundtrip fixture can verify page/folio mapping and citation recovery."
+        }
+      ],
+      "criticality": "hard-constraint",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": [
+        "integration-roundtrip",
+        "real-case-acceptance"
+      ],
+      "verification_evidence_refs": [],
+      "decision_refs": [],
+      "notes": "Pilot structured record from requirements-structure.md."
+    },
+    {
+      "id": "REQ-MTH-003",
+      "source_file": "docs/research/synthesis/requirements-extensions.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": [
+        "jeweilige Fachdomäne / #60 Domain Method Truth",
+        "Research Integrity"
+      ],
+      "controlling_competence": [],
+      "technical_delivery_competence": [
+        "Domain Modeling",
+        "Provenance / Audit",
+        "Validation / Invariant Enforcement",
+        "Workflow / Handoff Assurance"
+      ],
+      "verification_authority": [
+        "Domain Method Review",
+        "deterministic formal-conformance tests"
+      ],
+      "dependency_status": "known",
+      "relations": [
+        {"type": "requires", "target": "REQ-MTH-001"},
+        {"type": "requires", "target": "REQ-MTH-002"},
+        {"type": "requires", "target": "REQ-EPI-001"},
+        {"type": "requires", "target": "REQ-VAL-001"}
+      ],
+      "interactions": [
+        {
+          "type": "constraint",
+          "with": "REQ-WF-001",
+          "note": "Only method-state semantics already established by the domain may be enforced deterministically."
+        }
+      ],
+      "criticality": "fundamental",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": [
+        "domain-method-review",
+        "deterministic-test"
+      ],
+      "verification_evidence_refs": [],
+      "decision_refs": [],
+      "notes": "Pilot structured record; research-needed delivery state is allowed while Domain Method Profiles are still being operationalized."
+    }
+  ]
+}
