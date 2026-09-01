@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-08-31  
+**Stand:** 2026-09-01  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -19,14 +19,17 @@ Verbindlich gilt:
 - Live-/Domain-Research präzisiert und ergänzt diese Requirements;
 - Lean/Agile optimiert Mittel, Reihenfolge, Reversibilität und Time-to-Value, nicht den Anspruch;
 - State of the Art und Best Practice sind Basis wissenschaftlicher und technischer Entscheidungen;
-- technische Umsetzung läuft parallel, sobald ein Requirement-/Constraint-Cluster hinreichend klar ist, ersetzt aber nicht die fachliche Arbeit.
+- technische Umsetzung läuft parallel, sobald ein Requirement-/Constraint-Cluster hinreichend klar ist, ersetzt aber nicht die fachliche Arbeit;
+- formal geklärte Requirements-Regeln werden zunehmend deterministisch geprüft statt dauerhaft nur Prompt-/Chat-Compliance zu bleiben.
 
 Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
 - `docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -41,6 +44,8 @@ Domain Method SOTA / Operationalisierung (#60)
 Accepted Requirements + Extensions (#42)
         ↕
 Requirement Structure / Authority / Dependencies (#42)
+        ↕
+Deterministic Requirements QA (#62)
         ↕
 Technical Derivation: Concerns / SOTA / Options (#48)
         ↕
@@ -91,7 +96,47 @@ Wichtig:
 - `Criticality` ≠ `Delivery Priority`;
 - Delivery-Reihenfolge wird dynamisch nach Nutzen, Dependencies, Risiko, Reversibilität und aktuellem Research-Pain bestimmt.
 
+Responsibility-/Dependency-Sicht:
+
+`docs/research/synthesis/requirements-responsibility-dependency-map.md`
+
 Keine Big-Bang-Migration: bestehende Requirements werden clusterweise nachgezogen, sobald sie technisch/fachlich aktiv bearbeitet werden.
+
+### Deterministic Requirements Assurance – #62
+
+#62 besitzt die formale Quality-Assurance-Schicht für bereits geklärte Requirements-Regeln.
+
+Bausteine:
+
+- `tools/requirements/requirement-record.schema.json` – JSON Schema Draft 2020-12;
+- `tools/requirements/data/records.json` – machine-readable QA-/Traceability-Projektion, keine zweite fachliche Requirement Truth;
+- `tools/requirements/validate.py` – deterministischer Cross-Record-/Repo-Validator;
+- `tools/requirements/tests/` – positive/negative Regressionstests;
+- `.github/workflows/requirements-assurance.yml` – automatischer CI-Check;
+- `docs/architecture/assurance/requirements-assurance-harness.md` – Rule-/Scope-Vertrag.
+
+Harte Grenze:
+
+```text
+Schema / Validator
+= Form, Referenzintegrität, Authority-/Dependency-/Coverage-/Lifecycle-Invarianten
+
+Domain / Fachreview
+= Bedeutung, fachliche Richtigkeit, wissenschaftliche Suffizienz
+```
+
+Ein Harness-PASS bedeutet nur `formal requirements conformance for the implemented rule set`, niemals wissenschaftliche Validierung.
+
+Aktueller Realtest 2026-09-01:
+
+- erster CI-Lauf fand einen realen Test-Harness-Importfehler und schlug korrekt fehl;
+- Fehler wurde behoben;
+- aktueller GitHub-Actions-Lauf `33476962793` ist `success`;
+- 14 Regressionstests bestanden;
+- formaler Validator: `0` hard errors, `49` warnings;
+- Warnungen sind erwartete inkrementelle Migrations-Debt für noch nicht strukturierte `not-started/research-needed` Requirements.
+
+Aktive technische Requirements müssen einen strukturierten QA-Record besitzen; Legacy-Requirements werden nicht als Big-Bang-Voraussetzung migriert.
 
 Materielle Scope-/Qualitätsänderungen benötigen ein explizites Requirement-/Decision-Delta. Neue Buzzwords, Tools, Frameworks oder Phasenbegriffe ändern keinen akzeptierten Scope implizit.
 
@@ -144,10 +189,13 @@ Kanonisch:
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
 - `docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 
 Neue fachlich belastbare Systembedarfe aus #46/#47/#60 gehen als Requirement-Deltas dorthin. Fachmethodische Wahrheit selbst bleibt #60-Eigentum.
 
-Das bisherige einzelne Feld `Owner` wird künftig semantisch getrennt in Originating/Domain Authority, Acceptance Authority, Technical Delivery und Verification Authority. Die Baseline wird nicht auf Vorrat komplett umgeschrieben, sondern bei aktiver Bearbeitung migriert.
+Das bisherige einzelne Feld `Owner` wird semantisch getrennt in Originating/Domain Authority, Acceptance Authority, Technical Delivery und Verification Authority. Die Baseline wird nicht auf Vorrat komplett umgeschrieben, sondern bei aktiver Bearbeitung migriert.
+
+#62 prüft die formalisierten Teile dieser Struktur deterministisch; es besitzt weder Requirement Truth noch Domain Authority.
 
 ## 6. Technical Lead #48
 
@@ -200,6 +248,8 @@ Status je Requirement:
 
 Technische Arbeit beginnt dort, wo ein Requirement-/Constraint-Cluster hinreichend klar ist; noch offene Fachsemantik bleibt sichtbar und wird nicht von Dev erfunden.
 
+Bei Requirements-/Coverage-/QA-Metadatenänderungen ist der #62-Harness die reproduzierbare formale QA-Schicht; `verified` braucht weiterhin zusätzlich die inhaltlich passende Verification Authority/Evidenz.
+
 ## 8. Technische Teilpakete
 
 - #49 – Zotero ↔ OneDrive, read-first Integration/Feasibility
@@ -213,6 +263,7 @@ Technische Arbeit beginnt dort, wo ein Requirement-/Constraint-Cluster hinreiche
 - #57 – Provider Removal / Export / Restartability
 - #58 – just-in-time ADRs bei materiellen/schwer reversiblen Entscheidungen
 - #61 – Work-Context / Method-Conformance / Handoff Technical Research
+- #62 – Requirements Assurance Harness / deterministische Requirements-QA
 
 ## 9. Source / Storage Responsibility
 
@@ -233,25 +284,27 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
 
-### Requirements / Struktur
+### Requirements / Struktur / Assurance
 
 5. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
 6. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
 7. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
+8. #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
+9. jede neue Hard Rule benötigt eindeutige Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
 
 ### Technisch parallel
 
-8. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards nach `docs/architecture/requirements-derivation.md`.
-9. #49 Zotero↔OneDrive weiter prüfen.
-10. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
-11. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
-12. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
+10. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards nach `docs/architecture/requirements-derivation.md`.
+11. #49 Zotero↔OneDrive weiter prüfen.
+12. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
+13. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
+14. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
 
 ## 11. Blocker / Decisions
 
 #44 bleibt Register für echte Blocker und Owner-Entscheidungen.
 
-Aktuell entsteht aus der Requirements-Strukturschärfung kein #44-Blocker. Sie ändert keinen akzeptierten Scope, sondern verbessert Traceability, Authority- und Dependency-Klarheit.
+Aktuell entsteht aus der Requirements-Assurance kein #44-Blocker. Die Automatisierung operationalisiert bereits akzeptierte formale Regeln und ändert weder fachliche Requirement Truth noch Scope.
 
 ## 12. Handoff-Test
 
@@ -264,6 +317,7 @@ ohne alten Chat erkennen können:
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
+- welche Requirements-Regeln deterministisch durch #62 geprüft werden und welche Fachreview bleiben;
 - primäre Funktion/Authority;
 - Method-/Evidence-Status;
 - technische Ableitungsfragen vs. bereits entschiedene Mittel;
@@ -274,6 +328,8 @@ ohne alten Chat erkennen können:
 > **Fachdomänen führen. Technologie dient.**
 
 > **Requirements erklären Warum/Was; technische Derivation klärt Designfragen; ADRs entscheiden Mittel.**
+
+> **Schema prüft Form; Validator prüft formale Invarianten; Fachreview prüft Bedeutung.**
 
 > **Criticality ist nicht Delivery-Reihenfolge.**
 
