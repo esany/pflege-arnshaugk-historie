@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1",
+  "global_governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+  "controlled_technical_paths": [
+    "src/**",
+    "app/**",
+    "histo_orla/**",
+    "tools/**",
+    "tests/**",
+    ".github/workflows/**"
+  ],
+  "changed_path_exemptions": [
+    "tools/assurance/data/trace-records.json"
+  ],
+  "negative_feedback_outcomes": [
+    "pain-persists",
+    "regression",
+    "new-pain",
+    "new-need",
+    "requirement-change"
+  ]
+}
