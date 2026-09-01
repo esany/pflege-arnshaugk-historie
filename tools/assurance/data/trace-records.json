@@ -155,7 +155,7 @@
     {
       "id": "IMP-ASSURANCE-002",
       "kind": "implementation",
-      "status": "implemented",
+      "status": "verified",
       "materiality": "local-reversible",
       "requirement_refs": [
         "REQ-WF-001",
@@ -185,11 +185,14 @@
         "tools/assurance/**",
         ".github/workflows/project-assurance.yml"
       ],
-      "verification_refs": [],
+      "verification_refs": [
+        "github-actions-run:33479262738",
+        "tools/assurance/tests/test_validate.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Bootstrap implementation record for #63. Becomes verified only after regression tests + CI real run pass."
+      "notes": "Value/Decision/Delivery/Feedback Assurance Spine v0.1. CI passed with 15 assurance regression tests; changed-code guard and both assurance validators passed."
     }
   ]
 }
