@@ -1,0 +1,195 @@
+{
+  "schema_version": "0.1",
+  "records": [
+    {
+      "id": "DEC-ASSURANCE-001",
+      "kind": "decision",
+      "status": "active",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [],
+      "implementation_refs": [],
+      "implementation_files": [],
+      "verification_refs": [
+        "docs/architecture/assurance/requirements-assurance-harness.md",
+        "issue:#62"
+      ],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Use JSON Schema + a small deterministic Python validator + regression tests + CI for formal requirements assurance; Skill/LLM remains UX, not enforcement."
+    },
+    {
+      "id": "IMP-ASSURANCE-001",
+      "kind": "implementation",
+      "status": "verified",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-001"
+      ],
+      "implementation_refs": [],
+      "implementation_files": [
+        "tools/requirements/**",
+        ".github/workflows/requirements-assurance.yml"
+      ],
+      "verification_refs": [
+        "github-actions-run:33476962793",
+        "tools/requirements/tests/test_validate.py"
+      ],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Requirements Assurance Harness v0.1. CI passed with 14 regression tests and 0 hard errors after fixing the first-run harness defect."
+    },
+    {
+      "id": "FB-20260901-001",
+      "kind": "feedback",
+      "status": "open",
+      "materiality": "material",
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-002",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "P-008"
+      ],
+      "governance_refs": [],
+      "decision_refs": [],
+      "implementation_refs": [
+        "IMP-ASSURANCE-001"
+      ],
+      "implementation_files": [],
+      "verification_refs": [],
+      "source_ref": "issue:#63 owner-feedback 2026-09-01: assurance must close Goal/Need/Pain → Requirement → Decision → Delivery → real use/feedback, not stop at requirement records",
+      "feedback_outcome": "requirement-change",
+      "requires_delta": true,
+      "delta_refs": [
+        "issue:#63",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md"
+      ],
+      "notes": "Product/workflow feedback. It is not historical/scientific evidence."
+    },
+    {
+      "id": "DEC-ASSURANCE-002",
+      "kind": "decision",
+      "status": "active",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [],
+      "implementation_refs": [],
+      "implementation_files": [],
+      "verification_refs": [
+        "issue:#63",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md"
+      ],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Add a small generic assurance spine for value/decision/delivery/feedback traceability; keep domain truth and user meaning outside the validator."
+    },
+    {
+      "id": "IMP-ASSURANCE-002",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-002"
+      ],
+      "implementation_refs": [],
+      "implementation_files": [
+        "tools/assurance/**",
+        ".github/workflows/project-assurance.yml"
+      ],
+      "verification_refs": [],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Bootstrap implementation record for #63. Becomes verified only after regression tests + CI real run pass."
+    }
+  ]
+}
