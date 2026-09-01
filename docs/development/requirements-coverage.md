@@ -1,6 +1,6 @@
 # Histo-Orla – Requirements Delivery Coverage
 
-**Status:** `active delivery ledger / 2026-08-31`  
+**Status:** `active delivery ledger / 2026-09-01`  
 **Owner:** #59 Development & Verification  
 **Technical Lead:** #48  
 **Requirements Owner:** #42  
@@ -15,7 +15,7 @@ Diese Datei ist die monotone **Delivery-/Verification-Sicht auf alle aktiven Sys
 Sie ist keine zweite Requirement Truth. Kanonische Anforderungen liegen in:
 
 1. `docs/research/synthesis/requirements-baseline.md` – 39 accepted Requirements/Constraints;
-2. `docs/research/synthesis/requirements-extensions.md` – 13 accepted Extensions aus Live-/Domain-Research;
+2. `docs/research/synthesis/requirements-extensions.md` – 14 accepted Extensions aus Live-/Domain-/Owner-Feedback;
 3. bindenden Governance-/Source-/Evidence-/Rights-/Handoff-/Quality-Constraints.
 
 Ein Requirement verschwindet nicht durch Priorisierung, Chat-Wechsel, neue Technikbegriffe oder einen anderen Delivery-Schnitt.
@@ -106,8 +106,9 @@ Regeln:
 | REQ-RSCH-004 | #60/#50/#55 | research-needed | multi-method/domain handoff |
 | REQ-STATE-003 | #49/#57 | not-started | research-ready evidence availability |
 | REQ-UX-003 | #55/#59 | not-started | progressive disclosure without epistemic hiding |
+| REQ-TRACE-001 | #42/#48/#59/#63 | in-progress | Goal/Need/Pain → Requirement → Decision → Delivery/Verification → real owner feedback/delta; changed-code guard implemented |
 
-**Extensions:** 13 / 13 represented.
+**Extensions:** 14 / 14 represented.
 
 ## 5. Strukturmigration bei aktiver Bearbeitung
 
@@ -132,7 +133,7 @@ Delivery-Priorisierung richtet sich nach dem aktuellen fachlichen/requirements-s
 
 - #46/#47 Live Research;
 - #60 erster SOTA-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik;
-- #42 Requirements-Konsolidierung aus realen Domain-/Case-Befunden.
+- #42 Requirements-Konsolidierung aus realen Domain-/Case-/Owner-Feedback-Befunden.
 
 ### Technisch parallel sinnvoll
 
@@ -141,7 +142,8 @@ Delivery-Priorisierung richtet sich nach dem aktuellen fachlichen/requirements-s
 - #50/#51 Source/Instance/Findspot-State und Provenienz;
 - #53 Exact Search;
 - #55 Audit;
-- #57 Restartability/Availability.
+- #57 Restartability/Availability;
+- #62/#63 sichern Requirements- und Value-/Decision-/Delivery-/Feedback-Traceability deterministisch, wo formalisiert.
 
 Eine technische Implementierung darf beginnen, sobald ein Requirement-/Constraint-Cluster hinreichend klar ist. Sie ist **keine eigene Phase, die fachliche Arbeit ersetzt oder ihr vorausläuft**.
 
@@ -153,7 +155,8 @@ Jede materielle Implementierung aktualisiert in demselben Work Cycle:
 2. Delivery-/Verification-Status;
 3. Implementation/Test-Referenz;
 4. Failure/Debt bei `partial`;
-5. neue fachliche/systemische Deltas zurück an #42/#60.
+5. neue fachliche/systemische Deltas zurück an #42/#60;
+6. bei owner-/workflowrelevantem Verhalten reale Nutzung/Feedback bzw. offenen Feedback-Bedarf im #63-Trace-Pfad.
 
 Neue akzeptierte Requirements werden ergänzt. Entfernt/geändert wird nur durch tracebare #42/#44-Entscheidung.
 
