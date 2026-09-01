@@ -103,6 +103,41 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "REQ-TRACE-001 is synchronized into deterministic requirements metadata and delivery coverage; both Requirements Assurance and Project Assurance CI passed."
+    },
+    {
+      "id": "FB-20260901-002",
+      "kind": "feedback",
+      "status": "open",
+      "materiality": "material",
+      "requirement_refs": ["REQ-TRACE-001", "REQ-LEAN-001", "REQ-WF-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-009"],
+      "governance_refs": [],
+      "decision_refs": [],
+      "implementation_refs": ["IMP-ASSURANCE-002", "IMP-ASSURANCE-003"],
+      "implementation_files": [],
+      "verification_refs": [],
+      "source_ref": "issue:#63 owner-feedback 2026-09-01: GitHub Actions failure notifications created unwanted email spam; coupled assurance changes must not expose intentionally inconsistent intermediate commits and duplicate workflow runs should be minimized",
+      "feedback_outcome": "new-pain",
+      "requires_delta": true,
+      "delta_refs": ["issue:#63", "docs/architecture/assurance/value-decision-delivery-assurance.md", ".github/workflows/project-assurance.yml"],
+      "notes": "Delivery/workflow feedback. It concerns project CI ergonomics and notification noise, not historical/scientific evidence."
+    },
+    {
+      "id": "IMP-ASSURANCE-004",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-TRACE-001", "REQ-LEAN-001", "REQ-WF-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-009"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-ASSURANCE-002"],
+      "implementation_refs": [],
+      "implementation_files": [".github/workflows/project-assurance.yml", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
+      "verification_refs": [],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Reduce avoidable GitHub Actions notification noise: separate Project Assurance trigger scope from Requirements-only scope and establish atomic/branch-first handling for coupled invariant changes."
     }
   ]
 }

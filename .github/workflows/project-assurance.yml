@@ -2,33 +2,41 @@ name: Project Assurance Spine
 
 on:
   push:
+    branches:
+      - main
     paths:
       - 'AGENTS.md'
       - 'docs/governance/**'
       - 'docs/research/discovery/problem-baseline.md'
-      - 'docs/research/synthesis/requirements-*.md'
       - 'docs/development/**'
+      - '!docs/development/requirements-coverage.md'
       - 'docs/architecture/**'
-      - 'tools/**'
+      - '!docs/architecture/requirements-derivation.md'
+      - '!docs/architecture/assurance/requirements-assurance-harness.md'
+      - 'tools/assurance/**'
       - 'src/**'
       - 'app/**'
       - 'histo_orla/**'
       - 'tests/**'
-      - '.github/workflows/**'
+      - '.github/workflows/project-assurance.yml'
   pull_request:
+    branches:
+      - main
     paths:
       - 'AGENTS.md'
       - 'docs/governance/**'
       - 'docs/research/discovery/problem-baseline.md'
-      - 'docs/research/synthesis/requirements-*.md'
       - 'docs/development/**'
+      - '!docs/development/requirements-coverage.md'
       - 'docs/architecture/**'
-      - 'tools/**'
+      - '!docs/architecture/requirements-derivation.md'
+      - '!docs/architecture/assurance/requirements-assurance-harness.md'
+      - 'tools/assurance/**'
       - 'src/**'
       - 'app/**'
       - 'histo_orla/**'
       - 'tests/**'
-      - '.github/workflows/**'
+      - '.github/workflows/project-assurance.yml'
 
 permissions:
   contents: read

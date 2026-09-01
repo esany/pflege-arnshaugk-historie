@@ -180,4 +180,18 @@ Was sagte reale Nutzung?
 Welche offenen Deltas folgen daraus?
 ```
 
+## 11. CI-Hygiene und atomare Änderungsgrenzen
+
+CI soll reale Inkonsistenzen finden, aber nicht durch die Art unserer Repository-Schreibvorgänge künstlich rote Zwischenstände erzeugen.
+
+Verbindlich für gekoppelte Änderungen:
+
+- Dateien, die gemeinsam eine formale Invariante erfüllen müssen (z. B. Requirement + Coverage + strukturierter Record), werden **atomar in einem Commit** aktualisiert oder zunächst auf einem Work Branch vollständig hergestellt und erst als konsistenter Stand gegen `main` geprüft;
+- absichtlich inkonsistente Zwischenstände werden nicht auf `main` geschrieben, nur damit der nächste Commit sie wieder repariert;
+- negative Fixtures und erwartete Fail-Cases gehören in isolierte Tests, nicht als kurzlebiger kaputter Projektzustand auf `main`;
+- Workflow-Scope wird so getrennt, dass Requirements-only-Änderungen primär durch #62 und sonstige technische/Value-Trace-Änderungen primär durch #63 geprüft werden; unnötig doppelte automatische Läufe sind zu vermeiden;
+- ein echter CI-Fehler bleibt fail-closed und sichtbar; Benachrichtigungsrauschen ist kein Grund, harte Checks weichzuschalten.
+
+Die E-Mail-/Web-Zustellung von GitHub-Actions-Benachrichtigungen ist eine GitHub-Kontoeinstellung und keine Projekt-Truth. Das Repository minimiert vermeidbare Fehl- und Doppelläufe; ob GitHub erfolgreiche/fehlgeschlagene Läufe per E-Mail meldet, bleibt außerhalb des Repositorys konfigurierbar.
+
 > **Need/Pain/Goal bleiben Produkt- und Forschungsursprung. Requirements operationalisieren das Was. Technik entscheidet nur das Wie. Reale Nutzung schließt die Schleife.**
