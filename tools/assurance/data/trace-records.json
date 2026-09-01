@@ -90,7 +90,7 @@
     {
       "id": "IMP-ASSURANCE-003",
       "kind": "implementation",
-      "status": "implemented",
+      "status": "verified",
       "materiality": "local-reversible",
       "requirement_refs": ["REQ-TRACE-001", "REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
       "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
@@ -98,11 +98,11 @@
       "decision_refs": ["DEC-ASSURANCE-002"],
       "implementation_refs": [],
       "implementation_files": ["tools/requirements/data/records.json"],
-      "verification_refs": [],
+      "verification_refs": ["github-actions-run:33479807679", "github-actions-run:33479807761", "tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Synchronize the newly accepted REQ-TRACE-001 into deterministic requirements metadata and delivery coverage; becomes verified after CI passes."
+      "notes": "REQ-TRACE-001 is synchronized into deterministic requirements metadata and delivery coverage; both Requirements Assurance and Project Assurance CI passed."
     }
   ]
 }
