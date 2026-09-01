@@ -28,14 +28,17 @@ Verbindlich gilt:
 - Live-/Domain-Research präzisiert und ergänzt die Requirements;
 - fachlicher SOTA und technische SOTA/Best Practice sind Basis der jeweiligen Entscheidungen;
 - Lean/Agile optimiert Mittel, Reihenfolge, Reversibilität und Time-to-Value, nicht den Anspruch;
-- technische Umsetzung beginnt dort, wo ein Requirement-/Constraint-Cluster hinreichend klar ist, und läuft rückgekoppelt mit realer Forschung.
+- technische Umsetzung beginnt dort, wo ein Requirement-/Constraint-Cluster hinreichend klar ist, und läuft rückgekoppelt mit realer Forschung;
+- formal geklärte Schutzregeln sollen deterministisch geprüft werden statt dauerhaft nur Chat-/Prompt-Compliance zu bleiben.
 
 Kanonisch:
 
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
 - `docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -50,6 +53,8 @@ Domain Method SOTA / Operationalisierung (#60)
 Accepted Requirements + Extensions (#42)
         ↕
 Requirement Structure / Authority / Dependencies (#42)
+        ↕
+Deterministic Requirements QA (#62)
         ↕
 Technical Derivation: Concerns / SOTA / Options (#48)
         ↕
@@ -72,7 +77,8 @@ Aktive Basis:
 
 Innere Struktur und Traceability:
 
-`docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 
 Für neue bzw. materiell bearbeitete Requirements werden insbesondere Motivation, konkrete Herkunft/Evidence, Domain Authority, Acceptance Authority, Scope, Dependencies, Criticality, Architecture Significance und Verification unterschieden. `#42` besitzt den Requirement-Lifecycle; fachliche Kompetenz besitzt die Semantik; #48/#59 besitzen technische Ableitung/Umsetzung.
 
@@ -83,6 +89,25 @@ Delivery-/Verification-Coverage:
 `docs/development/requirements-coverage.md`
 
 Neue Begriffe, Tools, Frameworks oder Phasen superseden bestehenden accepted Scope niemals implizit.
+
+## Deterministic Requirements Assurance
+
+#62 besitzt den generischen formalen Requirements-QA-Baustein:
+
+- Contract: `docs/architecture/assurance/requirements-assurance-harness.md`
+- Schema: `tools/requirements/requirement-record.schema.json`
+- QA-/Traceability-Projektion: `tools/requirements/data/records.json`
+- Validator: `tools/requirements/validate.py`
+- Regressionstests: `tools/requirements/tests/`
+- CI: `.github/workflows/requirements-assurance.yml`
+
+Leitgrenze:
+
+> **Schema prüft Form. Validator prüft formale Beziehungen/Invarianten. Fachreview prüft Bedeutung.**
+
+Ein formaler PASS ist keine wissenschaftliche Validierung.
+
+Aktueller Realtest: GitHub-Actions-Lauf `33476962793` erfolgreich; 14 Regressionstests bestanden; `0` Hard Errors, `49` erwartete Migrationswarnungen für noch nicht strukturierte Legacy-Requirements.
 
 ## Aktive Owner
 
@@ -127,6 +152,7 @@ Requirement / Cluster
 - **#56** – Rights / Credentials / External Processing
 - **#57** – Provider Removal / Restartability
 - **#61** – Work-Context / Method-Conformance / Handoff Technical Research
+- **#62** – Requirements Assurance Harness / deterministische Requirements-QA
 
 ## Dev Authority Boundary
 
@@ -138,6 +164,7 @@ Dev muss:
 - Motivation, Scope, Dependencies und fachliche Authority der aktiv bearbeiteten Requirements verstehen;
 - SOTA/Best Practice für konkrete Entscheidungen proportional prüfen;
 - zunächst Architecture Concerns und Technical Research Questions ableiten, bevor eine konkrete Technologie zur Lösung erklärt wird;
+- formale Requirements-QA dort über #62 absichern, wo die Regeln operationalisiert sind;
 - fehlende/partielle Umsetzung sichtbar führen;
 - die leanste **hinreichende** Lösung wählen, nicht den Anspruch verkleinern.
 
@@ -187,12 +214,15 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 - `docs/research/synthesis/requirements-baseline.md`
 - `docs/research/synthesis/requirements-extensions.md`
 - `docs/research/synthesis/requirements-structure.md`
+- `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/research/synthesis/phase-reconciliation.md`
 
-### Technical Delivery
+### Technical Delivery / Assurance
 
 - `docs/architecture/README.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/assurance/requirements-assurance-harness.md`
+- `tools/requirements/README.md`
 - `docs/development/requirements-coverage.md`
 - `docs/architecture/contracts/canonical-research-state.md`
 - `docs/architecture/assurance/method-conformance-work-context.md`
@@ -210,6 +240,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht die wissenschaftliche Source-/I
 - Provider-Unabhängigkeit des kuratierten Research State;
 - Architecture ist Mittel zur Umsetzung, kein Selbstzweck.
 - **Requirement Source, fachliche Authority, Requirement Lifecycle und technische Umsetzung sind unterschiedliche Verantwortlichkeiten.**
+- **Formale Regeln werden, sobald operationalisiert, durch Code/Tests statt durch Modellselbstkontrolle abgesichert.**
 
 ## Handoff-Test
 
@@ -217,4 +248,4 @@ Ein neuer kompetenter Bearbeiter muss nach
 
 `AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne alten Chat aktuelle Aufgabe, Authority, vollständige aktive Requirements, Motivation/Origin/Dependencies aktiv bearbeiteter Requirements, Methodenstatus, Evidenz, technische Ableitungsfragen, Delivery-/Verification-Status, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
+ohne alten Chat aktuelle Aufgabe, Authority, vollständige aktive Requirements, Motivation/Origin/Dependencies aktiv bearbeiteter Requirements, Methodenstatus, Evidenz, technische Ableitungsfragen, formale QA-Regeln, Delivery-/Verification-Status, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
