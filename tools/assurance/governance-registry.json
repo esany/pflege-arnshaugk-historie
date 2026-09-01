@@ -1,0 +1,34 @@
+{
+  "schema_version": "0.1",
+  "global_required": ["GOV-AGENTS", "GOV-NONREG"],
+  "entries": [
+    {
+      "id": "GOV-AGENTS",
+      "location": "AGENTS.md",
+      "owner": "#9",
+      "applies_to": ["all-substantive-work"],
+      "note": "Repository-wide governance, handoff, authority and development boundaries."
+    },
+    {
+      "id": "GOV-NONREG",
+      "location": "docs/governance/lean-agile-non-regression.md",
+      "owner": "#9/#42/#48",
+      "applies_to": ["technical-decision", "implementation"],
+      "note": "Lean/agile changes means and sequence, never silently reduces accepted scope or quality."
+    },
+    {
+      "id": "GOV-RESEARCH-QA",
+      "location": "issue:#45",
+      "owner": "#45",
+      "applies_to": ["research"],
+      "note": "Research quality/protocol rules."
+    },
+    {
+      "id": "GOV-SOURCE-ID",
+      "location": "docs/research/source-identity-protocol.md",
+      "owner": "#45/#50",
+      "applies_to": ["source", "provenance", "findspot"],
+      "note": "Source/representation/instance/derivative/findspot separation and identity rules."
+    }
+  ]
+}
