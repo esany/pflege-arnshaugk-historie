@@ -102,6 +102,25 @@ Identität, Locator und reproduzierbarer Prozess allein genügen nicht. Wenn die
 
 Das System soll einen einfachen privaten Forschungsfluss ermöglichen, ohne wissenschaftliche Tiefe zu verstecken. Orientierung darf zunächst kompakt sein; Quelle/Fundstelle, Evidenzstatus, Methode, Alternativen, Unsicherheit, Review und History müssen aus demselben kanonischen State bei Bedarf nachvollziehbar erreichbar sein.
 
+### REQ-TRACE-001 – Materielle Systemarbeit bleibt bis zu Nutzer-/Forschungsdriver und realem Feedback rückführbar
+
+Materielle technische Entscheidungen, Implementierungen und Verification müssen dauerhaft auf die akzeptierten Systemanforderungen **und** deren zugrunde liegende Goals/Needs/Pains bzw. expliziten Constraints rückführbar sein. Reale Nutzung und Research-Owner-Feedback müssen als eigener Product-/Workflow-Evidence-Pfad zurück in Requirements/Decisions routbar sein, ohne wissenschaftliche Evidence oder Method Truth zu simulieren.
+
+- **Role/Type:** `workflow/restartability + quality + governance/traceability + human-control`.
+- **Motivation/Driver:** Das System soll Nutzer-Erkenntnisprobleme, Pains und Ziele lösen; technische Entscheidungen dürfen sich nicht durch Chat-/KI-Drift von diesem Zweck lösen. Feedback aus realer Nutzung muss den Kreislauf schließen statt nur in einem Chat zu verbleiben.
+- **Origin/Evidence:** #10 Research Plan; #28 insbesondere G-001/G-002/G-008/G-011/G-012, N-015/N-017/N-018/N-020, P-008; explizites Research-Owner-Feedback 2026-09-01; #63.
+- **Domain Authority:** Research Owner für Ziel/Nutzen/Pain; Research Integrity / Requirements Engineering für Traceability-Grenzen.
+- **Acceptance Authority:** #42 + Research Owner.
+- **Technical Delivery:** #48/#59; formale Assurance #63.
+- **Verification Authority:** deterministische #63-Tests/CI für formale Kette; Research Owner für tatsächliche Workflow-/Nutzenakzeptanz.
+- **Scope:** materielle technische Decisions/Implementierungen, Verification, owner-workflow-acceptance und feedbackbedingte Deltas; triviale mechanische Änderungen dürfen proportional behandelt werden, dürfen aber keine Scope-/Qualitätsentscheidung verstecken.
+- **requires:** REQ-WF-001, REQ-LEAN-001, REQ-STATE-001; fachliche Semantik bleibt zusätzlich durch die jeweils betroffenen Requirements/Domain Authorities kontrolliert.
+- **Criticality:** `fundamental`.
+- **Architecture Significance:** `cross-cutting`.
+- **Acceptance:** (1) kontrollierte technische Code-/Workflow-Änderungen können nicht ohne aktuellen Implementation-Trace auf accepted Requirement(s), `G/N/P`-Driver und bindende Governance durch die formale QA gelangen; (2) `verified` braucht passende Verification-Evidence; (3) `owner-workflow-acceptance` braucht reales bestätigendes Owner-/Nutzerfeedback; (4) `pain-persists | regression | new-pain | new-need | requirement-change` erzeugt einen sichtbaren offenen Delta-Pfad; (5) Nutzerfeedback wird nicht als historische/wissenschaftliche Evidenz behandelt.
+- **Forbidden shortcut:** ein Issue-/Chat-Kommentar, ein Skill-/LLM-Selbstcheck oder ein früherer `verified` Implementation-Record darf neue technische Änderungen nicht dauerhaft freischalten.
+- **Status:** `accepted / active`.
+
 ## 3. Bereits durch die Baseline abgedeckte spätere Präzisierungen
 
 Die folgenden später formulierten Acceptance-Punkte sind **keine zweite Requirement-Schicht**, sondern Präzisierungen bereits akzeptierter Requirements:
