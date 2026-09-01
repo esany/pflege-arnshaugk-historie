@@ -6,32 +6,13 @@
       "kind": "decision",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": [
-        "REQ-WF-001",
-        "REQ-LEAN-001",
-        "REQ-STATE-001"
-      ],
-      "driver_refs": [
-        "G-007",
-        "G-008",
-        "G-011",
-        "G-012",
-        "N-015",
-        "N-017",
-        "N-020",
-        "P-008"
-      ],
-      "governance_refs": [
-        "GOV-AGENTS",
-        "GOV-NONREG"
-      ],
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
+      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": [],
-      "verification_refs": [
-        "docs/architecture/assurance/requirements-assurance-harness.md",
-        "issue:#62"
-      ],
+      "verification_refs": ["docs/architecture/assurance/requirements-assurance-harness.md", "issue:#62"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -42,37 +23,13 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": [
-        "REQ-WF-001",
-        "REQ-LEAN-001",
-        "REQ-STATE-001"
-      ],
-      "driver_refs": [
-        "G-007",
-        "G-008",
-        "G-011",
-        "G-012",
-        "N-015",
-        "N-017",
-        "N-020",
-        "P-008"
-      ],
-      "governance_refs": [
-        "GOV-AGENTS",
-        "GOV-NONREG"
-      ],
-      "decision_refs": [
-        "DEC-ASSURANCE-001"
-      ],
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
+      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-ASSURANCE-001"],
       "implementation_refs": [],
-      "implementation_files": [
-        "tools/requirements/**",
-        ".github/workflows/requirements-assurance.yml"
-      ],
-      "verification_refs": [
-        "github-actions-run:33476962793",
-        "tools/requirements/tests/test_validate.py"
-      ],
+      "implementation_files": ["tools/requirements/**", ".github/workflows/requirements-assurance.yml"],
+      "verification_refs": ["github-actions-run:33476962793", "tools/requirements/tests/test_validate.py"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -83,36 +40,17 @@
       "kind": "feedback",
       "status": "open",
       "materiality": "material",
-      "requirement_refs": [
-        "REQ-WF-001",
-        "REQ-LEAN-001",
-        "REQ-STATE-001"
-      ],
-      "driver_refs": [
-        "G-001",
-        "G-002",
-        "G-008",
-        "G-011",
-        "G-012",
-        "N-015",
-        "N-017",
-        "N-018",
-        "P-008"
-      ],
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-002", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "P-008"],
       "governance_refs": [],
       "decision_refs": [],
-      "implementation_refs": [
-        "IMP-ASSURANCE-001"
-      ],
+      "implementation_refs": ["IMP-ASSURANCE-001"],
       "implementation_files": [],
       "verification_refs": [],
       "source_ref": "issue:#63 owner-feedback 2026-09-01: assurance must close Goal/Need/Pain → Requirement → Decision → Delivery → real use/feedback, not stop at requirement records",
       "feedback_outcome": "requirement-change",
       "requires_delta": true,
-      "delta_refs": [
-        "issue:#63",
-        "docs/architecture/assurance/value-decision-delivery-assurance.md"
-      ],
+      "delta_refs": ["issue:#63", "REQ-TRACE-001", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
       "notes": "Product/workflow feedback. It is not historical/scientific evidence."
     },
     {
@@ -120,33 +58,13 @@
       "kind": "decision",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": [
-        "REQ-WF-001",
-        "REQ-LEAN-001",
-        "REQ-STATE-001"
-      ],
-      "driver_refs": [
-        "G-001",
-        "G-008",
-        "G-011",
-        "G-012",
-        "N-015",
-        "N-017",
-        "N-018",
-        "N-020",
-        "P-008"
-      ],
-      "governance_refs": [
-        "GOV-AGENTS",
-        "GOV-NONREG"
-      ],
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": [],
-      "verification_refs": [
-        "issue:#63",
-        "docs/architecture/assurance/value-decision-delivery-assurance.md"
-      ],
+      "verification_refs": ["issue:#63", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -157,42 +75,34 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": [
-        "REQ-WF-001",
-        "REQ-LEAN-001",
-        "REQ-STATE-001"
-      ],
-      "driver_refs": [
-        "G-001",
-        "G-008",
-        "G-011",
-        "G-012",
-        "N-015",
-        "N-017",
-        "N-018",
-        "N-020",
-        "P-008"
-      ],
-      "governance_refs": [
-        "GOV-AGENTS",
-        "GOV-NONREG"
-      ],
-      "decision_refs": [
-        "DEC-ASSURANCE-002"
-      ],
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-ASSURANCE-002"],
       "implementation_refs": [],
-      "implementation_files": [
-        "tools/assurance/**",
-        ".github/workflows/project-assurance.yml"
-      ],
-      "verification_refs": [
-        "github-actions-run:33479262738",
-        "tools/assurance/tests/test_validate.py"
-      ],
+      "implementation_files": ["tools/assurance/**", ".github/workflows/project-assurance.yml"],
+      "verification_refs": ["github-actions-run:33479262738", "tools/assurance/tests/test_validate.py"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
       "notes": "Value/Decision/Delivery/Feedback Assurance Spine v0.1. CI passed with 15 assurance regression tests; changed-code guard and both assurance validators passed."
+    },
+    {
+      "id": "IMP-ASSURANCE-003",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-TRACE-001", "REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
+      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-ASSURANCE-002"],
+      "implementation_refs": [],
+      "implementation_files": ["tools/requirements/data/records.json"],
+      "verification_refs": [],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Synchronize the newly accepted REQ-TRACE-001 into deterministic requirements metadata and delivery coverage; becomes verified after CI passes."
     }
   ]
 }
