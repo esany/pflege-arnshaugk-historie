@@ -34,7 +34,7 @@ Mindestens in dieser Reihenfolge:
 4. zuständiges Work-Owner-Issue;
 5. dort verlinkte kanonische Research-/Architecture-/Development-Artefakte;
 6. bei Research zusätzlich #45 und einschlägige Fachartefakte;
-7. bei technischen Änderungen #42/#43 sowie aktuelle Architecture Contracts/ADRs.
+7. bei technischen Änderungen #42 sowie aktuelle Architecture-/Assurance-Contracts und einschlägige Decisions/ADRs.
 
 Wenn `PROJECT_STATE.md` erkennbar hinter jüngeren Issues/Commits zurückliegt, gilt der jüngere kanonische Work-Owner-Stand; `PROJECT_STATE.md` ist dann vor Abschluss der Arbeit zu aktualisieren, sofern die Abweichung handoff-relevant ist.
 
@@ -132,9 +132,10 @@ Harte Grundlinien:
 
 ## 9. Architektur-/Development-Regeln
 
-Aktuelle akzeptierte Requirements: `docs/research/synthesis/requirements-baseline.md` (#42).  
-Architecture Gate: `docs/research/synthesis/architecture-readiness.md` (#43).  
-Architecture Execution Owner: #48.
+Aktuelle akzeptierte Requirements: `docs/research/synthesis/requirements-baseline.md` + `requirements-extensions.md` (#42).  
+Technical Lead: #48.  
+Development & Verification: #59.  
+#43 ist historischer Readiness-Stand und kein aktuelles Blocking-Gate.
 
 Regeln:
 
@@ -143,9 +144,11 @@ Regeln:
 - deterministische Invarianten deterministisch erzwingen, soweit möglich;
 - Provider/Tools hinter austauschbaren Grenzen halten, wenn Lock-in wissenschaftlichen State gefährden könnte;
 - Secrets/Credentials niemals in Git/Research State;
-- Code/Prototypen müssen auf Work Owner, Requirement und Testziel rückführbar sein;
+- Code/Prototypen müssen auf Work Owner, Requirement, Nutzer-/Forschungsdriver und Testziel rückführbar sein;
 - jeder technische Spike dokumentiert Hypothese, Setup, Ergebnis, Failure Modes und Disposition (`adopt | adapt | reject | more-test`);
-- kein MVP/Framework nur aus Präferenz; kleinste hinreichende Lösung bevorzugen.
+- kleinste hinreichende Lösung bevorzugen; Lean/Agile reduziert niemals still Scope oder Qualitätsmaßstab;
+- formale Requirements-QA wird durch #62 operationalisiert;
+- Value-/Decision-/Delivery-/Feedback-Traceability wird durch #63 operationalisiert.
 
 ## 10. Current-State-Datei
 
@@ -332,6 +335,70 @@ Wenn die aktuelle NEXT ACTION direkte Quelleninspektion verlangt, muss die benö
 
 Der verbindliche Governance-Vertrag definiert **was** abgesichert werden muss, nicht **welches Tool** dies implementiert.
 
-Aktueller Architecture/Assurance Owner für die technische Operationalisierung ist #61, mit Schnittstellen zu #50 Canonical State, #54 Promotion/Invariants, #55 Audit View und #57 Restartability.
+Aktuelle Assurance-Owner:
+
+- #61 – Work-Context / Method-Conformance / Handoff-Hardening;
+- #62 – deterministische Requirements-QA;
+- #63 – Value-/Decision-/Delivery-/Feedback-Traceability.
+
+Schnittstellen bestehen zu #50 Canonical State, #54 Promotion/Invariants, #55 Audit View und #57 Restartability.
 
 Technologie wird gegen State of the Art / Best Practice und die kleinste hinreichende Lösung geprüft. Maschinenlesbare Contracts, Provenance-/Research-Object-Standards, Policy-/Transition-Enforcement oder Validatoren sind Kandidaten; kein Standard/Framework wird allein wegen Vollständigkeit eingeführt.
+
+## 14. Verbindliche Value-/Decision-/Delivery-/Feedback-Traceability
+
+Die eigentliche Projektursache bleibt **Nutzer-/Forschungswert**: Goals, Needs, Pains, Erkenntnisprobleme, wissenschaftliche Constraints und reale Research-Friktion. Requirements operationalisieren daraus das erwartete Systemverhalten; technische Entscheidungen bestimmen nur die Mittel.
+
+Für materielle technische Arbeit muss deshalb ohne Chat rekonstruierbar sein:
+
+```text
+Goal / Need / Pain / Constraint
+→ accepted Requirement
+→ technische Entscheidung bzw. begründete reversible Direktumsetzung
+→ Implementation
+→ Verification
+→ reale Nutzung / Owner-Feedback
+→ bestätigt | Pain bleibt | Regression | neuer Need | Requirement-/Decision-Delta
+```
+
+### 14.1 Materielle technische Entscheidungen
+
+Jede materielle technische Entscheidung/Implementierung muss proportional zur Tragweite mindestens referenzieren:
+
+- accepted Requirement(s) oder expliziten Owner Constraint;
+- relevante `G-* / N-* / P-*` Driver bzw. deren kontrollierte Traceability;
+- anwendbare Governance-/Quality-Regeln;
+- technische Entscheidung oder begründete `decision_not_required`-Ausnahme für rein mechanische/reversible Arbeit;
+- Implementation-/Test-/Verification-Referenzen nach tatsächlicher Umsetzung.
+
+Eine technische Präferenz, ein Framework oder ein LLM darf diese Kette nicht ersetzen.
+
+### 14.2 Deterministischer Guard
+
+Formal geklärte Teile werden unter #62/#63 durch Schema, Validatoren, Regressionstests und CI geprüft. Insbesondere gilt für im Technical Scope kontrollierte Code-/Workflow-Pfade:
+
+> **Neue materielle technische Änderungen dürfen nicht untracebar ins Repository gelangen.**
+
+Ein früherer `verified` Implementation-Record darf einen Pfad nicht dauerhaft freischalten; neue Änderungen brauchen einen aktuellen aktiven/implementierten Trace-Kontext.
+
+### 14.3 Nutzer-/Owner-Feedback
+
+Reale Nutzung und Owner-Feedback schließen die Delivery-Schleife.
+
+- Feedback zu Bedienbarkeit, Research-Pain, Nutzen, fehlender Funktion oder Fehlverhalten ist Product-/Workflow-Evidence;
+- es ist **keine historische/wissenschaftliche Evidenz**;
+- negatives oder scope-relevantes Feedback wird als eigener Feedback-/Delta-Pfad persistiert;
+- Feedback darf Requirements, Method Truth oder Governance nicht still mutieren;
+- ein daraus folgender Requirement-Delta geht an #42, Method-Delta an #60, Owner-/Scope-Entscheidung ggf. an #44;
+- ein Requirement, dessen Verification ausdrücklich `owner-workflow-acceptance` verlangt, darf nicht allein durch technische Tests als `verified` gelten.
+
+### 14.4 Skill/LLM-Rolle
+
+Skills/LLMs dürfen Trace-Records vorbereiten, Validatoren ausführen, Ergebnisse erklären und mechanische Fixes vorschlagen. Sie dürfen niemals:
+
+- einen nicht ausgeführten Check als PASS behaupten;
+- fehlende Nutzer-/Domain-Bedeutung erfinden;
+- Owner-Acceptance oder Fachvalidation simulieren;
+- negative Feedback-/Delta-Pfade still schließen.
+
+Kanonischer technischer Vertrag: `docs/architecture/assurance/value-decision-delivery-assurance.md` (#63).
