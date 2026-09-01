@@ -78,6 +78,7 @@ docs/research/
     requirements-baseline.md
     requirements-extensions.md
     requirements-structure.md
+    requirements-responsibility-dependency-map.md
     architecture-readiness.md
     phase-reconciliation.md
 
@@ -106,7 +107,7 @@ Keine Future-Proof-Leerstruktur.
 | #31–#39 | SOTA C1–C9 | `sota/` |
 | #40 | Risk/Constraint Review | `synthesis/risks-constraints.md` |
 | #41 | Capability/Quality Synthesis | `synthesis/capability-map.md` |
-| #42 | Accepted Requirements / Structure / Traceability | `synthesis/requirements-baseline.md`, `synthesis/requirements-extensions.md`, `synthesis/requirements-structure.md` |
+| #42 | Accepted Requirements / Structure / Traceability | `synthesis/requirements-baseline.md`, `synthesis/requirements-extensions.md`, `synthesis/requirements-structure.md`, derived `synthesis/requirements-responsibility-dependency-map.md` |
 | #43 | historischer Architecture-Readiness-Stand | `synthesis/architecture-readiness.md` |
 | #45 | Research-/Evidence-/Source-Protokoll | `source-identity-protocol.md` + Issue-Protokoll |
 | #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md` |
@@ -136,6 +137,10 @@ Kanonischer Vertrag:
 
 `docs/research/synthesis/requirements-structure.md`
 
+Abgeleitete Responsibility-/Dependency-Sicht:
+
+`docs/research/synthesis/requirements-responsibility-dependency-map.md`
+
 Für neue bzw. materiell geänderte Requirements werden mindestens auseinandergehalten:
 
 ```text
@@ -158,6 +163,16 @@ Wichtige Ownership-Trennung:
 - `#42` = kanonischer Lifecycle-Owner accepted Requirements;
 - `#48/#59` = technische Ableitung/Umsetzung;
 - `Verification Authority` = je nach Requirement Softwaretest, Domain Review, Owner Acceptance, unabhängige Fachvalidierung etc.
+
+Pflicht vor architecture-/implementation-signifikanter Bearbeitung oder `verified`:
+
+- `domain_authority / controlling_competence` explizit;
+- `technical_delivery_competence` explizit oder `not-applicable`;
+- `verification_authority` explizit;
+- Dependencies typisiert oder `none-known | unresolved`;
+- materielle Wechselwirkungen/Constraints sichtbar.
+
+Fehlende Dependency-/Authority-Angaben bedeuten `unresolved`, nicht automatisch `keine`.
 
 `Criticality` ist nicht gleich aktueller Delivery-Reihenfolge. Delivery wird dynamisch aus Nutzen, Dependencies, Risiko, Reversibilität und aktuellem Research-Pain priorisiert.
 
