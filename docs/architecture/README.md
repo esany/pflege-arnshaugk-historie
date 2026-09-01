@@ -16,10 +16,16 @@ Kanonische Requirements:
 - `../research/synthesis/requirements-baseline.md`
 - `../research/synthesis/requirements-extensions.md`
 - `../research/synthesis/requirements-structure.md`
+- `../research/synthesis/requirements-responsibility-dependency-map.md`
 
 Kanonische technische Ableitungslogik:
 
 - `requirements-derivation.md`
+
+Requirements Assurance:
+
+- `assurance/requirements-assurance-harness.md`
+- `../tools/requirements/README.md`
 
 Delivery-/Verification-Coverage:
 
@@ -66,6 +72,7 @@ Direkte Ableitung `Requirement → bevorzugte Technologie` ist zu vermeiden.
 - **#56** – Rights / Credentials / External Processing
 - **#57** – Provider Removal / Export / Restartability
 - **#61** – Work-Context / Method-Conformance / Handoff Technical Research
+- **#62** – Requirements Assurance Harness / deterministische Requirements-QA
 
 ### Architecture Decisions
 
@@ -112,6 +119,29 @@ failure / scientific or technical loss
 ```
 
 Das ist eine lean adaptierte Nutzung etablierter QAW/ATAM-Prinzipien, kein formales Enterprise-Gate.
+
+## Deterministic Requirements Assurance
+
+#62 operationalisiert formal geklärte Requirements-Regeln als kleinen ausführbaren QA-Baustein:
+
+```text
+canonical Requirement Truth (#42 Markdown)
+→ machine-readable QA-/Traceability-Projektion
+→ JSON Schema
+→ Python Cross-Record-/Repo-Validator
+→ negative/positive Regressionstests
+→ lokaler CLI + GitHub Actions
+```
+
+Grenze:
+
+- Schema/Validator prüfen Struktur, IDs, Referenzen, Authority-/Dependency-/Coverage-/Lifecycle-Invarianten;
+- Domain-/Fachreview prüft fachliche Bedeutung und wissenschaftliche Suffizienz;
+- Skill/LLM darf später Bedienoberfläche/Erklärung sein, niemals Enforcement- oder Truth-Instanz.
+
+Aktueller CI-Realtest: GitHub-Actions-Lauf `33476962793` erfolgreich; 14 Regressionstests bestanden; `0` Hard Errors, `49` erwartete Legacy-Migrationswarnungen.
+
+Keine OPA-/CUE-/Workflow-Engine-Pflicht; zusätzliche Policy-Technik erst bei nachgewiesenem Bedarf.
 
 ## Dependency-getriebene Planung
 
@@ -160,6 +190,7 @@ Nur wenn materiell, z. B. schwer reversible Persistenz-/Datenmodellentscheidung,
 ```text
 Requirement
 + nachvollziehbare technische Derivation
++ formale Requirements Assurance
 + belastbare Implementierung
 + passende Verification
 + sichtbare Debt/Uncertainty
@@ -167,6 +198,8 @@ Requirement
 ```
 
 > **Requirements erklären Warum/Was. Architecture Derivation klärt Designfragen. ADRs entscheiden Mittel.**
+
+> **Schema prüft Form; Validator prüft formale Invarianten; Fachreview prüft Bedeutung.**
 
 > **Criticality ist nicht Delivery-Reihenfolge.**
 
