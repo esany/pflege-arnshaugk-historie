@@ -125,7 +125,7 @@
     {
       "id": "IMP-ASSURANCE-004",
       "kind": "implementation",
-      "status": "implemented",
+      "status": "verified",
       "materiality": "local-reversible",
       "requirement_refs": ["REQ-TRACE-001", "REQ-LEAN-001", "REQ-WF-001"],
       "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-009"],
@@ -133,11 +133,11 @@
       "decision_refs": ["DEC-ASSURANCE-002"],
       "implementation_refs": [],
       "implementation_files": [".github/workflows/project-assurance.yml", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
-      "verification_refs": [],
+      "verification_refs": ["github-actions-run:33519611643"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Reduce avoidable GitHub Actions notification noise: separate Project Assurance trigger scope from Requirements-only scope and establish atomic/branch-first handling for coupled invariant changes."
+      "notes": "Reduce avoidable GitHub Actions notification noise: separate Project Assurance trigger scope from Requirements-only scope and establish atomic/branch-first handling for coupled invariant changes. Verified by the first consolidated Project Assurance run."
     }
   ]
 }
