@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-01  
+**Stand:** 2026-09-02  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -21,7 +21,8 @@ Verbindlich gilt:
 - State of the Art und Best Practice sind Basis wissenschaftlicher und technischer Entscheidungen;
 - technische Umsetzung läuft parallel, sobald ein Requirement-/Constraint-Cluster hinreichend klar ist, ersetzt aber nicht die fachliche Arbeit;
 - formal geklärte Requirements-, Governance- und Traceability-Regeln werden deterministisch geprüft statt dauerhaft nur Prompt-/Chat-Compliance zu bleiben;
-- technische Arbeit bleibt bis zu Goals/Needs/Pains bzw. expliziten Constraints rückführbar; reale Nutzung/Owner-Feedback schließt die Delivery-Schleife.
+- technische Arbeit bleibt bis zu Goals/Needs/Pains bzw. expliziten Constraints rückführbar; reale Nutzung/Owner-Feedback schließt die Delivery-Schleife;
+- externe Pilot-/Prior-Art-Befunde sind Review Input und erhalten erst nach Histo-Orla-eigener Authority-/Lifecycle-Disposition Requirement-, Method- oder Implementation Authority.
 
 Kanonisch:
 
@@ -31,6 +32,8 @@ Kanonisch:
 - `docs/research/synthesis/requirements-structure.md`
 - `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/operational-execution-architecture.md`
+- `docs/architecture/prior-art-development-inputs.md`
 - `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
 - `docs/governance/lean-agile-non-regression.md`
@@ -177,6 +180,21 @@ Materielle Scope-/Qualitätsänderungen benötigen weiterhin ein explizites Requ
 
 Delivery-/Verification-Status wird in `docs/development/requirements-coverage.md` geführt.
 
+### Wissensarbeit-Pilot-Rückfluss – #65
+
+`esany/Wissensarbeit` hat Histo-Orla als realen Pilot verwendet und den generischen Pilot am 2026-09-02 geschlossen. Projektspezifische Erkenntnisse wurden korrekt als #65 nach Histo-Orla zurückgegeben: `external pilot review input / candidate / no implementation authority`.
+
+Der generische Pilot hat sechs ausführbare Learnings abgesichert:
+
+- materieller State darf nicht nur im Chat bleiben (`conversation harvesting`);
+- generierte/komprimierte Contexts brauchen Fidelity gegen materielle Referenzen und `unresolved`-Zustände;
+- Token-/Kontextreduktion ist nur nach `lossless-by-reference` zulässig;
+- Co-Creation/Elicitation geht Requirement-/Decision-Promotion voraus;
+- ein erfolgreicher Case ändert generische Mechanismen erst nach Generic-Fit;
+- Case-Isolation verhindert, dass Pilotsemantik in generische Core-Strukturen ausläuft.
+
+Kanonische technische Einordnung: `docs/architecture/prior-art-development-inputs.md`. #65 selbst bleibt Candidate-Review-Input und wird nur bei realer Relevanz über die zuständigen Histo-Orla-Owner einzeln dispositioniert.
+
 ## 3. Baselines und Präzedenz
 
 - #28 Problem-/Need-/Pain-Baseline v0.1 – completed, weiterhin upstream Value-/Problem-Basis
@@ -262,6 +280,12 @@ Requirement / Cluster
 → reale Nutzung / Feedback
 ```
 
+Zusätzliche aktuelle Prior-Art-/Operational-Inputs:
+
+- `docs/architecture/operational-execution-architecture.md`;
+- `docs/architecture/prior-art-development-inputs.md`;
+- `esany/paleo-type` und `esany/Wissensarbeit` werden bei direkt relevanten materiellen Entscheidungen frisch als Prior Art gelesen, niemals als fremde Requirement-/Semantik-Authority.
+
 #48 besitzt nicht historische Findings, Method Truth, Scope-Reduktion akzeptierter Requirements oder das Recht, fachliche Unsicherheit technisch wegzumodellieren.
 
 ## 7. Development & Verification #59
@@ -314,30 +338,34 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-Fällen testen.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
+5. #65 nicht pauschal promoten: einzelne Candidate-Punkte nur dann durch Domain-/Product-/Requirements-Owner dispositionieren, wenn reale Arbeit sie benötigt.
 
 ### Requirements / Struktur / Assurance
 
-5. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
-6. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
-7. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
-8. #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
-9. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
-10. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
+6. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
+7. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
+8. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
+9. #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
+10. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
+11. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
+12. bei generierten/komprimierten Work Contexts künftig Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; Tokenreduktion ist kein Qualitätsziel vor Fidelity.
 
 ### Technisch parallel
 
-11. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards bzw. nachvollziehbare Kurzformen nach `docs/architecture/requirements-derivation.md`.
-12. #49 Zotero↔OneDrive weiter prüfen.
-13. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
-14. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
-15. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
-16. sobald eine reale Systemfunktion benutzt wird, Owner-/Workflow-Feedback nicht nur im Chat belassen, sondern über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen.
+13. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards bzw. nachvollziehbare Kurzformen nach `docs/architecture/requirements-derivation.md`.
+14. Requirement→Enforcement Map + kleiner gemeinsamer Operational Core bleiben der nächste sinnvolle Integrationsschnitt; keine neue Script-Sammlung.
+15. #49 Zotero↔OneDrive weiter prüfen.
+16. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
+17. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
+18. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
+19. sobald eine reale Systemfunktion benutzt wird, Owner-/Workflow-Feedback nicht nur im Chat belassen, sondern über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen.
+20. neue generische Mechanismen aus Einzelcases erst nach explizitem Generic-Fit bzw. Histo-Orla-eigener Promotion einführen; Case-Semantik bleibt case-owned.
 
 ## 11. Blocker / Decisions
 
 #44 bleibt Register für echte Blocker und Owner-Entscheidungen.
 
-Aktuell entsteht aus #62/#63 kein #44-Blocker. Die Assurance operationalisiert akzeptierte Non-Regression-/Traceability-Anforderungen und ändert weder fachliche Requirement Truth noch Method Truth.
+Aktuell entsteht aus #62/#63 oder dem Wissensarbeit-Pilot kein #44-Blocker. Die Assurance operationalisiert akzeptierte Non-Regression-/Traceability-Anforderungen; #65 ist Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
@@ -354,6 +382,8 @@ ohne alten Chat erkennen können:
 - von welchem Goal/Need/Pain eine materielle technische Änderung getragen wird;
 - welche Decision/Implementation/Verification sie realisiert;
 - welche reale Nutzung/Owner-Rückmeldung vorliegt oder noch fehlt;
+- dass #65 externer Pilot-Review-Input ohne automatische Promotion ist;
+- welche Prior-Art-Learnings bei materiellen technischen Entscheidungen zu challengen sind, einschließlich Context Fidelity, Generic-Fit und Case Isolation;
 - primäre Funktion/Authority;
 - Method-/Evidence-Status;
 - technischen Delivery-/Verification-Status;
