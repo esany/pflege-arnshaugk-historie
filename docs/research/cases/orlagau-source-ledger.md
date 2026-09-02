@@ -109,6 +109,23 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **edition_caveat:** Lampe's editorial regest identifies `villa in Grune` as Mönchgrün and supplies ordinal numbers `[IV.]` and `[XI.]` for Otto and Hartmann. These are editorial identifications, not words in the charter text. The original and copies cited in the apparatus were not inspected in this pass.
 - **next verification:** Resolve the modern archive concordance for historical `HSA Dresden, Orig. No. 1104`; inspect the original or a digital reproduction and the two cited copies if available; collate Schmidt/Alberti/Dobenecker and the relevant personal/place index entries before any broader synthesis.
 
+### DI-IA-THRINGISCHEGES10 – bereitgestellte PDF-Instanz (Pilot 2)
+
+- **digital_instance_id:** `DI-IA-THRINGISCHEGES10`
+- **instance relation:** zweite Reproduktion derselben bibliographischen Edition `SRC-ED-0004`; nicht als dieselbe Datei oder derselbe institutionelle Derivatbaum wie die THULB-Instanz behandelt.
+- **local_or_uploaded_filename:** `1936-Lampe-ThGQu NF 7.pdf`
+- **source_instance_status:** `user-provided PDF inspected; public provenance indicated by embedded metadata, landing page not independently verified in this pass`
+- **embedded metadata:** Creator/Producer `Internet Archive`; Keywords nennen `https://archive.org/details/thringischeges10vereuoft`; PDF-Erzeugung laut Metadaten 2024-07-22.
+- **checksum_sha256:** `49fd56bf291f520ef6c518bc1a933deab666c2c2c0bd79d0057e374307c14ff5`
+- **technical extent:** 64,219,328 Bytes; 832 PDF-Seiten; PDF 1.5; nicht verschlüsselt; keine Formulare oder JavaScript.
+- **scan/text layer:** bildbasierter Farb-/Graustufenscan mit eingebettetem OCR-Textlayer. 824 von 832 PDF-Seiten lieferten Text; die Seiten 1–4, 14, 829–830 und 832 lieferten keinen Text. OCR ist für Discovery nützlich, enthält aber erkennbare Fehler und ersetzt die Bildkontrolle nicht (`Lohdehurg`, `E artmann`, `quantitato`, Zeichen-/Spaltenfehler im Register).
+- **completeness inspection:** Titelblätter, Vorwort-/Verzeichnisbereich, Beginn des Urkundenteils, Stichproben im Hauptteil, Namenweiser und `Zusätze und Berichtigungen` bis Druckseite 808 wurden inspiziert. Die PDF enthält zusätzlich vordere/hintere Bibliotheks- und Leerseiten. Damit ist der publizierte Umfang `XVI, 808 S.` plausibel vollständig repräsentiert; keine blattweise Kollation gegen ein physisches Exemplar vorgenommen.
+- **printed_page_to_pdf_mapping:** im Hauptteil konstant `PDF-Seite = Druckseite + 20`; Kontrollfall Druckseiten 360–361 = PDF-Seiten 380–381.
+- **relation_to_THULB_instance:** Druckseiten 360–361 stimmen visuell und textlich mit dem in Pilot 1 inspizierten Editionsinhalt überein. Die THULB-Zuordnung lautet Scan 378–379, die PDF-Zuordnung 380–381; die Differenz entsteht durch zwei zusätzliche Vorsatz-/Bibliotheksseiten der PDF. Dies belegt Inhaltskonkordanz am Kontrollpunkt, nicht Bitidentität oder gemeinsame Scanprovenienz.
+- **availability / restartability:** der Uploadpfad ist temporär und kein kanonischer Byte-Speicher. Restartability beruht derzeit auf Checksumme, Dateiname, dokumentierter Instanzidentität und dem weiterhin öffentlich erreichbaren THULB-Objekt; eine dauerhafte autorisierte Ablage/Attachment-Referenz ist noch offen.
+- **access_date:** `2026-09-02`
+- **rights statement:** im PDF nicht als belastbare Lizenzangabe verifiziert; die THULB-Lizenz darf nicht still auf diese Instanz übertragen werden.
+
 ---
 
 ## Archivalische Quellen – Discovery-Status, Original noch nicht inspiziert

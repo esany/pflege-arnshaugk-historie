@@ -183,12 +183,15 @@ Für 1315 druckt Max Perlbach sinngemäß **Ludwig Stango und Heinrich `[Stange]
 - **1232:** Urkunde des Naumburger Bischofs Engelhard zur Pfarrei Schleiz; später 1310 vidimiert. Sie belegt kirchenrechtliche/rechtliche Verbindungen Schleiz ↔ Naumburg und gelangte in den Deutschordensüberlieferungszusammenhang.
 - **5. September 1285:** In Lampe Nr. 420 treten Otto `de Lodeburch dictus de Arnshouge` und sein Sohn Hartmann gemeinsam als Aussteller auf. Der Wortlaut sagt, dass die Brüder des Deutschen Hauses in Schleiz das Dorf `in Grune` bereits gegen eine bestimmte Geldsumme gekauft hatten; Otto und Hartmann geben und übertragen es anschließend als Eigentum zur dauernden Besitzung. Lampe identifiziert `Grune` im Regest editorisch als Mönchgrün und ergänzt die Ordnungszahlen Otto `[IV.]` und Hartmann `[XI.]`. Siehe `EX-U2-0009`, `SRC-ED-0004`.
 - **5. Dezember 1297:** Witego von Kospoth verkauft dem Schleizer Komtur Heinrich von Braunschweig eine halbe Hufe in Wüstendittersdorf.
+- **1284:** Lampe Nr. 404–405 dokumentieren editorisch eine gestufte Schleizer Patronatsübertragung durch Otto von Arnshaugk und deren diözesane Bestätigung durch den Naumburger Bischof; Nr. 404 ist im Text undatiert und wird von Lampe auf vor den 10. Dezember 1284 gesetzt.
+- **1297/1302:** Die Serien Nr. 602/604 und 664–666 machen in Wüstendittersdorf mehrgliedrige Erwerbswege aus Kauf, Lehen/erblich ausgeübtem Besitz, Resignation, Zustimmung und Appropriation sichtbar.
+- **1303:** Nr. 671 nennt für den Kauf von Wetterau zwei Verkäufer und verbindet die Eigentumsübertragung mit Neuland sowie Holz-, Wasser- und Weiderechten.
 
 **Status:** A/B für den Editionsbefund und die regionale Beziehung; Original/Kopien von Nr. 420 wurden noch nicht inspiziert. Die genaue Einordnung in Herrschaftsbildung, vorgelagerte Eigentums-/Lehnsrechte und Ordensausbau wird weiter untersucht.
 
 **Was dies nicht trägt:** noch keine direkte Beziehung dieser Stücke zu Knau/Orla; keine Identität des Verkäufers, kein bezifferter Kaufpreis, keine Gesamtstrategie des Ordens und kein exklusives Motiv Ottos/Hartmanns. Die religiös-memoriale Formel bezieht sich auf ihren Übertragungsakt und darf nicht zum Motiv des vorausgegangenen Kaufs umgedeutet werden.
 
-**Nächster diskriminierender Schritt:** vorausgehende Kaufurkunde/Verkäufer und heutige Archivkonkordanz des bei Lampe genannten Originals `HSA Dresden, Orig. No. 1104` ermitteln; `Grune = Mönchgrün` unabhängig kollationieren; erst dann Nr. 420 mit dem Patronatskomplex 1284 als möglicher Verdichtungssequenz bewerten.
+**Nächster diskriminierender Schritt:** vorausgehende Kaufurkunde/Verkäufer und heutige Archivkonkordanz des bei Lampe genannten Originals `HSA Dresden, Orig. No. 1104` ermitteln; `Grune = Mönchgrün` unabhängig kollationieren; Nr. 420 anschließend quellenkritisch mit den nun exzerpierten Rechtssequenzen Nr. 404–405, 602/604, 664–666 und 671 vergleichen. Die Sequenzen sind Comparanda, noch kein Beweis einer Gesamtstrategie.
 
 ---
 

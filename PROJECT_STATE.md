@@ -346,7 +346,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ### Inhaltlich führend
 
-1. #46/#47 reale Forschung fortführen. Aktueller #46/#61-Pilotschritt nach `EX-U2-0009`: vorausgehenden Kauf/Verkäufer und Archivkonkordanz von Lampe Nr. 420 auflösen, `Grune = Mönchgrün` unabhängig kollationieren und erst danach den 1284/1285-Komplex synthetisieren.
+1. #46/#47 reale Forschung fortführen. Der zweite #46/#61-Pilot hat die bereitgestellte Lampe-PDF-Instanz, den allgemeinen Bandlauf, `EX-U2-0010`–`0013`, eine nutzerverständliche Ableitung und den Zugangsvergleich persistiert. Nächster fachlicher Schritt: Kauf/Verkäufer und Archivkonkordanz von Nr. 420 auflösen, `Grune = Mönchgrün` unabhängig kollationieren und die neuen Comparanda ohne vorzeitige Gesamtstrategie-Synthese prüfen.
 2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.

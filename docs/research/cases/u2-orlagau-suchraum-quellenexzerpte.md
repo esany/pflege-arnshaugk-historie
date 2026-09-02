@@ -204,6 +204,19 @@ Nur aus der direkt inspizierten Edition ergänzt; Quellentext, Editionsvarianten
 
 Das vollständige Exzerpt und die Aussagegrenzen stehen in `u2-deutschorden-schleiz-quellenexzerpte.md` als `EX-U2-0009`.
 
+### F. Evidenzgeführtes Suchinventar-Delta aus dem allgemeinen Lampe-PDF-Lauf (2026-09-02)
+
+Aus `EX-U2-0010` bis `EX-U2-0013` und den getrennten Discovery Notes ergänzt:
+
+- **Schleizer Patronatsserie:** `Slowizc / Slewiz / Slewicz`; Otto `de Arnshoge / de Marnshowe`; Naumburger Bischof Ludolf; Deutschmeister Konrad `de Vuchtwanc`; Suchpfad Lampe Nr. 404–405, dazu 1232/1310 und Nr. 473/783.
+- **Wüstendittersdorf-Mikroserie:** `Diterichesdorf / Ditherichesdorf / Dytherichsdorph / Dytherichstorff`; Nr. 602/604 und 664–666; `Cossebode / Kozzeboden / Kospoth`, `Brandenstein`, `Bergowe / Wergowe / Burgau`, Theoderich `Balistarius de Trebene`, Holz-/Wald-, Weide-, Wasser-, Wiesen- und Ackerrechte.
+- **Wetterau-Serie:** `Wederowe / Wederawe / Wetterau`, `Thechsrot / Techsrod`, Wasserform `Werowe`; Verkäufer Gunderam, Kastellan, und Hermann `Sengene/Senge`, Bürger in Schleiz; Nr. 604/670/671.
+- **frühe Arnshaugk-Relationen:** Nr. 122 `Marnshoge` als zustimmender Erbe im Bosauer Patronatsgeschäft; Nr. 252 `Arnshawe` und explizites `avunculus` im Zwätzener Waldverkaufs-/Sicherungskontext. Zunächst Netzwerk-/Comparanda-Spuren, keine Schleizer Gesamtstrategie.
+- **kritische Gegenquelle:** Nr. 394 `Straßberg` bleibt wegen Lampes ausdrücklichem Fälschungsurteil ein Negativ-/Overclaim-Test, kein positiver gleichrangiger Beleg.
+- **institutionelle Suchformen:** `DOH. Schleiz`, `domus Theutonice/Theuthonice in Slewicz/Slowicz/Slovwicz`, `commendator in Slewicz`, `ecclesia/parrochia in Slewiz`, Patronat, Kauf, Resignation, Lehen und Appropriation gemeinsam suchen.
+
+**Corpus-bounded Nulltreffer im PDF-Textlayer für die exakt geprüften modernen Strings:** `Oppurg`, `Dreba`, `Weira`, `Volkmannsdorf`, `Schöndorf`, `Külmla`, `Tausa`, `Moxa`, `Moderwitz`, `Pahnstangen`, `Moosbach`, `Laskau`, `Keila`. Dies ist weder ein Register-Negativbeweis noch eine Aussage über historische Abwesenheit; weitere historische Varianten und Homonyme bleiben offen.
+
 ---
 
 ## 6. Suchvokabular für Landschaft, Wasser und Nutzung
