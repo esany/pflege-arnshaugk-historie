@@ -159,7 +159,7 @@
     {
       "id": "IMP-OPCORE-001",
       "kind": "implementation",
-      "status": "implemented",
+      "status": "verified",
       "materiality": "local-reversible",
       "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
       "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
@@ -167,11 +167,11 @@
       "decision_refs": ["DEC-OPCORE-001"],
       "implementation_refs": [],
       "implementation_files": ["tools/operational/**", "tools/requirements/validate.py", "tools/assurance/**", ".github/workflows/**"],
-      "verification_refs": ["tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py", "tools/operational/tests/test_enforcement.py"],
+      "verification_refs": ["github-actions-run:33629069493", "tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py", "tools/operational/tests/test_enforcement.py"],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Requirement-to-Enforcement map, shared loader/schema core, wrapper-preserving validator refactor, negative fixtures and one consolidated Project Assurance workflow. CI verification pending the atomic integration commit."
+      "notes": "Requirement-to-Enforcement map, shared loader/schema core, wrapper-preserving validator refactor, negative fixtures and one consolidated Project Assurance workflow. Verified by the first atomic consolidated run: 14 requirements tests, 16 trace tests, 5 enforcement-map tests and both validator commands passed."
     }
   ]
 }

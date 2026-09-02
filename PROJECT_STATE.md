@@ -155,7 +155,7 @@ Der kleinste gemeinsame Integrationsschnitt ist seit 2026-09-02 implementiert:
 - Project Assurance prüft zusätzlich die Map-Regeln `OPM001`–`OPM007` und alle drei Regressionstest-Suiten in einem konsolidierten Workflow statt zwei überlappender Workflows;
 - wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert.
 
-Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Realer CI-Lauf wird nach dem atomaren Integrations-Commit hier bzw. im #48/#59-Handoff referenziert.
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Commit `51075dce990eb0bf8b2bf4c5ed9be746ea82ff53` und der einzige konsolidierte Project-Assurance-Lauf `33629069493` waren erfolgreich: 14 Requirements-, 16 Trace- und 5 Enforcement-Map-Regressionstests sowie beide Validator-Commands bestanden.
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
