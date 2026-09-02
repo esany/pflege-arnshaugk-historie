@@ -1,6 +1,6 @@
 # Histo-Orla – Requirements Delivery Coverage
 
-**Status:** `active delivery ledger / 2026-09-01`  
+**Status:** `active delivery ledger / 2026-09-03`  
 **Owner:** #59 Development & Verification  
 **Technical Lead:** #48  
 **Requirements Owner:** #42  
@@ -77,7 +77,7 @@ Regeln:
 | REQ-UX-002 | #54/#55/#59 | not-started | challenge/correct/demote without micromanagement |
 | REQ-VAL-001 | #54/#55/#60 | not-started | consequence-based validation levels |
 | REQ-VAL-002 | #55/#60 | not-started | honest independent specialist validation status |
-| REQ-WF-001 | #54/#59 | not-started | deterministic formal invariants |
+| REQ-WF-001 | #54/#59/#62/#63 | partial | Requirements-/Trace-/Enforcement-Map-Invarianten sind implementiert und regression-getestet; Research-State-Promotion/Transition und weitere formal geklärte Guards bleiben unter #54 offen. |
 | REQ-WF-002 | #57/#59 | not-started | reproducible/restartable processing/search |
 | REQ-STATE-001 | #50/#57/#59 | not-started | provider-/chat-independent portable state |
 | REQ-STATE-002 | #50/#57 | not-started | curated vs regenerable state |
@@ -141,7 +141,7 @@ Delivery-Priorisierung richtet sich nach dem aktuellen fachlichen/requirements-s
 - #49 Zotero ↔ OneDrive read-first Feasibility/Integration;
 - #50/#51 Source/Instance/Findspot-State und Provenienz;
 - #53 Exact Search;
-- #55 Audit;
+- #55 Human-readable Audit / Derived Research View ist nach `FB-20260902-003` ein realer Owner-Pain und soll gegen den echten #46-State statt nur synthetisch erprobt werden;
 - #57 Restartability/Availability;
 - #62/#63 sichern Requirements- und Value-/Decision-/Delivery-/Feedback-Traceability deterministisch, wo formalisiert.
 
