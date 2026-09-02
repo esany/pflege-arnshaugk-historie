@@ -1,0 +1,78 @@
+{
+  "schema_version": "0.1",
+  "canonical_requirement_sources": [
+    "docs/research/synthesis/requirements-baseline.md",
+    "docs/research/synthesis/requirements-extensions.md"
+  ],
+  "rules": [
+    {"id": "REQ001", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_duplicate_requirement_definition"]},
+    {"id": "REQ002", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_accepted_id_missing_from_coverage"]},
+    {"id": "REQ003", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_unknown_dependency_target"]},
+    {"id": "REQ004", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_self_dependency"]},
+    {"id": "REQ005", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_requires_cycle"]},
+    {"id": "REQ007", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_active_requirement_without_structured_record"]},
+    {"id": "REQ008", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_verified_without_verification_evidence"]},
+    {"id": "REQ009", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_owner_deferred_without_decision"]},
+    {"id": "REQ011", "command": "requirements", "fixture_refs": ["tools/requirements/tests/test_validate.py::test_rejects_missing_authority"]},
+    {"id": "VDD004", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_unknown_requirement_fails"]},
+    {"id": "VDD007", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_missing_global_governance_fails"]},
+    {"id": "VDD008", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_technical_record_without_requirement_fails"]},
+    {"id": "VDD009", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_technical_record_without_driver_fails"]},
+    {"id": "VDD010", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_implementation_unknown_decision_fails"]},
+    {"id": "VDD011", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_nonmechanical_implementation_without_decision_fails"]},
+    {"id": "VDD013", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_verified_implementation_without_verification_fails"]},
+    {"id": "VDD015", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_negative_feedback_without_delta_flag_fails"]},
+    {"id": "VDD017", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_owner_workflow_acceptance_needs_resolved_confirming_feedback"]},
+    {"id": "VDD018", "command": "assurance", "fixture_refs": ["tools/assurance/tests/test_validate.py::test_changed_code_without_active_implementation_record_fails"]}
+  ],
+  "mappings": [
+    {
+      "requirement_id": "REQ-WF-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-baseline.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/assurance/requirements-assurance-harness.md"], "rule_refs": ["REQ001", "REQ002", "REQ003", "REQ004", "REQ005", "REQ007", "REQ008", "REQ009", "REQ011"], "core_capabilities": ["validate"], "implementation_status": "partial"}],
+      "human_or_specialist_review_refs": ["issue:#42", "issue:#60"]
+    },
+    {
+      "requirement_id": "REQ-LEAN-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-baseline.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/governance/lean-agile-non-regression.md", "docs/architecture/assurance/value-decision-delivery-assurance.md"], "rule_refs": ["VDD007", "VDD008", "VDD009", "VDD011", "VDD018"], "core_capabilities": ["validate"], "implementation_status": "partial"}],
+      "human_or_specialist_review_refs": ["issue:#42", "issue:#48", "Research Owner workflow/value acceptance"]
+    },
+    {
+      "requirement_id": "REQ-STATE-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-baseline.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/assurance/value-decision-delivery-assurance.md"], "rule_refs": ["VDD004", "VDD010", "VDD013", "VDD018"], "core_capabilities": ["validate", "derive"], "implementation_status": "partial"}],
+      "human_or_specialist_review_refs": ["issue:#42", "issue:#57"]
+    },
+    {
+      "requirement_id": "REQ-TRACE-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-extensions.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/assurance/value-decision-delivery-assurance.md"], "rule_refs": ["VDD004", "VDD007", "VDD008", "VDD009", "VDD010", "VDD011", "VDD013", "VDD015", "VDD017", "VDD018"], "core_capabilities": ["validate"], "implementation_status": "implemented"}],
+      "human_or_specialist_review_refs": ["issue:#42", "Research Owner workflow/value acceptance"]
+    },
+    {
+      "requirement_id": "REQ-MTH-004",
+      "semantic_owner_refs": ["issue:#42", "issue:#60", "docs/research/synthesis/requirements-extensions.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/assurance/method-conformance-work-context.md"], "rule_refs": [], "core_capabilities": ["context", "transition"], "implementation_status": "planned"}],
+      "human_or_specialist_review_refs": ["issue:#60", "respective Domain Authority"]
+    },
+    {
+      "requirement_id": "REQ-ENT-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-baseline.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/operational-execution-architecture.md"], "rule_refs": [], "core_capabilities": ["transition"], "implementation_status": "planned"}],
+      "human_or_specialist_review_refs": ["respective Domain Authority", "issue:#54"]
+    },
+    {
+      "requirement_id": "REQ-STATE-003",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-extensions.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/contracts/canonical-research-state.md"], "rule_refs": [], "core_capabilities": ["evidence", "resolve"], "implementation_status": "planned"}],
+      "human_or_specialist_review_refs": ["issue:#49", "issue:#57", "rights/access owner where applicable"]
+    },
+    {
+      "requirement_id": "REQ-UX-001",
+      "semantic_owner_refs": ["issue:#42", "docs/research/synthesis/requirements-baseline.md"],
+      "enforcement": [{"class": "mixed", "contract_refs": ["docs/architecture/operational-execution-architecture.md"], "rule_refs": [], "core_capabilities": ["derive", "resolve"], "implementation_status": "planned"}],
+      "human_or_specialist_review_refs": ["issue:#55", "Research Owner workflow/value acceptance", "respective Domain Authority"]
+    }
+  ]
+}

@@ -106,7 +106,7 @@ Neue Begriffe, Tools, Frameworks oder Phasen superseden bestehenden accepted Sco
 - QA-/Traceability-Projektion: `tools/requirements/data/records.json`
 - Validator: `tools/requirements/validate.py`
 - Regressionstests: `tools/requirements/tests/`
-- CI: `.github/workflows/requirements-assurance.yml`
+- CI: `.github/workflows/project-assurance.yml` (konsolidierter Assurance-Lauf)
 
 Leitgrenze:
 
@@ -129,6 +129,14 @@ Machine-readable Bausteine:
 - `tools/assurance/validate.py`
 - `tools/assurance/tests/`
 - `.github/workflows/project-assurance.yml`
+
+Gemeinsame technische Projektion/Core:
+
+- `tools/operational/enforcement-map.json` – Requirement→Enforcement ohne duplizierte Requirement-Semantik;
+- `tools/operational/core.py` – gemeinsame mechanische Loader-/Schema-Infrastruktur;
+- `tools/operational/tests/` – Map-/Core-Negativregressionen.
+
+Beide Validatoren bleiben eigenständige Commands. Ein konsolidierter `Project Assurance`-Workflow führt Requirements-, Trace- und Operational-Checks aus, um überlappende CI-Läufe und Benachrichtigungen zu vermeiden.
 
 Der formale Guard prüft u. a.:
 

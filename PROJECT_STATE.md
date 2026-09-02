@@ -122,7 +122,7 @@ Bausteine:
 - `tools/requirements/data/records.json` – machine-readable QA-/Traceability-Projektion, keine zweite fachliche Requirement Truth;
 - `tools/requirements/validate.py` – deterministischer Cross-Record-/Repo-Validator;
 - `tools/requirements/tests/` – positive/negative Regressionstests;
-- `.github/workflows/requirements-assurance.yml` – automatischer CI-Check;
+- `.github/workflows/project-assurance.yml` – konsolidierter automatischer Assurance-Check;
 - `docs/architecture/assurance/requirements-assurance-harness.md` – Rule-/Scope-Vertrag.
 
 Harte Grenze:
@@ -144,6 +144,18 @@ Aktuelle Realtests 2026-09-01:
 - Project Assurance Run `33479807679`: `success`;
 - 14 Requirements-Regressionstests + 15 Project-Assurance-Regressionstests bestanden;
 - `REQ-TRACE-001` ist in Coverage und strukturiertem Requirement-Record erfasst.
+
+### Operational Integration – #48/#59
+
+Der kleinste gemeinsame Integrationsschnitt ist seit 2026-09-02 implementiert:
+
+- `tools/operational/enforcement-map.json` projiziert Requirements referenzbasiert auf Enforcement-Klassen, Contracts, Rule-IDs, Capabilities, Fixtures, Status und fachliche Review-Grenzen; sie dupliziert keine Requirement-Semantik;
+- `tools/operational/core.py` stellt gemeinsame mechanische Loader-/JSON-Schema-Infrastruktur für die bestehenden #62/#63-Commands bereit;
+- `tools/requirements/validate.py` und `tools/assurance/validate.py` bleiben kompatible Wrapper/Commands; kein Big-Bang-Rewrite;
+- Project Assurance prüft zusätzlich die Map-Regeln `OPM001`–`OPM007` und alle drei Regressionstest-Suiten in einem konsolidierten Workflow statt zwei überlappender Workflows;
+- wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert.
+
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Realer CI-Lauf wird nach dem atomaren Integrations-Commit hier bzw. im #48/#59-Handoff referenziert.
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
@@ -345,15 +357,15 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 6. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
 7. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
 8. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
-9. #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
+9. Requirement→Enforcement-Map und #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
 10. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
 11. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
 12. bei generierten/komprimierten Work Contexts künftig Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; Tokenreduktion ist kein Qualitätsziel vor Fidelity.
 
 ### Technisch parallel
 
-13. #48 erzeugt aus aktiven Requirement-Clustern Technical Derivation Cards bzw. nachvollziehbare Kurzformen nach `docs/architecture/requirements-derivation.md`.
-14. Requirement→Enforcement Map + kleiner gemeinsamer Operational Core bleiben der nächste sinnvolle Integrationsschnitt; keine neue Script-Sammlung.
+13. #48 nutzt die Enforcement-Map bei aktiven Requirement-Clustern als technische Projektion und erzeugt weiterhin Technical Derivation Cards bzw. nachvollziehbare Kurzformen nach `docs/architecture/requirements-derivation.md`.
+14. Der gemeinsame Operational-Core-Grundbaustein ist vorhanden; nächste Capabilities nur aus realem Bedarf, keine neue Script-Sammlung.
 15. #49 Zotero↔OneDrive weiter prüfen.
 16. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
 17. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.

@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://histo-orla.local/schemas/enforcement-map.schema.json",
+  "title": "Histo-Orla Requirement to Enforcement Map",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "canonical_requirement_sources", "rules", "mappings"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "canonical_requirement_sources": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "rules": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/rule"}
+    },
+    "mappings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/mapping"}
+    }
+  },
+  "$defs": {
+    "ref": {"type": "string", "minLength": 1},
+    "rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "command", "fixture_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^(REQ|VDD)[0-9]{3}$"},
+        "command": {"enum": ["requirements", "assurance"]},
+        "fixture_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/ref"}
+        }
+      }
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requirement_id", "semantic_owner_refs", "enforcement", "human_or_specialist_review_refs"],
+      "properties": {
+        "requirement_id": {"type": "string", "pattern": "^REQ-[A-Z]+-[0-9]{3}$"},
+        "semantic_owner_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/ref"}
+        },
+        "enforcement": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["class", "contract_refs", "rule_refs", "core_capabilities", "implementation_status"],
+            "properties": {
+              "class": {"enum": ["deterministic", "procedural", "scholarly", "mixed"]},
+              "contract_refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "#/$defs/ref"}},
+              "rule_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^(REQ|VDD)[0-9]{3}$"}},
+              "core_capabilities": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"enum": ["validate", "resolve", "derive", "context", "evidence", "transition"]}},
+              "implementation_status": {"enum": ["implemented", "partial", "planned", "not-applicable"]}
+            }
+          }
+        },
+        "human_or_specialist_review_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/ref"}
+        }
+      }
+    }
+  }
+}

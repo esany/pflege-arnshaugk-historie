@@ -135,6 +135,10 @@ class AssuranceSpineTests(unittest.TestCase):
         rec = decision(driver_refs=[])
         self.assertIn("VDD009", rule_ids(run([rec])))
 
+    def test_technical_record_without_requirement_fails(self):
+        rec = decision(requirement_refs=[])
+        self.assertIn("VDD008", rule_ids(run([rec])))
+
     def test_implementation_unknown_decision_fails(self):
         rec = implementation(decision_refs=["DEC-NOT-THERE"])
         self.assertIn("VDD010", rule_ids(run([rec])))

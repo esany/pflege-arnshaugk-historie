@@ -206,3 +206,14 @@ No framework, database, agent runtime, workflow engine or new service is admitte
 ## 7. Revisit rule
 
 Because both source repositories are evolving, future material architecture decisions may re-read their **current** canonical state when they are directly relevant. Do not rely on this snapshot as proof that those repositories have not changed.
+
+## 8. Applied integration review – 2026-09-02
+
+For the Requirement→Enforcement/Operational-Core increment, the current GitHub state of both prior-art repositories was re-read. Disposition:
+
+- **fuse/adapt:** canonical-vs-derived, executable settled invariants, model-independent mechanics and explicit review/mutation boundaries;
+- **fuse/adapt:** capability-oriented core, `deterministic | procedural | judgement` separation and thin command/CI adapters;
+- **reject now:** copying `paleo-type` METHOD/CORPUS/PROJECT semantics or `Wissensarbeit` as a universal project framework;
+- **defer:** unified broad CLI, context/evidence/transition implementations and packaging until a concrete Histo-Orla capability needs them.
+
+Histo-Orla's accepted Requirements, Governance, Domain Method Truth and current #48/#59 constraints controlled the resulting schema and code. The prior art supplied challenge criteria, not semantic authority.

@@ -17,10 +17,18 @@ import sys
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-try:
-    from jsonschema import Draft202012Validator
-except ImportError:  # pragma: no cover
-    Draft202012Validator = None
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.operational.core import (  # noqa: E402
+    OperationalError,
+    load_json,
+    read_text,
+    repo_root_from,
+    schema_violations,
+)
+from tools.operational.enforcement import validate_enforcement_map  # noqa: E402
 
 
 REQ_RE = re.compile(r"^#{2,4}\s+(REQ-[A-Z]+-[0-9]{3})\s+[–-]\s+", re.MULTILINE)
@@ -37,26 +45,11 @@ class Finding:
     source: str | None = None
 
 
-class AssuranceError(RuntimeError):
-    pass
+AssuranceError = OperationalError
 
 
 def repo_root() -> Path:
-    return Path(__file__).resolve().parents[2]
-
-
-def read_text(path: Path) -> str:
-    try:
-        return path.read_text(encoding="utf-8")
-    except OSError as exc:
-        raise AssuranceError(f"Cannot read {path}: {exc}") from exc
-
-
-def load_json(path: Path):
-    try:
-        return json.loads(read_text(path))
-    except json.JSONDecodeError as exc:
-        raise AssuranceError(f"Invalid JSON in {path}: {exc}") from exc
+    return repo_root_from(__file__)
 
 
 def canonical_requirement_ids(root: Path) -> set[str]:
@@ -79,23 +72,10 @@ def coverage_statuses(root: Path) -> dict[str, str]:
 
 
 def schema_findings(schema: dict, data: dict, source: Path) -> list[Finding]:
-    if Draft202012Validator is None:
-        raise AssuranceError(
-            "Python package 'jsonschema' is required; install tools/requirements/requirements.txt"
-        )
-    out: list[Finding] = []
-    validator = Draft202012Validator(schema)
-    for error in sorted(validator.iter_errors(data), key=lambda e: list(e.absolute_path)):
-        record_id = None
-        parts = list(error.absolute_path)
-        if len(parts) >= 2 and parts[0] == "records" and isinstance(parts[1], int):
-            try:
-                record_id = data["records"][parts[1]].get("id")
-            except Exception:
-                pass
-        loc = "/".join(str(x) for x in parts) or "<root>"
-        out.append(Finding("VDD001", "error", f"Schema violation at {loc}: {error.message}", record_id, str(source)))
-    return out
+    return [
+        Finding("VDD001", "error", f"Schema violation at {v.location}: {v.message}", v.item_id, str(source))
+        for v in schema_violations(schema, data)
+    ]
 
 
 def matching_implementation_records(path: str, records: list[dict]) -> list[str]:
@@ -274,6 +254,10 @@ def main(argv: list[str] | None = None) -> int:
             requirement_records,
             changed,
         ))
+        findings.extend(
+            Finding(f.rule_id, f.severity, f.message, f.requirement_id, f.source)
+            for f in validate_enforcement_map(root, requirement_ids)
+        )
     except AssuranceError as exc:
         print(f"ASSURANCE TOOL ERROR: {exc}", file=sys.stderr)
         return 2
@@ -289,7 +273,7 @@ def main(argv: list[str] | None = None) -> int:
             "findings": [asdict(f) for f in findings],
         }, ensure_ascii=False, indent=2))
     else:
-        print("Histo-Orla Project Assurance Spine")
+        print("Histo-Orla Project Assurance")
         print("formal traceability/conformance only; not scholarly truth or user-meaning validation")
         print(f"errors={len(errors)} warnings={len(warnings)}")
         for f in findings:

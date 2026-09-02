@@ -4,7 +4,7 @@
 **Work Owner:** #48 Technical Lead  
 **Interfaces:** #42 Requirements, #50 Canonical State, #54 Transitions, #55 Audit, #57 Restartability/Evidence Availability, #61 Work Context/Method Conformance, #62 Requirements Assurance, #63 Value/Decision/Delivery/Feedback Assurance  
 **Prior Art:** `esany/paleo-type` #66/#77/#79, `tools/source_contract.py`  
-**Stand:** 2026-09-01
+**Stand:** 2026-09-02
 
 ## 1. Fragestellung
 
@@ -348,11 +348,7 @@ CI entscheidet nie:
 
 ### Workflow-Konsolidierung
 
-Aktuell sind zwei Workflows nach Pfaden getrennt, um Doppel- und Fehlbenachrichtigungen zu reduzieren. Das bleibt stabil, bis ein gemeinsamer Core/CLI existiert.
-
-Danach prüfen, ob **ein** automatischer Assurance-Workflow mit konditionalen Subchecks weniger Drift und weniger Benachrichtigungen erzeugt als mehrere getrennte Workflows.
-
-Keine Umstellung allein aus Ästhetik.
+Seit dem gemeinsamen Core-Grundbaustein führt **ein** automatischer, path-gefilterter Assurance-Workflow die Requirements-, Trace- und Operational-Checks aus. Damit werden gekoppelte Änderungen atomar geprüft und parallele Läufe/Benachrichtigungen vermieden. Die Validator-Commands bleiben separat lokal ausführbar.
 
 ## 14. Adopt / Adapt / Defer
 
@@ -386,25 +382,41 @@ Keine Umstellung allein aus Ästhetik.
 | Audit | #55 | Darstellung deterministic aus State | geplant | `derive audit` statt manuelle Doppelpflege |
 | Coverage/Reports | #42/#59 | deterministic | teils manuelles Markdown | langfristig aus machine state generieren |
 | Skills | Capability/Role Owner | probabilistischer Executor | none | dünne Adapter nach Core |
-| CI | #62/#63 | deterministic | 2 Workflows | später optional 1 Workflow / gleiche Core Commands |
+| CI | #62/#63 | deterministic | 1 konsolidierter Workflow / getrennte Commands | Subchecks nur bei realem Laufzeitbedarf konditionalisieren |
 
-## 16. Empfohlene Reihenfolge
+## 16. Implementierter Integrationsschnitt v0.1 (2026-09-02)
 
-### Schritt A – jetzt: Integrationssicht statt weiterer Einzelskripte
+Der erste kohärente Schnitt ist umgesetzt:
+
+- `tools/operational/enforcement-map.json` ist die machine-readable technische Projektion `Requirement → Enforcement`; sie referenziert kanonische Requirements/Owner/Contracts, Rule-IDs, Fixtures, Core-Capabilities und Review-Grenzen, enthält aber keine Requirement-Statements oder fachliche Semantik;
+- `tools/operational/enforcement-map.schema.json` und die Regeln `OPM001`–`OPM007` prüfen Form, bekannte Requirement-/Rule-Referenzen, eindeutige Mappings, vorhandene Fixture-Dateien und explizite Human-/Domain-/Specialist-Review-Grenzen für nicht rein deterministische Klassen;
+- `tools/operational/core.py` bündelt ausschließlich mechanische Infrastruktur (Repo-Pfad, UTF-8-/JSON-Loading, JSON-Schema-Fehlernormalisierung);
+- `tools/requirements/validate.py` und `tools/assurance/validate.py` bleiben die bestehenden Commands/Wrapper und behalten ihre Rule-Semantik;
+- die Enforcement-Map wird durch Project Assurance validiert; ein dritter Workflow/Command wurde nicht eingeführt;
+- die beiden bisherigen Workflows wurden zu einem path-gefilterten `Project Assurance`-Workflow konsolidiert. Er führt Requirements-, Assurance- und Operational-Core-Regressionen sowie beide bestehenden Validator-Commands in einem Lauf aus.
+
+Die Map ist absichtlich inkrementell: implementierte #62/#63-Teile sowie konkret geplante #54/#55/#57/#61-Anschlüsse sind sichtbar. Fehlende Mappings bedeuten nicht, dass ein Requirement entfällt oder keine fachliche Prüfung benötigt.
+
+### Authority-Grenze
+
+`deterministic` bezeichnet nur formal etablierte Regeln. `mixed`, `procedural` und `scholarly` erzwingen in der Map eine explizite Review-Grenze; der Validator entscheidet weder historische Wahrheit noch Methodensuffizienz, Quellenlesung, Specialist Agreement oder Owner-Akzeptanz.
+
+### Prior-Art-Disposition
+
+Der Schnitt **fused** die in Histo-Orla bereits vorhandenen #62/#63-Mechanismen statt neue parallele Tools anzuhängen. Aus `paleo-type` wurden canonical-vs-derived, executable settled invariants und Mutation-Authority-Trennung übernommen; aus `Wissensarbeit` die Capability-Sicht und `deterministic | procedural | judgement`-Grenze adaptiert. Ein generisches Framework, Workflow-Engine oder fremdes Domainmodell wurde verworfen/deferred, weil Histo-Orla Requirements und reale Nutzung dafür keinen Bedarf begründen.
+
+## 17. Empfohlene Reihenfolge
+
+### Schritt A – abgeschlossen: Integrationssicht statt weiterer Einzelskripte
 
 1. Requirement→Enforcement Map als technische Projektion definieren;
 2. aktuelle #62/#63 Rule-IDs und Fixtures darin erfassen;
 3. #54/#55/#57/#61 als `planned/partial` sichtbar machen;
 4. keine neue fachliche Semantik erfinden.
 
-### Schritt B – kleinster Code-Refactor
+### Schritt B – Grundbaustein abgeschlossen, weitere Extraktion nur bei Bedarf
 
-Wenn der nächste neue Operational-Mechanismus gebaut wird:
-
-1. gemeinsame Loader/Findings/Schema/Ref-Utilities extrahieren;
-2. bestehendes Verhalten durch Regressionstests einfrieren;
-3. #62/#63 auf denselben Core umstellen, ohne Rule-Semantik zu ändern;
-4. ein `validate all` Entry Point hinzufügen.
+Loader und Schema-Mechanik sind gemeinsam extrahiert; #62/#63 bleiben Wrapper. Findings-/fachspezifische Parsing-/Rule-Logik bleibt zunächst bewusst bei ihren Ownern. Weitere Extraktion oder ein `validate all`-Entry-Point erfolgt erst bei einem realen dritten Capability-Bedarf.
 
 ### Schritt C – erster neuer Read-only Nutzen
 

@@ -16,10 +16,17 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Iterable
 
-try:
-    from jsonschema import Draft202012Validator
-except ImportError:  # pragma: no cover - explicit operational error path
-    Draft202012Validator = None
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from tools.operational.core import (  # noqa: E402
+    OperationalError,
+    load_json,
+    read_text,
+    repo_root_from,
+    schema_violations,
+)
 
 
 REQ_HEADING_RE = re.compile(r"^#{2,4}\s+(REQ-[A-Z]+-[0-9]{3})\s+[–-]\s+(.+?)\s*$")
@@ -57,26 +64,11 @@ class Finding:
     source: str | None = None
 
 
-class HarnessError(RuntimeError):
-    pass
+HarnessError = OperationalError
 
 
 def repo_root_from_script() -> Path:
-    return Path(__file__).resolve().parents[2]
-
-
-def read_text(path: Path) -> str:
-    try:
-        return path.read_text(encoding="utf-8")
-    except OSError as exc:
-        raise HarnessError(f"Cannot read {path}: {exc}") from exc
-
-
-def load_json(path: Path):
-    try:
-        return json.loads(read_text(path))
-    except json.JSONDecodeError as exc:
-        raise HarnessError(f"Invalid JSON in {path}: {exc}") from exc
+    return repo_root_from(__file__)
 
 
 def extract_requirement_occurrences(paths: Iterable[Path]) -> dict[str, list[str]]:
@@ -123,32 +115,16 @@ def parse_coverage(path: Path) -> tuple[dict[str, str], list[Finding]]:
 
 
 def validate_schema(schema: dict, data: dict, source: Path) -> list[Finding]:
-    if Draft202012Validator is None:
-        raise HarnessError(
-            "Python package 'jsonschema' is required. Install with "
-            "'python -m pip install -r tools/requirements/requirements.txt'."
+    return [
+        Finding(
+            "REQ006",
+            "error",
+            f"Schema violation at {violation.location}: {violation.message}",
+            violation.item_id,
+            str(source),
         )
-    validator = Draft202012Validator(schema)
-    findings: list[Finding] = []
-    for error in sorted(validator.iter_errors(data), key=lambda e: list(e.absolute_path)):
-        req_id = None
-        path_parts = list(error.absolute_path)
-        if len(path_parts) >= 2 and path_parts[0] == "records" and isinstance(path_parts[1], int):
-            try:
-                req_id = data["records"][path_parts[1]].get("id")
-            except Exception:
-                req_id = None
-        location = "/".join(str(x) for x in path_parts) or "<root>"
-        findings.append(
-            Finding(
-                "REQ006",
-                "error",
-                f"Schema violation at {location}: {error.message}",
-                req_id,
-                str(source),
-            )
-        )
-    return findings
+        for violation in schema_violations(schema, data)
+    ]
 
 
 def find_requires_cycle(records_by_id: dict[str, dict]) -> list[list[str]]:
