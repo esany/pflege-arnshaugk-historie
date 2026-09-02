@@ -186,7 +186,7 @@ Der Changed-Code-Guard prüft kontrollierte technische Pfade gegen einen **aktue
 
 Owner-/Nutzerfeedback wird als eigener Product-/Workflow-Evidence-Typ geführt. Negative Outcomes wie `pain-persists`, `regression`, `new-pain`, `new-need` oder `requirement-change` müssen einen offenen Delta-Pfad erzeugen. `owner-workflow-acceptance` kann nicht durch technische Selbsttests ersetzt werden.
 
-Das aktuelle Owner-Feedback, das diese Lücke aufdeckte, ist als `FB-20260901-001` persistiert und bleibt offen, bis reale Owner-Akzeptanz den neuen Mechanismus bestätigt oder weiter korrigiert.
+`FB-20260902-003` persistiert das reale Owner-Feedback nach dem Lampe-PDF-Pilot: Der wissenschaftliche State ist zunehmend korrekt, der operative Forschungsarbeitsplatz bleibt aber zu stark manuell/chat-orchestriert und textlastig. Bestehende `REQ-UX-001/002`, `REQ-WF-001`, `REQ-STATE-001`, `REQ-LEAN-001` decken das Ziel bereits; der offene Delta ist primär Delivery-/Architecture-Priorisierung hin zu strukturiertem Research State, automatischem Context/Trace/Derive und daraus erzeugten menschenlesbaren Sichten.
 
 Materielle Scope-/Qualitätsänderungen benötigen weiterhin ein explizites Requirement-/Decision-Delta. Neue Buzzwords, Tools, Frameworks oder Phasenbegriffe ändern keinen akzeptierten Scope implizit.
 
@@ -364,20 +364,20 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ### Technisch parallel
 
-13. #48 nutzt die Enforcement-Map bei aktiven Requirement-Clustern als technische Projektion und erzeugt weiterhin Technical Derivation Cards bzw. nachvollziehbare Kurzformen nach `docs/architecture/requirements-derivation.md`.
-14. Der gemeinsame Operational-Core-Grundbaustein ist vorhanden; nächste Capabilities nur aus realem Bedarf, keine neue Script-Sammlung.
-15. #49 Zotero↔OneDrive weiter prüfen.
-16. #50/#51 Source/Instance/Findspot/Provenienz so einfach wie hinreichend technisch absichern.
-17. #53 Exact Search und #55 Audit dort früh umsetzen, wo sie reale Forschung unmittelbar tragen.
-18. #57 Restartability/Research-ready Availability aus frischem Kontext testen.
-19. sobald eine reale Systemfunktion benutzt wird, Owner-/Workflow-Feedback nicht nur im Chat belassen, sondern über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen.
-20. neue generische Mechanismen aus Einzelcases erst nach explizitem Generic-Fit bzw. Histo-Orla-eigener Promotion einführen; Case-Semantik bleibt case-owned.
+13. **Reales Owner-Feedback `FB-20260902-003` ist jetzt führender Technical-Delivery-Pain:** #48 priorisiert einen vertikalen Research-Operations-Schnitt aus #50/#55/#61: `structured canonical research state → automated context/intake/trace → deterministic derive → human-readable research workspace/view`. Der Nutzer/Chat darf nicht Workflow Engine für routinehafte State-Pflege bleiben.
+14. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
+15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
+16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
+17. #61 Work Context/Handoff als ausführbaren Compiler/Resolver aus kanonischem State erproben; Chat soll Kontext nicht jedes Mal manuell zusammensuchen.
+18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
+19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
+20. Sobald der vertikale Slice benutzt wird, Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst erreicht, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
 
 ## 11. Blocker / Decisions
 
 #44 bleibt Register für echte Blocker und Owner-Entscheidungen.
 
-Aktuell entsteht aus #62/#63 oder dem Wissensarbeit-Pilot kein #44-Blocker. Die Assurance operationalisiert akzeptierte Non-Regression-/Traceability-Anforderungen; #65 ist Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Aktuell entsteht aus #62/#63 oder dem Wissensarbeit-Pilot kein #44-Blocker. `FB-20260902-003` ist kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
