@@ -38,6 +38,43 @@ Mindestens in dieser Reihenfolge:
 
 Wenn `PROJECT_STATE.md` erkennbar hinter jüngeren Issues/Commits zurückliegt, gilt der jüngere kanonische Work-Owner-Stand; `PROJECT_STATE.md` ist dann vor Abschluss der Arbeit zu aktualisieren, sofern die Abweichung handoff-relevant ist.
 
+### 2.1 Capability-first Tooling und Handoff
+
+Vor jeder materiellen Entscheidung über **Tool, Connector, Ausführungsmodus, Produktmodus oder Handoff** muss zuerst geprüft werden, welche Fähigkeiten im aktuellen autorisierten Kontext tatsächlich bereits verfügbar sind.
+
+Verbindliche Reihenfolge:
+
+```text
+Task / benötigte Operationen
+→ aktuelle verfügbare Fähigkeiten inventarisieren
+→ Zugriff / Rechte / Inspectability prüfen
+→ vorhandene Fähigkeiten gegen den Task abgleichen
+→ kleinste hinreichende Ausführungsumgebung wählen
+→ nur bei realer Capability-Lücke oder begründetem Isolationsbedarf handoffen
+```
+
+Dabei sind insbesondere zu prüfen, soweit für den Auftrag relevant:
+
+- bereits verfügbare Repository-/GitHub-Connectoren und Schreibrechte;
+- hochgeladene oder im aktuellen Kontext inspectable Dateien/Quellen;
+- File Search, Web-/Browser-, Code-/Analyse-, Dokument-/Artefakt- und weitere spezialisierte Werkzeuge;
+- vorhandene Plugin-/App-/Connector-Funktionen;
+- Rechte-, Credential-, Provider- und Datenlokalitätsgrenzen;
+- Nutzerconstraints zu Kosten, Token-/Kontextverbrauch, Latenz, Datenschutz und gewünschtem Arbeitsmodus.
+
+Harte Regeln:
+
+- **Kein Handoff allein aufgrund eines abstrakten Task-Typs**, wenn der aktuelle Kontext den Auftrag bereits vollständig und regelkonform ausführen sowie erforderlichen State kanonisch persistieren kann.
+- **Capability Discovery vor Toolwechsel:** Eine Funktion darf nicht als fehlend behandelt oder durch einen anderen Modus ersetzt werden, bevor verfügbare Werkzeuge/Features proportional geprüft wurden.
+- **Handoff ist selbst ein Kosten-/Kontextverlustfaktor** und braucht einen konkreten Mehrwert: fehlende Capability, notwendige Isolation, Rechte-/Sicherheitsgrenze oder klar bessere Eignung für den Auftrag.
+- Bei mehreren hinreichenden Wegen gilt: wissenschaftliche/qualitative Anforderungen und Rights zuerst, danach geringster unnötiger Kontextwechsel, geringste Nutzerlast und – soweit der Nutzer es verlangt – Token-/Kosten-/Latenzaufwand.
+- Ein spezialisierter Modus oder Provider ist kein Selbstzweck und keine epistemische Autorität.
+- Wenn der Nutzer bereits einen funktionierenden Arbeitsmodus bevorzugt und keine Capability-Lücke vorliegt, wird nicht ohne sachlichen Grund migriert.
+
+Leitregel:
+
+> **Erst Fähigkeiten prüfen, dann Tooling wählen. Kein Handoff ohne nachgewiesenen Bedarf.**
+
 ## 3. Präzedenz und kanonische Wahrheit
 
 Repository-intern gilt für Projektwissen:
