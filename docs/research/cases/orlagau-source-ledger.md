@@ -3,7 +3,7 @@
 **Status:** `working-research / source-identity-ledger`  
 **Work Owner:** #46 / #47  
 **Protokoll:** `docs/research/source-identity-protocol.md`  
-**Stand:** 2026-08-31
+**Stand:** 2026-09-02
 
 ## Zweck
 
@@ -78,6 +78,36 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **manuscript_relation:** The printed edition must not be conflated with the surviving chancery/copial manuscript tradition. Sächsisches Staatsarchiv online records for Bestand 10004 Kopiale provide relevant manuscript context; each manuscript witness must receive its own source_id if directly used.
 - **notes:** Register- and page-level work must be performed visually on the scan. No completeness claim from OCR/full-text search is admissible.
 - **next verification:** Open the SLUB digital object from the catalogue, record the persistent object URL, URN and IIIF manifest if exposed; visually verify title/imprint in the uploaded scan; establish scan ↔ printed-page mapping.
+
+## SRC-ED-0004 – Urkundenbuch der Deutschordensballei Thüringen, Band 1
+
+- **source_type:** wissenschaftliche Edition / Urkundenbuch
+- **canonical_citation:** Karl H. Lampe (Hg.), *Urkundenbuch der Deutschordensballei Thüringen. Erster Band*, Thüringische Geschichtsquellen 10 = N. F. 7, Jena: Gustav Fischer, 1936.
+- **edition_scope:** erster Band; laut Vorwort Abschluss mit dem Jahr 1311; XVI, 808 S. laut THULB-Metadaten.
+- **bibliographic_identity_status:** `verified from inspected title page, preface and THULB object metadata`
+- **historical source represented:** mittelalterliche Urkunden und weitere Überlieferungen zur Deutschordensballei Thüringen; jede Urkunde behält eigenen Überlieferungsstatus und Apparatsnachweis.
+- **digital_instance_id:** `DI-THULB-HISBEST-00021244`
+- **source_instance_status:** `public scholarly-edition scan inspected; page images visually inspected`
+- **provider / portal:** Thüringer Universitäts- und Landesbibliothek Jena, Digitale Sammlungen / Thuringica
+- **digital_object_landing_page:** `https://collections.thulb.uni-jena.de/receive/HisBest_cbu_00021244`
+- **persistent_URN:** `urn:nbn:de:urmel-ba67ebf9-1fe1-4cfe-ba81-aa4d4879f62e6`
+- **URN_resolver:** `https://nbn-resolving.org/urn:nbn:de:urmel-ba67ebf9-1fe1-4cfe-ba81-aa4d4879f62e6`
+- **MyCoRe_object_id:** `HisBest_cbu_00021244`
+- **digital_derivate_id:** `HisBest_derivate_00005363`
+- **IIIF_manifest:** `https://collections.thulb.uni-jena.de/api/iiif/presentation/v2/HisBest_derivate_00005363/manifest`
+- **catalogue identifiers:** K10plus PPN print `136299725`; electronic edition `736099891`.
+- **THULB shelfmark:** `8 Sax.III,18 :10.N.F.7`
+- **extent / scan completeness:** THULB metadata `XVI, 808 S.`; IIIF manifest exposes 828 canvases. Completeness beyond the target pages was not independently collated in this pass.
+- **rights / licence statement:** THULB landing page displays `CC BY-NC-SA 4.0` for the digital object.
+- **access_date:** `2026-09-02`
+- **title/imprint verification:** title page visually inspected at scan 5: title, editor, volume, Jena, Gustav Fischer, 1936.
+- **target_findspot_verified:** Lampe Nr. 420, printed pp. 360–361 = IIIF images/scans 378–379.
+- **target_canvas_labels:** p. 360 `360 - urn:nbn:de:urmel-ba67ebf9-1fe1-4cfe-ba81-aa4d4879f62e6-00005363-3781`; p. 361 `361 - urn:nbn:de:urmel-ba67ebf9-1fe1-4cfe-ba81-aa4d4879f62e6-00005363-3796`.
+- **target_image_services:** `https://collections.thulb.uni-jena.de/api/iiif/image/v2/HisBest_derivate_00005363%2FThG_136299725_Thueringische-Geschichtsquellen_1936_10_0378.tif`; `https://collections.thulb.uni-jena.de/api/iiif/image/v2/HisBest_derivate_00005363%2FThG_136299725_Thueringische-Geschichtsquellen_1936_10_0379.tif`.
+- **local_derivative_status:** temporary JPEG renditions used only for visual inspection; not canonical and not committed.
+- **temporary_rendition_SHA256:** scan 378 `e6cf5afe0af9664d86f963f9eed5526f53b9bdc9ef0ba0224a1ba10b11b9d552`; scan 379 `1dff421b2e27b9f8aa45ae2250fc802879ec520dcc2d8e074d488cdf899ea77a`.
+- **edition_caveat:** Lampe's editorial regest identifies `villa in Grune` as Mönchgrün and supplies ordinal numbers `[IV.]` and `[XI.]` for Otto and Hartmann. These are editorial identifications, not words in the charter text. The original and copies cited in the apparatus were not inspected in this pass.
+- **next verification:** Resolve the modern archive concordance for historical `HSA Dresden, Orig. No. 1104`; inspect the original or a digital reproduction and the two cited copies if available; collate Schmidt/Alberti/Dobenecker and the relevant personal/place index entries before any broader synthesis.
 
 ---
 

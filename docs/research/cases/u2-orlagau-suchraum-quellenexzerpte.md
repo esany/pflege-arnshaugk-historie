@@ -4,7 +4,7 @@
 **Work Owner:** #46  
 **Schnittstelle:** #47 für Teich-/Feuchtkulturlandschaft  
 **Methodisches Protokoll:** #45  
-**Stand:** 2026-08-31
+**Stand:** 2026-09-02
 
 ---
 
@@ -190,6 +190,19 @@ Die folgende Liste ist **kein modernes Ortsgazetteer**. Sie bewahrt zunächst di
 - Stange / Heinrich Stange / Ludwig Stange
 
 Dieser Vergleichsraum bleibt notwendig, um False Merges mit Knau/Orla zu verhindern.
+
+### E. Evidenzgeführtes Suchinventar-Delta aus EX-U2-0009 (2026-09-02)
+
+Nur aus der direkt inspizierten Edition ergänzt; Quellentext, Editionsvarianten und moderne Identifikation bleiben getrennt:
+
+- **Quellenformen:** `Lodeburch`, `Arnshouge`, `Slewicz`, `villa in Grune`, `Crobz`, `Rodhe`, `Mosin`, `Plauwe`.
+- **Editionsvarianten:** `Lobeburg`, `Arnshauge`, `Crabez`.
+- **editorische moderne Identifikation:** `Mönchgrün` für `villa in Grune`; bis zur unabhängigen onomastisch-topographischen Kollation nicht als bloße Gleichsetzung des Quellentextes behandeln.
+- **Personen/Rollen:** Otto `de Lodeburch dictus de Arnshouge`; Hartmann als ausdrücklich genannter Sohn und Mit-Aussteller; Hedinricus/Heinricus `de Crobz/Crabez`, Rudolfus `de Rodhe`, Heinricus `de Mosin` (Ritter); Heinricus `officiatus noster`; Heinricus `de Plauwe civis`.
+- **Rechts-/Suchbegriffe:** `comparare`, `certa pecunie quantitas`, `iusto empcionis et vendicionis titulo`, `dare in proprium`, `tradere`, `perpetuo possidere`, `remedium anime`, `salus progenitorum`.
+- **offene Quellenpfade:** vorausgehende Kaufurkunde/Verkäufer; heutige Archivkonkordanz von `HSA Dresden, Orig. No. 1104`; Abschriften `Abt. XIV, A. 64, Bl. 83` und `Abt. XIV, B. 160, Heft 8, No. 3`; Parallelabdrucke/Regesten Schmidt, Alberti, Dobenecker.
+
+Das vollständige Exzerpt und die Aussagegrenzen stehen in `u2-deutschorden-schleiz-quellenexzerpte.md` als `EX-U2-0009`.
 
 ---
 

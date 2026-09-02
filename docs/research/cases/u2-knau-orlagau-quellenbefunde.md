@@ -4,7 +4,7 @@
 **Work Owner:** #46  
 **Methodisches Protokoll:** #45  
 **Use Case:** U2 aus #29/#30  
-**Stand:** 2026-08-31
+**Stand:** 2026-09-02
 
 ---
 
@@ -176,17 +176,19 @@ Für 1315 druckt Max Perlbach sinngemäß **Ludwig Stango und Heinrich `[Stange]
 
 ### F-U2-004 – Lobdeburg-Arnshaugk ↔ Deutscher Orden/Schleiz ist ein positiver regionaler Herrschaftsbefund
 
-**Finding:** Die Deutschordensüberlieferung zeigt reale Verflechtungen zwischen Lobdeburg-Arnshaugk, Schleiz und dem Deutschen Orden.
+**Finding:** Die direkt inspizierten Editionstexte zeigen reale, aber jeweils quellentypisch begrenzte Verflechtungen zwischen Lobdeburg-Arnshaugk, Schleiz und dem Deutschen Orden.
 
 **Bisherige Schlüsselpunkte:**
 
 - **1232:** Urkunde des Naumburger Bischofs Engelhard zur Pfarrei Schleiz; später 1310 vidimiert. Sie belegt kirchenrechtliche/rechtliche Verbindungen Schleiz ↔ Naumburg und gelangte in den Deutschordensüberlieferungszusammenhang.
-- **5. September 1285:** Otto IV. von Lobdeburg, genannt von Arnshaugk, und sein Sohn Hartmann XI. eignen dem Deutschen Haus zu Schleiz das Dorf Mönchgrün zu.
+- **5. September 1285:** In Lampe Nr. 420 treten Otto `de Lodeburch dictus de Arnshouge` und sein Sohn Hartmann gemeinsam als Aussteller auf. Der Wortlaut sagt, dass die Brüder des Deutschen Hauses in Schleiz das Dorf `in Grune` bereits gegen eine bestimmte Geldsumme gekauft hatten; Otto und Hartmann geben und übertragen es anschließend als Eigentum zur dauernden Besitzung. Lampe identifiziert `Grune` im Regest editorisch als Mönchgrün und ergänzt die Ordnungszahlen Otto `[IV.]` und Hartmann `[XI.]`. Siehe `EX-U2-0009`, `SRC-ED-0004`.
 - **5. Dezember 1297:** Witego von Kospoth verkauft dem Schleizer Komtur Heinrich von Braunschweig eine halbe Hufe in Wüstendittersdorf.
 
-**Status:** A/B für die regionalen Beziehungen; die genaue Einordnung in Herrschaftsbildung, Eigentum/Lehen und Ordensausbau wird weiter untersucht.
+**Status:** A/B für den Editionsbefund und die regionale Beziehung; Original/Kopien von Nr. 420 wurden noch nicht inspiziert. Die genaue Einordnung in Herrschaftsbildung, vorgelagerte Eigentums-/Lehnsrechte und Ordensausbau wird weiter untersucht.
 
-**Was dies nicht trägt:** noch keine direkte Beziehung dieser Stücke zu Knau/Orla.
+**Was dies nicht trägt:** noch keine direkte Beziehung dieser Stücke zu Knau/Orla; keine Identität des Verkäufers, kein bezifferter Kaufpreis, keine Gesamtstrategie des Ordens und kein exklusives Motiv Ottos/Hartmanns. Die religiös-memoriale Formel bezieht sich auf ihren Übertragungsakt und darf nicht zum Motiv des vorausgegangenen Kaufs umgedeutet werden.
+
+**Nächster diskriminierender Schritt:** vorausgehende Kaufurkunde/Verkäufer und heutige Archivkonkordanz des bei Lampe genannten Originals `HSA Dresden, Orig. No. 1104` ermitteln; `Grune = Mönchgrün` unabhängig kollationieren; erst dann Nr. 420 mit dem Patronatskomplex 1284 als möglicher Verdichtungssequenz bewerten.
 
 ---
 

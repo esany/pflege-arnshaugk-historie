@@ -90,6 +90,8 @@ docs/research/
   cases/
     u2-knau-orlagau-quellenbefunde.md
     u2-orlagau-suchraum-quellenexzerpte.md
+    u2-nhub2-schleiz-quellenexzerpte.md
+    u2-deutschorden-schleiz-quellenexzerpte.md
     u1-orlagau-grenzraum-teichlandschaft.md
     orlagau-source-ledger.md
     ... weitere reale Case-Artefakte
@@ -110,7 +112,7 @@ Keine Future-Proof-Leerstruktur.
 | #42 | Accepted Requirements / Structure / Traceability | `synthesis/requirements-baseline.md`, `synthesis/requirements-extensions.md`, `synthesis/requirements-structure.md`, derived `synthesis/requirements-responsibility-dependency-map.md` |
 | #43 | historischer Architecture-Readiness-Stand | `synthesis/architecture-readiness.md` |
 | #45 | Research-/Evidence-/Source-Protokoll | `source-identity-protocol.md` + Issue-Protokoll |
-| #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md` |
+| #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md`, corpusbezogene Exzerptdossiers `cases/u2-nhub2-schleiz-quellenexzerpte.md` und `cases/u2-deutschorden-schleiz-quellenexzerpte.md` |
 | #47 | Live Research U1 Teich-/Feuchtlandschaft | `cases/u1-orlagau-grenzraum-teichlandschaft.md` |
 | #46/#47 | gemeinsamer Source Ledger | `cases/orlagau-source-ledger.md` |
 | #60 | Domain Method Profiles / Method Truth | `methods/README.md`, `methods/domain-method-profile-contract.md`, reale Profiles |
