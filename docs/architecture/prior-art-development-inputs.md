@@ -116,6 +116,26 @@ Adopt this as a **decision heuristic under #48**, subordinate to Histo-Orla requ
 
 Where a human-readable current-state/audit/coverage view is deterministically derivable, generate it from canonical sources rather than maintain it as parallel truth.
 
+### 3.8 Real-pilot closure learnings from Histo-Orla (2026-09-02)
+
+`Wissensarbeit` used Histo-Orla as a real pilot and then closed that pilot without importing case semantics into its generic core. The generic closure retained six executable regression lessons and returned project-specific content to Histo-Orla as #65 (`external pilot review input / candidate / no implementation authority`).
+
+Transferable engineering lessons:
+
+1. **Conversation harvesting:** no material project state may remain only in conversation; closure requires a canonical reference.
+2. **Context fidelity:** context compression/compilation can introduce semantic drift and must be checked against lossless references for material assertions and unresolved states.
+3. **Lossless-by-reference before token efficiency:** shorter context is only an optimization after reference coverage/fidelity are preserved.
+4. **Elicitation before promotion:** co-created proposals and AI suggestions remain candidates until the authorized Requirement/Decision lifecycle promotes them.
+5. **Generic-Fit before core change:** a successful case/pilot is evidence, not automatic authority to change generic framework/core semantics; first try to sharpen an existing mechanism.
+6. **Case isolation / anti-overfitting:** project-specific identities, findings and research questions stay in the case repository; the generic system retains only dispositioned generic learning, provenance and regressions.
+
+Histo-Orla consequences:
+
+- these lessons strengthen #61 Context/Handoff, #62/#63 Assurance and the planned Operational Core;
+- `context`/`derive` mechanisms should eventually be testable for semantic/reference fidelity, not only structural validity;
+- #65 must be dispositioned by the proper Histo-Orla authorities before any Requirement/Method/Architecture promotion;
+- no new Histo-Orla building block, framework, graph model or data architecture follows automatically from the pilot.
+
 ## 4. Combined prior-art lens for Histo-Orla
 
 The two repositories complement each other:
@@ -159,6 +179,8 @@ For each material #48/#59 decision, proportionally answer or make reconstructabl
 11. **Verification:** Which deterministic tests, domain adequacy review, specialist validation and/or owner workflow acceptance are required, and which are explicitly *not* interchangeable?
 12. **Operations burden:** What maintenance, dependency, security/privacy, backup/recovery, observability or cost burden is introduced? Is it proportionate?
 13. **Use/Learn:** What real-use feedback could falsify the decision, and how does that return to #42/#48/#60?
+14. **Context fidelity:** If context is compressed/generated, which material refs/assertions/unresolved states prove that no semantic loss was introduced?
+15. **Generic Fit / case isolation:** Is this really a reusable Histo-Orla mechanism, or merely evidence/need from one case that should remain case-owned until repeated or explicitly promoted?
 
 These questions are a decision-quality lens, not a form that must be filled for every trivial change.
 
@@ -175,7 +197,9 @@ This prior-art note strengthens its direction:
 - generated context/handoff/audit views;
 - evidence availability/resolution capability;
 - explicit canonical-state transition controls;
-- thin Skills/CLI/CI as replaceable adapters.
+- thin Skills/CLI/CI as replaceable adapters;
+- context/derived-view fidelity checks for material references and unresolved state;
+- Generic-Fit/case-isolation checks before promoting case observations into reusable operational mechanisms.
 
 No framework, database, agent runtime, workflow engine or new service is admitted by this document.
 
