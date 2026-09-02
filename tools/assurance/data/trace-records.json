@@ -172,6 +172,24 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "Requirement-to-Enforcement map, shared loader/schema core, wrapper-preserving validator refactor, negative fixtures and one consolidated Project Assurance workflow. Verified by the first atomic consolidated run: 14 requirements tests, 16 trace tests, 5 enforcement-map tests and both validator commands passed."
+    },
+    {
+      "id": "FB-20260902-003",
+      "kind": "feedback",
+      "status": "open",
+      "materiality": "material",
+      "requirement_refs": ["REQ-UX-001", "REQ-UX-002", "REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
+      "governance_refs": [],
+      "decision_refs": [],
+      "implementation_refs": ["IMP-OPCORE-001"],
+      "implementation_files": [],
+      "verification_refs": [],
+      "source_ref": "owner-feedback 2026-09-02 after Lampe PDF pilot: current research operation is the opposite of the intended Wissensarbeit model — manual Markdown text walls, old annotations, little workflow automation, no generated human-readable research workspace, and too much orchestration left to chat/human",
+      "feedback_outcome": "pain-persists",
+      "requires_delta": true,
+      "delta_refs": ["issue:#48", "issue:#55", "issue:#61", "issue:#63", "docs/architecture/operational-execution-architecture.md", "docs/architecture/prior-art-development-inputs.md"],
+      "notes": "Product/workflow feedback, not historical/scientific evidence. Existing requirements already cover the needed direction; primary delta is delivery/architecture prioritization toward structured research state, automated context/trace/derive operations, and generated human-readable views rather than further manual prose workflows."
     }
   ]
 }
