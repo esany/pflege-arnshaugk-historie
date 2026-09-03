@@ -93,6 +93,27 @@
       "verification_evidence_refs": ["github-actions-run:33479262738"],
       "decision_refs": ["issue:#63", "DEC-ASSURANCE-002"],
       "notes": "Formal assurance is implemented for current controlled paths; requirement remains in-progress until the value/feedback loop is exercised across ordinary system delivery and confirmed by owner workflow use."
+    },
+    {
+      "id": "REQ-WF-001",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": ["jeweilige Fachdomäne besitzt die zu erzwingende Invariante", "Research Integrity"],
+      "controlling_competence": ["#42 Requirements Owner", "#48 Technical Lead"],
+      "technical_delivery_competence": ["Research Software Engineering", "Validation / Invariant Enforcement", "Test / Verification Engineering"],
+      "verification_authority": ["#62 deterministic requirements assurance", "#63 deterministic delivery trace assurance", "jeweilige Domain-/Transition-Authority für die zugrunde liegende Invariante"],
+      "dependency_status": "none-known",
+      "relations": [],
+      "interactions": [
+        {"type": "reinforcing", "with": "REQ-TRACE-001", "note": "Formal delivery trace rules are one implemented application of the deterministic-enforcement principle."},
+        {"type": "constraint", "with": "REQ-MTH-003", "note": "Only fachlich settled method/status semantics may be projected into deterministic enforcement."}
+      ],
+      "criticality": "fundamental",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": ["deterministic-test"],
+      "verification_evidence_refs": ["github-actions-run:33629069493", "tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py", "tools/operational/tests/test_enforcement.py"],
+      "decision_refs": ["issue:#62", "issue:#63", "DEC-OPCORE-001"],
+      "notes": "Delivery remains partial: Requirements-/Trace-/Enforcement-Map invariants are implemented and regression-tested; research-state promotion/transition and further formally settled guards remain open under #54. This record reconciles the active partial delivery state with #62 without changing Requirement semantics."
     }
   ]
 }
