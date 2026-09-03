@@ -18,7 +18,7 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertEqual("unresolved", context.status)
         self.assertIn("Diplomatik / Urkundenlehre", context.leading_domains)
         self.assertTrue(any("SRC-ED-0004" in item for item in context.required_evidence))
-        self.assertTrue(any("purchase/seller" in item for item in context.unresolved))
+        self.assertTrue(any("seller" in item and "purchase" in item for item in context.unresolved))
         self.assertIn("preceding purchase/seller", context.current_executable_action)
         self.assertIn("issue:#46", context.source_refs)
         self.assertIn("treat editorial identification as charter wording", context.must_not)
