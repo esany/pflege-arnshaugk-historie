@@ -48,9 +48,13 @@ class PrerequisiteState:
 class CurrentContext:
     primary_function: str
     work_owner_ref: str
+    work_order_ref: str
     objective: str
     scope: tuple[str, ...]
     exclusions: tuple[str, ...]
+    leading_domains: tuple[str, ...]
+    method_quality_frame: tuple[str, ...]
+    required_evidence: tuple[str, ...]
     current_executable_action: str
     prerequisites: tuple[PrerequisiteState, ...]
     open_blockers: tuple[str, ...]
@@ -81,6 +85,13 @@ def _required(value: str, field: str) -> str:
 
 def _clean(values: tuple[str, ...] | list[str]) -> tuple[str, ...]:
     return tuple(value.strip() for value in values if value and value.strip())
+
+
+def _required_list(values: tuple[str, ...] | list[str], field: str) -> tuple[str, ...]:
+    cleaned = _clean(values)
+    if not cleaned:
+        raise ContextError(f"{field} must not be empty")
+    return cleaned
 
 
 def basis_fingerprint(basis_refs: tuple[BasisRef, ...] | list[BasisRef]) -> str:
@@ -131,9 +142,13 @@ def derive_current_context(
     *,
     primary_function: str,
     work_owner_ref: str,
+    work_order_ref: str,
     objective: str,
     scope: tuple[str, ...] | list[str],
     exclusions: tuple[str, ...] | list[str],
+    leading_domains: tuple[str, ...] | list[str],
+    method_quality_frame: tuple[str, ...] | list[str],
+    required_evidence: tuple[str, ...] | list[str],
     current_executable_action: str,
     prerequisites: tuple[PrerequisiteState, ...] | list[PrerequisiteState],
     open_blockers: tuple[str, ...] | list[str],
@@ -149,17 +164,17 @@ def derive_current_context(
 
     primary_function = _required(primary_function, "primary_function")
     work_owner_ref = _required(work_owner_ref, "work_owner_ref")
+    work_order_ref = _required(work_order_ref, "work_order_ref")
     objective = _required(objective, "objective")
     current_executable_action = _required(current_executable_action, "current_executable_action")
     return_condition = _required(return_condition, "return_condition")
     persistence_target = _required(persistence_target, "persistence_target")
 
-    scope_clean = _clean(scope)
-    if not scope_clean:
-        raise ContextError("scope must not be empty")
-    source_refs_clean = _clean(source_refs)
-    if not source_refs_clean:
-        raise ContextError("source_refs must not be empty")
+    scope_clean = _required_list(scope, "scope")
+    leading_domains_clean = _required_list(leading_domains, "leading_domains")
+    method_quality_frame_clean = _required_list(method_quality_frame, "method_quality_frame")
+    required_evidence_clean = _required_list(required_evidence, "required_evidence")
+    source_refs_clean = _required_list(source_refs, "source_refs")
 
     prereqs = tuple(prerequisites)
     blockers = list(_clean(open_blockers))
@@ -183,9 +198,13 @@ def derive_current_context(
     return CurrentContext(
         primary_function=primary_function,
         work_owner_ref=work_owner_ref,
+        work_order_ref=work_order_ref,
         objective=objective,
         scope=scope_clean,
         exclusions=_clean(exclusions),
+        leading_domains=leading_domains_clean,
+        method_quality_frame=method_quality_frame_clean,
+        required_evidence=required_evidence_clean,
         current_executable_action=current_executable_action,
         prerequisites=prereqs,
         open_blockers=blockers_tuple,

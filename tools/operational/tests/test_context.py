@@ -17,9 +17,13 @@ class CurrentContextTests(unittest.TestCase):
         return derive_current_context(
             primary_function="Architecture / Development / RSE",
             work_owner_ref="issue:#61",
+            work_order_ref="WO-TEST-CONTEXT",
             objective="Derive a restartable current context from canonical state.",
             scope=["current context", "resume", "prerequisite validity"],
             exclusions=["historical interpretation", "priority authority"],
+            leading_domains=["Research Software Engineering"],
+            method_quality_frame=["AGENTS.md §13", "issue:#61"],
+            required_evidence=["canonical work-owner state", "versioned prerequisite basis"],
             current_executable_action="run fresh-context restart fixture",
             prerequisites=list(prerequisites),
             open_blockers=list(blockers),
@@ -69,7 +73,7 @@ class CurrentContextTests(unittest.TestCase):
         self.assertEqual("issue:#46", assessment.work_owner_ref)
         self.assertEqual("resume Lampe 420 research", assessment.current_executable_action)
 
-    def test_f_ec_06_fresh_context_preserves_owner_action_unresolved_non_goals_and_persistence(self):
+    def test_f_ec_06_fresh_context_preserves_full_resume_contract(self):
         prerequisite = prerequisite_state(
             "archive-concordance",
             "unresolved",
@@ -81,10 +85,14 @@ class CurrentContextTests(unittest.TestCase):
             unresolved=["editorial identification requires independent collation"],
         )
         self.assertEqual("issue:#61", context.work_owner_ref)
+        self.assertEqual("WO-TEST-CONTEXT", context.work_order_ref)
         self.assertEqual("run fresh-context restart fixture", context.current_executable_action)
         self.assertEqual("unresolved", context.status)
         self.assertIn("prerequisite:archive-concordance", context.unresolved)
         self.assertIn("historical interpretation", context.exclusions)
+        self.assertIn("Research Software Engineering", context.leading_domains)
+        self.assertIn("AGENTS.md §13", context.method_quality_frame)
+        self.assertIn("versioned prerequisite basis", context.required_evidence)
         self.assertEqual("issue:#61 / implementation trace", context.persistence_target)
         self.assertIn("AGENTS.md", context.source_refs)
 
@@ -98,11 +106,15 @@ class CurrentContextTests(unittest.TestCase):
         self.assertEqual("blocked", context.status)
         self.assertIn("prerequisite:required-evidence-available", context.open_blockers)
 
-    def test_ready_context_requires_owner_scope_action_persistence_and_sources(self):
+    def test_ready_context_requires_full_minimum_resume_contract(self):
         context = self._base_context()
         self.assertEqual("ready", context.status)
         self.assertEqual("issue:#61", context.work_owner_ref)
+        self.assertTrue(context.work_order_ref)
         self.assertTrue(context.scope)
+        self.assertTrue(context.leading_domains)
+        self.assertTrue(context.method_quality_frame)
+        self.assertTrue(context.required_evidence)
         self.assertTrue(context.persistence_target)
         self.assertTrue(context.source_refs)
 
@@ -111,9 +123,13 @@ class CurrentContextTests(unittest.TestCase):
             derive_current_context(
                 primary_function="RSE",
                 work_owner_ref="issue:#61",
+                work_order_ref="WO-TEST",
                 objective="test",
                 scope=["resume"],
                 exclusions=[],
+                leading_domains=["RSE"],
+                method_quality_frame=["AGENTS.md §13"],
+                required_evidence=["canonical state"],
                 current_executable_action="test",
                 prerequisites=[],
                 open_blockers=[],
@@ -124,6 +140,30 @@ class CurrentContextTests(unittest.TestCase):
                 return_condition="done",
                 persistence_target="",
                 source_refs=["issue:#61"],
+            )
+
+    def test_missing_required_evidence_fails_closed(self):
+        with self.assertRaises(ContextError):
+            derive_current_context(
+                primary_function="Domain / Source Research",
+                work_owner_ref="issue:#46",
+                work_order_ref="WO-U2-LAMPE-420-001",
+                objective="test",
+                scope=["Lampe 420"],
+                exclusions=[],
+                leading_domains=["Diplomatik"],
+                method_quality_frame=["issue:#45"],
+                required_evidence=[],
+                current_executable_action="test",
+                prerequisites=[],
+                open_blockers=[],
+                unresolved=[],
+                may=[],
+                must_not=[],
+                stop_handoff_when=[],
+                return_condition="done",
+                persistence_target="docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md",
+                source_refs=["issue:#46"],
             )
 
 
