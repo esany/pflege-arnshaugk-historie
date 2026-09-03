@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.1",
+  "work_order_ref": "WO-U2-LAMPE-420-001",
+  "primary_function": "Domain / Source Research",
+  "work_owner_ref": "issue:#46",
+  "objective": "Resolve the next discriminating source questions around Lampe Nr. 420 without collapsing edition, editorial identification, original transmission, finding, or interpretation.",
+  "scope": [
+    "Lampe Nr. 420 (5 September 1285)",
+    "preceding purchase/seller of villa in Grune",
+    "modern archive concordance for the original/copies cited by Lampe",
+    "independent collation of the editorial identification Grune = Mönchgrün"
+  ],
+  "exclusions": [
+    "no direct inference from villa in Grune to modern Mönchgrün without independent support",
+    "no claim that historical HSA Dresden Orig. No. 1104 is the current archive shelfmark",
+    "no original-text claim from the inspected edition alone",
+    "no Gesamtstrategie des Deutschen Ordens from temporal/institutional proximity alone",
+    "no motive psychology beyond source-explicit statements and bounded hypotheses"
+  ],
+  "leading_domains": [
+    "Diplomatik / Urkundenlehre",
+    "Editionswissenschaft / Textkritik",
+    "Archivistik / Provenienz / Überlieferungsgeschichte",
+    "historische Philologie / Onomastik / Toponymie"
+  ],
+  "method_quality_frame": [
+    "issue:#45 Research Protocol",
+    "docs/research/source-identity-protocol.md",
+    "docs/research/cases/u2-orlagau-suchraum-quellenexzerpte.md Exzerptstandard v0.2",
+    "issue:#60 method status: case-specific working method; no validated-method claim"
+  ],
+  "required_evidence": [
+    "SRC-ED-0004 scholarly edition identity and inspected-instance record",
+    "EX-U2-0009 exact Lampe Nr. 420 excerpt and apparatus/findspot",
+    "current archive catalogue/concordance evidence before assigning a modern shelfmark",
+    "source/edition or independent onomastic-topographic evidence before promoting Grune = Mönchgrün beyond editorial identification",
+    "preceding purchase/parallel-regesta evidence before identifying seller, purchase price, or legal position"
+  ],
+  "current_executable_action": "Resolve the preceding purchase/seller for villa in Grune by collating Lampe's neighboring entries and the cited Schmidt/Alberti/Dobenecker paths; persist a source/findspot-backed result or a bounded unresolved search result before broader synthesis.",
+  "prerequisites": [
+    {
+      "ref": "lampe-420-edition-instance-and-findspot-inspected",
+      "status": "pass",
+      "basis": [
+        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "40a8a21e98cb4c23beefa3129435641d7b79a417"},
+        {"path": "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md", "git_blob_sha": "b940cfa9c2bf9d2ebe0c94037460370b4982fd48"}
+      ],
+      "note": "Public THULB scholarly-edition scan and printed pp. 360-361 / scans 378-379 were inspected; original/copies were not."
+    },
+    {
+      "ref": "modern-archive-concordance",
+      "status": "unresolved",
+      "basis": [
+        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "40a8a21e98cb4c23beefa3129435641d7b79a417"},
+        {"path": "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md", "git_blob_sha": "b940cfa9c2bf9d2ebe0c94037460370b4982fd48"}
+      ],
+      "note": "Lampe's historical HSA Dresden Orig. No. 1104 and copies A/M are recorded, but current archive concordance and original/copy inspection remain unresolved."
+    },
+    {
+      "ref": "grune-modern-identification-independent-collation",
+      "status": "unresolved",
+      "basis": [
+        {"path": "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md", "git_blob_sha": "b940cfa9c2bf9d2ebe0c94037460370b4982fd48"},
+        {"path": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md", "git_blob_sha": "77e553241f0ecf443e19a118fb11241583e8682a"}
+      ],
+      "note": "Mönchgrün is Lampe's editorial identification; independent onomastic/topographic collation remains open."
+    }
+  ],
+  "open_blockers": [],
+  "unresolved": [
+    "seller, purchase document, purchase price and exact prior legal position for villa in Grune",
+    "current archive shelfmark and digital/inspection status of Lampe's original and copies",
+    "independent support for Grune = Mönchgrün",
+    "original/copy readings at damaged or editorially supplemented passages",
+    "prosopographic identity/function of witnesses and officiatus noster",
+    "relationship of Nr. 420 to the 1284 Schleiz patronage transfer and later rights acquisitions"
+  ],
+  "may": [
+    "search/collate editions, regesta, indices and archive catalogues",
+    "record source-explicit observations and bounded hypotheses",
+    "persist source identity, excerpts, findings and unresolved search boundaries in their canonical artifacts"
+  ],
+  "must_not": [
+    "treat AI output as evidence",
+    "treat editorial identification as charter wording",
+    "treat catalogue-only evidence as inspected original",
+    "promote broad institutional strategy or motive claims from this single charter"
+  ],
+  "stop_handoff_when": [
+    "a consequential interpretation requires a not-yet-working domain method or qualified specialist validation",
+    "decisive source access is rights/paywall/permission blocked",
+    "the task crosses from source research into a material Requirement or architecture decision"
+  ],
+  "return_condition": "The preceding purchase/seller is source-resolved or bounded-unresolved with documented search boundary; any new source/instance/findspot evidence is persisted, and the next discriminating action is explicit.",
+  "persistence_target": "Source/instance/concordance -> docs/research/cases/orlagau-source-ledger.md; excerpt/findspot -> docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md; historical finding/hypothesis -> docs/research/cases/u2-knau-orlagau-quellenbefunde.md; Work Owner/status -> issue:#46",
+  "source_refs": [
+    "issue:#46",
+    "issue:#45",
+    "issue:#60",
+    "docs/research/source-identity-protocol.md",
+    "docs/research/cases/orlagau-source-ledger.md#SRC-ED-0004",
+    "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md#EX-U2-0009",
+    "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#F-U2-004"
+  ]
+}
