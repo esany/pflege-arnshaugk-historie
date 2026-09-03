@@ -190,6 +190,23 @@
       "requires_delta": true,
       "delta_refs": ["issue:#48", "issue:#55", "issue:#61", "issue:#63", "docs/architecture/operational-execution-architecture.md", "docs/architecture/prior-art-development-inputs.md"],
       "notes": "Product/workflow feedback, not historical/scientific evidence. Existing requirements already cover the needed direction; primary delta is delivery/architecture prioritization toward structured research state, automated context/trace/derive operations, and generated human-readable views rather than further manual prose workflows."
+    },
+    {
+      "id": "IMP-REQASSURE-005",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-WF-001", "REQ-TRACE-001", "REQ-LEAN-001"],
+      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-017", "N-020", "P-008"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-ASSURANCE-001", "DEC-ASSURANCE-002"],
+      "implementation_refs": [],
+      "implementation_files": ["tools/requirements/data/records.json", "tools/assurance/data/trace-records.json"],
+      "verification_refs": ["issue:#62", "issue:#70"],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Reconcile the pre-existing REQ007 baseline inconsistency by adding the required structured QA projection for active partial REQ-WF-001. No Requirement semantics, coverage status, or scientific authority changes."
     }
   ]
 }
