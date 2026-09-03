@@ -144,3 +144,135 @@ Für Knau–Dreba–Plothen ist dieser Regionalrahmen noch kein lokaler Beweis. 
 - Onomastische Zuschreibungen müssen gegen die jeweils zitierte Fachliteratur und konkurrierende Deutungen geprüft werden.
 - Aus Abwesenheit in Abb. 35/aktueller Fundkartierung darf keine historische Unbesiedeltheit geschlossen werden.
 - Die Kirchenchronologien sind baubefundgestützt, aber häufig nicht absolut datierbar; ihre Aussagegrenze muss je Ort erhalten bleiben.
+
+## 8. Research-Design-Checkpoint 2026-09-03 – erster Vertical Slice aus Sachenbacher
+
+### 8.1 Kritische Bestandsaufnahme des bisherigen U2-Research-Designs
+
+Der bisherige U2-Stand besitzt starke quellenkritische Sicherungen: Source Identity, exakte Fundstellen, Trennung von Regest/Edition/Original, Terminologie-Provenienz und die Regel, dass Ersterwähnung, Namensform, Besitzrecht und Siedlungsbeginn nicht verschmolzen werden. Das ist für die hoch- und spätmittelalterlichen Urkundenslices zu Knau/Knewe, Schleiz, Deutschorden und Lobdeburg-Arnshaugk tragfähig.
+
+Für eine diachrone Siedlungsrekonstruktion reicht das bisherige Design aber noch nicht aus. Es war zu stark von spätmittelalterlichen Schriftquellen und Einzelurkunden aus organisiert. Dadurch droht ein systematischer Blind Spot: Räume ohne frühe Schriftüberlieferung erscheinen zu spät, während archäologische Fundplätze, materielle Kultur, Ortsnamenschichten, Kirchenbau, Landschaftsnutzung und Fundlücken nicht gleichrangig als eigene Evidenzlogiken geführt werden. Die bisherigen Dateien haben diese Lücke bereits erkannt, aber die dafür nötigen Domain Method Profiles sind unter #60 noch nicht als `working-method` ausgearbeitet.
+
+### 8.2 Forschungsdesign für den Durchlauf `Sachenbacher → Orlagau-Siedlungsrekonstruktion`
+
+Die Gesamtfrage wird nicht aus Sachenbachers Gliederung übernommen, sondern in unterscheidbare Erkenntnisprobleme zerlegt:
+
+1. **Mindestchronologie / Präsenz:** Welche archäologischen, schriftlichen, namenkundlichen und bauhistorischen Belege zeigen für welche Teilräume überhaupt menschliche Präsenz oder Siedlung?
+2. **Siedlungsform und Nutzung:** Handelt es sich um Hof, Weiler, Dorf, Burgsiedlung, Wirtschaftshof, Friedhof, Kirche, Wüstung, Nutzungsareal oder nur um Streufunde?
+3. **Kulturelle / sprachliche Zuschreibung:** Was darf aus Keramik, Bestattung, Ortsname oder Schriftform über slawische/deutsche Sprach- oder Kulturbezüge gesagt werden?
+4. **Herrschaft / Recht / Institution:** Welche Herrschafts-, Dienst-, Besitz-, Pfarr-, Kloster- oder Lehnsbeziehungen sind belegt, und wann setzen sie ein?
+5. **Raum und Maßstab:** Welche Aussagen gelten für Saale-Orla, Orlasenke, Ranis, Saalfeld, Arnshaugk, Knau–Dreba–Plothen oder nur für eine einzelne Fundstelle?
+6. **Integration / Befundkomplex:** Welche Einzelbelege ergeben erst zusammen eine belastbare historische Aussage, und wo bleiben konkurrierende Deutungen stehen?
+
+Abhängigkeiten: Source-/Instanzstatus und Druckseite müssen vor jeder Nutzung feststehen. Archäologische Datierung und Fundkontext führen bei Siedlungschronologie; Onomastik kontrolliert Sprach-/Namenschichten, kann aber nicht datieren wie Stratigraphie; Diplomatik kontrolliert Rechtsakte und Herrschaftssichtbarkeit, kann aber keine Gründung beweisen; historische Geographie kontrolliert Raumprojektion und Fund-/Überlieferungsbias. Parallel bearbeitbar sind Literatur-/Quellenrouting, Fundplatzmatrix, onomastische Kontrollliste, Urkunden-/Regestenrouten und später landschaftliche Nutzungsrekonstruktion.
+
+### 8.3 Method-/Expertise-Gaps
+
+Status der Fachperspektiven in diesem Durchlauf:
+
+- **Histo-intern bereits methodisch abgesichert:** Source Identity, Fundstellenpflicht, Trennung von Quelle/Instanz/Derivat/Finding, Terminologie-Provenienz, Verbot von Ersterwähnung=Gründung und Fundlücke=Abwesenheit.
+- **Durch externe Fachliteratur gestützt, aber hier nur als Orientierung genutzt:** Inter-/Transdisziplinarität erfordert vorgelagertes Problem Framing, fachlich begründete Team-/Kompetenzkomposition, explizite Koordination, boundary spanning und Integration statt bloßer Additionssummen. Dieser Punkt ist unter #60 bereits als Research-Design-Gap dokumentiert.
+- **Method hypothesis / noch zu validieren:** konkrete Domain Kernels für Frühmittelalterarchäologie, slawische Keramik/Materialkultur, Ortsnamenkunde/Slawistik, historische Geographie/GIS-Siedlungsrekonstruktion, Kirchenarchäologie und Burg-/Siedlungsarchäologie im Orlagau. In diesem Slice werden sie nur als `needed controlling expertise` beansprucht, nicht als validierte Profile.
+
+### 8.4 Gewählter Vertical Slice
+
+**VS-U2-SACHS-001: Ranis/Ludwigshof als früher Siedlungsanker und Brückenbefund zwischen Archäologie, Herrschaft und späterer Orla-Raumrekonstruktion.**
+
+Begründung: Der Slice ist klein genug, um am konkreten Fundplatz zu bleiben, erzwingt aber mehrere Fachlogiken: Archäologie/Stratigraphie/Keramik, Siedlungs- und Wirtschaftsdeutung, Ethnizitätskritik, Burg-/Herrschaftsgeschichte, historische Geographie und später Diplomatik/Prosopographie für Ranis. Er erzeugt historischen Erkenntniswert, weil er den Orlagau nicht erst mit hochmittelalterlichen Urkunden beginnen lässt und zugleich zeigt, warum dieser frühe Befund nicht automatisch auf Knau–Dreba–Plothen übertragen werden darf.
+
+## 9. VS-U2-SACHS-001 – Ranis/Ludwigshof: quellen- und methodenkritischer Befundkomplex
+
+### 9.1 Quelle / Fundstelle im Sachenbacher-Text
+
+- **Bibliographische Werkidentität:** `SRC-LIT-0001`, Sachenbacher 2022, gedruckte Monographie; die bereitgestellte PDF-Arbeitsinstanz bleibt nur inspectable Arbeitsrepräsentation.
+- **Arbeitsfundstellen in der bereitgestellten Instanz:** Kapitel II.5.2, Druckseiten um 158–160; Zusammenfassung Druckseiten 163–164; späterer Rückgriff im Kapitel III.3.3 um Druckseite 351.
+- **Fußnoten-/Literaturgrenze:** Die Arbeitsinstanz zeigt Fußnotenmarker, aber keinen vollständig zugänglichen Fußnoten-/Literaturapparat. Die genannten Marker `128`, `303` und `307` sind daher Suchanker, nicht bereits aufgelöste bibliographische Identitäten.
+
+### 9.2 Was berichtet Sachenbacher konkret?
+
+Sachenbacher unterscheidet zunächst slawische Keramik auf Burgen wie Weltwitz, Ranis oder Saalfeld von einer eigenständigen frühen slawischen Siedlung: solche Burgfunde können nach ihm den Anteil slawischer Menschen am Burgenbau unter deutscher Herrschaft anzeigen und dürfen nicht automatisch als Beweis genuin slawischer Burgen gelesen werden.
+
+Für Ludwigshof bei Ranis berichtet er eine 1993 begonnene, durch das Thüringische Landesamt für Denkmalpflege und Archäologie ausgeführte Rettungsgrabung. Die Fundstelle liegt nach seiner Darstellung ungefähr 0,5 km nordöstlich von Ranis beziehungsweise etwa 1,75 km von Burg Ranis entfernt, auf einem Geländesporn oder einer Terrasse über einem Bach; die gegrabene Fläche betrug ca. 1000 m² und erbrachte 185 Befunde. Die Siedlung sei nicht vollständig erfasst; westlich konnten Randbereiche aufgrund von Lesefunden und Geländeform vermutet werden.
+
+Die Datierung beruht primär auf Keramik. Sachenbacher übernimmt aus der Bearbeitung durch Grit Hother/Heßland, dass wenige Scherben möglicherweise bereits ins 8./9. Jahrhundert gehören könnten, setzt den Beginn aber wegen der Langlebigkeit der Keramik im Vergleich mit anderen Orlagau-Fundstellen nicht vor die erste Hälfte des 9. Jahrhunderts. Die Belegung reicht nach ihm mit wechselnder Intensität vom 9./10. bis ins 14. Jahrhundert; die jüngste Keramik markiert das Wüstfallen im 14. Jahrhundert.
+
+### 9.3 Quellenstatus der Aussage
+
+- **Aussageart:** sekundäre archäologische Synthese in Sachenbacher 2022.
+- **Tragende Fachbasis laut Text:** Rettungsgrabung TLDA; Magisterarbeit Grit Hother/Heßland 1999, Universität Halle-Wittenberg; eigene zusammenführende Interpretation Sachenbachers.
+- **Nicht direkt inspiziert:** Grabungsdokumentation, Magisterarbeit, Fundkatalog, Keramiktafeln, Befundpläne, TLDA-Akten, eventuelle spätere Publikationen.
+- **Maturity:** `working finding from inspected secondary-source passage`; für consequential site chronology erst nach Prüfung der Hother/Heßland-Arbeit und idealerweise Grabungs-/Funddokumentation promotbar.
+
+### 9.4 Zulässige historische Aussagen aus dem Slice
+
+Derzeit zulässig:
+
+1. **Ranis/Ludwigshof ist der stärkste konkrete frühe Siedlungsanker im bisher ausgewerteten Sachenbacher-Orlagau.** Der Befund ist archäologisch fundplatzbezogen, nicht bloß namenkundlich oder schriftlich.
+2. **Der sichere lokale Beginn liegt nach Sachenbachers vorsichtiger Datierung eher im 9. Jahrhundert als im 8. Jahrhundert.** Eine frühere Einordnung einzelner Scherben bleibt Möglichkeit, nicht gesicherter Beginn.
+3. **Die Siedlung zeigt nach Sachenbacher bemerkenswerte Langzeitbelegung bis zum Wüstungsprozess des 14. Jahrhunderts.** Das ist wichtig, weil hier nicht nur punktuelle Präsenz, sondern eine längerfristige Siedlungsentwicklung diskutiert wird.
+4. **Keramikwechsel bis zur blaugrauen Ware des 14. Jahrhunderts ist kein Beweis für Ethnos-Wechsel.** Er kann funktional/technologisch und im Kontext des hochmittelalterlichen Landesausbaus verstanden werden.
+5. **Die Nähe zur Burg Ranis erlaubt eine Abhängigkeits-/Funktionshypothese, beweist sie aber nicht vollständig.** Sachenbacher diskutiert Abgaben, Hofdienste und eventuell Waffendienst; zugleich spricht der Fundcharakter gegen eine eigentliche Dienstleute-/Podegrodici-Siedlung.
+
+Nicht zulässig:
+
+- Ranis/Ludwigshof als Beweis für 9.-Jh.-Siedlung bei Knau, Dreba oder Plothen zu benutzen;
+- aus slawischer Keramik eine politisch selbständige slawische Herrschaft abzuleiten;
+- aus der späteren Burgnähe rückwirkend eine durchgehende Verwaltungsfunktion seit dem 9. Jahrhundert zu behaupten;
+- die vermutete Siedlung `Ruppitz` aus Sagenüberlieferung als gesicherten Ortsnamen des Fundplatzes zu führen;
+- aus dem Nichtfund eines Friedhofs eine Aussage über Bestattungsform oder Bevölkerung zu machen.
+
+### 9.5 Fachperspektiven im Slice
+
+| Fachperspektive | Führt / kontrolliert | Eigene Begriffe und Methoden | Typischer Blind Spot / Stop Rule |
+|---|---|---|---|
+| Frühmittelalter-/Mittelalterarchäologie | Fundplatz, Befund, Datierung, Siedlungsform | Rettungsgrabung, Befundplan, Stratigraphie, Fundverteilung, Keramikchronologie, Siedlungskontinuität, Wüstung | Fundfläche ist nicht Gesamtort; Altfund/Lesefund ≠ stratigraphischer Kontext; kein Negativbefund ohne Detectability Boundary |
+| Keramik-/Materialkultur | chronologische und technologische Einordnung | Rand-/Form-/Verzierungstypologie, Warenart, lokale Produktion, Import, Funktionalität | Ware ≠ Ethnos; längerlebige Formen erlauben nur Datierungsrahmen |
+| Siedlungsarchäologie / Wirtschaftsarchäologie | Häuser, Hofbereiche, Landwirtschaft, Handwerk, Abhängigkeit | Hausbefund, Gruben, Gräben, Geräte, Tierknochen, Produktionsnachweise | Geräte belegen Nutzung, nicht automatisch Produktionsstätte; Verhältnis Ackerbau/Viehzucht ohne Spezialanalyse spekulativ |
+| Herrschafts-/Burgengeschichte | Beziehung zu Burg Ranis/Burg Stein | Burgsitz, Ministerialität, Dienst, Abgabe, Hofdienst, Waffendienst, Burgsiedlung | Nähe ≠ institutionelle Zuständigkeit; spätere Burgbeziehung nicht unkontrolliert zurückprojizieren |
+| Historische Geographie | Raumbezug zur Orlasenke und Saalfeld-Ranis-Achse | Geländesporn, Bachterrasse, Siedlungsrand, Wege-/Burgnähe, Mikro-/Mesoraum | moderne Ortsgrenzen und `Orlagau` nicht als historische Struktur voraussetzen |
+| Onomastik / Erzählüberlieferung | nur kontrollierend für `Ruppitz` | Ortsname, Sagenname, Wüstungstoponym, Überlieferungsschicht | Sage/Name ist Suchhinweis, kein Beweis für Identität oder Alter |
+
+Diese Perspektiven sind in diesem Slice **nicht** als validierte Domain Method Profiles beansprucht. Sie sind methodisch notwendige Lenses; ihre vollständige SOTA-Operationalisierung bleibt #60-Aufgabe.
+
+### 9.6 Vergleich mit bestehendem Histo-Material
+
+Der Slice bestätigt und präzisiert den bisherigen U2-Kurs:
+
+- Das bestehende Artefakt hatte Ranis bereits als frühen Brückenbefund markiert; jetzt ist klarer: **der eigentlich starke frühe Siedlungsbefund ist Ludwigshof bei Ranis**, nicht einfach `Burg Ranis`.
+- Die ältere U2-Tendenz, Ranis primär über Köln/Saalfeld/Ministerialität zu nutzen, bleibt wichtig, muss aber zeitlich getrennt werden: **archäologische Siedlung 9.–14. Jh.** und **ministerialisch-herrschaftliche Sichtbarkeit im 12. Jh.** sind verschiedene Evidenzschichten.
+- Für Knau–Dreba–Plothen ist der Befund ein regionaler Vergleichsanker, kein lokaler Nachweis. Er stärkt die Regel, dass späte Schriftlichkeit keine späte Gründung beweist, erlaubt aber keine positive Frühdatierung der Teichhochfläche.
+- Gegenüber früheren Teichlandschafts-Hypothesen verschiebt Ranis/Ludwigshof den Fokus weg von einem einzelnen Klostergründungsmodell hin zu einer langfristigen, heterogenen Siedlungs- und Herrschaftsverdichtung.
+
+### 9.7 Neue diskriminierende Forschungsfragen
+
+1. Welche genaue bibliographische Identität und Zugänglichkeit besitzt Grit Hother/Heßland 1999, und enthält sie Befundplan, Keramikkatalog, Phasenmodell, Fundnummern und Tafeln?
+2. Lassen sich die 185 Befunde in zeitliche Phasen trennen, oder beruht die Phasierung überwiegend auf Fundmischung und Keramikdatierung?
+3. Gibt es naturwissenschaftliche Datierungen, Tierknochenanalysen, botanische Makroreste, Metall-/Schmiedespuren oder Hinweise auf spezifische Wirtschaftsweisen?
+4. Ist der Spitzgraben sicher früh, funktional als Entwässerung plausibel oder könnte er andere Funktionen haben?
+5. Wo liegt der nicht gefundene Friedhof zu Ludwigshof/Ranis, und ist seine Nichtauffindung eine Suchlücke, Überlieferungslücke oder realer Befund?
+6. Welche schriftlichen Ranis-Belege des 12. Jahrhunderts lassen sich direkt zu Edition/Regest/Urkunde zurückführen, und wie stehen sie räumlich/funktional zur Siedlung Ludwigshof?
+7. Welche aktuellen Publikationen oder Denkmalpflegeberichte nach 1999/2013 verändern Sachenbachers Stand?
+
+### 9.8 Quellen-/Literatur-/Suchinventar-Delta aus diesem Slice
+
+Neu beziehungsweise priorisiert aufzunehmen:
+
+- `Grit Hother / Grit Heßland`, Magisterarbeit 1999, Institut für Prähistorische Archäologie, Martin-Luther-Universität Halle-Wittenberg, zu Ludwigshof bei Ranis; genaue Titel-, Signatur- und Zugangsidentität `not yet verified`.
+- TLDA / Thüringisches Landesamt für Denkmalpflege und Archäologie: Rettungsgrabung Ludwigshof bei Ranis ab 1993; Grabungsdokumentation, Fundkatalog, Befundpläne, Ortsakte/Fundstellenakte `not yet verified`.
+- Suchvarianten: `Ludwigshof`, `Ranis-Ludwigshof`, `Burg Stein`, `Ruppitz`, `Ruppitz bei Ludwigshof`, `Grit Hother`, `Grit Heßland`, `Hother/Heßland`, `Ludwigshof Ranis slawische Siedlung`, `Ranis Wüstung`, `Podegrodici`, `Burgsiedlung`.
+- Kontrollliteratur: aktuelle Slawenarchäologie Ostthüringen/Saale-Orla-Kreis nach 2013; regionale Denkmalpflege-/Grabungsberichte; onomastische Prüfung `Ruppitz` nur nach gesicherter Namenüberlieferung.
+- Anschlusssuche Diplomatik/Prosopographie: direkte Edition/Regest des frühesten `Ekkehardus de Ranis`-Belegs und der Kölner Dienstmannschaft; nicht aus Sachenbacher allein promoten.
+
+## 10. Vorläufiger Schluss des Vertical Slice
+
+Ranis/Ludwigshof ist derzeit der beste kleine Testfall für eine echte transdisziplinäre Siedlungsrekonstruktion im späteren Orlagau: Er verbindet einen konkreten archäologischen Siedlungsplatz mit langer Belegung, Materialkulturwandel, Wüstungsprozess, möglicher Burgabhängigkeit und späterer ministerialisch-herrschaftlicher Sichtbarkeit. Gerade deshalb erzwingt er die methodische Trennung, die Histo-Orla braucht.
+
+Der historische Erkenntniswert liegt nicht in einer neuen großen Erzählung, sondern in einer präziseren Befundstruktur:
+
+> **Im späteren Orlagau ist frühe slawisch geprägte Siedlung archäologisch lokal fassbar, aber bisher sehr punktuell. Ranis/Ludwigshof belegt keine frühe Besiedlung der Knau–Dreba–Plothener Hochfläche; es schafft jedoch einen regionalen Vergleichsanker, gegen den späte Schriftbelege, Ortsnamen, Kirchenbau, Burgen und Landschaftsnutzung künftig methodisch sauber geprüft werden müssen.**
+
+## 11. Reflexion zur Fachperspektiven-Qualität
+
+Dieser Durchlauf erfüllt noch nicht das Ziel einer validierten Expertensimulation. Die Fachperspektiven wurden problem- und evidenzlogisch bestimmt und nicht bloß als Labels verteilt; sie arbeiteten auch am selben referenzierten Sachenbacher-/U2-Stand. Aber die für echte Fachsimulation nötigen Domain Kernels fehlen weiterhin: besonders für Keramikchronologie, slawische Siedlungsarchäologie Ostthüringens, Onomastik/Slawistik und historische Geographie. Deshalb bleibt der Status `working-research / method-candidate-supported`, nicht `validated-method`.
+
+Das wichtigste Methodenlernen für #60: Vor Domain-Profile-Anwendung braucht Histo-Orla einen Research-Design-/Orchestrierungsvertrag, der aus einer domänenfremden Owner-Frage fachlich begründete Teilprobleme, Kompetenzbedarf, Evidence Appetite, Parallelisierung, lossless-by-reference-Handoffs und Integrationspunkte erzeugt. Der Ranis/Ludwigshof-Slice ist ein positiver Testfall, aber noch keine generalisierte Methode.
