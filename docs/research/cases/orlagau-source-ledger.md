@@ -3,7 +3,7 @@
 **Status:** `working-research / source-identity-ledger`  
 **Work Owner:** #46 / #47  
 **Protokoll:** `docs/research/source-identity-protocol.md`  
-**Stand:** 2026-09-02
+**Stand:** 2026-09-03
 
 ## Zweck
 
@@ -125,6 +125,33 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **availability / restartability:** der Uploadpfad ist temporär und kein kanonischer Byte-Speicher. Restartability beruht derzeit auf Checksumme, Dateiname, dokumentierter Instanzidentität und dem weiterhin öffentlich erreichbaren THULB-Objekt; eine dauerhafte autorisierte Ablage/Attachment-Referenz ist noch offen.
 - **access_date:** `2026-09-02`
 - **rights statement:** im PDF nicht als belastbare Lizenzangabe verifiziert; die THULB-Lizenz darf nicht still auf diese Instanz übertragen werden.
+
+## SRC-LIT-0001 – Peter Sachenbacher, Thüringen östlich der Saale im Mittelalter
+
+- **source_type:** wissenschaftliche Monographie / Sekundärliteratur / Synthese- und Quellenroutingquelle
+- **canonical_citation:** Peter Sachenbacher, *Thüringen östlich der Saale im Mittelalter. Archäologisch, mediävistisch, onomastisch, ethnografisch und philosophisch vergleichende Studie zum früh- und hochmittelalterlichen Landesausbau in Territorien der Germania Slavica Thuringiae*, Darmstadt: wbg Academic / Wissenschaftliche Buchgesellschaft, 2022.
+- **bibliographic_identity_status:** `verified from inspected imprint text in user-provided PDF instance; public catalogue/persistent identifiers not yet verified`
+- **source_instance_status:** `user-provided converted PDF inspected in bounded slices; not a complete citable publication instance`
+- **uploaded/local filename:** `2022- Thüringen östlich der Saale im Mittelalter .pdf`
+- **publication_place:** `Darmstadt`
+- **publisher / imprint:** `wbg Academic / Wissenschaftliche Buchgesellschaft`
+- **publication_year:** `2022`
+- **ISBN print:** `978-3-534-40649-4`
+- **ISBN eBook PDF:** `978-3-534-40650-0`
+- **work_genesis:** überarbeitete und aktualisierte Fassung der 2013 an der Friedrich-Schiller-Universität Jena vorgelegten Habilitationsschrift; Habilitationsverfahren 2014 abgeschlossen.
+- **digital_instance_id:** `DI-UP-SACHENBACHER-2022-20260903`
+- **technical instance notes:** lokal inspizierte Datei im Chat-/Arbeitskontext; PDF-Metadaten der vorliegenden Instanz: PDF 1.3, Creator `Typora`, Producer `macOS Version 26.6.2 (Build 25G83) Quartz PDFContext`, CreationDate `D:20260902173458Z00'00'`; 153 PDF-Seiten; 1,197,267 Bytes; SHA256 `f74c04368acb8a5abb849f56f5d06a1fb9117d20cd8378bddcf7bd1e36ce08bb`.
+- **rights / licence statement in inspected imprint:** Text laut Impressum Open Access unter `CC BY International 4.0`; Abbildungen/Buchumschlag ausgenommen.
+- **public full-text landing page:** `not yet verified`
+- **DNB / library catalogue record:** `not yet verified`
+- **URN / DOI / Handle / ARK / PURL:** `not yet verified`
+- **IIIF:** `not expected from current uploaded converted PDF; not yet verified for any public instance`
+- **pagination / instance caveat:** Die bereitgestellte PDF ist eine konvertierte/reflowartige Arbeitsinstanz, keine Bildseiten-Reproduktion des Buches. PDF-Seiten sind nicht identisch mit Druckseiten. Im Text erscheinen interne Druckseitenmarken, aber nicht jede Druckseiten-Grenze ist in der Textlage sauber auflösbar. Für jedes Exzerpt ist daher `Druckseite laut sichtbarer Marke` von `PDF-Seite der benutzten Instanz` zu trennen; unklare Binnen-Grenzen bleiben `unresolved`.
+- **footnote/bibliography caveat:** Im laufenden Text sind Fußnotenziffern sichtbar; die aktuelle PDF-Instanz endet jedoch nach Impressum und den Überschriften `Quelleneditionen` / `Literatur`, ohne die zugehörigen Apparats- und Literaturverzeichnisse zugänglich zu machen. Fußnoten können in dieser Instanz deshalb nur als Ziffern-/Routingmarker genutzt werden. Vollständige Literatur- und Editionsauflösung muss über eine vollständige publizierte Instanz oder andere Katalog-/Bibliothekswege nachgezogen werden.
+- **direct_inspection_scope:** In diesem Pass direkt inspiziert: TOC/Impressum, II.5/II.6-relevante PDF-Seiten 62–69 sowie die Titeldaten-/Lizenzstelle auf PDF-Seite 153. Cited sources inside footnotes were not directly inspected.
+- **research-use status:** Sekundärquelle, Synthese, Orientierungs- und Quellenroutingquelle; keine Primärquelle und keine automatische historische Wahrheit.
+- **current U2 cursor:** II.5 `Die slawische Besiedlung des späteren Orlagaues` page-level/source-routing pass begonnen; erste Slice-Auswertung in `u2-sachenbacher-2022-orlagau-auswertung.md`.
+- **next verification:** Vollständige offizielle PDF-/Print- oder Bibliotheksinstanz mit Fußnoten, Quelleneditionen und Literaturverzeichnis sichern; öffentliche bibliographische Identifikatoren und persistente Landingpage verifizieren; danach die in II.5 genannten Fußnoten 101–130 vollständig zu Werken/Editionen/Primärquellen routen.
 
 ---
 

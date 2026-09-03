@@ -326,3 +326,51 @@ Die bisherige Auswertung ist noch nicht vollständig als Source-to-Modules-Profi
 - dieses Artefakt = modulare Forschungsfragen + Suchrouting für #46.
 
 Method Truth der beteiligten Disziplinen bleibt #60. System-/Technikbedarf wird aus wiederholter realer Friktion erst später abgeleitet.
+
+## 10. Source-to-Modules-Delta – Sachenbacher II.5/II.6 (2026-09-03)
+
+Detaillierte Passage-Matrix und Bewertung stehen in `u2-sachenbacher-2022-orlagau-auswertung.md`, Abschnitt 18. Dieses Inventar übernimmt daraus nur neue oder präzisierte Suchobjekte und Modulrouten.
+
+### 10.1 Instanz- und Routinggrenze
+
+- `SRC-LIT-0001` ist nun die interne Source-Ledger-ID für Sachenbacher 2022.
+- Die bereitgestellte PDF-Instanz ist für den laufenden Seiten-/Aussage-Pass nutzbar, aber nicht vollständig publikationsidentisch: PDF-Seiten sind nicht Druckseiten; interne Druckseitenmarken sind teils nur bereichsweise auflösbar; Fußnotenziffern sind sichtbar, der eigentliche Fußnoten-/Literaturapparat aber nicht zugänglich.
+- Konsequenz: Alle aus II.5 notierten Werke/Quellen sind zunächst `not-yet-inspected` oder `unresolved`, sofern sie nicht bereits anderweitig direkt im Repo geprüft sind.
+
+### 10.2 Neue / präzisierte Quellenpfade
+
+- `ADD_SOURCE / M10`: Heinrich Rempel, `Saalfeld und der Orlagau in frühgeschichtlicher Zeit` – älterer Überblick mit Karten-/Fundstellenroute; Sachenbacher fn 101.
+- `ADD_SOURCE / M10/M4/M6`: Alfred Wandsleb, *Die deutsche Kolonisation des Orlagaues* – ältere Ortsnamen-/Kolonisationsargumentation; Sachenbacher fn 103.
+- `ADD_SOURCE / M3/M10`: Alfred Auerbach 1930 – 14 slawische Fundstellen im damaligen orlagau-nahen Kreiszuschnitt; Sachenbacher fn 106.
+- `ADD_SOURCE / M3/M10`: Götze/Höfer/Zschiesche 1909 und Regel 1894 – frühere Fundstellenroute westlich der Saale und in alten Kreisen Neustadt a. Orla/Saalfeld/Rudolstadt/Ziegenrück; Sachenbacher fn 107–108.
+- `ADD_SOURCE / M4/M6/M10`: R. Fischer / K. Elbracht, *Die Ortsnamen des Kreises Rudolstadt* – onomastisch-archäologische Einwanderungs-/Kontaktthese; Sachenbacher fn 109–111.
+- `ADD_SOURCE / M4/M3/M10`: Heinz Deubler / Ernst Eichler, *Slawische Flurnamen im Kreis Rudolstadt* – Flurnamen-/Fundstellenroute, u. a. Rudolstadt/Volkstedt-Discrepancy; Sachenbacher fn 113–116.
+- `ADD_SOURCE / M3/M1/M10`: Heinrich Rempel 1966 / Gotthard Neumann 1936 – Dreitzsch/Schmerhügel, Bodelwitz, Volkstedt und slawische Friedhofsdaten; Sachenbacher fn 118–122.
+- `ADD_SOURCE / M3/M7/M10`: Ines Spazier 2012/2013 – Oberwellenborn-Gräberfeld; Sachenbacher fn 125.
+- `ADD_SOURCE / M3/M1/M10`: Grit Hother/Heßland, Magisterarbeit Halle zur Siedlung Ludwigshof bei Ranis; TLDA-Grabung 1993; Sachenbacher fn 128.
+- `ADD_PRIMARY_OR_EDITION_ROUTE / M1/M6/M10`: Hersfelder Güterverzeichnis / *Breviarium sancti Lulli* mit Rudolstadt/Remda; Sachenbacher fn 117; konkrete Edition unresolved.
+
+### 10.3 Neue / präzisierte Orte, Fundplätze und Begriffe
+
+- `ADD_SITE / M1/M3`: Ludwigshof bei Ranis – Siedlung ca. 1,75 km von Burg Ranis, Datierung bei Sachenbacher 9.–14. Jh., Beginn nicht vor erste Hälfte 9. Jh.; Quelle Hother/Heßland not-yet-inspected.
+- `ADD_SITE / M1/M3`: Dreitzsch / Schmerhügel – slawisches Körpergräberfeld mit Rempel/Neumann-Route.
+- `ADD_SITE / M1/M3`: Oberwellenborn-Gräberfeld – slawische Bestattungen, Spazier 2012/2013; Lage ca. 185 m südlich der Kirche; 1071-Ortsnennung als eigener Editionspfad unresolved.
+- `ADD_SITE / M3/M10`: Göschitz; Bodelwitz; Rudolstadt/Volkstedt als Fundstellen-/Discrepancy-Routen.
+- `ADD_TERM / M4/M10`: `Kommel/Kummel` als Flurname im Kontext slawischer Bestattungsplätze.
+- `ADD_PLACE_VARIANT / M1/M4/M10`: `Ruppitz` als möglicher Name/Wüstungsbezug zur Ludwigshof-Siedlung; Identität und Belegroute bleiben `unresolved`.
+
+### 10.4 Modul- und Query-Präzisierungen
+
+- `REFINE_QUERY / M1`: Frühhorizont Orlagau nicht pauschal `8. Jahrhundert`, sondern je Beleg trennen: Ende 8./Beginn 9. als Modell; Ranis/Ludwigshof nicht vor erste Hälfte 9. Jh.; westsaalische Rudolstadt/Remda-Hinweise aus *Breviarium sancti Lulli* als eigener Quellenpfad.
+- `REFINE_QUERY / M2`: moderner Sachenbacher-Orlagau, heutige Kreise Saale-Orla-Kreis/Saalfeld-Rudolstadt, alte Kreise und historischer `pagus/terra` dürfen in Fundlisten nicht still verschmelzen.
+- `REFINE_QUERY / M3`: Abb. 35 ist als Fundstellenindex zu behandeln; pro Ort muss die konkrete Fund-/Grabungspublikation nachgezogen werden.
+- `REFINE_QUERY / M4`: slawische Orts-/Flurnamen liefern Suchhaken und Schichtenmodelle, aber keinen automatischen Siedlungsbeginn.
+- `CHALLENGE_MODEL / M6`: `slawische Keramik` an Ranis/Weltwitz/Ludwigshof nicht als ethnische oder herrschaftliche Gleichung verwenden; die Sachebene bleibt Materialkultur, die Personen-/Bevölkerungsebene muss separat belegt werden.
+- `REFINE_QUERY / M10`: Alte Fundstellenzahlen Auerbach/Rempel/Deubler-Eichler nur mit Kreisgrenzen-, Fundklassifikations- und Editions-/Literaturkonkordanz vergleichen; kein Zahlenabgleich ohne Provenienz.
+
+### 10.5 Nächste diskriminierende Prüfungen
+
+1. Vollständige Sachenbacher-Instanz oder externe Literaturauflösung beschaffen, um Fußnoten 101–130 bibliographisch vollständig zu routen.
+2. Auerbach 1930, Rempel 1961/1966, Fischer/Elbracht 1959, Deubler/Eichler, Spazier 2012/2013 und Hother/Heßland priorisiert direkt prüfen.
+3. `Breviarium sancti Lulli` / Hersfelder Güterverzeichnis: Edition bestimmen, Rudolstadt-/Remda-Stellen direkt inspizieren und Aussagegrenze für M1/M6 festlegen.
+4. Danach `III.3.1 Burg und Herrschaft im Orlagau` mit Saalfeld → Köln/Richeza → Kölner Dienstrecht → Ranis page-level erschließen.
