@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. Der Audit soll zugleich zeigen, welche aktive Governance-Doppelung nach struktureller Absicherung entfallen oder abgeleitet werden kann.
+- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. D1 Safe Mutation / Progress ist inzwischen auf `main` implementiert (`8babc69`): bounded local writes werden aus fresh state konstruiert, destructive mismatch wird blockiert und bereits erfüllter Zielzustand ergibt `NO_CHANGE`. PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen und bereitet einen globalen Required Check vor. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann. Der Audit soll zugleich zeigen, welche aktive Governance-Doppelung nach struktureller Absicherung entfallen oder abgeleitet werden kann.
 
 Verbindlich gilt:
 
@@ -142,25 +142,27 @@ Domain / Fachreview
 
 Ein Harness-PASS bedeutet nur `formal requirements conformance for the implemented rule set`, niemals wissenschaftliche Validierung.
 
-Aktuelle Realtests 2026-09-01:
+Aktuelle Realtests 2026-09-03:
 
-- erster CI-Lauf fand einen realen Test-Harness-Importfehler und schlug korrekt fehl; danach behoben;
-- Requirements Assurance Run `33479807761`: `success`;
-- Project Assurance Run `33479807679`: `success`;
-- 14 Requirements-Regressionstests + 15 Project-Assurance-Regressionstests bestanden;
-- `REQ-TRACE-001` ist in Coverage und strukturiertem Requirement-Record erfasst.
+- Requirements-/Trace-/Operational-Assurance ist nach der #62-Reconciliation wieder vollständig grün;
+- PR #73 / Run `33764679014`: `REQ-WF-001` besitzt nun den von #62 verlangten strukturierten QA-Record für den weiterhin sachlich korrekten Status `partial`;
+- PR #72 / Run `33765119632`: D1 Safe Mutation / Progress bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
+- PR #74 / Run `33766069328`: Admission-Prep bestand dieselbe vollständige Assurance-Kette;
+- `REQ-TRACE-001` bleibt in Coverage und strukturiertem Requirement-Record erfasst.
 
 ### Operational Integration – #48/#59
 
-Der kleinste gemeinsame Integrationsschnitt ist seit 2026-09-02 implementiert:
+Der gemeinsame Integrationsschnitt ist inkrementell erweitert:
 
 - `tools/operational/enforcement-map.json` projiziert Requirements referenzbasiert auf Enforcement-Klassen, Contracts, Rule-IDs, Capabilities, Fixtures, Status und fachliche Review-Grenzen; sie dupliziert keine Requirement-Semantik;
 - `tools/operational/core.py` stellt gemeinsame mechanische Loader-/JSON-Schema-Infrastruktur für die bestehenden #62/#63-Commands bereit;
+- `tools/operational/mutation.py` ergänzt den lokalen Pre-write-/Progress-Guard: bounded replacement aus fresh state, destructive mismatch `blocked`, bereits erfüllter Zustand `NO_CHANGE`, expliziter Full-Replacement-Typ und atomarer lokaler Write-Adapter;
 - `tools/requirements/validate.py` und `tools/assurance/validate.py` bleiben kompatible Wrapper/Commands; kein Big-Bang-Rewrite;
-- Project Assurance prüft zusätzlich die Map-Regeln `OPM001`–`OPM007` und alle drei Regressionstest-Suiten in einem konsolidierten Workflow statt zwei überlappender Workflows;
-- wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert.
+- `Project Assurance` prüft Map-/Requirements-/Trace-/Operational-Regeln und läuft seit PR #74 auf jedem Pull Request; Push-Pfadfilter bleiben zur Lärmbegrenzung bestehen;
+- wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert;
+- repo-weite GitHub-Admission ist noch nicht vollständig: direct writes nach `main` bleiben bis zur serverseitigen Required-PR/Protection-Konfiguration außerhalb des lokalen D1-Adapters.
 
-Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Commit `51075dce990eb0bf8b2bf4c5ed9be746ea82ff53` und der einzige konsolidierte Project-Assurance-Lauf `33629069493` waren erfolgreich: 14 Requirements-, 16 Trace- und 5 Enforcement-Map-Regressionstests sowie beide Validator-Commands bestanden.
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1 und Admission-Prep sind zusätzlich unter #70/#48/#59 und #44 (`DD-20260903-001`) geroutet.
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
@@ -377,12 +379,17 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
 19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
 20. Sobald der vertikale Slice benutzt wird, Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst erreicht, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
+21. #70 nach D1 nicht mit weiterer Governance-Prosa fortsetzen: als nächsten ausführbaren Schutzslice #61 Current Context / Resume gegen die bereits persistierten Cursor-/Sticky-Prerequisite-Fixtures operationalisieren; GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
 
 ## 11. Blocker / Decisions
 
 #44 bleibt Register für echte Blocker und Owner-Entscheidungen.
 
-Aktuell entsteht aus #62/#63 oder dem Wissensarbeit-Pilot kein #44-Blocker. `FB-20260902-003` ist kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Aktuell aktiv:
+
+- `DD-20260903-001` – **GitHub Required-PR / Branch-Protection Admission**: D1 schützt den lokalen Operational-Write-Pfad und PR #74 bereitet `Project Assurance` als globalen Required Check vor. `main` ist jedoch weiterhin unprotected, Rulesets sind leer und der aktuell autorisierte GitHub-Connector besitzt keine Ruleset-/Branch-Protection-Schreibfunktion. Empfohlene Auflösung durch Repository-Admin: Required Pull Request für `main` + Required Status Check `Project Assurance`. Danach End-to-End-Negativtest unter #59: direct main write muss abgewiesen werden; normaler PR mit grünem Check bleibt zulässig.
+
+Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #54 Transition, #57 Evidence Availability/Restartability, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
