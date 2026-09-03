@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. D1 Safe Mutation / Progress ist inzwischen auf `main` implementiert (`8babc69`): bounded local writes werden aus fresh state konstruiert, destructive mismatch wird blockiert und bereits erfüllter Zielzustand ergibt `NO_CHANGE`. PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen und bereitet einen globalen Required Check vor. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann. Der Audit soll zugleich zeigen, welche aktive Governance-Doppelung nach struktureller Absicherung entfallen oder abgeleitet werden kann.
+- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. D1 Safe Mutation / Progress ist auf `main` implementiert (`8babc69`): bounded local writes werden aus fresh state konstruiert, destructive mismatch wird blockiert und bereits erfüllter Zielzustand ergibt `NO_CHANGE`. PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen und bereitet einen globalen Required Check vor. D2 Current Context / Resume ist über PR #77 (`6aa4ef0`) implementiert: transienter Derived Context mit `ready | unresolved | blocked`, Prerequisite-Basis-Fingerprints/Revalidation nur bei Basisdelta und Cursor-`redirect` ohne externe Priority Authority. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann. Nächster #70-Abnahmeschritt ist ein realer Vertical Research Slice mit #46/Lampe Nr. 420; erst danach Governance-Retirement endgültig dispositionieren.
 
 Verbindlich gilt:
 
@@ -148,6 +148,7 @@ Aktuelle Realtests 2026-09-03:
 - PR #73 / Run `33764679014`: `REQ-WF-001` besitzt nun den von #62 verlangten strukturierten QA-Record für den weiterhin sachlich korrekten Status `partial`;
 - PR #72 / Run `33765119632`: D1 Safe Mutation / Progress bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
 - PR #74 / Run `33766069328`: Admission-Prep bestand dieselbe vollständige Assurance-Kette;
+- PR #77 / Run `33786277613`: D2 Current Context / Resume bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
 - `REQ-TRACE-001` bleibt in Coverage und strukturiertem Requirement-Record erfasst.
 
 ### Operational Integration – #48/#59
@@ -157,12 +158,13 @@ Der gemeinsame Integrationsschnitt ist inkrementell erweitert:
 - `tools/operational/enforcement-map.json` projiziert Requirements referenzbasiert auf Enforcement-Klassen, Contracts, Rule-IDs, Capabilities, Fixtures, Status und fachliche Review-Grenzen; sie dupliziert keine Requirement-Semantik;
 - `tools/operational/core.py` stellt gemeinsame mechanische Loader-/JSON-Schema-Infrastruktur für die bestehenden #62/#63-Commands bereit;
 - `tools/operational/mutation.py` ergänzt den lokalen Pre-write-/Progress-Guard: bounded replacement aus fresh state, destructive mismatch `blocked`, bereits erfüllter Zustand `NO_CHANGE`, expliziter Full-Replacement-Typ und atomarer lokaler Write-Adapter;
+- `tools/operational/context.py` ergänzt den transienten Current-Context-/Resume-Core: `ready | unresolved | blocked`, Prerequisite-Basis-Fingerprint/Revalidation und Cursor-`continue | redirect` ohne eigene Priority-/Fachauthority;
 - `tools/requirements/validate.py` und `tools/assurance/validate.py` bleiben kompatible Wrapper/Commands; kein Big-Bang-Rewrite;
 - `Project Assurance` prüft Map-/Requirements-/Trace-/Operational-Regeln und läuft seit PR #74 auf jedem Pull Request; Push-Pfadfilter bleiben zur Lärmbegrenzung bestehen;
 - wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert;
 - repo-weite GitHub-Admission ist noch nicht vollständig: direct writes nach `main` bleiben bis zur serverseitigen Required-PR/Protection-Konfiguration außerhalb des lokalen D1-Adapters.
 
-Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1 und Admission-Prep sind zusätzlich unter #70/#48/#59 und #44 (`DD-20260903-001`) geroutet.
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1/D2 und Admission-Prep sind zusätzlich unter #70/#48/#59/#61 und #44 (`DD-20260903-001`) geroutet.
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
@@ -375,11 +377,11 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 14. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
 15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
 16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
-17. #61 Work Context/Handoff als ausführbaren Compiler/Resolver aus kanonischem State erproben; Chat soll Kontext nicht jedes Mal manuell zusammensuchen.
+17. #61 Work Context/Handoff nicht weiter abstrakt modellieren: der Current-Context-Core ist über PR #77 implementiert; jetzt einen dünnen Resolver/Adapter auf den realen #46/Lampe-420-Cursor setzen und Fresh-Context Resume end-to-end prüfen.
 18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
 19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
 20. Sobald der vertikale Slice benutzt wird, Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst erreicht, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
-21. #70 nach D1 nicht mit weiterer Governance-Prosa fortsetzen: als nächsten ausführbaren Schutzslice #61 Current Context / Resume gegen die bereits persistierten Cursor-/Sticky-Prerequisite-Fixtures operationalisieren; GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
+21. #70 nach D1/D2 nicht mit weiterer Governance-Prosa fortsetzen: jetzt #46/Lampe Nr. 420 als realen Vertical Research Slice gegen D2 abnehmen; danach Governance-Retirement (`derive | merge | retire-active`) dispositionieren. GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
 
 ## 11. Blocker / Decisions
 
