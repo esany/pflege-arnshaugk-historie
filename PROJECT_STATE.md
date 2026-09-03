@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. D1 Safe Mutation / Progress ist auf `main` implementiert (`8babc69`): bounded local writes werden aus fresh state konstruiert, destructive mismatch wird blockiert und bereits erfüllter Zielzustand ergibt `NO_CHANGE`. PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen und bereitet einen globalen Required Check vor. D2 Current Context / Resume ist über PR #77 (`6aa4ef0`) implementiert: transienter Derived Context mit `ready | unresolved | blocked`, Prerequisite-Basis-Fingerprints/Revalidation nur bei Basisdelta und Cursor-`redirect` ohne externe Priority Authority. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann. Nächster #70-Abnahmeschritt ist ein realer Vertical Research Slice mit #46/Lampe Nr. 420; erst danach Governance-Retirement endgültig dispositionieren.
+- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. D1 Safe Mutation / Progress ist auf `main` implementiert (`8babc69`), PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen, und D2 Current Context / Resume ist über PR #77 (`6aa4ef0`) implementiert. Der reale Vertical Research Slice #46/Lampe Nr. 420 ist über PR #79 (`39b2c79`) erfolgreich abgenommen: `WO-U2-LAMPE-420-001` rekonstruiert ohne alten Chat Owner, Task, Scope/Exclusions, führende Domänen, Method-/Quality-Frame, Required Evidence, `unresolved`, nächste diskriminierende Aktion und Persistenzorte; geänderte Git-Blob-Basis invalidiert einen gespeicherten PASS-Prerequisite deterministisch zur Revalidation. Source/Excerpt/Finding Truth bleibt in `SRC-ED-0004` / `EX-U2-0009` / `F-U2-004`. Es ergibt sich weiterhin kein neuer Requirement-Gap. Der Mechanismenbau aus #70 ist damit beendet; nächster #70-Schritt ist nur noch Governance-Retirement-/Closure-Disposition gegen das bereits definierte Retirement Gate. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist separat als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann.
 
 Verbindlich gilt:
 
@@ -149,6 +149,7 @@ Aktuelle Realtests 2026-09-03:
 - PR #72 / Run `33765119632`: D1 Safe Mutation / Progress bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
 - PR #74 / Run `33766069328`: Admission-Prep bestand dieselbe vollständige Assurance-Kette;
 - PR #77 / Run `33786277613`: D2 Current Context / Resume bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
+- PR #79 / Run `33787734297`: der reale #46/Lampe-420-Fresh-Context-Slice bestand inklusive Git-Blob-Basis-Revalidation, vollständigem Resume-Contract und beiden formalen Validatoren;
 - `REQ-TRACE-001` bleibt in Coverage und strukturiertem Requirement-Record erfasst.
 
 ### Operational Integration – #48/#59
@@ -158,13 +159,15 @@ Der gemeinsame Integrationsschnitt ist inkrementell erweitert:
 - `tools/operational/enforcement-map.json` projiziert Requirements referenzbasiert auf Enforcement-Klassen, Contracts, Rule-IDs, Capabilities, Fixtures, Status und fachliche Review-Grenzen; sie dupliziert keine Requirement-Semantik;
 - `tools/operational/core.py` stellt gemeinsame mechanische Loader-/JSON-Schema-Infrastruktur für die bestehenden #62/#63-Commands bereit;
 - `tools/operational/mutation.py` ergänzt den lokalen Pre-write-/Progress-Guard: bounded replacement aus fresh state, destructive mismatch `blocked`, bereits erfüllter Zustand `NO_CHANGE`, expliziter Full-Replacement-Typ und atomarer lokaler Write-Adapter;
-- `tools/operational/context.py` ergänzt den transienten Current-Context-/Resume-Core: `ready | unresolved | blocked`, Prerequisite-Basis-Fingerprint/Revalidation und Cursor-`continue | redirect` ohne eigene Priority-/Fachauthority;
+- `tools/operational/context.py` ergänzt den transienten Current-Context-/Resume-Core: `ready | unresolved | blocked`, Work-Order-Identität, führende Domänen, Method-/Quality-Frame, Required Evidence, Prerequisite-Basis-Fingerprint/Revalidation und Cursor-`continue | redirect` ohne eigene Priority-/Fachauthority;
+- `tools/operational/context_spec.py` lädt einen kanonischen JSON-Work-Order ohne Markdown-Semantik zu erraten und prüft deklarierte Git-Blob-Basis; stale PASS wird `unresolved / revalidation required`;
+- `docs/research/cases/u2-lampe-420-work-order.json` ist der erste reale bounded Work Order; Source/Excerpt/Finding-Inhalt bleibt referenziert in seinen bestehenden kanonischen Häusern;
 - `tools/requirements/validate.py` und `tools/assurance/validate.py` bleiben kompatible Wrapper/Commands; kein Big-Bang-Rewrite;
 - `Project Assurance` prüft Map-/Requirements-/Trace-/Operational-Regeln und läuft seit PR #74 auf jedem Pull Request; Push-Pfadfilter bleiben zur Lärmbegrenzung bestehen;
 - wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert;
 - repo-weite GitHub-Admission ist noch nicht vollständig: direct writes nach `main` bleiben bis zur serverseitigen Required-PR/Protection-Konfiguration außerhalb des lokalen D1-Adapters.
 
-Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1/D2 und Admission-Prep sind zusätzlich unter #70/#48/#59/#61 und #44 (`DD-20260903-001`) geroutet.
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1/D2, Lampe-420-Acceptance und Admission-Prep sind zusätzlich unter #70/#48/#59/#61/#46 und #44 (`DD-20260903-001`) geroutet.
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
@@ -235,7 +238,7 @@ Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nu
 
 `in-research / live-use-case / working-research`
 
-Aktueller historischer Fokus: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`.
+Aktueller historischer Fokus: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`. Für Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktuelle kanonische Research-Cursor. Nächste diskriminierende Aktion: den vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke und Schmidt/Alberti/Dobenecker source-/findspot-gebunden auflösen oder einen bounded unresolved Search Boundary persistieren; Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben offen.
 
 ### #47 – U1 Teich-/Feuchtkulturlandschaft
 
@@ -355,7 +358,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ### Inhaltlich führend
 
-1. #46/#47 reale Forschung fortführen. Der zweite #46/#61-Pilot hat die bereitgestellte Lampe-PDF-Instanz, den allgemeinen Bandlauf, `EX-U2-0010`–`0013`, eine nutzerverständliche Ableitung und den Zugangsvergleich persistiert. Nächster fachlicher Schritt: Kauf/Verkäufer und Archivkonkordanz von Nr. 420 auflösen, `Grune = Mönchgrün` unabhängig kollationieren und die neuen Comparanda ohne vorzeitige Gesamtstrategie-Synthese prüfen.
+1. #46/#47 reale Forschung fortführen. Für #46/Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktive bounded Cursor: vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke sowie Schmidt/Alberti/Dobenecker auflösen; source/findspot-backed Ergebnis oder bounded unresolved Search Boundary persistieren, bevor breiter synthetisiert wird. Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben weitere diskriminierende Schritte.
 2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
@@ -369,19 +372,19 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 9. Requirement→Enforcement-Map und #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
 10. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
 11. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
-12. bei generierten/komprimierten Work Contexts künftig Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; Tokenreduktion ist kein Qualitätsziel vor Fidelity.
+12. bei generierten/komprimierten Work Contexts Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; der Lampe-420-Slice hat diesen Contract erstmals real erfüllt.
 
 ### Technisch parallel
 
-13. **Reales Owner-Feedback `FB-20260902-003` ist jetzt führender Technical-Delivery-Pain:** #48 priorisiert einen vertikalen Research-Operations-Schnitt aus #50/#55/#61: `structured canonical research state → automated context/intake/trace → deterministic derive → human-readable research workspace/view`. Der Nutzer/Chat darf nicht Workflow Engine für routinehafte State-Pflege bleiben.
+13. **Reales Owner-Feedback `FB-20260902-003` ist weiterhin führender Technical-Delivery-Pain:** #48 priorisiert einen vertikalen Research-Operations-Schnitt aus #50/#55/#61: `structured canonical research state → automated context/intake/trace → deterministic derive → human-readable research workspace/view`. Der Nutzer/Chat darf nicht Workflow Engine für routinehafte State-Pflege bleiben.
 14. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
 15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
 16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
-17. #61 Work Context/Handoff nicht weiter abstrakt modellieren: der Current-Context-Core ist über PR #77 implementiert; jetzt einen dünnen Resolver/Adapter auf den realen #46/Lampe-420-Cursor setzen und Fresh-Context Resume end-to-end prüfen.
+17. #61 Work Context/Handoff für diesen Slice nicht weiter abstrakt modellieren: D2 und der reale Lampe-420-Adapter sind implementiert und abgenommen. Weitere Context-Arbeit nur bei neuer realer Friktion; technische Priorisierung fällt an bestehende Owner wie #54 Transition, #57 Evidence Availability/Restartability und #55 Derived Research View zurück.
 18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
 19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
-20. Sobald der vertikale Slice benutzt wird, Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst erreicht, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
-21. #70 nach D1/D2 nicht mit weiterer Governance-Prosa fortsetzen: jetzt #46/Lampe Nr. 420 als realen Vertical Research Slice gegen D2 abnehmen; danach Governance-Retirement (`derive | merge | retire-active`) dispositionieren. GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
+20. Bei tatsächlicher Nutzung von `WO-U2-LAMPE-420-001` Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
+21. #70 nicht weiter technisch ausbauen: D1, D2 und der reale Vertical Research Slice sind abgeschlossen. Jetzt nur noch Governance-Retirement (`derive | merge | retire-active`) und Closure-Disposition gegen das bestehende Retirement Gate; kein neues Meta-System. GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
 
 ## 11. Blocker / Decisions
 
