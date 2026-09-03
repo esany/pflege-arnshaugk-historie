@@ -258,6 +258,23 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "D2 derived current-context/resume core: validates minimum executable context from caller-resolved canonical facts, preserves unresolved/blockers, ties prerequisite validity to explicit basis fingerprints, and redirects cursor drift unless external priority authority is supplied. It stores no second task truth and makes no scholarly or priority judgement."
+    },
+    {
+      "id": "IMP-CONTEXT-002",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-STATE-001", "REQ-TRACE-001", "REQ-UX-001", "REQ-LEAN-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-OPCORE-001"],
+      "implementation_refs": ["IMP-CONTEXT-001"],
+      "implementation_files": ["tools/operational/context.py", "tools/operational/context_spec.py", "tools/operational/tests/test_context.py", "tools/operational/tests/test_context_spec.py", "docs/research/cases/u2-lampe-420-work-order.json", "tools/assurance/data/trace-records.json"],
+      "verification_refs": ["issue:#46", "issue:#61", "issue:#70", "tools/operational/tests/test_context.py", "tools/operational/tests/test_context_spec.py"],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Real Lampe-420 vertical slice refined D2 fidelity: CurrentContext now carries canonical task/work-order identity, leading domains, method/quality frame and required evidence; a thin JSON work-order adapter validates Git-blob prerequisite bases and downgrades stale PASS state to unresolved/revalidation-required. The canonical work order references existing Source/Excerpt/Finding homes and does not duplicate their contents."
     }
   ]
 }
