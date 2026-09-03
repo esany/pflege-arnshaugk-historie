@@ -2,17 +2,17 @@
 
 **Status:** `audit / review-input / no requirement-or-implementation-authority`  
 **Work Owner:** #70  
-**Interfaces:** #64, #42, #24, #48, #50, #54, #61, #62, #63  
+**Interfaces:** #64, #42, #24, #45, #48, #50, #54, #56, #57, #60, #61, #62, #63  
 **Stand:** 2026-09-03  
 **Structural prior art:** `esany/Wissensarbeit` (generic project handling only; no Histo-Orla semantic authority)
 
-## 1. Zweck und Arbeitsregel
+## 1. Auditfrage und Methode
 
-Dieser Audit prüft nicht, ob Histo-Orla möglichst viele Schutzregeln besitzt. Er rekonstruiert reale oder plausible KI-/System-Failure-Modes rückwärts:
+Dieser Audit schützt **keine Regeln um ihrer selbst willen**. Er rekonstruiert reale oder plausible KI-/System-Failure-Modes rückwärts:
 
 ```text
 observed phenomenon / evidence
-→ symptom
+→ visible symptom
 → original motivation
 → protected goal
 → root cause
@@ -27,9 +27,21 @@ Problemstatus und Regelstatus bleiben getrennt:
 - Problem: `confirmed-current | conditional | historical-only | unproven | superseded-by-structure`
 - Regel/Mechanismus: `retain | refine | narrow | merge | derive | replace | retire-active | defer`
 
-Die operative Reaktion wird erst nach der Ursachenanalyse bestimmt: `BLOCK | HOLD | REDIRECT | ESCALATE`.
+Die operative Reaktion wird erst nach der Ursachenanalyse bestimmt:
 
-Dieses Artefakt ist der eine versionierte Audit-Ort für #70; einzelne Slices sollen keine neue Meta-Artefaktfamilie erzeugen.
+- `BLOCK` – formal/mechanisch unzulässiger Schritt;
+- `HOLD` – möglicher Candidate/Challenge, aber keine kanonische Promotion;
+- `REDIRECT` – gültiger Cursor/Postcondition existiert bereits; Ausführung driftet oder loopt;
+- `ESCALATE` – echte materielle Owner-/Fachentscheidung.
+
+**Evidenzklassen dieses Audits:**
+
+- `observed-histo` – reales Histo-Orla-Laufereignis oder Owner-Feedback;
+- `current-state` – aktuell verifizierter Repo-/Contract-/Implementation-State;
+- `cross-repo/adversarial` – reale oder synthetische Referenz aus anderem Projekt; kein automatischer Histo-Befund;
+- `hypothesis` – noch zu falsifizierende Ursache oder Intervention.
+
+Kein Audit-Finding besitzt allein Requirement-, Method-, Architecture- oder Implementation-Authority.
 
 ---
 
@@ -37,454 +49,648 @@ Dieses Artefakt ist der eine versionierte Audit-Ort für #70; einzelne Slices so
 
 ## 2.1 Kurzurteil
 
-Der aktuelle Stand zeigt **keine primäre Requirement-Lücke**, sondern eine deutliche Differenz zwischen bereits starker Schutzsemantik und realer Ausführung:
+Die Schutzsemantik ist weitgehend vorhanden, die Ausführung nicht:
 
-1. Histo-Orla hat Candidate-vs.-Canonical, History-Erhalt, AI-non-evidence und deterministische Promotion Guards bereits in akzeptierten Requirements und Architekturverträgen angelegt.
-2. Die allgemeine `transition`-Capability für Research-State-Mutation ist weiterhin `planned`; #54 ist nicht implementiert.
-3. `main` ist am 2026-09-03 nicht geschützt; der Repository-Ruleset-Endpunkt liefert keine Rulesets.
-4. Der einzige GitHub-Workflow `Project Assurance` ist deshalb keine verpflichtende Pre-Promotion-Grenze. Er läuft nur für ausgewählte Pfade und **nicht** für `PROJECT_STATE.md`, `README.md` oder `docs/research/cases/**`.
-5. Die #63 Changed-Code-Policy kontrolliert nur technische Pfade (`src/**`, `app/**`, `histo_orla/**`, `tools/**`, `tests/**`, `.github/workflows/**`) – nicht Project State, Requirements-/Governance-Semantik oder historische Research-State-Artefakte.
-6. Ein realer Histo-Orla-Vorfall am 2026-09-03 belegt, dass ein AI-gestützter Full-File-Replace gültigen kanonischen Handoff-State auf `main` löschen konnte, bevor der Fehler durch Diff-Inspektion erkannt und korrigiert wurde.
+1. Candidate-vs.-Canonical, History-Erhalt, AI-non-evidence und deterministische Promotion Guards sind in Requirements/#24/#50 bereits angelegt.
+2. #54 / `transition` ist weiterhin `planned`.
+3. `main` ist am 2026-09-03 `protected:false`; Repository-Rulesets fehlen.
+4. `Project Assurance` ist daher keine verpflichtende Pre-Promotion-Grenze und überwacht weder `PROJECT_STATE.md`/`README.md` noch `docs/research/cases/**`.
+5. Ein realer AI-gestützter Full-File-Replace hat gültigen kanonischen Handoff-State auf `main` gelöscht und musste aus Git-History repariert werden.
 
-Damit sind **Repo-/Project-State-Mutation** und **wissenschaftliche Research-State-Transition** verwandte, aber nicht identische Probleme. Beide schützen History/Authority Integrity, brauchen jedoch unterschiedliche technische Grenzen.
-
----
+Das ist **keine primäre Requirement-Lücke**, sondern eine Differenz zwischen akzeptierter Semantik und realer Mutation-/Admission-Grenze.
 
 ## 2.2 Evidence Register
 
-| ID | Typ | Evidenz | Aussage |
+| ID | Klasse | Evidenz | Aussage |
 |---|---|---|---|
-| E-AM-001 | observed Histo failure | Commit `ca4118fb7e6cfa04ed6ac6f0e10a1d35f03ec82c` | Bounded beabsichtigte Änderung von `PROJECT_STATE.md` führte zu massiver unbeabsichtigter Löschung nachgelagerter Abschnitte. |
-| E-AM-002 | observed recovery | Commit `c01a59e3c606bf38e3b251c21e50a1647d6f034c` | Vorgängerinhalt wurde aus Git rekonstruiert und vollständig wiederhergestellt; Git half bei Recovery, verhinderte den Schaden aber nicht. |
-| E-AM-003 | current repo state | `GET /repos/esany/pflege-arnshaugk-historie/branches/main` | `protected:false`; required status checks `off`. |
-| E-AM-004 | current repo state | `GET /repos/esany/pflege-arnshaugk-historie/rulesets` | keine Repository-Rulesets. |
-| E-AM-005 | current CI | `.github/workflows/project-assurance.yml` | Workflow existiert, überwacht aber weder `PROJECT_STATE.md`/`README.md` noch `docs/research/cases/**`. |
-| E-AM-006 | observed CI absence | Actions query für Head SHA `ca4118...` | für den schädlichen `PROJECT_STATE.md`-Commit existiert kein Workflow-Lauf. |
-| E-AM-007 | current enforcement | `tools/operational/enforcement-map.json` | `REQ-WF-001 = partial`; `transition` für `REQ-ENT-001`/`REQ-MTH-004` ist `planned`; keine Rule-Refs. |
-| E-AM-008 | current contract | `docs/architecture/contracts/canonical-research-state.md` | Candidate/Working/Promoted/Unresolved/Superseded sowie History-Erhalt und AI-non-evidence sind semantisch explizit. |
-| E-AM-009 | current work owner | #54 | Candidate→Review→Promotion und Research-State-Transition sind weiterhin `planned`. |
-| E-AM-010 | current trace policy | `tools/assurance/policy.json` | Changed-Code-Guard ist bewusst auf technische Pfade begrenzt. |
-| E-AM-011 | historical/project evidence | #9 + `docs/governance/work-context-handoff-audit.md` | Model-/Process-/Authority-Drift wurde bereits als eigene Lücke identifiziert; U2 zeigte gute Persistenz, aber keine flächendeckende Runtime-Garantie. |
-| E-AM-012 | accepted requirement | `REQ-WF-001` | Formal prüfbare Invarianten dürfen nicht allein von Prompt-/LLM-Compliance abhängen; adversarial invalid candidate darf Promotion nicht erzwingen. |
+| E-AM-001 | observed-histo | Commit `ca4118fb7e6cfa04ed6ac6f0e10a1d35f03ec82c` | bounded beabsichtigte Änderung an `PROJECT_STATE.md` führte zu massiver unbeabsichtigter Löschung |
+| E-AM-002 | observed-histo | Commit `c01a59e3c606bf38e3b251c21e50a1647d6f034c` | Recovery aus direktem Git-Vorgänger; Git half beim Wiederherstellen, verhinderte den Schaden aber nicht |
+| E-AM-003 | current-state | GitHub branch state `main` | `protected:false`, required status checks off |
+| E-AM-004 | current-state | repository rulesets | keine Rulesets |
+| E-AM-005 | current-state | `.github/workflows/project-assurance.yml` | zentrale Project-/Research-State-Pfade liegen außerhalb des Trigger-Scope |
+| E-AM-006 | observed-histo | Actions query für `ca4118...` | kein Workflow-Lauf für den schädlichen Commit |
+| E-AM-007 | current-state | `tools/operational/enforcement-map.json` | `REQ-WF-001 = partial`; `transition` für relevante Promotionen `planned`, ohne Rule-Refs |
+| E-AM-008 | current-state | `docs/architecture/contracts/canonical-research-state.md` | Candidate/Working/Promoted/Unresolved/Superseded, History und AI-non-evidence semantisch explizit |
+| E-AM-009 | current-state | #54 | Research-State-Promotion/Transition noch nicht implementiert |
+| E-AM-010 | current-state | `tools/assurance/policy.json` | Changed-Code-Guard kontrolliert technische Pfade, nicht Research-/Project-State allgemein |
 
-**Evidenzklassifikation:** `E-AM-001/002/006` sind echte Histo-Orla-Laufereignisse. `E-AM-003/004/005/007/009/010` sind aktuelle strukturelle Zustände. Die ursprüngliche Candidate→Promotion-Idee aus #39/#24 ist überwiegend SOTA-/Risiko-/Architekturableitung und darf nicht rückwirkend als historisch beobachteter Histo-Schadensfall ausgegeben werden.
+## AM-01 – Bounded edit wird destruktiver Full-File-Replace
 
----
+**Observed phenomenon:** Kleine Ergänzung an `PROJECT_STATE.md` erzeugte einen wesentlich größeren Replace mit Verlust gültiger Abschnitte.
 
-# 3. Root-Cause Cases
+**Protected goal:** Verlustfreiheit, rekonstruierbare History, restartbarer Project State, geringe Owner-Micromanagement-Last.
 
-## AM-01 – Bounded edit wird zum destruktiven Full-File-Replace
+**Root cause:**
 
-### Observed phenomenon
+- Operation mismatch: Full Replace für bounded edit;
+- gültiger Vorgänger-SHA verhindert Stale Write, aber nicht semantisch destruktiven Replace;
+- kein bounded-delta / destructive-loss guard;
+- unmittelbarer Write auf `main`;
+- betroffener Pfad nicht durch Project Assurance erfasst.
 
-Am 2026-09-03 sollte `PROJECT_STATE.md` nur um einen kleinen Audit-/Review-Pointer ergänzt werden. Commit `ca4118...` änderte darüber hinaus den Dateischwanz massiv und löschte gültige Handoff-/Next-Action-/Blocker-Inhalte. Commit `c01a59...` stellte sie aus dem direkten Git-Vorgänger wieder her.
+**Problemstatus:** `confirmed-current`.
 
-### Symptom
-
-`kleines Delta gewollt → große kanonische Mutation ausgeführt`.
-
-### Protected goal
-
-- Verlustfreiheit des kanonischen Projekt-/Handoff-State;
-- rekonstruierbare Research-/Project History;
-- Fortsetzbarkeit ohne Chat;
-- Nutzerentlastung: der Owner soll nicht jede Routine-Dateioperation kontrollieren müssen.
-
-### Root cause
-
-Nicht primär „KI war unvorsichtig“, sondern eine Kombination aus Ausführungs- und Authority-Design:
-
-1. **Operation mismatch:** Für eine kleine Änderung wurde eine API benutzt, die den vollständigen Dateiinhalt ersetzt.
-2. **No bounded-mutation guard:** Der gültige Vorgänger-SHA schützt gegen konkurrierende Stale Writes, aber nicht gegen einen semantisch destruktiven Replace auf genau diesem Vorgänger.
-3. **No pre-promotion diff/loss gate:** Es gab keine mechanische Grenze, die bei einer als bounded deklarierten Änderung unerwartete Löschungen blockiert.
-4. **Immediate canonical write:** Die Änderung ging direkt auf `main`; Diff-Review war nur nachgelagerte Fehlererkennung.
-5. **Path not assured:** `PROJECT_STATE.md` löst den aktuellen Assurance-Workflow nicht aus.
-
-### Current relevance
-
-`confirmed-current`.
-
-Die gleiche Full-Replace-Fähigkeit besteht weiterhin; Git-Recovery reduziert Folgen, verhindert aber keinen temporär falschen kanonischen State.
-
-### Existing basis
-
-- `AGENTS.md`: kein Handoff-/State-Verlust; one fact / one canonical home; `PROJECT_STATE.md` als zentrale Handoff-Sicht.
-- `REQ-STATE-001`: chat-/providerunabhängiger, recoverable State.
-- `REQ-WF-001`: deterministische formale Schutzgrenzen nicht als Promptpflicht.
-- #24: Dateiintegrität, Versionierung, Status/State und kanonische Speicherung gehören in die KI-negative Kernzone.
-
-### Best current intervention hypothesis
-
-Kein neuer Prompt „vor Änderungen vorsichtig sein“.
-
-Die kleinste stärkere Richtung ist ein **operation-typed canonical write boundary**:
+**Best current intervention hypothesis:** operation-typed safe write boundary:
 
 ```text
 bounded edit / patch
-→ darf nur den explizit adressierten Bereich ändern
+→ nur deklarierter Bereich darf sich ändern
 
 full replace / migration / mass rewrite
-→ eigener deklarierter Mutationstyp
+→ expliziter Mutationstyp
 → vollständiger Diff/Loss-Check
-→ proportionale Review-/Promotion-Grenze
+→ proportionale Admission-/Review-Grenze
 ```
 
-Die konkrete Implementierung (Patch API, Branch/PR, lokale Diff-Guard-Library, GitHub Ruleset oder Kombination) ist #48/#59-Aufgabe und wird durch diesen Audit nicht entschieden.
+**Reaction:** `BLOCK` bei unerwartetem Delete/Replace außerhalb des deklarierten Mutationstyps.
 
-### Reaction / disposition
+**Rule disposition:** `refine → derive`; nach executable Guard keine dauerhafte Promptwarnung über Full-File-Replaces nötig.
 
-- Reaktion: `BLOCK` bei unerwartetem Full-Replace/Deletion außerhalb des deklarierten Mutationstyps.
-- Problemstatus: `confirmed-current`.
-- bestehende Governance: `refine/derive` – die Schutzsemantik bleibt, Detailwarnungen zur Dateioperation sollten nach ausführbarem Guard nicht als Promptpflicht dupliziert werden.
+## AM-02 – Assurance ist nicht Admission
 
----
+**Observed/current phenomenon:** CI existiert, aber `main` kann direkte AI-gestützte Writes aufnehmen. Der schädliche Commit war sofort canonical und triggerte nicht einmal den Workflow.
 
-## AM-02 – CI existiert, aber `main` ist keine kontrollierte Promotion Boundary
+**Protected goal:** Konsequenzielle canonical changes müssen vor Promotion den richtigen Diff-/Check-/Authority-Pfad durchlaufen.
 
-### Observed/current phenomenon
+**Root cause:**
 
-Histo-Orla besitzt einen Project-Assurance-Workflow, aber GitHub meldet `main` als unprotected und ohne required checks; Repository-Rulesets fehlen. AI-gestützte GitHub-Writes können dadurch direkt kanonische Commits erzeugen.
+1. Workflow-Ausführung und Admission wurden strukturell nicht gekoppelt.
+2. Branch Authority ist nicht technisch erzwungen.
+3. zentrale Pfade haben Coverage-Gaps.
+4. **Credential ≠ Authority:** AI-Connector-Writes erscheinen unter dem verbundenen GitHub-Principal; `Git author == owner account` beweist keine menschliche materielle Entscheidung.
 
-Der schädliche Commit `ca4118...` demonstriert die Konsequenz praktisch: Er war sofort Teil von `main` und löste wegen des Pfadfilters nicht einmal nachträglich den Workflow aus.
+**Problemstatus:** `confirmed-current`.
 
-### Symptom
+**Best intervention hypothesis:**
 
-`Assurance vorhanden` wird leicht mit `Promotion geschützt` verwechselt.
+- repository admission für consequential/high-risk mutation types;
+- separat: explizite Authority-Evidence für owner-only/material changes, die die proposal-generierende AI nicht selbst erzeugen kann;
+- kein Dogma `alles muss PR` – die Lösung muss `REQ-UX-002`/`REQ-LEAN-001` erfüllen.
 
-### Protected goal
+**Reaction:** `BLOCK` bei fehlender formaler Admission; `HOLD` für AI-Vorschlag; `ESCALATE` für materielle Owner-Entscheidung.
 
-- canonical repository state darf nicht durch explorative/unvalidierte AI-Ausführung still verändert werden;
-- Checks und Review sollen vor, nicht erst nach consequential Promotion wirken;
-- direkte Schreibrechte sollen proportional zum Mutationstyp sein.
+**Rule disposition:** `merge/derive`.
 
-### Root cause
+## AM-03 – Research-State-Promotion ist Contract, noch kein Write Interface
 
-1. **Assurance vs. admission conflated:** Workflow-Ausführung ist kein Merge-/Write-Gate.
-2. **Branch authority not encoded:** `main` akzeptiert direkte Writes.
-3. **Coverage gap:** zentrale Project-/Research-State-Pfade liegen außerhalb des aktuellen Workflow-Triggers.
-4. **Credential ≠ authority:** AI-gestützte Connector-Writes erscheinen in Git als Commit des verbundenen GitHub-Nutzers. Die Git-Actor-Identität beweist daher nicht, dass eine materielle Owner-Entscheidung menschlich getroffen wurde.
+**Current phenomenon:** #50 trennt Research States und verlangt History; #54/`transition` ist geplant, nicht ausführbar. Git kann Dateidiffs zeigen, aber nicht entscheiden, ob `candidate → promoted` oder `finding → superseded` formal zulässig deklariert wurde.
 
-Der vierte Punkt ist besonders wichtig: **Git provenance ist notwendige technische Provenienz, aber unter delegierter AI-Nutzung kein hinreichender Authority-Beleg.**
+**Observed scholarly overwrite in Histo:** `unproven`.
 
-### Current relevance
+**Structural enforcement gap:** `confirmed-current`.
 
-`confirmed-current`.
+**Protected goal:** freie Exploration bei kontrollierter wissenschaftlicher Promotion/Correction/Demotion.
 
-### Existing basis
-
-- #42: nur Requirements Owner kann accepted Requirements ändern.
-- #48: Dev darf fachliche/Requirement-Semantik nicht eigenmächtig ändern.
-- #63: technischer Implementation Trace + Owner-Decision für Scope-/Quality-Reduktion.
-- `REQ-WF-001`, `REQ-STATE-001`, `REQ-TRACE-001`.
-- `Wissensarbeit/system/authority.json`: AI darf materielle Reframes/Requirements/Priority nur vorschlagen; materielle Akzeptanz benötigt Human Authority.
-
-### Best current intervention hypothesis
-
-Zwei Grenzen nicht vermischen:
-
-**A. Repository admission**  
-Canonical/high-risk Pfade brauchen einen Promotionweg, bei dem relevante Checks/Diff vor `main` liegen. Branch+PR ist vorhandenes GitHub-Pattern; ob dies repo-weit oder path-/mutationstyp-spezifisch erzwungen wird, ist eine Lean-/UX-Frage für #48.
-
-**B. Material authority**  
-Für Zweck, Priorität, Requirements, fachliche Semantik oder andere owner-only Changes darf `Git author == owner account` nicht als Human-Authority-Nachweis gelten, wenn AI unter demselben Principal handelt. Der Promotionpfad braucht eine **Authority-Evidence, die die proposal-generierende AI nicht selbst erzeugen kann**. Das genaue Mittel ist offen; es darf den Owner nicht zum Workflow-Manager machen.
-
-### Reaction / disposition
-
-- formale invalid mutation / fehlende required admission: `BLOCK`;
-- AI-Vorschlag zu Purpose/Requirement/Priority: `HOLD` als Candidate;
-- echte materielle Owner-Entscheidung: `ESCALATE`.
-- Problemstatus: `confirmed-current`.
-- Governance disposition: `merge/derive` – mehrere „AI darf X nicht“-Sätze sollten langfristig aus einer kleinen Authority-/Promotion-Grenze ableitbar sein.
-
----
-
-## AM-03 – Research-State-Promotion ist semantisch definiert, technisch aber noch kein Write Interface
-
-### Observed/current phenomenon
-
-Der Canonical-State-Contract trennt Candidate/Working/Validated/Unresolved/Superseded und verlangt History-Erhalt. #54 spezifiziert negative Fixtures für Promotion, ist aber `planned`. Die Enforcement Map führt `transition` ohne Rule-Refs als `planned`.
-
-Die realen Research-Artefakte liegen derzeit überwiegend als versionierte Dateien unter `docs/research/cases/**`; der einzige Workflow überwacht diesen Pfad nicht.
-
-### Symptom
-
-`wissenschaftliche Promotion-Regel ist klar` aber `Dateiänderung und wissenschaftliche Transition sind technisch nicht unterscheidbar`.
-
-### Protected goal
-
-- AI darf neue Lesungen/Hypothesen/Candidates frei erzeugen;
-- ein anderes Modellurteil ist keine Mutation Authority;
-- Promotion/Supersession braucht Vorgänger, Basis, Evidence/Method/Review proportional zur Konsequenz;
-- Correction/Demotion darf Research History nicht zerstören.
-
-### Root cause
-
-Die Domain-/Research-Semantik ist weiter als die Operationalisierung. Es fehlt noch der kleine **transition boundary** zwischen generativer/analytischer Arbeit und canonical Research-State-Mutation.
-
-Das ist nicht identisch mit allgemeinem Git-Branch-Schutz: Git kann zeigen, dass Text geändert wurde, aber nicht, ob `candidate → promoted`, `finding → superseded` oder `unresolved → resolved` wissenschaftlich zulässig deklariert wurde.
-
-### Current relevance
-
-- beobachteter Histo-Fall einer stillen wissenschaftlichen Überschreibung: `unproven`;
-- strukturelle Exposition und fehlendes Enforcement: `confirmed-current`.
-
-Der Audit darf diese beiden Aussagen nicht zusammenziehen.
-
-### Existing basis
-
-- `REQ-EPI-004/005`, `REQ-VAL-001/002`, `REQ-WF-001`;
-- `REQ-EPI-006`, `REQ-MTH-004`, `REQ-RSCH-001`;
-- #24 Candidate→Validation→Promotion;
-- #50 Canonical Research State;
-- #54 Transition Owner;
-- `docs/architecture/operational-execution-architecture.md` §11.
-
-### Best current intervention hypothesis
-
-Bestehende Architekturhypothese bleibt passend und wird durch den Vorfall eher gestärkt:
+**Best intervention hypothesis:** vorhandene Architektur beibehalten:
 
 ```text
-READ / ANALYZE       → frei innerhalb Scope
+READ / ANALYZE       → frei im Scope
 PROPOSE              → Candidate/Alternative/Challenge
 WRITE NEW OBJECT     → Objekt-/Evidence-/Method-Contract
-PROMOTE / SUPERSEDE  → transition capability + predecessor/basis/review/history guards
+PROMOTE / SUPERSEDE  → transition + predecessor/basis/review/history guards
 ```
 
-Kein universeller Workflow-Stack und keine Softwareentscheidung über historische Wahrheit.
+**Reaction:** `HOLD` für Neuurteil; `BLOCK` bei formal ungültiger Promotion; `ESCALATE` für consequential scholarly judgement.
 
-Erster Implementationstest soll an **einem realen Research Slice** erfolgen. Legacy-Markdown muss nicht vorab Big-Bang-migriert werden.
+**Rule disposition:** `retain → derive after transition enforcement`.
 
-### Reaction / disposition
+## AM-04 – Material Authority unter delegierten Credentials
 
-- AI-Neuurteil: `HOLD`;
-- formal ungültige Promotion: `BLOCK`;
-- fachlich consequential Promotion: `ESCALATE` an passende Domain-/Review-Authority;
-- Problemstatus: `conditional` für tatsächlichen Schadensfall, `confirmed-current` für Enforcement-Gap.
-- bestehende Regeln: `retain`, später `derive` sobald Transition-Guard ausführbar ist.
+**Current phenomenon:** Histo-Orla besitzt klare semantische Owner. Ein belegter Histo-Fall eigenmächtig akzeptierter Requirement-/Purpose-Promotion durch AI liegt nicht vor. Technisch kann AI jedoch unter demselben GitHub-Principal schreiben wie der Owner.
 
----
+**Problemstatus:** `conditional`.
 
-## AM-04 – Purpose / Priority / Requirement Authority kann semantisch korrekt und technisch trotzdem nicht beweisbar sein
+**Root cause:** fehlende Trennung zwischen technischer Actor Identity und materialer Human-/Domain-Authority-Evidence an der Promotiongrenze.
 
-### Observed/current phenomenon
+**Best intervention hypothesis:** Candidate-Persistenz darf automatisiert sein; owner-only/domain-only Promotion braucht passende externe Authority-Evidence. Human Owner ist kein Ersatz-Fachspezialist.
 
-Histo-Orla hat starke semantische Owner-Grenzen: #42 ist alleiniger Requirements-Lifecycle-Owner; Research Owner besitzt Ziel/Nutzen/Pain; Dev besitzt keine Fachsemantik. Der Work-Context-Audit hat Model-/Process-/Authority-Drift bereits explizit erkannt.
+**Reaction:** `HOLD / ESCALATE`; formal erkennbare unautorisierte Promotion `BLOCK`.
 
-Ein bestätigter Histo-Fall, in dem AI eigenmächtig ein accepted Requirement oder Projektziel promoted hat, ist in diesem Slice **nicht belegt**.
-
-Gleichzeitig erlaubt die aktuelle Repo-/Credential-Struktur AI-gestützte Writes unter demselben GitHub-Principal wie der Owner. Formale Requirements-QA kann Semantik/Owner-Intent bewusst nicht selbst bestimmen.
-
-### Symptom
-
-`persistiert von Owner-Account` kann fälschlich als `materiell vom Owner autorisiert` gelesen werden.
-
-### Protected goal
-
-Purpose & Authority Integrity: Ziel, Priorität, Requirements und materielle Akzeptanz dürfen nicht durch Modellplausibilität oder delegierte technische Identität entstehen.
-
-### Root cause
-
-Nicht fehlende Owner-Prosa, sondern eine **Authority-evidence gap an der Promotiongrenze**:
-
-- fachliche/materielle Authority ist semantisch definiert;
-- GitHub-Actor repräsentiert technische Credential-Identität;
-- bei delegierter AI-Nutzung sind beide nicht dasselbe.
-
-### Current relevance
-
-`conditional` – keine belegte falsche Promotion in Histo-Orla, aber reale technische Möglichkeit und bereits beobachtete delegierte AI-Commits unter Owner-Identität.
-
-### Best current intervention hypothesis
-
-- AI darf materielle Change-Candidates strukturieren und auf einem nicht-kanonischen Pfad persistieren.
-- Promotion owner-only Zustände braucht explizite Authority-Evidence außerhalb des bloßen Git-Author-Feldes.
-- Wissenschaftliche/fachliche Entscheidungen benötigen zusätzlich die jeweils passende Domain-/Specialist-Authority; Human Owner ist kein Ersatz-Fachspezialist.
-- Kein zusätzlicher Requirements-Satz ist derzeit erkennbar: #42/#9/#24 + bestehende Requirements tragen das Ziel bereits. Die Lücke ist zunächst Delivery/Architecture/Tool Authority.
-
-### Reaction / disposition
-
-- Vorschlag: `HOLD`;
-- materieller Owner-Entscheid: `ESCALATE`;
-- unautorisierte direkte Promotion: `BLOCK` soweit formal erkennbar;
-- Problemstatus: `conditional`.
-- Governance disposition: `merge/derive`, keine neue Authority-Regelwelt.
+**Requirement disposition Slice 1:** **kein neuer Requirement-Candidate**. Route über bestehende `REQ-WF-001`, `REQ-STATE-001`, `REQ-TRACE-001`, `REQ-UX-002`, #24/#42/#48/#54/#61/#63.
 
 ---
 
-# 4. Was Slice 1 über die eigentliche Zielstruktur zeigt
+# 3. Slice 2 – Execution Cursor / Sticky Prerequisites / No-progress Loops
 
-Die vier Fälle reduzieren sich nicht sinnvoll auf vier neue Regeln. Sie zeigen zwei technische Schutzgrenzen plus eine fachliche Authority-Grenze:
+## 3.1 Kurzurteil
+
+Hier liegt der zentrale Fehler nicht in mangelnder KI-Disziplin, sondern in zwei noch fehlenden Operational Capabilities:
+
+1. **Postcondition / Progress / Idempotency Guard** – eine bereits erfüllte Operation erzeugt keine weitere Arbeit und keinen weiteren Commit.
+2. **Generated Current Execution Context** – ein frischer Ausführer erhält aus kanonischem State den gültigen Work Owner, die erlaubte nächste Aktion, Preconditions/Blocker und Stop-/Return-Bedingungen.
+
+`Sticky Prerequisites` ist daraus ableitbar und braucht keine eigene Governance-Welt.
+
+## 3.2 Evidence Register
+
+| ID | Klasse | Evidenz | Aussage |
+|---|---|---|---|
+| E-EC-001 | observed-histo | Commit `c01a59e3...` | eigentliche Recovery änderte State real |
+| E-EC-002 | observed-histo | `258753b9...` | direkt folgender Commit: gleicher Tree, `0 additions`, `0 deletions`, `files=[]` |
+| E-EC-003 | observed-histo | `39103f19...` | erneut gleicher Tree, `0/0`, keine Dateien |
+| E-EC-004 | observed-histo | `34a69afc...` | erneut gleicher Tree, `0/0`, keine Dateien |
+| E-EC-005 | observed-histo | `6253ae24...` | erneut gleicher Tree, `0/0`, keine Dateien |
+| E-EC-006 | observed-histo | `docs/architecture/assurance/live-pilot-system-analysis-chat-2026-08-31.md` P-SA-007 | frischer Context braucht funktionalen Restart, nicht bloße Dokumentexistenz |
+| E-EC-007 | observed-histo | `FB-20260902-003` | Owner-Pain: zu viel manuelle/chat-orchestrierte State-/Workflow-Arbeit |
+| E-EC-008 | current-state | `docs/architecture/operational-execution-architecture.md` | Work Context semantisch vorhanden, Generator fehlt |
+| E-EC-009 | current-state | `tools/operational/enforcement-map.json` | `context/resolve` für relevante Requirements geplant, nicht executable |
+| E-EC-010 | current-state | #61 / method-conformance-work-context | Work Context/Handoff als generierbare Struktur fachlich analysiert, noch kein Runtime-Resolver |
+| E-EC-011 | current-state | #24 S6 | Workflow/Pipeline Engineering soll Jobs idempotent und restartbar machen |
+
+## EC-01 – Wiederholte No-op Writes erzeugen künstliche Arbeit
+
+**Observed phenomenon:** Nach der eigentlichen Recovery wurden vier weitere Commits mit gleichem Commit-Message-Intent und identischem Tree erzeugt. Jeder hatte `stats.total=0`, `files=[]`.
+
+**Symptom:**
 
 ```text
-1. SAFE REPOSITORY MUTATION
-operation type + bounded delta + diff/loss + admission
-
-2. RESEARCH-STATE TRANSITION
-candidate/new object/promotion/supersession + predecessor/history + formal refs
-
-3. MATERIAL / SCHOLARLY AUTHORITY
-proposal != acceptance
-technical actor identity != human/domain authority evidence
+Postcondition bereits erfüllt
+→ dieselbe Write-Aktion erneut
+→ neuer Commit
+→ kein State Delta
+→ Wiederholung
 ```
 
-Diese Grenzen passen in die bereits vorgesehene Operational-Struktur:
+**Protected goal:** Fortschritt, saubere History, geringe Owner-/CI-Last, keine Loops ohne Erkenntnis-/State-Gewinn.
+
+**Root cause hypothesis:**
+
+- Write-Adapter akzeptiert no-op replacement als Commit;
+- Ausführung prüft vor Write nicht, ob gewünschter Zielzustand bereits gilt;
+- nach Tool-Ergebnis existiert keine kleine Progress-Postcondition;
+- Wiederholung derselben Operation auf demselben State besitzt keine Idempotency-/Loop-Semantik.
+
+Nicht belegt ist, **warum** das Modell/der Tool-Caller viermal wiederholte. Der Audit behauptet daher keinen psychologischen „LLM Loop“, sondern einen strukturell erlaubten No-progress-Pfad.
+
+**Problemstatus:** `confirmed-current`.
+
+**Best intervention hypothesis:** Adapter/Core prüft mindestens:
 
 ```text
-canonical semantics/state
-→ validate / context / resolve / transition
-→ BLOCK | HOLD | ESCALATE
-→ thin GitHub/AI/CLI adapter
+current_state_fingerprint
+requested_postcondition
+candidate_state_fingerprint
+
+candidate == current
+→ NO_CHANGE
+→ kein Write / kein Commit
+→ REDIRECT auf nächste gültige Aktion
 ```
 
-Für diesen Slice ist `REDIRECT` sekundär; es wird voraussichtlich im nächsten Cursor-/Loop-Slice zentral.
+Bei erneut identischer `(operation, target, input-state, postcondition)` ohne Delta: keine weitere Ausführung; sichtbares no-progress result.
 
----
+**Reaction:** primär `REDIRECT`; `BLOCK` nur für einen technisch unzulässigen erneuten No-op-Write.
 
-# 5. Minimaler Delta – noch keine Implementationsentscheidung
+**Rule disposition:** `replace` wiederholte Prompt-/Retry-Anweisungen durch Idempotency-/Postcondition-Guard.
 
-## Bereits vorhanden und zu behalten
+## EC-02 – Fresh-context Resume kennt Semantik, aber keinen ausführbaren Cursor
 
-- #42 Authority/Lifecycle;
-- `REQ-WF-001` und `REQ-STATE-001`;
-- #24 KI-negative Kernzone + Candidate→Promotion;
-- #50 Canonical-State-/History-Semantik;
-- #54 als Transition-Delivery-Owner;
-- #63 für technische Value-/Decision-/Delivery-Traceability;
-- Operational Core als gemeinsame Mechanik statt weiterem Validator-Silo.
+**Observed/current phenomenon:** P-SA-007 belegt, dass zuverlässige Fortsetzung erst nach erneutem Repo-Bootstrap gelang. #61 und AGENTS definieren die nötige Semantik; die Operational Architecture weist den fehlenden Context Generator ausdrücklich aus.
 
-## Reale aktuelle Gaps
+**Protected goal:** Ein neuer Chat/Modell/Ausführer setzt **am gültigen Punkt** fort und eröffnet nicht aus Plausibilität eine andere Arbeitsstufe.
 
-### G-AM-01 – Safe canonical repository mutation
+**Root cause:** Current task/owner/next action/authority sind heute über mehrere kanonische Stellen rekonstruierbar, aber nicht als kleiner transienter Execution Context deterministisch komponiert. Dadurch bleibt die Orchestrierung zu stark Aufgabe des Modells/Chats.
 
-Kein aktueller ausführbarer Guard verhindert, dass ein bounded beabsichtigter Change via Full Replace unerwartet gültigen kanonischen Inhalt löscht.
+**Problemstatus:** `confirmed-current` als Delivery-/Runtime-Gap; nicht jede einzelne falsche Cursorverschiebung ist als Histo-Schadensfall belegt.
 
-**Route:** #48/#59 unter bestehendem `REQ-WF-001`, `REQ-STATE-001`, `REQ-LEAN-001`; kein neuer Requirement-Candidate aus diesem Audit.
-
-### G-AM-02 – Pre-promotion repository admission
-
-`main` ist unprotected; keine Rulesets; Assurance ist nicht required-before-promotion. Zentrale Project-/Research-State-Pfade liegen teilweise außerhalb des Workflow-Triggers.
-
-**Route:** #48/#59 technische Mittel-/UX-Prüfung; ggf. #63 nur soweit formale Delivery-Trace betroffen ist. Keine automatische Forderung „alles braucht PR“ – die Lösung muss Owner-Aufwand minimieren.
-
-### G-AM-03 – Research-state transition enforcement
-
-#54 / `transition` ist geplant, nicht implementiert.
-
-**Route:** bestehender #54-Owner; first-real-slice statt neuer Governance.
-
-### G-AM-04 – Material authority evidence under delegated AI credentials
-
-Git actor/credential ist kein hinreichender Beleg für Human-/Domain-Authority, wenn AI unter demselben Account schreibt.
-
-**Route:** zunächst #48/#61/#63 als Architecture/Work-Context/Promotion-Frage gegen bestehende Authority Requirements prüfen. Nur falls eine echte Requirement-Lücke verbleibt, Rückgabe an #42.
-
----
-
-# 6. Simplification / Löschpotenzial
-
-Noch wird **keine bindende Governance gelöscht**, weil die Ersatzmechanismen nicht implementiert sind. Slice 1 identifiziert aber konkretes späteres Konsolidierungspotenzial:
-
-1. Wiederholte Prosa `AI darf canonical X nicht still ändern` kann nach wirksamer Mutation-/Transition-Grenze aus Adaptern/Skills/Prompts verschwinden und auf den kanonischen Contract verweisen.
-2. Detailwarnungen über Full-File-Replace gehören nach einem executable safe-write boundary nicht dauerhaft in Agentenprompts.
-3. `Candidate before Canonical` bleibt fachlich als eine Invariante erhalten; einzelne Workflow-Wiederholungen können aus Derived Context/Transition Policy erzeugt werden.
-4. GitHub-/CI-Prozess darf kein neuer Owner-Workflow werden: sobald eine technische Admission-Grenze zuverlässig wirkt, soll der Research Owner im Normalfall nur consequential Ausnahmen/Entscheidungen sehen.
-
-**Löschregel:** Erst Ersatznachweis + adversarial fixture, dann `retire-active`; Git/Issue-Historie bewahrt Motivation und frühere Failure-Evidence.
-
----
-
-# 7. Adversarial Fixtures aus Slice 1
-
-Diese Fixtures sind Audit-/Delivery-Inputs, noch keine neuen Tests dieses PRs:
-
-### F-AM-01 – Bounded edit deletes unrelated canonical tail
-
-Given: bounded Änderung an einem Abschnitt.  
-When: Adapter erzeugt zusätzlich große nicht deklarierte Löschung.  
-Then: `BLOCK` vor canonical promotion.
-
-Realer Seed: Commit `ca4118...`.
-
-### F-AM-02 – Direct canonical write without required admission
-
-Given: AI kann Branch/Repo beschreiben.  
-When: consequential canonical path soll direkt promoted werden.  
-Then: vorgeschriebener Admission-Pfad darf nicht umgangen werden.
-
-### F-AM-03 – New model supersedes Working Finding by plausibility only
-
-Given: existing Working Finding + history.  
-When: anderes Modell schlägt widersprechendes Urteil ohne neue Basis vor.  
-Then: `HOLD` als Candidate; keine Supersession.
-
-### F-AM-04 – AI-authored commit appears as owner credential
-
-Given: delegated GitHub write uses owner principal.  
-When: Change beansprucht material owner authority nur wegen Git author.  
-Then: Authority bleibt unbewiesen; `ESCALATE/HOLD`.
-
-### F-AM-05 – Valid scholarly correction with complete basis
-
-Given: neue Evidenz + passende Method/Review-Basis.  
-When: bestehendes Finding korrigiert/superseded wird.  
-Then: Transition muss zulässig sein und History erhalten; Guard darf legitime wissenschaftliche Revision nicht blockieren.
-
-Dieser Positivfall verhindert, dass AI-Resilience in Unveränderlichkeit des Research State kippt.
-
----
-
-# 8. Wissensarbeit-Vergleich – strukturell, nicht normativ
-
-Aktueller `esany/Wissensarbeit`-Stand bestätigt als generische Strukturreferenz:
-
-- `project/GOVERNING_OBJECTIVE.md`: Exploration frei, Promotion kontrolliert; Git-Provenienz/Diff/Review/Reversibilität; Meta-Arbeit darf nicht Hauptprodukt werden.
-- `system/authority.json`: `deterministic → software`, `procedural → workflow`, `judgement → ai_plus_human_or_specialist`; AI darf materielle Requirement-/Priority-/Domain-Änderungen vorschlagen, nicht akzeptieren.
-- `system/material_state.json`: Persistenz eines Candidates ist ausdrücklich nicht Promotion.
-- `tools/work.py`: kleine executable Contracts/Validatoren statt Agenten-/Workflow-Plattform.
-
-Wichtig für Histo-Orla: Das Template liefert **kein fertiges Repo-Sicherheitsmodell** und ersetzt keine Histo-Research-Semantik. Auch im Wissensarbeit-Repository ist `main` aktuell nicht GitHub-branch-protected. Das übertragbare Muster ist daher Capability-/Authority-Trennung, nicht die Annahme, das Referenzrepo habe jede Promotion technisch gelöst.
-
----
-
-# 9. Slice-1 Disposition
-
-| Fall | Histo-Problemstatus | primäre Reaktion | aktuelle Schutzlage | Regel-/Mechanismus-Disposition |
-|---|---|---|---|---|
-| AM-01 destructive full replace | `confirmed-current` | `BLOCK` | Recovery durch Git, Prävention fehlt | `refine → replace prose by executable safe-write boundary` |
-| AM-02 unprotected canonical admission | `confirmed-current` | `BLOCK/ESCALATE` | CI vorhanden, aber nicht required; Pfadlücken | `merge/derive` |
-| AM-03 silent Research-State supersession | Schadensfall `unproven`, Enforcement-Gap `confirmed-current` | `HOLD/BLOCK/ESCALATE` | Semantik stark, #54 `planned` | `retain → derive after transition implementation` |
-| AM-04 authority laundering via delegated credential | `conditional` | `HOLD/ESCALATE` | semantische Owner klar, technische Authority-Evidence offen | `merge/derive` |
-
-## Requirement disposition
-
-**Kein neuer Requirement-Candidate aus Slice 1.**
-
-Die bestätigten Gaps werden gegen bestehende Requirements getragen:
-
-- `REQ-WF-001` – deterministic invariant enforcement;
-- `REQ-STATE-001` – canonical/recoverable/chat-independent state;
-- `REQ-TRACE-001` – material technical work to authority/value/decision/feedback;
-- `REQ-UX-002` – challenge/correct/demote ohne Routine-Micromanagement;
-- #42/#9/#24 – Material-/Requirement-/AI-Authority.
-
-Sollte G-AM-04 nach technischer Analyse nicht aus bestehenden Authority-/Trace-/Work-Context-Verträgen ableitbar sein, ist erst dann ein echter Requirement-Gap an #42 zurückzugeben.
-
----
-
-# 10. Nächste Aktion unter #70
-
-Slice 2 prüft **Execution Cursor / Sticky Prerequisites / No-progress Loops** nach derselben Genealogie. Dabei ist der aktuelle Nebenbefund zu untersuchen, dass am 2026-09-03 mehrere identische/inhaltlich no-op Restore-Commits mit gleichem Tree erzeugt wurden: mögliche Tool-/Retry-/Loop-Friktion, aber noch keine vorweggenommene Root-Cause-Disposition.
-
-Vor jeder Implementation aus Slice 1 gilt:
+**Best intervention hypothesis:** `context`/`resolve` erzeugt einen rebuildbaren Work Context aus bestehenden Truth Sources, mindestens:
 
 ```text
-Audit finding
-→ existing requirement/owner?
-→ #48 technical option / smallest sufficient mechanism
-→ #59 implementation + adversarial fixture
-→ real vertical research use
-→ owner feedback
-→ only then governance retirement
+work_owner_ref
+primary_function
+bounded objective / scope / exclusions
+current executable action or stage
+completed prerequisites + basis
+open blockers / unresolved dependencies
+may / must-not
+stop / handoff / return condition
+persistence target
 ```
 
-Kein #44-Blocker ergibt sich aus Slice 1: Es liegt aktuell keine nicht-ableitbare Owner-Entscheidung vor, sondern zunächst technische/operationalisierbare Lücken innerhalb bestehender Requirements.
+Der Output ist Derived/Runtime Context, **kein zweiter Task Truth Store**.
+
+**Reaction:** `REDIRECT` bei Drift auf nicht autorisierte/erledigte Stufe; `ESCALATE` nur bei echter materialer Mehrdeutigkeit.
+
+**Rule disposition:** `derive`; Handoff-/Work-Context-Prosa soll langfristig aus kanonischem State kompiliert werden.
+
+## EC-03 – Sticky Prerequisite braucht Basis + Invalidierung, nicht „nie wieder prüfen“
+
+**Observed Histo failure:** `unproven` für den spezifischen Fall „neue KI rollt deterministisch bestandene Precondition erneut auf“.
+
+**Current structural state:** Es gibt keine allgemeine executable Prerequisite-/Invalidation-Projektion. #63 besitzt bereits ein engeres Freshness-Pattern: ein alter `verified` Implementation-Record schaltet veränderten Code nicht dauerhaft frei. Das zeigt, dass Gültigkeit an Basis/Change gebunden werden kann.
+
+**Protected goal:** Fortschritt über Context-/Modelwechsel erhalten, ohne legitime Re-Validierung zu verhindern.
+
+**Root cause if it occurs:** Der Status einer Precondition und die Bedingungen, unter denen er ungültig wird, sind nicht explizit genug außerhalb des Modells repräsentiert.
+
+**Best intervention hypothesis:** kein globaler Workflow Engine State. Wo eine echte Precondition formal relevant ist:
+
+```text
+prerequisite_ref
+status = pass | fail | unresolved
+basis_refs / fingerprint
+validated_at
+invalidation_conditions_or_events
+```
+
+Neue Modellunsicherheit ist **kein** Invalidation Event. Geänderte Basis, Source-Version, Requirement, Method Status, Rights-/Availability-State oder expliziter Owner-Change **kann** eines sein.
+
+**Problemstatus:** `conditional`.
+
+**Reaction:** `REDIRECT` bei grundloser Wiederholung; bei realem Invalidation Event normale Re-Validation; bei fachlicher Unsicherheit `HOLD/ESCALATE` statt künstlichem PASS.
+
+**Rule disposition:** `defer/derive`; keine neue „sticky prerequisite“-Regel bis ein realer Consumer die Projektion benötigt.
+
+## EC-04 – Support-/Governance-Arbeit kann den Research Cursor übernehmen
+
+**Observed phenomenon:** #64 und `FB-20260902-003` dokumentieren realen Owner-Pain: Root/Handoff/Meta-Artefakte und manuelle Chat-Orchestrierung beanspruchen zu viel Aufmerksamkeit; Schutz-/Systemarbeit droht selbst zum sichtbaren Value Stream zu werden.
+
+**Protected goal:** Research Owner arbeitet an historischen Fragen; System-/Support-Arbeit bleibt dienend und erzeugt nicht durch Eigengewicht einen neuen Forschungsauftrag.
+
+**Root cause:**
+
+- semantisch getrennte Owner/Issues werden im aktuellen textlastigen Betrieb zu manuellen operativen Handoffs;
+- Current Research Question/Next Research Action ist nicht als research-first Derived View/Context verfügbar;
+- Support-Artefakte können dadurch faktisch zum nächsten Cursor werden, obwohl sie keine Research-Priority-Authority besitzen.
+
+**Problemstatus:** `confirmed-current`.
+
+**Best intervention hypothesis:** Current Context muss den **autoritativen Primärauftrag** und dessen nächste Aktion von Support-/Review-Arbeit unterscheiden. Support work darf Findings/Candidates/System-Learnings erzeugen, aber einen neuen primary research cursor nur über vorhandene Purpose/Priority Authority.
+
+**Reaction:** `REDIRECT`.
+
+**Rule disposition:** `merge/derive`; die lange Owner-/Handoff-Topologie darf nicht als Nutzerworkflow gespiegelt werden.
+
+## 3.3 Slice-2 Konsolidierung
+
+Die Fälle reduzieren sich auf zwei Capabilities:
+
+```text
+A. CURRENT EXECUTION CONTEXT / CURSOR RESOLUTION
+canonical owners + task + dependencies + prerequisite validity
+→ generated current executable action
+
+B. PROGRESS / IDEMPOTENCY GUARD
+requested postcondition + current state + outcome
+→ delta | no_change | blocker
+→ no repeated work without delta
+```
+
+**Requirement disposition Slice 2:** kein neuer Requirement-Candidate. Bestehende Basis: `REQ-WF-002`, `REQ-STATE-001`, `REQ-TRACE-001`, `REQ-UX-001/002`, `REQ-LEAN-001`, #24, #61.
+
+---
+
+# 4. Slice 3 – Evidence / Epistemic Boundary
+
+## 4.1 Kurzurteil
+
+Dieser Slice unterscheidet zwei Kategorien, die nicht gemeinsam „wegoptimiert“ werden dürfen:
+
+1. **dauerhafte wissenschaftliche Semantik:** Source/Representation/Instance/Derivative/Observation/Finding/Interpretation, AI≠Evidence, unresolved, Source Dependence, Validation Levels;
+2. **noch fehlende Operationalisierung:** aktuelle Availability/Inspectability, formale Layer-/Evidence-Typguards, Source-/Model-output als untrusted data an Toolgrenzen.
+
+Die wissenschaftlichen Grenzen sind kein historisches KI-Pflaster. Sie würden auch in einem rein menschlichen oder regelbasierten System gelten.
+
+## 4.2 Evidence Register
+
+| ID | Klasse | Evidenz | Aussage |
+|---|---|---|---|
+| E-EE-001 | current binding semantics | #45 | Evidence Fit, Inference Fit, Provenance Fit; AI ist keine Evidenzklasse |
+| E-EE-002 | current binding semantics | `docs/research/source-identity-protocol.md` | Source/Representation/Instance/Findspot/Excerpt/Finding strikt getrennt |
+| E-EE-003 | observed-histo research state | `orlagau-source-access-index.md` | bibliographisch identifiziert ≠ institutionelles Digitalisat verifiziert ≠ inhaltlich inspiziert |
+| E-EE-004 | observed-histo research state | `orlagau-source-ledger.md` | mehrere Archivstücke `archive catalogue only / original not yet inspected` |
+| E-EE-005 | observed-histo research state | `SRC-ED-0004` Lampe | `Grune = Mönchgrün` und `[IV]/[XI]` sind editorische Identifikationen, nicht Urkundenwortlaut |
+| E-EE-006 | current accepted requirement | `REQ-STATE-003` | Restartability umfasst tatsächlich research-ready Evidence Availability |
+| E-EE-007 | current accepted requirement | `REQ-EPI-005` | AI output ist weder Evidenz noch unabhängige Validierung |
+| E-EE-008 | current accepted requirement | `REQ-EPI-006`, `REQ-MTH-004`, `REQ-RSCH-001/003/004` | epistemische/arbeitsbezogene Zustände und Inferenzgrenzen bleiben getrennt |
+| E-EE-009 | current architecture | #50 canonical-state contract | formale Layer- und History-Invarianten vorhanden |
+| E-EE-010 | current enforcement | enforcement map | `evidence`/`resolve` für `REQ-STATE-003` sind `planned` |
+| E-EE-011 | current security architecture | #24 S11/S16 + #56 | least privilege / Tool Boundary / external-processing guards vorgesehen |
+| E-EE-012 | repo search | Histo default branch | kein eigener expliziter Contract/Negativtest `Source/Data != Instructions` gefunden |
+
+## EE-01 – Evidence Identity ≠ Availability ≠ Inspectability
+
+**Observed phenomenon:** Der reale Orlagau-State enthält Quellen, die bibliographisch verifiziert sind, deren öffentliches Volltextdigitalisat aber `not yet verified` ist, sowie Archivstücke, die nur als Katalogrecord vorliegen. Andere Instanzen sind tatsächlich visuell inspiziert.
+
+**Protected goal:** Die nächste Research-Aktion darf nur auf eine Evidenzlage bauen, die für genau diese Operation real existiert.
+
+**Root cause of the failure pattern:** Ein einziger generischer Zustand wie `source found` oder eine URL kollabiert mehrere unabhängige Tatsachen:
+
+```text
+IDENTIFIED
+REPRODUCIBLE / VERSION-CHECKABLE
+RETRIEVABLE
+ACCESSIBLE NOW
+INSPECTABLE IN CURRENT CONTEXT
+RIGHTS-ADMISSIBLE FOR REQUESTED OPERATION
+```
+
+**Problemstatus:** `confirmed-current` als Operational Gap; die wissenschaftliche Semantik selbst ist bereits gut modelliert.
+
+**Current enforcement:** `REQ-STATE-003` accepted; #57 planned; `evidence/resolve` planned.
+
+**Best intervention hypothesis:** kleiner `evidence`-Resolver ermittelt nur technisch prüfbare Zustände und gibt unbekannt/degraded explizit zurück. Er darf Source Identity oder scholarly inspection nicht aus URL-/Locator-Erfolg erfinden.
+
+Wenn die nächste Aktion direkte Inspektion verlangt und `INSPECTABLE NOW` fehlt: `BLOCK` für genau diesen Schritt bzw. sichtbarer Availability-Blocker. Discovery/Hypothesenarbeit kann ggf. `HOLD` weiterlaufen.
+
+**Rule disposition:** `retain` fachliche Semantik; repetitive Access-/URL-Warnungen später `derive` aus Evidence State.
+
+## EE-02 – Observation / Reading / Normalization / Identification / Interpretation dürfen nicht kollabieren
+
+**Observed phenomenon:** Beim Lampe-Fall sind `villa in Grune → Mönchgrün` sowie Ordinalzahlen editorische Ergänzungen. Das Source Ledger bewahrt dies ausdrücklich statt es als historischen Wortlaut zu normalisieren.
+
+**Protected goal:** quellenkritische Nachvollziehbarkeit und Möglichkeit späterer Neuinterpretation.
+
+**Root cause:** allgemeine Repräsentations-/Modellierungsgefahr: ein flaches Feld oder ein generativer Text kann editorische, beobachtete und analystische Aussagen zu einer scheinbar einheitlichen „Tatsache“ verschmelzen. Das ist **nicht LLM-spezifisch**.
+
+**Problemstatus:** `confirmed-current` als dauerhaft relevantes wissenschaftliches Risiko; aktueller reale Fall zeigt zugleich, dass die bestehende manuelle Semantik es erfolgreich abfangen kann.
+
+**Best intervention:** Source-/Research-State-Layer als getrennte Objekte/Relations erhalten; formale Layer-Fehlzuordnungen deterministisch blockierbar machen, fachliche Identifikations-/Interpretationsrichtigkeit aber bei Domain Method/Review belassen.
+
+**Reaction:**
+
+- formaler Layer-Fehler: `BLOCK`;
+- plausible neue Identifikation/Lesung: `HOLD`;
+- consequential fachliche Entscheidung: `ESCALATE` proportional zur Methode/Validation.
+
+**Rule disposition:** `retain` als wissenschaftliche Invariante; `merge/derive` nur ihre redundanten technischen Wiederholungen.
+
+## EE-03 – AI output ≠ Evidence / independent validation
+
+**Current scientific invariant:** `REQ-EPI-005`, #45 und #50 sind eindeutig. Mehrere korrelierte AI-Urteile erzeugen keine unabhängige Evidenz oder qualifizierte Fachvalidierung.
+
+**Original motivation:** nicht bloß beobachteter Modellfehler, sondern epistemische Abhängigkeits- und Authority-Grenze.
+
+**Protected goal:** Evidence und Validation bleiben an Quelle, Methode und echte unabhängige Prüfung gebunden.
+
+**Root cause of failure if violated:** Typ-/Authority-Laundering – technische/modelseitige Outputs werden als Evidenzklasse oder unabhängiger Reviewer umetikettiert.
+
+**Problemstatus:** `confirmed-current` als dauerhaft aktive Grenze, solange generative AI beteiligt ist; kein spezifischer Histo-Schadensfall erforderlich, um die wissenschaftliche Invariante zu begründen.
+
+**Best intervention:**
+
+- formal: `prompt/model_run/ai_output` kann nicht als `evidence` oder `independent_expert_validation` promoted werden;
+- scholarly: ob Evidence trägt und welche Validation ausreicht, bleibt Fachmethode/Consequence Review.
+
+**Reaction:** formale Fehlklassifikation `BLOCK`; AI-Synthese/Hypothese `HOLD`; echte unabhängige Validierung `ESCALATE` nur wenn erforderlich.
+
+**Rule disposition:** `retain`; Promptwiederholungen nach formaler Typ-/Transition-Grenze `derive/retire-active`.
+
+## EE-04 – Source/Data ≠ Instructions / Model Output ≠ Tool Authority
+
+**Histo observed incident:** `unproven`.
+
+**Current structural evidence:** #24 verlangt Tool Boundary, Security/Least Privilege und strukturierte AI Inputs/Outputs; #56 plant Least-Privilege-/Rights-Guards. Im aktuellen Histo-Repo wurde jedoch kein expliziter Contract/Negativtest gefunden, der Source-/Dokumentinhalt als untrusted data von System-/Tool-Instructions trennt.
+
+**Protected goal:** Eine historische Quelle, PDF-Metadaten, OCR-Text oder Modelloutput darf allein durch seinen Inhalt keine Instruction-, Execution- oder Write-Authority erhalten.
+
+**Root cause if activated:** Daten- und Kontrollkanal sind im AI-/Tool-Adapter nicht ausreichend getrennt.
+
+**Current relevance:** `conditional` – kritisch sobald untrusted/source content automatisch in tool-using AI flows gelangt; heute kein belegter Histo-Schadensfall und keine Rechtfertigung für eine neue Governance-Schicht.
+
+**Best current intervention hypothesis:** bei Einführung entsprechender AI-/Tool-Flows adversarial fixture + Tool Boundary/least privilege:
+
+```text
+source/document/model output
+= untrusted data
+≠ instruction authority
+≠ permission grant
+≠ canonical write authority
+```
+
+**Reaction:** `BLOCK` für tool/write action, deren Authority nur aus Source-/Model-Content stammt.
+
+**Requirement disposition:** zunächst `defer`. #48/#56 prüfen bei realem Tool-Flow, ob #24 + bestehende Security-/WF-Requirements ausreichen. Nur ein danach verbleibender echter Requirement-Gap geht an #42.
+
+## 4.3 Slice-3 Konsolidierung
+
+Die Fälle reduzieren sich auf drei Schutzfähigkeiten:
+
+```text
+A. EVIDENCE STATE / AVAILABILITY RESOLUTION
+identity + route + actual current inspectability + rights
+
+B. EPISTEMIC LAYER / TYPE INTEGRITY
+source/representation/observation/finding/interpretation/validation
+
+C. UNTRUSTED I/O + LEAST PRIVILEGE
+source/model output cannot grant instruction/tool/write authority
+```
+
+`A` und `C` sind primär technische Operationalisierung. `B` bleibt wissenschaftliche Semantik mit deterministisch prüfbaren Teilgrenzen.
+
+**Requirement disposition Slice 3:** kein bestätigter neuer Requirement-Gap. `Source/Data != Instructions` bleibt conditional Architecture/Security Review Input, bis ein realer Consumer/Threat Model die Lücke konkretisiert.
+
+---
+
+# 5. Cross-Slice Root-Cause Consolidation
+
+Die bisher betrachteten Failure Modes brauchen **keine 18 aktiven Schutzwelten**. Die ersten drei Slices verdichten sich auf sechs wiederverwendbare Grenzen:
+
+| Boundary / Capability | schützt | primäre Reaktionen | Status |
+|---|---|---|---|
+| Safe Repository Mutation | kanonische Datei-/Project-State-Integrität | BLOCK | echter Gap |
+| Research-State Transition | Candidate/Promotion/History | HOLD/BLOCK/ESCALATE | #54 planned |
+| Material / Scholarly Authority | Purpose/Priority/Requirement/Fachurteil | HOLD/ESCALATE | Semantik stark, Authority-Evidence technisch partiell |
+| Current Context + Progress | Cursor, Preconditions, Restart, no-progress | REDIRECT | Generator/Guard fehlen |
+| Evidence Resolve | Identity/Availability/Inspectability/Rights | BLOCK/HOLD | semantics accepted, runtime planned |
+| Epistemic Type + Untrusted I/O | Layering, AI-non-evidence, Tool Boundary | BLOCK/HOLD/ESCALATE | scholarly core strong; I/O firewall conditional |
+
+Querschnittlich gilt **Owner Effort / Research Value** als Acceptance-Kriterium aller sechs Grenzen, nicht als siebte Workflow-Schicht.
+
+## 5.1 Was bereits geschützt ist
+
+Stark/kanonisch vorhanden:
+
+- fachliche Source-/Evidence-/Inference-Grenzen (#45, Source Identity Protocol, #60);
+- AI≠Evidence/independent validation (`REQ-EPI-005`);
+- uncertainty/unresolved (`REQ-EPI-004`);
+- Candidate/Canonical/History-Semantik (#50);
+- Work Context/Handoff-Semantik (AGENTS/#61);
+- deterministic-vs-judgement principle (`REQ-WF-001`, #24);
+- Goal/Need/Pain→Requirement→Delivery→Feedback Trace (`REQ-TRACE-001`).
+
+## 5.2 Was tatsächlich noch nicht ausreichend ausführbar ist
+
+1. bounded/destructive canonical write guard;
+2. realer pre-promotion repo admission path für consequential state;
+3. Research-State `transition` (#54);
+4. generated current Work Context / cursor resolver;
+5. progress/idempotency/no-change guard;
+6. Evidence Availability/Inspectability resolver (#57/#49);
+7. formal AI-output/evidence/reviewer-type guards dort, wo strukturierter State entsteht;
+8. untrusted Source/Model-I/O Tool Boundary, sobald realer tool-using consumer existiert.
+
+Das ist deutlich kleiner als die ursprüngliche Failure-Mode-Liste.
+
+---
+
+# 6. Regel-Genealogie / Lösch- und Konsolidierungslogik
+
+Noch wird **keine bindende wissenschaftliche oder Governance-Regel gelöscht**, weil die Ersatzmechanismen größtenteils noch nicht implementiert sind.
+
+Nach Replacement + Fixture können jedoch aktive Wiederholungen entfallen:
+
+1. `AI darf canonical X nicht still ändern` muss nicht in jedem Adapter/Skill/Prompt wiederholt werden, wenn Mutation/Transition technisch fail-closed ist.
+2. Detailwarnungen über Full-File-Replace können aus Prompts verschwinden, wenn bounded write / diff-loss guard existiert.
+3. Work-Owner-/Scope-/May/Must-not-/Handoff-Blöcke sollen aus canonical state **generiert**, nicht in Root/README/Prompts parallel gepflegt werden.
+4. `Source identified != available != inspected` soll als Evidence State erscheinen; einzelne manuelle Warntexte können danach abgeleitet werden.
+5. `AI != Evidence` bleibt als eine fachliche Invariante kanonisch; redundante Prompt-/Template-Versionen können nach Typ-/Transition-Guard entfernt werden.
+6. Support-/Governance-Issues bleiben semantische Owner, dürfen aber nicht zu sichtbaren Nutzer-Workflows werden.
+7. Jede neue vermeintliche KI-Regel muss zuerst zeigen, welche bestehende aktive Prosa/Manuellprüfung sie **ersetzt oder vermeidet**.
+
+**Retirement Gate:**
+
+```text
+protected goal identified
++ replacement mechanism active
++ negative/adversarial fixture passes
++ positive legitimate path still passes
++ no accepted Requirement/Method semantic loss
+→ retire-active / merge / derive
+```
+
+Git/Issue-History bewahrt Motivation und frühere Failure-Evidence.
+
+---
+
+# 7. Adversarial Fixture Set v0
+
+Diese Fixtures sind Delivery-/Assurance-Input, noch nicht Implementation dieses Audit-PRs.
+
+## Mutation / Authority
+
+- **F-AM-01:** bounded edit löscht unrelated canonical tail → `BLOCK`.
+- **F-AM-02:** consequential canonical write umgeht required admission → `BLOCK`.
+- **F-AM-03:** neues Modell superseded Working Finding nur wegen Plausibilität → `HOLD`.
+- **F-AM-04:** AI-Commit erscheint als Owner-Credential; daraus wird Owner-Authority abgeleitet → Authority bleibt unbewiesen.
+- **F-AM-05:** legitime scholarly correction mit neuer Evidence/Method/Review-Basis → zulässige Transition + History-Erhalt.
+
+## Cursor / Progress
+
+- **F-EC-01:** desired file/tree already equals current state; erneuter Write angefordert → `NO_CHANGE`, kein Commit.
+- **F-EC-02:** gleiche Operation + gleicher Target-State wiederholt ohne Delta → `REDIRECT`, keine neue Arbeit.
+- **F-EC-03:** Precondition `PASS`, Basis unverändert, neues Modell ist unsicher → kein Invalidation; `REDIRECT`.
+- **F-EC-04:** Precondition `PASS`, Basis-Hash/Requirement/Method/Availability ändert sich relevant → Re-Validation zulässig/erforderlich.
+- **F-EC-05:** Support-/Audit-Task versucht ohne Purpose-/Priority-Authority den primary Research Cursor zu übernehmen → `REDIRECT`.
+- **F-EC-06:** fresh context rekonstruiert Work Owner, current action, unresolved, non-goals und persistence target ohne alten Chat.
+
+## Evidence / Epistemic
+
+- **F-EE-01:** Source ID + URL bekannt, Byte/Instance im aktuellen Context nicht inspectable; nächste Aktion verlangt Autopsie → sichtbarer Blocker, keine fingierte Inspektion.
+- **F-EE-02:** Katalogrecord soll als inspected archival source promoted werden → `BLOCK`.
+- **F-EE-03:** editorische Identifikation `Grune = Mönchgrün` wird als Urkundenwortlaut ausgegeben → Layer-Fehler `BLOCK`/Review.
+- **F-EE-04:** AI summary wird als Evidence klassifiziert → `BLOCK`.
+- **F-EE-05:** zweites korreliertes Modellreview soll `independent expert validated` erzeugen → `BLOCK`.
+- **F-EE-06:** Source-/OCR-Text enthält scheinbare Tool-/Systemanweisung; Adapter will daraus Write-/Execution-Authority ableiten → `BLOCK`.
+- **F-EE-07:** neue Evidenz widerspricht Working Finding → `HOLD` als Challenge/Alternative und normaler scholarly Review-Pfad, keine erzwungene Harmonie.
+
+Positivfixtures sind zwingend: AI-Resilience darf weder Research State einfrieren noch berechtigte wissenschaftliche Revision blockieren.
+
+---
+
+# 8. Wissensarbeit als generische Strukturreferenz
+
+Fresh current state bestätigt als **vergleichbare Struktur**, nicht als fertige Histo-Lösung:
+
+- `project/GOVERNING_OBJECTIVE.md`: Exploration frei, Promotion kontrolliert; Git-Diff/Review/Reversibilität; Meta-Arbeit darf nicht Hauptprodukt werden.
+- `system/authority.json`: `deterministic → software`, `procedural → workflow`, `judgement → ai_plus_human_or_specialist`.
+- `system/material_state.json`: Persistenz eines Candidates ist nicht Promotion; continuity failure ist materiality signal.
+- `system/reconciliation.json`: `active_work` ist eine Impact-Surface; Reconciliation erteilt keine materielle Authority.
+- `project/CURRENT_STATE.md`: Derived View, ausdrücklich keine parallel gepflegte Truth.
+
+Nicht übernehmen:
+
+- Histo-Source-/Evidence-/Method-Semantik;
+- eine universelle Lifecycle State Machine;
+- Annahme, das Template habe GitHub-Admission bereits gelöst – auch dort ist `main` aktuell nicht branch-protected.
+
+Übertragbares Muster:
+
+```text
+HISTO DOMAIN / RESEARCH SEMANTICS
+→ CANONICAL STATE
+→ generic capabilities
+   validate | resolve | context | evidence | transition | derive | trace
+→ BLOCK | HOLD | REDIRECT | ESCALATE
+→ thin AI / GitHub / CLI / source adapters
+```
+
+---
+
+# 9. Requirement / Owner Disposition
+
+## Kein bestätigter neuer Requirement-Gap aus Slices 1–3
+
+Die realen/aktuellen Gaps sind zunächst durch bestehende Requirements und Owner tragbar:
+
+- safe mutation / progress / deterministic guards → `REQ-WF-001/002`, `REQ-STATE-001`, `REQ-LEAN-001`, #24, #48/#59;
+- research transition → #50/#54 + `REQ-EPI-004/005`, `REQ-VAL-*`, `REQ-MTH-004`;
+- context/cursor/restart → #61/#57 + `REQ-STATE-001/003`, `REQ-UX-*`;
+- evidence resolve → #49/#50/#57 + Source Identity Protocol, `REQ-SRC-*`, `REQ-STATE-003`;
+- scholarly layer/validation → #45/#60 + `REQ-EPI-*`, `REQ-CRIT-*`, `REQ-VAL-*`;
+- owner/material authority → #42/#9/#24/#61/#63;
+- Source/Data-vs-Instruction firewall → **conditional** #48/#56 review; erst nach realem Consumer-/Threat-Model-Gap ggf. #42.
+
+## Routing
+
+```text
+Audit Finding
+→ existing requirement + owner? implement/validate there
+→ true Requirement Gap after gap check? #42
+→ Method Gap? #60
+→ Technical means / integration? #48/#59
+→ Research transition? #54
+→ Restart/evidence availability? #57
+→ Security/rights/tool least privilege? #56/#48
+→ genuine Owner decision/blocker? #44
+```
+
+Aktuell entsteht aus Slices 1–3 **kein #44-Blocker**.
+
+---
+
+# 10. CI-/Assurance-Nebenbefund
+
+Draft-PR #71 löste Project Assurance aus. Die Regressionstests waren grün, `tools/requirements/validate.py` scheiterte jedoch an:
+
+`REQ007 [REQ-WF-001]: Delivery status 'partial' requires a structured QA record`.
+
+Dieser Fehler ist **nicht durch den Audit-PR erzeugt**. Er besteht bereits auf `main` seit Commit `d52d3d1122d46a7547fb689fc036645933d4c4b7`; Run `33693049140` scheiterte mit demselben Fehler. Der Befund wurde an #62 geroutet und nicht opportunistisch im Audit repariert.
+
+Zusätzliche Audit-Relevanz: unprotected `main` kann canonical bleiben, obwohl Push-CI rot ist. Das stützt AM-02, ist aber keine neue Requirement-Semantik.
+
+---
+
+# 11. Was die ersten drei Slices widerlegen
+
+1. **„Wir brauchen einfach strengere Prompts.“** – widerlegt durch Full-Replace, no-op commits und fehlende Admission/Runtime Guards.
+2. **„Alle 18 Failure Modes brauchen eigene Regeln.“** – bisherige Fälle kollabieren auf wenige Capabilities/Boundaries.
+3. **„Git-History allein schützt canonical state.“** – Git ermöglicht Recovery, verhindert falschen Zwischenzustand aber nicht.
+4. **„Ein CI-Workflow ist automatisch eine Promotion-Grenze.“** – aktuell falsch.
+5. **„Fresh restart ist gelöst, wenn Dokumente existieren.“** – P-SA-007/#61 widersprechen.
+6. **„Source gefunden = Evidence verfügbar.“** – reale Source-/Access-States widersprechen.
+7. **„Bessere KI könnte AI≠Evidence überflüssig machen.“** – Kategoriefehler; epistemische Unabhängigkeit hängt nicht von Modellqualität ab.
+8. **„Mehr Governance schützt automatisch besser.“** – Owner-Pain und fehlende Runtime-Fähigkeiten zeigen das Gegenteil.
+
+---
+
+# 12. Nächste Auditphase
+
+Die ersten drei Slices liefern jetzt genug Evidenz für eine **systematische Disposition der restlichen Referenz-Failure-Modes**, ohne sie einzeln zu neuen Regeln auszubauen.
+
+Nächste Schritte unter #70:
+
+1. 18 Referenzfälle gegen die sechs Root Boundaries mappen und jeweils `covered | partial | gap | duplicate/over-governed | not-applicable` vergeben.
+2. Prüfen, welche Root-/README-/AGENTS-/Issue-Prosa nach späterer executable Absicherung nur noch Pointer/Derived View sein muss.
+3. Technische Gaps als **bestehende Delivery-Backlogs** an #48/#54/#56/#57/#61 routen; keine Implementation Authority aus #70.
+4. Danach **ein enger Vertical Research Slice**: reale Forschungsfrage → reale Source/Instance/Findspot → Method Application → Finding/Uncertainty → persisted Research State → fresh-context resume. Schutzmechanismen müssen im Hintergrund wirken.
+5. Owner Acceptance: weniger Chat-/Governance-Orchestrierung bei mindestens gleicher wissenschaftlicher Sicherheit.
+
+## Stop rule
+
+Kein neues Meta-Artefakt, Issue, Requirement oder Schutzmechanismus nur deshalb, weil ein Referenz-Failure-Mode benannt werden kann. Ohne aktuelle Root Cause, Consumer und nachweisbaren Schutzgewinn bleibt er `unproven/conditional/defer`.
+
+> **Je deterministischer eine Grenze ist, desto weniger darf ihre Einhaltung von KI-Verhalten abhängen; je wissenschaftlicher ein Urteil ist, desto weniger darf Software es determinieren.**
+
+> **Wir schützen Ziele und wissenschaftliche Integrität – nicht die historische Ansammlung ihrer Gegenregeln.**
