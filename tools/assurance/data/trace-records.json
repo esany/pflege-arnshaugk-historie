@@ -207,6 +207,23 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "Reconcile the pre-existing REQ007 baseline inconsistency by adding the required structured QA projection for active partial REQ-WF-001. No Requirement semantics, coverage status, or scientific authority changes."
+    },
+    {
+      "id": "IMP-OPMUT-001",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-OPCORE-001"],
+      "implementation_refs": [],
+      "implementation_files": ["tools/operational/mutation.py", "tools/operational/tests/test_mutation.py", "tools/assurance/data/trace-records.json"],
+      "verification_refs": ["tools/operational/tests/test_mutation.py", "issue:#70", "pull-request:#72"],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "D1 pre-write mutation guard: exact NO_CHANGE detection, bounded replacement constructed from fresh current state, destructive candidate mismatch blocked, ambiguous/missing preconditions fail closed, explicit full-replacement type, and a local atomic write adapter that skips writes on NO_CHANGE. Repo-wide GitHub admission remains a separate open boundary."
     }
   ]
 }
