@@ -224,6 +224,23 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "D1 pre-write mutation guard: exact NO_CHANGE detection, bounded replacement constructed from fresh current state, destructive candidate mismatch blocked, ambiguous/missing preconditions fail closed, explicit full-replacement type, and a local atomic write adapter that skips writes on NO_CHANGE. Repo-wide GitHub admission remains a separate open boundary."
+    },
+    {
+      "id": "IMP-ADMISSION-001",
+      "kind": "implementation",
+      "status": "active",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-OPCORE-001", "DEC-ASSURANCE-002"],
+      "implementation_refs": [],
+      "implementation_files": ["tools/assurance/data/trace-records.json", ".github/workflows/project-assurance.yml"],
+      "verification_refs": ["issue:#48", "issue:#59", "issue:#70"],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Prepare Project Assurance to be usable as a required PR check for consequential/canonical GitHub admission by ensuring every pull request emits the check while retaining push path filters to limit noise. Server-side required-PR/branch protection remains unavailable to the current connector and is not claimed as implemented."
     }
   ]
 }
