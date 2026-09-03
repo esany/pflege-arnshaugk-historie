@@ -19,9 +19,9 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertIn("Diplomatik / Urkundenlehre", context.leading_domains)
         self.assertTrue(any("SRC-ED-0004" in item for item in context.required_evidence))
         self.assertTrue(any("purchase/seller" in item for item in context.unresolved))
-        self.assertTrue(any("preceding purchase/seller" in context.current_executable_action for _ in [0]))
+        self.assertIn("preceding purchase/seller", context.current_executable_action)
         self.assertIn("issue:#46", context.source_refs)
-        self.assertIn("editorial identification as charter wording", context.must_not)
+        self.assertIn("treat editorial identification as charter wording", context.must_not)
         self.assertIn("orlagau-source-ledger.md", context.persistence_target)
 
         states = {item.ref: item.status for item in context.prerequisites}
