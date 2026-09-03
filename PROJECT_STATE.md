@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#70** – AI-resilientes Projekthandling: systematischer Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Regeln werden nicht als Selbstzweck geprüft, sondern entlang `reales Phänomen/Symptom → ursprüngliche Motivation → aktuelle Relevanz/Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. Der Audit soll zugleich aktive Governance-Doppelungen identifizieren, die nach struktureller Absicherung entfallen/abgeleitet werden können.
+- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. Schutzregeln werden nicht als Selbstzweck geprüft, sondern entlang `beobachtetes KI-Phänomen/Symptom → ursprüngliche Motivation/Evidence → aktuelle Relevanz und Abhängigkeiten → eigentliches Schutzgut/Ziel → Root Cause → kleinste wirksame Gegenmaßnahme`. Der Audit soll zugleich zeigen, welche aktive Governance-Doppelung nach struktureller Absicherung entfallen oder abgeleitet werden kann.
 
 Verbindlich gilt:
 
@@ -303,26 +303,116 @@ Zusätzliche aktuelle Prior-Art-/Operational-Inputs:
 - `docs/architecture/prior-art-development-inputs.md`;
 - `esany/paleo-type` und `esany/Wissensarbeit` werden bei direkt relevanten materiellen Entscheidungen frisch als Prior Art gelesen, niemals als fremde Requirement-/Semantik-Authority.
 
-## 7. Governing Principles
+#48 besitzt nicht historische Findings, Method Truth, Scope-Reduktion akzeptierter Requirements oder das Recht, fachliche Unsicherheit technisch wegzumodellieren.
 
-- **Lean heißt kleinste hinreichende Lösung – nicht kleinster Anspruch.**
-- **Agil heißt inkrementell vollständig werden – nicht Anforderungen vergessen.**
-- **State of the Art und Best Practice sind Basis der Mittelwahl.**
-- **Needs/Pains/Goals begründen das Warum; Requirements operationalisieren das Was; Technik entscheidet das Wie; reale Nutzung schließt die Schleife.**
-- Fachdomänen führen. Technologie dient.
-- Method Truth kommt aus Fach-SOTA, nicht aus Prompt/Technik.
-- Kein Wissensmonopol im Chat.
-- Exploration offen; wissenschaftliche Promotion bleibt evidenz-/methodengebunden.
-- vorhandene Tools/Standards vor Eigenbau;
-- Provider-Unabhängigkeit des kuratierten Research State;
-- Architecture ist Mittel zur Umsetzung, kein Selbstzweck.
-- **Requirement Source, fachliche Authority, Requirement Lifecycle und technische Umsetzung sind unterschiedliche Verantwortlichkeiten.**
-- **Formale Regeln werden, sobald operationalisiert, durch Code/Tests statt durch Modellselbstkontrolle abgesichert.**
+## 7. Development & Verification #59
 
-## 8. Handoff-Test
+#59 implementiert und verifiziert akzeptierte Requirements. Es ist keine eigene Produktphase und kein Scope-Owner.
 
-Ein neuer kompetenter Bearbeiter muss nach
+Delivery Coverage:
+
+`docs/development/requirements-coverage.md`
+
+Status je Requirement:
+
+`not-started | in-progress | implemented | verified | partial | blocked | research-needed | owner-deferred`.
+
+Technische Arbeit beginnt dort, wo ein Requirement-/Constraint-Cluster hinreichend klar ist; noch offene Fachsemantik bleibt sichtbar und wird nicht von Dev erfunden.
+
+Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA-Schichten. `verified` braucht weiterhin zusätzlich die inhaltlich passende Verification Authority/Evidenz; bei `owner-workflow-acceptance` reale bestätigende Owner-/Nutzererfahrung.
+
+## 8. Technische Teilpakete
+
+- #49 – Zotero ↔ OneDrive, read-first Integration/Feasibility
+- #50 – Canonical Research State / Source Identity
+- #51 – Document-/Findspot-Pipeline
+- #52 – OCR/HTR Benchmark/Integration
+- #53 – Historical Retrieval
+- #54 – Promotion / deterministic invariants
+- #55 – Human-readable Audit
+- #56 – Rights / Credentials / External Processing
+- #57 – Provider Removal / Export / Restartability
+- #58 – just-in-time ADRs bei materiellen/schwer reversiblen Entscheidungen
+- #61 – Work-Context / Method-Conformance / Handoff Technical Research
+- #62 – Requirements Assurance Harness / deterministische Requirements-QA
+- #63 – Goal/Need/Pain → Requirement → Decision → Delivery → Feedback Assurance Spine
+
+## 9. Source / Storage Responsibility
+
+```text
+OneDrive  = Source of Bytes
+Zotero    = bibliographische/archivische Verwaltung + Attachment-Referenz
+Histo-Orla = wissenschaftlicher Research State
+```
+
+Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
+
+## 10. Aktuelle nächste Aktionen
+
+### Inhaltlich führend
+
+1. #46/#47 reale Forschung fortführen. Der zweite #46/#61-Pilot hat die bereitgestellte Lampe-PDF-Instanz, den allgemeinen Bandlauf, `EX-U2-0010`–`0013`, eine nutzerverständliche Ableitung und den Zugangsvergleich persistiert. Nächster fachlicher Schritt: Kauf/Verkäufer und Archivkonkordanz von Nr. 420 auflösen, `Grune = Mönchgrün` unabhängig kollationieren und die neuen Comparanda ohne vorzeitige Gesamtstrategie-Synthese prüfen.
+2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
+3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
+4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
+5. #65 nicht pauschal promoten: einzelne Candidate-Punkte nur dann durch Domain-/Product-/Requirements-Owner dispositionieren, wenn reale Arbeit sie benötigt.
+
+### Requirements / Struktur / Assurance
+
+6. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
+7. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
+8. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
+9. Requirement→Enforcement-Map und #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
+10. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
+11. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
+12. bei generierten/komprimierten Work Contexts künftig Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; Tokenreduktion ist kein Qualitätsziel vor Fidelity.
+
+### Technisch parallel
+
+13. **Reales Owner-Feedback `FB-20260902-003` ist jetzt führender Technical-Delivery-Pain:** #48 priorisiert einen vertikalen Research-Operations-Schnitt aus #50/#55/#61: `structured canonical research state → automated context/intake/trace → deterministic derive → human-readable research workspace/view`. Der Nutzer/Chat darf nicht Workflow Engine für routinehafte State-Pflege bleiben.
+14. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
+15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
+16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
+17. #61 Work Context/Handoff als ausführbaren Compiler/Resolver aus kanonischem State erproben; Chat soll Kontext nicht jedes Mal manuell zusammensuchen.
+18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
+19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
+20. Sobald der vertikale Slice benutzt wird, Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst erreicht, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
+
+## 11. Blocker / Decisions
+
+#44 bleibt Register für echte Blocker und Owner-Entscheidungen.
+
+Aktuell entsteht aus #62/#63 oder dem Wissensarbeit-Pilot kein #44-Blocker. `FB-20260902-003` ist kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+
+## 12. Handoff-Test
+
+Ein neuer Chat muss nach
 
 `AGENTS.md → PROJECT_STATE.md → README.md → Work Owner → kanonisches Artefakt`
 
-ohne alten Chat aktuelle Aufgabe, Authority, vollständige aktive Requirements, Motivation/Origin/Dependencies aktiv bearbeiteter Requirements, upstream Goal/Need/Pain, Methodenstatus, Evidenz, technische Entscheidungen/Implementation/Verification, formale QA-Regeln, reale Owner-/Nutzungsrückmeldung oder offenen Feedback-Bedarf, Delivery-/Verification-Status, nächste erlaubte Aktion und Persistenzort rekonstruieren können.
+ohne alten Chat erkennen können:
+
+- aktuelle historische und methodische Arbeit;
+- vollständige aktive Requirements;
+- Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
+- welche Regeln deterministisch durch #62/#63 geprüft werden und welche Fach-/Owner-Review bleiben;
+- von welchem Goal/Need/Pain eine materielle technische Änderung getragen wird;
+- welche Decision/Implementation/Verification sie realisiert;
+- welche reale Nutzung/Owner-Rückmeldung vorliegt oder noch fehlt;
+- dass #65 externer Pilot-Review-Input ohne automatische Promotion ist;
+- welche Prior-Art-Learnings bei materiellen technischen Entscheidungen zu challengen sind, einschließlich Context Fidelity, Generic-Fit und Case Isolation;
+- primäre Funktion/Authority;
+- Method-/Evidence-Status;
+- technischen Delivery-/Verification-Status;
+- offene Debt/Blocker;
+- nächste Aktion und Persistenzort.
+
+> **Fachdomänen führen. Technologie dient.**
+
+> **Needs/Pains/Goals begründen das Warum; Requirements operationalisieren das Was; Technik entscheidet das Wie; reale Nutzung schließt die Schleife.**
+
+> **Schema prüft Form; Validator prüft formale Invarianten; Fach-/Owner-Review prüft Bedeutung und Nutzen.**
+
+> **Criticality ist nicht Delivery-Reihenfolge.**
+
+> **State of the Art und Best Practice sind Basis der Mittelwahl.**
