@@ -16,7 +16,6 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#70** – AI-resilientes Projekthandling: Root-Cause-Audit gegen reale KI-Failure-Modes und `esany/Wissensarbeit` als generische Strukturreferenz. D1 Safe Mutation / Progress ist auf `main` implementiert (`8babc69`), PR #74 (`5e358a6`) lässt `Project Assurance` auf jedem Pull Request laufen, und D2 Current Context / Resume ist über PR #77 (`6aa4ef0`) implementiert. Der reale Vertical Research Slice #46/Lampe Nr. 420 ist über PR #79 (`39b2c79`) erfolgreich abgenommen: `WO-U2-LAMPE-420-001` rekonstruiert ohne alten Chat Owner, Task, Scope/Exclusions, führende Domänen, Method-/Quality-Frame, Required Evidence, `unresolved`, nächste diskriminierende Aktion und Persistenzorte; geänderte Git-Blob-Basis invalidiert einen gespeicherten PASS-Prerequisite deterministisch zur Revalidation. Source/Excerpt/Finding Truth bleibt in `SRC-ED-0004` / `EX-U2-0009` / `F-U2-004`. Es ergibt sich weiterhin kein neuer Requirement-Gap. Der Mechanismenbau aus #70 ist damit beendet; nächster #70-Schritt ist nur noch Governance-Retirement-/Closure-Disposition gegen das bereits definierte Retirement Gate. Die verbleibende repo-weite Prevention gegen direct GitHub writes ist separat als `DD-20260903-001` in #44 isoliert, weil `main` unprotected ist und der aktuelle Connector Rulesets/Branch Protection nicht schreiben kann.
 
 Verbindlich gilt:
 
@@ -150,6 +149,7 @@ Aktuelle Realtests 2026-09-03:
 - PR #74 / Run `33766069328`: Admission-Prep bestand dieselbe vollständige Assurance-Kette;
 - PR #77 / Run `33786277613`: D2 Current Context / Resume bestand Requirements-, Assurance- und Operational-Regressionen sowie beide formalen Validatoren;
 - PR #79 / Run `33787734297`: der reale #46/Lampe-420-Fresh-Context-Slice bestand inklusive Git-Blob-Basis-Revalidation, vollständigem Resume-Contract und beiden formalen Validatoren;
+- PR #71 / Run `33789468211`: der abgeschlossene #70-Audit-Snapshot bestand nach Abschluss von D1/D2 und realem Slice die aktuelle vollständige Project-Assurance-Kette;
 - `REQ-TRACE-001` bleibt in Coverage und strukturiertem Requirement-Record erfasst.
 
 ### Operational Integration – #48/#59
@@ -158,7 +158,7 @@ Der gemeinsame Integrationsschnitt ist inkrementell erweitert:
 
 - `tools/operational/enforcement-map.json` projiziert Requirements referenzbasiert auf Enforcement-Klassen, Contracts, Rule-IDs, Capabilities, Fixtures, Status und fachliche Review-Grenzen; sie dupliziert keine Requirement-Semantik;
 - `tools/operational/core.py` stellt gemeinsame mechanische Loader-/JSON-Schema-Infrastruktur für die bestehenden #62/#63-Commands bereit;
-- `tools/operational/mutation.py` ergänzt den lokalen Pre-write-/Progress-Guard: bounded replacement aus fresh state, destructive mismatch `blocked`, bereits erfüllter Zustand `NO_CHANGE`, expliziter Full-Replacement-Typ und atomarer lokaler Write-Adapter;
+- `tools/operational/mutation.py` ergänzt den lokalen Pre-write-/Progress-Guard: bounded replacement aus fresh state, destructive mismatch `blocked`, bereits erfüllter Zustand `NO_CHANGE`, expliziter Full-Replacement-Typ und atomarer lokaler Write-Adapter. **Restgrenze:** direkte GitHub-Connector-/Contents-API-Writes umgehen diesen lokalen Guard, sofern sie ihn nicht explizit konsumieren; dies wurde im #70-Closure-Lauf real reproduziert und an #48/#59 geroutet;
 - `tools/operational/context.py` ergänzt den transienten Current-Context-/Resume-Core: `ready | unresolved | blocked`, Work-Order-Identität, führende Domänen, Method-/Quality-Frame, Required Evidence, Prerequisite-Basis-Fingerprint/Revalidation und Cursor-`continue | redirect` ohne eigene Priority-/Fachauthority;
 - `tools/operational/context_spec.py` lädt einen kanonischen JSON-Work-Order ohne Markdown-Semantik zu erraten und prüft deklarierte Git-Blob-Basis; stale PASS wird `unresolved / revalidation required`;
 - `docs/research/cases/u2-lampe-420-work-order.json` ist der erste reale bounded Work Order; Source/Excerpt/Finding-Inhalt bleibt referenziert in seinen bestehenden kanonischen Häusern;
@@ -167,7 +167,7 @@ Der gemeinsame Integrationsschnitt ist inkrementell erweitert:
 - wissenschaftliche/Methoden-/Owner-Urteile bleiben explizite Review-Grenzen und werden nicht als Validator-PASS determinisiert;
 - repo-weite GitHub-Admission ist noch nicht vollständig: direct writes nach `main` bleiben bis zur serverseitigen Required-PR/Protection-Konfiguration außerhalb des lokalen D1-Adapters.
 
-Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1/D2, Lampe-420-Acceptance und Admission-Prep sind zusätzlich unter #70/#48/#59/#61/#46 und #44 (`DD-20260903-001`) geroutet.
+Kanonischer Architektur-/Trade-off-Ort: `docs/architecture/operational-execution-architecture.md`. Implementations-/Verification-Trace liegt in `tools/assurance/data/trace-records.json`; D1/D2 und Lampe-420-Acceptance sind unter #48/#59/#61/#46 geroutet. Der historische AI-Resilience-Audit ist als `docs/architecture/assurance/ai-resilience-root-cause-audit.md` auf `main` erhalten; #70 ist abgeschlossen. GitHub-Admission bleibt #44 (`DD-20260903-001`).
 
 ### Value / Decision / Delivery / Feedback Assurance – #63
 
@@ -229,6 +229,7 @@ Kanonische technische Einordnung: `docs/architecture/prior-art-development-input
 - #41 Capability/Quality – completed
 - #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
+- #70 AI-Resilience Root-Cause-Audit – **completed / retire-active**; historischer Snapshot `docs/architecture/assurance/ai-resilience-root-cause-audit.md`, keine Requirement-/Implementation-Authority. D1/D2 und realer Lampe-420-Slice sind an bestehende Owner überführt; kein neuer Requirement-Gap. Der im Closure-Lauf erneut belegte Connector-write-Restpunkt liegt bei #48/#59, serverseitige Admission bei #44.
 
 Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nutzungsbefunde präzisiert.
 
@@ -384,7 +385,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
 19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
 20. Bei tatsächlicher Nutzung von `WO-U2-LAMPE-420-001` Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
-21. #70 nicht weiter technisch ausbauen: D1, D2 und der reale Vertical Research Slice sind abgeschlossen. Jetzt nur noch Governance-Retirement (`derive | merge | retire-active`) und Closure-Disposition gegen das bestehende Retirement Gate; kein neues Meta-System. GitHub-Admission kann parallel nach Auflösung von `DD-20260903-001` end-to-end verifiziert werden.
+21. B1-Restgrenze unter #48/#59 schließen: direkte GitHub-Connector-/Contents-API-Writes müssen den Safe-Mutation-Preflight konsumieren oder eine äquivalente bounded/diff-checked Write-Operation verwenden. Der #70-Closure-Lauf liefert dafür reale Negativ-Evidence; #70 selbst bleibt abgeschlossen. GitHub-Admission wird separat nach Auflösung von `DD-20260903-001` end-to-end verifiziert.
 
 ## 11. Blocker / Decisions
 
@@ -394,7 +395,7 @@ Aktuell aktiv:
 
 - `DD-20260903-001` – **GitHub Required-PR / Branch-Protection Admission**: D1 schützt den lokalen Operational-Write-Pfad und PR #74 bereitet `Project Assurance` als globalen Required Check vor. `main` ist jedoch weiterhin unprotected, Rulesets sind leer und der aktuell autorisierte GitHub-Connector besitzt keine Ruleset-/Branch-Protection-Schreibfunktion. Empfohlene Auflösung durch Repository-Admin: Required Pull Request für `main` + Required Status Check `Project Assurance`. Danach End-to-End-Negativtest unter #59: direct main write muss abgewiesen werden; normaler PR mit grünem Check bleibt zulässig.
 
-Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #54 Transition, #57 Evidence Availability/Restartability, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #54 Transition, #57 Evidence Availability/Restartability, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
