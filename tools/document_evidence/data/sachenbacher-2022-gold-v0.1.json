@@ -1,0 +1,109 @@
+{
+  "schema_version": "0.1",
+  "experiment_id": "EXP-51-SACHENBACHER-V0",
+  "instance": {
+    "source_id": "SRC-LIT-0001",
+    "representation_id": "REP-SACHENBACHER-2022-OA-PDF",
+    "instance_id": "DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904",
+    "source_kind": "published-secondary-work",
+    "representation_kind": "publisher-corroborated-open-access-pdf",
+    "inspection_status": "digital-representation-inspected",
+    "direct_file_url": "https://www.kulturkaufhaus.de/annot/564C427C7C31623331323262386634373834346564613133653234653533643563663539337C7C504446.pdf?sq=1",
+    "accessed_at": "2026-09-04",
+    "sha256": "41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a",
+    "byte_size": 5644026,
+    "page_count": 20,
+    "pdf_version": "1.7",
+    "scope_note": "The reachable object contains printed pages 1-22/front matter only; it is not silently treated as the complete published book.",
+    "persistent_landing_page": {"status": "unresolved", "value": null},
+    "licence_text_in_instance": {"status": "unresolved", "value": null}
+  },
+  "coordinate_contract": {
+    "name": "normalized-page-space-v0.1",
+    "unit": "fraction-of-effective-page-box",
+    "origin": "top-left",
+    "x_axis": "right",
+    "y_axis": "down",
+    "bbox_order": ["x0", "y0", "x1", "y1"],
+    "page_box": "effective crop box after declared PDF rotation",
+    "locator_authority": "human-curated from visual inspection; not derived from parser boxes"
+  },
+  "findings": [
+    {
+      "finding_id": "F-PR76-SACHENBACHER-ZONE-MODEL",
+      "canonical_research_ref": "pull-request:#76 / docs/research/cases/u2-sachenbacher-2022-landesausbau-model-check.md sections 4-5",
+      "statement": "Sachenbacher presents spatial models as authored, reviewable argumentation; the four-zone model must be read through text, map, caption, embedded Roman-numeral keys and the following zone explanations rather than as a standalone map image.",
+      "status": "working-research-model-check",
+      "limit": "This evidence anchors Sachenbacher's published model and its presentation, not the historical truth of the depicted zones."
+    },
+    {
+      "finding_id": "F-EXP51-LAYOUT-VARIANTS",
+      "canonical_research_ref": "issue:#51 bounded technical gold selection",
+      "statement": "The inspected representation contains text, footnotes, maps, captions and cross-page explanation suitable for the bounded locator falsification test.",
+      "status": "technical-observation",
+      "limit": "No historical interpretation is promoted."
+    }
+  ],
+  "gold_cases": [
+    {
+      "case_id": "G51-01-TEXT-FOOTNOTE",
+      "finding_id": "F-EXP51-LAYOUT-VARIANTS",
+      "purpose": "Flow text and footnote remain distinct on a page with a resolved print/PDF relation.",
+      "locators": [
+        {"locator_id": "L51-01-TEXT", "role": "main-text", "pdf_page_index": 8, "printed_page": {"status": "resolved", "label": "11"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.225, 0.89, 0.825]},
+        {"locator_id": "L51-01-FOOTNOTE", "role": "footnote", "pdf_page_index": 8, "printed_page": {"status": "resolved", "label": "11"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.835, 0.89, 0.925]}
+      ]
+    },
+    {
+      "case_id": "G51-02-MAP-CAPTION",
+      "finding_id": "F-EXP51-LAYOUT-VARIANTS",
+      "purpose": "A map, its caption and adjacent text remain separately addressable.",
+      "locators": [
+        {"locator_id": "L51-02-TEXT", "role": "text-reference", "pdf_page_index": 9, "printed_page": {"status": "resolved", "label": "12"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.075, 0.89, 0.155]},
+        {"locator_id": "L51-02-MAP", "role": "map", "pdf_page_index": 9, "printed_page": {"status": "resolved", "label": "12"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.17, 0.88, 0.655]},
+        {"locator_id": "L51-02-CAPTION", "role": "caption", "pdf_page_index": 9, "printed_page": {"status": "resolved", "label": "12"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.66, 0.89, 0.705]}
+      ]
+    },
+    {
+      "case_id": "G51-03-MULTI-FOOTNOTE",
+      "finding_id": "F-EXP51-LAYOUT-VARIANTS",
+      "purpose": "A dense footnote block is recoverable independently from its main text.",
+      "locators": [
+        {"locator_id": "L51-03-TEXT", "role": "main-text", "pdf_page_index": 12, "printed_page": {"status": "resolved", "label": "15"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.075, 0.89, 0.79]},
+        {"locator_id": "L51-03-FOOTNOTES", "role": "footnotes", "pdf_page_index": 12, "printed_page": {"status": "resolved", "label": "15"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.8, 0.89, 0.94]}
+      ]
+    },
+    {
+      "case_id": "G51-04-PRIMARY-ZONE-MODEL",
+      "finding_id": "F-PR76-SACHENBACHER-ZONE-MODEL",
+      "purpose": "Primary falsification: text D + map A with embedded key B + caption C + cross-page zone explanation retain distinct roles in one finding relation.",
+      "locators": [
+        {"locator_id": "L51-04-TEXT-D", "role": "text-reference", "pdf_page_index": 13, "printed_page": {"status": "resolved", "label": "16"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.075, 0.89, 0.38]},
+        {"locator_id": "L51-04-MAP-A", "role": "map", "pdf_page_index": 13, "printed_page": {"status": "resolved", "label": "16"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.395, 0.88, 0.865]},
+        {"locator_id": "L51-04-KEY-B", "role": "embedded-zone-key", "pdf_page_index": 13, "printed_page": {"status": "resolved", "label": "16"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.25, 0.48, 0.77, 0.82]},
+        {"locator_id": "L51-04-CAPTION-C", "role": "caption", "pdf_page_index": 13, "printed_page": {"status": "resolved", "label": "16"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.2, 0.87, 0.82, 0.91]},
+        {"locator_id": "L51-04-ZONE-EXPLANATION", "role": "legend-continuation", "pdf_page_index": 14, "printed_page": {"status": "resolved", "label": "17"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.075, 0.89, 0.91], "scope_state": "ambiguous", "scope_note": "Zone I is complete on print page 17; the complete four-zone explanation continues beyond this locator."}
+      ]
+    },
+    {
+      "case_id": "G51-05-INTRO-FOOTNOTES",
+      "finding_id": "F-EXP51-LAYOUT-VARIANTS",
+      "purpose": "Born-digital text and two bottom footnotes reproduce without treating extracted reading order as canonical.",
+      "locators": [
+        {"locator_id": "L51-05-TEXT", "role": "main-text", "pdf_page_index": 5, "printed_page": {"status": "resolved", "label": "8"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.16, 0.89, 0.77]},
+        {"locator_id": "L51-05-FOOTNOTES", "role": "footnotes", "pdf_page_index": 5, "printed_page": {"status": "resolved", "label": "8"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.79, 0.89, 0.92]}
+      ]
+    }
+  ],
+  "relations": [
+    {"relation_id": "R51-01", "type": "footnote_relation", "from_locator_id": "L51-01-FOOTNOTE", "to_locator_id": "L51-01-TEXT", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-02", "type": "caption_relation", "from_locator_id": "L51-02-CAPTION", "to_locator_id": "L51-02-MAP", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-03", "type": "figure_relation", "from_locator_id": "L51-04-TEXT-D", "to_locator_id": "L51-04-MAP-A", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-04", "type": "legend_relation", "from_locator_id": "L51-04-KEY-B", "to_locator_id": "L51-04-MAP-A", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-05", "type": "caption_relation", "from_locator_id": "L51-04-CAPTION-C", "to_locator_id": "L51-04-MAP-A", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-06", "type": "legend_relation", "from_locator_id": "L51-04-ZONE-EXPLANATION", "to_locator_id": "L51-04-KEY-B", "authority": "human-curated", "research_critical": true, "evaluation": "unresolved", "note": "The complete four-zone prose explanation extends beyond the bounded locator."},
+    {"relation_id": "R51-07", "type": "reading_order", "from_locator_id": "L51-04-TEXT-D", "to_locator_id": "L51-04-MAP-A", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-08", "type": "reading_order", "from_locator_id": "L51-04-MAP-A", "to_locator_id": "L51-04-CAPTION-C", "authority": "human-curated", "research_critical": true, "evaluation": "correct"},
+    {"relation_id": "R51-09", "type": "reading_order", "from_locator_id": "L51-04-CAPTION-C", "to_locator_id": "L51-04-ZONE-EXPLANATION", "authority": "human-curated", "research_critical": true, "evaluation": "correct"}
+  ]
+}
