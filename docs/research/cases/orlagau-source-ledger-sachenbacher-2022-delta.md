@@ -14,30 +14,35 @@ Canonical rule for merge:
 
 ```text
 canonical Sachenbacher source identity
-→ belongs in docs/research/cases/orlagau-source-ledger.md
+→ docs/research/cases/orlagau-source-ledger.md
+→ existing canonical source_id: SRC-LIT-0001
 
 this file
-→ may reference that canonical source_id and carry route/status deltas until folded in or explicitly superseded
+→ references SRC-LIT-0001 and carries only route/status deltas until folded in or explicitly superseded
 ```
 
-The inspected `main` `orlagau-source-ledger.md` did not expose a Sachenbacher entry in this run. If a newer/parallel canonical source identity exists before merge, this file must be mapped to that existing ID rather than creating another `SRC-SEC-SACHENBACHER-2022` truth. One fact / one canonical home applies.
+The current `main` `orlagau-source-ledger.md` already contains the canonical Sachenbacher source identity as `SRC-LIT-0001 – Peter Sachenbacher, Thüringen östlich der Saale im Mittelalter`.
 
-Recommended canonical ID if no existing one is present at merge time: `SRC-SEC-SACHENBACHER-2022`.
+The earlier PR-internal working ID `SRC-SEC-SACHENBACHER-2022` is **rejected as a canonical ID** for merge. It may appear only as provenance of the earlier PR drafting state and must not be used as a second source truth.
+
+One fact / one canonical home applies: all canonical source-identity fields for Sachenbacher belong to `SRC-LIT-0001` in the common ledger.
 
 ---
 
-## 1. Canonical source identity candidate / reference
+## 1. Canonical source identity reference
 
 | Field | Value |
 |---|---|
-| canonical_source_id | `SRC-SEC-SACHENBACHER-2022` unless already assigned in the common ledger |
+| canonical_source_id | `SRC-LIT-0001` |
+| canonical_home | `docs/research/cases/orlagau-source-ledger.md` |
+| rejected_previous_working_id | `SRC-SEC-SACHENBACHER-2022` |
 | source_type | Secondary publication; research-state source; model/hypothesis source; literature and primary-source router |
-| canonical_citation | Peter Sachenbacher, *Thüringen östlich der Saale im Mittelalter. Archäologisch, mediävistisch, onomastisch, ethnografisch und philosophisch vergleichende Studie zum früh- und hochmittelalterlichen Landesausbau in Territorien der Germania Slavica Thuringiae*, Darmstadt: wbg Academic, 2022 |
-| publisher/imprint | wbg Academic, Verlag Herder GmbH |
+| canonical_citation | Peter Sachenbacher, *Thüringen östlich der Saale im Mittelalter. Archäologisch, mediävistisch, onomastisch, ethnografisch und philosophisch vergleichende Studie zum früh- und hochmittelalterlichen Landesausbau in Territorien der Germania Slavica Thuringiae*, Darmstadt: wbg Academic / Wissenschaftliche Buchgesellschaft, 2022 |
 | print_ISBN | `978-3-534-40649-4` |
 | eBook_PDF_ISBN | `978-3-534-40650-0` |
 | source_status | published secondary work; not a primary medieval source; not an independent validation authority |
 | Histo-Orla use | #46 model check: Landesausbaumodell, Orlagau terminology, boundary model, place/chronology matrix, source/literature routing |
+| merge_rule | fold canonical identity deltas into `SRC-LIT-0001`; do not create a second Sachenbacher source entry |
 
 ---
 
@@ -47,7 +52,7 @@ Recommended canonical ID if no existing one is present at merge time: `SRC-SEC-S
 
 | Field | Value |
 |---|---|
-| relation_to_source | digital text/HTML representation of the published work; not the historical source and not the printed book itself |
+| relation_to_source | digital text/HTML representation of `SRC-LIT-0001`; not the historical source and not the printed book itself |
 | provider / portal | OATbyCO / DDE, ULB TU Darmstadt environment |
 | URL | `https://exist.ulb.tu-darmstadt.de/2/v/pa000017-0007` |
 | inspected_for | full-text navigation, print-page markers, footnote-number control, model/place/term discovery |
@@ -59,7 +64,7 @@ Recommended canonical ID if no existing one is present at merge time: `SRC-SEC-S
 
 | Field | Value |
 |---|---|
-| relation_to_source | electronic PDF representation/instance of the published secondary work; **not** a separate source and not a medieval source |
+| relation_to_source | electronic PDF representation/instance of `SRC-LIT-0001`; **not** a separate source and not a medieval source |
 | evidence_for_existence | the inspected imprint text states: `Elektronisch ist folgende Ausgabe erhältlich: eBook (PDF): 978-3-534-40650-0`; the same imprint states Open Access under CC BY 4.0 except images/book cover |
 | publication/license boundary | OA applies to the work as stated in the imprint; images/cover are excluded by the imprint statement |
 | direct_file_url | `candidate/discovered; not byte-verified in this reconciliation pass` |
@@ -72,7 +77,7 @@ Recommended canonical ID if no existing one is present at merge time: `SRC-SEC-S
 
 | Field | Value |
 |---|---|
-| relation_to_source | bibliographic/catalogue representation, not passage evidence |
+| relation_to_source | bibliographic/catalogue representation of `SRC-LIT-0001`, not passage evidence |
 | URL | `https://www.herder.de/wissen/shop/p8/86695-thueringen-oestlich-der-saale-im-mittelalter-gebundene-ausgabe/` |
 | use | bibliographic corroboration: author, title, publisher/imprint, year, ISBN, scope statement |
 | limitation | no source-passage or model-evidence authority |
@@ -119,7 +124,7 @@ Do **not** merge from this file as facts:
 
 Allowed after reconciliation:
 
-- Sachenbacher is a secondary model/router for #46;
+- Sachenbacher is a secondary model/router for #46 under canonical source ID `SRC-LIT-0001`;
 - the Model-Check artefact is the current PR #76 reading guide;
 - old Ranis-slice material is retained only as provenance/superseded first focus;
 - unresolved/direct-collation-open states remain valid and are not automatic merge blockers unless claims are promoted beyond their evidence.
