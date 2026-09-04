@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-03  
+**Stand:** 2026-09-04  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -235,23 +235,38 @@ Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nu
 
 ## 4. Aktive fachliche Work Owner
 
+### Current Work Selection
+
+`selection-open` — Im aktuell inspizierten kanonischen State ist **nichts explizit owner-authorized als `selected-current` ausgewählt**. Diese Zeile ist eine kurze abgeleitete Handoff-Sicht; `PROJECT_STATE.md` ist weder Selection Authority noch Selection Registry.
+
+Aktuelle Dispositionen ohne Prioritätsableitung:
+
+- #46 / Lampe 420 / `WO-U2-LAMPE-420-001` → `resumable`;
+- #46 / Sachenbacher / PR #76 → `branch-candidate`;
+- #47 → active independent research owner;
+- #60 → `supporting` Method Truth.
+
+`selected-current` entsteht nur durch explizite Research/Product-Owner-Autorisierung. Reconciliation-Anker: #64 sowie `docs/architecture/assurance/work-selection-reconciliation-20260904.md` / PR #83. Weder ein resumable Work Order noch ein offener/mergebarer PR, ein aktiver Work Owner oder supporting Method Work erzeugt eine Current-Work-Auswahl.
+
 ### #46 – U2 Knau/Orlagau
 
 `in-research / live-use-case / working-research`
 
-Aktueller historischer Fokus: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`. Für Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktuelle kanonische Research-Cursor. Nächste diskriminierende Aktion: den vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke und Schmidt/Alberti/Dobenecker source-/findspot-gebunden auflösen oder einen bounded unresolved Search Boundary persistieren; Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben offen.
+Aktueller historischer Fokus: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`. Für Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` ein valider, `resumable` bounded Work Order; sein Cursor ist keine globale Current-Work-Auswahl. Die darin offenen Fragen zum vorausgehenden Kauf/Verkäufer der `villa in Grune`, zur Archivkonkordanz und zur unabhängigen `Grune = Mönchgrün`-Kollation bleiben Fallkontext für eine spätere autorisierte Wiederaufnahme.
 
 ### #47 – U1 Teich-/Feuchtkulturlandschaft
 
 `in-research / working-research`
 
+Aktiver eigener Research Owner mit eigener Quellenlogik; aus aktivem Ownership folgt keine Current-Work-Auswahl.
+
 ### #60 – Domain Method Profiles
 
 `in-research / cross-cutting-method-work-package`
 
-Besitzt Method Truth, nicht Systemarchitektur.
+Besitzt Method Truth, nicht Systemarchitektur. Im Current-Work-Handoff ist #60 `supporting`; Method Truth wählt keinen historischen Current Slice aus.
 
-Aktuelle Priorität:
+Aktuelle Priorität innerhalb des Method-Work-Package:
 
 1. Diplomatik / Urkundenlehre + Editionswissenschaft/Textkritik;
 2. Archivistik / Provenienz / Registraturkunde;
@@ -357,9 +372,9 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ## 10. Aktuelle nächste Aktionen
 
-### Inhaltlich führend
+### Fachlich verfügbare Owner-Arbeit — keine Current-Work-Auswahl
 
-1. #46/#47 reale Forschung fortführen. Für #46/Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktive bounded Cursor: vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke sowie Schmidt/Alberti/Dobenecker auflösen; source/findspot-backed Ergebnis oder bounded unresolved Search Boundary persistieren, bevor breiter synthetisiert wird. Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben weitere diskriminierende Schritte.
+1. **Current Work Selection bleibt `selection-open`.** Vor einer expliziten Research/Product-Owner-Auswahl wird keine fachliche Option als `selected-current` behandelt. Die folgenden Punkte sind owner-lokale, ausführbare Arbeit bzw. supporting Work und keine globale Fachpriorität.
 2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
@@ -405,6 +420,7 @@ Ein neuer Chat muss nach
 
 ohne alten Chat erkennen können:
 
+- **Current Work Selection ist `selection-open`: Es ist aktuell nichts explizit owner-authorized als `selected-current` ausgewählt; `resumable`, `branch-candidate`, aktiver Work Owner oder `supporting` begründen keine Auswahl;**
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
