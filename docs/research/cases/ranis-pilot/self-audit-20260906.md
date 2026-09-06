@@ -1,4 +1,4 @@
-# Self-Audit 2026-09-06 – Ranis-Pilot
+# Self-Audit 2026-09-06 – Ranis/Orlatal-Pilot
 
 **Status:** `owner-feedback-response / self-audit / corrective-learning`  
 **Work Owner:** #85  
@@ -6,164 +6,279 @@
 
 ## Anlass
 
-Owner-Feedback in zwei Stufen:
+Owner-Feedback in drei Stufen:
 
-1. Der angelegte Ranis-Pilot drohte das im Chat entstandene, eher didaktisch/vermittelnde Nebenprojekt über das bestehende Histo-Orla-Repository zu stülpen.
-2. Die erste Korrektur ging noch nicht weit genug: **Nicht nur der Output, sondern die Forschungsfrage selbst musste aus der Vermittlungslogik herausgelöst werden.**
+1. Der erste Ranis-Pilot drohte ein im Chat entstandenes Vermittlungs-/Besucherprojekt über das bestehende Histo-Orla-Repository zu stülpen.
+2. Die erste Korrektur ging nicht weit genug: Nicht nur der Output, sondern auch die Forschungsfrage selbst musste aus der Vermittlungslogik herausgelöst werden.
+3. Auch die zweite Korrektur war noch zu eng: Ich ersetzte die Besucherfrage sofort durch eine neue, eng definierte Ilsenhöhle-Forschungsfrage. Der reale Bedarf des Owners war jedoch zunächst **Sammlung und Ordnung des verfügbaren Materials** – wissenschaftliche Quellen plus die umfangreiche Feld-/Ausstellungssammlung vom 2026-09-06, vom Zechsteinriff über Kniegrotte und Orlatal-Zusammenhänge bis zur aktuellen Torhausbaustelle.
 
 ## Ergebnis der Selbstprüfung
 
-**Ja, der erste Pilot war inhaltlich falsch gerahmt.**
+**Der zentrale Fehler war nicht nur falsche Vermittlungsorientierung, sondern voreilige Verengung auf eine Master-Forschungsfrage.**
 
-Der Branch war technisch isoliert, aber die aktive Frage `Was kann ein wissenschaftlich interessierter Besucher ... wissen?` machte Vermittlung zum epistemischen Zentrum. Damit wurden Auswahl der Evidenz, Gliederung, Success-Kriterien und Outputs auf einen Besucher-/Erklärkontext hin optimiert.
+Der Branch soll im aktuellen Stadium keinen Erkenntnispfad erzwingen. Er soll zuerst einen quellenkritisch identifizierten, restartbaren Materialkorpus aufbauen, in dem Raum, Zeit, Materialtyp, Provenienz, Inspection-Status und Beziehungen sichtbar werden.
 
-Das widerspricht dem Repository-Ziel. Histo-Orla ist eine Forschungsassistenz für Quellenarbeit, fachmethodische Analyse und restartbaren Research State. Vermittlung kann aus Forschung abgeleitet werden, darf aber weder Forschungsfrage noch DoD bestimmen.
+Erst aus diesem geordneten Korpus sollen später konkrete Forschungsfragen entstehen.
 
-## Konkrete Fehlleistungen
+---
 
-### 1. Goal substitution by conversational momentum
+## Failure 1 – Goal substitution by conversational momentum
 
-Aus der unmittelbaren Situation des Chats – Besuch in Ranis, Wunsch nach anschaulicher Einordnung, Bildern und Vor-Ort-Erklärung – wurde still ein neues Forschungsziel erzeugt.
+Aus der unmittelbaren Situation des Chats – Besuch in Ranis, Wunsch nach Bildern und Vor-Ort-Erklärung – wurde still ein Vermittlungsziel zum Research-Ziel gemacht.
 
 Fehlerpfad:
 
 ```text
-situativer Nutzerkontext: Besuch / Erklärung
+situativer Kontext
 → attraktive Vermittlungsfrage
 → Pilot-Forschungsfrage
 → Repo-Artefakte
 ```
 
-Korrekt wäre:
+Learning:
+
+`context of use ≠ research goal`.
+
+---
+
+## Failure 2 – Vermittlungsfrage durch zu enge Fachfrage ersetzt
+
+Nach der ersten Korrektur formulierte ich:
+
+> Wie lässt sich die paläolithische Nutzung der Ilsenhöhle aus Hülle-Altgrabung und Neugrabung rekonstruieren?
+
+Diese Frage ist fachlich sinnvoll, aber sie war **noch immer eine von mir vorab gesetzte Priorisierung**. Sie reduzierte den reicheren Materialbestand auf einen einzelnen paläolithischen Erkenntnispfad.
+
+Damit wären u. a. nur als `Queue` oder Randmaterial erschienen:
+
+- Zechsteinriff / Landschaftsgeologie;
+- Kniegrotte und weitere Döbritzer Fundkomplexe;
+- Orlasenke als Gesamtlandschaft;
+- vorgeschichtliche, mittelalterliche und rechtsgeschichtliche Museumsfunde;
+- Börner / frühe Archäologie / Ausstellungsgeschichte;
+- aktuelle Torhausbaustelle / Bauforschung.
+
+Der Owner hatte aber gerade **zusätzliches Primär-/Feldmaterial zu diesen Ebenen gesammelt**. Dieses Material zuerst durch eine Ilsenhöhle-Frage zu filtern hätte Informationswert und spätere Forschungsoptionen vernichtet.
+
+Learning:
+
+> **Nicht jeder Research-State braucht am Anfang eine Master-Forschungsfrage.**
+
+Bei heterogener Materialaufnahme kann die primäre Aufgabe zunächst `collect → identify → order → link → resolve provenance` sein.
+
+---
+
+## Failure 3 – Premature questionization
+
+Ich habe zweimal versucht, das Projekt durch eine einzelne „gute Forschungsfrage“ zu stabilisieren.
+
+Das war zu schematisch.
+
+Eine Forschungsassistenz muss auch einen legitimen **pre-question research state** unterstützen:
 
 ```text
-historische/archäologische Forschungsfrage
-→ Quellen / Methoden / Evidenz
-→ belastbarer Research State
-→ optional abgeleitete Darstellung für einen konkreten Nutzungskontext
+heterogenes Material
+→ Source/Instance identifizieren
+→ Raum/Zeit/Typ zuordnen
+→ Provenienz/Inspection sichern
+→ Relationen und Widersprüche sichtbar machen
+→ offene Auflösungsaufgaben führen
+→ erst dann Research Questions priorisieren
 ```
 
-### 2. Forschungsfrage und View verwechselt
+Dieser Zustand ist nicht „noch keine Forschung“. Materialkritik, Provenienzauflösung, Klassifikation und relationale Ordnung sind selbst Forschungsarbeit und Voraussetzung späterer Synthese.
 
-`Was ist vor Ort sichtbar?` kann eine nützliche **View-Frage** sein. Sie ist aber keine hinreichende historische Forschungsfrage.
+---
 
-Die eigentliche Forschungsfrage muss einen Erkenntnisgegenstand adressieren, z. B.:
+## Failure 4 – Narrative/Question als Ordnungsprinzip statt Material als Ausgangspunkt
 
-> Wie lässt sich die paläolithische Nutzung der Ilsenhöhle aus Alt- und Neugrabung rekonstruieren, und welche Claims hängen an der Korrelation unterschiedlicher Evidenzachsen?
+Sowohl die Besucherlogik als auch die spätere Ilsenhöhle-Frage hätten entschieden, **welches Material zentral und welches peripher** ist.
 
-Diese Frage erzeugt Quellenarbeit, Unsicherheitsanalyse, Vergleich konkurrierender Modelle und neue diskriminierende Forschungsaktionen. Eine Besucherfrage tut das nur indirekt.
+Der korrigierte Pilot braucht deshalb mehrere unabhängige Ordnungsachsen:
 
-### 3. #64 zu formal statt inhaltlich angewandt
+- Quelle / Instanz / Provenienz;
+- Raum / Fundplatz / Landschaft;
+- Zeit / Periode / Forschungsgeschichte;
+- Materialtyp / Evidenzachse;
+- Inspection-/Sicherheitsstatus;
+- Beziehungen / Vergleichs- und Research Hooks.
 
-Der Audit-Befund `kleiner Vertical Slice statt Mega-Pilot` wurde zu schematisch umgesetzt. Ein Slice ist nicht gut, nur weil er klein und owner-lesbar ist. Er braucht einen **realen Forschungsgegenstand und Erkenntnisgewinn**.
+Keine Achse wird zur Mastererzählung.
 
-### 4. Existing Research State nur referenziert, nicht als Denkform genutzt
+---
 
-Source Identity, Findspot, Claim-/Finding-Status, Method Truth und Restartability wurden zitiert, aber die Pilotfrage blieb außerhalb dieser Logik. Dadurch entstand lokale Struktur, bevor klar war, welche fachliche Frage sie tragen sollte.
+## Failure 5 – Felddokumentation zu stark als „Museumsgeschichte“ gelesen
 
-### 5. Darstellungsnähe beeinflusst Evidenzauswahl
+Die ersten Nutzerfotos wurden überwiegend als Ausstellungsaussagen und Forschungsgeschichte behandelt. Das ist korrekt, aber unvollständig.
 
-Die frühere Logik `sichtbar | aus Befund erschließbar | nur analytisch bekannt` ist didaktisch nützlich, aber sie sortiert Evidenz nach Wahrnehmbarkeit des Besuchers statt nach wissenschaftlicher Funktion.
+Die Feldsammlung kann gleichzeitig enthalten:
 
-Für den Forschungsstate ist die bessere Ordnung:
+- sichtbare Fundobjekte;
+- Objektbeschriftungen;
+- historische Fotos/Karten;
+- geologische/landschaftliche Informationen;
+- Fundstellenzusammenhänge;
+- aktuelle Baustellen-/Denkmalpflegedokumentation;
+- Hinweise auf Literatur, Inventare und Sammlungen.
+
+Ein Foto ist daher nicht nur `museum display evidence`; es ist ein **Einstiegsknoten**, der auf Objekt, Fundort, Publikation, Sammlung, Zeitstellung und Deutungsgeschichte aufgelöst werden kann.
+
+---
+
+# Vollständige Zielkorrektur v0.3
+
+Der Branch besitzt derzeit **keine aktive Master-Forschungsfrage**.
+
+Sein Sammlungsauftrag lautet:
+
+> **Welche Materialien zu Ranis und dem Orlatal liegen uns tatsächlich vor, was dokumentieren sie, auf welche Orte/Zeiten/Objekte/Forschungsstände beziehen sie sich, wie ist ihre Provenienz und Zugriffstiefe, und wie lassen sie sich so ordnen und verknüpfen, dass spätere Forschungsfragen daraus belastbar abgeleitet werden können?**
+
+Der Umfang reicht bewusst:
+
+`Zechsteinriff / Landschaft`
+→ `Paläolithikum: Ranis, Gamsenberg, Lausnitz, Kniegrotte/Döbritz`
+→ `weitere Vorgeschichte`
+→ `mittelalterliche Siedlungs-/Burg-/Rechtslandschaft`
+→ `Börner / Forschungsgeschichte / Museumsbildung`
+→ `Burg Ranis / Torhaus / aktuelle Bauforschung und Baustelle`.
+
+Diese Abfolge ist eine **Indexierungsdimension**, keine Kontinuitätsgeschichte.
+
+---
+
+# Learnings für Histo-Orla
+
+## L1 – Corpus before question, wenn der reale Need Sammlung/Ordnung ist
+
+Eine primäre Forschungsfrage darf nicht erzwungen werden, wenn der aktuelle Owner-Need lautet:
+
+- Material sichern;
+- Provenienz klären;
+- heterogene Evidenz zusammenführen;
+- Überblick und Restartability herstellen.
+
+Prüffrage vor einem neuen Slice:
+
+> Ist die nächste sinnvolle Handlung wirklich das Beantworten einer Frage – oder zunächst das zuverlässige Erfassen dessen, was überhaupt vorliegt?
+
+---
+
+## L2 – Research Question ist ein möglicher State, kein Pflichtfeld jeder Explorationsphase
+
+Ein Research Hook kann aus einem Korpus entstehen. Er muss ihn nicht rückwirkend organisieren.
 
 ```text
-Claim
-→ Source / Instance / Findspot
-→ Evidenzachse
-→ Kontextqualität
-→ Methode
-→ Unsicherheit
-→ konkurrierende Erklärung
-→ Finding/Hypothesis/Unresolved
+material corpus
+→ patterns / gaps / conflicts / promising hooks
+→ candidate question
+→ active research slice
 ```
 
-### 6. Zu viel Chat-Synthese vor Provenienzauflösung
-
-Ein Teil der Synthese wurde aus dem Dialog vorstrukturiert. Der Research-State muss umgekehrt wachsen: konkrete Quelleninstanz und Fundstelle zuerst, Synthese danach.
-
-## Vollständige Zielkorrektur v0.2
-
-Die aktive Forschungsfrage lautet jetzt:
-
-> **Wie lässt sich die paläolithische Nutzung der Ilsenhöhle in Ranis aus der Kombination von Hülle-Altgrabung und Neugrabung 2016–2022 belastbar rekonstruieren, und welche Aussagen hängen von der nachträglichen Korrelation unterschiedlicher Evidenzachsen ab?**
-
-Der Schwerpunkt liegt damit auf:
-
-- Korrelation Hülle ↔ moderne Stratigraphie;
-- Kontextqualität der menschlichen, lithischen und faunistischen Funde;
-- Verhältnis direkter archäologischer zu analytisch abgeleiteter Evidenz;
-- Taphonomie und konkurrierende Nutzungsmodelle;
-- Provenienzprobleme der Altgrabung;
-- Grenzen populationsgenetischer und paläoklimatischer Aussagen am konkreten Fundplatz.
-
-**Nicht mehr Ziel:** Besucher-Guide, Vor-Ort-Erklärung, Vermittlungserfolg oder ein `sichtbar/nicht sichtbar`-Schema.
-
-## Learnings für Histo-Orla
-
-### L1 – Research question before output format
-
-Vor Artefakt-, View- oder Pilotdesign muss eine fachliche Forschungsfrage formuliert sein, die auch ohne den aktuellen Präsentationskontext sinnvoll bleibt.
-
-Prüffrage:
-
-> Würde diese Frage noch Sinn ergeben, wenn niemand gerade in Ranis stünde und nichts vermittelt werden müsste?
-
-Wenn nein, ist sie wahrscheinlich eine View-/Nutzungsfrage, keine primäre Research Question.
-
-### L2 – Context of use ≠ research goal
-
-Ein Nutzer kann gerade vor Ort, im Archiv, im Museum oder beim Schreiben sein. Dieser Kontext darf die Form der Antwort beeinflussen, aber nicht automatisch den historischen Forschungsgegenstand umdefinieren.
-
-### L3 – Research State before derived views
-
-Persistenzreihenfolge:
+Nicht zwingend:
 
 ```text
-source / instance / findspot
-→ excerpts / observations
-→ claims / findings / hypotheses / unresolved
-→ method / uncertainty / competing explanation
-→ next discriminating research action
-→ optional brief / map / guide / narrative
+question first
+→ only question-relevant material survives
 ```
 
-### L4 – Vertical slice requires epistemic work
+---
 
-Ein echter Slice muss mindestens einen belastbaren Erkenntnisschritt leisten: Provenienz auflösen, Korrelation prüfen, Konflikt diagnostizieren, konkurrierende Modelle unterscheiden oder neue diskriminierende Quelle bestimmen.
+## L3 – Mehrdimensionale Ordnung schützt vor narrativer Verengung
 
-### L5 – Views dürfen Research Truth nicht besitzen
+Bei longue-durée-/Regionalmaterial genügt weder reine Chronologie noch reine Ortsgliederung.
 
-Visitor guide, Storyline, Karte, Museumstext oder 5-Minuten-Brief sind Projektionen. Sie lesen Research State; sie erzeugen nicht still neue historische Wahrheit.
+Mindestens parallel führen:
 
-### L6 – Goal correction must propagate to all controlling artifacts
+`source identity | place | time | material type | inspection | relations`.
 
-Ein Learning-Kommentar reicht nicht. Wenn die Forschungsfrage falsch ist, müssen Work Owner, README, Slice-Definition, DoD und nächste Aktionen gemeinsam geändert werden. Sonst bleibt die alte Steuerung operativ wirksam.
+So kann z. B. ein Kniegrotten-Objekt gleichzeitig als:
 
-### L7 – Owner correction is product evidence
+- heutiges Museumsfoto;
+- paläolithisches Artefakt;
+- Fund aus Döbritz;
+- Bestandteil eines Sammlungs-/Grabungskomplexes;
+- Literaturhook
 
-Die Assistenz kann nicht nur Fakten halluzinieren; sie kann auch **Ziele halluzinieren bzw. substituieren**. Das ist ein eigenständiger Failure Mode.
+sichtbar bleiben.
 
-> **goal substitution by conversational momentum**
+---
 
-Möglicher späterer Guard: Vor Eröffnung oder Reframing eines Research-Slices explizit `research question | user context | output/view | existing owner` unterscheiden. Noch kein Requirement.
+## L4 – User field collection ist Research Input, nicht bloß UX-Kontext
 
-## Bereits umgesetzte Korrekturen
+Der Owner hat vor Ort neues Material gesammelt. Das ist nicht nur „Kontext für eine bessere Antwort“, sondern kann neue Source Instances, Fundstellenhooks und Provenienzaufgaben erzeugen.
 
-- #85 umbenannt und inhaltlich auf Alt-/Neugrabung + Evidenzkorrelation umgestellt;
-- `README.md` aktive Forschungsfrage und nächste Aktionen komplett neu gerahmt;
-- `vertical-slices.md` VS1 vollständig ersetzt;
-- Besucher-/Vermittlungsoutput aus dem DoD entfernt;
-- `main` bleibt unverändert, kein PR/Merge.
+Die Assistenz muss es daher wie Forschungsinput behandeln:
 
-## Falsifikationsfrage für den Pilot
+```text
+user photo / note
+→ stable instance identity
+→ transcription / observation
+→ entity/source resolution
+→ links to publication/findspot/object
+→ unresolved tasks
+```
 
-Der korrigierte Pilot ist nur gerechtfertigt, wenn er zu einem überprüfbaren Research State führt, der mindestens eine der folgenden Leistungen erbringt:
+---
 
-- Alt-/Neugrabungs-Korrelation explizit und prüfbar macht;
-- Provenienz-/Kontextunsicherheiten einzelner zentraler Funde sichtbar macht;
-- konkurrierende Nutzungsmodelle der Höhle evidenzbasiert unterscheidet;
-- neue diskriminierende Quellen oder offene Fundstellenprobleme identifiziert;
-- ohne alten Chat fachlich fortsetzbar ist.
+## L5 – Größere Zusammenhänge zuerst als Relationen, nicht als Thesen sichern
 
-Wenn er nur eine bessere Erklärung von Bekanntem produziert, hat er sein Repo-Ziel verfehlt.
+Wenn Zechsteinriff, Höhlen, Orlasenke, Burgen und heutige Bauforschung in demselben Materialraum auftauchen, ist das zunächst ein **Relation Graph**:
+
+- räumlich verbunden;
+- zeitlich geschichtet;
+- institutionell/forschungsgeschichtlich verbunden;
+- möglicherweise vergleichbar.
+
+Erst spätere Forschung entscheidet, welche Beziehungen historisch erklärungskräftig sind.
+
+---
+
+## L6 – Owner-Korrektur muss Steuerungsartefakte wirklich ändern
+
+Nach jeder Zielkorrektur müssen gemeinsam angepasst werden:
+
+- Work Owner / Issue;
+- README / Handoff;
+- aktive bzw. inaktive Research Hooks;
+- DoD;
+- nächste Aktionen;
+- Learning-Dokumentation.
+
+Ein bloßer Kommentar lässt alte Steuerung weiterwirken.
+
+---
+
+## L7 – Assistenz kann nicht nur Fakten, sondern auch Forschungsstruktur halluzinieren
+
+Drei verschiedene Fehlertypen wurden sichtbar:
+
+1. **fabricated evidence** – erfundene Höhlengeometrie;
+2. **access inflation / OCR normalization** – mehr Zugriff/Sicherheit behauptet als vorhanden;
+3. **goal/question substitution** – dem Material eine nicht vom Owner getragene Forschungsstruktur aufzwingen.
+
+Der dritte Typ ist besonders wichtig, weil er auch bei faktisch korrekten Einzelangaben den gesamten Research State falsch steuern kann.
+
+---
+
+# Bereits umgesetzte Korrekturen
+
+- #85 umbenannt zu `Ranis/Orlatal – Materialkorpus, Provenienz und Ordnung`;
+- kein aktiver Pflicht-Slice mehr;
+- `README.md` auf Sammlung/Ordnung statt Ilsenhöhle-Forschungsfrage umgestellt;
+- `material-index.md` als Master-Index nach Raum, Zeit, Materialtyp und Beziehungen angelegt;
+- `vertical-slices.md` zu abgeleiteten Research Hooks degradiert;
+- Feld-/Museumsinstanzen bleiben eigene Evidenz, werden aber mit Objekt/Fundort/Publikation verknüpft;
+- `main` bleibt unverändert; kein PR/Merge.
+
+# Falsifikationsfrage für den Pilot
+
+Der Branch ist nur dann nützlich, wenn ein neuer Bearbeiter ohne alten Chat beantworten kann:
+
+1. **Welche Materialien haben wir?**
+2. **Was genau sind diese Instanzen?**
+3. **Wo und wann gehören sie hin?**
+4. **Wie sicher/provenienzgeklärt sind sie?**
+5. **Welche Materialien hängen zusammen und warum?**
+6. **Welche Lücken und echten Forschungsfragen ergeben sich daraus?**
+
+Wenn der Branch stattdessen wieder nur eine vorgefertigte Geschichte oder eine einzelne Lieblingsfrage illustriert, ist die Korrektur gescheitert.
