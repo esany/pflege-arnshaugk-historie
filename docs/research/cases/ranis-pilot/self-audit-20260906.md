@@ -6,156 +6,164 @@
 
 ## Anlass
 
-Owner-Feedback: Der angelegte Ranis-Pilot könnte das im Chat entstandene, eher didaktisch/vermittelnde Nebenprojekt über das bestehende Histo-Orla-Repository stülpen, statt das Repository als Forschungsassistenz zu nutzen.
+Owner-Feedback in zwei Stufen:
+
+1. Der angelegte Ranis-Pilot drohte das im Chat entstandene, eher didaktisch/vermittelnde Nebenprojekt über das bestehende Histo-Orla-Repository zu stülpen.
+2. Die erste Korrektur ging noch nicht weit genug: **Nicht nur der Output, sondern die Forschungsfrage selbst musste aus der Vermittlungslogik herausgelöst werden.**
 
 ## Ergebnis der Selbstprüfung
 
-**Ja, diese Gefahr habe ich selbst erzeugt.**
+**Ja, der erste Pilot war inhaltlich falsch gerahmt.**
 
-Der Branch ist technisch isoliert und hat `main` nicht verändert. Inhaltlich habe ich aber den Pilot zu stark um die Frage gerahmt, was ein „wissenschaftlich interessierter Besucher“ an der Ilsenhöhle wissen oder vor Ort erschließen kann. Damit wurde ein Vermittlungs-/Besucherziel zur primären Forschungsfrage gemacht, obwohl das bestehende Repository ein anderes Primärziel hat: eine private transdisziplinäre historische Forschungsassistenz für Quellenarbeit, Methodik, transdisziplinäre Analyse und restartbaren Research State.
+Der Branch war technisch isoliert, aber die aktive Frage `Was kann ein wissenschaftlich interessierter Besucher ... wissen?` machte Vermittlung zum epistemischen Zentrum. Damit wurden Auswahl der Evidenz, Gliederung, Success-Kriterien und Outputs auf einen Besucher-/Erklärkontext hin optimiert.
 
-Das ist kein bloßes Wording-Problem. Es verändert, welche Informationen priorisiert, wie Success definiert und welche Outputs als zentral behandelt werden.
+Das widerspricht dem Repository-Ziel. Histo-Orla ist eine Forschungsassistenz für Quellenarbeit, fachmethodische Analyse und restartbaren Research State. Vermittlung kann aus Forschung abgeleitet werden, darf aber weder Forschungsfrage noch DoD bestimmen.
 
 ## Konkrete Fehlleistungen
 
-### 1. Fremdes Ziel über vorhandenes Ziel gelegt
+### 1. Goal substitution by conversational momentum
 
-Ich habe aus dem Chat-Kontext ein anschauliches Vor-Ort-/Vermittlungsziel abgeleitet und dieses zum aktiven Vertical Slice gemacht.
+Aus der unmittelbaren Situation des Chats – Besuch in Ranis, Wunsch nach anschaulicher Einordnung, Bildern und Vor-Ort-Erklärung – wurde still ein neues Forschungsziel erzeugt.
 
-Dadurch entstand implizit:
-
-```text
-Vermittlungsfrage
-→ Research-Artefakte
-→ System-Learning
-```
-
-statt repository-konform:
+Fehlerpfad:
 
 ```text
-reale Forschungsfrage / Research Pain
-→ Quellen-/Methodenarbeit
-→ belastbarer restartbarer Research State
-→ daraus optional eine Vermittlungs-/Darstellungssicht
+situativer Nutzerkontext: Besuch / Erklärung
+→ attraktive Vermittlungsfrage
+→ Pilot-Forschungsfrage
+→ Repo-Artefakte
 ```
 
-Die Vermittlung darf eine **abgeleitete View** sein, nicht der Default-Owner des Research State.
-
-### 2. #64 zu schematisch angewandt
-
-Aus dem Audit-Befund „kleiner Vertical Slice statt Mega-Pilot“ habe ich zu schnell gefolgert, dass unser Chat-Thema selbst der richtige Pilotgegenstand sei.
-
-#64 fordert einen engen realen Slice mit Nutzeroutput. Es sagt nicht, dass jeder lebendige Chatstrang automatisch ein neuer Research-Pilot werden soll. Vor dem Slice hätte ich zuerst prüfen müssen:
-
-- Welcher bestehende Goal/Need/Pain des Repositories wird hier getestet?
-- Ist das Ranis-Thema Forschungsgegenstand, Testfixture oder nur ein Nebenprodukt des Chats?
-- Welcher konkrete Assistenz-Workflow des vorhandenen Systems soll dadurch belastet werden?
-
-Diese Prüfung habe ich nicht sauber genug gemacht.
-
-### 3. Vorhandenen Research State zu wenig als Primärstruktur genutzt
-
-Das Repository besitzt bereits Source-Identity-, Finding-/Claim-, Method-, Work-Context- und Restartability-Verträge. Ich habe diese zwar referenziert, aber darüber eine neue `ranis-pilot/`-Narrativstruktur mit `5-Minuten-Handoff`, `Vertical Slices`, `field-materials` usw. gebaut.
-
-Das kann sinnvoll sein, **wenn** es aus einem realen Research Need folgt. Hier bestand jedoch die Gefahr, dass ich eine neue lokale Mikro-Governance schaffe, die lediglich unseren Chat konserviert.
-
-### 4. „Owner-lesbar“ mit „Vermittlung“ verwechselt
-
-Ein owner-lesbarer Research Brief bedeutet: Forschungsstand, Evidenz, Unresolved, nächste diskriminierende Aktion schnell erfassbar.
-
-Ich habe daraus teilweise „vor Ort sichtbar / für Besucher erschließbar“ gemacht. Das ist ein anderes Produktziel.
-
-### 5. Zu viel Chat-Wissen vorsortiert statt zuerst Roh-Provenienz zu sichern
-
-Ein Teil der im Branch formulierten Ranis-Synthese stammt aus unserem Dialog und bereits vorheriger Recherche. Selbst wenn die Aussagen fachlich plausibel oder korrekt sind, hätte der erste Sicherungsschritt stärker lauten müssen:
+Korrekt wäre:
 
 ```text
-welche konkreten Aussagen wollen wir bewahren?
-→ woher stammen sie genau?
-→ welche wurden direkt inspiziert?
-→ welche sind Chat-Synthese/Hypothese?
-→ was fehlt zur Promotion?
+historische/archäologische Forschungsfrage
+→ Quellen / Methoden / Evidenz
+→ belastbarer Research State
+→ optional abgeleitete Darstellung für einen konkreten Nutzungskontext
 ```
 
-Erst danach sollte eine thematische Narration entstehen.
+### 2. Forschungsfrage und View verwechselt
 
-## Korrekturprinzip
+`Was ist vor Ort sichtbar?` kann eine nützliche **View-Frage** sein. Sie ist aber keine hinreichende historische Forschungsfrage.
 
-Der Branch bleibt vorerst **isoliertes Experiment**, aber seine Rolle wird enger interpretiert:
+Die eigentliche Forschungsfrage muss einen Erkenntnisgegenstand adressieren, z. B.:
 
-> Nicht „Ranis-Vermittlungsprojekt im Histo-Orla-Repo“, sondern Test, ob ein längerer, heterogener Chat-Research-Strang sauber in den bestehenden kanonischen Research State überführt werden kann, ohne Provenienz, Unsicherheit und Restartability zu verlieren.
+> Wie lässt sich die paläolithische Nutzung der Ilsenhöhle aus Alt- und Neugrabung rekonstruieren, und welche Claims hängen an der Korrelation unterschiedlicher Evidenzachsen?
 
-Der Forschungsgegenstand Ranis ist dabei **Testmaterial / realer Forschungsfall**. Eine spätere Vor-Ort- oder Vermittlungsausgabe ist höchstens eine abgeleitete View.
+Diese Frage erzeugt Quellenarbeit, Unsicherheitsanalyse, Vergleich konkurrierender Modelle und neue diskriminierende Forschungsaktionen. Eine Besucherfrage tut das nur indirekt.
+
+### 3. #64 zu formal statt inhaltlich angewandt
+
+Der Audit-Befund `kleiner Vertical Slice statt Mega-Pilot` wurde zu schematisch umgesetzt. Ein Slice ist nicht gut, nur weil er klein und owner-lesbar ist. Er braucht einen **realen Forschungsgegenstand und Erkenntnisgewinn**.
+
+### 4. Existing Research State nur referenziert, nicht als Denkform genutzt
+
+Source Identity, Findspot, Claim-/Finding-Status, Method Truth und Restartability wurden zitiert, aber die Pilotfrage blieb außerhalb dieser Logik. Dadurch entstand lokale Struktur, bevor klar war, welche fachliche Frage sie tragen sollte.
+
+### 5. Darstellungsnähe beeinflusst Evidenzauswahl
+
+Die frühere Logik `sichtbar | aus Befund erschließbar | nur analytisch bekannt` ist didaktisch nützlich, aber sie sortiert Evidenz nach Wahrnehmbarkeit des Besuchers statt nach wissenschaftlicher Funktion.
+
+Für den Forschungsstate ist die bessere Ordnung:
+
+```text
+Claim
+→ Source / Instance / Findspot
+→ Evidenzachse
+→ Kontextqualität
+→ Methode
+→ Unsicherheit
+→ konkurrierende Erklärung
+→ Finding/Hypothesis/Unresolved
+```
+
+### 6. Zu viel Chat-Synthese vor Provenienzauflösung
+
+Ein Teil der Synthese wurde aus dem Dialog vorstrukturiert. Der Research-State muss umgekehrt wachsen: konkrete Quelleninstanz und Fundstelle zuerst, Synthese danach.
+
+## Vollständige Zielkorrektur v0.2
+
+Die aktive Forschungsfrage lautet jetzt:
+
+> **Wie lässt sich die paläolithische Nutzung der Ilsenhöhle in Ranis aus der Kombination von Hülle-Altgrabung und Neugrabung 2016–2022 belastbar rekonstruieren, und welche Aussagen hängen von der nachträglichen Korrelation unterschiedlicher Evidenzachsen ab?**
+
+Der Schwerpunkt liegt damit auf:
+
+- Korrelation Hülle ↔ moderne Stratigraphie;
+- Kontextqualität der menschlichen, lithischen und faunistischen Funde;
+- Verhältnis direkter archäologischer zu analytisch abgeleiteter Evidenz;
+- Taphonomie und konkurrierende Nutzungsmodelle;
+- Provenienzprobleme der Altgrabung;
+- Grenzen populationsgenetischer und paläoklimatischer Aussagen am konkreten Fundplatz.
+
+**Nicht mehr Ziel:** Besucher-Guide, Vor-Ort-Erklärung, Vermittlungserfolg oder ein `sichtbar/nicht sichtbar`-Schema.
 
 ## Learnings für Histo-Orla
 
-### L1 – Vor jedem neuen Pilot zuerst Goal/Need/Pain routen
+### L1 – Research question before output format
 
-Kein neuer Branch/Issue allein deshalb, weil ein Chat thematisch reich geworden ist.
+Vor Artefakt-, View- oder Pilotdesign muss eine fachliche Forschungsfrage formuliert sein, die auch ohne den aktuellen Präsentationskontext sinnvoll bleibt.
 
-Vorher explizit beantworten:
+Prüffrage:
+
+> Würde diese Frage noch Sinn ergeben, wenn niemand gerade in Ranis stünde und nichts vermittelt werden müsste?
+
+Wenn nein, ist sie wahrscheinlich eine View-/Nutzungsfrage, keine primäre Research Question.
+
+### L2 – Context of use ≠ research goal
+
+Ein Nutzer kann gerade vor Ort, im Archiv, im Museum oder beim Schreiben sein. Dieser Kontext darf die Form der Antwort beeinflussen, aber nicht automatisch den historischen Forschungsgegenstand umdefinieren.
+
+### L3 – Research State before derived views
+
+Persistenzreihenfolge:
 
 ```text
-existing goal / need / pain?
-existing work owner?
-real research task?
-why is a new branch needed?
-what would be lost if we only persist into existing canonical state?
-```
-
-### L2 – Research State vor Darstellung
-
-Persistenzreihenfolge bei Chat-Übergabe:
-
-```text
-source / instance / inspection status
+source / instance / findspot
 → excerpts / observations
-→ findings / hypotheses / unresolved
-→ next research action
-→ erst danach synthesis / brief / map / visitor view
+→ claims / findings / hypotheses / unresolved
+→ method / uncertainty / competing explanation
+→ next discriminating research action
+→ optional brief / map / guide / narrative
 ```
 
-### L3 – Abgeleitete Views dürfen kanonische Wahrheit nicht besitzen
+### L4 – Vertical slice requires epistemic work
 
-`visitor guide`, `5-minute brief`, Karte, Storyline oder Ausstellungstext sind Views. Sie dürfen Findings lesen, aber keine eigene Research Truth etablieren.
+Ein echter Slice muss mindestens einen belastbaren Erkenntnisschritt leisten: Provenienz auflösen, Korrelation prüfen, Konflikt diagnostizieren, konkurrierende Modelle unterscheiden oder neue diskriminierende Quelle bestimmen.
 
-### L4 – Ein Vertical Slice braucht einen Systembezug, nicht nur eine kleine Fachfrage
+### L5 – Views dürfen Research Truth nicht besitzen
 
-Ein guter Pilot prüft eine konkrete Assistenzfähigkeit, z. B.:
+Visitor guide, Storyline, Karte, Museumstext oder 5-Minuten-Brief sind Projektionen. Sie lesen Research State; sie erzeugen nicht still neue historische Wahrheit.
 
-- heterogenen Chat-State in Source/Instance/Excerpt/Finding zerlegen;
-- alte und neue Forschung mit unterschiedlicher Evidenztiefe sauber zusammenführen;
-- user-provided field material provenance-sicher integrieren;
-- widersprüchliche Altdeutungen und moderne Revision getrennt halten;
-- fresh-context restart ohne alten Chat schaffen.
+### L6 – Goal correction must propagate to all controlling artifacts
 
-Die Fachfrage ist Testinhalt; die Assistenzfähigkeit ist der eigentliche Pilotzweck.
+Ein Learning-Kommentar reicht nicht. Wenn die Forschungsfrage falsch ist, müssen Work Owner, README, Slice-Definition, DoD und nächste Aktionen gemeinsam geändert werden. Sonst bleibt die alte Steuerung operativ wirksam.
 
-### L5 – Kein neues lokales Schema, wenn bestehende Verträge reichen
+### L7 – Owner correction is product evidence
 
-Neue Dateien/Strukturen nur dann, wenn ein realer Informationsverlust oder Bedienpain anders nicht sauber gelöst wird. Sonst bestehende kanonische Strukturen nutzen.
-
-### L6 – Owner-Korrektur ist Product Evidence
-
-Dieses Feedback zeigt eine reale Fehlsteuerung durch die Assistenz: Sie kann ein attraktives Nebenprodukt zum Hauptziel machen, obwohl das Repository bereits ein anderes Ziel und Governance besitzt.
-
-Das ist ein wichtiger Produkt-/Workflow-Failure-Mode:
+Die Assistenz kann nicht nur Fakten halluzinieren; sie kann auch **Ziele halluzinieren bzw. substituieren**. Das ist ein eigenständiger Failure Mode.
 
 > **goal substitution by conversational momentum**
 
-Mögliche spätere Guard-Idee: Vor Eröffnung eines neuen Pilot-/Work-Owner-Artefakts muss der aktuelle Goal/Need/Pain und die Beziehung zu bestehenden Work Ownern explizit aufgelöst werden. Noch kein Requirement.
+Möglicher späterer Guard: Vor Eröffnung oder Reframing eines Research-Slices explizit `research question | user context | output/view | existing owner` unterscheiden. Noch kein Requirement.
 
-## Sofortige Disposition
+## Bereits umgesetzte Korrekturen
 
-- `main`: unverändert lassen.
-- Branch: nicht mergen und keinen PR öffnen.
-- #85: als experimentellen Chat-to-Research-State-Test behandeln, nicht als neues Ranis-Programm.
-- bestehende Ranis-Artefakte im Branch als **candidate / test fixture** betrachten.
-- vor weiterer inhaltlicher Ausarbeitung zuerst prüfen, welche Inhalte in bestehende kanonische Orlagau-/Regional-Research-Artefakte gehören und welche nur branchlokale Testdaten bleiben.
-- Vermittlungs-/Besucheroutput nicht weiter als primäres DoD verfolgen.
+- #85 umbenannt und inhaltlich auf Alt-/Neugrabung + Evidenzkorrelation umgestellt;
+- `README.md` aktive Forschungsfrage und nächste Aktionen komplett neu gerahmt;
+- `vertical-slices.md` VS1 vollständig ersetzt;
+- Besucher-/Vermittlungsoutput aus dem DoD entfernt;
+- `main` bleibt unverändert, kein PR/Merge.
 
-## Falsifikationsfrage
+## Falsifikationsfrage für den Pilot
 
-Der korrigierte Pilot ist nur dann gerechtfertigt, wenn er nachweisbar etwas testet oder bewahrt, das durch bloßes Weiterchatten oder direktes Anhängen an bestehende #46-Artefakte nicht gleich gut und einfacher erreichbar wäre.
+Der korrigierte Pilot ist nur gerechtfertigt, wenn er zu einem überprüfbaren Research State führt, der mindestens eine der folgenden Leistungen erbringt:
 
-Wenn diese Bedingung nicht erfüllt wird, sollte der Branch verworfen bzw. nur als Lernprovenienz archiviert werden.
+- Alt-/Neugrabungs-Korrelation explizit und prüfbar macht;
+- Provenienz-/Kontextunsicherheiten einzelner zentraler Funde sichtbar macht;
+- konkurrierende Nutzungsmodelle der Höhle evidenzbasiert unterscheidet;
+- neue diskriminierende Quellen oder offene Fundstellenprobleme identifiziert;
+- ohne alten Chat fachlich fortsetzbar ist.
+
+Wenn er nur eine bessere Erklärung von Bekanntem produziert, hat er sein Repo-Ziel verfehlt.
