@@ -1,13 +1,22 @@
 # Ranis Pilot – Vertical Research Slices
 
 **Work Owner:** #85  
-**Prinzip:** Ein Slice ist klein, real, quellengebunden und owner-lesbar. Die Queue ist **kein** DoD für den aktiven Slice.
+**Prinzip:** Ein Slice ist klein, real, quellengebunden und owner-lesbar. Die Queue ist **kein** DoD für den aktiven Slice. Vermittlung ist kein Forschungsziel dieses Repositories; Darstellungen für Besucher/Museum sind höchstens abgeleitete Views.
 
-## VS1 – aktiv: Ilsenhöhle vor Ort wissenschaftlich erschließen
+## VS1 – aktiv: Rekonstruktion der paläolithischen Nutzung der Ilsenhöhle aus Alt- und Neugrabung
 
 ### Forschungsfrage
 
-> Was kann ein wissenschaftlich interessierter Besucher an der heutigen Ilsenhöhle tatsächlich wissen und erschließen, wenn er nur Aussagen verwendet, die durch die Originalpublikationen und den sichtbaren Ort getragen werden?
+> **Wie lässt sich die paläolithische Nutzung der Ilsenhöhle in Ranis aus der Kombination von Hülle-Altgrabung und Neugrabung 2016–2022 belastbar rekonstruieren, und welche Aussagen hängen von der nachträglichen Korrelation unterschiedlicher Evidenzachsen ab?**
+
+### Teilfragen
+
+1. Wie werden Hülles Schichten/Labels mit den modernen Layers 12–7 korreliert, und wo bleiben Unsicherheiten?
+2. Welche menschlichen, lithischen und faunistischen Funde gehören mit welcher Kontextqualität in die LRJ-Horizonte?
+3. Welche Befunde tragen das Modell einer episodischen menschlichen Nutzung gegenüber stärkerer Carnivorennutzung?
+4. Welche Erkenntnisse entstehen erst durch Proteomik, Radiokarbon/Bayes-Modell, Sediment-DNA, Isotope und aDNA?
+5. Welche Aussagen über frühe Homo-sapiens-Populationen sind fundplatzbezogen, welche populationsgeschichtlich und welche dürfen nicht lokalisiert werden?
+6. Welche Forschungsprobleme entstehen aus der Altgrabungsprovenienz und der nachträglichen Wiederidentifikation von Material?
 
 ### Reale Inputs
 
@@ -15,50 +24,50 @@
 - Smith et al. 2024, Nature Ecology & Evolution
 - Pederzani et al. 2024, Nature Ecology & Evolution
 - Sümer et al. 2024, Nature
-- publizierte Originalabbildungen/Extended Data/Supplemente
-- heutiger sichtbarer Ort / Nutzerbeobachtung
+- publizierte Originalabbildungen, Extended Data und Supplements
+- soweit zugänglich: Hülle-Grabungsdokumentation, Sammlungs-/Inventarangaben und spätere Korrelationen
+- offizielle Fundstellen-/Sammlungsangaben
 
 ### Arbeitsoutput
 
-Vier Spalten:
+Nicht `sichtbar | analytisch` als Besucherlogik, sondern eine **Claim-/Evidence-Matrix**:
 
 ```text
-sichtbar am Ort
-| archäologisch aus Befund erschließbar
-| nur analytisch/laborseitig bekannt
-| nicht belegt / unresolved
+historische/archäologische Aussage
+| tragende Quelle/Instanz/Fundstelle
+| Evidenzachse
+| Kontextqualität
+| Inspection-Status
+| Working Finding / Hypothesis / Unresolved
+| konkurrierende Erklärung / Grenze
 ```
 
-### Aktueller Befund
+### Aktueller Working State
 
-**Sichtbar:** Zechsteinfelsen, heutige Höhlenreste, Lage unter/bei der Burg, Beziehung zur heutigen Landschaft.
+- Die LRJ-Horizonte 9/8 sind mit Homo sapiens verbunden.
+- Ein wesentlicher Teil der Homininenreste stammt aus Hülles Altfunden und wurde erst analytisch als menschlich erkannt.
+- Die Korrelation von Altgrabungslabels und moderner Stratigraphie ist daher kein Nebendetail, sondern Voraussetzung für mehrere zentrale Claims.
+- Taphonomie, Fauna und Sediment-DNA sprechen gegen das einfache Modell einer dauerhaft menschlich bewohnten Höhle und eher für episodische menschliche Nutzung in einem stark von Carnivoren genutzten Raum.
+- Klima- und Genomdaten erweitern die Interpretation, dürfen aber stratigraphische Provenienzprobleme nicht verdecken.
+- Nicht belegt bleiben insbesondere eine konkrete Neandertaler–Homo-sapiens-Begegnung in Ranis und eine frei rekonstruierte Großhöhlen-Geometrie.
 
-**Aus Grabungsbefund erschließbar:** tiefe pleistozäne Sedimentsequenz; LRJ-Layer 9/8; komplexe Versturzgeschichte; alte und neue Grabungsbereiche; geringe menschliche Funddichte; starke Carnivorennutzung.
+### Kritische Arbeitsprodukte
 
-**Nur analytisch bekannt:** Homo-sapiens-Zuordnung kleiner Knochenfragmente; Radiokarbonmodell; aDNA-Verwandtschaft; Paläoklima aus Isotopen; Sediment-DNA; Proteomik.
+1. **Alt-/Neugrabungs-Korrelationsmatrix** – Hülle-Schichten/Labels ↔ moderne Layer ↔ Funde ↔ Datierungen.
+2. **Homininen-Fragmentregister** – jedes Fragment mit Herkunft, Kontext, Identifikationsmethode, Datierung, DNA-/Proteomikstatus.
+3. **Figure-/Panel-Index** – Originalabbildungen nur nach direkter Inspektion.
+4. **Nutzungsmodell-Prüfung** – menschliche Modifikationen/Funddichte vs. Carnivoren-/Bärennutzung.
+5. **Uncertainty Register** – Provenienz-, Korrelation-, Datierungs- und Interpretationsunsicherheiten.
 
-**Nicht belegt:** konkrete Begegnung mit Neandertalern in Ranis; dauerhafte menschliche Besiedlung; frei rekonstruierte Großhöhlen-Geometrie; direkte Verbindung zu späteren Sagen.
+### Success / Done v0.2
 
-### Kritische Originalabbildungen – Arbeitsindex
-
-Der Index wird erst bei direkter Figure-Inspektion finalisiert. Vorläufig priorisiert:
-
-- Mylopotamitaki 2024 Fig. 1: Stratigraphie/Altgrabung/LRJ/Artefakte/Europa-Kontext.
-- Mylopotamitaki Extended Data: alte-neue Grabung, Versturz, Altersmodell.
-- Smith 2024 Fig. 1: Grabungsplan und Stratigraphie.
-- Smith 2024 taphonomische Abbildungen: Carnivoren- vs Menschenmodifikation.
-- Pederzani 2024: Isotopen-/Klimakurven und zeitliche Lage der Homo-sapiens-Funde.
-- Sümer 2024: Populations-/Verwandtschafts- und Neandertaler-Admixture-Abbildungen.
-
-**Guard:** keine Figure-Nummer/Panel-Bedeutung wird aus Erinnerung promoted; jede wird gegen das Original geprüft.
-
-### Success / Done v0.1
-
-- [ ] 1–2 Seiten owner-lesbarer Vor-Ort-Brief
-- [ ] Original-Figure-Index mit exakter Quelle/Figure/Panel
-- [ ] keine erfundene Geometrie
-- [ ] jede zentrale Aussage einer Evidenzebene zugeordnet
-- [ ] offene Grenzen explizit
+- [ ] Hülle↔Neugrabung-Korrelation ist figure-/textgestützt dokumentiert
+- [ ] zentrale Homininen-/LRJ-Claims besitzen Source/Instance/Findspot und Inspection-Status
+- [ ] direkte archäologische Evidenz und analytisch abgeleitete Evidenz bleiben getrennt
+- [ ] Nutzungsmodell wird gegen konkurrierende Erklärungen geprüft
+- [ ] Altgrabungsunsicherheiten bleiben sichtbar
+- [ ] kein Besucher-/Vermittlungsoutput ist für Done erforderlich
+- [ ] ein neuer Bearbeiter kann ohne alten Chat die Forschungsfrage fortsetzen
 
 ---
 
@@ -66,24 +75,20 @@ Der Index wird erst bei direkter Figure-Inspektion finalisiert. Vorläufig prior
 
 ### Forschungsfrage
 
-> Welche Bestandteile von Börners Ilsa-Erzählung lassen sich als lokale Überlieferung vor Börner plausibilisieren, welche sind Börners literarisch-antiquarische Gestaltung, und was ist später Bechstein-/Grimm-Rezeption?
+> Welche Bestandteile von Börners Ilsa-Erzählung lassen sich quellenkritisch als vorbörnersche lokale Überlieferung fassen, welche als Börners literarisch-antiquarische Konstruktion, und wie verändern Bechstein/Grimm die Überlieferung anschließend?
 
 ### Benötigte Quellen
 
-- Börner 1838 Faksimile, Seiten der Ilsa-Erzählung und nachfolgende „Belehrung“
-- ggf. vorbereitete zweite Ausgabe / Manuskripte in Hohenleuben
-- Börner–Bechstein-Korrespondenz bzw. zuverlässige Edition
+- Börner 1838 Faksimile, vollständige Ilsa-Erzählung und „Belehrung“
+- ggf. Manuskripte zur geplanten zweiten Ausgabe / Hohenleuben
+- Börner–Bechstein-Korrespondenz bzw. belastbare Edition
 - Grimm-Rezeption
-- Pöge-Alder 2024 **vollständige relevante Seiten**, nicht nur Leseprobe
-- unabhängige regionale Varianten (Crinnelsloch/Godaminteich etc.)
+- Pöge-Alder 2024 vollständige relevante Seiten
+- unabhängige regionale Varianten
 
-### Aktuelle Working Hypothesis
+### Working Hypothesis
 
 Ein lokaler Berg-/Höhlen-/Anderswelt-Komplex ist als möglicher Überlieferungskern plausibel; die geschlossene Mythologie der 1838er Fassung ist mindestens teilweise Börners literarische/gelehrte Konstruktion. **Nicht promoted:** konkrete Datierung dieses Kerns oder direkte vorchristliche/paläolithische Erinnerung.
-
-### Hauptfehler, den der Slice verhindern muss
-
-Schlechte Fraktur-OCR → erfundene/normalisierte Namen → moderne Interpretation wird fälschlich zum „Urtext“.
 
 ---
 
@@ -91,7 +96,7 @@ Schlechte Fraktur-OCR → erfundene/normalisierte Namen → moderne Interpretati
 
 ### Forschungsfrage
 
-> Wie weit lässt sich die Besiedlungs-/Herrschaftsgeschichte des Burgfelsens vor die sicherere hochmittelalterliche Burgphase zurückführen?
+> Wie weit lässt sich die Besiedlungs- und Herrschaftsgeschichte des Burgfelsens vor die sicherere hochmittelalterliche Burgphase zurückführen, und welches Gewicht hat der frühmittelalterliche Keramikfund gegenüber fehlendem Baubefund?
 
 ### Evidenzachsen
 
@@ -101,7 +106,7 @@ Schlechte Fraktur-OCR → erfundene/normalisierte Namen → moderne Interpretati
 - Schriftquellen zu Ranis und regionalen Herrschaftsnetzen
 - aktuelle Torhaus-Bauforschung
 
-### Aktueller Working State
+### Working State
 
 - 9.-Jh.-Keramik am Torhaus: interessanter früher Horizont / möglicher Westkontakt.
 - Kein derzeit im Pilot gesicherter zugehöriger Baukörper → **keine 9.-Jh.-Burg behaupten**.
@@ -113,14 +118,14 @@ Schlechte Fraktur-OCR → erfundene/normalisierte Namen → moderne Interpretati
 
 ### Forschungsfrage
 
-> Lassen sich Gamsenberg – Ranis – Lausnitz – Döbritz als diachrone Mikroregion menschlicher Landschaftsnutzung modellieren, ohne zeitlich getrennte Fundplätze zu einer künstlichen „Siedlungskontinuität“ zu verbinden?
+> Welche diachronen Muster menschlicher Landschaftsnutzung lassen sich für Gamsenberg – Ranis – Lausnitz – Döbritz tatsächlich belegen, wenn Chronologie, Fundplatzfunktion und Evidenzqualität strikt getrennt werden?
 
 ### Kontrollpunkte
 
-- Gamsenberg ~mittelpaläolithisch / Neandertaler-Kontext
-- Ranis frühe Homo-sapiens-/LRJ-Phase
-- Döbritz/Lausnitz viel jüngere jungpaläolithische Nutzung
-- Funktionsunterschiede: Höhle/Abri, kurzzeitiger Jagdplatz, Basislager, Beobachtungspunkt nur dort, wo Befund trägt
+- Gamsenberg: mittelpaläolithischer Neandertaler-/Keilmessergruppen-Kontext
+- Ranis: frühe Homo-sapiens-/LRJ-Phase
+- Döbritz/Lausnitz: wesentlich jüngere jungpaläolithische Nutzung
+- Funktionszuschreibungen nur dort, wo Taphonomie, Inventar und Raumbezug tragen
 
 ### Forbidden shortcut
 
@@ -128,22 +133,22 @@ Schlechte Fraktur-OCR → erfundene/normalisierte Namen → moderne Interpretati
 
 ---
 
-## VS5 – Queue: Museum als Forschungsgeschichtliche Quelle
+## VS5 – Queue: Museum und ältere Forschung als Quellen eigener Zeit
 
 ### Forschungsfrage
 
-> Was sagen die heute/älter ausgestellten Objekte, Karten und Beschriftungen über archäologische Forschung und regionale Geschichtsbilder – und welche Aussagen sind inzwischen revisionsbedürftig?
+> Welche regionalarchäologischen Deutungen, Objektzuweisungen und Forschungstraditionen dokumentiert die Ausstellung, und welche davon sind durch neuere Forschung bestätigt, revidiert oder ungelöst?
 
 ### Inputs
 
-Nutzerfotos IMG_4495–4504 und weitere Feldmaterialien.
+Nutzerfotos IMG_4495–4504 und weitere Feldmaterialien, ergänzt durch Kataloge/Grabungsberichte/Fundakten.
 
-### Beispiel
+### Regel
 
-Beschriftungen wie „vorchristliche Kultstätte“ werden nicht als heutige Wahrheit übernommen, sondern als **Ausstellungsaussage mit eigener Datierung/Provenienz** behandelt.
+Eine Ausstellungsaussage wie „vorchristliche Kultstätte“ ist zunächst **Quelle für eine Deutungsgeschichte**, nicht heutiger Sachbefund.
 
 ---
 
 ## Routingregel
 
-Nur **VS1** ist aktuell aktiv. Ein Queue-Slice wird erst aktiv, wenn eine konkrete Research-Frage + reale Quelleninstanzen + klarer Owner-Output vorliegen. So verhindert der Pilot, dass aus dem Themenreichtum wieder ein unabschließbares Großprogramm wird.
+Nur **VS1** ist aktuell aktiv. Ein Queue-Slice wird erst aktiv, wenn konkrete Forschungsfrage, reale Quelleninstanzen und ein fachlicher Erkenntnisgewinn benannt sind. Darstellung/Vermittlung kann später aus Research State abgeleitet werden, bestimmt aber weder Slice-Auswahl noch DoD.
