@@ -1,93 +1,112 @@
-# Pilot #86 – Exploratives Forschungsnetz
+# Pilot #86 – Shared Research State unter wechselnden Forschungsfragen
 
-**Status:** `working-pilot / branch-isolated / no-main-authority`  
+**Status:** `reframed / owner-accepted / prototype-88-complete / branch-isolated / no-main-authority`  
 **Branch:** `pilot/explorative-research-network-20260907`  
 **Work Owner:** #86  
-**Review:** #87  
-**Prototype:** #88  
-**Evaluation:** #89
+**Independent Review:** #87 → `reframe`  
+**Prototype:** #88 → minimaler Falsifikationstest durchgeführt  
+**Evaluation:** #89 → nächster Gate  
+**Owner-Entscheidung:** 2026-09-07 → kleinen realen Ranis-Test weiterführen
 
-## Zweck
+## Aktueller Zweck
 
-Dieser Pilot untersucht, wie Histo-Orla **ergebnisoffene, hochgradig vernetzte Forschungsarbeit** unterstützen kann, wenn Material, Forschungsfragen, Analyse/Synthese und Maßstabswechsel nicht in einer linearen Pipeline organisiert werden.
+Der Pilot prüft jetzt **kein neues „exploratives Forschungsnetz“ und kein persistentes `Research Module`-Modell mehr**.
 
-Der Ausgangspunkt ist reale Forschungsarbeit am Raum Ranis/Orlatal: wissenschaftliche Publikationen, historische Quellen, Karten, Museumsobjekte/-beschriftungen, Fotos eines Feld-/Museumsbesuchs, Fundstellen, Forschungsgeschichte, Geologie, Archäologie, Burg-/Bauforschung und aktuelle Baustellenbeobachtungen treffen aufeinander. Ihre Relevanz ist nicht im Voraus vollständig bekannt.
+Nach Review #87 lautet die verbleibende, engere Frage:
 
-Der Pilot ist **kein Vermittlungsprojekt** und verfolgt **keine einzelne historische Masterfrage**.
+> Reicht der bereits vorhandene Histo-Orla-Research-State aus, wenn dieselbe Evidenz unter wechselnden Forschungsfragen/Work Contexts wiederverwendet wird, Analyse und Synthese rekursiv arbeiten, der Maßstab kontrolliert wechselt und unterschiedliche Views aus demselben State abgeleitet werden?
 
-## Kernhypothese
+Der reale Stressfall bleibt Ranis/Orlatal. Der Pilot bleibt ergebnisoffen und darf insbesondere als Erfolg ergeben, dass **keine neue Struktur nötig ist**.
 
-Die praktikable Einheit ist nicht `eine Frage = ein Case` und nicht `Materialsammlung statt Fragen`, sondern:
-
-> **ein gemeinsamer, provenance-sicherer Forschungszustand + modulare Research Questions + rekombinierbare Beziehungen + abgeleitete Views/Synthesen.**
-
-Eine Forschungsfrage ist eine **Linse / ein Arbeitsmodul**, kein Container und kein Besitzer von Evidenz.
-
-## Forschungsdynamik
+## Aktueller Kern
 
 ```text
-Material / Quelle / Beobachtung
+provenance-sicherer Canonical Research State
         ↕
-Identifikation / Quellenkritik / Kontext
+aktuelle Research Questions / Work Contexts
         ↕
-Analyse von Details und Relationen
+Source-/Instance-/Observation-/Finding-Arbeit
         ↕
-vorläufige Muster / Hypothesen
+Method-/Competence Routing
         ↕
-Synthese / Überblick / Scale Shift
+Analyse / Synthese / Research Hooks
         ↕
-neue Fragen / Gegenhypothesen / Lücken
+kontrollierter Scale Shift
         ↕
-gezielte Detailarbeit
-        ↺
+abgeleitete Views
 ```
 
-Die Pfeile sind absichtlich bidirektional. Analyse↔Synthese und Überblick↔Detail sind dauernde Wechselbeziehungen, keine einmaligen Phasenübergänge.
+Eine Forschungsfrage referenziert Evidenz; sie besitzt sie nicht. Dafür wird im aktuellen Pilot **kein eigener Research-Module-Datentyp** benötigt.
 
-## Was stabil bleiben soll
+## Review- und Prototype-Ergebnis
 
-- Source-/Instance-Identität und Provenienz;
-- Fundstellen-/Findspot-Rückführung;
-- Trennung von Observation, Finding, Claim/Interpretation, Hypothese und Synthesis/View;
-- Unsicherheit, Widerspruch und unresolved state;
-- Kompetenz-/Methodenhoheit je konkreter Forschungsfrage;
-- Git/GitHub-Restartability und Reviewbarkeit.
+### #87 – unabhängiges Review
 
-## Was flexibel bleiben soll
+Kanonisch:
 
-- Zuschnitt von Forschungsfragen;
-- räumlicher und zeitlicher Maßstab;
-- Reihenfolge der Arbeitsschritte;
-- führende/kontrollierende Fachkompetenzen;
-- Gruppierung und Projektion des Materials;
-- Beziehungen, Hypothesen und Synthesen als Candidates;
-- Frageoperationen wie `split`, `fuse`, `reframe`, `supersede`, `defer`.
+[`review-87.md`](review-87.md)
 
-## Repo-Passung
+Verdict: `reframe`.
 
-Der Pilot soll zunächst vorhandene Histo-Orla-Mechanismen wiederverwenden. Besonders relevant sind:
+Insbesondere:
 
-- #28/#29 – Needs/Pains und Research Workflows;
-- #30 – Research Question Portfolio;
-- #41 – Capability Map;
-- #45 – cross-cutting Research-/Evidence-Rahmen;
-- #50 – Canonical Research State / Source Identity;
-- #60 – Domain Method Profiles / Method Truth;
-- #63 – Value/Decision/Delivery/Feedback Assurance.
+- vorhandene Histo-Orla-Mechanismen decken den Kern weitgehend;
+- persistente `Research Modules` sind nicht belegt und stehen in Spannung zum jüngeren #63-Owner-Feedback;
+- eigene `split | fuse | reframe | supersede | defer`-Semantik bleibt `defer`;
+- neue Relationsschichten werden nicht promoted;
+- Ranis bleibt als realer heterogener Stresstest sinnvoll.
 
-Generische Aussagen werden zusätzlich gegen `esany/Wissensarbeit` geprüft. Dort sind besonders `Canonical State`, `Context Compiler`, `Competence Discovery`, `Systemic Integration`, `Derived Views` und `Use and Learn` einschlägig. Ein neuer generischer Building Block ist **nicht** Ziel dieses Piloten.
+### #88 – minimaler realer Ranis-Test
 
-## Dateien
+Kanonisch:
 
-- [`model.md`](model.md) – Arbeitsmodell, Invarianten, Question Modules, Relationen, Views.
-- [`workflows.md`](workflows.md) – rekursive Forschungsbewegungen und Scale Shifts.
-- [`stress-case-ranis-orlatal.md`](stress-case-ranis-orlatal.md) – realer Material-/Forschungsstressfall ohne neue historische Authority.
-- [`review-and-eval.md`](review-and-eval.md) – Review-/Evaluationslogik und Dispositionen.
-- [`learnings.md`](learnings.md) – dokumentierte Fehlrahmungen und methodische Learnings.
-- [`handoff.md`](handoff.md) – expliziter Startpunkt für unabhängige Review-/Implementierungs-Chats.
+[`prototype-88.md`](prototype-88.md)
 
-## Authority
+Ergebnis:
 
-Alles in diesem Ordner ist `pilot/candidate`. Es ändert keine accepted Requirements, Method Truth, Architecture oder historischen Findings auf `main`.
+`PASS – existing mechanisms sufficient for this slice`.
 
-Persistenz ist hier **keine Promotion**.
+Der Test verwendet eine direkt erneut inspizierte wissenschaftliche Ranis-Quelle und zeigt:
+
+- Source/Instance/Findspot/Observation/Finding bleiben getrennt;
+- dieselbe Evidence-ID wird in zwei unterschiedlichen Work Contexts referenziert, ohne Kopie;
+- ein source-lokales Finding erzeugt einen Synthese-Candidate und eine nächste Prüfspur;
+- der Scale Shift erzeugt Evidence Demand, keine historische Regionalbeziehung;
+- Method Debt bleibt sichtbar;
+- zwei Views referenzieren denselben State;
+- ein eigenes `Research Module` oder eine Question-State-Machine war nicht nötig.
+
+Zusätzlicher realer Negativtest: Die unter #85 dokumentierten Museumsfotos besitzen bekannte Metadaten, ihre Bildbytes sind im frischen Context aber nicht direkt verfügbar. Das ist ein `REQ-STATE-003`-Availability-Blocker, kein neuer Requirement-Gap.
+
+## Authority / Präzedenz innerhalb dieses Pilotordners
+
+Bei Widerspruch gilt für den aktuellen Pilotstand:
+
+1. #86 aktueller Work-Owner-Status und Owner-Entscheidung;
+2. [`review-87.md`](review-87.md);
+3. [`prototype-88.md`](prototype-88.md);
+4. dieser README;
+5. ältere Pilot-Design-Dokumente (`model.md`, `workflows.md`, `stress-case-ranis-orlatal.md`, `review-and-eval.md`, `learnings.md`, `handoff.md`) als **pre-review candidate history**.
+
+Die älteren Dokumente werden nicht rückwirkend als aktuelle Semantik gelesen, wenn sie `Research Modules`, alle fünf Question Operations oder eine Relations-Taxonomie als Zielmodell voraussetzen.
+
+## Aktuelle Nicht-Ziele
+
+- keine Master-Forschungsfrage erzwingen;
+- kein Research-Module-Datentyp;
+- keine neue Question-State-Machine;
+- keine neue Relationsontologie;
+- keine Graph-/DB-/Agentenarchitektur aus diesem Pilot ableiten;
+- keine historische Kontinuität zwischen ko-lokalen Schichten behaupten;
+- keine Method Truth aus AI/Pilotplausibilität erzeugen;
+- keine Requirement-/Architecture-/`main`-Promotion vor #89 + Owner-Disposition.
+
+## Nächster Gate
+
+#89 evaluiert den **reframed** Pilot in frischem Kontext. `aktive Module` sind dabei als aktuelle `Research Questions / Work Contexts` zu lesen.
+
+Danach entscheidet #86 nur noch über:
+
+`archive pilot | keep case-specific | gezielt vorhandene Delivery-Friktion routen`.
+
+Eine Promotion neuer wissenschaftlicher Struktur ist nach #87/#88 derzeit nicht begründet.
