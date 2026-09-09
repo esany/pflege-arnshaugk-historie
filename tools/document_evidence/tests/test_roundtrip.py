@@ -2,6 +2,7 @@ import copy
 import json
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from tools.document_evidence.roundtrip import EvidenceError, load_manifest, normalized_to_page, validate_manifest
@@ -42,6 +43,35 @@ class ManifestTests(unittest.TestCase):
         data["relations"][1].pop("evaluation")
         with self.assertRaises(EvidenceError):
             validate_manifest(data)
+
+    def test_invalid_page_indices_fail_closed(self):
+        for index in (-1, 20, 1.5, True):
+            with self.subTest(index=index):
+                data = load_manifest(MANIFEST)
+                data["gold_cases"][0]["locators"][0]["pdf_page_index"] = index
+                with self.assertRaisesRegex(EvidenceError, "pdf_page_index"):
+                    validate_manifest(data)
+
+    def test_invalid_geometry_fails_closed(self):
+        for geometry in ([], [100], [100, float("nan")], [100, -1]):
+            with self.subTest(geometry=geometry):
+                data = load_manifest(MANIFEST)
+                data["gold_cases"][0]["locators"][0]["page_geometry_points"] = geometry
+                with self.assertRaisesRegex(EvidenceError, "page geometry"):
+                    validate_manifest(data)
+
+    def test_noncritical_parser_evaluation_cannot_be_arbitrary(self):
+        data = load_manifest(MANIFEST)
+        data["relations"][0].update(authority="parser-heuristic", research_critical=False, evaluation="unchecked")
+        with self.assertRaises(EvidenceError):
+            validate_manifest(data)
+
+    def test_cli_propagates_failed_report(self):
+        from tools.document_evidence.roundtrip import main
+        with patch("sys.argv", ["roundtrip", "manifest", "pdf", "output"]), patch(
+            "tools.document_evidence.roundtrip.run", return_value={"result": "fail"}
+        ), patch("builtins.print"):
+            self.assertEqual(1, main())
 
     def test_changed_instance_bytes_fail_before_adapter(self):
         from tools.document_evidence.roundtrip import run

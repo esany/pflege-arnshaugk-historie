@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any
 
@@ -46,6 +47,8 @@ def validate_manifest(data: dict[str, Any]) -> None:
     if not data.get("findings") or not data.get("gold_cases"):
         raise EvidenceError("at least one finding and one gold case are required")
 
+    if type(instance["page_count"]) is not int or instance["page_count"] <= 0:
+        raise EvidenceError("invalid page_count")
     finding_ids = {item["finding_id"] for item in data["findings"]}
     locator_ids: set[str] = set()
     for case in data["gold_cases"]:
@@ -60,11 +63,18 @@ def validate_manifest(data: dict[str, Any]) -> None:
             locator_ids.add(locator_id)
             if locator.get("coordinate_system") != "normalized-page-space-v0.1":
                 raise EvidenceError(f"tool-specific/unknown coordinate system: {locator_id}")
+            index = locator.get("pdf_page_index")
+            if type(index) is not int or not 0 <= index < instance["page_count"]:
+                raise EvidenceError(f"invalid pdf_page_index: {locator_id}")
+            geometry = locator.get("page_geometry_points")
+            if (not isinstance(geometry, list) or len(geometry) != 2
+                    or any(type(v) not in (int, float) or not math.isfinite(v) or v <= 0 for v in geometry)):
+                raise EvidenceError(f"invalid page geometry: {locator_id}")
             bbox = locator.get("bbox")
             if not isinstance(bbox, list) or len(bbox) != 4:
                 raise EvidenceError(f"invalid bbox: {locator_id}")
             x0, y0, x1, y1 = bbox
-            if not (0 <= x0 < x1 <= 1 and 0 <= y0 < y1 <= 1):
+            if any(type(v) not in (int, float) or not math.isfinite(v) for v in bbox) or not (0 <= x0 < x1 <= 1 and 0 <= y0 < y1 <= 1):
                 raise EvidenceError(f"bbox outside normalized page: {locator_id}")
             if locator.get("printed_page", {}).get("status") not in {
                 "resolved", "absent", "ambiguous", "unresolved"
@@ -79,7 +89,7 @@ def validate_manifest(data: dict[str, Any]) -> None:
         if relation.get("research_critical"):
             if relation.get("evaluation") not in {"correct", "wrong", "unresolved"}:
                 raise EvidenceError(f"research-critical relation lacks valid evaluation: {relation['relation_id']}")
-        if relation["authority"] == "parser-heuristic" and "evaluation" not in relation:
+        if relation["authority"] == "parser-heuristic" and relation.get("evaluation") not in {"correct", "wrong", "unresolved"}:
             raise EvidenceError(f"parser relation lacks evaluation: {relation['relation_id']}")
 
 
@@ -128,6 +138,8 @@ def run(manifest_path: Path, pdf_path: Path, output_dir: Path) -> dict[str, Any]
                 "role": locator["role"],
                 "pdf_page_index": locator["pdf_page_index"],
                 "printed_page": locator["printed_page"],
+                "scope_state": locator.get("scope_state", "unspecified"),
+                "scope_note": locator.get("scope_note"),
                 "page_bbox_points": [round(value, 4) for value in page_bbox],
                 "crop_sha256": hashlib.sha256(payload).hexdigest(),
             })
@@ -139,6 +151,10 @@ def run(manifest_path: Path, pdf_path: Path, output_dir: Path) -> dict[str, Any]
     report = {
         "schema_version": "0.1",
         "result": "pass" if not wrong else "fail",
+        "result_scope": "mechanical reproduction and declared evaluations only; not semantic or human-gold validation",
+        "semantic_validation": "not-performed",
+        "gold_review": manifest.get("gold_review", {"status": "unresolved"}),
+        "findings": manifest["findings"],
         "instance_id": instance["instance_id"],
         "instance_sha256": actual_hash,
         "adapter": {"name": "PyMuPDF", "version": pymupdf.VersionBind, "authority": "mechanical-only"},
@@ -166,7 +182,7 @@ def main() -> int:
     except EvidenceError as exc:
         parser.exit(1, f"FAIL: {exc}\n")
     print(json.dumps(report, ensure_ascii=False, indent=2))
-    return 0
+    return 0 if report["result"] == "pass" else 1
 
 
 if __name__ == "__main__":

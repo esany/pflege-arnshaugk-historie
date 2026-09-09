@@ -1,6 +1,8 @@
 # #51 – Sachenbacher Evidence-Model Falsification Spike v0
 
-**Status:** `completed bounded experiment / hypothesis held for tested slice / no architecture decision / no requirement delta`
+**Current status (2026-09-09):** `mechanical reproduction verified / semantic acceptance unresolved / B v0 not complete`
+
+**Review precedence:** Section 11 supersedes the completion/PASS disposition below. Sections 1–10 preserve the original 2026-09-04 experiment report as historical execution claims, not current acceptance. No architecture or requirement delta.
 **Work Owner:** #51; technical direction #48; delivery/verification #59; trace #63
 **Executed:** 2026-09-04
 **Requirements:** REQ-SRC-001, REQ-SRC-002, REQ-SRC-004, REQ-OCR-002
@@ -146,3 +148,33 @@ The PDF bytes and generated crops are not committed. The source URL, fingerprint
 ## 10. Exactly one next step
 
 Run one replaceability check with a second PDF renderer against the unchanged neutral manifest and require the same visible regions before considering any higher-level parser benchmark.
+
+
+## 11. PR #90 reconciliation and review (2026-09-09)
+
+Primary function: bounded development/verification under #51/#48/#59. Research authority remains #46; no Selection or scientific promotion. Original commit `947f6fdf57559f5f7084e4e8a570b75c23bab702` is preserved. Main `df38958cd30cf82c86da05fa9fab1485bd667f20` is integrated by merge, without rewriting its five research/method artifacts.
+
+### Semantic review and acceptance boundary
+
+- The canonical source remains `SRC-LIT-0001`. The PR76 generic OA-PDF route with unresolved bytes and the fingerprinted 20-page partial object are different instance records, not competing source identities. The later Orlagau research passages remain outside this partial object.
+- The Lampe work order's ledger fingerprint matches the additive ledger change. Its historical evidence, action and unresolved questions remain unchanged; context loading retains one passed and two unresolved prerequisites.
+- The manifest's `F-PR76-SACHENBACHER-ZONE-MODEL` is a spike-local ID. PR76 sections 4–5 discuss the Orlaraum model; they do not establish an explicit canonical Finding for the four-zone figure on printed page 16. The link is now marked unresolved. A model-assisted technical review cannot invent the missing domain-owned Finding.
+- Original coordinates were preserved, including defects, so the original experiment remains auditable. Full-page visual inspection found that `L51-04-MAP-A` starts below the upper map edge; `L51-04-ZONE-EXPLANATION` starts below the Zone-I heading; `L51-02-TEXT`, `L51-03-TEXT` and `L51-04-TEXT-D` omit opening lines visible on their full pages. Stable cropping proves reproducibility, not coverage of the claimed semantic region.
+- The original `human-curated` labels are declarations in the input. This review has no independent record of a human selecting or accepting those boxes. No AI-assisted reinspection is promoted to human gold validation.
+- `silent_error_count=0` is derived from supplied relation evaluations, with zero parser relations. It is not an independent error measurement. `R51-06` remains unresolved; report outputs now preserve locator scope notes, Finding uncertainty and gold-review state.
+
+### Technical corrections
+
+Invalid/negative/out-of-range PDF indices are rejected before rendering (negative indices previously selected pages from the end). Missing, nonfinite or malformed geometry is rejected instead of allowing an empty `zip` check to pass. Parser evaluation vocabulary is enforced even for noncritical relations. A `fail` report now returns CLI exit status 1. Four targeted regression tests cover these failures; the original six remain.
+
+### Verification performed
+
+- Re-downloaded the manifest URL: 5,644,026 bytes; SHA-256 `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a` matches the original.
+- PyMuPDF 1.26.4 reproduced all 14 original regions in two separate processes with only explicit PATH/PYTHONPATH and no chat context. Reports were byte-identical. This is mechanical reproducibility only.
+- Full-page visual review of PDF indices 5, 8, 9, 12, 13 and 14 exposed the bounded coverage defects above.
+- Local suites: requirements 14, assurance 16, operational 27, document evidence 10 tests passed (67 total). Both formal validators passed; requirements migration warnings remain advisory.
+- GitHub CI status is recorded in PR #90 for the exact committed head; it is not inferred from these local checks.
+
+### Required return before v0 acceptance
+
+#51/#46 must review the original crops against the six full pages, specify/accept corrected tool-neutral regions with attributable human provenance, and identify an exact existing canonical Finding or explicitly accept the missing link as a changed test scope through the proper authority. Keep the original coordinate version as provenance. Re-run mechanical and visual checks on the accepted revision. Until then the cumulative original v0 acceptance is not established, the PR stays draft, and the proposed second-renderer step is premature. No human validation or historical Finding has been fabricated to close this gate.

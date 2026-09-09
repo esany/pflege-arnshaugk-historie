@@ -55,10 +55,10 @@ Regeln:
 | REQ-SRC-001 | #50/#51 | partial | #51 Sachenbacher v0 keeps Source, Representation and fingerprinted Instance distinct; general persistence/integration remains open |
 | REQ-SRC-002 | #49/#50/#51 | partial | concrete OA-PDF inspection status, bytes and scope are reproducible for one bounded instance; general resolver remains open |
 | REQ-SRC-003 | #50/#51/#55 | not-started | editorial/normalization separation |
-| REQ-SRC-004 | #51/#55 | partial | #51 real Finding→14 neutral locators→fingerprinted PDF regions + isolated fresh-context roundtrip passed; general document path/UI remain open |
+| REQ-SRC-004 | #51/#55 | partial | #51 mechanical reproduction of 14 locators passed; clipped gold regions and canonical Finding link require review (PR #90); general document path/UI remain open |
 | REQ-SRC-005 | #60/#59 | not-started | archive provenance/function routing |
 | REQ-OCR-001 | #52/#51 | not-started | OCR/HTR derivative + parentage |
-| REQ-OCR-002 | #52/#51 | partial | neutral page-region mapping passed on born-digital Sachenbacher slice; OCR/text transformation not exercised |
+| REQ-OCR-002 | #52/#51 | partial | mechanical page-region mapping reproduced; semantic region completeness remains under review (PR #90); OCR/text transformation not exercised |
 | REQ-OCR-003 | #52 | not-started | research-critical OCR benchmark |
 | REQ-RET-001 | #53/#59 | not-started | exact/auditable search without LLM |
 | REQ-RET-002 | #53/#60 | not-started | controlled historical variants |

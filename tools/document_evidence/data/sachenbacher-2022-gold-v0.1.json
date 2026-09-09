@@ -1,6 +1,11 @@
 {
   "schema_version": "0.1",
   "experiment_id": "EXP-51-SACHENBACHER-V0",
+  "gold_review": {
+    "status": "requires-human-review",
+    "review_ref": "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md#11-pr-90-reconciliation-and-review-2026-09-09",
+    "boundary": "Original coordinates preserved. Original human-curation claim is not independently evidenced here; visual review found clipped content. Mechanical reproduction is not semantic acceptance."
+  },
   "instance": {
     "source_id": "SRC-LIT-0001",
     "representation_id": "REP-SACHENBACHER-2022-OA-PDF",
@@ -33,8 +38,8 @@
       "finding_id": "F-PR76-SACHENBACHER-ZONE-MODEL",
       "canonical_research_ref": "pull-request:#76 / docs/research/cases/u2-sachenbacher-2022-landesausbau-model-check.md sections 4-5",
       "statement": "Sachenbacher presents spatial models as authored, reviewable argumentation; the four-zone model must be read through text, map, caption, embedded Roman-numeral keys and the following zone explanations rather than as a standalone map image.",
-      "status": "working-research-model-check",
-      "limit": "This evidence anchors Sachenbacher's published model and its presentation, not the historical truth of the depicted zones."
+      "status": "unresolved-canonical-finding-link",
+      "limit": "The cited PR76 sections address the Orlaraum model, not an explicit finding for this four-zone figure on printed page 16. This ID is a spike-local candidate; a domain-owned canonical finding link remains unresolved. No historical truth is asserted."
     },
     {
       "finding_id": "F-EXP51-LAYOUT-VARIANTS",

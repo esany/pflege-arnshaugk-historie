@@ -12,12 +12,12 @@
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": ["tools/document_evidence/**", "tools/requirements/data/records.json", ".github/workflows/project-assurance.yml", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "docs/research/cases/orlagau-source-ledger.md", "docs/research/cases/u2-lampe-420-work-order.json", "docs/development/requirements-coverage.md", "PROJECT_STATE.md"],
-      "verification_refs": ["issue:#51", "pull-request:#76", "tools/document_evidence/tests/test_roundtrip.py", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md"],
+      "verification_refs": ["issue:#51", "pull-request:#90", "pull-request:#76", "tools/document_evidence/tests/test_roundtrip.py", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md"],
       "decision_not_required_reason": "Bounded, local and reversible falsification spike using the existing #50 contract and a replaceable renderer; it makes no architecture or requirement decision.",
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Five real Sachenbacher gold cases with 14 human-set normalized locators reproduced from one fingerprinted partial OA-PDF. Two isolated fresh-context runs produced byte-identical reports; silent_error_count=0. Existing semantics held for the tested slice; broader document types remain unverified."
+      "notes": "PR #90 preserves the original commit and integrates main. Mechanical reproduction of 14 original locators succeeds; semantic acceptance remains open due to clipped regions and an unresolved domain-owned Finding link. Original human-curation claims are not independently verified. Review fixes reject invalid page indices/geometry and parser evaluations, preserve uncertainty in reports and propagate failed results to the CLI exit code. No scientific or selection promotion."
     },
     {
       "id": "DEC-ASSURANCE-001",
