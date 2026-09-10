@@ -234,15 +234,17 @@ def render_audit_view(state: Mapping[str, Any], claim_id: str) -> str:
                 ):
                     _append_if_present(lines, label, application, key)
 
-        if "validation_status" not in finding or finding.get("validation_status") in {None, ""}:
+        validation_status = finding.get("validation_status")
+        if "validation_status" not in finding or validation_status is None or validation_status == "":
             _gap(gaps, f"finding {finding_id} has no validation_status")
             lines.append("- finding_validation_status: missing/unresolved")
 
-        if "uncertainty" not in finding or finding.get("uncertainty") in {None, ""}:
+        uncertainty = finding.get("uncertainty")
+        if "uncertainty" not in finding or uncertainty is None or uncertainty == "":
             _gap(gaps, f"finding {finding_id} has no uncertainty state")
             lines.append("- uncertainty: missing/unresolved")
         else:
-            lines.append(f"- uncertainty: {_stable(finding['uncertainty'])}")
+            lines.append(f"- uncertainty: {_stable(uncertainty)}")
 
         if "alternatives" not in finding:
             _gap(gaps, f"finding {finding_id} has no alternatives field")
