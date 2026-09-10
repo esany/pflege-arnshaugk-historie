@@ -18,7 +18,7 @@ The required local authorization boundary is the Zotero Desktop preference “Al
 
 ## Read/write boundary
 
-No inventory, collection, tag, or example-item read succeeded. Consequently no item titles, creators, years, Zotero keys, or BibTeX keys are reported. Attachments, local paths, PDFs, full text, Web API, OneDrive/Graph, and remote paths were not tested.
+The initial pre-activation read attempt did not succeed. After manual activation, inventory, collections, tags, five example-item records, and one attachment metadata record were read successfully. Attachments beyond that single metadata record, local paths, PDFs, full text, Web API, OneDrive/Graph, and remote paths were not tested.
 
 No Zotero mutation was performed. Write capabilities remain untested and no write authorization was requested. In particular, no item, collection, tag, note, import, attachment, or write-back operation occurred.
 
@@ -49,10 +49,26 @@ The user manually enabled the Local API preference. A subsequent run of the exis
 
 Only item metadata and BibTeX representations for these five items were read. No attachment, path, PDF, full text, Web API, OneDrive/Graph, or write operation was performed; no write authorization was requested.
 
+## Attachment metadata slice
+
+For the representative parent item `VFR8QKJK`, the skill’s child read returned two children: one attachment and one note. The attachment metadata request for `39IPCF2Q` returned HTTP `200`:
+
+- Parent item key: `VFR8QKJK`
+- Attachment key: `39IPCF2Q`
+- Attachment type: `attachment`
+- Title/label: `Digitale Edition`
+- Link mode: `linked_url`
+- Content type/MIME: empty in the returned metadata
+- Filename: not present in the returned metadata
+- Attachment child count: `0`
+- API metadata also included an external `url`, access date, charset, tags, relations, and modification timestamps; the URL was not resolved or opened.
+
+This proves deterministic parent → attachment navigation and metadata retrieval. It does not prove access to a concrete file or inspected byte instance.
+
 ## Open questions explicitly outside this slice
 
 This slice does not establish attachment resolution, OneDrive byte access, Web API or account/API-key access, rename/move behavior, byte-change detection, cross-device behavior, OCR/full text, remote paths, or write-back safety.
 
 ## Next action
 
-After the user enables the Local API preference in Zotero Desktop, rerun the existing skill’s `status`, `inventory`, `collections`, and `tags` commands, then inspect at most five representative item metadata records. Do not request write authorization.
+Test the smallest byte-resolution boundary for this one attachment by inspecting only whether the permitted local resolver can expose a file reference, without opening the file or reading its contents. Do not request write authorization.
