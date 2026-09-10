@@ -84,6 +84,12 @@ The Local API file resolver returned a local `file://` reference for this attach
 
 This proves locator exposure only: `file:// reference obtained` does not establish file existence, byte availability, or a verified Histo-Orla inspected instance.
 
+## Filesystem reachability slice
+
+For the same attachment `HG8CHSUV`, the already exposed `file://` locator was resolved internally and checked with filesystem metadata operations only. The target exists, is a regular file entry, and the local filesystem permission check indicated readable. The absolute path was not persisted. No file descriptor was opened and no byte was read.
+
+This establishes filesystem-entry reachability only. It does not establish that all bytes are locally hydrated or available without provider action, and it does not verify an inspected instance.
+
 ## Next action
 
-Run one controlled local file-availability check for `HG8CHSUV` without reading file content, then record whether the resolver’s target is reachable. Do not request write authorization.
+Run one controlled metadata-free byte-availability check for `HG8CHSUV` only if a later #49 slice explicitly defines a provider-safe operation; do not infer byte availability from the filesystem entry. Do not request write authorization.
