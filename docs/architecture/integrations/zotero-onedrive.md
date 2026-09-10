@@ -67,8 +67,23 @@ This proves deterministic parent → attachment navigation and metadata retrieva
 
 ## Open questions explicitly outside this slice
 
-This slice does not establish attachment resolution, OneDrive byte access, Web API or account/API-key access, rename/move behavior, byte-change detection, cross-device behavior, OCR/full text, remote paths, or write-back safety.
+This slice does not establish OneDrive byte access, Web API or account/API-key access, rename/move behavior, byte-change detection, cross-device behavior, OCR/full text, or write-back safety.
+
+## Linked-file resolver slice
+
+Search boundary: top-level local items were inspected in title order until the first qualifying child; 39 parent items and 100 child records were checked. The first real `linked_file` attachment found was:
+
+- Parent item: `LMTFTRHS`
+- Attachment: `HG8CHSUV`
+- Title/label: `Held - 1999 - Christoph von Carlowitz.pdf`
+- Link mode: `linked_file`
+- Content type: `application/pdf`
+- Attachment path metadata: `attachments:Held - 1999 - Christoph von Carlowitz.pdf`
+
+The Local API file resolver returned a local `file://` reference for this attachment. The absolute user-specific path is intentionally not persisted here. The file URL was not opened, and no existence check, byte read, hash, PDF/full-text read, or other processing was performed.
+
+This proves locator exposure only: `file:// reference obtained` does not establish file existence, byte availability, or a verified Histo-Orla inspected instance.
 
 ## Next action
 
-Test the smallest byte-resolution boundary for this one attachment by inspecting only whether the permitted local resolver can expose a file reference, without opening the file or reading its contents. Do not request write authorization.
+Run one controlled local file-availability check for `HG8CHSUV` without reading file content, then record whether the resolver’s target is reachable. Do not request write authorization.
