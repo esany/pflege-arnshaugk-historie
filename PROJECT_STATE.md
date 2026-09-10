@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-03  
+**Stand:** 2026-09-10  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -16,6 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
+- **#92 / PR #94** – Architecture/Product Re-Baseline ist als Roadmap-Sicht integriert. Sie ordnet bestehende Arbeit als `governing/project | domain/research | product capability | operational support | pilot/testfixture | superseded/archive`, ohne neue Requirement-, Method-, Historical- oder Selection-Authority zu schaffen. `src/histo_orla/` ist kein Pflichtziel; eine Product-Code-Grenze entsteht erst bei realer dauerhafter Runtime-Produktlogik oder nachgewiesener Responsibility-Kollision mit `tools/`.
 
 Verbindlich gilt:
 
@@ -36,8 +37,10 @@ Kanonisch:
 - `docs/research/synthesis/requirements-structure.md`
 - `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/rebaseline-roadmap.md`
 - `docs/architecture/operational-execution-architecture.md`
 - `docs/architecture/prior-art-development-inputs.md`
+- `docs/architecture/assurance/work-selection-reconciliation-20260910.md`
 - `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
 - `docs/governance/lean-agile-non-regression.md`
@@ -230,28 +233,45 @@ Kanonische technische Einordnung: `docs/architecture/prior-art-development-input
 - #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
 - #70 AI-Resilience Root-Cause-Audit – **completed / retire-active**; historischer Snapshot `docs/architecture/assurance/ai-resilience-root-cause-audit.md`, keine Requirement-/Implementation-Authority. D1/D2 und realer Lampe-420-Slice sind an bestehende Owner überführt; kein neuer Requirement-Gap. Der im Closure-Lauf erneut belegte Connector-write-Restpunkt liegt bei #48/#59, serverseitige Admission bei #44.
+- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 als Reconciliation-Sicht abgeschlossen, R4 aktuell `no product-code move yet`; Operationalisierung läuft über bestehende Owner.
 
 Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nutzungsbefunde präzisiert.
 
 ## 4. Aktive fachliche Work Owner
 
+### Current Work Selection
+
+`selection-open` — Im aktuell reconciliierten kanonischen State ist **nichts explizit owner-authorized als `selected-current` ausgewählt**. Dies ist eine abgeleitete Handoff-Sicht, keine Selection Authority oder Selection Registry.
+
+Aktuelle Dispositionen ohne Prioritätsableitung:
+
+- #46 / Lampe 420 / `WO-U2-LAMPE-420-001` → `resumable-not-selected`;
+- #46 / Sachenbacher / gemergter PR #76 → `integrated-not-selected`;
+- #47 → `active-independent-not-selected`;
+- #60 → `supporting` Method Truth;
+- #92/#94 → `architecture-supporting`, keine Research Selection.
+
+`selected-current` entsteht nur durch explizite Research/Product-Owner-Autorisierung. Reconciliation-Anker: `docs/architecture/assurance/work-selection-reconciliation-20260910.md` / PR #97. Weder ein resumable Work Order noch ein gemergter/offener PR, grünes CI, ein aktiver Work Owner, Method Work oder die Architecture Roadmap erzeugt eine Current-Work-Auswahl.
+
 ### #46 – U2 Knau/Orlagau
 
 `in-research / live-use-case / working-research`
 
-Aktueller historischer Fokus: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`. Für Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktuelle kanonische Research-Cursor. Nächste diskriminierende Aktion: den vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke und Schmidt/Alberti/Dobenecker source-/findspot-gebunden auflösen oder einen bounded unresolved Search Boundary persistieren; Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben offen.
+Aktueller historischer Scope: mittelalterliche Quellen-, Herrschafts-, Siedlungs- und Beziehungsräume im Orla-Grenzraum; konkrete Findings, Search Boundaries und Quellenexzerpte unter `docs/research/cases/`. `WO-U2-LAMPE-420-001` bleibt ein valider, `resumable` bounded Work Order, ist aber **keine globale Current-Work-Auswahl**. Sachenbacher/PR #76 ist als begrenzte Reconciliation-/Research-Evidenz integriert und ebenfalls nicht `selected-current`. Offene Fallfragen bleiben bei #46 und werden erst nach expliziter Research-Owner-Auswahl wieder als aktueller Slice ausgeführt.
 
 ### #47 – U1 Teich-/Feuchtkulturlandschaft
 
 `in-research / working-research`
 
+Aktiver eigenständiger Research Owner mit eigener Quellenlogik; aus aktivem Ownership folgt keine globale Current-Work-Auswahl.
+
 ### #60 – Domain Method Profiles
 
 `in-research / cross-cutting-method-work-package`
 
-Besitzt Method Truth, nicht Systemarchitektur.
+Besitzt Method Truth, nicht Systemarchitektur. Im Current-Work-Handoff ist #60 `supporting`; Method Truth wählt keinen historischen Current Slice aus.
 
-Aktuelle Priorität:
+Aktuelle Priorität innerhalb des Method-Work-Package:
 
 1. Diplomatik / Urkundenlehre + Editionswissenschaft/Textkritik;
 2. Archivistik / Provenienz / Registraturkunde;
@@ -307,6 +327,7 @@ Requirement / Cluster
 
 Zusätzliche aktuelle Prior-Art-/Operational-Inputs:
 
+- `docs/architecture/rebaseline-roadmap.md`;
 - `docs/architecture/operational-execution-architecture.md`;
 - `docs/architecture/prior-art-development-inputs.md`;
 - `esany/paleo-type` und `esany/Wissensarbeit` werden bei direkt relevanten materiellen Entscheidungen frisch als Prior Art gelesen, niemals als fremde Requirement-/Semantik-Authority.
@@ -345,6 +366,22 @@ Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA
 - #62 – Requirements Assurance Harness / deterministische Requirements-QA
 - #63 – Goal/Need/Pain → Requirement → Decision → Delivery → Feedback Assurance Spine
 
+### Re-Baseline W1 – aktueller kritischer Product Path
+
+```text
+#50 semantic Source/Instance contract
+-> #49 reliable read-only source/byte resolution
+-> #51 document/findspot runtime proof
+-> #53 retrieval against inspected source
+-> #55 derived human-readable research view
+-> #57 availability/restartability proof
+-> reale Owner-Workflow-Akzeptanz
+```
+
+Cross-cutting: #54 Transition Safety, #56 Rights/Admission, #60 Method Truth, #61 Context sowie #62/#63 formale Assurance/Traceability.
+
+Aktuell ist #49 der technische Enabler. PR #96 hat zusätzliche Zotero-Local-API-Read-Evidenz integriert; der nächste #49-Schritt bleibt AQ-ZO-03/AQ-ZO-04: device-independent/read-only Source-/Byte-Resolution gegen #50. Diese technische Reihenfolge ist **keine** Research-Selection.
+
 ## 9. Source / Storage Responsibility
 
 ```text
@@ -357,9 +394,9 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ## 10. Aktuelle nächste Aktionen
 
-### Inhaltlich führend
+### Fachlich verfügbare Owner-Arbeit — keine Current-Work-Auswahl
 
-1. #46/#47 reale Forschung fortführen. Für #46/Lampe Nr. 420 ist `WO-U2-LAMPE-420-001` der aktive bounded Cursor: vorausgehenden Kauf/Verkäufer der `villa in Grune` über Lampes Nachbarstücke sowie Schmidt/Alberti/Dobenecker auflösen; source/findspot-backed Ergebnis oder bounded unresolved Search Boundary persistieren, bevor breiter synthetisiert wird. Archivkonkordanz und unabhängige `Grune = Mönchgrün`-Kollation bleiben weitere diskriminierende Schritte.
+1. **Current Work Selection bleibt `selection-open`.** Vor einer expliziten Research/Product-Owner-Auswahl wird keine fachliche Option als `selected-current` behandelt. #46/Lampe ist resumable, Sachenbacher integriert, #47 aktiv eigenständig und #60 supporting; daraus folgt keine globale Priorität.
 2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
 3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
 4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
@@ -377,15 +414,16 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ### Technisch parallel
 
-13. **Reales Owner-Feedback `FB-20260902-003` ist weiterhin führender Technical-Delivery-Pain:** #48 priorisiert einen vertikalen Research-Operations-Schnitt aus #50/#55/#61: `structured canonical research state → automated context/intake/trace → deterministic derive → human-readable research workspace/view`. Der Nutzer/Chat darf nicht Workflow Engine für routinehafte State-Pflege bleiben.
-14. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
-15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
-16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
-17. #61 Work Context/Handoff für diesen Slice nicht weiter abstrakt modellieren: D2 und der reale Lampe-420-Adapter sind implementiert und abgenommen. Weitere Context-Arbeit nur bei neuer realer Friktion; technische Priorisierung fällt an bestehende Owner wie #54 Transition, #57 Evidence Availability/Restartability und #55 Derived Research View zurück.
-18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
-19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
-20. Bei tatsächlicher Nutzung von `WO-U2-LAMPE-420-001` Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
-21. B1-Restgrenze unter #48/#59 schließen: direkte GitHub-Connector-/Contents-API-Writes müssen den Safe-Mutation-Preflight konsumieren oder eine äquivalente bounded/diff-checked Write-Operation verwenden. Der #70-Closure-Lauf liefert dafür reale Negativ-Evidence; #70 selbst bleibt abgeschlossen. GitHub-Admission wird separat nach Auflösung von `DD-20260903-001` end-to-end verifiziert.
+13. **Re-Baseline W1:** #49 device-independent/read-only Source-/Byte-Resolution gegen #50 weiterführen; danach #51/#53/#55/#57 als zusammenhängenden Product-Capability-Pfad integrieren. Keine neue Parallelowner-Landschaft.
+14. **Product-Code-Grenze bewusst deferred:** kein leeres `src/histo_orla/`, kein Wholesale-Move aus `tools/`. Bounded Extraction erst, wenn reale dauerhafte Runtime-Produktlogik oder eine konkrete Product-vs-Operational-Responsibility-Kollision belegt ist.
+15. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
+16. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
+17. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale, **explizit owner-ausgewählte** Research-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
+18. #61 Work Context/Handoff für diesen Slice nicht weiter abstrakt modellieren: D2 und der reale Lampe-420-Adapter sind implementiert und abgenommen. Weitere Context-Arbeit nur bei neuer realer Friktion; technische Priorisierung fällt an bestehende Owner wie #54 Transition, #57 Evidence Availability/Restartability und #55 Derived Research View zurück.
+19. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
+20. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
+21. Nach expliziter Research-Owner-Auswahl eines R5-Slices Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
+22. B1-Restgrenze unter #48/#59 schließen: direkte GitHub-Connector-/Contents-API-Writes müssen den Safe-Mutation-Preflight konsumieren oder eine äquivalente bounded/diff-checked Write-Operation verwenden. Der #70-Closure-Lauf liefert dafür reale Negativ-Evidence; #70 selbst bleibt abgeschlossen. GitHub-Admission wird separat nach Auflösung von `DD-20260903-001` end-to-end verifiziert.
 
 ## 11. Blocker / Decisions
 
@@ -395,7 +433,7 @@ Aktuell aktiv:
 
 - `DD-20260903-001` – **GitHub Required-PR / Branch-Protection Admission**: D1 schützt den lokalen Operational-Write-Pfad und PR #74 bereitet `Project Assurance` als globalen Required Check vor. `main` ist jedoch weiterhin unprotected, Rulesets sind leer und der aktuell autorisierte GitHub-Connector besitzt keine Ruleset-/Branch-Protection-Schreibfunktion. Empfohlene Auflösung durch Repository-Admin: Required Pull Request für `main` + Required Status Check `Project Assurance`. Danach End-to-End-Negativtest unter #59: direct main write muss abgewiesen werden; normaler PR mit grünem Check bleibt zulässig.
 
-Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #54 Transition, #57 Evidence Availability/Restartability, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #49–#57 Product-/Integration-Arbeit, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
@@ -405,6 +443,10 @@ Ein neuer Chat muss nach
 
 ohne alten Chat erkennen können:
 
+- **Current Work Selection ist `selection-open`; `resumable`, `integrated`, aktiver Work Owner, Method Work, PR-/CI-Status oder Architecture Roadmap begründen keine Auswahl;**
+- welche Arbeit `governing/project`, `domain/research`, `product capability`, `operational support`, `pilot/testfixture` oder `superseded/archive` ist;
+- dass `src/histo_orla/` aktuell nicht eingeführt ist und Product-Code-Struktur bedarfsgetrieben aus realer Runtime-Produktlogik entstehen muss;
+- den aktuellen W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance`, ohne daraus Research Selection abzuleiten;
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
