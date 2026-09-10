@@ -1,7 +1,7 @@
 # Zotero ↔ OneDrive – read-first Capability Slice
 
 **Status:** `more-test`  
-**Scope:** #49 / AQ-ZO-02 only  
+**Scope:** #49 / Zotero Local API read capability + AQ-ZO-02 legacy compatibility  
 **Test date:** 2026-09-10
 
 ## Tested environment
@@ -18,13 +18,17 @@ The required local authorization boundary is the Zotero Desktop preference “Al
 
 ## Read/write boundary
 
-The initial pre-activation read attempt did not succeed. After manual activation, inventory, collections, tags, five example-item records, and one attachment metadata record were read successfully. Attachments beyond that single metadata record, local paths, PDFs, full text, Web API, OneDrive/Graph, and remote paths were not tested.
+After manual activation, inventory, collections, tags, representative item records, item-level tags, note metadata, and note contents were read successfully through the Local API in bounded read-only tests. The note contents were technically read to verify capability but were not copied into the test report or repository.
 
 No Zotero mutation was performed. Write capabilities remain untested and no write authorization was requested. In particular, no item, collection, tag, note, import, attachment, or write-back operation occurred.
 
+Attachment/file/full-text and OneDrive/Web-API boundaries remain separate from the bibliographic metadata/notes capability. The legacy linked-file compatibility checks below do not define the target workflow.
+
 ## Architecture disposition
 
-This is a valid non-empty #49 capability record, but AQ-ZO-02 remains unresolved. The existing Zotero skill is sufficient for the next read-only probe; no custom adapter is justified. Provider keys, attachment keys, paths, and future OneDrive IDs remain external references/locators under #50 and the canonical research-state contract.
+The Local API is empirically sufficient as a read-only bibliographic adapter candidate for item representations, collections, tags, item tags, and Zotero note content. This supports the existing canonical-state contract role for Zotero as bibliographic/archival management and reference input; it does not make Zotero the canonical owner of Histo-Orla research state.
+
+AQ-ZO-02 remains unresolved as a target workflow question. The existing Zotero skill is sufficient for the tested local read capabilities; no custom adapter is justified by these tests. Provider keys, attachment keys, paths, and future OneDrive IDs remain external references/locators under #50 and the canonical research-state contract.
 
 Disposition: `more-test`.
 
@@ -47,7 +51,133 @@ The user manually enabled the Local API preference. A subsequent run of the exis
 | (1168–1189, vielleicht 1188 Dezember), (Saalfeld) – Friedrich erwirbt … | — | 1188 | `UJEBQGAJ` | `noauthor_11681189_1188` |
 | 1071 Erzbischof Anno von Cöln stiftet … im Orlagau … | Schultes | 1071 | `2EB69PNX` | `schultes_1071_1071` |
 
-Only item metadata and BibTeX representations for these five items were read. No attachment, path, PDF, full text, Web API, OneDrive/Graph, or write operation was performed; no write authorization was requested.
+Only item metadata and BibTeX representations for these five items were read in this first verification. No write authorization was requested.
+
+## Item metadata, tags, and notes read-capability slice
+
+A later bounded read-only test explicitly checked whether the Local API can expose richer item representations, item tags, and Zotero note content. No attachment paths, file bytes, PDF content, full-text endpoints, OneDrive, Zotero Web API, or write operations were part of this test.
+
+### Test boundary
+
+Three top-level items were inspected:
+
+- `VFR8QKJK`
+- `3PI4FHYK`
+- `I3728QZX`
+
+Two Zotero notes were inspected for capability. Their full note contents were not copied into the returned report or persisted in Git.
+
+### Full item representation
+
+The complete Local API item representation was readable for all three tested items. Observed top-level sections were:
+
+- `key`
+- `version`
+- `library`
+- `links`
+- `meta`
+- `data`
+
+Observed `data` fields across the three examples included:
+
+- `key`
+- `version`
+- `itemType`
+- `title`
+- `date`
+- `url`
+- `accessDate`
+- `creators`, including `creatorType`
+- `tags`
+- `collections`
+- `relations`
+- `dateAdded`
+- `dateModified`
+- `archiveLocation`
+- `rights`
+- item-specific `letterType`
+
+Observed additional metadata included:
+
+- `meta.creatorSummary`
+- `meta.parsedDate`
+- `meta.numChildren`
+- library ID and library name
+- self/alternate links
+
+Fields such as `publicationTitle`, `bookTitle`, `volume`, `issue`, `pages`, `publisher`, `place`, `language`, `DOI`, `ISBN`, `ISSN`, `abstractNote`, `extra`, `archive`, and `callNumber` were not delivered in these three concrete item representations. This is **not** evidence that the Local API cannot expose those fields. The capability boundary is:
+
+```text
+API representation/field model readable
+!=
+field populated on a particular item
+```
+
+Likewise, an empty or absent field in one tested item must not be generalized to all Zotero item types or records.
+
+### Item tags
+
+Item → tags was readable deterministically through `data.tags`. The tested item-tag objects exposed the `tag` value. No additional tag type/metadata was observed in these item-tag objects.
+
+Representative observed tag values included:
+
+- `1525`
+- `editiert`
+- `Hans-von-Dolzig`
+- `Konrad-Gerhart`
+- `von-Knau`
+
+The test did not dump or inspect all 752 library tags.
+
+### Zotero notes
+
+Two notes were found and their note content was technically readable through the Local API. The content was represented as an HTML string, including `<div>`/`<p>` markup and `data-schema-version="9"`.
+
+For the tested notes, the following note metadata was readable:
+
+- note key
+- `version`
+- `itemType`
+- `parentItem` for child-note relation
+- `dateAdded`
+- `dateModified`
+- `relations`
+- `tags`
+- `meta.numChildren`
+- library information and links
+
+Note tags were readable; both tested notes had an empty tag list.
+
+Capability result:
+
+```text
+Zotero item representation  = readable, read-only
+Item tags                    = readable, read-only
+Zotero note metadata         = readable, read-only
+Zotero note content          = readable, read-only
+Full note content in Git     = no
+Zotero write capability      = untested / unauthorized
+```
+
+### Functional significance
+
+The bounded tests now empirically support the following local read capabilities for Histo-Orla integration:
+
+- resolve/read Zotero item records and their complete API representation;
+- read bibliographic/item metadata as actually populated in Zotero;
+- read collections and library-level tags;
+- read tags attached to individual items;
+- identify and read child-note relationships;
+- read Zotero note metadata and note content;
+- use Zotero item/note keys and versions as external provider references/metadata, not as Histo-Orla canonical scientific identity.
+
+Important constraints:
+
+- "complete API representation" does not mean every possible bibliographic field is present on every item;
+- Zotero notes are readable provider content, but are not automatically Histo-Orla findings, evidence, or validated research state;
+- no tested read capability implies permission to write back to Zotero;
+- this local test says nothing yet about Web API/device-independent availability;
+- attachment/file/full-text access and OneDrive byte availability remain separate capabilities.
 
 ## Attachment metadata slice
 
@@ -65,9 +195,11 @@ For the representative parent item `VFR8QKJK`, the skill’s child read returned
 
 This proves deterministic parent → attachment navigation and metadata retrieval. It does not prove access to a concrete file or inspected byte instance.
 
-## Open questions explicitly outside this slice
+## Open questions explicitly outside these slices
 
-This slice does not establish OneDrive byte access, Web API or account/API-key access, rename/move behavior, byte-change detection, cross-device behavior, OCR/full text, or write-back safety.
+These tests do not establish Zotero Web API or account/API-key access, device-independent Zotero availability, OneDrive/Graph access, OneDrive byte access, rename/move behavior, byte-change detection, cross-device behavior, Zotero full-text endpoint behavior, OCR, or write-back safety.
+
+Attachment/file behavior remains independently scoped. The local `linked_file` checks below are legacy compatibility evidence only.
 
 ## Linked-file resolver slice (legacy compatibility capability; not target workflow)
 
