@@ -153,6 +153,21 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **current U2 cursor:** II.5 `Die slawische Besiedlung des späteren Orlagaues` page-level/source-routing pass begonnen; erste Slice-Auswertung in `u2-sachenbacher-2022-orlagau-auswertung.md`.
 - **next verification:** Vollständige offizielle PDF-/Print- oder Bibliotheksinstanz mit Fußnoten, Quelleneditionen und Literaturverzeichnis sichern; öffentliche bibliographische Identifikatoren und persistente Landingpage verifizieren; danach die in II.5 genannten Fußnoten 101–130 vollständig zu Werken/Editionen/Primärquellen routen.
 
+### DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904
+
+- **representation status:** `publisher-corroborated open-access PDF / inspected partial book representation`
+- **direct file URL:** `https://www.kulturkaufhaus.de/annot/564C427C7C31623331323262386634373834346564613133653234653533643563663539337C7C504446.pdf?sq=1`
+- **accessed:** 2026-09-04
+- **checksum SHA-256:** `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a`
+- **byte size:** 5,644,026
+- **technical identity:** PDF 1.7; 20 PDF pages; effective page box uniformly 481.8900146484375 × 623.6220092773438 pt; rotation 0.
+- **inspected scope:** Front matter and printed pages 1–22. Visually inspected for #51: printed pages 8, 11, 12, 15, 16 and 17; maps on printed pages 12 and 16, captions, footnotes and the zone explanation following the second map.
+- **pagination:** PDF index and printed page label are stored separately in the #51 gold manifest. In the inspected slice the relation is resolved; no claim is made for pages absent from this 20-page representation.
+- **completeness:** This reachable object is **not silently treated as the complete published book**. It does not contain the later Orlagau/Ranis sections used in the existing research analysis.
+- **rights/licence in this instance:** `unresolved`; the file itself was not used to infer a licence statement. Open-access status was corroborated at provider/catalogue level in #46, but stable landing page/PID and exact licence text remain unresolved.
+- **technical evidence manifest:** `tools/document_evidence/data/sachenbacher-2022-gold-v0.1.json`
+- **research-use boundary:** Same bibliographic Source `SRC-LIT-0001`, distinct digital representation/instance. The PDF is visual evidence for layout and Sachenbacher's printed presentation, not independent validation of his historical model.
+
 ---
 
 ## Archivalische Quellen – Discovery-Status, Original noch nicht inspiziert

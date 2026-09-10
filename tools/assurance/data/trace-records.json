@@ -2,6 +2,24 @@
   "schema_version": "0.1",
   "records": [
     {
+      "id": "IMP-DOC-EVIDENCE-001",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-SRC-001", "REQ-SRC-002", "REQ-SRC-004", "REQ-OCR-002", "REQ-TRACE-001"],
+      "driver_refs": ["G-004", "G-006", "N-006", "P-004"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": [],
+      "implementation_refs": [],
+      "implementation_files": ["tools/document_evidence/**", "tools/requirements/data/records.json", ".github/workflows/project-assurance.yml", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "docs/research/cases/orlagau-source-ledger.md", "docs/research/cases/u2-lampe-420-work-order.json", "docs/development/requirements-coverage.md", "PROJECT_STATE.md"],
+      "verification_refs": ["issue:#51", "pull-request:#90", "pull-request:#76", "tools/document_evidence/tests/test_roundtrip.py", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md"],
+      "decision_not_required_reason": "Bounded, local and reversible falsification spike using the existing #50 contract and a replaceable renderer; it makes no architecture or requirement decision.",
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "PR #90 preserves the original commit and integrates main. Mechanical reproduction of 14 original locators succeeds; semantic acceptance remains open due to clipped regions and an unresolved domain-owned Finding link. Original human-curation claims are not independently verified. Review fixes reject invalid page indices/geometry and parser evaluations, preserve uncertainty in reports and propagate failed results to the CLI exit code. No scientific or selection promotion."
+    },
+    {
       "id": "DEC-ASSURANCE-001",
       "kind": "decision",
       "status": "active",

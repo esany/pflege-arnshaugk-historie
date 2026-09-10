@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-03  
+**Stand:** 2026-09-09
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -333,7 +333,7 @@ Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA
 
 - #49 – Zotero ↔ OneDrive, read-first Integration/Feasibility
 - #50 – Canonical Research State / Source Identity
-- #51 – Document-/Findspot-Pipeline
+- #51 – Document-/Findspot-Pipeline; Sachenbacher Evidence-Model Falsification Spike v0 published in PR #90 and technically reproduced; semantic acceptance remains open because original regions clip content and the canonical finding link is unresolved; B v0 not complete (`docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md`)
 - #52 – OCR/HTR Benchmark/Integration
 - #53 – Historical Retrieval
 - #54 – Promotion / deterministic invariants
@@ -382,7 +382,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 15. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
 16. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale #46-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
 17. #61 Work Context/Handoff für diesen Slice nicht weiter abstrakt modellieren: D2 und der reale Lampe-420-Adapter sind implementiert und abgenommen. Weitere Context-Arbeit nur bei neuer realer Friktion; technische Priorisierung fällt an bestehende Owner wie #54 Transition, #57 Evidence Availability/Restartability und #55 Derived Research View zurück.
-18. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
+18. #50/#51: vor weiterem Renderer-/Parser-Benchmark die in PR #90 dokumentierten Goldregionen menschlich prüfen und den kanonischen Finding-Bezug durch #46 klären. Technische Reproduktion ist kein semantischer PASS; kein Selection-, Requirement- oder Architektur-Delta.
 19. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
 20. Bei tatsächlicher Nutzung von `WO-U2-LAMPE-420-001` Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
 21. B1-Restgrenze unter #48/#59 schließen: direkte GitHub-Connector-/Contents-API-Writes müssen den Safe-Mutation-Preflight konsumieren oder eine äquivalente bounded/diff-checked Write-Operation verwenden. Der #70-Closure-Lauf liefert dafür reale Negativ-Evidence; #70 selbst bleibt abgeschlossen. GitHub-Admission wird separat nach Auflösung von `DD-20260903-001` end-to-end verifiziert.

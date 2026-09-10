@@ -20,6 +20,46 @@
       "notes": "Constrains technical means and component admission; does not reduce accepted scientific/technical scope."
     },
     {
+      "id": "REQ-SRC-001",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": ["Archivistik / Provenienz", "Diplomatik / Editionswissenschaft", "RDM / Forschungsdatenmanagement"],
+      "controlling_competence": [],
+      "technical_delivery_competence": ["Domain Modeling", "Provenance / Audit", "Test / Verification Engineering"],
+      "verification_authority": ["Domain/source-method review", "deterministic layer-separation test"],
+      "dependency_status": "none-known",
+      "relations": [],
+      "interactions": [
+        {"type": "reinforcing", "with": "REQ-SRC-002", "note": "Source/representation separation is operational only when the concretely inspected instance remains explicit."}
+      ],
+      "criticality": "hard-constraint",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
+      "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "tools/document_evidence/tests/test_roundtrip.py"],
+      "decision_refs": [],
+      "notes": "Delivery is partial: the Sachenbacher #51 slice preserves Source, Representation and fingerprinted Instance as distinct records; general persistence and provider integration remain open. No Requirement semantics changed."
+    },
+    {
+      "id": "REQ-SRC-002",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": ["Archivistik / Provenienz", "RDM / Forschungsdatenmanagement"],
+      "controlling_competence": [],
+      "technical_delivery_competence": ["Data Engineering / Lifecycle", "Provenance / Audit", "Test / Verification Engineering"],
+      "verification_authority": ["Domain/source-method review", "deterministic instance-fingerprint test"],
+      "dependency_status": "known",
+      "relations": [
+        {"type": "requires", "target": "REQ-SRC-001"}
+      ],
+      "interactions": [],
+      "criticality": "hard-constraint",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
+      "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "docs/research/cases/orlagau-source-ledger.md"],
+      "decision_refs": [],
+      "notes": "Delivery is partial: one public PDF instance has explicit inspection scope, hash, byte size, page count and unresolved metadata; a general byte resolver remains open. No Requirement semantics changed."
+    },
+    {
       "id": "REQ-SRC-004",
       "source_file": "docs/research/synthesis/requirements-baseline.md",
       "lifecycle_owner": "#42",
@@ -40,9 +80,32 @@
       "criticality": "hard-constraint",
       "architecture_significance": "cross-cutting",
       "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
-      "verification_evidence_refs": [],
+      "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "tools/document_evidence/tests/test_roundtrip.py"],
       "decision_refs": [],
-      "notes": "Pilot structured record from requirements-structure.md."
+      "notes": "Delivery is partial: the real Sachenbacher #51 slice passed a Finding-to-14-locator-to-fingerprinted-instance fresh-context roundtrip; general document paths and human-readable audit remain open."
+    },
+    {
+      "id": "REQ-OCR-002",
+      "source_file": "docs/research/synthesis/requirements-baseline.md",
+      "lifecycle_owner": "#42",
+      "domain_authority": ["Digital Humanities / Layout Analysis", "RDM / Forschungsdatenmanagement"],
+      "controlling_competence": ["respective source/domain authority for research-critical regions"],
+      "technical_delivery_competence": ["Document Processing", "Data Engineering / Lifecycle", "Test / Verification Engineering"],
+      "verification_authority": ["deterministic page-region roundtrip", "Domain/source-method review"],
+      "dependency_status": "known",
+      "relations": [
+        {"type": "requires", "target": "REQ-SRC-001"},
+        {"type": "requires", "target": "REQ-SRC-002"}
+      ],
+      "interactions": [
+        {"type": "verification-coupling", "with": "REQ-SRC-004", "note": "The #51 neutral locator fixture verifies page/region mapping and source recovery together."}
+      ],
+      "criticality": "hard-constraint",
+      "architecture_significance": "cross-cutting",
+      "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
+      "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "tools/document_evidence/tests/test_roundtrip.py"],
+      "decision_refs": [],
+      "notes": "Delivery is partial: neutral page-space regions survive a born-digital PDF render roundtrip; OCR/HTR or other text transformations were deliberately not exercised. No Requirement semantics changed."
     },
     {
       "id": "REQ-MTH-003",
