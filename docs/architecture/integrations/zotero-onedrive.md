@@ -227,3 +227,67 @@ This establishes filesystem-entry reachability only. It does not establish that 
 ## Next action
 
 Discriminate AQ-ZO-03/AQ-ZO-04 with a separate read-only remote/device-independent slice: Zotero synced/web metadata plus OneDrive metadata/resolution, without relying on Zotero `linked_file` or local absolute paths. Further byte/hydration tests for `HG8CHSUV` are stopped for now.
+
+## AQ-ZO-03 / AQ-ZO-04 remote/device-independent attempt — provider boundary
+
+A fresh execution-context probe on 2026-09-10 attempted the next read-only slice after the Architecture Re-Baseline. The test deliberately did **not** reuse the local `file://` resolver, the user-specific absolute path, or the legacy `linked_file` filesystem reachability result as a substitute for remote resolution.
+
+### Real capability boundary observed
+
+The current execution context has repository/GitHub access, but no authorized Zotero Web API session/tool and no authorized OneDrive/Microsoft Graph session/tool for the user's library/files. Capability discovery found:
+
+- the installed Zotero capability available to this project context is a **local Zotero Desktop/Codex** helper; it does not provide an authenticated remote Zotero Web API session in this chat execution context;
+- no Zotero remote plugin/connector was available through the connected-tool surface;
+- no OneDrive/Microsoft Graph connector was connected or authorized in the current execution context;
+- a SharePoint connector is discoverable as an installable capability, but it is not connected/authorized here and must not be treated as evidence of access to this OneDrive or as a substitute for a real Graph/driveItem test;
+- no Zotero API key, Microsoft token, OneDrive account identifier, or credential was read from or persisted to the repository;
+- no provider credential, user/library identifier sufficient for an authorized private-library Web API call, or OneDrive `driveItem` mapping was invented from local paths or earlier chat state.
+
+Therefore AQ-ZO-03/AQ-ZO-04 reached a real authorization/provider boundary before account-level remote metadata or bytes could be tested.
+
+### Provider capability evidence, not account-level verification
+
+Current provider documentation is compatible with the intended discrimination but does not turn this blocked slice into a PASS:
+
+- Zotero Web API v3 exposes HTTPS read endpoints for online library items and attachments: <https://www.zotero.org/support/dev/web_api/v3/basics>.
+- Zotero documents that linked-file bytes themselves are not synced by Zotero and that a Linked Attachment Base Directory can make linked-file references relative to different filesystem roots on different computers: <https://www.zotero.org/support/attaching_files> and <https://www.zotero.org/support/preferences/advanced>.
+- Microsoft Graph supports OneDrive `driveItem` ID-based addressing; Microsoft documents that the item ID survives rename/move while a path changes: <https://learn.microsoft.com/en-us/graph/onedrive-addressing-driveitems>.
+- Graph can read `driveItem` metadata and file content with read permissions such as delegated `Files.Read`: <https://learn.microsoft.com/en-us/graph/api/driveitem-get?view=graph-rest-1.0> and <https://learn.microsoft.com/en-us/graph/api/driveitem-get-content?view=graph-rest-1.0>.
+
+These are provider-interface facts only. They do **not** establish that the concrete Histo-Orla Zotero item/attachment is remotely visible with the expected synced fields, that it maps uniquely to the intended OneDrive file, that the file is currently available, or that the opened bytes match a previously inspected instance.
+
+### AQ-ZO-03 / AQ-ZO-04 result matrix
+
+| Check | Result | Evidence boundary |
+|---|---|---|
+| Device-independent Zotero item identification | `BLOCKED` | No authorized Zotero Web API library context/session available. Existing local item keys are provider references only and were not treated as proof of remote availability. |
+| Relevant attachment/source reference remotely determined | `BLOCKED` | Local attachment evidence exists, but remote synced attachment metadata for the concrete library could not be read. |
+| Synced Zotero metadata fields verified remotely | `BLOCKED` | Web API capability exists by provider documentation; concrete account/library response was not accessible. |
+| OneDrive file resolved by provider-stable identity | `BLOCKED` | No authorized OneDrive/Graph session and no verified `driveItem` mapping for the source. |
+| Local absolute Zotero/OneDrive path used as durable identity | `NO` | Explicitly excluded from the slice. |
+| Byte availability checked separately from identity | `NOT REACHED` | No remote file identity/session; availability therefore remains unknown rather than inferred. |
+| Version/hash/provider metadata captured | `NOT REACHED` | No `driveItem`, eTag/cTag, download response, or bytes were accessible. |
+| Cross-device/root-path independence verified | `BLOCKED` | Zotero documents the Base Directory mechanism and Graph documents ID-based addressing, but the concrete library/file was not exercised from a second/root-independent authorized context. |
+
+Failure-mode disposition in this run:
+
+```text
+provider not connected / authorization unavailable    = OBSERVED BLOCKER
+remote file present but locally unavailable            = NOT TESTED
+metadata present but bytes unreachable                  = NOT TESTED
+provider mapping / concrete remote identity             = UNRESOLVED
+version / byte identity                                 = NOT VERIFIABLE
+historical / scholarly inspected-instance verification  = NOT PERFORMED
+```
+
+The truthful state is therefore `identifiable locally in prior bounded evidence != remotely available != verified inspected instance`.
+
+### Architecture and product-code disposition
+
+This blocker is an access/capability boundary, not evidence that a custom adapter is needed. The documented native provider interfaces already offer the relevant primitives to discriminate next once authorized access exists. Under the architecture-fitness order `avoid → reuse → configure → integrate → thin custom layer → build custom`, no custom code is justified by this run.
+
+No durable runtime product logic was created or demonstrated. This was a bounded integration/audit probe, so **no `src/histo_orla/` move is needed**. A Product-Code boundary remains deferred until a real research runtime consumer repeatedly resolves Zotero/OneDrive source/instance state and native/configured integration proves insufficient or a stable reusable capability boundary is otherwise evidenced.
+
+### Current next action
+
+Establish one authorized **read-only** execution context that can access both the concrete Zotero library through Zotero Web API and the corresponding OneDrive through Microsoft Graph; then AQ-ZO-03/AQ-ZO-04 can resume against one real source without any Zotero/OneDrive mutation or custom adapter precommitment.
