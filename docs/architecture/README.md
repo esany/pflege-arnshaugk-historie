@@ -11,6 +11,10 @@ Dieses Verzeichnis enthält technische Research-, Delivery-, Architecture-, Assu
 
 Architecture ist kein separates Vorab-Gate. Sie entsteht just in time aus **akzeptierten Requirements, technischen Risiken, Goals/Needs/Pains und realer Nutzung**.
 
+Aktuelle Architecture-Reconciliation / Roadmap:
+
+- `rebaseline-roadmap.md` – #92; Review-Candidate zur ganzheitlichen Einordnung von Product Capability, Domain/Research, Operational Tooling, Integrationen und Piloten. Keine Requirement-, Method-, Historical- oder Selection-Authority.
+
 Kanonische Requirements:
 
 - `../research/synthesis/requirements-baseline.md`
