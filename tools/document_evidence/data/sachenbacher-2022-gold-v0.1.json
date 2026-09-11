@@ -35,11 +35,11 @@
   },
   "findings": [
     {
-      "finding_id": "F-PR76-SACHENBACHER-ZONE-MODEL",
-      "canonical_research_ref": "pull-request:#76 / docs/research/cases/u2-sachenbacher-2022-landesausbau-model-check.md sections 4-5",
+      "finding_id": "F-U2-009",
+      "canonical_research_ref": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#f-u2-009--sachenbachers-vier-zonen-modell-ist-ein-explizites-autorenmodell",
       "statement": "Sachenbacher presents spatial models as authored, reviewable argumentation; the four-zone model must be read through text, map, caption, embedded Roman-numeral keys and the following zone explanations rather than as a standalone map image.",
-      "status": "unresolved-canonical-finding-link",
-      "limit": "The cited PR76 sections address the Orlaraum model, not an explicit finding for this four-zone figure on printed page 16. This ID is a spike-local candidate; a domain-owned canonical finding link remains unresolved. No historical truth is asserted."
+      "status": "canonical-finding-linked",
+      "limit": "The finding describes Sachenbacher's argumentation and is not historical or independent validation. Human acceptance of region geometry remains open."
     },
     {
       "finding_id": "F-EXP51-LAYOUT-VARIANTS",
@@ -80,7 +80,7 @@
     },
     {
       "case_id": "G51-04-PRIMARY-ZONE-MODEL",
-      "finding_id": "F-PR76-SACHENBACHER-ZONE-MODEL",
+      "finding_id": "F-U2-009",
       "purpose": "Primary falsification: text D + map A with embedded key B + caption C + cross-page zone explanation retain distinct roles in one finding relation.",
       "locators": [
         {"locator_id": "L51-04-TEXT-D", "role": "text-reference", "pdf_page_index": 13, "printed_page": {"status": "resolved", "label": "16"}, "page_geometry_points": [481.8900146484375, 623.6220092773438], "coordinate_system": "normalized-page-space-v0.1", "bbox": [0.105, 0.075, 0.89, 0.38]},

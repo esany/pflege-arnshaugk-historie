@@ -158,7 +158,7 @@ Primary function: bounded development/verification under #51/#48/#59. Research a
 
 - The canonical source remains `SRC-LIT-0001`. The PR76 generic OA-PDF route with unresolved bytes and the fingerprinted 20-page partial object are different instance records, not competing source identities. The later Orlagau research passages remain outside this partial object.
 - The Lampe work order's ledger fingerprint matches the additive ledger change. Its historical evidence, action and unresolved questions remain unchanged; context loading retains one passed and two unresolved prerequisites.
-- The manifest's `F-PR76-SACHENBACHER-ZONE-MODEL` is a spike-local ID. PR76 sections 4–5 discuss the Orlaraum model; they do not establish an explicit canonical Finding for the four-zone figure on printed page 16. The link is now marked unresolved. A model-assisted technical review cannot invent the missing domain-owned Finding.
+- The earlier manifest anchor was a spike-local placeholder. PR76 sections 4–5 discuss the Orlaraum model; they did not establish an explicit canonical Finding for the four-zone figure on printed page 16. The link is now resolved through the domain-owned Finding recorded below; no historical truth is asserted.
 - Original coordinates were preserved, including defects, so the original experiment remains auditable. Full-page visual inspection found that `L51-04-MAP-A` starts below the upper map edge; `L51-04-ZONE-EXPLANATION` starts below the Zone-I heading; `L51-02-TEXT`, `L51-03-TEXT` and `L51-04-TEXT-D` omit opening lines visible on their full pages. Stable cropping proves reproducibility, not coverage of the claimed semantic region.
 - The original `human-curated` labels are declarations in the input. This review has no independent record of a human selecting or accepting those boxes. No AI-assisted reinspection is promoted to human gold validation.
 - `silent_error_count=0` is derived from supplied relation evaluations, with zero parser relations. It is not an independent error measurement. `R51-06` remains unresolved; report outputs now preserve locator scope notes, Finding uncertainty and gold-review state.
@@ -178,3 +178,17 @@ Invalid/negative/out-of-range PDF indices are rejected before rendering (negativ
 ### Required return before v0 acceptance
 
 #51/#46 must review the original crops against the six full pages, specify/accept corrected tool-neutral regions with attributable human provenance, and identify an exact existing canonical Finding or explicitly accept the missing link as a changed test scope through the proper authority. Keep the original coordinate version as provenance. Re-run mechanical and visual checks on the accepted revision. Until then the cumulative original v0 acceptance is not established, the PR stays draft, and the proposed second-renderer step is premature. No human validation or historical Finding has been fabricated to close this gate.
+
+## 12. PR #90 continuation: finding gate closed, candidate preparation complete (2026-09-11)
+
+The bounded #46 research finding is now persisted canonically as `F-U2-009` in `docs/research/cases/u2-knau-orlagau-quellenbefunde.md`. The manifest references that exact Finding and no longer uses the former spike-local placeholder as a substitute.
+
+The exact inspected PDF instance was reverified before visual work: SHA-256 `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a`, 5,644,026 bytes, 20 pages. Full pages at PDF indices 5, 8, 9, 12, 13 and 14 were rendered and inspected. The original v0.1 manifest remains unchanged and provenance-capable.
+
+Candidate corrections are recorded in `tools/document_evidence/data/sachenbacher-2022-gold-v0.2-candidate.json` for `L51-02-TEXT`, `L51-03-TEXT`, `L51-04-TEXT-D`, `L51-04-MAP-A` and `L51-04-ZONE-EXPLANATION`; `L51-04-KEY-B` and `L51-04-CAPTION-C` remain explicit review targets. Each entry preserves the old bbox, candidate bbox, rationale, intended semantic unit, exclusions and uncertainty. Status is `candidate / pending-human-review`.
+
+The reproducible review packet is generated in a temporary working directory with the exact PDF and the candidate manifest. It must contain, for each changed locator, full page, old crop and candidate crop, plus old crops for the unchanged key/caption review targets. Review images are derived artifacts and are not Research Truth or commit candidates.
+
+**Closed:** authorized #46 Finding, exact canonical manifest link, exact PDF verification, reproducible candidate-region preparation.
+
+**Open:** attributable human `accept | correct` for every candidate region; then promotion to an accepted gold version and a fresh mechanical roundtrip. `B v0` is not complete while this Human Gate remains open.

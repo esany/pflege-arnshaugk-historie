@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.2-candidate",
+  "experiment_id": "EXP-51-SACHENBACHER-V0",
+  "status": "candidate / pending-human-review",
+  "instance": {
+    "instance_id": "DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904",
+    "sha256": "41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a",
+    "byte_size": 5644026,
+    "page_count": 20
+  },
+  "canonical_research_ref": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#f-u2-009--sachenbachers-vier-zonen-modell-ist-ein-explizites-autorenmodell",
+  "provenance_manifest": "tools/document_evidence/data/sachenbacher-2022-gold-v0.1.json",
+  "review_boundary": "Candidate geometry is not human-curated, accepted or validated gold. Human reviewer must accept or correct each region against the full page.",
+  "coordinate_contract": "normalized-page-space-v0.1",
+  "changes": [
+    {
+      "locator_id": "L51-02-TEXT",
+      "pdf_page_index": 9,
+      "old_bbox": [0.105, 0.075, 0.89, 0.155],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.205],
+      "reason": "The old crop begins below the opening paragraph lines visible above the map.",
+      "include": "Complete adjacent prose introducing the map, through the last line before the figure.",
+      "exclude": "Map, caption, footnotes and unrelated following prose.",
+      "uncertainty": "Candidate top and bottom margins require human visual acceptance."
+    },
+    {
+      "locator_id": "L51-03-TEXT",
+      "pdf_page_index": 12,
+      "old_bbox": [0.105, 0.075, 0.89, 0.79],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.79],
+      "reason": "The old crop clips the opening lines at the top of the printed page.",
+      "include": "The complete visible main-text block on printed page 15.",
+      "exclude": "Bottom footnote block and page furniture.",
+      "uncertainty": "Exact separation from the first footnote marker requires human review."
+    },
+    {
+      "locator_id": "L51-04-TEXT-D",
+      "pdf_page_index": 13,
+      "old_bbox": [0.105, 0.075, 0.89, 0.38],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.39],
+      "reason": "The old crop clips the opening lines of the authors' model statement.",
+      "include": "Complete prose statement immediately preceding Abb. 2.",
+      "exclude": "Figure, caption and page number.",
+      "uncertainty": "Human reviewer must confirm the prose/figure boundary."
+    },
+    {
+      "locator_id": "L51-04-MAP-A",
+      "pdf_page_index": 13,
+      "old_bbox": [0.105, 0.395, 0.88, 0.865],
+      "candidate_bbox": [0.105, 0.385, 0.88, 0.865],
+      "reason": "The old crop starts below the upper map edge.",
+      "include": "Full map image including its upper edge and all four zone markers.",
+      "exclude": "Preceding prose, caption and page number.",
+      "uncertainty": "Candidate follows the visible map boundary; inspect at full resolution."
+    },
+    {
+      "locator_id": "L51-04-ZONE-EXPLANATION",
+      "pdf_page_index": 14,
+      "old_bbox": [0.105, 0.075, 0.89, 0.91],
+      "candidate_bbox": [0.105, 0.04, 0.89, 0.91],
+      "reason": "The old crop omits the Zone-I heading at the top of printed page 17.",
+      "include": "Zone-I heading and the complete visible continuation on the page.",
+      "exclude": "Preceding page's caption and unrelated page furniture.",
+      "uncertainty": "The complete four-zone explanation continues beyond this page; scope remains ambiguous."
+    }
+  ],
+  "unchanged_review_targets": ["L51-04-KEY-B", "L51-04-CAPTION-C"],
+  "human_review_required": true
+}
