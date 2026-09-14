@@ -51,13 +51,15 @@ class ManifestTests(unittest.TestCase):
                 self.assertEqual(pdf_index, locators[locator_id]["pdf_page_index"])
                 self.assertEqual(printed_label, locators[locator_id]["printed_page"]["label"])
 
-    def test_caption_review_remains_explicitly_unresolved(self):
+    def test_final_caption_review_is_accepted_while_cross_page_scope_stays_unresolved(self):
         data = load_manifest(MANIFEST)
         case = next(item for item in data["reference_cases"] if item["case_id"] == "REF51-04-PRIMARY-ZONE-MODEL")
         caption = next(item for item in case["locators"] if item["locator_id"] == "L51-04-CAPTION-C")
-        self.assertEqual("human-review-unresolved", caption["review_state"])
-        relation = next(item for item in data["relations"] if item["relation_id"] == "R51-05")
-        self.assertEqual("unresolved", relation["evaluation"])
+        self.assertEqual("human-accepted", caption["review_state"])
+        caption_relation = next(item for item in data["relations"] if item["relation_id"] == "R51-05")
+        self.assertEqual("correct", caption_relation["evaluation"])
+        scope_relation = next(item for item in data["relations"] if item["relation_id"] == "R51-06")
+        self.assertEqual("unresolved", scope_relation["evaluation"])
 
     def test_bbox_conversion_is_tool_neutral(self):
         self.assertEqual((0.0, 0.0, 100.0, 50.0), normalized_to_page([0, 0, 1, 1], 100, 50))
