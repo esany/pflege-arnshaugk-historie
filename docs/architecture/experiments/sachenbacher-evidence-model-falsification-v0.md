@@ -1,6 +1,6 @@
 # #51 – Sachenbacher Evidence-Model Falsification Spike v0
 
-**Current status (2026-09-14):** `active complete-PDF instance reproduced / owner geometry recorded / caption review open / B v0 not complete`
+**Current status (2026-09-14):** `active complete-PDF instance reproduced / owner geometry recorded / caption review open / final-head assurance passed / B v0 not complete`
 
 **Work Owner:** #51; technical direction #48; delivery/verification #59; research authority #46; trace #63  
 **Originally executed:** 2026-09-04  
@@ -180,7 +180,7 @@ The active `v0.3` manifest was executed locally against `DI-SACHENBACHER-2022-CO
 - unresolved research-critical relations: `R51-05` (caption crop human acceptance) and `R51-06` (four-zone prose continues beyond bounded page-17 locator);
 - PyMuPDF adapter in this run: 1.26.7.
 
-A mechanical `pass` remains technical verification only.
+Project Assurance Run **#177** (`34864876071`) completed successfully on exact PR head `6461db06b7982b4d22a6b943e2e4f56a98e53724`. The preceding Run #176 failed for the intended D2 stale-basis protection after the shared source-ledger blob changed; the Lampe work-order basis was explicitly revalidated as unchanged in substance, refreshed to the new ledger blob, and Run #177 then passed. This is technical/formal verification only.
 
 ## 10. Acceptance state
 
@@ -192,15 +192,15 @@ A mechanical `pass` remains technical verification only.
 - user-reviewed text/map decisions are bound to that same active instance;
 - Fig. 2 remains one publication map rather than synthetic evidential sub-crops;
 - the 20-page provider object is retained as historical provenance, not an artificial blocker;
-- invalid page/geometry/parser states remain fail-closed through the existing tool/tests.
+- invalid page/geometry/parser states remain fail-closed through the existing tool/tests;
+- exact current PR head is reconciled with `main` (`behind_by=0`) and Project Assurance #177 passes.
 
 ### Still open
 
 - explicit final human decision for `L51-04-CAPTION-C` if #51 is to claim complete owner acceptance;
-- `R51-06` remains unresolved by design unless/until the bounded scope of the four-zone explanation is changed;
-- full Project Assurance/CI must pass on the exact final branch head before Draft→Ready is considered.
+- `R51-06` remains unresolved by design unless/until the bounded scope of the four-zone explanation is changed.
 
-`B v0` therefore remains incomplete only for the explicit remaining human/acceptance state and final-head verification, not because the old 20-page provider bytes are unavailable.
+`B v0` therefore remains incomplete only for the explicit remaining human/acceptance state; the old 20-page provider bytes are not a blocker.
 
 ## 11. Systemic reconciliation
 
@@ -231,4 +231,4 @@ PDF bytes and generated crops are not committed. Derived review/highlight images
 
 ## 13. Exactly next step
 
-Obtain the remaining explicit owner decision for `L51-04-CAPTION-C`, then check Project Assurance on the exact final head. Do not reopen the old 20-page instance as a blocker unless a future question specifically requires reproducing that historical instance itself.
+Obtain the remaining explicit owner decision for `L51-04-CAPTION-C`. If accepted, persist that decision, rerun Project Assurance on the resulting exact head, then assess Draft→Ready. Do not reopen the old 20-page instance as a blocker unless a future question specifically requires reproducing that historical instance itself.
