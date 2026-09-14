@@ -8,18 +8,19 @@ from pathlib import Path
 from tools.document_evidence.roundtrip import EvidenceError, load_manifest, normalized_to_page, validate_manifest
 
 
-MANIFEST = Path(__file__).parents[1] / "data" / "sachenbacher-2022-reference-v0.1.json"
+MANIFEST = Path(__file__).parents[1] / "data" / "sachenbacher-2022-reference-v0.3.json"
 
 
 class ManifestTests(unittest.TestCase):
     def test_real_reference_manifest_is_valid_and_bounded(self):
         data = load_manifest(MANIFEST)
         self.assertEqual(5, len(data["reference_cases"]))
-        self.assertEqual(20, data["instance"]["page_count"])
+        self.assertEqual(379, data["instance"]["page_count"])
         self.assertEqual(
-            "41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a",
+            "3857636c854325eddaa0b658cd7b936a47d1b7712ccd7cbbc7296141e62616a0",
             data["instance"]["sha256"],
         )
+        self.assertEqual("DI-SACHENBACHER-2022-COMPLETE-PDF-20260914", data["instance"]["instance_id"])
 
     def test_published_map_is_not_split_into_reference_key_locator(self):
         data = load_manifest(MANIFEST)
@@ -29,6 +30,34 @@ class ManifestTests(unittest.TestCase):
         self.assertNotIn("L51-04-KEY-B", locator_ids)
         relation = next(item for item in data["relations"] if item["relation_id"] == "R51-06")
         self.assertEqual("L51-04-MAP-A", relation["to_locator_id"])
+
+    def test_owner_reviewed_complete_pdf_page_mapping_is_explicit(self):
+        data = load_manifest(MANIFEST)
+        expected = {
+            "L51-05-TEXT": (8, "8"),
+            "L51-01-TEXT": (11, "11"),
+            "L51-02-TEXT": (12, "12"),
+            "L51-03-TEXT": (15, "15"),
+            "L51-04-TEXT-D": (16, "16"),
+            "L51-04-ZONE-EXPLANATION": (17, "17"),
+        }
+        locators = {
+            locator["locator_id"]: locator
+            for case in data["reference_cases"]
+            for locator in case["locators"]
+        }
+        for locator_id, (pdf_index, printed_label) in expected.items():
+            with self.subTest(locator_id=locator_id):
+                self.assertEqual(pdf_index, locators[locator_id]["pdf_page_index"])
+                self.assertEqual(printed_label, locators[locator_id]["printed_page"]["label"])
+
+    def test_caption_review_remains_explicitly_unresolved(self):
+        data = load_manifest(MANIFEST)
+        case = next(item for item in data["reference_cases"] if item["case_id"] == "REF51-04-PRIMARY-ZONE-MODEL")
+        caption = next(item for item in case["locators"] if item["locator_id"] == "L51-04-CAPTION-C")
+        self.assertEqual("human-review-unresolved", caption["review_state"])
+        relation = next(item for item in data["relations"] if item["relation_id"] == "R51-05")
+        self.assertEqual("unresolved", relation["evaluation"])
 
     def test_bbox_conversion_is_tool_neutral(self):
         self.assertEqual((0.0, 0.0, 100.0, 50.0), normalized_to_page([0, 0, 1, 1], 100, 50))
@@ -54,7 +83,7 @@ class ManifestTests(unittest.TestCase):
             validate_manifest(data)
 
     def test_invalid_page_indices_fail_closed(self):
-        for index in (-1, 20, 1.5, True):
+        for index in (-1, 379, 1.5, True):
             with self.subTest(index=index):
                 data = load_manifest(MANIFEST)
                 data["reference_cases"][0]["locators"][0]["pdf_page_index"] = index
