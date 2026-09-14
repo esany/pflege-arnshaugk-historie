@@ -252,6 +252,20 @@ Für 1315 druckt Max Perlbach sinngemäß **Ludwig Stango und Heinrich `[Stange]
 - **Bau-/Befundchronologie**,
 - **Herrschafts-/Besitzkontinuität**.
 
+### F-U2-009 – Sachenbachers Vier-Zonen-Modell ist ein explizites Autorenmodell
+
+**Finding:** Sachenbacher stellt die *Germania Slavica Thuringiae* als vier räumliche Zonen mit ineinander übergehenden Grenzen dar. Text, Abb. 2 und die anschließenden Zonenerläuterungen bilden gemeinsam dieses Autorenmodell.
+
+**Source / Representation:** Peter Sachenbacher 2022, `SRC-LIT-0001`; für den #51-Slice die fingerprinted partielle OA-PDF-Instanz `DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904`.
+
+**Status:** Sekundärquellen-/Modellbefund.
+
+**Aussagegrenze:** Der Befund beschreibt Sachenbachers Argumentation. Er bestätigt weder die historische Richtigkeit der Zonierung noch zeitlose historische Raumgrenzen und ist keine unabhängige historische Validierung.
+
+**Findspot:** Druckseite 16 mit Abb. 2 plus anschließende Zonenerläuterung ab Druckseite 17; exakte maschinenlesbare Locator-Kette wird durch #51/PR #90 getragen.
+
+**Falsifikation / Challenge:** direkte Prüfung der Druck-/PDF-Darstellung sowie Vergleich mit den von Sachenbacher herangezogenen Quellen und der unabhängigen Forschung.
+
 ---
 
 ## 7. Varianten- und Entity-Matrix v0.1
