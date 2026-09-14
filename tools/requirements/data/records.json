@@ -82,7 +82,7 @@
       "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
       "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "tools/document_evidence/tests/test_roundtrip.py"],
       "decision_refs": [],
-      "notes": "Delivery is partial: the real Sachenbacher #51 slice passed a Finding-to-14-locator-to-fingerprinted-instance fresh-context roundtrip; general document paths and human-readable audit remain open."
+      "notes": "Delivery is partial: the original 2026-09-04 14-locator baseline mechanically round-tripped against the fingerprinted instance. The current 13-locator reference model preserves the complete published map and records owner visual corrections, but still requires a fresh exact-instance roundtrip; general document paths and human-readable audit remain open."
     },
     {
       "id": "REQ-OCR-002",
@@ -105,7 +105,7 @@
       "verification_methods": ["integration-roundtrip", "real-case-acceptance"],
       "verification_evidence_refs": ["docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "tools/document_evidence/tests/test_roundtrip.py"],
       "decision_refs": [],
-      "notes": "Delivery is partial: neutral page-space regions survive a born-digital PDF render roundtrip; OCR/HTR or other text transformations were deliberately not exercised. No Requirement semantics changed."
+      "notes": "Delivery is partial: the historical baseline demonstrates normalized page-region mapping on one born-digital PDF instance; current human-reviewed reference corrections still require exact-instance confirmation. OCR/HTR or other text transformations were deliberately not exercised. No Requirement semantics changed."
     },
     {
       "id": "REQ-MTH-003",
