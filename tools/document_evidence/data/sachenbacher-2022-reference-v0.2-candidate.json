@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.2-candidate",
+  "experiment_id": "EXP-51-SACHENBACHER-V0",
+  "status": "candidate / owner-visual-review-recorded / exact-instance-confirmation-pending",
+  "instance": {
+    "instance_id": "DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904",
+    "sha256": "41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a",
+    "byte_size": 5644026,
+    "page_count": 20
+  },
+  "canonical_research_ref": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#f-u2-009--sachenbachers-vier-zonen-modell-ist-ein-explizites-autorenmodell",
+  "provenance_manifest": "tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json",
+  "review_boundary": "Candidate geometry is reference-review input, not historical truth or independent validation. Owner visual decisions below were made against a user-provided complete 379-page PDF representation; equivalence to the fingerprinted 20-page instance has not been byte-verified, so exact-instance confirmation remains open.",
+  "review_context": {
+    "date": "2026-09-14",
+    "reviewer_class": "research-owner / human visual review",
+    "representation": "user-provided complete 379-page PDF of Sachenbacher 2022",
+    "relation_to_fingerprinted_instance": "not byte-verified",
+    "effect": "records owner geometry and publication-object decisions; does not close exact-instance acceptance"
+  },
+  "publication_object_boundary": {
+    "rule": "A published map remains one reference locator by default. Embedded labels, keys, boundaries or zones are not split into separate reference locators merely for technical convenience.",
+    "derived_view_rule": "A duplicate or derived view may highlight an internal area, but that view is regenerable and must point back to the complete map locator.",
+    "applied_to": "L51-04-MAP-A",
+    "superseded_split": "L51-04-KEY-B is not an active reference locator"
+  },
+  "coordinate_contract": "normalized-page-space-v0.1",
+  "changes": [
+    {
+      "locator_id": "L51-02-TEXT",
+      "pdf_page_index": 9,
+      "old_bbox": [0.105, 0.075, 0.89, 0.155],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.205],
+      "review_decision": "retain-old-bbox",
+      "accepted_for_review_context_bbox": [0.105, 0.075, 0.89, 0.155],
+      "reason": "The proposed expansion includes unnecessary map content; the owner preferred the prior text-only crop.",
+      "uncertainty": "Exact-instance confirmation remains open."
+    },
+    {
+      "locator_id": "L51-03-TEXT",
+      "pdf_page_index": 12,
+      "old_bbox": [0.105, 0.075, 0.89, 0.79],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.79],
+      "review_decision": "candidate-visually-accepted-on-complete-pdf",
+      "accepted_for_review_context_bbox": [0.105, 0.045, 0.89, 0.79],
+      "include": "Complete visible main-text block on printed page 15.",
+      "exclude": "Bottom footnote block and page furniture.",
+      "uncertainty": "Exact-instance confirmation remains open."
+    },
+    {
+      "locator_id": "L51-04-TEXT-D",
+      "pdf_page_index": 13,
+      "old_bbox": [0.105, 0.075, 0.89, 0.38],
+      "candidate_bbox": [0.105, 0.045, 0.89, 0.39],
+      "review_decision": "candidate-visually-accepted-on-complete-pdf",
+      "accepted_for_review_context_bbox": [0.105, 0.045, 0.89, 0.39],
+      "include": "Complete prose statement immediately preceding Abb. 2.",
+      "exclude": "Figure, caption and page number.",
+      "uncertainty": "Exact-instance confirmation remains open."
+    },
+    {
+      "locator_id": "L51-04-MAP-A",
+      "pdf_page_index": 13,
+      "old_bbox": [0.105, 0.395, 0.88, 0.865],
+      "previous_candidate_bbox": [0.105, 0.385, 0.88, 0.865],
+      "candidate_bbox": [0.105, 0.365, 0.88, 0.865],
+      "review_decision": "revised-candidate-visually-accepted-on-complete-pdf",
+      "accepted_for_review_context_bbox": [0.105, 0.365, 0.88, 0.865],
+      "reason": "The previous candidate still clipped the upper edge. The revised crop includes the complete visible map while keeping the separately printed caption outside.",
+      "include": "Complete published map, including embedded Roman numerals and zone boundaries.",
+      "exclude": "Preceding prose, separately printed caption and page number.",
+      "uncertainty": "Exact-instance confirmation remains open; internal map highlights, if needed, are derivative views rather than reference locators."
+    },
+    {
+      "locator_id": "L51-04-ZONE-EXPLANATION",
+      "pdf_page_index": 14,
+      "old_bbox": [0.105, 0.075, 0.89, 0.91],
+      "candidate_bbox": [0.105, 0.04, 0.89, 0.91],
+      "review_decision": "candidate-visually-accepted-on-complete-pdf",
+      "accepted_for_review_context_bbox": [0.105, 0.04, 0.89, 0.91],
+      "include": "Zone-I heading and the complete visible continuation on the page.",
+      "exclude": "Preceding page's caption and unrelated page furniture.",
+      "uncertainty": "The complete four-zone explanation continues beyond this page; scope remains ambiguous and exact-instance confirmation remains open."
+    }
+  ],
+  "unchanged_review_targets": ["L51-04-CAPTION-C"],
+  "exact_instance_confirmation_required": true,
+  "human_review_required": true
+}
