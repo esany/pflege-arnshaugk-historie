@@ -162,10 +162,10 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **byte size:** 5,644,026
 - **technical identity:** PDF 1.7; 20 PDF pages; effective page box uniformly 481.8900146484375 × 623.6220092773438 pt; rotation 0.
 - **inspected scope:** Front matter and printed pages 1–22. Visually inspected for #51: printed pages 8, 11, 12, 15, 16 and 17; maps on printed pages 12 and 16, captions, footnotes and the zone explanation following the second map.
-- **pagination:** PDF index and printed page label are stored separately in the #51 gold manifest. In the inspected slice the relation is resolved; no claim is made for pages absent from this 20-page representation.
+- **pagination:** PDF index and printed page label are stored separately in the #51 reference manifest. In the inspected slice the relation is resolved; no claim is made for pages absent from this 20-page representation.
 - **completeness:** This reachable object is **not silently treated as the complete published book**. It does not contain the later Orlagau/Ranis sections used in the existing research analysis.
 - **rights/licence in this instance:** `unresolved`; the file itself was not used to infer a licence statement. Open-access status was corroborated at provider/catalogue level in #46, but stable landing page/PID and exact licence text remain unresolved.
-- **technical evidence manifest:** `tools/document_evidence/data/sachenbacher-2022-gold-v0.1.json`
+- **technical evidence manifest:** `tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json`
 - **research-use boundary:** Same bibliographic Source `SRC-LIT-0001`, distinct digital representation/instance. The PDF is visual evidence for layout and Sachenbacher's printed presentation, not independent validation of his historical model.
 
 ---
