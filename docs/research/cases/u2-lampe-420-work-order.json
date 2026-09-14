@@ -42,19 +42,19 @@
       "ref": "lampe-420-edition-instance-and-findspot-inspected",
       "status": "pass",
       "basis": [
-        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "418149aa0874e1dbf9334b5bf4b2cc691b42596b"},
+        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "716b5ad1cdafd1bb5859275312b38066f044df56"},
         {"path": "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md", "git_blob_sha": "b940cfa9c2bf9d2ebe0c94037460370b4982fd48"}
       ],
-      "note": "Public THULB scholarly-edition scan and printed pp. 360-361 / scans 378-379 were inspected; original/copies were not."
+      "note": "Public THULB scholarly-edition scan and printed pp. 360-361 / scans 378-379 were inspected; original/copies were not. Revalidated 2026-09-14 after the shared source ledger changed only to add/update Sachenbacher instance state; the Lampe source record and this prerequisite evidence were unchanged."
     },
     {
       "ref": "modern-archive-concordance",
       "status": "unresolved",
       "basis": [
-        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "418149aa0874e1dbf9334b5bf4b2cc691b42596b"},
+        {"path": "docs/research/cases/orlagau-source-ledger.md", "git_blob_sha": "716b5ad1cdafd1bb5859275312b38066f044df56"},
         {"path": "docs/research/cases/u2-deutschorden-schleiz-quellenexzerpte.md", "git_blob_sha": "b940cfa9c2bf9d2ebe0c94037460370b4982fd48"}
       ],
-      "note": "Lampe's historical HSA Dresden Orig. No. 1104 and copies A/M are recorded, but current archive concordance and original/copy inspection remain unresolved."
+      "note": "Lampe's historical HSA Dresden Orig. No. 1104 and copies A/M are recorded, but current archive concordance and original/copy inspection remain unresolved. Ledger basis fingerprint refreshed 2026-09-14 after an unrelated Sachenbacher-instance update; unresolved status is unchanged."
     },
     {
       "ref": "grune-modern-identification-independent-collation",
