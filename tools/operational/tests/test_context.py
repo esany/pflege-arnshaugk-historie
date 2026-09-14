@@ -167,5 +167,129 @@ class CurrentContextTests(unittest.TestCase):
             )
 
 
+class ProviderRemovalRestartabilityTests(unittest.TestCase):
+    """#57 synthetic checks for #50 provider-removal acceptance invariant."""
+
+    @staticmethod
+    def _curated_state():
+        return {
+            "source_id": "SRC-001",
+            "instance_id": "INS-001",
+            "excerpt_id": "EXC-001",
+            "finding_id": "FND-001",
+            "source_refs": {"zotero_item_key": "ABC123"},
+            "instance_refs": {
+                "onedrive_drive_item_id": "drive-item-42",
+                "content_hash": "sha256:fixture",
+            },
+            "availability": {"zotero": "available", "onedrive": "available"},
+            "relations": {
+                "instance_source": ["INS-001", "SRC-001"],
+                "excerpt_instance": ["EXC-001", "INS-001"],
+                "finding_excerpt": ["FND-001", "EXC-001"],
+            },
+            "finding": {
+                "id": "FND-001",
+                "status": "working",
+                "statement": "Synthetic finding; not historical evidence.",
+            },
+            "regenerable": {
+                "search_index": "cache/search-v1",
+                "ocr_cache": "cache/ocr-v1",
+            },
+        }
+
+    @staticmethod
+    def _without_providers(state):
+        removed = dict(state)
+        removed["availability"] = {"zotero": "unavailable", "onedrive": "unavailable"}
+        removed["regenerable"] = {}
+        return removed
+
+    @staticmethod
+    def _assert_provider_neutral_identity(testcase, state):
+        for field in ("source_id", "instance_id", "excerpt_id", "finding_id"):
+            testcase.assertTrue(state.get(field), f"missing provider-neutral {field}")
+        testcase.assertEqual(
+            [state["instance_id"], state["source_id"]],
+            state["relations"]["instance_source"],
+        )
+        testcase.assertEqual(
+            [state["excerpt_id"], state["instance_id"]],
+            state["relations"]["excerpt_instance"],
+        )
+        testcase.assertEqual(
+            [state["finding_id"], state["excerpt_id"]],
+            state["relations"]["finding_excerpt"],
+        )
+
+    def test_provider_removal_preserves_curated_identity_and_relations(self):
+        before = self._curated_state()
+        after = self._without_providers(before)
+
+        self._assert_provider_neutral_identity(self, after)
+        self.assertEqual(before["source_id"], after["source_id"])
+        self.assertEqual(before["instance_id"], after["instance_id"])
+        self.assertEqual(before["excerpt_id"], after["excerpt_id"])
+        self.assertEqual(before["finding_id"], after["finding_id"])
+        self.assertEqual(before["finding"], after["finding"])
+
+    def test_provider_removal_degrades_availability_without_erasing_provider_refs(self):
+        after = self._without_providers(self._curated_state())
+        self.assertEqual("unavailable", after["availability"]["zotero"])
+        self.assertEqual("unavailable", after["availability"]["onedrive"])
+        self.assertEqual("ABC123", after["source_refs"]["zotero_item_key"])
+        self.assertEqual("drive-item-42", after["instance_refs"]["onedrive_drive_item_id"])
+        self.assertEqual({}, after["regenerable"])
+
+    def test_fresh_context_can_resume_with_provider_unavailability_as_explicit_debt(self):
+        provider_state = prerequisite_state(
+            "source-provider-available",
+            "unresolved",
+            [BasisRef("INS-001", "provider-availability:unavailable")],
+            note="Provider unavailable; curated identity remains restartable.",
+        )
+        context = derive_current_context(
+            primary_function="Architecture / Verification / RSE",
+            work_owner_ref="issue:#57",
+            work_order_ref="WO-57-PROVIDER-REMOVAL-SYNTHETIC",
+            objective="Verify restartability after provider removal.",
+            scope=["provider removal", "curated state", "fresh-context restartability"],
+            exclusions=["real provider access", "historical interpretation"],
+            leading_domains=["Research Software Engineering"],
+            method_quality_frame=["issue:#50", "issue:#57"],
+            required_evidence=["provider-neutral IDs", "curated relations", "explicit availability"],
+            current_executable_action="resume from curated state or report provider debt",
+            prerequisites=[provider_state],
+            open_blockers=[],
+            unresolved=[],
+            may=["derive transient resume context"],
+            must_not=["infer provider availability", "invent missing bytes"],
+            stop_handoff_when=["provider-dependent byte inspection becomes required"],
+            return_condition="curated state is understandable without provider access",
+            persistence_target="issue:#57",
+            source_refs=["issue:#50", "issue:#57"],
+        )
+        self.assertEqual("unresolved", context.status)
+        self.assertIn("prerequisite:source-provider-available", context.unresolved)
+        self.assertNotIn("prerequisite:source-provider-available", context.open_blockers)
+        self.assertEqual("issue:#57", context.work_owner_ref)
+
+    def test_provider_only_identity_fixture_fails_closed(self):
+        invalid = {
+            "source_id": "",
+            "instance_id": "",
+            "excerpt_id": "EXC-001",
+            "finding_id": "FND-001",
+            "relations": {
+                "instance_source": ["drive-item-42", "ABC123"],
+                "excerpt_instance": ["EXC-001", "drive-item-42"],
+                "finding_excerpt": ["FND-001", "EXC-001"],
+            },
+        }
+        with self.assertRaises(AssertionError):
+            self._assert_provider_neutral_identity(self, invalid)
+
+
 if __name__ == "__main__":
     unittest.main()
