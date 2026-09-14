@@ -2,9 +2,12 @@
   "schema_version": "0.1",
   "experiment_id": "EXP-51-SACHENBACHER-V0",
   "reference_review": {
-    "status": "human-reviewed / caption-unresolved",
+    "status": "human-reviewed / accepted",
     "review_ref": "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md#7-owner-visual-review-2026-09-14",
-    "boundary": "The active locators are reproduced against the user-provided complete publication PDF actually reviewed by the owner. A published map remains one visual reference unit; internal highlights are regenerable derived views, not separate reference locators. L51-04-CAPTION-C remains explicitly unresolved for final human acceptance."
+    "boundary": "The active locators are reproduced against the user-provided complete publication PDF actually reviewed by the owner. A published map remains one visual reference unit; internal highlights are regenerable derived views, not separate reference locators. All selected locator crops in the primary review path are human-accepted. R51-06 remains unresolved only because the complete four-zone prose explanation continues beyond the bounded page-17 locator.",
+    "reviewed_at": "2026-09-14",
+    "reviewer_class": "research-owner / human visual review",
+    "decision_note": "Owner explicitly accepted L51-04-CAPTION-C after visual review in the current work context."
   },
   "instance": {
     "source_id": "SRC-LIT-0001",
@@ -57,7 +60,7 @@
       "canonical_research_ref": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#f-u2-009--sachenbachers-vier-zonen-modell-ist-ein-explizites-autorenmodell",
       "statement": "Sachenbacher presents spatial models as authored, reviewable argumentation; the four-zone model must be read through text, the complete published map with its embedded Roman-numeral labels and boundaries, the caption and the following zone explanations rather than through a detached subregion of the map.",
       "status": "canonical-finding-linked",
-      "limit": "The finding describes Sachenbacher's argumentation and is not historical or independent validation. The map/text geometry reviewed by the owner is now bound to the inspected complete-PDF instance; the separate caption locator remains unresolved for final human acceptance."
+      "limit": "The finding describes Sachenbacher's argumentation and is not historical or independent validation. The reviewed map/text/caption geometry is bound to the inspected complete-PDF instance; R51-06 remains unresolved only for the bounded cross-page scope of the prose explanation."
     },
     {
       "finding_id": "F-EXP51-LAYOUT-VARIANTS",
@@ -298,7 +301,7 @@
             0.82,
             0.91
           ],
-          "review_state": "human-review-unresolved"
+          "review_state": "human-accepted"
         },
         {
           "locator_id": "L51-04-ZONE-EXPLANATION",
@@ -408,8 +411,8 @@
       "to_locator_id": "L51-04-MAP-A",
       "authority": "human-authored",
       "research_critical": true,
-      "evaluation": "unresolved",
-      "note": "The caption remains a legitimate separate printed locator; final human acceptance of its exact crop is not yet recorded."
+      "evaluation": "correct",
+      "note": "The separately printed caption crop and its relation to the complete published map were explicitly accepted by the owner on 2026-09-14."
     },
     {
       "relation_id": "R51-06",
