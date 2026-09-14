@@ -1,13 +1,14 @@
 # #51 – Sachenbacher Evidence-Model Falsification Spike v0
 
-**Current status (2026-09-09):** `mechanical reproduction verified / semantic acceptance unresolved / B v0 not complete`
+**Current status (2026-09-14):** `mechanical baseline verified / terminology + publication-object boundary reconciled / exact-instance human acceptance still open / B v0 not complete`
 
-**Review precedence:** Section 11 supersedes the completion/PASS disposition below. Sections 1–10 preserve the original 2026-09-04 experiment report as historical execution claims, not current acceptance. No architecture or requirement delta.
-**Work Owner:** #51; technical direction #48; delivery/verification #59; trace #63
-**Executed:** 2026-09-04
-**Requirements:** REQ-SRC-001, REQ-SRC-002, REQ-SRC-004, REQ-OCR-002
-**Drivers:** G-004, G-006, N-006, P-004
-**Evidence boundary:** technical experiment against a real published visual argument; no historical or methodological promotion
+**Work Owner:** #51; technical direction #48; delivery/verification #59; research authority #46; trace #63  
+**Originally executed:** 2026-09-04  
+**Requirements:** REQ-SRC-001, REQ-SRC-002, REQ-SRC-004, REQ-OCR-002  
+**Drivers:** G-004, G-006, N-006, P-004  
+**Evidence boundary:** technical experiment against a real published visual argument; no historical, methodological, Requirement or Research-Selection promotion.
+
+Earlier revisions and their exact terminology/coordinates remain available in Git history. This file records the current interpretation of the experiment and supersedes earlier completion language.
 
 ## 1. Falsification question
 
@@ -20,20 +21,18 @@ Source → Representation → Inspected Instance → Derivative
 
 carry a real visual scientific finding losslessly and reproducibly in a fresh context without new canonical `Page` or `Region` object classes and without parser-specific semantics?
 
-The counter-hypothesis wins if the result depends on hidden manual convention, tool-specific IDs, silent relation errors or additional canonical object semantics.
+The counter-hypothesis wins if the result depends on hidden manual convention, tool-specific IDs, silent relation errors, loss of publication context or additional canonical object semantics.
 
-## 2. Work context and boundary
+## 2. Authority and scope
 
-- Primary function: architecture/development/research-software experiment.
-- Historical authority remains #46/PR #76; the spike does not decide whether Sachenbacher's model is historically correct.
-- #50 provides the existing source/instance/derivative/findspot contract.
-- PyMuPDF 1.26.4 is only a replaceable rendering adapter.
-- Excluded: Docling, OCR, IIIF, GIS, search, UI, general document pipeline, new requirements and new canonical object classes.
-- Canonical persistence: this experiment report, the source-ledger instance entry, the neutral gold manifest, implementation/tests and #63 trace record.
+- Historical authority remains #46. The spike does not decide whether Sachenbacher's model is historically correct.
+- #50 provides the source/representation/instance/derivative/findspot contract.
+- PyMuPDF is a replaceable mechanical rendering adapter only.
+- #51 owns the bounded document/findspot experiment, not Method Truth or historical truth.
+- Excluded: Docling, OCR, IIIF, GIS, search, UI, general document pipeline, new Requirements and new canonical object classes.
+- A technical reference locator is not an evidence grade, truth status or scholarly validation status.
 
-## 3. Concrete inspected instance
-
-The URL supplied and provider-corroborated through #46 was retrieved twice during the work cycle. The tested bytes are:
+## 3. Exact inspected instance used by the mechanical baseline
 
 | Field | Value |
 |---|---|
@@ -42,153 +41,176 @@ The URL supplied and provider-corroborated through #46 was retrieved twice durin
 | Instance | `DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904` |
 | SHA-256 | `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a` |
 | Bytes | 5,644,026 |
-| PDF | 1.7; 20 PDF pages; uniform effective page box 481.8900146484375 × 623.6220092773438 pt |
+| PDF | 1.7; 20 PDF pages; effective page box 481.8900146484375 × 623.6220092773438 pt |
 | Scope | front matter plus printed pages 1–22 only |
 | Stable landing page/PID | `unresolved` |
 | Licence text inside inspected object | `unresolved` |
 
-This is a distinct inspected digital instance, not the published Source itself and not the earlier 153-page reflowed user-provided representation. Its partial extent is material: later Orlagau/Ranis sections are absent and were not claimed as inspected through these bytes.
+This is a distinct inspected digital instance, not the published Source itself and not the complete 379-page PDF representation later supplied by the owner for visual review. The later Orlagau/Ranis sections are absent from this 20-page instance.
 
-## 4. Human-set, tool-neutral gold slice
+## 4. Terminology: reference, not truth metaphor
 
-The full PDF pages were visually rendered first. Regions were then set manually in normalized top-left page space; no PyMuPDF text/image block or internal object ID supplied a gold box.
+For Histo-Orla, the technical benchmark vocabulary is now:
 
-| Gold case | Printed/PDF page | Distinguishing evidence |
+```text
+reference case
+reference locator
+reference manifest
+human-authored reference coordinates
+human-reviewed reference decision
+```
+
+The earlier benchmark metaphor is retired from the active repository state because it can be read as a statement about scholarly authority, evidential quality or historical truth. None of those follow from a human-set crop or a reproducible renderer.
+
+This is a **technical terminology and model-boundary clarification**. It creates no new Requirement, Method Truth, historical Finding or Research Selection decision.
+
+Active files:
+
+- `tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json`
+- `tools/document_evidence/data/sachenbacher-2022-reference-v0.2-candidate.json`
+
+The pre-reconciliation filenames and structures remain recoverable from Git history; they are not active aliases.
+
+## 5. Publication-object boundary
+
+A visual element that is published as one map is not split into synthetic source/reference objects merely because a tool can crop it.
+
+For Sachenbacher's Fig. 2 this means:
+
+```text
+complete published map
+= one reference locator: L51-04-MAP-A
+
+Roman numerals I–IV + zone boundaries
+= content inside that map, not separate reference locators
+
+caption below the map
+= separately printed publication text and therefore separately addressable
+
+zone explanation on following page(s)
+= separately addressable prose linked back to the complete map
+```
+
+If a reviewer needs one zone, label or boundary emphasized, Histo-Orla may create a **regenerable derived highlight view** from the complete map. Such a view must point back to `L51-04-MAP-A`, must not replace the publication object and must not become an independent evidential source.
+
+The former `L51-04-KEY-B` split is therefore not part of the active reference manifest.
+
+## 6. Historical mechanical execution baseline
+
+The original 2026-09-04 execution remains useful as reproducibility evidence for the state that existed then:
+
+- exact instance hash/byte size/page count verified before rendering;
+- normalized page coordinates kept tool-neutral;
+- two isolated processes reproduced byte-identical reports;
+- 14 then-declared locators were mechanically rendered;
+- 9 then-declared research-critical relations were inspected from supplied evaluations: 8 `correct`, 1 `unresolved`, 0 `wrong`;
+- parser semantic relations emitted by the low-level baseline: 0;
+- `silent_error_count = 0` meant only that no supplied research-critical relation was marked `wrong`;
+- negative tests rejected changed bytes, invalid geometry, duplicate locators, bad page indices and unevaluated parser relations.
+
+That execution proved **mechanical reproducibility of the then-declared inputs**, not semantic completeness or human acceptance. The current active reference model contains 13 locators and 8 research-critical relations because the synthetic embedded-key split has been removed. A fresh mechanical run on that current model is still required.
+
+## 7. Owner visual review 2026-09-14
+
+The owner reviewed visual comparison material generated from a separately supplied **complete 379-page PDF representation** of the same published work. This review is material because it establishes human preferences about semantic crop boundaries and the publication-object model, but the complete PDF was not byte-verified as identical to the fingerprinted 20-page instance.
+
+Recorded decisions:
+
+| Locator / object | Owner decision | Current disposition |
+|---|---|---|
+| `L51-02-TEXT` | proposed larger crop includes unnecessary map content; old crop is better | retain old bbox `[0.105, 0.075, 0.89, 0.155]` |
+| `L51-03-TEXT` | text passes visual review | candidate bbox retained for exact-instance confirmation |
+| `L51-04-TEXT-D` | text passes visual review | candidate bbox retained for exact-instance confirmation |
+| `L51-04-MAP-A` | previous expansion still clipped the top; revised complete-map crop passes | revised candidate `[0.105, 0.365, 0.88, 0.865]` retained for exact-instance confirmation |
+| `L51-04-ZONE-EXPLANATION` | text passes visual review | candidate bbox retained for exact-instance confirmation |
+| former embedded-key subregion | rejected as an independent reference crop; zone meaning needs the whole map and its boundaries | removed from active reference model; highlights only as derived views |
+| `L51-04-CAPTION-C` | still a legitimate separately printed text locator | explicit final owner acceptance not yet recorded |
+
+These decisions are persisted in `sachenbacher-2022-reference-v0.2-candidate.json` with the representation caveat. They **do not** close exact-instance acceptance.
+
+## 8. Active reference slice
+
+| Reference case | Printed/PDF page | Distinguishing evidence |
 |---|---:|---|
-| `G51-01-TEXT-FOOTNOTE` | 11 / index 8 | main text + separately addressable footnote |
-| `G51-02-MAP-CAPTION` | 12 / index 9 | adjacent text + map + caption |
-| `G51-03-MULTI-FOOTNOTE` | 15 / index 12 | dense main text + five-footnote block |
-| `G51-04-PRIMARY-ZONE-MODEL` | 16–17 / indices 13–14 | text D + map A + embedded Roman-numeral key B + caption C + cross-page zone explanation |
-| `G51-05-INTRO-FOOTNOTES` | 8 / index 5 | born-digital main text + two footnotes |
+| `REF51-01-TEXT-FOOTNOTE` | 11 / index 8 | main text + separately addressable footnote |
+| `REF51-02-MAP-CAPTION` | 12 / index 9 | adjacent text + intact map + separately printed caption |
+| `REF51-03-MULTI-FOOTNOTE` | 15 / index 12 | dense main text + five-footnote block |
+| `REF51-04-PRIMARY-ZONE-MODEL` | 16–17 / indices 13–14 | text D + complete map A with internal labels/boundaries + caption C + cross-page zone explanation |
+| `REF51-05-INTRO-FOOTNOTES` | 8 / index 5 | born-digital main text + two footnotes |
 
-The primary case references the real PR-#76 model-check finding: Sachenbacher's four-zone model is authored argumentation whose text, map, caption, embedded keys and following explanation must remain jointly reachable while retaining distinct roles. The complete zone explanation continues beyond the page-17 locator; this is preserved as `ambiguous`, not silently completed.
+The primary case links to canonical Finding `F-U2-009`. That Finding says Sachenbacher presents the four-zone arrangement as an authored secondary-source model; it does not validate the model as historical truth.
 
-Gold state: `tools/document_evidence/data/sachenbacher-2022-gold-v0.1.json`.
+The complete prose explanation continues beyond the bounded page-17 locator and remains explicitly `ambiguous` in scope.
 
-## 5. Mechanical baseline and fresh-context result
+## 9. Current implementation contract
 
 `tools.document_evidence.roundtrip` performs only deterministic checks and rendering:
 
-1. verify instance hash, byte size and page count;
-2. validate normalized locator bounds, explicit print-page states and relation references;
+1. verify exact instance hash, byte size and page count;
+2. validate normalized reference-locator bounds, explicit print-page states and relation references;
 3. reject unexpected page geometry;
 4. transform normalized coordinates to page points;
-5. render every region and record a derivative crop hash;
-6. report parser relations separately from human-curated relations.
+5. render every active reference locator and record a derivative crop hash;
+6. distinguish `human-authored` relations from `parser-heuristic` relations;
+7. preserve `reference_review`, Finding limits and locator scope notes in the report.
 
-Two isolated processes with an empty environment except explicit `PATH`/`PYTHONPATH` consumed only repository manifest + fingerprinted bytes. Both produced byte-identical reports:
+A `human-authored` relation means a person supplied the relation. It does **not** mean the relation or geometry has passed human acceptance.
 
-- result: `pass`;
-- 5 gold cases / 14 distinct locators rendered;
-- report SHA-256: `eb7af9169451828a6086543248a0051e929b54f436e4a0082a76b36f875fd71d`;
-- research-critical relations inspected: 9 (`footnote`, `caption`, `figure`, `legend`, `reading_order`); 8 correct, 1 explicitly unresolved, 0 wrong;
-- parser relations emitted by the low-level baseline: 0;
-- `silent_error_count = 0`;
-- PyMuPDF version: 1.26.4.
+A regression test enforces the publication-object boundary for Fig. 2: the complete map locator must exist, the former embedded-key locator must not exist in the active reference case, and the cross-page explanation relates directly to the map.
 
-The zero parser-relation count is intentional, not a claim of parser quality: PyMuPDF was not allowed to invent caption, legend or footnote semantics. Those relations are human-curated in the gold state. Future parsers must emit their candidates as `parser-heuristic` with explicit evaluation; the validator rejects a parser relation without that state.
+## 10. Acceptance state
 
-Negative tests prove that changed bytes, out-of-page boxes, duplicate locator identity, unknown references/tool-specific coordinate systems and unevaluated parser relations fail closed.
+### Established
 
-## 6. Cumulative pass/fail disposition
+- canonical Finding `F-U2-009` exists and is linked;
+- exact 20-page instance identity/fingerprint is recorded;
+- the original execution was mechanically reproducible;
+- invalid page/geometry/parser states fail closed;
+- terminology no longer implies scholarly truth or benchmark authority;
+- Fig. 2 is modeled as one publication map, not as an arbitrary set of evidential sub-crops;
+- owner visual decisions from the complete PDF are recorded with their representation boundary.
 
-| #51 condition | Result | Evidence / limit |
-|---|---|---|
-| identical bytes fingerprinted | PASS | SHA-256 + byte count checked before opening PDF |
-| PDF index separate from print-page relation | PASS | separate fields; print state vocabulary includes `resolved | absent | ambiguous | unresolved` |
-| manually defined neutral regions reproduce | PASS | 14 visually checked crops from normalized page space |
-| multiple regions attach to one finding without flattening | PASS | primary case has five locators across two pages with explicit roles/relations |
-| parser relationships stay derivative/heuristic | PASS | no parser semantic relation emitted; contract/test forbids unlabelled parser relation |
-| fresh process reaches same regions | PASS | two isolated runs, byte-identical report |
-| unresolved/ambiguous survives | PASS | landing/licence unresolved; full zone-explanation scope ambiguous |
-| no new canonical object class required | PASS | locators remain values on existing Findspot/Observation relations |
-| research-critical silent relation errors | PASS | `silent_error_count = 0`; no parser relation was promoted |
+### Still open
 
-**Disposition:** `adopt existing contract / retain minimal locator representation / no promotion`. The hypothesis held for this bounded real slice. This does not establish completeness for the entire book, rotated/cropped PDFs, scans, OCR, arbitrary tables or all document genres.
+- render the **current** 13-locator reference manifest against the exact fingerprinted 20-page instance;
+- confirm the revised candidate geometry against that exact instance rather than inferring equivalence from the complete PDF representation;
+- obtain/record the remaining explicit decision for `L51-04-CAPTION-C` if exact acceptance is required;
+- rerun the document-evidence suite and full applicable assurance on the final branch head;
+- reconcile PR #90 with current `main` before readiness/merge;
+- obtain CI on the exact final head.
 
-## 7. Failure modes and residual debt
+Therefore `B v0` remains incomplete and PR #90 remains Draft.
 
-- The reachable OA object is only a 20-page partial representation. It is sufficient for the selected real visual model but not for the later Orlagau/Ranis research passages.
-- Stable landing page/PID and exact licence statement remain unresolved. This is source-identity debt, not a blocker for byte-level local inspection of the provided OA route.
-- Crop hashes are adapter/version-dependent derivative verification, not canonical locator identity.
-- Cross-page continuation is expressible, but the current selected locator intentionally covers only zones I–III partially on print page 17; complete four-zone exposition remains outside the bounded region and is marked ambiguous.
-- No parser benchmark was performed. Any future caption/footnote/reading-order enrichment must be compared with the independent gold and keep `silent_error_count = 0` for research-critical relations.
-
-## 8. Systemic reconciliation
+## 11. Systemic reconciliation
 
 | Affected state | Disposition |
 |---|---|
-| #50 canonical research-state contract | `confirmed`; no contract or object-class change required |
-| #51 work status | `refined`: bounded v0 executed; general pipeline remains open |
-| #46 / PR #76 historical findings | `unchanged`; only a real finding anchor was referenced |
-| `orlagau-source-ledger.md` | `refined` with the concrete inspected instance and partial-object limit |
-| Lampe-420 work-order basis | `confirmed/refingerprinted`; additive ledger change does not alter the prior Lampe finding, and its Git-blob prerequisite was refreshed |
-| REQ-SRC-001/002/004, REQ-OCR-002 coverage | `partially-satisfied` for this bounded instance/round-trip only |
-| #62 structured requirement projection | `refined` for the four newly partial requirements; accepted semantics remain owned by #42 |
-| REQ-SRC-003, REQ-OCR-001/003 | `unchanged`; not exercised |
-| #52 OCR benchmark | `unchanged`; deliberately out of scope |
-| #63 trace | `refined` with current implementation/verification record |
-| `PROJECT_STATE.md` | `refined` because #51 gained a material real-test result and executable artifact |
-| #44 blocker register | `unchanged`; residual items are bounded debt, not an owner decision/blocker |
+| #50 canonical research-state contract | `confirmed`; existing Source/Instance/Derivative/Findspot separation remains sufficient |
+| #51 | `refined`; technical references are not truth categories, and compound publication visuals remain intact by default in this slice |
+| #46 / `F-U2-009` | `unchanged`; historical semantics are not modified |
+| #42 Requirements | `unchanged`; no new or weakened Requirement |
+| #60 Method Truth | `unchanged` |
+| Research Selection | `unchanged` |
+| `orlagau-source-ledger.md` | reference-manifest terminology updated only |
+| document-evidence code/tests | active schema renamed to `reference_*`; publication-map non-splitting regression added |
+| Git history | preserved; no force rewrite of earlier commits/terminology |
 
-## 9. Reproduction
+The map treatment is recorded as a bounded publication-object modeling correction learned from real owner review. It should not be generalized into a universal rule for every possible compound visual without a concrete need; the default is to preserve the published visual unit and use derived highlights when attention must be directed inside it.
 
-With PyMuPDF 1.26.4 available and the downloaded instance at `<PDF>`:
+## 12. Reproduction
+
+With PyMuPDF 1.26.4 available and the exact fingerprinted instance at `<PDF>`:
 
 ```bash
 PYTHONPATH=. python -m tools.document_evidence.roundtrip \
-  tools/document_evidence/data/sachenbacher-2022-gold-v0.1.json \
+  tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json \
   <PDF> <OUTPUT-DIRECTORY>
 
 PYTHONPATH=. python -m unittest discover -s tools/document_evidence/tests -v
 ```
 
-The PDF bytes and generated crops are not committed. The source URL, fingerprint, complete neutral locators, relations, uncertainty and reproduction command are committed.
+The PDF bytes and generated crops are not committed. Derived review/highlight images are regenerable views, not Research Truth.
 
-## 10. Exactly one next step
+## 13. Exactly next step
 
-Run one replaceability check with a second PDF renderer against the unchanged neutral manifest and require the same visible regions before considering any higher-level parser benchmark.
-
-
-## 11. PR #90 reconciliation and review (2026-09-09)
-
-Primary function: bounded development/verification under #51/#48/#59. Research authority remains #46; no Selection or scientific promotion. Original commit `947f6fdf57559f5f7084e4e8a570b75c23bab702` is preserved. Main `df38958cd30cf82c86da05fa9fab1485bd667f20` is integrated by merge, without rewriting its five research/method artifacts.
-
-### Semantic review and acceptance boundary
-
-- The canonical source remains `SRC-LIT-0001`. The PR76 generic OA-PDF route with unresolved bytes and the fingerprinted 20-page partial object are different instance records, not competing source identities. The later Orlagau research passages remain outside this partial object.
-- The Lampe work order's ledger fingerprint matches the additive ledger change. Its historical evidence, action and unresolved questions remain unchanged; context loading retains one passed and two unresolved prerequisites.
-- The earlier manifest anchor was a spike-local placeholder. PR76 sections 4–5 discuss the Orlaraum model; they did not establish an explicit canonical Finding for the four-zone figure on printed page 16. The link is now resolved through the domain-owned Finding recorded below; no historical truth is asserted.
-- Original coordinates were preserved, including defects, so the original experiment remains auditable. Full-page visual inspection found that `L51-04-MAP-A` starts below the upper map edge; `L51-04-ZONE-EXPLANATION` starts below the Zone-I heading; `L51-02-TEXT`, `L51-03-TEXT` and `L51-04-TEXT-D` omit opening lines visible on their full pages. Stable cropping proves reproducibility, not coverage of the claimed semantic region.
-- The original `human-curated` labels are declarations in the input. This review has no independent record of a human selecting or accepting those boxes. No AI-assisted reinspection is promoted to human gold validation.
-- `silent_error_count=0` is derived from supplied relation evaluations, with zero parser relations. It is not an independent error measurement. `R51-06` remains unresolved; report outputs now preserve locator scope notes, Finding uncertainty and gold-review state.
-
-### Technical corrections
-
-Invalid/negative/out-of-range PDF indices are rejected before rendering (negative indices previously selected pages from the end). Missing, nonfinite or malformed geometry is rejected instead of allowing an empty `zip` check to pass. Parser evaluation vocabulary is enforced even for noncritical relations. A `fail` report now returns CLI exit status 1. Four targeted regression tests cover these failures; the original six remain.
-
-### Verification performed
-
-- Re-downloaded the manifest URL: 5,644,026 bytes; SHA-256 `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a` matches the original.
-- PyMuPDF 1.26.4 reproduced all 14 original regions in two separate processes with only explicit PATH/PYTHONPATH and no chat context. Reports were byte-identical. This is mechanical reproducibility only.
-- Full-page visual review of PDF indices 5, 8, 9, 12, 13 and 14 exposed the bounded coverage defects above.
-- Local suites: requirements 14, assurance 16, operational 27, document evidence 10 tests passed (67 total). Both formal validators passed; requirements migration warnings remain advisory.
-- GitHub CI status is recorded in PR #90 for the exact committed head; it is not inferred from these local checks.
-
-### Required return before v0 acceptance
-
-#51/#46 must review the original crops against the six full pages, specify/accept corrected tool-neutral regions with attributable human provenance, and identify an exact existing canonical Finding or explicitly accept the missing link as a changed test scope through the proper authority. Keep the original coordinate version as provenance. Re-run mechanical and visual checks on the accepted revision. Until then the cumulative original v0 acceptance is not established, the PR stays draft, and the proposed second-renderer step is premature. No human validation or historical Finding has been fabricated to close this gate.
-
-## 12. PR #90 continuation: finding gate closed, candidate preparation complete (2026-09-11)
-
-The bounded #46 research finding is now persisted canonically as `F-U2-009` in `docs/research/cases/u2-knau-orlagau-quellenbefunde.md`. The manifest references that exact Finding and no longer uses the former spike-local placeholder as a substitute.
-
-The exact inspected PDF instance was reverified before visual work: SHA-256 `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a`, 5,644,026 bytes, 20 pages. Full pages at PDF indices 5, 8, 9, 12, 13 and 14 were rendered and inspected. The original v0.1 manifest remains unchanged and provenance-capable.
-
-Candidate corrections are recorded in `tools/document_evidence/data/sachenbacher-2022-gold-v0.2-candidate.json` for `L51-02-TEXT`, `L51-03-TEXT`, `L51-04-TEXT-D`, `L51-04-MAP-A` and `L51-04-ZONE-EXPLANATION`; `L51-04-KEY-B` and `L51-04-CAPTION-C` remain explicit review targets. Each entry preserves the old bbox, candidate bbox, rationale, intended semantic unit, exclusions and uncertainty. Status is `candidate / pending-human-review`.
-
-The reproducible review packet is generated in a temporary working directory with the exact PDF and the candidate manifest. It must contain, for each changed locator, full page, old crop and candidate crop, plus old crops for the unchanged key/caption review targets. Review images are derived artifacts and are not Research Truth or commit candidates.
-
-**Closed:** authorized #46 Finding, exact canonical manifest link, exact PDF verification, reproducible candidate-region preparation.
-
-**Open:** attributable human `accept | correct` for every candidate region; then promotion to an accepted gold version and a fresh mechanical roundtrip. `B v0` is not complete while this Human Gate remains open.
+Reconcile the current reference model and candidate decisions against the exact fingerprinted 20-page instance, then rerun deterministic tests/roundtrip. Do not start the second-renderer/parser step until that exact-instance review is truthful and PR #90 is reconciled with current `main`.
