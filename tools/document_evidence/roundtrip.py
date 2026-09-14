@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Reproduce neutral page-space locators against one fingerprinted PDF instance.
+"""Reproduce neutral page-space reference locators against one fingerprinted PDF instance.
 
-PyMuPDF is deliberately an adapter.  The manifest owns no PyMuPDF object IDs and
+PyMuPDF is deliberately an adapter. The manifest owns no PyMuPDF object IDs and
 stores only normalized page-space coordinates plus explicit scientific relations.
 """
 
@@ -44,14 +44,14 @@ def validate_manifest(data: dict[str, Any]) -> None:
     missing = sorted(required_instance - set(instance))
     if missing:
         raise EvidenceError(f"instance fields missing: {', '.join(missing)}")
-    if not data.get("findings") or not data.get("gold_cases"):
-        raise EvidenceError("at least one finding and one gold case are required")
+    if not data.get("findings") or not data.get("reference_cases"):
+        raise EvidenceError("at least one finding and one reference case are required")
 
     if type(instance["page_count"]) is not int or instance["page_count"] <= 0:
         raise EvidenceError("invalid page_count")
     finding_ids = {item["finding_id"] for item in data["findings"]}
     locator_ids: set[str] = set()
-    for case in data["gold_cases"]:
+    for case in data["reference_cases"]:
         if case["finding_id"] not in finding_ids:
             raise EvidenceError(f"unknown finding_id in {case['case_id']}")
         if not case.get("locators"):
@@ -84,7 +84,7 @@ def validate_manifest(data: dict[str, Any]) -> None:
     for relation in data.get("relations", []):
         if relation["from_locator_id"] not in locator_ids or relation["to_locator_id"] not in locator_ids:
             raise EvidenceError(f"relation references unknown locator: {relation['relation_id']}")
-        if relation["authority"] not in {"human-curated", "parser-heuristic"}:
+        if relation["authority"] not in {"human-authored", "parser-heuristic"}:
             raise EvidenceError(f"invalid relation authority: {relation['relation_id']}")
         if relation.get("research_critical"):
             if relation.get("evaluation") not in {"correct", "wrong", "unresolved"}:
@@ -118,7 +118,7 @@ def run(manifest_path: Path, pdf_path: Path, output_dir: Path) -> dict[str, Any]
     output_dir.mkdir(parents=True, exist_ok=True)
     rendered: list[dict[str, Any]] = []
 
-    for case in manifest["gold_cases"]:
+    for case in manifest["reference_cases"]:
         for locator in case["locators"]:
             page = document[locator["pdf_page_index"]]
             expected = locator["page_geometry_points"]
@@ -151,9 +151,9 @@ def run(manifest_path: Path, pdf_path: Path, output_dir: Path) -> dict[str, Any]
     report = {
         "schema_version": "0.1",
         "result": "pass" if not wrong else "fail",
-        "result_scope": "mechanical reproduction and declared evaluations only; not semantic or human-gold validation",
+        "result_scope": "mechanical reproduction and declared evaluations only; not semantic or human reference acceptance",
         "semantic_validation": "not-performed",
-        "gold_review": manifest.get("gold_review", {"status": "unresolved"}),
+        "reference_review": manifest.get("reference_review", {"status": "unresolved"}),
         "findings": manifest["findings"],
         "instance_id": instance["instance_id"],
         "instance_sha256": actual_hash,
