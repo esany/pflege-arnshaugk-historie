@@ -1,6 +1,6 @@
 # #51 – Sachenbacher Evidence-Model Falsification Spike v0
 
-**Current status (2026-09-14):** `active complete-PDF instance reproduced / owner geometry recorded / caption review open / final-head assurance passed / B v0 not complete`
+**Current status (2026-09-14):** `complete-PDF instance reproduced / owner visual review complete / bounded cross-page scope unresolved by design / final-head assurance pending`
 
 **Work Owner:** #51; technical direction #48; delivery/verification #59; research authority #46; trace #63  
 **Originally executed:** 2026-09-04  
@@ -9,7 +9,7 @@
 **Drivers:** G-004, G-006, N-006, P-004  
 **Evidence boundary:** technical experiment against a real published visual argument; no historical, methodological, Requirement or Research-Selection promotion.
 
-Earlier revisions and coordinates remain available in Git history. This document records the current interpretation and active inspected instance.
+Earlier revisions and coordinates remain available in Git history. This document records the current interpretation, active inspected instance and completed human visual review.
 
 ## 1. Falsification question
 
@@ -47,7 +47,7 @@ The counter-hypothesis wins if the result depends on hidden manual convention, t
 | PDF | 1.7; 20 PDF pages; 481.8900146484375 × 623.6220092773438 pt |
 | Scope | partial representation; front matter plus printed pages 1–22 |
 
-This instance remains provenance for the original mechanical run. It is no longer an active blocker for the real owner-reviewed slice.
+This instance remains provenance for the original mechanical run. It is not an active blocker for the owner-reviewed real slice.
 
 ### Active inspected instance – 2026-09-14
 
@@ -80,7 +80,7 @@ human-authored reference coordinates
 human-reviewed reference decision
 ```
 
-The former benchmark metaphor is retired from active state because it can be mistaken for scholarly authority, evidential quality or historical truth.
+The former benchmark “gold” metaphor is retired from active state because it can be mistaken for scholarly authority, evidential quality or historical truth.
 
 Active manifest:
 
@@ -89,7 +89,7 @@ Active manifest:
 Historical/review-bridge manifests retained for provenance:
 
 - `tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json` – 20-page mechanical baseline;
-- `tools/document_evidence/data/sachenbacher-2022-reference-v0.2-candidate.json` – owner-review bridge before the complete PDF was made the active inspected instance.
+- `tools/document_evidence/data/sachenbacher-2022-reference-v0.2-candidate.json` – owner-review bridge before the complete PDF became the active inspected instance.
 
 ## 5. Publication-object boundary
 
@@ -131,7 +131,7 @@ This proved mechanical reproducibility of the then-declared inputs, not semantic
 
 ## 7. Owner visual review 2026-09-14
 
-The owner reviewed visual comparison material generated from the active 379-page PDF instance.
+The owner reviewed visual comparison material generated from the active fingerprinted 379-page PDF instance.
 
 | Locator / object | Owner decision | Active disposition |
 |---|---|---|
@@ -141,9 +141,11 @@ The owner reviewed visual comparison material generated from the active 379-page
 | `L51-04-MAP-A` | earlier candidate still clipped top; revised whole-map crop passes | `[0.105, 0.365, 0.88, 0.865]` |
 | `L51-04-ZONE-EXPLANATION` | text passes | `[0.105, 0.04, 0.89, 0.91]` |
 | former embedded-key subregion | rejected as independent reference crop; zone meaning requires whole map/boundaries | removed; highlight only as derived view |
-| `L51-04-CAPTION-C` | remains a legitimate separately printed locator | final explicit crop acceptance still `unresolved` |
+| `L51-04-CAPTION-C` | final visual crop passes | `[0.2, 0.87, 0.82, 0.91]`; `human-accepted` |
 
-The complete map review is therefore tied to the actual bytes inspected in this context, not inferred from another PDF.
+The owner therefore accepted all selected primary review crops against the active complete-PDF instance. This is human acceptance of the reference geometry/publication-object treatment, not historical validation of Sachenbacher's model.
+
+`R51-06` remains deliberately `unresolved`: the full four-zone prose explanation continues beyond the bounded page-17 locator. That unresolved state concerns scope, not a failed human review.
 
 ## 8. Active reference slice
 
@@ -152,12 +154,10 @@ The complete map review is therefore tied to the actual bytes inspected in this 
 | `REF51-01-TEXT-FOOTNOTE` | 11 / 11 | main text + separate footnote |
 | `REF51-02-MAP-CAPTION` | 12 / 12 | adjacent text + intact map + caption |
 | `REF51-03-MULTI-FOOTNOTE` | 15 / 15 | dense main text + footnote block |
-| `REF51-04-PRIMARY-ZONE-MODEL` | 16–17 / 16–17 | text + complete map with internal labels/boundaries + caption + cross-page explanation |
+| `REF51-04-PRIMARY-ZONE-MODEL` | 16–17 / 16–17 | text + complete map with internal labels/boundaries + accepted caption + cross-page explanation |
 | `REF51-05-INTRO-FOOTNOTES` | 8 / 8 | main text + two footnotes |
 
 The primary case links to canonical Finding `F-U2-009`: Sachenbacher presents the four-zone arrangement as an authored secondary-source model. It is not historical validation.
-
-The complete prose explanation continues beyond the bounded page-17 locator and therefore retains an `unresolved`/ambiguous scope relation. This is intentional uncertainty, not a rendering failure.
 
 ## 9. Current implementation contract and complete-PDF reproduction
 
@@ -170,17 +170,16 @@ The complete prose explanation continues beyond the bounded page-17 locator and 
 5. renders each active locator and hashes each crop;
 6. preserves human-authored vs parser-heuristic authority and unresolved states.
 
-The active `v0.3` manifest was executed locally against `DI-SACHENBACHER-2022-COMPLETE-PDF-20260914` in the current work context:
+The active `v0.3` manifest was executed against `DI-SACHENBACHER-2022-COMPLETE-PDF-20260914` before and after final caption acceptance:
 
 - SHA-256 matched `3857636c854325eddaa0b658cd7b936a47d1b7712ccd7cbbc7296141e62616a0`;
 - byte size matched 23,702,386;
 - page count matched 379;
 - all 13 active locators rendered with expected page geometry;
 - mechanical result: `pass`;
-- unresolved research-critical relations: `R51-05` (caption crop human acceptance) and `R51-06` (four-zone prose continues beyond bounded page-17 locator);
-- PyMuPDF adapter in this run: 1.26.7.
+- after final caption acceptance the only unresolved research-critical relation is `R51-06`, the intentionally bounded cross-page prose scope.
 
-Project Assurance Run **#177** (`34864876071`) completed successfully on PR head `6461db06b7982b4d22a6b943e2e4f56a98e53724`. The preceding Run #176 failed for the intended D2 stale-basis protection after the shared source-ledger blob changed; the Lampe work-order basis was explicitly revalidated as unchanged in substance, refreshed to the new ledger blob, and Run #177 then passed. This is technical/formal verification only. A later documentation-only restoration commit must receive its own exact-head assurance before readiness is claimed.
+The exact final GitHub head still requires Project Assurance after this acceptance-state commit. A green run remains technical/formal verification only.
 
 ## 10. Acceptance state
 
@@ -189,32 +188,33 @@ Project Assurance Run **#177** (`34864876071`) completed successfully on PR head
 - canonical Finding `F-U2-009` exists and is linked;
 - complete uploaded publication PDF has its own inspected-instance identity and fingerprint;
 - active 13-locator model reproduces mechanically against those exact bytes;
-- user-reviewed text/map decisions are bound to that same active instance;
+- all selected primary text/map/caption reference crops have explicit owner visual acceptance;
 - Fig. 2 remains one publication map rather than synthetic evidential sub-crops;
 - the 20-page provider object is retained as historical provenance, not an artificial blocker;
 - invalid page/geometry/parser states remain fail-closed through the existing tool/tests;
-- branch is reconciled with `main` (`behind_by=0` as last checked).
+- `R51-06` remains unresolved by design and does not represent an unclosed human-review gate.
 
-### Still open
+### Still open before Ready
 
-- explicit final human decision for `L51-04-CAPTION-C` if #51 is to claim complete owner acceptance;
-- `R51-06` remains unresolved by design unless/until the bounded scope of the four-zone explanation is changed;
-- exact-current-head Project Assurance after the latest documentation restoration.
+- Project Assurance on the exact post-acceptance branch head;
+- confirm branch remains reconciled with current `main`.
 
-`B v0` therefore remains incomplete only for the explicit remaining human/acceptance state and exact-current-head verification; the old 20-page provider bytes are not a blocker.
+No remaining human visual-review gate exists for the bounded #51 Sachenbacher slice.
 
 ## 11. Systemic reconciliation
 
 | Affected state | Disposition |
 |---|---|
 | #50 canonical research-state contract | `confirmed`; distinct inspected instances solve the byte-identity problem without conflation |
-| #51 | `refined`; active real slice now uses the instance actually inspected by the owner |
+| #51 | `refined`; active real slice uses the instance actually inspected by the owner; selected reference geometry accepted |
 | #46 / `F-U2-009` | `unchanged`; historical semantics not modified |
 | #42 Requirements | `unchanged`; no new/weakened Requirement |
 | #60 Method Truth | `unchanged` |
 | Research Selection | `unchanged` |
-| source ledger | new complete-PDF inspected instance recorded; old partial instance retained as provenance |
-| document-evidence tests | active manifest switched to v0.3; complete-PDF fingerprint/page mapping and unresolved caption state covered |
+| source ledger | complete-PDF inspected instance recorded; old partial instance retained as provenance |
+| document-evidence tests | active manifest v0.3; complete-PDF fingerprint/page mapping, map non-splitting and final caption acceptance covered |
+
+The map treatment is a bounded publication-object modeling correction learned from real owner review. It is not automatically generalized into a universal rule for every compound visual; the default here is to preserve the published visual unit and use derived highlights when attention must be directed inside it.
 
 ## 12. Reproduction
 
@@ -232,4 +232,4 @@ PDF bytes and generated crops are not committed. Derived review/highlight images
 
 ## 13. Exactly next step
 
-Obtain the remaining explicit owner decision for `L51-04-CAPTION-C`, then check Project Assurance on the resulting exact head. Do not reopen the old 20-page instance as a blocker unless a future question specifically requires reproducing that historical instance itself.
+Run Project Assurance on the exact post-acceptance head and recheck `main` reconciliation. If both pass, PR #90 may leave Draft. Do not reopen the old 20-page instance as a blocker unless a future question specifically requires reproducing that historical instance itself.
