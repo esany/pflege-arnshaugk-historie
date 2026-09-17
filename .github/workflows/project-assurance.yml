@@ -12,6 +12,7 @@ on:
       - 'tools/requirements/**'
       - 'tools/assurance/**'
       - 'tools/operational/**'
+      - 'tools/document_evidence/**'
       - 'src/**'
       - 'app/**'
       - 'histo_orla/**'
@@ -49,6 +50,9 @@ jobs:
 
       - name: Run operational core regression tests
         run: python -m unittest discover -s tools/operational/tests -p 'test_*.py' -v
+
+      - name: Run document-evidence contract regression tests
+        run: python -m unittest discover -s tools/document_evidence/tests -p 'test_*.py' -v
 
       - name: Run formal requirements assurance
         run: python tools/requirements/validate.py

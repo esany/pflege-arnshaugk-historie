@@ -3,7 +3,7 @@
 **Status:** `working-research / source-identity-ledger`  
 **Work Owner:** #46 / #47  
 **Protokoll:** `docs/research/source-identity-protocol.md`  
-**Stand:** 2026-09-03
+**Stand:** 2026-09-14
 
 ## Zweck
 
@@ -131,7 +131,7 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **source_type:** wissenschaftliche Monographie / Sekundärliteratur / Synthese- und Quellenroutingquelle
 - **canonical_citation:** Peter Sachenbacher, *Thüringen östlich der Saale im Mittelalter. Archäologisch, mediävistisch, onomastisch, ethnografisch und philosophisch vergleichende Studie zum früh- und hochmittelalterlichen Landesausbau in Territorien der Germania Slavica Thuringiae*, Darmstadt: wbg Academic / Wissenschaftliche Buchgesellschaft, 2022.
 - **bibliographic_identity_status:** `verified from inspected imprint text in user-provided PDF instance; public catalogue/persistent identifiers not yet verified`
-- **source_instance_status:** `user-provided converted PDF inspected in bounded slices; not a complete citable publication instance`
+- **source_instance_status:** `multiple user-provided/remote digital instances inspected; instance identity kept separate`
 - **uploaded/local filename:** `2022- Thüringen östlich der Saale im Mittelalter .pdf`
 - **publication_place:** `Darmstadt`
 - **publisher / imprint:** `wbg Academic / Wissenschaftliche Buchgesellschaft`
@@ -151,7 +151,39 @@ Jeder Eintrag erhält eine stabile interne `source_id`. Exzerpte und Findings ve
 - **direct_inspection_scope:** In diesem Pass direkt inspiziert: TOC/Impressum, II.5/II.6-relevante PDF-Seiten 62–69 sowie die Titeldaten-/Lizenzstelle auf PDF-Seite 153. Cited sources inside footnotes were not directly inspected.
 - **research-use status:** Sekundärquelle, Synthese, Orientierungs- und Quellenroutingquelle; keine Primärquelle und keine automatische historische Wahrheit.
 - **current U2 cursor:** II.5 `Die slawische Besiedlung des späteren Orlagaues` page-level/source-routing pass begonnen; erste Slice-Auswertung in `u2-sachenbacher-2022-orlagau-auswertung.md`.
-- **next verification:** Vollständige offizielle PDF-/Print- oder Bibliotheksinstanz mit Fußnoten, Quelleneditionen und Literaturverzeichnis sichern; öffentliche bibliographische Identifikatoren und persistente Landingpage verifizieren; danach die in II.5 genannten Fußnoten 101–130 vollständig zu Werken/Editionen/Primärquellen routen.
+- **next verification:** Öffentliche bibliographische Identifikatoren und persistente Landingpage verifizieren; Quellen-/Literatur-Routing aus II.5/II.6 bleibt unabhängig von der jetzt verfügbaren vollständigen Publikationsinstanz offen.
+
+### DI-SACHENBACHER-2022-KULTURKAUFHAUS-PDF-20260904
+
+- **representation status:** `publisher-corroborated open-access PDF / inspected partial book representation`
+- **direct file URL:** `https://www.kulturkaufhaus.de/annot/564C427C7C31623331323262386634373834346564613133653234653533643563663539337C7C504446.pdf?sq=1`
+- **accessed:** 2026-09-04
+- **checksum SHA-256:** `41e56fb31cc2a547f83a2a55797ecbf9938e6b90a296f1d7afb85d6df3593f9a`
+- **byte size:** 5,644,026
+- **technical identity:** PDF 1.7; 20 PDF pages; effective page box uniformly 481.8900146484375 × 623.6220092773438 pt; rotation 0.
+- **inspected scope:** Front matter and printed pages 1–22. Visually inspected for #51: printed pages 8, 11, 12, 15, 16 and 17; maps on printed pages 12 and 16, captions, footnotes and the zone explanation following the second map.
+- **pagination:** PDF index and printed page label are stored separately in the historical #51 reference manifest. In the inspected slice the relation is resolved; no claim is made for pages absent from this 20-page representation.
+- **completeness:** This reachable object is **not silently treated as the complete published book**. It does not contain the later Orlagau/Ranis sections used in the existing research analysis.
+- **rights/licence in this instance:** `unresolved`; the file itself was not used to infer a licence statement. Open-access status was corroborated at provider/catalogue level in #46, but stable landing page/PID and exact licence text remain unresolved.
+- **technical evidence manifest:** historical baseline `tools/document_evidence/data/sachenbacher-2022-reference-v0.1.json`
+- **research-use boundary:** Same bibliographic Source `SRC-LIT-0001`, distinct digital representation/instance. The PDF remains historical technical baseline/provenance; it is no longer the active #51 blocker.
+
+### DI-SACHENBACHER-2022-COMPLETE-PDF-20260914
+
+- **representation_id:** `REP-SACHENBACHER-2022-COMPLETE-PDF`
+- **instance relation:** user-provided complete publication-layout PDF of the same bibliographic Source `SRC-LIT-0001`; not asserted byte-identical with the earlier 20-page Kulturkaufhaus instance.
+- **local_or_uploaded_filename:** `Sachenbacher-2022-Thüringen östlich der Saale im Mittelalter.pdf`
+- **source_instance_status:** `user-provided complete publication PDF; inspected and used for #51 owner review`
+- **public provenance / landing page:** `unresolved`; no provider identity is inferred from the upload.
+- **checksum SHA-256:** `3857636c854325eddaa0b658cd7b936a47d1b7712ccd7cbbc7296141e62616a0`
+- **technical extent:** 23,702,386 Bytes; 379 PDF pages; PDF 1.3; page box on #51 target pages 481.8900146484375 × 623.6220092773438 pt; rotation 0.
+- **embedded PDF metadata:** title `Sachenbacher_Thueringen_Mittelalter.indd`; Creator `Adobe InDesign 16.0 (Windows)`; Producer `Adobe PDF Library 15.0`; CreationDate `2022-03-22` and ModDate `2022-04-12` as embedded PDF metadata.
+- **identity/content inspection:** cover/title area, title/imprint, target pages and back cover inspected. Imprint gives Darmstadt/wbg 2022, ISBNs `978-3-534-40649-4` and `978-3-534-40650-0`, and CC BY International 4.0 for the work with images/book cover expressly excepted.
+- **#51 bounded pagination:** printed pages 8, 11, 12, 15, 16 and 17 map to zero-based PDF indices 8, 11, 12, 15, 16 and 17 in this instance. No global pagination claim is required for the spike.
+- **#51 owner review:** current text and complete-map geometry were visually reviewed against this exact uploaded instance; the map is kept whole and internal zone labels/boundaries are not separate reference objects. Caption exact-crop acceptance remains explicitly open.
+- **active technical evidence manifest:** `tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json`
+- **availability / restartability:** bytes are inspectable in the current ChatGPT work context but are not claimed to be durably stored by Git. Restartability therefore relies on this checksum/instance record plus future authorized byte-location resolution under #49/#57.
+- **research-use boundary:** Same bibliographic Source, distinct inspected digital instance. This instance supports publication-layout/findspot review and Sachenbacher-as-author-model observations; it is not independent historical validation.
 
 ---
 
