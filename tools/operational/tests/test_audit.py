@@ -1,14 +1,9 @@
 from __future__ import annotations
 
 from copy import deepcopy
-import json
-from pathlib import Path
 import unittest
 
 from tools.operational.audit import render_audit_view
-
-
-REAL_CASE = Path(__file__).parent / "data" / "sachenbacher-real-audit-projection.json"
 
 
 class DerivedAuditViewTests(unittest.TestCase):
@@ -101,6 +96,95 @@ class DerivedAuditViewTests(unittest.TestCase):
             ],
         }
 
+    @staticmethod
+    def _real_sachenbacher_projection():
+        """Regenerable test projection from #51/F-U2-009; not canonical Research State."""
+        instance_id = "DI-SACHENBACHER-2022-COMPLETE-PDF-20260914"
+        return {
+            "sources": [
+                {
+                    "id": "SRC-LIT-0001",
+                    "label": "Peter Sachenbacher (2022), Thüringen östlich der Saale im Mittelalter",
+                    "type": "published-secondary-work",
+                    "availability": {"canonical_identity": "available"},
+                }
+            ],
+            "representations": [
+                {
+                    "id": "REP-SACHENBACHER-2022-COMPLETE-PDF",
+                    "source_id": "SRC-LIT-0001",
+                    "kind": "complete-publication-pdf",
+                    "label": "User-provided complete publication-layout PDF",
+                }
+            ],
+            "instances": [
+                {
+                    "id": instance_id,
+                    "representation_id": "REP-SACHENBACHER-2022-COMPLETE-PDF",
+                    "source_id": "SRC-LIT-0001",
+                    "inspection_status": "digital-representation-inspected",
+                    "provider_refs": {
+                        "sha256": "3857636c854325eddaa0b658cd7b936a47d1b7712ccd7cbbc7296141e62616a0"
+                    },
+                    "availability": {
+                        "public_provider": "unresolved",
+                        "reviewed_bytes": "available-in-reviewed-context",
+                    },
+                }
+            ],
+            "derivatives": [],
+            "excerpts": [
+                {
+                    "id": "AUD-EXC-L51-04-TEXT-D",
+                    "instance_id": instance_id,
+                    "findspot": "print p. 16 / PDF index 16 / locator L51-04-TEXT-D",
+                },
+                {
+                    "id": "AUD-EXC-L51-04-MAP-A",
+                    "instance_id": instance_id,
+                    "findspot": "print p. 16 / PDF index 16 / locator L51-04-MAP-A / complete published map",
+                },
+                {
+                    "id": "AUD-EXC-L51-04-CAPTION-C",
+                    "instance_id": instance_id,
+                    "findspot": "print p. 16 / PDF index 16 / locator L51-04-CAPTION-C",
+                },
+                {
+                    "id": "AUD-EXC-L51-04-ZONE-EXPLANATION",
+                    "instance_id": instance_id,
+                    "findspot": "print p. 17 / PDF index 17 / locator L51-04-ZONE-EXPLANATION / bounded scope; complete four-zone prose continues beyond locator",
+                },
+            ],
+            "findings": [
+                {
+                    "id": "F-U2-009",
+                    "statement": "Sachenbacher stellt die Germania Slavica Thuringiae als vier räumliche Zonen mit ineinander übergehenden Grenzen dar; Text, Abb. 2 und Zonenerläuterungen bilden gemeinsam dieses Autorenmodell.",
+                    "status": "canonical-finding-linked",
+                    "validation_status": "secondary-source-model-finding / historical-validity-not-established",
+                    "excerpt_ids": [
+                        "AUD-EXC-L51-04-TEXT-D",
+                        "AUD-EXC-L51-04-MAP-A",
+                        "AUD-EXC-L51-04-CAPTION-C",
+                        "AUD-EXC-L51-04-ZONE-EXPLANATION",
+                    ],
+                    "uncertainty": {
+                        "status": "bounded",
+                        "note": "Finding describes Sachenbacher's authored model, not independent historical validation; complete four-zone prose extends beyond the bounded page-17 locator.",
+                    },
+                    "alternatives": [],
+                }
+            ],
+            "claims": [
+                {
+                    "id": "AUDIT-ROOT-U2-SACHENBACHER-F-U2-009",
+                    "statement": "Derived audit navigation root for canonical finding F-U2-009; not a new historical claim.",
+                    "status": "derived-view-root",
+                    "finding_ids": ["F-U2-009"],
+                }
+            ],
+            "method_applications": [],
+        }
+
     def test_happy_path_navigates_claim_to_method_and_source(self):
         rendered = render_audit_view(self._state(), "CLM-001")
 
@@ -126,8 +210,10 @@ class DerivedAuditViewTests(unittest.TestCase):
             self.assertIn(fragment, rendered)
 
     def test_real_sachenbacher_chain_is_readable_without_inventing_missing_method_state(self):
-        state = json.loads(REAL_CASE.read_text(encoding="utf-8"))
-        rendered = render_audit_view(state, "AUDIT-ROOT-U2-SACHENBACHER-F-U2-009")
+        rendered = render_audit_view(
+            self._real_sachenbacher_projection(),
+            "AUDIT-ROOT-U2-SACHENBACHER-F-U2-009",
+        )
 
         expected_fragments = (
             "finding_id: F-U2-009",
