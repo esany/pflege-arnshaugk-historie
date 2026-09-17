@@ -1,9 +1,14 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import json
+from pathlib import Path
 import unittest
 
 from tools.operational.audit import render_audit_view
+
+
+REAL_CASE = Path(__file__).parent / "data" / "sachenbacher-real-audit-projection.json"
 
 
 class DerivedAuditViewTests(unittest.TestCase):
@@ -119,6 +124,32 @@ class DerivedAuditViewTests(unittest.TestCase):
         )
         for fragment in expected_fragments:
             self.assertIn(fragment, rendered)
+
+    def test_real_sachenbacher_chain_is_readable_without_inventing_missing_method_state(self):
+        state = json.loads(REAL_CASE.read_text(encoding="utf-8"))
+        rendered = render_audit_view(state, "AUDIT-ROOT-U2-SACHENBACHER-F-U2-009")
+
+        expected_fragments = (
+            "finding_id: F-U2-009",
+            "excerpt_id: AUD-EXC-L51-04-TEXT-D",
+            "excerpt_id: AUD-EXC-L51-04-MAP-A",
+            "complete published map",
+            "excerpt_id: AUD-EXC-L51-04-CAPTION-C",
+            "excerpt_id: AUD-EXC-L51-04-ZONE-EXPLANATION",
+            "instance_id: DI-SACHENBACHER-2022-COMPLETE-PDF-20260914",
+            "representation_id: REP-SACHENBACHER-2022-COMPLETE-PDF",
+            "source_id: SRC-LIT-0001",
+            "sha256: 3857636c854325eddaa0b658cd7b936a47d1b7712ccd7cbbc7296141e62616a0",
+            "historical-validity-not-established",
+            "complete four-zone prose extends beyond the bounded page-17 locator",
+            "method_application_id: missing/unresolved",
+            "missing/unresolved: finding F-U2-009 has no method application reference",
+        )
+        for fragment in expected_fragments:
+            self.assertIn(fragment, rendered)
+
+        self.assertNotIn("L51-04-KEY-B", rendered)
+        self.assertNotIn("validation_status: validated", rendered)
 
     def test_uncertainty_is_preserved_instead_of_rendered_as_certain(self):
         state = self._state()
