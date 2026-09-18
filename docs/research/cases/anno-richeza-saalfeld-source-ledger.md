@@ -7,6 +7,15 @@
 
 Dieses Ledger trennt Werk/Quelle, konkrete digitale Instanz, Inspektionsstatus und Forschungsnutzung. Ein Webfund ist keine Primärquelleninspektion.
 
+
+## Usage note – observation-first
+
+Die vorhandenen Felder `supports` / `supports_when_inspected` sind in diesem frühen Arbeitsstand **nur als Discovery-/Relevanzhinweise** zu lesen, nicht als promotete Findings oder Synthese. Bei weiterer Bearbeitung werden sie schrittweise durch quellennahe Einträge ersetzt:
+
+`exact findspot → excerpt/claim as stated by source → atomic observation → relation candidate`
+
+Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags und Collections sind Bibliotheks-/Discovery-State und werden nicht als historische Evidenz behandelt.
+
 ## ARS-001 – Anno II., Portal Rheinische Geschichte
 
 - **source_id:** `ARS-001`
