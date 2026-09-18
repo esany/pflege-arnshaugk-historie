@@ -164,6 +164,7 @@ Project-Assurance-Lauf `33479807679` ist erfolgreich; 15 Assurance-Spine-Regress
 
 - **#46** – U2 Knau/Orlagau Live Research
 - **#47** – U1 Teich-/Feuchtkulturlandschaft Live Research
+- **#103** – Anno II. / Richeza / St. Peter und Paul Saalfeld; eigenständiger Research Owner, `active-independent-not-selected`
 - **#60** – Domain Method Profiles / fachwissenschaftliche Method Truth
 - **#42** – accepted Requirements / Lifecycle / Traceability
 
