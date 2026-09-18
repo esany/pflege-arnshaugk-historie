@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-10  
+**Stand:** 2026-09-18  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -248,6 +248,7 @@ Aktuelle Dispositionen ohne Prioritätsableitung:
 - #46 / Lampe 420 / `WO-U2-LAMPE-420-001` → `resumable-not-selected`;
 - #46 / Sachenbacher / gemergter PR #76 → `integrated-not-selected`;
 - #47 → `active-independent-not-selected`;
+- #103 → `active-independent-not-selected` – user-requested Research zu Anno II., Richeza und St. Peter und Paul Saalfeld; eigener Work Owner, keine Selection Authority;
 - #60 → `supporting` Method Truth;
 - #92/#94 → `architecture-supporting`, keine Research Selection.
 
@@ -264,6 +265,12 @@ Aktueller historischer Scope: mittelalterliche Quellen-, Herrschafts-, Siedlungs
 `in-research / working-research`
 
 Aktiver eigenständiger Research Owner mit eigener Quellenlogik; aus aktivem Ownership folgt keine globale Current-Work-Auswahl.
+
+### #103 – Anno II., Richeza und St. Peter und Paul Saalfeld
+
+`in-research / exploratory-working-research / active-independent-not-selected`
+
+Eigenständiger, vom Nutzer angestoßener Research Owner für die Relation Richeza–Anno II., die zweistufige Institutionalisierung Saalfelds (Kanonikerstift → Benediktinerkloster), Köln-/Mainz-/Siegburg-Rechte und -Netzwerke sowie die zu prüfende Bamberg-/Michelsberg-Verbindung. Kanonisch: `docs/research/cases/anno-richeza-saalfeld-netzwerk.md` und `docs/research/cases/anno-richeza-saalfeld-source-ledger.md`. Der Fall läuft wegen noch nicht hinreichend operationalisierter einschlägiger #60-Domain-Profile als `working-research / method-debt`; der direkte Michelsberg-Bamberg→Saalfeld-Link ist innerhalb der bisher geprüften Search Boundary `unresolved / not evidenced`. Aktuelle nächste Aktion: MUB I Nr. 331 und Lampert 1071 text-/überlieferungsnah exzerpieren und erst danach die Rechtslabel `Eigenkloster | Reichsabtei | Fürstabtei` bewerten.
 
 ### #60 – Domain Method Profiles
 

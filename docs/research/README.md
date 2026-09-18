@@ -93,6 +93,8 @@ docs/research/
     u2-nhub2-schleiz-quellenexzerpte.md
     u2-deutschorden-schleiz-quellenexzerpte.md
     u1-orlagau-grenzraum-teichlandschaft.md
+    anno-richeza-saalfeld-netzwerk.md
+    anno-richeza-saalfeld-source-ledger.md
     orlagau-source-ledger.md
     ... weitere reale Case-Artefakte
 ```
@@ -114,6 +116,7 @@ Keine Future-Proof-Leerstruktur.
 | #45 | Research-/Evidence-/Source-Protokoll | `source-identity-protocol.md` + Issue-Protokoll |
 | #46 | Live Research U2 Knau/Orlagau | `cases/u2-knau-orlagau-quellenbefunde.md`, `cases/u2-orlagau-suchraum-quellenexzerpte.md`, corpusbezogene Exzerptdossiers `cases/u2-nhub2-schleiz-quellenexzerpte.md` und `cases/u2-deutschorden-schleiz-quellenexzerpte.md` |
 | #47 | Live Research U1 Teich-/Feuchtlandschaft | `cases/u1-orlagau-grenzraum-teichlandschaft.md` |
+| #103 | Anno II. / Richeza / St. Peter und Paul Saalfeld / Köln–Mainz–Siegburg–Bamberg-Netz | `cases/anno-richeza-saalfeld-netzwerk.md`, `cases/anno-richeza-saalfeld-source-ledger.md` |
 | #46/#47 | gemeinsamer Source Ledger | `cases/orlagau-source-ledger.md` |
 | #60 | Domain Method Profiles / Method Truth | `methods/README.md`, `methods/domain-method-profile-contract.md`, reale Profiles |
 
@@ -188,7 +191,7 @@ Keine Big-Bang-Umschreibung: bestehende Requirements werden bei aktiver Bearbeit
 
 Live Cases sind echte historische Forschung und zugleich Failure-/Adequacy-Tests für das System. Sie dürfen Capability-/Quality-/Requirement-Candidates erzeugen. Ein Einzelfall allein erzwingt keine Technologie.
 
-Aktuell laufen #46 und #47 `in-research / working-research`.
+Aktuell laufen #46 und #47 `in-research / working-research`; #103 läuft als eigenständiger `in-research / exploratory-working-research / method-debt`-Fall ohne automatische Current-Work-Selection.
 
 ## Handoff-Check für Research
 
