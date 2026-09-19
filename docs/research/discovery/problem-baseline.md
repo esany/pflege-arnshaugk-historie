@@ -269,6 +269,50 @@ Forschung: #39/#40; Architektur erst nach #42/#43.
 - **Provenance fit:** Jeder Eintrag verweist auf kanonische Issues/Research-Design als Ursprung.
 - **Falsification/challenge:** Für research-needed Punkte ist eine nächste discriminating action bzw. ein SOTA-Owner angegeben.
 
+## User-Research Update 2026-09-19 – Input darf nicht direkt zu Requirement/Feature werden
+
+**Status:** `new owner observation / reinforces existing baseline / no new Requirement yet`
+
+### Beobachtung
+
+Der Research Owner hat explizit korrigiert, dass laufende Kommunikation mit ihm als **User Research** zu behandeln ist. Konkrete Beispiele, Metaphern und gewünschte Sichten dürfen nicht 1:1 als fachliche Wahrheit, Objektmodell, Feature oder Architektur übernommen werden.
+
+Auslöser war die zu direkte Promotion von Owner-Beispielen zu einem kanonisch formulierten „historischen Wissensraum“. Der Owner beschreibt den Forschungsraum u. a. als entlang verschiedener Achsen transformierbar (`Zeitschnitt`, `räumliches Objekt über Zeit`, `Personen`, `Herrschaftsstrukturen`), weist aber zugleich darauf hin, dass diese Achsen eigene Fachlogiken besitzen und erst fachlich/technisch sondiert werden müssen.
+
+### Klassifikation gegen bestehende Baseline
+
+Diese Beobachtung erzeugt zunächst **keinen neuen Need und kein neues Requirement**. Sie bestätigt bzw. verschärft die praktische Relevanz bereits vorhandener Punkte:
+
+- `G-002` / `N-001`: Nutzerinput muss fachlich übersetzt werden;
+- `G-003` / `N-002`: relevante Fachkompetenzen und Geltungsgrenzen müssen geroutet werden;
+- `G-011`: Technik definiert Needs/Fachsemantik nicht;
+- `G-012` / `N-020`: keine unnötige Formalisierung/Technik vor diskriminierendem Need;
+- `N-017`: Verantwortungsallokation Mensch/Fachdomäne/Software/LLM;
+- `P-007`: Nutzer soll die notwendige Fachzuständigkeit nicht selbst vorab kennen müssen;
+- `P-008`: plausible KI-Formulierung darf keine fachliche Autorität simulieren;
+- `P-016`: Lösungs-/Modellideen dürfen sich nicht vorschnell als Requirements verfestigen.
+
+### Routing des konkreten Mental Models
+
+- `Zeit / Raum / Scale` → C4/#36/CAP-13;
+- `Personen / Akteure` → C5/#37/CAP-14;
+- `Herrschafts-/Institutionenstrukturen` → zuständige Fachdomänen unter #60;
+- `beliebig schneiden / kneten / transformieren` → zunächst User-Mental-Model + Research-UX/Analyse-Hypothese; gegen C8/#38/CAP-17 und reale Workflows testen;
+- `gemeinsame Quellenbasis` → bereits durch CAP-04/CAP-08/#50 gedeckter Research-State-Bedarf; konkrete globale Identity-/Persistence-Lösung bleibt Architekturfrage.
+
+### Schutzregel für weitere Owner-Kommunikation
+
+Bei substantiellem Owner-Input zuerst klassifizieren:
+
+`Observation / Goal / Need / Pain / Mental Model / Research Question / Constraint / Quality Attribute / Capability Hypothesis / Feature Idea / Solution Hypothesis`
+
+Danach erst:
+
+`fachliche Zuständigkeit + SOTA/Methodik → diskriminierende Prüfung → Capability/Requirement Candidate → #42 Acceptance → #48 technische Ableitung`.
+
+Owner-Beispiele werden als **Design-/Falsifikationsmaterial** bewahrt, nicht automatisch als abschließende Objekt- oder Featureliste.
+
+---
 ## Search / Coverage Boundary
 
 Diese Discovery-Baseline ist **keine externe Literaturrecherche**. Abgedeckt ist der aktuelle kanonische Histo-Orla-Konzeptstand aus README, Research-Design und den aktiven fachlichen/technischen Issues, mit internen Prior-Art-Issues #12/#21 als gekennzeichnetem Input. Externe Validierung erfolgt erst in #31–#39.
