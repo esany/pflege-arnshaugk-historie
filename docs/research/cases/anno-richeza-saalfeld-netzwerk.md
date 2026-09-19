@@ -70,6 +70,13 @@ Die Tabelle ist **kein chronologischer Narrativtext**, sondern ein wachsendes Re
 | O-011 | 1064/65 | ARS-007 | NDB Gunther | Gunther und Siegfried von Mainz werden in derselben Pilgerfahrt genannt. | `observation-secondary` |
 | O-012 | 11./12. Jh. | ARS-008 | relevante Abschnitte | Michelsberg/St. Michael in Bamberg wird als Bamberger Benediktinerkloster behandelt; eine konkrete Saalfeld-Relation wurde in den bislang inspizierten Passagen nicht dokumentiert. | `unresolved / bounded-negative` |
 | O-013 | ca. 1183 | ARS-012 | Hs 945, fol. 1v | Eine spätere Vita-Annonis-Überlieferung stellt Saalfeld und Siegburg im Kontext von Annos Stiftungsmemoria dar. | `observation / later-memory` |
+| O-014 | ca. 990–993 | ARS-013 | Ezzo-Biographie, Abschnitt Ehe/Heiratsgut | Mathilde, Tochter Ottos II. und Theophanus, wird als Ehefrau Ezzos genannt; als ihr Heiratsgut werden Coburg, Salz und Orlamünde genannt. | `reported-by-secondary` |
+| O-015 | 1002–1012 | ARS-013 | Ezzo-Biographie, Abschnitt Konflikt mit Heinrich II. | Heinrich II. beanspruchte Güter, die Ezzo aus dem Erbe seiner Gemahlin hielt; die moderne Darstellung unterscheidet diese Erbgüter vom späteren Saalfeld-Erwerb. | `reported-by-secondary` |
+| O-016 | 1012/13 | ARS-013 / ARS-014 | Ezzo-Biographien | Nach dem Ausgleich mit Heinrich II. erhielt Ezzo Kaiserswerth, Duisburg und Saalfeld als freies Eigen; Saalfeld wird damit als eigener Erwerbsvorgang gegenüber Mathildes Heiratsgut behandelt. | `reported-by-secondary` |
+| O-017 | vor 1013 | ARS-009 / ARS-015 | Saalfeld-Abschnitte | Saalfeld wird vor dem Übergang an Ezzo als königlicher Besitz / Königshof bzw. Pfalz im ottonischen Reichsgutkontext beschrieben. | `reported-by-secondary` |
+| O-018 | 1034 | ARS-009 / ARS-013 | Ezzo-/Saalfeld-Biographien | Ezzo starb in Saalfeld; die Saalfelder Besitzgruppe ging anschließend an seinen Sohn Otto über. | `reported-by-secondary` |
+| O-019 | 1047 | ARS-009 / ARS-003 | Saalfeld-/Richeza-Darstellungen | Nach dem Tod Ottos 1047 gelangte dessen Erbe an Richeza; die NDB formuliert, dass sie seit 1047 allein über das reiche ezzonische Erbe verfügte. | `reported-by-secondary` |
+| O-020 | 1056 | ARS-003 / ARS-016 | Richeza-/Coburg-Darstellungen | Saalfeld und Coburg werden bei der Übertragung an das Erzstift Köln gemeinsam genannt. | `reported-by-secondary; primary-source-check-open` |
 
 ## 4. Relation Register
 
@@ -90,12 +97,23 @@ Relationen werden **quellenweise** erfasst. Gleiche Entitäten können mehrere R
 | R-011 | Gunther | `office-holder-of` | Bistum Bamberg | 1057–1065 | O-010 | `supported-secondary` |
 | R-012 | Gunther | `co-travel-associated-with` | Siegfried I. von Mainz | 1064/65 | O-011 | `supported-secondary` |
 | R-013 | Michelsberg Bamberg | `relation-to-be-tested` | Saalfeld | 11. Jh. | O-012 | `unresolved` |
+| R-014 | Mathilde | `dowry-associated-with` | Coburg | ca. 990–993 | O-014 | `supported-secondary` |
+| R-015 | Mathilde | `dowry-associated-with` | Salz | ca. 990–993 | O-014 | `supported-secondary` |
+| R-016 | Mathilde | `dowry-associated-with` | Orlamünde | ca. 990–993 | O-014 | `supported-secondary` |
+| R-017 | Heinrich II. | `granted-as-free-property-to` | Ezzo / Saalfeld | 1012/13 | O-016 | `supported-secondary` |
+| R-018 | Ezzo | `residence/death-associated-with` | Saalfeld | 1034 | O-018 | `supported-secondary` |
+| R-019 | Otto (Sohn Ezzos) | `inheritance-associated-with` | Saalfeld/Coburg estate bundle | 1034–1047 | O-018/O-019 | `candidate; source-level check open` |
+| R-020 | Richeza | `inheritance-associated-with` | ezzonischer Familienbesitz | ab 1047 | O-019 | `supported-secondary` |
+| R-021 | Saalfeld | `jointly-transferred-with` | Coburg | 1056 | O-020 | `supported-secondary; primary-source-check-open` |
 
 ## 5. Offene Knoten / Anschlussfragen
 
 Diese Liste steuert weitere Verdichtung, ohne bereits eine Antwort vorzugeben.
 
 - Welche konkrete Urkunde bzw. Überlieferung liegt der berichteten Saalfeld-/Coburg-Übertragung Richezas zugrunde?
+- Welche konkreten ottonischen Urkunden oder Besitzlisten tragen die Zuweisung Coburgs, Salzes und Orlamündes zu Mathildes Heiratsgut?
+- Ist die gemeinsame Behandlung von Coburg und Saalfeld bereits vor Otto († 1047) quellenmäßig greifbar, oder entsteht der Verbund erst durch ezzonische Erb- und Verwaltungszusammenführung?
+- Welche Teile des später gemeinsam genannten Komplexes stammen aus Mathildes Heiratsgut, welche aus späterer königlicher Übertragung an Ezzo?
 - Welche Personen, Institutionen, Rechte, Güter, Kirchen und Verben nennt MUB I Nr. 331 exakt?
 - Welche unterschiedlichen Handlungen werden Anno und Siegfried in derselben oder in verschiedenen Quellen zugeschrieben?
 - Welche frühen Belege existieren für St. Peter und Paul als Institution, Patronat, Besitzträger oder Rechtsobjekt?
