@@ -167,3 +167,49 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 - 1124/1125 papal/Mainz confirmations and exact relation to 1071 rights.
 - Later royal/papal privileges relevant to `Reichsabtei` / immunity / abbatial rights.
 - Michelsberg archival/necrological/personnel sources only if a positive Bamberg→Saalfeld hook emerges.
+
+
+## ARS-013 – Ezzo, Portal Rheinische Geschichte
+
+- **source_id:** `ARS-013`
+- **source_type:** modern scholarly biographical article
+- **creator:** Matthias Koch
+- **work_title:** Ezzo
+- **provider:** LVR / Portal Rheinische Geschichte
+- **landing_page:** https://rheinische-geschichte.lvr.de/Persoenlichkeiten/ezzo-/DE-2086/lido/57c6a72fc81e80.76712142
+- **inspection_status:** `full webpage inspected`
+- **relevance:** marriage to Mathilde; dowry named as Coburg, Salz and Orlamünde; conflict with Heinrich II over Mathilde/Otto III inheritance; later grant of Kaiserswerth, Duisburg and Saalfeld as free property; Ezzo's death at Saalfeld
+- **limits:** modern synthesis; underlying ottonian/salian documentary basis still to inspect directly
+
+## ARS-014 – Ezzo, Neue Deutsche Biographie / Deutsche Biographie
+
+- **source_id:** `ARS-014`
+- **source_type:** scholarly reference biography
+- **creator:** Mathilde Uhlirz
+- **work_title:** Ezzo (Erenfrid)
+- **container:** Neue Deutsche Biographie 4 (1959), S. 715–716
+- **landing_page:** https://www.deutsche-biographie.de/gnd124283209.html
+- **inspection_status:** `full webpage inspected`
+- **relevance:** settlement with Heinrich II; Kaiserswerth, Duisburg and Saalfeld as free property; Ezzo's last years in Saalfeld
+- **limits:** older scholarly synthesis; documentary chain to be rechecked against editions/regesta
+
+## ARS-015 – Saalfeld, Residenzstädte im Alten Reich
+
+- **source_id:** `ARS-015`
+- **source_type:** scholarly digital reference article
+- **work_title:** Saalfeld
+- **provider:** Niedersächsische Akademie der Wissenschaften zu Göttingen
+- **landing_page:** https://adw-goe.de/la/digitale-bibliothek/residenzstaedte-im-alten-reich-1300-1800/id/RESIST-HB1-BD1-ART136
+- **inspection_status:** `relevant historical section inspected`
+- **relevance:** Saalfeld as royal court/palatine site; transfer to Ezzo in 1013; location at crossing of pass roads and west-east route
+- **limits:** concise synthesis; transport significance before 1100 requires separate source/archaeological control
+
+## ARS-016 – Historische Städtelandschaft Franken, Coburg 1056
+
+- **source_id:** `ARS-016`
+- **source_type:** scholarly regional historical database entry
+- **provider:** Universität Würzburg / Historisches Unterfranken
+- **landing_page:** https://www.historisches-unterfranken.uni-wuerzburg.de/staedte/staedte-results.php?jahr_anfang=&jahr_ende=&max_eintraege=10&name=&sache=&stadt=87
+- **inspection_status:** `relevant entry inspected`
+- **relevance:** records the 1056 joint transfer of Saalfeld and Coburg to Cologne; cites Zeugnisse zur Coburger Geschichte im Mittelalter (1983)
+- **limits:** database synthesis, not direct inspection of the underlying charter/tradition
