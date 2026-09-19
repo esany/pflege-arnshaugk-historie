@@ -188,43 +188,50 @@ Kernräume sind Ostthüringen/Orla, Vogtland, Saalfeld und angrenzende thüringi
 
 Kanonische Vertiefung: #13, #14, #16.
 
-### 4.4 Übergeordneter historischer Wissensraum
+### 4.4 Working User-Research Hypothesis: transformierbarer Wissensraum
 
-Oberhalb einzelner Forschungsfragen und Cases braucht Histo-Orla einen **gemeinsamen, projektweiten historischen Wissensraum**. Er hält wiederverwendbare Identitäten, zeitabhängige Zustände, Evidenz und Forschungsbeziehungen zusammen, ohne daraus eine einzige feste historische Ontologie oder Erzählung zu erzwingen.
+**Status:** `user-research signal / working model / not an accepted Requirement / not an ontology`.
 
-Mindestens folgende Gegenstandsbereiche müssen problemabhängig anschlussfähig sein:
+Der Research Owner beschreibt den gewünschten Forschungsarbeitsplatz als einen **gemeinsamen Wissensraum, der je nach Frage unterschiedlich projiziert, geschnitten und transformiert werden kann**. Diese Formulierung wird hier ausdrücklich nicht 1:1 als Datenmodell oder Featureliste übernommen, sondern als User-Research-Signal für weitere fachliche und technische Prüfung.
 
-- **Zeit:** Zeitpunkte, Intervalle, Phasen, Epochenzuordnungen, unscharfe/umstrittene Datierungen und zeitliche Geltungsbereiche;
-- **Akteure:** Personen, Familien/Verwandtschaftsverbände, Gruppen, Institutionen, Ämter, Rollen und andere handlungsrelevante Kollektive;
-- **Siedlung und gebaute Umwelt:** heutige und historische Gemeinden/Orte, Ortsteile, Siedlungen, Wüstungen, Höfe/Güter, Häuser/Gebäude, Baukörper und Bauphasen;
-- **Flur, Landschaft und Topographie:** Fluren, Flurstücke, Flurnamen, Landschaftseinheiten, Täler, Höhen, Grenzen und historische Nutzungsräume;
-- **Archäologie:** Fundplätze, Befundstellen, Grabungs-/Prospektionsflächen und materielle Objekte; eine archäologische Fundstelle ist von einer bibliographischen **Quellenfundstelle** zu unterscheiden;
-- **Gewässer und Infrastruktur:** Flüsse, Bäche, Teiche, Quellen, Mühlen-/Wasseranlagen, Wege, Altstraßen, Brücken und andere Verkehrs-/Infrastrukturelemente;
-- **Räume und Herrschaftskontexte:** historische Regionen, Territorien, Herrschaften, Verwaltungs-, Gerichts-, Kirchen- und andere institutionelle Räume, deren Ausdehnung und Bedeutung sich über die Zeit ändern können;
-- **materielle/technische Objekte:** Artefakte, Anlagen, Betriebe, technische Systeme und weitere Gegenstände, soweit sie für konkrete Forschungsfragen relevant sind.
+Das beobachtete Mental Model umfasst derzeit u. a. mehrere teilweise orthogonal gedachte Analyseachsen:
 
-**Identität und historischer Zustand sind zu trennen.** Ein wiedererkennbares historisches Objekt darf nicht auf einen zeitlosen Datensatz reduziert werden. Bei einem Haus können etwa Name, Adresse, Eigentümer, Nutzung, Bauphase, administrative Zugehörigkeit und Gestalt zu verschiedenen Zeiten unterschiedlich sein. Entsprechendes gilt für Siedlungen, Wüstungen, Fluren, Gewässer, Wege, Institutionen und Regionen.
+- **Zeit:** Zeitschnitt, Zeitintervall, Entwicklung eines Gegenstands über Zeit;
+- **Raum:** Ort, Landschaft, Gebiet, räumlicher Zusammenhang und Scale Shift;
+- **Akteure:** Personen, Gruppen, Rollen, Beziehungen und biographische/kontextuelle Zustände;
+- **Institution/Herrschaft/Struktur:** Herrschafts-, Rechts-, Verwaltungs-, Kirchen-, Besitz- oder Organisationszusammenhänge mit eigener fachlicher Logik;
+- **Quelle/Evidenz:** globale projektweite Quellenidentität, Instanz, Fundstelle, Beobachtung und Evidenzstatus;
+- **Objekt-/Materialperspektive:** z. B. Gebäude, Wüstung, Flur, Fundplatz, Gewässer oder Infrastruktur mit zeitabhängigen Zuständen.
 
-Räumliche Geometrien, Koordinaten, moderne Verwaltungszuordnungen oder Normdaten können wichtige Repräsentationen/Referenzen sein, sind aber nicht automatisch die historische Identität selbst. Historische Benennungen, Grenzziehungen und Identifikationen dürfen als `candidate | working | unresolved | rejected | superseded` fortgeschrieben werden.
+`orthogonal` ist dabei zunächst **Nutzersprache / Arbeitsmetapher**, keine Behauptung mathematischer oder ontologischer Unabhängigkeit. Gerade historische Raum-, Akteurs-, Herrschafts- und Objektlogiken können sich überschneiden und werden fachlich nicht durch eine einheitliche Graphlogik ersetzt.
 
-Die **Quellenverwaltung und -erschließung ist projektweit/global innerhalb Histo-Orla** zu denken. Dieselbe bibliographische oder archivalische Source, konkrete inspizierte Instanz oder Quellenfundstelle wird nicht für jeden Case neu erfunden. Cases und Forschungsfragen referenzieren gemeinsame Source-/Entity-/Evidence-Identitäten und ergänzen neue Beobachtungen, Findings oder offene Fragen.
+Die Beispiele `Gemeinde`, `Region`, `Wüstung`, `Haus`, `Flurname`, `Fundplatz`, `Gewässer`, `Altstraße` usw. sind daher **Coverage-/Falsifikationsbeispiele aus User Research**, keine abschließend akzeptierte Objektklassifikation.
 
-Der gemeinsame Wissensraum muss daher zumindest folgende Forschungszustände auf dieselben wiederverwendbaren Identitäten beziehen können:
+### Fachliche Routing-Hypothese
 
-```text
-Source / Instance / Quellenfundstelle
-→ Observation
-→ Entity-/Identity-Assertion
-→ Event / Relation / zeitabhängiger Zustand
-→ Finding
-→ Claim / Hypothese / Interpretation
-→ Discrepancy / konkurrierender Claim
-→ Review / Promotion / Demotion / Supersession
-```
+Vor einer technischen Operationalisierung wird dieses Mental Model gegen bestehende Fach-/SOTA-Stränge geroutet:
 
-Research Questions und Work Contexts sind **Sichten und Arbeitskontexte über diesem Zustand**. Sie dürfen Evidenz, Entitäten oder Quellen nicht besitzen oder duplizieren. Neue Piloten sollen den gemeinsamen Wissensraum verdichten, während ihre spezifische Fragestellung, Method Application, Synthese und Priorität case-spezifisch bleiben.
+- Zeit/Raum/Scale → C4 / #36 / CAP-13 sowie einschlägige historische Geographie, Landes-/Territorialgeschichte und Spatial Humanities;
+- Personen/Akteure → C5 / #37 / CAP-14 sowie Prosopographie, Sozial-/Politikgeschichte und problemabhängige Fachdomänen;
+- Herrschafts-/Institutionenlogik → jeweils zuständige Rechts-, Verfassungs-, Verwaltungs-, Kirchen-, Territorial- oder Sozialgeschichte unter #60;
+- Quellen-/Evidenzachse → #45, Source-Identity-Protokoll, CAP-04/CAP-08 und #50;
+- abgeleitete Timeline-/Map-/Network-/Audit-Sichten → C8 / #38 / CAP-17; Views dürfen keine zweite Research Truth erzeugen.
 
-Die physische Repräsentation dieses Wissensraums – Dateien, relationale Datenbank, Dokumentstore, Graph oder Kombinationen – ist daraus ausdrücklich **nicht** vorentschieden.
+### Offene Discovery-/Requirement-Fragen
+
+Vor einer Promotion in #42 bzw. einer technischen Ableitung unter #48/#50 sind mindestens zu klären:
+
+1. Welche Teile dieses Mental Models sind ein **Need/Job-to-be-done**, welche nur eine anschauliche Metapher?
+2. Welche Achsen besitzen tatsächlich gemeinsame generische Semantik, und wo verlangen Fachdomänen eigene Modelle/Methoden?
+3. Was bedeutet `kneten/transformieren` praktisch: filtern, projizieren, aggregieren, re-kontextualisieren, vergleichen oder den kanonischen State mutieren?
+4. Welche Transformationen dürfen nur abgeleitete Views sein, damit Provenienz, Widerspruch und zeitliche Geltung erhalten bleiben?
+5. Welche Objektarten werden durch reale Forschungsfälle benötigt, statt vorsorglich als Ontologie festgeschrieben zu werden?
+6. Welche Capability ist fachliche Analyse, welche Research UX, welche Datenhaltung und welche technische Funktion?
+
+Bis diese Punkte diskriminiert sind, gilt:
+
+> **User-Research-Input beschreibt Zielerleben, Pains, Mental Models und Beispiele. Er wird nicht unmittelbar zu Requirement, Fachmethode, Ontologie oder Architektur.**
+
 
 ### 4.5 Quellengattungen und materielle Evidenz
 
