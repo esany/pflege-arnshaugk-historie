@@ -178,8 +178,8 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 - **provider:** LVR / Portal Rheinische Geschichte
 - **landing_page:** https://rheinische-geschichte.lvr.de/Persoenlichkeiten/ezzo-/DE-2086/lido/57c6a72fc81e80.76712142
 - **inspection_status:** `full webpage inspected`
-- **relevance:** marriage to Mathilde; dowry named as Coburg, Salz and Orlamünde; conflict with Heinrich II over Mathilde/Otto III inheritance; later grant of Kaiserswerth, Duisburg and Saalfeld as free property; Ezzo's death at Saalfeld
-- **limits:** modern synthesis; underlying ottonian/salian documentary basis still to inspect directly
+- **relevance:** marriage to Mathilde; modern synthesis names Coburg, Salz and Orlamünde as dowry; conflict with Heinrich II over Mathilde/Otto III inheritance; later grant of Kaiserswerth, Duisburg and Saalfeld as free property; Ezzo's death at Saalfeld
+- **limits:** the three-place dowry list is a modern synthesis, not an explicit list in the inspected contemporary Thietmar passage; Salz has separate scholarly/source-critical support, while the status of Coburg and especially Orlamünde requires further primary-source checking
 
 ## ARS-014 – Ezzo, Neue Deutsche Biographie / Deutsche Biographie
 
@@ -213,3 +213,19 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 - **inspection_status:** `relevant entry inspected`
 - **relevance:** records the 1056 joint transfer of Saalfeld and Coburg to Cologne; cites Zeugnisse zur Coburger Geschichte im Mittelalter (1983)
 - **limits:** database synthesis, not direct inspection of the underlying charter/tradition
+
+
+## ARS-017 – Hlawitschka, Königin Richeza von Polen
+
+- **source_id:** `ARS-017`
+- **source_type:** scholarly source-critical study
+- **creator:** Eduard Hlawitschka
+- **work_title:** Königin Richeza von Polen – Enkelin Herzog Konrads von Schwaben, nicht Kaiser Ottos II.?
+- **container:** Institutionen, Kultur und Gesellschaft im Mittelalter. Festschrift für Josef Fleckenstein
+- **publication_year:** 1984
+- **digital_instance:** https://www.mgh-bibliothek.de/dokumente/a/a089482.pdf
+- **inspection_status:** `relevant sections on Salz and Richeza property inspected`
+- **exact_findspots:** pp. 241–243 in article pagination / PDF pp. 21–23
+- **relevance:** distinguishes several components of the royal property complex at Salz; argues that Richeza/Ezzo/Mathilde held only a specific `predium/curtis` there; reads the 1057/58 Würzburg precariae as compatible with Salz having reached Mathilde/Ezzo as marriage equipment; separately recalls the Saalfeld/Coburg donation to Cologne
+- **critical_note:** the contemporary Thietmar passage cited by Hlawitschka says only that Otto III gave Ezzo/Mathilde many goods so that Mathilde's high birth would not be diminished; it does not enumerate Coburg, Salz and Orlamünde individually
+- **limits:** this study does not by itself verify Orlamünde as a separately enumerated dowry estate
