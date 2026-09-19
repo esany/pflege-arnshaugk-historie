@@ -120,6 +120,10 @@ Relevante Perspektiven umfassen problemabhängig insbesondere:
 - Mediävistik
 - Landes-, Territorial-, Herrschafts- und Verfassungsgeschichte
 - Frühneuzeitforschung
+- Neuere / Neueste Geschichte und Zeitgeschichte
+- Verfassungs-, Parlaments- und politische Institutionengeschichte
+- Presse-, Medien- und Kommunikationsgeschichte
+- DDR- und Transformationsgeschichte / Geschichte von Eigentums-, Betriebs- und Strukturwandel
 - Sozialgeschichte
 - Wirtschafts- und Agrargeschichte
 - Adels-, Hof-, Residenz- und Patronageforschung
@@ -144,25 +148,43 @@ Relevante Perspektiven umfassen problemabhängig insbesondere:
 
 ### 4.2 Zeitlicher Horizont
 
-Schwerpunkte reichen vom Früh-/Hochmittelalter über Spätmittelalter und Frühe Neuzeit bis in Transformationsprozesse/Sattelzeit und Übergänge zur Moderne.
+Histo-Orla muss einen **langen diachronen Forschungsraum von ungefähr 2000 Jahren** tragen können. Der gemeinsame Forschungszustand darf deshalb weder mittelalterlich noch frühneuzeitlich noch textquellenzentriert modelliert werden.
 
-### 4.3 Regional verankert, europäisch verflochten
+Je nach Fragestellung können u. a. relevant sein:
 
-Der regionale Raum ist **Anker, nicht analytische Grenze**.
+- ältere Verkehrs-, Siedlungs- und Landschaftsstrukturen / Altstraßen und ihre longue durée;
+- Früh-/Hochmittelalter, Spätmittelalter und Ordens-/Kirchen-/Herrschaftsgeschichte;
+- Frühe Neuzeit einschließlich komplexer Politik-, Hof-, Diplomatie-, Konfessions-, Wirtschafts- und Kriegskontexte;
+- Sattelzeit, napoleonische Zeit und Befreiungskriege;
+- 19. Jahrhundert einschließlich Verfassungs-, Parlaments-, Verwaltungs-, Wirtschafts-, Sozial- und Infrastrukturgeschichte;
+- 20. Jahrhundert einschließlich Presse-/Adressbuchüberlieferung, Weltkriege, Diktatur-/Nachkriegsgeschichte, DDR;
+- Transformationsgeschichte nach 1989/90 einschließlich Treuhand-, Wirtschafts-, Verwaltungs-, Eigentums- und Strukturwandel, soweit sie für die regionale Entwicklung relevant ist.
+
+Die Periodisierung ist **fachliche Sicht, keine Speichergrenze**. Ein Ort, Bauwerk, Weg, Flurname, Institution, Betrieb, Besitzkomplex oder Landschaftselement kann über mehrere Epochen hinweg untersucht werden, ohne dass seine historischen Bedeutungen oder Zustände vereinheitlicht werden.
+
+### 4.3 Regional verankert, überregional und global verflochten
+
+Der regionale Raum ist **Anker, nicht analytische Grenze**. Der gemeinsame Wissensraum organisiert sich um die historische Entwicklung der Region; überregionale, reichsweite, europäische oder globale Kontexte werden aufgenommen, wenn eine historisch begründbare Relation zur regionalen Entwicklung besteht.
+
+Forschungsfragen können dabei sehr verschieden sein, z. B. Altstraßen um Saalfeld, der Deutsche Orden in Saalfeld, das Orlatal jenseits späterer territorialer Container, politische Netzwerke vor dem Dreißigjährigen Krieg, Befreiungskriege, frühe Thüringer Parlamentsdebatten, Zeitungsanzeigen, Adressbücher, Weltkriege, DDR-/Treuhand-Transformationen oder langfristige Landschafts- und Siedlungsveränderungen.
+
+Diese Themen sind **keine getrennten Wissenssilos**. Beobachtungen, Entitäten, Ereignisse, Relationen und Quellen dürfen über mehrere Fragestellungen hinweg wiederverwendet werden, sofern ihre Provenienz, Zeitstellung, Geltung und fachliche Perspektive erhalten bleiben.
 
 ```text
 Mikro / Ort / Gut / Familie
         ↓↑
 Region / Herrschaft / Territorium
         ↓↑
-Reich / dynastische und konfessionelle Räume
+Reich / Staat / dynastische, konfessionelle und politische Räume
         ↓↑
-Europa / Höfe / Universitäten / Diplomatie / Militär / Reisen
+Europa / transregionale Netze / Märkte / Kriege / Wissenschaft / Migration
+        ↓↑
+globale Kontexte, wenn ein historisch belegbarer Wirkungs- oder Verflechtungsbezug zur Region besteht
 ```
 
 Kernräume sind Ostthüringen/Orla, Vogtland, Saalfeld und angrenzende thüringische Räume, Sachsen/Kursachsen, Franken, Egerland und Lausitz/Bautzen. Weitere Räume werden aktiviert, wenn reale Personen-, Herrschafts-, Quellen-, Bildungs-, Hof-, Kriegs-, Ordens- oder Diplomatieverflechtungen dies erfordern.
 
-> **Regionaler Fokus für Tiefenschärfe – europäischer Horizont für Erklärung.**
+> **Regionaler Fokus für Tiefenschärfe – überregionaler bis globaler Horizont dort, wo historische Verflechtungen die regionale Entwicklung mit erklären.**
 
 Kanonische Vertiefung: #13, #14, #16.
 
@@ -247,6 +269,22 @@ Eine KI kann methodengeleitet arbeiten, Quellen referenzieren und Fachliteratur 
 Validierungsstärke skaliert mit Konsequenz.
 
 Kanonische Vertiefung: #9, #12, #15.
+
+---
+
+### 4.4 Quellengattungen und materielle Evidenz
+
+Der Wissensraum ist nicht auf klassische Schriftquellen oder Forschungsliteratur beschränkt. Je nach Frage können gleichberechtigte, aber methodisch getrennte Evidenzachsen u. a. sein:
+
+- Urkunden, Amtsbücher, Rechnungen, Korrespondenzen, Akten, Protokolle;
+- Karten, Kataster, Pläne, Luftbilder, Fotografien und Geodaten;
+- Zeitungen, Anzeigen, Adressbücher, Vereins-/Firmen-/Verwaltungsdrucksachen und serielle Quellen;
+- archäologische Funde und Befunde, Grabungsdokumentationen und Prospektionsdaten;
+- Bauaufnahmen, bauhistorische Befunde, Denkmalpflege-/Sanierungsunterlagen und Gutachten;
+- naturwissenschaftliche, umwelt-, material-, geo- oder landschaftsbezogene Analysen;
+- wissenschaftliche Studien, technische Berichte und andere fachliche Untersuchungen.
+
+Diese Evidenzarten dürfen nicht in eine einzige Aussageform „geflattet“ werden. Datierung, Methode, Aussagekraft, Unsicherheit und fachliche Geltungsgrenzen bleiben je Evidenzachse sichtbar; Widersprüche zwischen Schriftquelle, materiellem Befund, Gutachten und späterer Forschung sind zulässiger kanonischer Zustand.
 
 ---
 
