@@ -188,8 +188,59 @@ Kernräume sind Ostthüringen/Orla, Vogtland, Saalfeld und angrenzende thüringi
 
 Kanonische Vertiefung: #13, #14, #16.
 
----
+### 4.4 Übergeordneter historischer Wissensraum
 
+Oberhalb einzelner Forschungsfragen und Cases braucht Histo-Orla einen **gemeinsamen, projektweiten historischen Wissensraum**. Er hält wiederverwendbare Identitäten, zeitabhängige Zustände, Evidenz und Forschungsbeziehungen zusammen, ohne daraus eine einzige feste historische Ontologie oder Erzählung zu erzwingen.
+
+Mindestens folgende Gegenstandsbereiche müssen problemabhängig anschlussfähig sein:
+
+- **Zeit:** Zeitpunkte, Intervalle, Phasen, Epochenzuordnungen, unscharfe/umstrittene Datierungen und zeitliche Geltungsbereiche;
+- **Akteure:** Personen, Familien/Verwandtschaftsverbände, Gruppen, Institutionen, Ämter, Rollen und andere handlungsrelevante Kollektive;
+- **Siedlung und gebaute Umwelt:** heutige und historische Gemeinden/Orte, Ortsteile, Siedlungen, Wüstungen, Höfe/Güter, Häuser/Gebäude, Baukörper und Bauphasen;
+- **Flur, Landschaft und Topographie:** Fluren, Flurstücke, Flurnamen, Landschaftseinheiten, Täler, Höhen, Grenzen und historische Nutzungsräume;
+- **Archäologie:** Fundplätze, Befundstellen, Grabungs-/Prospektionsflächen und materielle Objekte; eine archäologische Fundstelle ist von einer bibliographischen **Quellenfundstelle** zu unterscheiden;
+- **Gewässer und Infrastruktur:** Flüsse, Bäche, Teiche, Quellen, Mühlen-/Wasseranlagen, Wege, Altstraßen, Brücken und andere Verkehrs-/Infrastrukturelemente;
+- **Räume und Herrschaftskontexte:** historische Regionen, Territorien, Herrschaften, Verwaltungs-, Gerichts-, Kirchen- und andere institutionelle Räume, deren Ausdehnung und Bedeutung sich über die Zeit ändern können;
+- **materielle/technische Objekte:** Artefakte, Anlagen, Betriebe, technische Systeme und weitere Gegenstände, soweit sie für konkrete Forschungsfragen relevant sind.
+
+**Identität und historischer Zustand sind zu trennen.** Ein wiedererkennbares historisches Objekt darf nicht auf einen zeitlosen Datensatz reduziert werden. Bei einem Haus können etwa Name, Adresse, Eigentümer, Nutzung, Bauphase, administrative Zugehörigkeit und Gestalt zu verschiedenen Zeiten unterschiedlich sein. Entsprechendes gilt für Siedlungen, Wüstungen, Fluren, Gewässer, Wege, Institutionen und Regionen.
+
+Räumliche Geometrien, Koordinaten, moderne Verwaltungszuordnungen oder Normdaten können wichtige Repräsentationen/Referenzen sein, sind aber nicht automatisch die historische Identität selbst. Historische Benennungen, Grenzziehungen und Identifikationen dürfen als `candidate | working | unresolved | rejected | superseded` fortgeschrieben werden.
+
+Die **Quellenverwaltung und -erschließung ist projektweit/global innerhalb Histo-Orla** zu denken. Dieselbe bibliographische oder archivalische Source, konkrete inspizierte Instanz oder Quellenfundstelle wird nicht für jeden Case neu erfunden. Cases und Forschungsfragen referenzieren gemeinsame Source-/Entity-/Evidence-Identitäten und ergänzen neue Beobachtungen, Findings oder offene Fragen.
+
+Der gemeinsame Wissensraum muss daher zumindest folgende Forschungszustände auf dieselben wiederverwendbaren Identitäten beziehen können:
+
+```text
+Source / Instance / Quellenfundstelle
+→ Observation
+→ Entity-/Identity-Assertion
+→ Event / Relation / zeitabhängiger Zustand
+→ Finding
+→ Claim / Hypothese / Interpretation
+→ Discrepancy / konkurrierender Claim
+→ Review / Promotion / Demotion / Supersession
+```
+
+Research Questions und Work Contexts sind **Sichten und Arbeitskontexte über diesem Zustand**. Sie dürfen Evidenz, Entitäten oder Quellen nicht besitzen oder duplizieren. Neue Piloten sollen den gemeinsamen Wissensraum verdichten, während ihre spezifische Fragestellung, Method Application, Synthese und Priorität case-spezifisch bleiben.
+
+Die physische Repräsentation dieses Wissensraums – Dateien, relationale Datenbank, Dokumentstore, Graph oder Kombinationen – ist daraus ausdrücklich **nicht** vorentschieden.
+
+### 4.5 Quellengattungen und materielle Evidenz
+
+Der Wissensraum ist nicht auf klassische Schriftquellen oder Forschungsliteratur beschränkt. Je nach Frage können gleichberechtigte, aber methodisch getrennte Evidenzachsen u. a. sein:
+
+- Urkunden, Amtsbücher, Rechnungen, Korrespondenzen, Akten, Protokolle;
+- Karten, Kataster, Pläne, Luftbilder, Fotografien und Geodaten;
+- Zeitungen, Anzeigen, Adressbücher, Vereins-/Firmen-/Verwaltungsdrucksachen und serielle Quellen;
+- archäologische Funde und Befunde, Grabungsdokumentationen und Prospektionsdaten;
+- Bauaufnahmen, bauhistorische Befunde, Denkmalpflege-/Sanierungsunterlagen und Gutachten;
+- naturwissenschaftliche, umwelt-, material-, geo- oder landschaftsbezogene Analysen;
+- wissenschaftliche Studien, technische Berichte und andere fachliche Untersuchungen.
+
+Diese Evidenzarten dürfen nicht in eine einzige Aussageform „geflattet“ werden. Datierung, Methode, Aussagekraft, Unsicherheit und fachliche Geltungsgrenzen bleiben je Evidenzachse sichtbar; Widersprüche zwischen Schriftquelle, materiellem Befund, Gutachten und späterer Forschung sind zulässiger kanonischer Zustand.
+
+---
 ## 5. Governing Principles
 
 ### 5.1 Wissenschaftliche Standards stehen über Nutzerformulierung und Technik
@@ -272,21 +323,6 @@ Kanonische Vertiefung: #9, #12, #15.
 
 ---
 
-### 4.4 Quellengattungen und materielle Evidenz
-
-Der Wissensraum ist nicht auf klassische Schriftquellen oder Forschungsliteratur beschränkt. Je nach Frage können gleichberechtigte, aber methodisch getrennte Evidenzachsen u. a. sein:
-
-- Urkunden, Amtsbücher, Rechnungen, Korrespondenzen, Akten, Protokolle;
-- Karten, Kataster, Pläne, Luftbilder, Fotografien und Geodaten;
-- Zeitungen, Anzeigen, Adressbücher, Vereins-/Firmen-/Verwaltungsdrucksachen und serielle Quellen;
-- archäologische Funde und Befunde, Grabungsdokumentationen und Prospektionsdaten;
-- Bauaufnahmen, bauhistorische Befunde, Denkmalpflege-/Sanierungsunterlagen und Gutachten;
-- naturwissenschaftliche, umwelt-, material-, geo- oder landschaftsbezogene Analysen;
-- wissenschaftliche Studien, technische Berichte und andere fachliche Untersuchungen.
-
-Diese Evidenzarten dürfen nicht in eine einzige Aussageform „geflattet“ werden. Datierung, Methode, Aussagekraft, Unsicherheit und fachliche Geltungsgrenzen bleiben je Evidenzachse sichtbar; Widersprüche zwischen Schriftquelle, materiellem Befund, Gutachten und späterer Forschung sind zulässiger kanonischer Zustand.
-
----
 
 ## 6. Forschungsebenen und Evidenz sauber trennen
 
