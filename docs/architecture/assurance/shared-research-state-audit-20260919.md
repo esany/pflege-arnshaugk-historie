@@ -10,6 +10,20 @@ This document is an audit/reconciliation view only. It creates no Requirement, M
 
 ---
 
+## Audit-Caution / spätere Selbstkorrektur 2026-09-20
+
+Der faktische Inventarteil dieses Audits bleibt als Review-Evidenz nutzbar, insbesondere die beobachtete Cross-Case-Fragmentierung (z. B. `SRC-LIT-0001` vs. `ARS-009`) und die Trennung zwischen starker Governance/Assurance und noch nicht integrierter Research-State-Praxis.
+
+**Nicht als bereits etablierter Architekturvertrag zu lesen** sind dagegen die hier relativ bestimmt formulierten Zielobjekte wie globale Entity-/Observation-/Relation-/Discrepancy-Layer, `Case = View` oder eine bestimmte gemeinsame State-Spine. Diese waren Review-Hypothesen und wurden im nachfolgenden kritischen Self-Audit methodisch herabgestuft bzw. genauer eingeordnet.
+
+Aktuelle Korrektur-/Einordnungssicht:
+
+`docs/architecture/assurance/chat-operationalization-self-audit-20260920.md`
+
+Historische Aussagen und PR-/Kommentar-Chronologie bleiben aus Provenienzgründen erhalten.
+
+---
+
 ## 1. Executive finding
 
 Histo-Orla already has a strong **epistemic and governance architecture**:
