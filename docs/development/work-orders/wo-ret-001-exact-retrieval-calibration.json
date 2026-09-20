@@ -300,6 +300,11 @@
       "ref": "RET-CAL-A06",
       "statement": "An allowed equality filter (for example source_id or instance_id) deterministically restricts the hit set and is reproduced in the query log.",
       "expected": "only hits satisfying the explicit existing-ID filter; no inferred identity"
+    },
+    {
+      "ref": "RET-CAL-A07",
+      "statement": "The same JSON-compatible input state deterministically yields the same corpus_fingerprint; a changed input state yields a different fingerprint.",
+      "expected": "SHA-256 corpus fingerprint makes rerun boundary explicit without becoming canonical research identity"
     }
   ],
   "negative_tests": [
@@ -327,6 +332,11 @@
       "ref": "RET-CAL-N05",
       "statement": "An unknown filter key or a matching excerpt whose required provenance cannot be resolved is not silently accepted.",
       "expected": "fail closed with an explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N06",
+      "statement": "An empty query is rejected rather than treated as matching every excerpt.",
+      "expected": "fail closed with an explicit retrieval error"
     }
   ],
   "environment_setup": {
@@ -342,14 +352,14 @@
     ],
     "canonical_ci": ".github/workflows/project-assurance.yml"
   },
-  "coverage_claim_limit": "At most mark the exact-search/query-provenance implementation as partial/in-progress until the real source falsification stage succeeds. Do not mark REQ-RET-001, REQ-RET-003 or REQ-SRC-004 verified from the synthetic calibration alone.",
+  "coverage_claim_limit": "At most mark the literal exact-search/filter/query-provenance implementation as partial/in-progress until the real source falsification stage succeeds. Do not mark REQ-RET-001, REQ-RET-003 or REQ-SRC-004 verified from the synthetic calibration alone.",
   "implementation_shape": {
     "status": "bounded calibration choice; reversible; not a durable product-package decision",
     "implementation_file": "tools/operational/retrieval.py",
     "test_file": "tools/operational/tests/test_retrieval.py",
     "test_fixture_rule": "Product code must not import from tests. If reuse of the existing full synthetic audit state is needed, move only that synthetic fixture construction into tools/operational/tests/fixtures.py and make both audit/retrieval tests consume it; do not create a new canonical state or product schema.",
     "input_contract": {
-      "state": "existing provider-neutral mapping with collections already used by audit.py",
+      "state": "existing provider-neutral mapping with collections already used by audit.py; JSON-compatible for this calibration so the input can be deterministically fingerprinted",
       "searchable_records": "only excerpts with an explicit non-empty `text` value",
       "query": "non-empty string; exact codepoint sequence",
       "corpus_ref": "non-empty caller-supplied identifier for the current synthetic corpus boundary",
@@ -370,6 +380,7 @@
         "match_mode",
         "filters",
         "corpus_ref",
+        "corpus_fingerprint",
         "implementation_version"
       ],
       "hit": [
@@ -384,6 +395,8 @@
     },
     "provenance_rule": "A matching excerpt is a valid hit only when the required explicit findspot and ancestry can be resolved through existing state links. Missing required provenance fails closed with a retrieval error; it is never repaired by inference.",
     "cli": "none in this calibration",
-    "persistence": "none beyond code/tests/required #63 trace and proportional #59 coverage"
+    "persistence": "none beyond code/tests/required #63 trace and proportional #59 coverage",
+    "corpus_fingerprint_rule": "Return sha256 over UTF-8 bytes of deterministic JSON serialization of the complete input state using ensure_ascii=false, sort_keys=true and compact separators. This is run/corpus provenance only, not canonical Source/Instance identity.",
+    "implementation_version": "exact-literal-v0.1"
   }
 }
