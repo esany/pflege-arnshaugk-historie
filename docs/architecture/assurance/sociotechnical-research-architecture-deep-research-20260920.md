@@ -857,6 +857,478 @@ Priorisiert wurden normative Standards, peer-reviewed Literatur, offizielle Proj
 
 ---
 
+
+---
+
+# O – Operative Umsetzung / Refactoring Blueprint
+
+Dieser Abschnitt operationalisiert die Research-Befunde **innerhalb der bestehenden Owner und Requirements**. Er erzeugt keine neue Authority und keine neue Requirement-Schicht.
+
+## O.1 Grundsatz: maximal operationalisieren, minimal neu erfinden
+
+Die Befunde werden in vier Klassen umgesetzt:
+
+1. **sofort refactoren**, wenn bestehende accepted Requirements und dokumentierter Owner-Pain die Änderung bereits tragen;
+2. **generieren/automatisieren**, wenn heute dieselbe Information manuell zusammengesucht oder doppelt gepflegt wird;
+3. **als reversiblen Architecture Probe testen**, wenn die Research-Evidence eine Richtung stützt, aber die konkrete technische Struktur noch nicht entschieden ist;
+4. **nicht bauen**, wenn weder Requirement noch realer Falsifikationsbefund die zusätzliche Schicht rechtfertigt.
+
+Die operative Leitformel lautet:
+
+```text
+Issue / Governance = Ownership + Boundary + durable coordination
+Canonical Research Artifacts = research truth / evidence / curated synthesis
+Product Runtime = resolve + retrieve + context + view + resume + controlled transition
+Operational Support = validate + assurance + repo mutation + CI
+Derived Read Model = disposable / rebuildable / read-only
+Chat / Skill / UI = replaceable interaction adapter
+```
+
+## O.2 Delivery-Refactoring: Vertical Research Slice wird primäre Integrationseinheit
+
+### Heute problematisch
+
+Die vorhandenen technischen Work Owner #49–#57 sind semantisch sinnvoll, können aber praktisch zu seriellen Handoffs führen:
+
+`#49 → #51 → #53 → #55 → #57`.
+
+Wenn jeder Owner zugleich eigene Benutzeroberfläche, eigenen Kontext und eigene Delivery-Zeremonie erzeugt, wird der Research Owner wieder zum Integrator.
+
+### Operative Änderung
+
+**Ein realer Vertical Research Slice wird zur primären Delivery-/Integrationseinheit.**
+
+Ein Slice darf mehrere bestehende Issues/Owner konsumieren, ohne diese zusammenzulegen:
+
+```text
+ein Owner-Researchauftrag
+→ Source/Bibliography resolution (#49/#50)
+→ Instance/Findspot (#51)
+→ Exact/Variant Retrieval (#53)
+→ Research View (#55)
+→ Restartability/Availability (#57)
+→ Owner Feedback (#63)
+```
+
+Praktische Konsequenz:
+
+- **ein Integrations-Branch / PR pro realem Slice**, nicht automatisch ein PR pro Subsystem;
+- bestehende Issues bleiben Scope-/Authority-Owner und erhalten nur kurze Status-/Evidence-Pointer;
+- Commit-/Test-/Trace-Referenzen zeigen weiterhin, welcher Teil welchem Owner/Requirement gehört;
+- der sichtbare Primäroutput des Slices ist ein **Research Output**, nicht die Issue-/PR-Kette.
+
+Damit werden Issue-Grenzen nicht zu Code- oder UX-Grenzen.
+
+## O.3 Issue-Refactoring: Work Owner bleibt, Forschungsoberfläche verschwindet
+
+Issues bleiben nach `AGENTS.md`:
+
+- Work Owner;
+- Scope/Status/Dependencies;
+- kurze Synthese;
+- offene Punkte;
+- nächste Aktion;
+- Pointer auf kanonische Artefakte.
+
+Sie werden **nicht**:
+
+- Source Ledger;
+- Exzerptregister;
+- Research Notebook;
+- primäre Navigation durch Findings;
+- Benutzeroberfläche für die historische Forschung;
+- notwendige manuelle Routingentscheidung des Owners.
+
+Die Product Runtime soll einen Researchauftrag auf den passenden bestehenden Owner/State **auflösen**. Eine automatische Zuordnung darf einen Work Owner vorschlagen oder referenzieren, erzeugt aber keine globale `selected-current`-Selection Authority.
+
+## O.4 Root-/Handoff-Refactoring
+
+Das dokumentierte #64-Owner-Feedback verlangt einen 5-Minuten-Handoff. Daraus folgt ein unmittelbarer Dokumentations-Refactor ohne neue Semantik:
+
+### `AGENTS.md`
+
+**Behalten.** Binding Governance; keine weitere Product-/Research-Prosa hineinziehen.
+
+### `README.md`
+
+Auf **Front Door** reduzieren:
+
+1. Produktzweck;
+2. wie Research begonnen wird;
+3. aktuelle kanonische Einstiegspunkte;
+4. Pointer auf `PROJECT_STATE.md`, Research, Architecture.
+
+Historische CI-Run-Details, Validator-Innereien und lange Assurance-Erklärungen gehören nicht in den primären Nutzer-Einstieg.
+
+### `PROJECT_STATE.md`
+
+Auf tatsächlichen Handoff-Zweck zurückführen:
+
+- Current Work Selection;
+- aktive Research Owner / wichtige aktuelle Findings/Unresolved nur als Pointer;
+- current technical critical path;
+- echte Blocker;
+- nächste ausführbare Aktionen;
+- Pointer auf Detailartefakte.
+
+Ausführliche historische Run-/Implementationschronologien bleiben in ihren Owner-/Trace-Artefakten.
+
+**Wichtig:** Diese Kürzung ändert keine Authority und keine Requirements; sie entfernt Duplikation.
+
+## O.5 Code-Refactoring: Operational Support und Product Runtime entkoppeln
+
+Der aktuelle `tools/operational/`-Bestand enthält zwei unterschiedliche Verantwortungsarten.
+
+### Bleibt klar Operational Support
+
+- `core.py` – mechanische Loader / Schema-Utilities;
+- `mutation.py` – Repo-/Text-Mutationsschutz;
+- `enforcement-map.json` – technische Requirement→Enforcement-Projektion;
+- Requirements-/Assurance-Validatoren und CI.
+
+Diese Komponenten unterstützen Betrieb/Assurance und sind **nicht** die Forschungsassistenz.
+
+### Product-Capability-Kandidaten
+
+- `context.py` / `context_spec.py` – Context/Resume;
+- `audit.py` – Research View;
+- #53 Retrieval;
+- #49/#50 Resolver;
+- #57 Evidence Availability/Resume.
+
+Diese dürfen zunächst dort bleiben, wo sie heute testbar sind. Sie sollen aber **nicht weiter als unabhängige Tools wachsen**.
+
+### Exakter Trigger für eine `src/histo_orla/`-Produktgrenze
+
+Die Product-Code-Grenze wird eingeführt, sobald der erste reale Vertical Slice mindestens zwei der folgenden Runtime-Fähigkeiten über einen gemeinsamen provider-neutralen Research-State-Zugriff nutzt:
+
+- context/resume;
+- source/instance resolve;
+- exact/variant retrieval;
+- research view;
+- evidence availability;
+- controlled research-state transition.
+
+#53 ist ein wahrscheinlicher Trigger, weil Retrieval eine echte Research-Runtime-Capability ist und mit #55/#57 denselben State lesen muss.
+
+**Nicht Trigger:** Ordnerästhetik, zukünftige Planung oder der Deep-Research-Bericht allein.
+
+### Kandidaten-Topologie nach Eintritt des Triggers
+
+Keine Pflichtstruktur; kleinster sinnvoller Start:
+
+```text
+src/histo_orla/
+  state.py              # read-only provider-neutral access / IDs / refs
+  context.py            # context + resume compilation
+  resolve.py            # source/instance/alias resolution
+  retrieval.py          # exact/variant/query-log baseline
+  views.py              # research/audit views
+  availability.py       # research-ready evidence availability
+  transitions.py        # research-state transition guard, wenn #54 real wird
+  adapters/
+    zotero.py
+    bytes.py
+    documents.py
+```
+
+Nur Module mit realem Consumer werden angelegt. Kein leeres Future-Proof-Gerüst.
+
+`tools/operational/*` bleibt anschließend für Repo-/Assurance-/Migration-/CI-Funktionen; dünne Wrapper können Product APIs konsumieren, besitzen aber keine zweite Semantik.
+
+## O.6 Gemeinsamer State-Zugriff vor gemeinsamem Universalmodell
+
+Der erste technische Integrationspunkt soll **kein neues Ontologieschema**, sondern ein kleiner provider-neutraler Read Contract sein.
+
+Er muss vorhandene #50-Rollen lesen/referenzieren können:
+
+```text
+Source
+Representation
+Instance
+Derivative
+Findspot / Excerpt
+Finding
+Claim / curated Synthesis
+Method Application
+Unresolved / Validation
+```
+
+Zusätzliche Objektklassen werden nur aufgenommen, wenn ein realer Slice sie benötigt.
+
+Wichtig:
+
+- **curated synthesis** ist wissenschaftlicher State und nicht automatisch derivierbar;
+- Backlinks, Auditpfade, Search-Index, Resume-Paket, Coverage und Navigation sind dagegen gute **Derived Views**;
+- der technische Reader darf fehlende Semantik als `missing/unresolved` zurückgeben, nicht ergänzen.
+
+## O.7 Read-Model-Experiment: Query Runtime ohne zweiten Truth Store
+
+E3 wird als eigener, vollständig reversibler Probe umgesetzt:
+
+```text
+canonical Git/Zotero/provider-neutral refs
+        ↓ rebuild
+local read model
+        ↓
+FTS / backlinks / inverse navigation / filters
+        ↓
+Research View
+```
+
+Für den ersten Probe ist SQLite/FTS eine zulässige technische Hypothese, keine Architekturentscheidung.
+
+Harte Guardrails:
+
+- DB wird **nicht** committed;
+- DB besitzt **keinen** exklusiven Research State;
+- kein fachlicher Writeback über die DB;
+- vollständiger Delete→Rebuild-Test;
+- CI-/Fixture-Test prüft reproduzierbare IDs/Links;
+- jeder Treffer bleibt auf kanonische Source/Instance/Findspot-/Finding-IDs zurückführbar.
+
+Wenn Rebuild hidden/manual semantics benötigt, ist der Probe gescheitert.
+
+## O.8 Research Workbench ohne vorzeitige UI-Plattform
+
+Der erste Workbench muss keine neue Web-App sein.
+
+### v0 ausführbare Product Surface
+
+Ein Chat-/Skill-/CLI-Adapter kann dieselben Product APIs aufrufen und als eine Research-Sicht ausgeben:
+
+```text
+Research question
+Current curated synthesis
+Key evidence complexes / findings
+Unresolved / competing explanations
+Next discriminating evidence
+Available / unavailable evidence
+Source / findspot drill-down
+Method / validation status
+Resume token/context
+```
+
+Die Oberfläche soll **Research first** sein. Issue-/Requirement-/Governance-IDs werden nur im Drill-down oder Audit angezeigt.
+
+Erst reale Nutzung entscheidet, ob eine lokale GUI/Web-Workbench zusätzlichen Wert bringt.
+
+## O.9 Capability-Contracts werden ausführbar, nicht zu neuer Dokumentation
+
+Die Capability-Einheit wird aus dem Report in Code-/API-Verträge übersetzt. Minimal pro Capability:
+
+```text
+input
+output
+side effects
+canonical mutation? yes/no
+authority / consequence boundary
+failure / unresolved result
+provenance emitted
+tests
+```
+
+Beispiel:
+
+### `resolve(source_ref)`
+
+- liefert interne Source-/Representation-/Instance-Refs + Provider refs;
+- darf Alias-/Candidate-Information liefern;
+- darf keine historische Identität fachlich entscheiden;
+- erzeugt keinen Finding.
+
+### `retrieve(query, corpus_scope)`
+
+- Exact/Variant Baseline;
+- Query/Expansion/Filter/Corpus-Version im Result;
+- Treffer referenzieren Findspot/Derivative;
+- kein LLM erforderlich;
+- kein Hit wird automatisch Finding.
+
+### `derive_view(question/work_context)`
+
+- kombiniert curated Synthesis mit derived Backlinks/Audit/Unresolved;
+- keine neue Forschungsaussage;
+- fehlende Links sichtbar.
+
+### `resume(work_context)`
+
+- kompiliert erlaubte nächste Aktion, Evidence Availability und Stop/Handoff;
+- keine Priority-/Selection Authority.
+
+### `transition(candidate, target_status)`
+
+- prüft formale Promotionsbedingungen;
+- historische Richtigkeit bleibt Review-Judgement.
+
+## O.10 Thin AI-/Skill-/MCP-Schicht erst über stabile Capabilities
+
+Der Assistent soll langfristig **nicht** Governance/Methodik im Prompt nachspielen.
+
+Adapter-Prinzip:
+
+```text
+natural-language request
+→ problem/context interpretation
+→ capability discovery/routing
+→ typed tool calls
+→ deterministic/product results
+→ scholarly judgement where required
+→ explicit canonical transition only at consequence boundary
+```
+
+Ein Skill/MCP-Server/Plugin darf:
+
+- Product Capabilities discoverable machen;
+- strukturierte Inputs/Outputs transportieren;
+- den Owner von Tool-/Repo-Routing entlasten.
+
+Er darf nicht:
+
+- Requirement-/Method Truth duplizieren;
+- eigenes verstecktes Memory als State führen;
+- Promotion allein aus LLM-Urteil autorisieren.
+
+## O.11 Research Output und System Learning technisch trennen
+
+Jeder Vertical Slice liefert zwei getrennte Resultate:
+
+### A. Research Output
+
+Kanonischer historischer Inhalt im bestehenden Research Owner:
+
+- Evidence;
+- Findings;
+- curated Synthesis;
+- unresolved;
+- next evidence.
+
+### B. Product/System Learning
+
+Separat unter #63/#64/#48:
+
+- welche Owner-Handarbeit entfiel;
+- welche Capability fehlte;
+- welche Friktion neu entstand;
+- welche technische Hypothese falsifiziert wurde;
+- ob ein Requirement-/Method-/Architecture-Delta überhaupt nötig ist.
+
+Die Research-Datei wird nicht zum Systemdesign-Protokoll.
+
+## O.12 Metrics ohne neues Telemetriesystem
+
+E1–E4 benötigen eine Baseline, aber kein Analytics-Framework.
+
+Zunächst aus vorhandenen Quellen/kleinen Testrecords ableiten:
+
+- Tool-/Capability Calls;
+- manuelle Handoffs;
+- Owner Corrections;
+- Zeitpunkte Start / first source-bearing result / auditable synthesis;
+- unresolved-preservation / roundtrip tests;
+- #63 Owner Feedback.
+
+Nur wenn mehrere reale Slices dieselbe Messung benötigen, wird eine kleine machine-readable Evaluation-Projektion eingeführt.
+
+## O.13 CI-/Test-Refactoring
+
+Neue Tests schützen nur objektiv prüfbare Grenzen:
+
+1. derived read model ist vollständig rebuildbar;
+2. kein Read-Model-only Research State;
+3. Retrieval Hit roundtrips zu Findspot/Source;
+4. Alias/Reconciliation verändert keine Claims;
+5. Resume Context verliert kein `unresolved`;
+6. Adapter-Ausfall wird `unavailable/degraded`, nicht falsche Evidenz;
+7. Audit/View erzeugt keine neuen wissenschaftlichen Aussagen;
+8. canonical transition bewahrt Vorgänger/History;
+9. AI Output kann nicht als Evidence Class promoted werden;
+10. Vertical-Slice-Fixture kann ohne alten Chat erneut geöffnet werden.
+
+CI prüft **nicht** historische Richtigkeit oder Owner-Nutzen.
+
+## O.14 Existing-Owner-Mapping: keine neuen Issues nötig
+
+| Refactoring / Capability | bestehender Owner |
+|---|---|
+| Product Runtime / package boundary / integration | #48 / #59 |
+| Source/Instance provider-neutral State | #50 |
+| Zotero/Bytes resolver | #49 |
+| Document/Findspot | #51 |
+| Exact/Variant Retrieval | #53 |
+| Research-State Transition | #54 |
+| Research/Workbench View | #55 |
+| Rights Admission | #56 |
+| Availability/Restart | #57 |
+| Method constraints | #60 |
+| Context/Handoff mechanics – nur bei neuer realer Friktion | #61 |
+| formal Requirements Assurance | #62 |
+| Owner/Product Feedback | #63 |
+| Deep-Research diagnosis / value challenge | #64 |
+| integrated roadmap/disposition | #92 |
+
+**Disposition:** Kein neues „Workbench Issue“, kein „Capability Framework Issue“ und kein neuer Meta-Owner, solange diese bestehenden Owner ausreichen.
+
+## O.15 Konkrete Refactoring-Reihenfolge
+
+### R0 – Sofort, ohne neue technische Hypothese
+
+- PR #118 Review-Evidence dispositionieren;
+- Root README/PROJECT_STATE auf Handoff/Front-Door-Funktion entdoppeln;
+- keine weitere Expansion von #61/#55 ohne reale Friktion;
+- Vertical-Slice-PR statt Subsystem-PR als Delivery-Regel unter #48/#59 anwenden;
+- #53 gegen den realen #51/#55-State beginnen.
+
+### R1 – Erster integrierter Runtime-Pfad
+
+- #53 Exact/Variant Retrieval implementieren;
+- gemeinsamen provider-neutralen State-Reader nur soweit nötig extrahieren;
+- #55 View konsumiert denselben Reader;
+- #57 Resume/Availability konsumiert denselben Reader;
+- sobald dies real in einem Slice geschieht, `src/histo_orla/`-Trigger neu bewerten und Product Runtime aus `tools/` herausziehen.
+
+### R2 – Heterogener #47-Slice
+
+- explizit owner-ausgewählte kleine #47-Forschungsfrage;
+- Source/Resolver + Retrieval + View + Restart in **einem** Slice;
+- kein neues allgemeines Schema während der Ausführung;
+- Owner-Feedback und Messwerte nach dem Slice.
+
+### R3 – Read Model Probe
+
+- nur wenn R1/R2 Query-/Navigation-Pain bestätigen;
+- read-only SQLite/FTS-Probe;
+- Delete/Rebuild/Fidelity/Owner-Value messen;
+- `adopt | adapt | reject`.
+
+### R4 – Konsolidierung
+
+Nur nach zwei real unterschiedlichen Consumern:
+
+- gemeinsame Product APIs stabilisieren;
+- dünnen Chat/Skill/MCP-Adapter davor setzen;
+- nur bewährte Module in dauerhafte Product-Code-Struktur ziehen;
+- obsolete manuelle Derived Views/Meta-Erklärungen entfernen oder generieren;
+- stärkeren Shared State nur bei konkretem Falsifier.
+
+## O.16 Definition of Done für die Operationalisierung dieses Deep Research
+
+Der Bericht gilt operativ als umgesetzt, wenn nicht nur seine Prosa gemerged ist, sondern mindestens:
+
+1. ein Owner stellt eine reale Forschungsfrage ohne manuelles Issue-/Tool-Routing;
+2. der aktuelle Work Context wird aus Repo-State komponiert;
+3. Source/Instance/Findspot und Exact/Variant Retrieval laufen über denselben provider-neutralen Zugriff;
+4. ein Research-first View zeigt curated synthesis, Evidence, unresolved und next evidence;
+5. Drill-down führt reproduzierbar zur inspizierten Quelle/Fundstelle;
+6. Unterbrechung + fresh restart funktioniert ohne alten Chat;
+7. ein heterogener #47-Slice benutzt denselben Runtime-Kern ohne Domain Flattening;
+8. technische Derived Layers können vollständig entfernt/rebuilt werden;
+9. Research Output und System Learning sind getrennt;
+10. gemessene Owner-Orchestrierung sinkt gegenüber der Baseline;
+11. keine neue Governance-/Issue-/Framework-Schicht ist nötig, um den Slice zu verstehen;
+12. alles, was sich nicht bewährt, wird entfernt oder als Experiment archiviert statt durch weitere Meta-Architektur gerettet.
+
+
 # Schlussfolgerung
 
 **Researcher Inference:** Histo-Orlas bisheriges Ringen ist weniger ein Beleg für ein noch nicht gefundenes „richtiges“ Universalmodell als ein Beleg dafür, dass die **transdisziplinären Übergänge selbst Produktfunktion** sind. Quelle/Instanz/Fundstelle, Domain Method Truth, Identity, Tooling, Research State, Synthese und Restartability sind bereits weitgehend als Anforderungen verstanden; sie werden aber noch nicht als durchgängiger Forschungsarbeitsplatz erlebt.
