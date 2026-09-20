@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-18  
+**Stand:** 2026-09-20  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -15,7 +15,8 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
-- **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
+- **#64 / PR #118** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Der Deep-Research-Review `docs/architecture/assurance/sociotechnical-research-architecture-deep-research-20260920.md` rekonstruiert die Korrekturschleifen, challengt sie mit externem SOTA und leitet falsifizierbare Experimente ab. Er ist Review-Evidence ohne Requirement-, Method-, Historical-, Selection- oder Architecture-Decision-Authority. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
+- **#53 / PR #119** – Agentic Execution Calibration: der erste bounded Work-Lauf stoppte korrekt, weil die reale #55-Sachenbacher-Audit-Projektion zwar Source/Instance/Findspot-Provenienz, aber keinen admitted texttragenden Retrieval-Korpus bereitstellt. Der aktuelle PR #119 trennt daher current-stage Admission von downstream Dependencies, regression-testet `CurrentContext.status == ready` und lässt zunächst nur die synthetische Exact-/Query-Log-Baseline zu. Realer Retrieval-Pfad bleibt bis Evidence/Corpus Admission über #49/#51/#57 (ggf. #52) `not-ready`; keine neue Requirement-/Method-/Selection-Authority.
 - **#92 / PR #94** – Architecture/Product Re-Baseline ist als Roadmap-Sicht integriert. Sie ordnet bestehende Arbeit als `governing/project | domain/research | product capability | operational support | pilot/testfixture | superseded/archive`, ohne neue Requirement-, Method-, Historical- oder Selection-Authority zu schaffen. `src/histo_orla/` ist kein Pflichtziel; eine Product-Code-Grenze entsteht erst bei realer dauerhafter Runtime-Produktlogik oder nachgewiesener Responsibility-Kollision mit `tools/`.
 
 Verbindlich gilt:
@@ -43,6 +44,7 @@ Kanonisch:
 - `docs/architecture/assurance/work-selection-reconciliation-20260910.md`
 - `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
+- `docs/architecture/assurance/sociotechnical-research-architecture-deep-research-20260920.md` – #64/PR #118 Review-Evidence; keine Decision Authority
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -377,17 +379,23 @@ Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA
 
 ```text
 #50 semantic Source/Instance contract
--> #49 reliable read-only source/byte resolution
--> #51 document/findspot runtime proof
--> #53 retrieval against inspected source
--> #55 derived human-readable research view
--> #57 availability/restartability proof
--> reale Owner-Workflow-Akzeptanz
+  |\
+  | -> #53 synthetic Exact/Query-Log calibration (PR #119)
+  |
+  -> #49 reliable read-only source/byte resolution
+       -> #51 document/findspot runtime proof
+       -> real Evidence/Corpus Admission (#49/#51/#57; #52 only if OCR/HTR is needed)
+       -> #53 real retrieval falsification
+       -> #55 integrated research/audit view
+       -> #57 availability/restartability proof
+       -> reale Owner-Workflow-Akzeptanz
 ```
 
 Cross-cutting: #54 Transition Safety, #56 Rights/Admission, #60 Method Truth, #61 Context sowie #62/#63 formale Assurance/Traceability.
 
-Aktuell ist #49 der technische Enabler. PR #96 hat zusätzliche Zotero-Local-API-Read-Evidenz integriert; der nächste #49-Schritt bleibt AQ-ZO-03/AQ-ZO-04: device-independent/read-only Source-/Byte-Resolution gegen #50. Diese technische Reihenfolge ist **keine** Research-Selection.
+**Admission-Grenze:** Source/Instance/Findspot-Provenienz oder eine regenerierbare Audit-Projektion ist noch kein texttragender Retrieval-Korpus. Für realen #53 Search muss der konkrete Input im aktuellen autorisierten Context tatsächlich verfügbar, parent-/versions-/findspot-gebunden und für die Operation zulässig sein.
+
+Aktuell bleibt #49 der technische Enabler für den **realen** Pfad. PR #96 hat zusätzliche Zotero-Local-API-Read-Evidenz integriert; der nächste #49-Schritt bleibt AQ-ZO-03/AQ-ZO-04: device-independent/read-only Source-/Byte-Resolution gegen #50. Parallel darf PR #119 nur die synthetische #53-Baseline kalibrieren. Diese technische Reihenfolge ist **keine** Research-Selection.
 
 ## 9. Source / Storage Responsibility
 
