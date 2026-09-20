@@ -29,6 +29,22 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertEqual("unresolved", states["modern-archive-concordance"])
         self.assertEqual("unresolved", states["grune-modern-identification-independent-collation"])
 
+    def test_ret_001_calibration_work_order_is_ready_before_implementation(self):
+        path = Path("docs/development/work-orders/wo-ret-001-exact-retrieval-calibration.json")
+        context = load_work_order(path, root=Path("."))
+
+        self.assertEqual("issue:#53", context.work_owner_ref)
+        self.assertEqual("WO-RET-001-CALIBRATION", context.work_order_ref)
+        self.assertEqual("ready", context.status)
+        self.assertEqual((), context.open_blockers)
+        self.assertEqual((), context.unresolved)
+        self.assertTrue(context.current_executable_action.startswith("Run the current-stage admission preflight first"))
+        self.assertIn("treat AI/model output as evidence or retrieval ground truth", context.must_not)
+
+        states = {item.ref: item.status for item in context.prerequisites}
+        self.assertTrue(states)
+        self.assertTrue(all(status == "pass" for status in states.values()))
+
     def test_changed_pass_basis_is_downgraded_to_unresolved(self):
         with TemporaryDirectory() as tmp:
             root = Path(tmp)
