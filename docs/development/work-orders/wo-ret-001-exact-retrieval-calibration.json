@@ -3,21 +3,22 @@
   "work_order_ref": "WO-RET-001-CALIBRATION",
   "primary_function": "Architecture / Development / Research Software Engineering",
   "work_owner_ref": "issue:#53",
-  "objective": "Implement the smallest auditable exact-retrieval baseline against the existing real Histo-Orla research-state path used by #55, as both a productive #53 increment and a calibration task for a lower-cost implementation model. Preserve all accepted scientific/state boundaries; do not introduce new research semantics.",
+  "objective": "Implement the smallest auditable synthetic exact-retrieval baseline over the existing provider-neutral test state as a calibration task and a legitimate first #53 increment. Do not claim a real-source retrieval slice until a text-bearing, findspot-bound corpus/input is admitted.",
   "scope": [
-    "locate the already integrated real Sachenbacher research-state/test path referenced by issue #55 / PR #102",
-    "implement read-only exact word/phrase retrieval without LLM or semantic retrieval",
-    "return stable hit records retaining existing derivative/instance/findspot/source references",
+    "reuse the existing synthetic provider-neutral research-state fixture in tools/operational/tests/test_audit.py or extract only the minimum shared fixture mechanics needed for test reuse",
+    "implement read-only exact word/phrase retrieval over text-bearing excerpt/derivative content already present in that synthetic fixture",
+    "return stable hit records retaining existing excerpt/findspot/derivative/instance/source references",
     "record a reproducible query log with exact query, filters, corpus/state boundary and implementation/version identifier",
-    "add deterministic known-hit and negative tests against existing fixtures or the smallest faithful regenerable projection",
-    "keep implementation local to current boundaries unless real reuse proves a shared product module is required"
+    "add deterministic known-hit, no-hit and provenance-roundtrip tests",
+    "record the real Sachenbacher path as a later falsification blocked on an admitted text-bearing input; do not manufacture that input in this task"
   ],
   "exclusions": [
+    "no claim of real Sachenbacher/source retrieval verification in this work order",
     "no historical-variant expansion yet",
     "no semantic search, embeddings, RAG or LLM-dependent retrieval",
     "no new ontology, generic research-state schema or object class",
+    "no new corpus truth store or database",
     "no src/histo_orla package solely for architectural neatness",
-    "no database/read-model introduction",
     "no mutation of canonical historical findings, claims, source identities or method truth",
     "no owner-selection, requirement or architecture authority change"
   ],
@@ -41,13 +42,13 @@
     "docs/architecture/assurance/value-decision-delivery-assurance.md"
   ],
   "required_evidence": [
-    "current issue #53 scope and DoD",
-    "existing real #55 Sachenbacher audit-state path or faithful regenerable projection already integrated on main",
-    "accepted requirement text for REQ-RET-001, REQ-RET-003, REQ-SRC-004 and cross-cutting non-loss constraints",
+    "current issue #53 scope and DoD, which explicitly permits synthetic Precision/Recall/Known-hit tests before the later real U2/U4 falsification",
+    "existing synthetic text-bearing provider-neutral fixture in tools/operational/tests/test_audit.py",
+    "accepted requirement text for REQ-RET-001, REQ-RET-003 and REQ-SRC-004",
     "existing #50 provider-neutral Source/Representation/Instance/Derivative/Findspot/Finding separation",
-    "tests proving exact retrieval does not require AI and hit provenance round-trips to existing findspot/source references"
+    "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one"
   ],
-  "current_executable_action": "From a clean checkout on branch dev/calibration-exact-retrieval-20260920, first locate the existing real Sachenbacher state/test path referenced by #55. Then implement the smallest read-only exact-retrieval function and deterministic known-hit/negative tests needed for REQ-RET-001 + REQ-RET-003 + REQ-SRC-004. Do not add variant expansion yet. If locating the real state requires inventing or duplicating research semantics, stop and return unresolved instead of creating a new schema.",
+  "current_executable_action": "Implement only the synthetic Exact Retrieval baseline permitted by #53: use the existing synthetic provider-neutral state with its text-bearing excerpt, add the smallest read-only exact word/phrase retrieval function, reproducible query log, and known-hit/no-hit/provenance-roundtrip tests. Do not use the real Sachenbacher projection as a searchable corpus. Persist the real-corpus dependency as unresolved. Stop if implementation requires new research-state semantics rather than consuming the existing synthetic roles.",
   "prerequisites": [
     {
       "ref": "accepted-retrieval-requirements-stable",
@@ -72,15 +73,15 @@
       "note": "Consume existing state roles; do not invent a replacement ontology."
     },
     {
-      "ref": "real-sachenbacher-audit-path-locatable",
-      "status": "unresolved",
+      "ref": "synthetic-text-bearing-retrieval-fixture-available",
+      "status": "pass",
       "basis": [
         {
-          "path": "tools/operational/audit.py",
-          "git_blob_sha": "c9bd0121a8d08478b554d5e1b1a9395220bd4a47"
+          "path": "tools/operational/tests/test_audit.py",
+          "git_blob_sha": "c5417e55ae90d5ac41cde25cddcc34d18b6d0b53"
         }
       ],
-      "note": "Issue #55 says the real path is integrated on main. Locate it from the checkout; if ambiguous, stop rather than duplicate state."
+      "note": "The existing synthetic fixture contains text-bearing excerpt content and full Source/Representation/Instance/Derivative/Findspot links, sufficient for #53 synthetic known-hit/no-hit calibration."
     },
     {
       "ref": "delivery-trace-and-coverage-current",
@@ -96,13 +97,28 @@
         }
       ],
       "note": "Keep #63 traceability and #59 coverage rules intact."
+    },
+    {
+      "ref": "real-text-bearing-corpus-admission",
+      "status": "unresolved",
+      "basis": [
+        {
+          "path": "tools/operational/tests/test_audit.py",
+          "git_blob_sha": "c5417e55ae90d5ac41cde25cddcc34d18b6d0b53"
+        },
+        {
+          "path": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json",
+          "git_blob_sha": "d1c9527e3e18ce50cf4530e66eecbf5288685511"
+        }
+      ],
+      "note": "The real #55 Sachenbacher projection and #51 locator manifest preserve IDs/findspots/geometry but do not provide a text-bearing retrieval corpus. A later real #53 slice requires admitted bytes/fulltext/text derivative with preserved findspot mapping; #49 explicitly lists retrieval against the real library as downstream of its resolver work."
     }
   ],
   "open_blockers": [],
   "unresolved": [
-    "exact existing file/fixture path of the real Sachenbacher #55 state must be freshly located in the checkout",
-    "smallest module/file placement for retrieval is intentionally not predetermined",
-    "shared product-state reader extraction is not authorized unless unavoidable duplication with a second real consumer is demonstrated"
+    "real #53 U2/U4 falsification is blocked until an admitted text-bearing retrieval input can be resolved without inventing a second truth store",
+    "the exact provider for the later real corpus may be inspected bytes/text extraction, Zotero fulltext, or another existing derivative; #49/#48 must discriminate it from real capability evidence",
+    "jsonschema was missing in the Work environment, so local assurance validators were not executable there; repository/CI dependency setup must be made reproducible before relying on Work-local full assurance"
   ],
   "may": [
     "inspect the full clean repository checkout and current tests",
@@ -113,6 +129,8 @@
   ],
   "must_not": [
     "treat AI/model output as evidence or retrieval ground truth",
+    "claim the synthetic calibration as real-source retrieval verification",
+    "convert the real #55 locator-only projection into invented searchable text",
     "merge historical variants or homonyms as entities",
     "promote a retrieval hit into a Finding or Claim",
     "collapse Source, Representation, Instance, Derivative, Findspot, Finding or Claim roles",
@@ -124,13 +142,12 @@
     "change accepted requirements, method truth, research selection or historical findings"
   ],
   "stop_handoff_when": [
-    "the existing real #55 state cannot be located unambiguously",
-    "the task requires a new research-state semantic field/object instead of consuming existing roles",
+    "even the synthetic exact-retrieval function requires a new research-state semantic field/object instead of consuming existing roles",
     "a material architecture decision or persistent storage choice becomes necessary",
     "a requirement/authority conflict is discovered",
     "tests can only pass by weakening provenance, unresolved preservation or no-LLM exact-search constraints"
   ],
-  "return_condition": "A clean branch contains the smallest exact-retrieval baseline plus deterministic tests demonstrating no-LLM exact search, reproducible query/corpus logging and hit-to-findspot/source round-trip; all existing Project Assurance checks pass; remaining uncertainty is explicit; #53/#59 trace/coverage is updated as required. If the real state cannot be consumed without semantic invention, return HANDOFF/UNRESOLVED with the exact blocking path instead of implementing a new schema.",
+  "return_condition": "A clean branch contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM exact search, reproducible query/corpus logging, known-hit/no-hit behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; all runnable relevant tests pass; the missing real text-bearing corpus remains explicit and no real-source verification is claimed. #53/#59 trace/coverage is updated only to the level actually demonstrated.",
   "persistence_target": "Implementation/tests/trace on branch and PR owned by issue:#53 under #48/#59; no new work-owner issue. Calibration result is summarized in issue:#53 or #48; only materially general learning returns to the existing #64/PR #118 review path.",
   "source_refs": [
     "issue:#53",
@@ -146,5 +163,19 @@
     "docs/architecture/assurance/value-decision-delivery-assurance.md",
     "docs/development/requirements-coverage.md",
     "tools/operational/audit.py"
+  ],
+  "calibration_history": [
+    {
+      "date": "2026-09-20",
+      "outcome": "HANDOFF/UNRESOLVED",
+      "interpretation": "PASS on agent boundary discipline; original productive-real-slice premise was invalid.",
+      "observed": [
+        "real Sachenbacher chain exists only as a regenerable locator/audit projection in tools/operational/tests/test_audit.py",
+        "the #51 reference manifest preserves instance/locator geometry but is not a searchable text corpus",
+        "implementing real exact retrieval at this point would require new corpus/state semantics or an unavailable bytes/fulltext path",
+        "21 relevant tests passed in Work; full local Project Assurance was unavailable because jsonschema was missing"
+      ],
+      "disposition": "Narrow this work order to the synthetic exact-retrieval baseline already allowed by issue #53. Route the real-corpus prerequisite to #48/#49/#53 instead of inventing it."
+    }
   ]
 }
