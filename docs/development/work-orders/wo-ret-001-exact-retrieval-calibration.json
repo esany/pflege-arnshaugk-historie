@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1",
+  "work_order_ref": "WO-RET-001-CALIBRATION",
+  "primary_function": "Architecture / Development / Research Software Engineering",
+  "work_owner_ref": "issue:#53",
+  "objective": "Implement the smallest auditable exact-retrieval baseline against the existing real Histo-Orla research-state path used by #55, as both a productive #53 increment and a calibration task for a lower-cost implementation model. Preserve all accepted scientific/state boundaries; do not introduce new research semantics.",
+  "scope": [
+    "locate the already integrated real Sachenbacher research-state/test path referenced by issue #55 / PR #102",
+    "implement read-only exact word/phrase retrieval without LLM or semantic retrieval",
+    "return stable hit records retaining existing derivative/instance/findspot/source references",
+    "record a reproducible query log with exact query, filters, corpus/state boundary and implementation/version identifier",
+    "add deterministic known-hit and negative tests against existing fixtures or the smallest faithful regenerable projection",
+    "keep implementation local to current boundaries unless real reuse proves a shared product module is required"
+  ],
+  "exclusions": [
+    "no historical-variant expansion yet",
+    "no semantic search, embeddings, RAG or LLM-dependent retrieval",
+    "no new ontology, generic research-state schema or object class",
+    "no src/histo_orla package solely for architectural neatness",
+    "no database/read-model introduction",
+    "no mutation of canonical historical findings, claims, source identities or method truth",
+    "no owner-selection, requirement or architecture authority change"
+  ],
+  "leading_domains": [
+    "Information Retrieval / Research Software Engineering",
+    "Research Data Management / Provenance"
+  ],
+  "method_quality_frame": [
+    "AGENTS.md",
+    "issue:#53",
+    "issue:#48",
+    "issue:#59",
+    "REQ-RET-001 exact/auditable search without LLM",
+    "REQ-RET-003 reproducible query/corpus provenance",
+    "REQ-SRC-004 lossless findspot round-trip",
+    "REQ-EPI-004 preserve unresolved/nonknowledge",
+    "REQ-EPI-005 AI output is not evidence",
+    "REQ-WF-001 deterministic enforcement of settled invariants",
+    "REQ-TRACE-001 Goal/Need/Pain -> Requirement -> Decision/Delivery/Feedback trace",
+    "docs/architecture/contracts/canonical-research-state.md",
+    "docs/architecture/assurance/value-decision-delivery-assurance.md"
+  ],
+  "required_evidence": [
+    "current issue #53 scope and DoD",
+    "existing real #55 Sachenbacher audit-state path or faithful regenerable projection already integrated on main",
+    "accepted requirement text for REQ-RET-001, REQ-RET-003, REQ-SRC-004 and cross-cutting non-loss constraints",
+    "existing #50 provider-neutral Source/Representation/Instance/Derivative/Findspot/Finding separation",
+    "tests proving exact retrieval does not require AI and hit provenance round-trips to existing findspot/source references"
+  ],
+  "current_executable_action": "From a clean checkout on branch dev/calibration-exact-retrieval-20260920, first locate the existing real Sachenbacher state/test path referenced by #55. Then implement the smallest read-only exact-retrieval function and deterministic known-hit/negative tests needed for REQ-RET-001 + REQ-RET-003 + REQ-SRC-004. Do not add variant expansion yet. If locating the real state requires inventing or duplicating research semantics, stop and return unresolved instead of creating a new schema.",
+  "prerequisites": [
+    {
+      "ref": "accepted-retrieval-requirements-stable",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/research/synthesis/requirements-baseline.md",
+          "git_blob_sha": "e70ef55a87716ca3eed94f4f61f7c2d33fc910a6"
+        }
+      ],
+      "note": "REQ-RET-001/003 and REQ-SRC-004 are accepted and sufficient for this bounded implementation."
+    },
+    {
+      "ref": "provider-neutral-research-state-contract-stable",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/architecture/contracts/canonical-research-state.md",
+          "git_blob_sha": "d6998957056b5cddce26c5c055d034eaa1ce2860"
+        }
+      ],
+      "note": "Consume existing state roles; do not invent a replacement ontology."
+    },
+    {
+      "ref": "real-sachenbacher-audit-path-locatable",
+      "status": "unresolved",
+      "basis": [
+        {
+          "path": "tools/operational/audit.py",
+          "git_blob_sha": "c9bd0121a8d08478b554d5e1b1a9395220bd4a47"
+        }
+      ],
+      "note": "Issue #55 says the real path is integrated on main. Locate it from the checkout; if ambiguous, stop rather than duplicate state."
+    },
+    {
+      "ref": "delivery-trace-and-coverage-current",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/architecture/assurance/value-decision-delivery-assurance.md",
+          "git_blob_sha": "77487b8515fc5643d1e84e1da358c6e1d29f04bb"
+        },
+        {
+          "path": "docs/development/requirements-coverage.md",
+          "git_blob_sha": "d1479a33bb8034fa8642be7b24f975cf8bb810c5"
+        }
+      ],
+      "note": "Keep #63 traceability and #59 coverage rules intact."
+    }
+  ],
+  "open_blockers": [],
+  "unresolved": [
+    "exact existing file/fixture path of the real Sachenbacher #55 state must be freshly located in the checkout",
+    "smallest module/file placement for retrieval is intentionally not predetermined",
+    "shared product-state reader extraction is not authorized unless unavoidable duplication with a second real consumer is demonstrated"
+  ],
+  "may": [
+    "inspect the full clean repository checkout and current tests",
+    "add the smallest retrieval implementation and tests under existing technical boundaries",
+    "reuse existing data structures and fixtures",
+    "add/update implementation trace and delivery coverage required by #63/#59",
+    "refactor only mechanics needed to avoid direct local duplication discovered during this bounded task"
+  ],
+  "must_not": [
+    "treat AI/model output as evidence or retrieval ground truth",
+    "merge historical variants or homonyms as entities",
+    "promote a retrieval hit into a Finding or Claim",
+    "collapse Source, Representation, Instance, Derivative, Findspot, Finding or Claim roles",
+    "replace unresolved/missing state with inferred values",
+    "create semantic/RAG/vector retrieval",
+    "create a new persistent truth store or database",
+    "create a generic agent/workflow framework",
+    "create src/histo_orla unless a concrete two-consumer/runtime responsibility trigger is demonstrated and escalated before implementation",
+    "change accepted requirements, method truth, research selection or historical findings"
+  ],
+  "stop_handoff_when": [
+    "the existing real #55 state cannot be located unambiguously",
+    "the task requires a new research-state semantic field/object instead of consuming existing roles",
+    "a material architecture decision or persistent storage choice becomes necessary",
+    "a requirement/authority conflict is discovered",
+    "tests can only pass by weakening provenance, unresolved preservation or no-LLM exact-search constraints"
+  ],
+  "return_condition": "A clean branch contains the smallest exact-retrieval baseline plus deterministic tests demonstrating no-LLM exact search, reproducible query/corpus logging and hit-to-findspot/source round-trip; all existing Project Assurance checks pass; remaining uncertainty is explicit; #53/#59 trace/coverage is updated as required. If the real state cannot be consumed without semantic invention, return HANDOFF/UNRESOLVED with the exact blocking path instead of implementing a new schema.",
+  "persistence_target": "Implementation/tests/trace on branch and PR owned by issue:#53 under #48/#59; no new work-owner issue. Calibration result is summarized in issue:#53 or #48; only materially general learning returns to the existing #64/PR #118 review path.",
+  "source_refs": [
+    "issue:#53",
+    "issue:#48",
+    "issue:#59",
+    "issue:#55",
+    "docs/research/synthesis/requirements-baseline.md#REQ-RET-001",
+    "docs/research/synthesis/requirements-baseline.md#REQ-RET-003",
+    "docs/research/synthesis/requirements-baseline.md#REQ-SRC-004",
+    "docs/research/synthesis/requirements-baseline.md#REQ-EPI-004",
+    "docs/research/synthesis/requirements-baseline.md#REQ-EPI-005",
+    "docs/architecture/contracts/canonical-research-state.md",
+    "docs/architecture/assurance/value-decision-delivery-assurance.md",
+    "docs/development/requirements-coverage.md",
+    "tools/operational/audit.py"
+  ]
+}
