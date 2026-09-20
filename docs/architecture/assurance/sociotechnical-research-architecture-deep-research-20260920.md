@@ -1329,6 +1329,112 @@ Der Bericht gilt operativ als umgesetzt, wenn nicht nur seine Prosa gemerged ist
 12. alles, was sich nicht bewährt, wird entfernt oder als Experiment archiviert statt durch weitere Meta-Architektur gerettet.
 
 
+
+## O.17 Agentic Execution / Model-Budget Strategy
+
+**Status:** operative Empfehlung unter #48/#59; keine Model-/Provider-Authority und keine neue Requirement-Schicht. Modellnamen/-preise sind zeitgebundene Implementierungsdetails und müssen vor längeren Läufen neu geprüft werden.
+
+### Ziel
+
+Die Agentik soll **keine Needs/Requirements rekonstruieren oder komprimierend neu interpretieren müssen**. Günstigere Modelle sind nur dort vorgesehen, wo Scope, Inputs, Forbidden Loss, Acceptance und Stop/Handoff maschinenlesbar bzw. eindeutig referenziert sind.
+
+### Execution packet je Agent
+
+Jeder materielle Agent-Task erhält aus dem kanonischen Repo mindestens:
+
+```text
+WORK OWNER / PRIMARY FUNCTION
+BOUNDED OBJECTIVE
+EXACT REQUIREMENT REFS
+UPSTREAM G/N/P DRIVER REFS
+GOVERNANCE / METHOD / SOURCE CONTRACT REFS
+SCOPE + EXCLUSIONS
+MUST PRESERVE / FORBIDDEN LOSS
+INPUT FILES / STATE REFS
+ALLOWED MUTATIONS
+ACCEPTANCE TESTS / NEGATIVE TESTS
+STOP / ESCALATE CONDITIONS
+RETURN CONDITION
+PERSISTENCE TARGET
+```
+
+Wichtig: Requirements werden **referenziert**, nicht für jeden Agenten frei zusammengefasst. Wo komprimierter Context verwendet wird, bleibt er lossless-by-reference auf die kanonischen Quellen rückführbar.
+
+### Consequence tiers
+
+**Tier A — Frontier / high-reasoning required**
+
+- neue oder geänderte Requirements-/Need-Interpretation;
+- Architecture- oder Persistenzentscheidungen mit materiellen Trade-offs;
+- Domain-/Method-/Evidence-Semantik;
+- Cross-cutting Refactor mit möglichem Bedeutungsverlust;
+- independent challenge/review eines materiellen PR;
+- unklare Failure Modes oder widersprüchliche Constraints.
+
+**Tier B — balanced implementation model**
+
+- bounded Product-/RSE-Implementation;
+- Refactoring mit vollständigen Tests und klarer no-loss-Grenze;
+- Adapter-/Resolver-/Retrieval-Code gegen bestehenden Contract;
+- Test-/Fixture-Erweiterung;
+- Derived Views;
+- migrationsarme Code-Extraktion mit kompatiblen Wrappers.
+
+**Tier C — cheapest high-volume model**
+
+- mechanische, deterministisch verifizierbare Änderungen;
+- Format-/Link-/Index-/Generated-View-Updates;
+- Fixture-Varianten aus exaktem Contract;
+- klar spezifizierte Testfälle;
+- repetitive bounded edits;
+- Ausführung/Erklärung bereits deterministischer Checks.
+
+Tier C darf keine neue Semantik, kein Requirement-Delta und keine fachliche Promotion erzeugen.
+
+### Two-key rule für materielle Änderungen
+
+Für materiellen Code-/State-Umbau gilt als empfohlener Default:
+
+```text
+strong planner/specification
+→ cheaper bounded implementer
+→ deterministic tests/CI
+→ independent strong reviewer
+→ canonical merge/handoff
+```
+
+Ein billiger Implementer darf damit umfangreiche Arbeit erledigen, aber nicht gleichzeitig seine eigene semantische Spezifikation und Abnahme erzeugen.
+
+### Aktuelle OpenAI-Modellabbildung (2026-09-20; vor Ausführung neu prüfen)
+
+- **GPT-5.6 Sol, High**: Tier A Default für Planung, Requirements-/Architecture-Grenzen und materielles Review.
+- **GPT-5.6 Terra**: Tier B Default und bevorzugtes Preis-/Leistungsmodell für den Großteil bounded Coding/Refactoring.
+- **GPT-5.6 Luna**: Tier C für mechanische/high-volume Tasks mit starken Tests; nicht Default für semantische Refactorings.
+- **Sol Pro / GPT-6 Pro**: nur bei tatsächlich festgefahrenen oder außergewöhnlich schwierigen Tier-A-Aufgaben; nicht als Standard-Worker.
+
+### Budget-/Limit-Strategie
+
+- große Dauerläufe in kleine repo-persistierte Work Orders schneiden;
+- kein Agent ist continuation-critical;
+- jeder Slice endet in commit/PR + tests + handoff;
+- bei Modell-/Planlimit kann ein neuer Agent vom Repo aus weiterarbeiten;
+- teure Modelle nur an Semantik-/Review-Grenzen einsetzen;
+- günstige Modelle erhalten minimale, präzise Context Packs statt den gesamten Repo-Verlauf;
+- Context Caching / stabile Prefixes nutzen, soweit die Ausführungsumgebung dies unterstützt;
+- vor einem längeren Lauf ein kleines Calibration-Set aus repräsentativen Histo-Orla-Tasks gegen Terra/Luna/Sol vergleichen.
+
+### Admission test für ein günstigeres Modell
+
+Ein Modell wird für eine Task-Klasse erst zugelassen, wenn es auf mindestens einem repräsentativen Calibration-Set:
+
+1. keine Requirement-/Authority-Grenze verletzt;
+2. alle deterministischen Tests besteht;
+3. `unresolved`/Forbidden-Loss-Zustände erhält;
+4. keine zusätzliche Owner-Korrektur gegenüber der stärkeren Referenz benötigt;
+5. einen fresh-context Handoff korrekt erzeugt.
+
+Bei Failure steigt die Task-Klasse auf ein stärkeres Modell oder der Work Order wird präzisiert; nicht die wissenschaftliche/produktseitige Anforderung wird abgesenkt.
+
 # Schlussfolgerung
 
 **Researcher Inference:** Histo-Orlas bisheriges Ringen ist weniger ein Beleg für ein noch nicht gefundenes „richtiges“ Universalmodell als ein Beleg dafür, dass die **transdisziplinären Übergänge selbst Produktfunktion** sind. Quelle/Instanz/Fundstelle, Domain Method Truth, Identity, Tooling, Research State, Synthese und Restartability sind bereits weitgehend als Anforderungen verstanden; sie werden aber noch nicht als durchgängiger Forschungsarbeitsplatz erlebt.
