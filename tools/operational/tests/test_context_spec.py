@@ -47,8 +47,8 @@ class WorkOrderContextTests(unittest.TestCase):
 
         raw = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual("ready", raw["execution_admission"]["required_status"])
-        self.assertEqual(5, len(raw["acceptance_tests"]))
-        self.assertEqual(4, len(raw["negative_tests"]))
+        self.assertEqual(6, len(raw["acceptance_tests"]))
+        self.assertEqual(5, len(raw["negative_tests"]))
         self.assertTrue(raw["forbidden_loss"])
         self.assertTrue(raw["upstream_driver_refs"])
         self.assertTrue(raw["downstream_deferred_dependencies"])
@@ -57,6 +57,9 @@ class WorkOrderContextTests(unittest.TestCase):
             for item in raw["downstream_deferred_dependencies"]
         ))
         self.assertIn("Do not mark REQ-RET-001", raw["coverage_claim_limit"])
+        self.assertEqual("tools/operational/retrieval.py", raw["implementation_shape"]["implementation_file"])
+        self.assertEqual("none in this calibration", raw["implementation_shape"]["cli"])
+        self.assertEqual(["excerpt_id", "derivative_id", "instance_id", "representation_id", "source_id"], raw["implementation_shape"]["supported_filter_keys"])
 
     def test_changed_pass_basis_is_downgraded_to_unresolved(self):
         with TemporaryDirectory() as tmp:
