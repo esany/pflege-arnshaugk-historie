@@ -313,43 +313,46 @@ Danach erst:
 Owner-Beispiele werden als **Design-/Falsifikationsmaterial** bewahrt, nicht automatisch als abschließende Objekt- oder Featureliste.
 
 ---
-## User-Research Update 2026-09-20 – multiperspektivische Projektionen / syntaktische Achsen
+## User-Research Update 2026-09-20 – Meta-Prinzip: perspektivisch transformierbarer Forschungsraum
 
-**Status:** `owner mental-model refinement / capability-and-model hypothesis / no Requirement or storage choice`
+**Status:** `owner mental-model synthesis / capability hypothesis / no Requirement or architecture choice`
 
-### Beobachtung
+### Beobachtung über mehrere Owner-Inputs
 
-Der Research Owner präzisiert das gewünschte Arbeitserleben als **multiperspektivische Projektionen auf möglichst quellennahe Befunde und Kontexte**. Zeit, Raum, Personen/Akteure, Herrschafts-/Institutionsstrukturen und Relationen werden als analytisch unterschiedlich behandelbare Achsen erlebt; derselbe Forschungszustand soll je nach Frage anders geschnitten, verfolgt, verbunden oder dargestellt werden können.
+Die bisherigen Aussagen zu 2000 Jahren Regionalgeschichte, transdisziplinären Quellengattungen, gemeinsamer Wissensbasis für mehrere Piloten, dynamischer Verdichtung, Widersprüchen, Zeit-/Raum-/Akteurs-/Herrschaftsperspektiven und `Netz kneten` sind **zusammen** zu lesen. Sie bilden keine Featureliste und keine wörtliche Achsentaxonomie.
 
-Die Beispiele haben neben ihrer fachlichen Coverage ausdrücklich **syntaktische Relevanz**: zu klären ist, wie zeitliche, räumliche und relationale Qualifikation an quellennahe Beobachtungen/Assertions gebunden werden muss, damit verschiedene Projektionen aus demselben State möglich bleiben.
+Das stärkere User-Research-Signal lautet:
 
-### Epistemische Präzisierung
+> Der Research Owner erwartet einen gemeinsamen evidenzgebundenen Forschungszustand, der **keine einzelne Perspektive privilegiert** und je nach Erkenntnisfrage unter unterschiedlichen fachlichen Blickwinkeln neu projiziert und kontextualisiert werden kann.
 
-`neutrale Fakten` wird vorläufig nicht als voraussetzungsfreie historische Wahrheit verstanden, sondern als Zielrichtung **quellennahe, minimal interpretierte Observation/Assertion mit erhaltener Wortlaut-/Fundstellen-/Provenienzgrenze**. Normalisierung, Identifikation, Relation, Finding und Interpretation bleiben davon unterscheidbar.
+Die genannten Gegenstände und Perspektiven sind Design-/Falsifikationsbeispiele dafür, ob dieses Verhalten wirklich funktioniert.
 
-### Zu prüfende syntaktische Hypothesen
+### Daraus abgeleitete, noch zu prüfende Capability-Hypothesen
 
-- **Zeit** ist nicht nur ein Attribut eines Objekts: Ereignisse, Zustände und Relationen können eigene historische Geltungszeiten besitzen; Quellenentstehungszeit und Research-/Revisionszeit sind davon zu unterscheiden.
-- **Raum** ist nicht nur eine feste Koordinate: eine historische Entität kann mehrere zeit-, quellen- oder hypothesenabhängige Namen, Geometrien, Lokalisierungen und räumliche Beziehungen besitzen.
-- **Relationen** sind nicht notwendig einfache binäre Kanten: Besitzübertragung, Amt, Herrschaft, Reise, Rechtsakt oder institutionelle Zugehörigkeit können Rollen, Gegenstände, Zeit, Raum und Evidenz tragen und daher ereignis-/assertionsartig modelliert werden müssen.
-- **Projektionen** wie Zeitschnitt, Objekt-biographie, Personen-/Akteursnetz, Herrschaftsstruktur, Karten-/Timeline-/Network-View sollen nach Möglichkeit aus demselben kanonischen State abgeleitet werden; die Projektion darf keine zweite Truth erzeugen.
+- **Perspective independence:** derselbe kanonische Befund kann in mehreren Forschungszusammenhängen verwendet werden, ohne dupliziert oder umgedeutet werden zu müssen.
+- **Composability:** Perspektiven können kombiniert werden, z. B. Zeit + Raum + Akteur + institutioneller Kontext, ohne daraus eine einzige universelle Fachsemantik zu machen.
+- **Projection before mutation:** viele gewünschte Transformationen betreffen Auswahl/Organisation/Ansicht des State, nicht dessen wissenschaftliche Veränderung.
+- **Context reversibility:** aus einer abgeleiteten Sicht muss der Weg zurück zu Provenienz, Auswahlkriterien, offenen Alternativen und nicht gezeigten Kontexten nachvollziehbar bleiben.
+- **Plural semantics:** fachlich unterschiedliche Modelle dürfen denselben gemeinsamen Evidenzuntergrund nutzen und zu unterschiedlichen, nebeneinander bestehenden Findings kommen.
 
-### Fachliches Routing / Gegenprüfung
+### Einordnung der früheren syntaktischen Beispiele
 
-- Zeit/Raum/Multi-Scale: C4/#36/CAP-13 + Historical GIS/Spatial Humanities/jeweilige historische Raumdomäne;
-- Akteure/Rollen/Situationen: C5/#37/CAP-14 + problemabhängige Prosopographie/Sozial-/Politikgeschichte;
-- Herrschaft/Recht/Institution: unter #60 an die jeweils führende Fachdomäne routen, nicht als generische Graphsemantik vorentscheiden;
-- Evidence Layering: CAP-08/#45/#50;
-- multiple derived Views: C8/#38/CAP-17;
-- technische Repräsentation (relational/graph/document/event/attestation etc.) bleibt Hypothese unter #48/#50 und muss gegen reale Projektionen diskriminiert werden.
+Zeit, Raum und Relationen bleiben wichtig, aber nicht als bereits feststehende `Achsen des Datenmodells`. Ihre syntaktische Relevanz ist ein **Stress-Test für den gemeinsamen State**: Er darf historische Geltung, räumliche Kontextualisierung und relationale Bedeutung nicht so fest in eine einzige Sicht einbacken, dass andere legitime Projektionen unmöglich werden.
 
-### Discriminating user-research / prototype questions
+`neutrale Fakten` bleibt dabei eine heuristische Owner-Formulierung. Methodisch kontrolliert wird zwischen Source/Instance/Findspot, quellennahem Observation/Befund, Identifikation/Normalisierung, Finding, Claim und Interpretation unterschieden. Auch ein scheinbar neutrales Faktum kann bereits eine Identifikations- oder Klassifikationsleistung enthalten.
 
-1. Kann derselbe quellennahe Befund ohne Kopie in mindestens vier Sichten verwendet werden: Zeitschnitt, Objekt über Zeit, Akteursperspektive, Herrschafts-/Institutionskontext?
-2. Bleiben konkurrierende Zeit-/Raum-/Identitätsaussagen in allen Projektionen sichtbar statt durch einen kanonischen Wert verdrängt zu werden?
-3. Welche Relationen verlieren bei einfacher `subject-predicate-object`-Darstellung fachlich notwendige Rollen/Zeit/Raum/Evidenz?
-4. Welche Informationen sind echte kanonische Semantik und welche nur View-/Query-Parameter?
-5. Welche Transformationen sind rein lesend/abgeleitet, welche würden den Research State tatsächlich verändern und brauchen deshalb Promotion/Review?
+### Routing
+
+- fachliche Perspektiven/Method Truth → #60 und jeweilige Fachdomäne;
+- Raum/Scale → C4/#36/CAP-13;
+- Akteure/Situation → C5/#37/CAP-14;
+- Evidence Layering / Widerspruch → CAP-08/CAP-10/#45;
+- abgeleitete Research Views / Challengeability → C8/#38/CAP-17;
+- gemeinsamer State / technische Transformierbarkeit → nach Requirement-Akzeptanz #50/#48.
+
+### Nächster diskriminierender Test
+
+Nicht neue Objektklassen definieren, sondern einen **identischen kleinen Evidenzbestand** aus mindestens zwei aktuellen Piloten in mehreren fachlich verschiedenen Projektionen verwenden. Prüfen, welche Informationen invariant bleiben müssen, welche nur View-Parameter sind und wo fachdomänenspezifische Semantik beginnt.
 
 ---
 ## Search / Coverage Boundary
