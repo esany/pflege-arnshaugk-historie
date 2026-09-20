@@ -45,6 +45,19 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertTrue(states)
         self.assertTrue(all(status == "pass" for status in states.values()))
 
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual("ready", raw["execution_admission"]["required_status"])
+        self.assertEqual(5, len(raw["acceptance_tests"]))
+        self.assertEqual(4, len(raw["negative_tests"]))
+        self.assertTrue(raw["forbidden_loss"])
+        self.assertTrue(raw["upstream_driver_refs"])
+        self.assertTrue(raw["downstream_deferred_dependencies"])
+        self.assertTrue(all(
+            item["status"] == "not-authorized-in-current-stage"
+            for item in raw["downstream_deferred_dependencies"]
+        ))
+        self.assertIn("Do not mark REQ-RET-001", raw["coverage_claim_limit"])
+
     def test_changed_pass_basis_is_downgraded_to_unresolved(self):
         with TemporaryDirectory() as tmp:
             root = Path(tmp)
