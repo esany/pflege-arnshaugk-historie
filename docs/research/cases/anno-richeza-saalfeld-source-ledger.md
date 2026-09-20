@@ -3,7 +3,7 @@
 **Status:** `working-source-ledger / preliminary`  
 **Work Owner:** #103  
 **Protocol:** `docs/research/source-identity-protocol.md`  
-**Stand:** 2026-09-18
+**Stand:** 2026-09-20
 
 Dieses Ledger trennt Werk/Quelle, konkrete digitale Instanz, Inspektionsstatus und Forschungsnutzung. Ein Webfund ist keine Primärquelleninspektion.
 
@@ -112,16 +112,19 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 - **supports:** Michelsberg as early Bamberger episcopal monastery; source-critical warning on forged foundation tradition; Hirsau reform under Abbot Wolfram from 1112
 - **limits:** no direct Michelsberg→Saalfeld relation found in inspected passages; absence claim bounded to this and linked searches
 
-## ARS-009 – Thüringen östlich der Saale im Mittelalter, DDE
+## ARS-009 – Legacy case-local alias for Sachenbacher 2022 / DDE representation
 
-- **source_id:** `ARS-009`
-- **source_type:** digital scholarly/regional synthesis
-- **work_title:** Thüringen östlich der Saale im Mittelalter
+- **local_alias:** `ARS-009` — `deprecated for new references; retained for provenance of earlier #103 observations`
+- **canonical_source_id:** `SRC-LIT-0001`
+- **canonical_source_home:** `docs/research/cases/orlagau-source-ledger.md`
+- **source_identity:** Peter Sachenbacher, *Thüringen östlich der Saale im Mittelalter* (2022)
+- **representation / inspected instance:** ULB TU Darmstadt DDE/OATbyCO HTML representation of `SRC-LIT-0001`
 - **provider:** ULB TU Darmstadt / DDE
 - **landing_page:** https://exist.ulb.tu-darmstadt.de/2/v/pa000017-0007
 - **inspection_status:** `relevant Saalfeld section inspected`
-- **supports:** ezzonische Besitzfolge; 1056 transfer; 1063 canonry; 1071 conversion to Benedictine monastery; Cologne's regional possession
-- **limits:** one cited Coburg cartulary description is itself flagged as probably forged; individual claims need source-level control
+- **supports_as_secondary_representation:** ezzonische Besitzfolge; 1056 transfer tradition; 1057 confirmation framing; 1063 canonry; 1071 conversion to Benedictine monastery; Cologne's regional possession
+- **limits:** this is not a second bibliographic Source Identity. One cited Coburg cartulary description is itself flagged as probably forged; individual claims need source-level control.
+- **cross-pilot disposition 2026-09-20:** the former case-local Source Identity collided with the already canonical `SRC-LIT-0001`. The collision is resolved by aliasing the old ID to the shared source and keeping the DDE object at representation/instance level; no historical claim is thereby promoted or merged.
 
 ## ARS-010 – Saalfeld archaeology / DGAMN article
 
@@ -161,7 +164,7 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 
 ## Open source-identity work
 
-- Exact edition/instance and transmission note for Richeza's 1056 Saalfeld disposition.
+- Direct collation of the Brauweiler `Fundatio` and Rheinisches Urkundenbuch I Nr. 97 for the 1056 agreement / summer-1057 execution sequence, including transmission and legal-form wording.
 - Full MUB I Nr. 331 text and apparatus.
 - Latin critical Lampert edition for the 1071 passage.
 - 1124/1125 papal/Mainz confirmations and exact relation to 1071 rights.
@@ -224,8 +227,8 @@ Widersprechende Quellen werden nebeneinander geführt. Zotero-Metadaten, Tags un
 - **container:** Institutionen, Kultur und Gesellschaft im Mittelalter. Festschrift für Josef Fleckenstein
 - **publication_year:** 1984
 - **digital_instance:** https://www.mgh-bibliothek.de/dokumente/a/a089482.pdf
-- **inspection_status:** `relevant sections on Salz and Richeza property inspected`
+- **inspection_status:** `relevant sections on Salz and Richeza property inspected; pp. 241–243 visually controlled in the MGH PDF on 2026-09-20`
 - **exact_findspots:** pp. 241–243 in article pagination / PDF pp. 21–23
-- **relevance:** distinguishes several components of the royal property complex at Salz; argues that Richeza/Ezzo/Mathilde held only a specific `predium/curtis` there; reads the 1057/58 Würzburg precariae as compatible with Salz having reached Mathilde/Ezzo as marriage equipment; separately recalls the Saalfeld/Coburg donation to Cologne
-- **critical_note:** the contemporary Thietmar passage cited by Hlawitschka says only that Otto III gave Ezzo/Mathilde many goods so that Mathilde's high birth would not be diminished; it does not enumerate Coburg, Salz and Orlamünde individually
-- **limits:** this study does not by itself verify Orlamünde as a separately enumerated dowry estate
+- **relevance:** distinguishes several components of the royal property complex at Salz; argues that Richeza/Ezzo/Mathilde held only a specific `predium/curtis` there; reads the 1057/58 Würzburg precariae as compatible with Salz having reached Mathilde/Ezzo as marriage equipment. For Saalfeld/Coburg, pp. 242–243 distinguish an agreement made in 1056 from final execution in summer 1057 and cite the Brauweiler `Fundatio`, Rheinisches Urkundenbuch I Nr. 97 and Oediger's regesta.
+- **critical_note:** (1) the contemporary Thietmar passage cited by Hlawitschka says only that Otto III gave Ezzo/Mathilde many goods so that Mathilde's high birth would not be diminished; it does not enumerate Coburg, Salz and Orlamünde individually; (2) Hlawitschka's 1056→1057 sequencing is a scholarly source-critical synthesis, not a substitute for direct inspection of the Brauweiler `Fundatio` and RUB I Nr. 97.
+- **limits:** this study does not by itself verify Orlamünde as a separately enumerated dowry estate and does not close the direct-edition/transmission check for the Saalfeld/Coburg act sequence
