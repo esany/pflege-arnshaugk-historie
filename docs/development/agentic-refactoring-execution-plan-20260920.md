@@ -274,7 +274,7 @@ Tests:
 - query/corpus/version log;
 - result -> derivative -> findspot -> instance -> source roundtrip;
 - source bytes/derivative changed -> stale/revalidation path;
-- no hit automatically becomes Finding.
+- verify that a no-hit result does **not** automatically become a Finding or completeness claim.
 
 Only after this stage may REQ-RET-001/003/SRC-004 coverage advance beyond synthetic implementation.
 
