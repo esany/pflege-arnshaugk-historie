@@ -46,9 +46,10 @@
     "existing synthetic text-bearing provider-neutral fixture in tools/operational/tests/test_audit.py",
     "accepted requirement text for REQ-RET-001, REQ-RET-003 and REQ-SRC-004",
     "existing #50 provider-neutral Source/Representation/Instance/Derivative/Findspot/Finding separation",
-    "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one"
+    "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one",
+    "Project Assurance environment setup from .github/workflows/project-assurance.yml and tools/requirements/requirements.txt"
   ],
-  "current_executable_action": "Implement only the synthetic Exact Retrieval baseline permitted by #53: use the existing synthetic provider-neutral state with its text-bearing excerpt, add the smallest read-only exact word/phrase retrieval function, reproducible query log, and known-hit/no-hit/provenance-roundtrip tests. Do not use the real Sachenbacher projection as a searchable corpus. Persist the real-corpus dependency as unresolved. Stop if implementation requires new research-state semantics rather than consuming the existing synthetic roles.",
+  "current_executable_action": "Implement only the synthetic Exact Retrieval baseline permitted by #53: use the existing synthetic provider-neutral state with its text-bearing excerpt, add the smallest read-only exact word/phrase retrieval function, reproducible query log, and known-hit/no-hit/provenance-roundtrip tests. Do not use the real Sachenbacher projection as a searchable corpus. Persist the real-corpus dependency as unresolved. Stop if implementation requires new research-state semantics rather than consuming the existing synthetic roles. Before running formal local validators, mirror CI setup with `python -m pip install -r tools/requirements/requirements.txt`; if package installation itself is unavailable, report that as environment-degraded while still relying on PR Project Assurance for canonical CI verification.",
   "prerequisites": [
     {
       "ref": "accepted-retrieval-requirements-stable",
@@ -112,13 +113,27 @@
         }
       ],
       "note": "The real #55 Sachenbacher projection and #51 locator manifest preserve IDs/findspots/geometry but do not provide a text-bearing retrieval corpus. A later real #53 slice requires admitted bytes/fulltext/text derivative with preserved findspot mapping; #49 explicitly lists retrieval against the real library as downstream of its resolver work."
+    },
+    {
+      "ref": "local-assurance-dependency-setup-declared",
+      "status": "pass",
+      "basis": [
+        {
+          "path": ".github/workflows/project-assurance.yml",
+          "git_blob_sha": "faf43a64cd1dcb0fd2396e56656c212a017c882a"
+        },
+        {
+          "path": "tools/requirements/requirements.txt",
+          "git_blob_sha": "d1cfec3aeefd5dc8c157e12c27cc2468bc925b6e"
+        }
+      ],
+      "note": "Before local formal validators, install the declared validator dependency with python -m pip install -r tools/requirements/requirements.txt. Missing jsonschema in the prior Work environment was an execution-setup omission, not a repository blocker."
     }
   ],
   "open_blockers": [],
   "unresolved": [
     "real #53 U2/U4 falsification is blocked until an admitted text-bearing retrieval input can be resolved without inventing a second truth store",
-    "the exact provider for the later real corpus may be inspected bytes/text extraction, Zotero fulltext, or another existing derivative; #49/#48 must discriminate it from real capability evidence",
-    "jsonschema was missing in the Work environment, so local assurance validators were not executable there; repository/CI dependency setup must be made reproducible before relying on Work-local full assurance"
+    "the exact provider for the later real corpus may be inspected bytes/text extraction, Zotero fulltext, or another existing derivative; #49/#48 must discriminate it from real capability evidence"
   ],
   "may": [
     "inspect the full clean repository checkout and current tests",
@@ -173,7 +188,7 @@
         "real Sachenbacher chain exists only as a regenerable locator/audit projection in tools/operational/tests/test_audit.py",
         "the #51 reference manifest preserves instance/locator geometry but is not a searchable text corpus",
         "implementing real exact retrieval at this point would require new corpus/state semantics or an unavailable bytes/fulltext path",
-        "21 relevant tests passed in Work; full local Project Assurance was unavailable because jsonschema was missing"
+        "21 relevant tests passed in Work; local formal validators were not run because the Work environment had not installed the repo-declared dependency from tools/requirements/requirements.txt. This is an execution-setup omission; CI declares and installs it."
       ],
       "disposition": "Narrow this work order to the synthetic exact-retrieval baseline already allowed by issue #53. Route the real-corpus prerequisite to #48/#49/#53 instead of inventing it."
     }
