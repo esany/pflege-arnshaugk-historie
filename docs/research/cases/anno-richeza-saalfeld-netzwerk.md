@@ -4,7 +4,7 @@
 **Work Owner:** #103  
 **Research Governance:** #45 + `docs/research/source-identity-protocol.md`  
 **Method Owner:** #60  
-**Stand:** 2026-09-18
+**Stand:** 2026-09-20
 
 ## 1. Arbeitsmodus
 
@@ -61,7 +61,7 @@ Die Tabelle ist **kein chronologischer Narrativtext**, sondern ein wachsendes Re
 | O-002 | 1056 | ARS-001 | biographischer Abschnitt | Anno II. wird als Erzbischof von Köln für 1056 geführt. | `observation-secondary` |
 | O-003 | 1063-03-21 | ARS-002 / ARS-003 | biographische Abschnitte | Richezas Tod wird in Saalfeld lokalisiert. | `observation-secondary` |
 | O-004 | nach 1063 | ARS-002 / ARS-003 | biographische Abschnitte | Richezas Bestattung wird mit St. Maria ad Gradus in Köln verbunden. | `observation-secondary` |
-| O-005 | 1063/64 | ARS-009 | Saalfeld-Abschnitt | Die regionale Sekundärdarstellung nennt vor 1071 eine Kanonikergemeinschaft / ein Chorherrenstift in Saalfeld. | `reported-by-secondary` |
+| O-005 | 1063/64 | `SRC-LIT-0001` / DDE (legacy `ARS-009`) | Saalfeld-Abschnitt | Die regionale Sekundärdarstellung nennt vor 1071 eine Kanonikergemeinschaft / ein Chorherrenstift in Saalfeld. | `reported-by-secondary` |
 | O-006 | 1071 | ARS-005 | Annales 1071, moderne Ausgabe/Übersetzung pp. 152–154 | Lampert berichtet im Zusammenhang mit Saalfeld von Kanonikern und von Mönchen aus Siegburg und St. Pantaleon. | `observation` |
 | O-007 | 1071 | ARS-005 | Annales 1071 | Lampert berichtet über eigene Anwesenheit / Erkundung im Zusammenhang mit Saalfeld und Siegburg. | `observation` |
 | O-008 | 1071 | ARS-004 | MUB I Nr. 331, S. 223–226 | Zielquelle identifiziert; Rollen, Rechtsakte und Wortlaut von Anno/Siegfried noch nicht atomar exzerpiert. | `source-identified` |
@@ -73,12 +73,30 @@ Die Tabelle ist **kein chronologischer Narrativtext**, sondern ein wachsendes Re
 | O-014 | ca. 990–993 | ARS-013 / ARS-017 | Ezzo-Biographie; Hlawitschka zur Güterausstattung | Die moderne Ezzo-Biographie nennt Coburg, Salz und Orlamünde als Mathildes Mitgift. Die zeitgenössische Thietmar-Stelle nennt jedoch nur allgemein zahlreiche Gaben; Hlawitschka kann speziell für Salz eine Mitgift-/Ausstattungszuordnung quellenkritisch plausibilisieren. Für Coburg und besonders Orlamünde ist die konkrete primäre Zuweisung in diesem Arbeitsschritt noch nicht nachgewiesen. | `secondary-claim / partially-supported / unresolved-for-Orlamünde` |
 | O-015 | 1002–1012 | ARS-013 | Ezzo-Biographie, Abschnitt Konflikt mit Heinrich II. | Heinrich II. beanspruchte Güter, die Ezzo aus dem Erbe seiner Gemahlin hielt; die moderne Darstellung unterscheidet diese Erbgüter vom späteren Saalfeld-Erwerb. | `reported-by-secondary` |
 | O-016 | 1012/13 | ARS-013 / ARS-014 | Ezzo-Biographien | Nach dem Ausgleich mit Heinrich II. erhielt Ezzo Kaiserswerth, Duisburg und Saalfeld als freies Eigen; Saalfeld wird damit als eigener Erwerbsvorgang gegenüber Mathildes Heiratsgut behandelt. | `reported-by-secondary` |
-| O-017 | vor 1013 | ARS-009 / ARS-015 | Saalfeld-Abschnitte | Saalfeld wird vor dem Übergang an Ezzo als königlicher Besitz / Königshof bzw. Pfalz im ottonischen Reichsgutkontext beschrieben. | `reported-by-secondary` |
-| O-018 | 1034 | ARS-009 / ARS-013 | Ezzo-/Saalfeld-Biographien | Ezzo starb in Saalfeld; die Saalfelder Besitzgruppe ging anschließend an seinen Sohn Otto über. | `reported-by-secondary` |
-| O-019 | 1047 | ARS-009 / ARS-003 | Saalfeld-/Richeza-Darstellungen | Nach dem Tod Ottos 1047 gelangte dessen Erbe an Richeza; die NDB formuliert, dass sie seit 1047 allein über das reiche ezzonische Erbe verfügte. | `reported-by-secondary` |
+| O-017 | vor 1013 | `SRC-LIT-0001` / DDE (legacy `ARS-009`) / ARS-015 | Saalfeld-Abschnitte | Saalfeld wird vor dem Übergang an Ezzo als königlicher Besitz / Königshof bzw. Pfalz im ottonischen Reichsgutkontext beschrieben. | `reported-by-secondary` |
+| O-018 | 1034 | `SRC-LIT-0001` / DDE (legacy `ARS-009`) / ARS-013 | Ezzo-/Saalfeld-Biographien | Ezzo starb in Saalfeld; die Saalfelder Besitzgruppe ging anschließend an seinen Sohn Otto über. | `reported-by-secondary` |
+| O-019 | 1047 | `SRC-LIT-0001` / DDE (legacy `ARS-009`) / ARS-003 | Saalfeld-/Richeza-Darstellungen | Nach dem Tod Ottos 1047 gelangte dessen Erbe an Richeza; die NDB formuliert, dass sie seit 1047 allein über das reiche ezzonische Erbe verfügte. | `reported-by-secondary` |
 | O-020 | 1056 | ARS-003 / ARS-016 | Richeza-/Coburg-Darstellungen | Saalfeld und Coburg werden bei der Übertragung an das Erzstift Köln gemeinsam genannt. | `reported-by-secondary; primary-source-check-open` |
 | O-021 | 1057/58 | ARS-017 / ARS-003 | Hlawitschka S. 241–243; Richeza-Biographie | Richeza verfügte über ein `predium Salz` bei Neustadt an der Fränkischen Saale; dieses wurde 1057/58 in einem eigenen Würzburger Rechtsgeschäft behandelt. Salz ist damit als eigener Besitzkomplex neben Saalfeld/Coburg greifbar. | `scholarly-source-based` |
-| O-022 | 1056–1071 | ARS-009 / ARS-004 target tradition | Saalfeld-/Orlagau-Abschnitte; MUB I Nr. 331 noch direkt zu exzerpieren | Die regionale Forschung behandelt Saalfeld und den Orlagau als zusammengehörigen Richeza/Köln-Besitzkomplex; Orlamünde liegt als Ort im Orlaland/Orlagau. Ob der Ort Orlamünde bereits um 990 als selbständiges Mathilde-Heiratsgut zu isolieren ist, bleibt offen. | `supported-secondary / primary-source-check-open` |
+| O-022 | 1056–1071 | `SRC-LIT-0001` / DDE (legacy `ARS-009`) / ARS-004 target tradition | Saalfeld-/Orlagau-Abschnitte; MUB I Nr. 331 noch direkt zu exzerpieren | Die regionale Forschung behandelt Saalfeld und den Orlagau als zusammengehörigen Richeza/Köln-Besitzkomplex; Orlamünde liegt als Ort im Orlaland/Orlagau. Ob der Ort Orlamünde bereits um 990 als selbständiges Mathilde-Heiratsgut zu isolieren ist, bleibt offen. | `supported-secondary / primary-source-check-open` |
+| O-023 | 1056 → Sommer 1057 | ARS-017 | Hlawitschka, S. 242–243 / PDF S. 22–23 | Hlawitschka unterscheidet für Saalfeld/Coburg eine noch zu Lebzeiten Heinrichs III. 1056 getroffene Absprache von der endgültigen Durchführung im Sommer 1057; er verweist dafür auf die Brauweiler `Fundatio`, Rheinisches Urkundenbuch I Nr. 97 und Oedigers Regesten. | `scholarly-source-critical observation / direct-edition-check-open` |
+
+### Revision note 2026-09-20 – 1056/1057 nicht zu einem Einzelwert glätten
+
+O-001 und O-020 bleiben als Dokumentation dessen erhalten, was die dort benutzte Sekundärliteratur mit `1056` zusammenfasst. O-023 zeigt jedoch, dass dieser Wert nicht als alleiniger Datumspunkt eines einfachen Transfer-Events behandelt werden darf. Der aktuelle belastbare Arbeitsstand lautet:
+
+```text
+1056: Absprache / Schenkungstradition in der Forschung
+→ Sommer 1057: von Hlawitschka als endgültige Durchführung rekonstruiert
+→ direkte Kollation von Fundatio + RUB I Nr. 97 bleibt offen
+```
+
+Das ist derzeit **keine Quellenkontradiktion**. Eine einfachere Erklärung ist eine mehrstufige Rechts-/Überlieferungssituation, die verschiedene Sekundärdarstellungen unterschiedlich komprimieren. Welche juristischen Handlungen exakt zu unterscheiden sind, bleibt bis zur direkten diplomatischen Kollation `unresolved`.
+
+### Source-identity correction 2026-09-20
+
+Das frühere `ARS-009` ist keine eigenständige bibliographische Quelle, sondern die #103-lokale Alt-ID für eine DDE-Repräsentation von Sachenbacher 2022. Kanonische Source Identity ist `SRC-LIT-0001` in `docs/research/cases/orlagau-source-ledger.md`. Alte Verweise bleiben über den dokumentierten Alias rückführbar; neue Verweise benutzen `SRC-LIT-0001`.
+
 
 ## 4. Relation Register
 
@@ -87,7 +105,7 @@ Relationen werden **quellenweise** erfasst. Gleiche Entitäten können mehrere R
 | Relation-ID | Subjekt | Relationstyp | Objekt | Zeit | Grundlage | Status |
 |---|---|---|---|---|---|---|
 | R-001 | Richeza | `associated-with-place` | Saalfeld | 1063 | O-003 | `supported-secondary` |
-| R-002 | Richeza | `reported-transfer-to` | Kölner Erzstift | 1056 | O-001 | `candidate; primary-source-check-open` |
+| R-002 | Richeza | `reported-transfer-to` | Kölner Erzstift | 1056 agreement phase | O-001/O-023 | `coarse candidate; do not read as completed-transfer date; primary-source-check-open` |
 | R-003 | Anno II. | `office-holder-of` | Erzbistum Köln | ab 1056 | O-002 | `supported-secondary` |
 | R-004 | Richeza | `burial-associated-with` | St. Maria ad Gradus | nach 1063 | O-004 | `supported-secondary` |
 | R-005 | Saalfelder Kanoniker | `present-at` | Saalfeld | vor/1071 | O-005/O-006 | `supported-multiple` |
@@ -106,15 +124,20 @@ Relationen werden **quellenweise** erfasst. Gleiche Entitäten können mehrere R
 | R-018 | Ezzo | `residence/death-associated-with` | Saalfeld | 1034 | O-018 | `supported-secondary` |
 | R-019 | Otto (Sohn Ezzos) | `inheritance-associated-with` | Saalfeld/Coburg estate bundle | 1034–1047 | O-018/O-019 | `candidate; source-level check open` |
 | R-020 | Richeza | `inheritance-associated-with` | ezzonischer Familienbesitz | ab 1047 | O-019 | `supported-secondary` |
-| R-021 | Saalfeld | `jointly-transferred-with` | Coburg | 1056 | O-020 | `supported-secondary; primary-source-check-open` |
+| R-021 | Saalfeld | `jointly-transferred-with` | Coburg | 1056 agreement phase | O-020/O-023 | `coarse relation; execution sequence 1056→1057 unresolved at source level` |
 | R-022 | Saalfeld | `estate-complex-associated-with` | Orlagau / Land Orla | 1056–1071 | O-022 | `supported-secondary; direct charter extraction open` |
 | R-023 | Orlamünde | `located-within-research-space` | Orlagau / Land Orla | 11. Jh. | O-022 | `geographic/institutional-context; exact legal status open` |
+
+### Relation caution from the cross-pilot
+
+R-002 and R-021 are useful as coarse navigation relations, but the 1056→1057 evidence shows that a simple binary relation plus one date loses relevant legal and transmission context. This does **not** imply that every historical relation must become an event object. It only marks these two relations as insufficient for consequential legal interpretation until the underlying acts, roles, dates and source layers have been directly collated.
+
 
 ## 5. Offene Knoten / Anschlussfragen
 
 Diese Liste steuert weitere Verdichtung, ohne bereits eine Antwort vorzugeben.
 
-- Welche konkrete Urkunde bzw. Überlieferung liegt der berichteten Saalfeld-/Coburg-Übertragung Richezas zugrunde?
+- Wie verhalten sich Brauweiler `Fundatio`, Rheinisches Urkundenbuch I Nr. 97 und die von Hlawitschka rekonstruierten Phasen `1056 Absprache → Sommer 1057 endgültige Durchführung` zueinander? Direkte Edition-/Überlieferungskollation ist offen.
 - Welche konkrete Quellenkette trägt die moderne Zuweisung Coburgs zu Mathildes Ausstattung?
 - Ist die Nennung **Orlamündes** als Mathildes Heiratsgut eine belastbare eigenständige Besitztradition oder eine spätere/sekundäre Rückprojektion aus dem Saalfeld-Orlagau-Komplex?
 - Für **Salz**: welche genaue Besitzkomponente (predium/curtis) gelangte an Mathilde/Ezzo, nachdem Königshof/Kastell und villa teils separat an Würzburg vergeben worden waren?
