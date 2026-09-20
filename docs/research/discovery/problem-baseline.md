@@ -355,6 +355,59 @@ Zeit, Raum und Relationen bleiben wichtig, aber nicht als bereits feststehende `
 Nicht neue Objektklassen definieren, sondern einen **identischen kleinen Evidenzbestand** aus mindestens zwei aktuellen Piloten in mehreren fachlich verschiedenen Projektionen verwenden. Prüfen, welche Informationen invariant bleiben müssen, welche nur View-Parameter sind und wo fachdomänenspezifische Semantik beginnt.
 
 ---
+## User-Research Update 2026-09-20 – Quellenkontext als Provenienzuntergrund, multiple Temporalitäten
+
+**Status:** `owner mental-model refinement / research-state hypothesis / no Requirement or schema choice`
+
+### Meta-Beobachtung
+
+Der Research Owner präzisiert den gemeinsamen Forschungsraum als auf **Quellen-/Evidenzkontexten provenance-seitig gegründeten Wissensbestand**, über dem historische Entitäten, Zustände, Relationen, Findings sowie Forschungsfragen und deren Antworten wachsen. Abgeleitete Views sollen sowohl den Wissensstand als auch die jeweils verbundenen Quellen-/Evidenzschichten multiperspektivisch erschließen können.
+
+`unter` ist dabei als **epistemische/provenienzielle Abhängigkeit**, nicht als starre technische Layer-Hierarchie zu verstehen.
+
+### Wichtige Grenzziehung: Source Context ≠ Source Interpretation
+
+Zur Quelle/Instanz direkt dokumentierbare Kontexte (z. B. Urheber/Produzent, Datierung, Entstehungs-/Überlieferungszusammenhang, Gattung, konkrete Instanz, Fundstelle) sind von analytischen Aussagen über die Quelle zu trennen.
+
+Beispiele wie `Motivation des Textes`, `intendiertes Publikum`, `Interessenlage`, `Deutungshoheit`, `Diskursposition` oder `repräsentative Funktion` können fachlich zentral sein, sind aber häufig **Findings/Claims/Interpretationen mit eigener Evidenz, Methode, Zeit- und Geltungsgrenze** und dürfen nicht still als neutrale Source-Metadaten gespeichert werden.
+
+### Generalisierte Projektionsdimensionen – noch keine symmetrischen Datentypen
+
+Zeit, Raum, Relation und Raum-Zeit werden als wiederkehrende **Qualifikations-/Projektionsdimensionen** erlebt. Sie müssen nicht denselben ontologischen Typ besitzen:
+
+- **Zeit** qualifiziert u. a. Ereignisse, Zustände, Relationen, Quellen und Forschungsprozesse;
+- **Raum** qualifiziert Orte, Ausdehnungen, Lokalisierungen, Bewegungen, Herkunft/Entstehung und Analysemaßstäbe;
+- **Relation** verbindet historische Akteure/Objekte/Ereignisse, aber auch Quellenüberlieferung, Evidenz und Research-State-Objekte; diese Relationsfamilien dürfen nicht vermischt werden;
+- **Raum-Zeit** kann als zusammengesetzte Qualifikation genügen, wird aber bei Bewegungen, Trajektorien, wechselnden Territorien, Kampagnen, Nutzungsphasen oder zyklischen Phänomenen möglicherweise selbst zum fachlich relevanten Gegenstand.
+
+### Zu unterscheidende Zeitrollen / Temporalitäten
+
+Mindestens als Discovery-Hypothese getrennt zu prüfen:
+
+1. **historical occurrence time** – Zeitpunkt/Dauer eines Ereignisses;
+2. **state/validity time** – Zeitraum, in dem Besitz, Amt, Nutzung, Name, Grenze oder andere Relation/Zustand gilt;
+3. **periodization / analytical time** – Epoche/Phase als analytische oder historiographische Einordnung, nicht automatisch historischer Fakt;
+4. **recurrence/cyclicity** – saisonale, jährliche oder andere wiederkehrende Phänomene; von einzelnen beobachteten Episoden zu unterscheiden;
+5. **source production time** – wann eine Quelle erzeugt/verfasst wurde;
+6. **source reference time** – welche Zeitpunkte/-räume die Quelle selbst erwähnt oder retrospektiv beschreibt;
+7. **transmission/representation time** – Abschrift, Edition, Veröffentlichung, Digitalisierung oder andere Repräsentationsstufen;
+8. **research time** – wann Histo-Orla eine Observation/Finding/Identity-Assertion erzeugt, reviewt, promoted, demoted oder superseded hat.
+
+Diese Rollen dürfen bei Views/Queries kombinierbar sein, ohne auf ein einziges Feld `date` reduziert zu werden.
+
+### Forschungsfragen und Antworten im Wissensraum
+
+Research Questions, Hypothesen und Antworten/Synthesen sollen als **Research-State-Objekte** dokumentierbar sein, die auf gemeinsame Evidenz/Findings referenzieren. Eine Antwort ist kein neuer historischer Fakt und besitzt Scope, Methode, verwendeten Wissensstand, offene Alternativen und ggf. Revisionshistorie.
+
+### Nächste diskriminierende Fragen
+
+1. Welche Source-Context-Information ist direkt dokumentierbar, welche bereits domänenspezifische Interpretation?
+2. Welche Temporalitäten werden in den aktuellen Piloten tatsächlich benötigt und dürfen keinesfalls zusammenfallen?
+3. Welche Relationsfamilien müssen getrennt bleiben: historical, spatial, transmission/provenance, evidential, research/meta?
+4. Welche Views müssen sowohl vom Finding zur Quelle als auch von der Quelle zu allen abhängigen Findings/Fragen/Antworten navigieren können?
+5. Ist `Raum-Zeit` im gemeinsamen Kern ein eigener semantischer Typ oder überwiegend Komposition aus Zeit-/Raumqualifikation plus domänenspezifischen Ereignis-/Prozessmodellen?
+
+---
 ## Search / Coverage Boundary
 
 Diese Discovery-Baseline ist **keine externe Literaturrecherche**. Abgedeckt ist der aktuelle kanonische Histo-Orla-Konzeptstand aus README, Research-Design und den aktiven fachlichen/technischen Issues, mit internen Prior-Art-Issues #12/#21 als gekennzeichnetem Input. Externe Validierung erfolgt erst in #31–#39.
