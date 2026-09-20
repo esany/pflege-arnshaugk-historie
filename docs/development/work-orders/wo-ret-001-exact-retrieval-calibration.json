@@ -159,7 +159,12 @@
     "docs/architecture/contracts/canonical-research-state.md",
     "docs/architecture/assurance/value-decision-delivery-assurance.md",
     "docs/development/requirements-coverage.md",
-    "tools/operational/audit.py"
+    "tools/operational/audit.py",
+    "docs/development/agentic-refactoring-execution-plan-20260920.md",
+    "docs/architecture/integrations/zotero-onedrive.md",
+    "tools/operational/tests/test_audit.py",
+    ".github/workflows/project-assurance.yml",
+    "tools/requirements/requirements.txt"
   ],
   "calibration_history": [
     {
@@ -228,7 +233,97 @@
       "CurrentContext.status == ready",
       "declared local test dependency setup is executable or CI fallback is explicit",
       "no hidden need for new Requirement/Method/State semantics",
-      "acceptance and negative tests are specified before code changes"
+      "acceptance and negative tests are specified before code changes",
+      "acceptance_tests and negative_tests are present and understood",
+      "coverage_claim_limit is preserved"
     ]
-  }
+  },
+  "upstream_driver_refs": [
+    "G-004",
+    "G-008",
+    "N-006",
+    "N-008",
+    "N-015",
+    "N-018",
+    "P-004"
+  ],
+  "current_stage_search_contract": {
+    "mode": "literal-exact-calibration",
+    "rule": "The calibration must perform literal matching against the text value already present in the synthetic excerpt. No implicit case folding, stemming, fuzzy matching, spelling normalization, historical variant expansion or semantic expansion is allowed.",
+    "query_provenance": "Record the user/query string exactly as executed plus explicit match mode, filters, corpus boundary and implementation/version.",
+    "corpus_boundary": "The calibration corpus is only the explicitly supplied synthetic provider-neutral state/fixture. The test fixture is not promoted into canonical Research State.",
+    "result_boundary": "A hit reports existing provenance references; it is not a Finding, Claim or entity assertion."
+  },
+  "forbidden_loss": [
+    "loss or conflation of Source/Representation/Instance/Derivative/Findspot/Excerpt/Finding/Claim distinctions",
+    "loss of missing/unresolved state",
+    "loss of query/corpus/version provenance needed to explain a rerun",
+    "implicit normalization or variant expansion presented as exact matching",
+    "promotion of test/derived fixture content into canonical research truth",
+    "promotion of hit/no-hit into historical Finding or completeness claim",
+    "introduction of provider path/key as canonical internal identity"
+  ],
+  "acceptance_tests": [
+    {
+      "ref": "RET-CAL-A01",
+      "statement": "The existing synthetic excerpt text is found by a literal exact query that occurs in it.",
+      "expected": "one or more stable hit records with the existing excerpt/findspot and parent provenance references"
+    },
+    {
+      "ref": "RET-CAL-A02",
+      "statement": "A literal query absent from the synthetic corpus returns no hits.",
+      "expected": "empty hit set; no Finding/Claim/negative historical conclusion is created"
+    },
+    {
+      "ref": "RET-CAL-A03",
+      "statement": "The same query against the same declared corpus boundary produces the same query-log parameters and equivalent hit provenance.",
+      "expected": "reproducible query/corpus/version record"
+    },
+    {
+      "ref": "RET-CAL-A04",
+      "statement": "Each hit round-trips from excerpt/findspot through derivative/instance/representation/source using only existing fixture relations.",
+      "expected": "no inferred IDs or newly invented state"
+    },
+    {
+      "ref": "RET-CAL-A05",
+      "statement": "Exact search runs with no LLM/semantic retrieval dependency.",
+      "expected": "tests succeed with only local deterministic Python code"
+    }
+  ],
+  "negative_tests": [
+    {
+      "ref": "RET-CAL-N01",
+      "statement": "Different case or other normalization is not silently treated as the same literal query.",
+      "expected": "no match unless that exact character sequence exists; any future normalization requires a separate explicit mode/decision"
+    },
+    {
+      "ref": "RET-CAL-N02",
+      "statement": "A hit with missing/invalid provenance cannot be silently repaired by inference.",
+      "expected": "fail closed or surface explicit missing/unresolved according to existing contract"
+    },
+    {
+      "ref": "RET-CAL-N03",
+      "statement": "Real Sachenbacher audit projection is not accepted as searchable corpus merely because its provenance chain is real.",
+      "expected": "no real-source verification claim or real-corpus fixture added"
+    },
+    {
+      "ref": "RET-CAL-N04",
+      "statement": "Implementation does not create persistent index/database/state.",
+      "expected": "all retrieval output is read-only/regenerable"
+    }
+  ],
+  "environment_setup": {
+    "python": "3.12-compatible; mirror Project Assurance where possible",
+    "dependency_install": "python -m pip install -r tools/requirements/requirements.txt",
+    "required_local_checks": [
+      "python -m unittest discover -s tools/operational/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/document_evidence/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/requirements/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/assurance/tests -p 'test_*.py' -v",
+      "python tools/requirements/validate.py",
+      "python tools/assurance/validate.py --changed-from <merge-base/main>"
+    ],
+    "canonical_ci": ".github/workflows/project-assurance.yml"
+  },
+  "coverage_claim_limit": "At most mark the exact-search/query-provenance implementation as partial/in-progress until the real source falsification stage succeeds. Do not mark REQ-RET-001, REQ-RET-003 or REQ-SRC-004 verified from the synthetic calibration alone."
 }
