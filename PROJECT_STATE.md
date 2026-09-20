@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-18  
+**Stand:** 2026-09-20  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -15,7 +15,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
-- **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
+- **#64 / PR #118** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Der Deep-Research-Review `docs/architecture/assurance/sociotechnical-research-architecture-deep-research-20260920.md` rekonstruiert die Korrekturschleifen, challengt sie mit externem SOTA und leitet falsifizierbare Experimente ab. Er ist Review-Evidence ohne Requirement-, Method-, Historical-, Selection- oder Architecture-Decision-Authority. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
 - **#92 / PR #94** – Architecture/Product Re-Baseline ist als Roadmap-Sicht integriert. Sie ordnet bestehende Arbeit als `governing/project | domain/research | product capability | operational support | pilot/testfixture | superseded/archive`, ohne neue Requirement-, Method-, Historical- oder Selection-Authority zu schaffen. `src/histo_orla/` ist kein Pflichtziel; eine Product-Code-Grenze entsteht erst bei realer dauerhafter Runtime-Produktlogik oder nachgewiesener Responsibility-Kollision mit `tools/`.
 
 Verbindlich gilt:
@@ -43,6 +43,7 @@ Kanonisch:
 - `docs/architecture/assurance/work-selection-reconciliation-20260910.md`
 - `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
+- `docs/architecture/assurance/sociotechnical-research-architecture-deep-research-20260920.md` – #64/PR #118 Review-Evidence; keine Decision Authority
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
