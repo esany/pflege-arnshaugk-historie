@@ -408,6 +408,63 @@ Research Questions, Hypothesen und Antworten/Synthesen sollen als **Research-Sta
 5. Ist `Raum-Zeit` im gemeinsamen Kern ein eigener semantischer Typ oder überwiegend Komposition aus Zeit-/Raumqualifikation plus domänenspezifischen Ereignis-/Prozessmodellen?
 
 ---
+## User-Research Update 2026-09-20 – Tatsachenwiderspruch vs. Modell-/Theoriepluralität
+
+**Status:** `owner mental-model refinement / discrepancy-and-research-object hypothesis / no Requirement`
+
+### Beobachtung
+
+Der Research Owner unterscheidet implizit zwei sehr unterschiedliche Formen wissenschaftlicher Offenheit, die beide im gemeinsamen Wissensraum erhalten bleiben müssen:
+
+1. **konkrete konkurrierende historische Claims** zu demselben Sachverhalt, z. B. Quelle A berichtet Tod in Haft in Dresden, Quelle B Tod zu Hause in Oppurg;
+2. **komplexe historiographische / fachwissenschaftliche Modellpluralität**, bei der verschiedene Begriffe, Theorien und Erklärungsmodelle denselben längerfristigen historischen Prozess unterschiedlich strukturieren oder erklären, als Beispiel `Landesausbau im Mittelalter` regional wie überregional.
+
+### Klasse A – konkurrierende konkrete Claims
+
+Ein solcher Fall kann als Research Question + mehrere provenance-gebundene Claims diagnostiziert werden. Die Differenz kann sich durch Quellenabhängigkeit, Datierung, Personenidentität, räumliche Referenz, Textintention, Überlieferung oder neue Evidenz auflösen; sie kann aber auch als echter `unresolved contradiction` bestehen bleiben.
+
+Die spätere Auflösung darf den früheren Widerspruch und seinen Diagnoseweg nicht aus der Research History löschen.
+
+### Klasse B – Modell-/Theorie-/Begriffspluralität
+
+Hier liegt nicht notwendig ein logischer Widerspruch zweier Aussagen über denselben atomaren Sachverhalt vor. Relevante Research-State-Objekte können u. a. sein:
+
+- historiographischer / analytischer Begriff;
+- Modell oder Theorie;
+- definierter Geltungs-/Anwendungsbereich;
+- zentrale Erklärungskomponenten/Mechanismen;
+- Periodisierung und räumlicher Maßstab;
+- verwendete Evidenzarten und methodische Voraussetzungen;
+- Vertreter / Publikationen / Forschungstradition;
+- Revisionen, Kritik und konkurrierende Modelle;
+- regionale Anwendung / Fit / Nicht-Fit / Teil-Fit auf konkrete Befunde.
+
+Ein regionaler Befund kann mehrere Modelle gleichzeitig unterschiedlich stützen, relativieren oder für bestimmte Teilfragen unentscheidbar lassen. Deshalb darf `Modell A vs. Modell B` nicht automatisch als `contradiction` normalisiert werden.
+
+### Forschungsfrage und Antwort als Research-State
+
+Eine Research Question kann sowohl atomar (`Wo starb X?`) als auch modellorientiert (`Wie lässt sich Prozess Y in der Region fachlich erklären/konzeptualisieren?`) sein. Antworten/Synthesen müssen ihren Typ, Scope und verwendete Erkenntnisebene erkennen lassen:
+
+- bei konkreten Claim-Konflikten: diagnostizierter Stand, Evidenzlage, ggf. resolved/unresolved;
+- bei Modellfragen: welche Modelle/Begriffe wurden geprüft, welche Teilbefunde tragen oder widersprechen welchen Komponenten, wo bleiben Alternativen oder Inkommensurabilitäten bestehen.
+
+### Implikation für Discrepancy Management
+
+CAP-10/C6 bleibt für konkrete Discrepancies gültig, sollte aber in künftiger Method-/Capability-Arbeit nicht alle wissenschaftliche Pluralität unter `Widerspruch` subsumieren. Mindestens zu unterscheiden sind:
+
+`claim discrepancy | identity discrepancy | chronology discrepancy | spatial discrepancy | source/transmission discrepancy | conceptual/terminological divergence | explanatory-model competition | historiographical controversy | genuinely unresolved contradiction`.
+
+Diese Liste ist Discovery-/Falsifikationsmaterial, keine akzeptierte universelle Taxonomie.
+
+### Routing
+
+- konkrete Quellen-/Claim-Discrepancy → C6/#34/CAP-10;
+- Begriffe/Gegenstandsmodelle → CAP-01 + jeweilige Fachdomäne;
+- Modelle/Theorien/Forschungstraditionen → #60 Domain Method Profiles + Historiographie/jeweilige Sachdomäne;
+- transdisziplinäre Integration unter Alternativerhalt → CAP-16;
+- Forschungsfragen/Antworten als dokumentierter Research State → weiterer Acceptance-/Architecture-Test, nicht automatisch Requirement.
+
+---
 ## Search / Coverage Boundary
 
 Diese Discovery-Baseline ist **keine externe Literaturrecherche**. Abgedeckt ist der aktuelle kanonische Histo-Orla-Konzeptstand aus README, Research-Design und den aktiven fachlichen/technischen Issues, mit internen Prior-Art-Issues #12/#21 als gekennzeichnetem Input. Externe Validierung erfolgt erst in #31–#39.
