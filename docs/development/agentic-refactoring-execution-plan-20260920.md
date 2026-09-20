@@ -196,12 +196,15 @@ Input:
 
 Scope:
 
-- literal exact word/phrase retrieval;
-- explicit query parameters;
-- reproducible corpus boundary;
+- case-sensitive literal substring/phrase retrieval for this bounded calibration;
+- equality filters only over existing provenance IDs;
+- exact query + match mode + filters;
+- caller-supplied corpus reference plus deterministic SHA-256 corpus fingerprint;
+- explicit implementation version;
 - known-hit;
 - no-hit;
-- hit -> excerpt/findspot -> instance/source roundtrip;
+- hit -> excerpt/findspot -> derivative/instance/representation/source roundtrip;
+- missing ancestry / unknown filter / empty query fail closed;
 - no LLM/semantic layer.
 
 Forbidden:
@@ -394,7 +397,9 @@ Deferred until Terra calibration has produced stable task classes. Use only for 
 | Basis fingerprints current | no stale PASS | pre-implementation |
 | Context status = READY | no hidden blocker | pre-implementation |
 | Known hit | positive retrieval behavior | implementation |
-| No hit | no fabricated result | implementation |
+| No hit | no fabricated result / no completeness claim | implementation |
+| Equality filter + unknown-filter failure | filter behavior explicit, no inferred identity | implementation |
+| Corpus fingerprint stability/change | reproducible corpus boundary | implementation |
 | Findspot/source roundtrip | provenance retention | implementation |
 | Missing/unresolved retained | no epistemic filling | regression |
 | AI not required | REQ-RET-001 | regression |
