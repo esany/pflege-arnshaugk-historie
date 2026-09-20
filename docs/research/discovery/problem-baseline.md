@@ -313,6 +313,45 @@ Danach erst:
 Owner-Beispiele werden als **Design-/Falsifikationsmaterial** bewahrt, nicht automatisch als abschließende Objekt- oder Featureliste.
 
 ---
+## User-Research Update 2026-09-20 – multiperspektivische Projektionen / syntaktische Achsen
+
+**Status:** `owner mental-model refinement / capability-and-model hypothesis / no Requirement or storage choice`
+
+### Beobachtung
+
+Der Research Owner präzisiert das gewünschte Arbeitserleben als **multiperspektivische Projektionen auf möglichst quellennahe Befunde und Kontexte**. Zeit, Raum, Personen/Akteure, Herrschafts-/Institutionsstrukturen und Relationen werden als analytisch unterschiedlich behandelbare Achsen erlebt; derselbe Forschungszustand soll je nach Frage anders geschnitten, verfolgt, verbunden oder dargestellt werden können.
+
+Die Beispiele haben neben ihrer fachlichen Coverage ausdrücklich **syntaktische Relevanz**: zu klären ist, wie zeitliche, räumliche und relationale Qualifikation an quellennahe Beobachtungen/Assertions gebunden werden muss, damit verschiedene Projektionen aus demselben State möglich bleiben.
+
+### Epistemische Präzisierung
+
+`neutrale Fakten` wird vorläufig nicht als voraussetzungsfreie historische Wahrheit verstanden, sondern als Zielrichtung **quellennahe, minimal interpretierte Observation/Assertion mit erhaltener Wortlaut-/Fundstellen-/Provenienzgrenze**. Normalisierung, Identifikation, Relation, Finding und Interpretation bleiben davon unterscheidbar.
+
+### Zu prüfende syntaktische Hypothesen
+
+- **Zeit** ist nicht nur ein Attribut eines Objekts: Ereignisse, Zustände und Relationen können eigene historische Geltungszeiten besitzen; Quellenentstehungszeit und Research-/Revisionszeit sind davon zu unterscheiden.
+- **Raum** ist nicht nur eine feste Koordinate: eine historische Entität kann mehrere zeit-, quellen- oder hypothesenabhängige Namen, Geometrien, Lokalisierungen und räumliche Beziehungen besitzen.
+- **Relationen** sind nicht notwendig einfache binäre Kanten: Besitzübertragung, Amt, Herrschaft, Reise, Rechtsakt oder institutionelle Zugehörigkeit können Rollen, Gegenstände, Zeit, Raum und Evidenz tragen und daher ereignis-/assertionsartig modelliert werden müssen.
+- **Projektionen** wie Zeitschnitt, Objekt-biographie, Personen-/Akteursnetz, Herrschaftsstruktur, Karten-/Timeline-/Network-View sollen nach Möglichkeit aus demselben kanonischen State abgeleitet werden; die Projektion darf keine zweite Truth erzeugen.
+
+### Fachliches Routing / Gegenprüfung
+
+- Zeit/Raum/Multi-Scale: C4/#36/CAP-13 + Historical GIS/Spatial Humanities/jeweilige historische Raumdomäne;
+- Akteure/Rollen/Situationen: C5/#37/CAP-14 + problemabhängige Prosopographie/Sozial-/Politikgeschichte;
+- Herrschaft/Recht/Institution: unter #60 an die jeweils führende Fachdomäne routen, nicht als generische Graphsemantik vorentscheiden;
+- Evidence Layering: CAP-08/#45/#50;
+- multiple derived Views: C8/#38/CAP-17;
+- technische Repräsentation (relational/graph/document/event/attestation etc.) bleibt Hypothese unter #48/#50 und muss gegen reale Projektionen diskriminiert werden.
+
+### Discriminating user-research / prototype questions
+
+1. Kann derselbe quellennahe Befund ohne Kopie in mindestens vier Sichten verwendet werden: Zeitschnitt, Objekt über Zeit, Akteursperspektive, Herrschafts-/Institutionskontext?
+2. Bleiben konkurrierende Zeit-/Raum-/Identitätsaussagen in allen Projektionen sichtbar statt durch einen kanonischen Wert verdrängt zu werden?
+3. Welche Relationen verlieren bei einfacher `subject-predicate-object`-Darstellung fachlich notwendige Rollen/Zeit/Raum/Evidenz?
+4. Welche Informationen sind echte kanonische Semantik und welche nur View-/Query-Parameter?
+5. Welche Transformationen sind rein lesend/abgeleitet, welche würden den Research State tatsächlich verändern und brauchen deshalb Promotion/Review?
+
+---
 ## Search / Coverage Boundary
 
 Diese Discovery-Baseline ist **keine externe Literaturrecherche**. Abgedeckt ist der aktuelle kanonische Histo-Orla-Konzeptstand aus README, Research-Design und den aktiven fachlichen/technischen Issues, mit internen Prior-Art-Issues #12/#21 als gekennzeichnetem Input. Externe Validierung erfolgt erst in #31–#39.
