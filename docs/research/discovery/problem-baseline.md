@@ -269,202 +269,102 @@ Forschung: #39/#40; Architektur erst nach #42/#43.
 - **Provenance fit:** Jeder Eintrag verweist auf kanonische Issues/Research-Design als Ursprung.
 - **Falsification/challenge:** Für research-needed Punkte ist eine nächste discriminating action bzw. ein SOTA-Owner angegeben.
 
-## User-Research Update 2026-09-19 – Input darf nicht direkt zu Requirement/Feature werden
+## Post-baseline Owner User-Research Synthesis – Stand 2026-09-20
 
-**Status:** `new owner observation / reinforces existing baseline / no new Requirement yet`
+**Status:** `working synthesis / user-research evidence + assistant hypotheses / not accepted Requirement / no reopening of baseline v0.1`
 
-### Beobachtung
+### Lifecycle / Provenienz
 
-Der Research Owner hat explizit korrigiert, dass laufende Kommunikation mit ihm als **User Research** zu behandeln ist. Konkrete Beispiele, Metaphern und gewünschte Sichten dürfen nicht 1:1 als fachliche Wahrheit, Objektmodell, Feature oder Architektur übernommen werden.
+Dieser Abschnitt konsolidiert die zwischen PR #111–#115 schrittweise dokumentierten Owner-Signale. Die frühere Chronologie bleibt in Git-/PR-History erhalten; sie ist **nicht** als vier parallel gültige Discovery-Schichten zu lesen.
 
-Auslöser war die zu direkte Promotion von Owner-Beispielen zu einem kanonisch formulierten „historischen Wissensraum“. Der Owner beschreibt den Forschungsraum u. a. als entlang verschiedener Achsen transformierbar (`Zeitschnitt`, `räumliches Objekt über Zeit`, `Personen`, `Herrschaftsstrukturen`), weist aber zugleich darauf hin, dass diese Achsen eigene Fachlogiken besitzen und erst fachlich/technisch sondiert werden müssen.
+Die konsolidierte Synthese ersetzt die früheren Einzelabschnitte nur als **aktuelle Working Interpretation**. Sie erzeugt weder neue Method Truth noch ein Requirement, Datenmodell oder Architekturziel.
 
-### Klassifikation gegen bestehende Baseline
+### Beobachtete Owner-Signale
 
-Diese Beobachtung erzeugt zunächst **keinen neuen Need und kein neues Requirement**. Sie bestätigt bzw. verschärft die praktische Relevanz bereits vorhandener Punkte:
+Über mehrere Äußerungen hinweg sind stabil erkennbar:
 
-- `G-002` / `N-001`: Nutzerinput muss fachlich übersetzt werden;
-- `G-003` / `N-002`: relevante Fachkompetenzen und Geltungsgrenzen müssen geroutet werden;
-- `G-011`: Technik definiert Needs/Fachsemantik nicht;
-- `G-012` / `N-020`: keine unnötige Formalisierung/Technik vor diskriminierendem Need;
-- `N-017`: Verantwortungsallokation Mensch/Fachdomäne/Software/LLM;
-- `P-007`: Nutzer soll die notwendige Fachzuständigkeit nicht selbst vorab kennen müssen;
-- `P-008`: plausible KI-Formulierung darf keine fachliche Autorität simulieren;
-- `P-016`: Lösungs-/Modellideen dürfen sich nicht vorschnell als Requirements verfestigen.
+- Histo-Orla soll sehr unterschiedliche Epochen und Evidenzarten in einem langfristig wachsenden regionalen Forschungsraum tragen;
+- mehrere Research-Piloten sollen vorhandene Quellen-/Evidenz- und Wissensbestände wiederverwenden und weiter verdichten statt isolierte Case-Silos aufzubauen;
+- derselbe Forschungsstand soll unter wechselnden Fragestellungen und Fachperspektiven unterschiedlich untersucht und dargestellt werden können;
+- keine einzelne zeitliche, räumliche, akteurs-, herrschafts-, objekt- oder quellenbezogene Perspektive soll den gesamten Forschungsraum vorstrukturieren;
+- Quellen-/Evidenzkontexte müssen vom Wissensstand aus erreichbar bleiben und umgekehrt;
+- Research Questions sind selbst dokumentierbarer Forschungszustand;
+- konkrete widersprüchliche Quellenclaims können aufgelöst werden oder als `unresolved` erhalten bleiben;
+- komplexe fachwissenschaftliche Begriffe, Modelle und Theorien – z. B. bei langfristigen Prozessen – sind nicht auf einfache Claim-Widersprüche reduzierbar;
+- Zeit, Raum und Relationen sind in realen historischen Fragen semantisch komplex; vereinfachende Universalattribute dürfen diese Komplexität nicht still glätten.
 
-### Routing des konkreten Mental Models
+### Assistenten-abgeleitete Working Hypotheses
 
-- `Zeit / Raum / Scale` → C4/#36/CAP-13;
-- `Personen / Akteure` → C5/#37/CAP-14;
-- `Herrschafts-/Institutionenstrukturen` → zuständige Fachdomänen unter #60;
-- `beliebig schneiden / kneten / transformieren` → zunächst User-Mental-Model + Research-UX/Analyse-Hypothese; gegen C8/#38/CAP-17 und reale Workflows testen;
-- `gemeinsame Quellenbasis` → bereits durch CAP-04/CAP-08/#50 gedeckter Research-State-Bedarf; konkrete globale Identity-/Persistence-Lösung bleibt Architekturfrage.
+Aus diesen Signalen ergeben sich **zu prüfende**, nicht akzeptierte Hypothesen:
 
-### Schutzregel für weitere Owner-Kommunikation
+- ein gemeinsam referenzierbarer evidenzieller Research State könnte Cross-Question-/Cross-Pilot-Reuse ermöglichen;
+- viele gewünschte „Transformationen“ könnten als abgeleitete Projektionen/Views realisierbar sein, während wissenschaftliche Mutation/Promotion separat bleibt;
+- direkt dokumentierbarer Source Context muss von fachlicher Interpretation einer Quelle unterschieden werden;
+- mehrere unterschiedliche Zeitrollen sind wahrscheinlich nötig; eine endgültige gemeinsame Temporalitäts-Taxonomie ist **nicht** validiert;
+- konkrete Claim-Discrepancy und Modell-/Theoriepluralität brauchen wahrscheinlich unterschiedliche Behandlung;
+- Research Questions besitzen explizit State; ob Antworten/Synthesen eine eigene generische Lifecycle-/Objektform benötigen, bleibt offen;
+- die beobachtete Cross-Case-Source-ID-Kollision erzeugt realen Identity-/Reconciliation-Druck, legt aber weder globale Registry noch konkrete Persistenzform fest.
 
-Bei substantiellem Owner-Input zuerst klassifizieren:
+### Alternative Lesarten / explizite Unsicherheiten
 
-`Observation / Goal / Need / Pain / Mental Model / Research Question / Constraint / Quality Attribute / Capability Hypothesis / Feature Idea / Solution Hypothesis`
+- `neutrale Fakten` ist eine Owner-Heuristik, keine Behauptung voraussetzungsfreier historischer Wahrheit; fachlich geeigneter ist je Material `evidence-near observation / Befund`.
+- `orthogonal`, `Netz` und `kneten` sind Arbeitsmetaphern für Perspektivfreiheit/Transformierbarkeit; sie implizieren weder mathematische Unabhängigkeit noch Graph-Technologie.
+- projektweite Quellenverwaltung kann durch kanonische IDs, Alias-/Reconciliation-Mechanismen, externe Authorities oder Kombinationen realisiert werden; die kleinste hinreichende Form ist offen.
+- ein Research Case kann viele Eigenschaften einer View besitzen, kann aber auch eigenen Scope, Hypothesen, Method Applications und Research History erzeugen; `Case = nur View` ist nicht akzeptiert.
+- fachliche Modelle/Theorien können konkurrieren, komplementär sein, unterschiedliche Skalen erklären oder inkommensurabel bleiben; nicht jede Differenz ist ein `contradiction`.
 
-Danach erst:
+### Bestehende Abdeckung / Routing
 
-`fachliche Zuständigkeit + SOTA/Methodik → diskriminierende Prüfung → Capability/Requirement Candidate → #42 Acceptance → #48 technische Ableitung`.
+Die Signale überlappen stark mit bestehenden G/N/P/CAP-Strängen:
 
-Owner-Beispiele werden als **Design-/Falsifikationsmaterial** bewahrt, nicht automatisch als abschließende Objekt- oder Featureliste.
+- Problemübersetzung / Nutzer kennt Fachmodell nicht → G-002, N-001, P-001, CAP-01;
+- Expertise-/Method-Routing → G-003, N-002/N-003, P-007, CAP-02, #60;
+- Source/Provenance/Evidence Layering → N-004–N-006, CAP-04/CAP-08, #45/#50;
+- Widerspruch / Kontroverse / Nichtwissen → N-010/N-014, CAP-10, C6/#34;
+- Raum / Multi-Scale → N-012, CAP-13, C4/#36;
+- Akteurs-/Situationslogik → N-011, CAP-14, C5/#37;
+- Transdisziplinäre Synthese / Alternativerhalt → N-013/N-014, CAP-16;
+- mehrere abgeleitete Forschungsviews / Auditability → G-009, CAP-17, C8/#38;
+- Solution Bias / zu frühe Formalisierung → P-016, G-011/G-012, N-020.
 
----
-## User-Research Update 2026-09-20 – Meta-Prinzip: perspektivisch transformierbarer Forschungsraum
+### Nächste diskriminierende Tests
 
-**Status:** `owner mental-model synthesis / capability hypothesis / no Requirement or architecture choice`
+Vor Requirement-/Architecture-Promotion sollte mindestens geprüft werden:
 
-### Beobachtung über mehrere Owner-Inputs
+1. Kann derselbe kleine reale Evidenzbestand von mindestens zwei Research Contexts ohne Copy/semantic drift wiederverwendet werden?
+2. Können mehrere fachlich verschiedene Sichten daraus abgeleitet werden, während Provenienz, Unsicherheit und konkurrierende Aussagen sichtbar bleiben?
+3. Welche Informationen müssen dafür invariant kanonisch vorliegen, und welche sind lediglich Query-/View-Parameter?
+4. Welche semantischen Unterschiede benötigen tatsächlich gemeinsame Systemrepräsentation, und welche bleiben allein im Domain Method Profile bzw. Finding?
+5. Reduziert diese Arbeitsweise im realen Owner-Workflow Such-, Kontext- oder Orchestrierungsfriktion?
 
-Die bisherigen Aussagen zu 2000 Jahren Regionalgeschichte, transdisziplinären Quellengattungen, gemeinsamer Wissensbasis für mehrere Piloten, dynamischer Verdichtung, Widersprüchen, Zeit-/Raum-/Akteurs-/Herrschaftsperspektiven und `Netz kneten` sind **zusammen** zu lesen. Sie bilden keine Featureliste und keine wörtliche Achsentaxonomie.
+### Persistenz-/Promotion-Stop-Regel für weitere Owner-Kommunikation
 
-Das stärkere User-Research-Signal lautet:
+Nicht jeder substantielle Chat-Turn erzeugt einen neuen Repo-Abschnitt.
 
-> Der Research Owner erwartet einen gemeinsamen evidenzgebundenen Forschungszustand, der **keine einzelne Perspektive privilegiert** und je nach Erkenntnisfrage unter unterschiedlichen fachlichen Blickwinkeln neu projiziert und kontextualisiert werden kann.
+Neues Owner-Feedback wird zunächst als User-Research-Signal behandelt und erst dann neu kanonisch synthetisiert, wenn mindestens eines gilt:
 
-Die genannten Gegenstände und Perspektiven sind Design-/Falsifikationsbeispiele dafür, ob dieses Verhalten wirklich funktioniert.
+- ein stabiles neues Goal/Constraint wurde explizit gesetzt;
+- mehrere Signale bilden ein wiederkehrendes Need-/Pain-Muster;
+- eine Capability-/Requirement-/Method-Promotion wird vorbereitet;
+- ein realer Workflow-/Pilot-Test verändert die Bewertung;
+- ohne Persistenz würde ein neuer kompetenter Bearbeiter handoff-relevant Wissen verlieren.
 
-### Daraus abgeleitete, noch zu prüfende Capability-Hypothesen
+Arbeitskette:
 
-- **Perspective independence:** derselbe kanonische Befund kann in mehreren Forschungszusammenhängen verwendet werden, ohne dupliziert oder umgedeutet werden zu müssen.
-- **Composability:** Perspektiven können kombiniert werden, z. B. Zeit + Raum + Akteur + institutioneller Kontext, ohne daraus eine einzige universelle Fachsemantik zu machen.
-- **Projection before mutation:** viele gewünschte Transformationen betreffen Auswahl/Organisation/Ansicht des State, nicht dessen wissenschaftliche Veränderung.
-- **Context reversibility:** aus einer abgeleiteten Sicht muss der Weg zurück zu Provenienz, Auswahlkriterien, offenen Alternativen und nicht gezeigten Kontexten nachvollziehbar bleiben.
-- **Plural semantics:** fachlich unterschiedliche Modelle dürfen denselben gemeinsamen Evidenzuntergrund nutzen und zu unterschiedlichen, nebeneinander bestehenden Findings kommen.
-
-### Einordnung der früheren syntaktischen Beispiele
-
-Zeit, Raum und Relationen bleiben wichtig, aber nicht als bereits feststehende `Achsen des Datenmodells`. Ihre syntaktische Relevanz ist ein **Stress-Test für den gemeinsamen State**: Er darf historische Geltung, räumliche Kontextualisierung und relationale Bedeutung nicht so fest in eine einzige Sicht einbacken, dass andere legitime Projektionen unmöglich werden.
-
-`neutrale Fakten` bleibt dabei eine heuristische Owner-Formulierung. Methodisch kontrolliert wird zwischen Source/Instance/Findspot, quellennahem Observation/Befund, Identifikation/Normalisierung, Finding, Claim und Interpretation unterschieden. Auch ein scheinbar neutrales Faktum kann bereits eine Identifikations- oder Klassifikationsleistung enthalten.
-
-### Routing
-
-- fachliche Perspektiven/Method Truth → #60 und jeweilige Fachdomäne;
-- Raum/Scale → C4/#36/CAP-13;
-- Akteure/Situation → C5/#37/CAP-14;
-- Evidence Layering / Widerspruch → CAP-08/CAP-10/#45;
-- abgeleitete Research Views / Challengeability → C8/#38/CAP-17;
-- gemeinsamer State / technische Transformierbarkeit → nach Requirement-Akzeptanz #50/#48.
-
-### Nächster diskriminierender Test
-
-Nicht neue Objektklassen definieren, sondern einen **identischen kleinen Evidenzbestand** aus mindestens zwei aktuellen Piloten in mehreren fachlich verschiedenen Projektionen verwenden. Prüfen, welche Informationen invariant bleiben müssen, welche nur View-Parameter sind und wo fachdomänenspezifische Semantik beginnt.
-
----
-## User-Research Update 2026-09-20 – Quellenkontext als Provenienzuntergrund, multiple Temporalitäten
-
-**Status:** `owner mental-model refinement / research-state hypothesis / no Requirement or schema choice`
-
-### Meta-Beobachtung
-
-Der Research Owner präzisiert den gemeinsamen Forschungsraum als auf **Quellen-/Evidenzkontexten provenance-seitig gegründeten Wissensbestand**, über dem historische Entitäten, Zustände, Relationen, Findings sowie Forschungsfragen und deren Antworten wachsen. Abgeleitete Views sollen sowohl den Wissensstand als auch die jeweils verbundenen Quellen-/Evidenzschichten multiperspektivisch erschließen können.
-
-`unter` ist dabei als **epistemische/provenienzielle Abhängigkeit**, nicht als starre technische Layer-Hierarchie zu verstehen.
-
-### Wichtige Grenzziehung: Source Context ≠ Source Interpretation
-
-Zur Quelle/Instanz direkt dokumentierbare Kontexte (z. B. Urheber/Produzent, Datierung, Entstehungs-/Überlieferungszusammenhang, Gattung, konkrete Instanz, Fundstelle) sind von analytischen Aussagen über die Quelle zu trennen.
-
-Beispiele wie `Motivation des Textes`, `intendiertes Publikum`, `Interessenlage`, `Deutungshoheit`, `Diskursposition` oder `repräsentative Funktion` können fachlich zentral sein, sind aber häufig **Findings/Claims/Interpretationen mit eigener Evidenz, Methode, Zeit- und Geltungsgrenze** und dürfen nicht still als neutrale Source-Metadaten gespeichert werden.
-
-### Generalisierte Projektionsdimensionen – noch keine symmetrischen Datentypen
-
-Zeit, Raum, Relation und Raum-Zeit werden als wiederkehrende **Qualifikations-/Projektionsdimensionen** erlebt. Sie müssen nicht denselben ontologischen Typ besitzen:
-
-- **Zeit** qualifiziert u. a. Ereignisse, Zustände, Relationen, Quellen und Forschungsprozesse;
-- **Raum** qualifiziert Orte, Ausdehnungen, Lokalisierungen, Bewegungen, Herkunft/Entstehung und Analysemaßstäbe;
-- **Relation** verbindet historische Akteure/Objekte/Ereignisse, aber auch Quellenüberlieferung, Evidenz und Research-State-Objekte; diese Relationsfamilien dürfen nicht vermischt werden;
-- **Raum-Zeit** kann als zusammengesetzte Qualifikation genügen, wird aber bei Bewegungen, Trajektorien, wechselnden Territorien, Kampagnen, Nutzungsphasen oder zyklischen Phänomenen möglicherweise selbst zum fachlich relevanten Gegenstand.
-
-### Zu unterscheidende Zeitrollen / Temporalitäten
-
-Mindestens als Discovery-Hypothese getrennt zu prüfen:
-
-1. **historical occurrence time** – Zeitpunkt/Dauer eines Ereignisses;
-2. **state/validity time** – Zeitraum, in dem Besitz, Amt, Nutzung, Name, Grenze oder andere Relation/Zustand gilt;
-3. **periodization / analytical time** – Epoche/Phase als analytische oder historiographische Einordnung, nicht automatisch historischer Fakt;
-4. **recurrence/cyclicity** – saisonale, jährliche oder andere wiederkehrende Phänomene; von einzelnen beobachteten Episoden zu unterscheiden;
-5. **source production time** – wann eine Quelle erzeugt/verfasst wurde;
-6. **source reference time** – welche Zeitpunkte/-räume die Quelle selbst erwähnt oder retrospektiv beschreibt;
-7. **transmission/representation time** – Abschrift, Edition, Veröffentlichung, Digitalisierung oder andere Repräsentationsstufen;
-8. **research time** – wann Histo-Orla eine Observation/Finding/Identity-Assertion erzeugt, reviewt, promoted, demoted oder superseded hat.
-
-Diese Rollen dürfen bei Views/Queries kombinierbar sein, ohne auf ein einziges Feld `date` reduziert zu werden.
-
-### Forschungsfragen und Antworten im Wissensraum
-
-Research Questions, Hypothesen und Antworten/Synthesen sollen als **Research-State-Objekte** dokumentierbar sein, die auf gemeinsame Evidenz/Findings referenzieren. Eine Antwort ist kein neuer historischer Fakt und besitzt Scope, Methode, verwendeten Wissensstand, offene Alternativen und ggf. Revisionshistorie.
-
-### Nächste diskriminierende Fragen
-
-1. Welche Source-Context-Information ist direkt dokumentierbar, welche bereits domänenspezifische Interpretation?
-2. Welche Temporalitäten werden in den aktuellen Piloten tatsächlich benötigt und dürfen keinesfalls zusammenfallen?
-3. Welche Relationsfamilien müssen getrennt bleiben: historical, spatial, transmission/provenance, evidential, research/meta?
-4. Welche Views müssen sowohl vom Finding zur Quelle als auch von der Quelle zu allen abhängigen Findings/Fragen/Antworten navigieren können?
-5. Ist `Raum-Zeit` im gemeinsamen Kern ein eigener semantischer Typ oder überwiegend Komposition aus Zeit-/Raumqualifikation plus domänenspezifischen Ereignis-/Prozessmodellen?
+```text
+Owner-Signal
+→ Observation / Goal / Need / Pain / Mental Model / Example klassifizieren
+→ Assistenteninterpretation + plausible Gegenlesart trennen
+→ bestehende G/N/P/CAP/REQ-Abdeckung prüfen
+→ Fachdomäne / SOTA / realen Workflow challengen
+→ Working Synthesis
+→ erst bei Generalisierbarkeit Capability-/Requirement-Candidate
+→ #42 Acceptance
+→ #48 technische Ableitung
+```
 
 ---
-## User-Research Update 2026-09-20 – Tatsachenwiderspruch vs. Modell-/Theoriepluralität
 
-**Status:** `owner mental-model refinement / discrepancy-and-research-object hypothesis / no Requirement`
-
-### Beobachtung
-
-Der Research Owner unterscheidet implizit zwei sehr unterschiedliche Formen wissenschaftlicher Offenheit, die beide im gemeinsamen Wissensraum erhalten bleiben müssen:
-
-1. **konkrete konkurrierende historische Claims** zu demselben Sachverhalt, z. B. Quelle A berichtet Tod in Haft in Dresden, Quelle B Tod zu Hause in Oppurg;
-2. **komplexe historiographische / fachwissenschaftliche Modellpluralität**, bei der verschiedene Begriffe, Theorien und Erklärungsmodelle denselben längerfristigen historischen Prozess unterschiedlich strukturieren oder erklären, als Beispiel `Landesausbau im Mittelalter` regional wie überregional.
-
-### Klasse A – konkurrierende konkrete Claims
-
-Ein solcher Fall kann als Research Question + mehrere provenance-gebundene Claims diagnostiziert werden. Die Differenz kann sich durch Quellenabhängigkeit, Datierung, Personenidentität, räumliche Referenz, Textintention, Überlieferung oder neue Evidenz auflösen; sie kann aber auch als echter `unresolved contradiction` bestehen bleiben.
-
-Die spätere Auflösung darf den früheren Widerspruch und seinen Diagnoseweg nicht aus der Research History löschen.
-
-### Klasse B – Modell-/Theorie-/Begriffspluralität
-
-Hier liegt nicht notwendig ein logischer Widerspruch zweier Aussagen über denselben atomaren Sachverhalt vor. Relevante Research-State-Objekte können u. a. sein:
-
-- historiographischer / analytischer Begriff;
-- Modell oder Theorie;
-- definierter Geltungs-/Anwendungsbereich;
-- zentrale Erklärungskomponenten/Mechanismen;
-- Periodisierung und räumlicher Maßstab;
-- verwendete Evidenzarten und methodische Voraussetzungen;
-- Vertreter / Publikationen / Forschungstradition;
-- Revisionen, Kritik und konkurrierende Modelle;
-- regionale Anwendung / Fit / Nicht-Fit / Teil-Fit auf konkrete Befunde.
-
-Ein regionaler Befund kann mehrere Modelle gleichzeitig unterschiedlich stützen, relativieren oder für bestimmte Teilfragen unentscheidbar lassen. Deshalb darf `Modell A vs. Modell B` nicht automatisch als `contradiction` normalisiert werden.
-
-### Forschungsfrage und Antwort als Research-State
-
-Eine Research Question kann sowohl atomar (`Wo starb X?`) als auch modellorientiert (`Wie lässt sich Prozess Y in der Region fachlich erklären/konzeptualisieren?`) sein. Antworten/Synthesen müssen ihren Typ, Scope und verwendete Erkenntnisebene erkennen lassen:
-
-- bei konkreten Claim-Konflikten: diagnostizierter Stand, Evidenzlage, ggf. resolved/unresolved;
-- bei Modellfragen: welche Modelle/Begriffe wurden geprüft, welche Teilbefunde tragen oder widersprechen welchen Komponenten, wo bleiben Alternativen oder Inkommensurabilitäten bestehen.
-
-### Implikation für Discrepancy Management
-
-CAP-10/C6 bleibt für konkrete Discrepancies gültig, sollte aber in künftiger Method-/Capability-Arbeit nicht alle wissenschaftliche Pluralität unter `Widerspruch` subsumieren. Mindestens zu unterscheiden sind:
-
-`claim discrepancy | identity discrepancy | chronology discrepancy | spatial discrepancy | source/transmission discrepancy | conceptual/terminological divergence | explanatory-model competition | historiographical controversy | genuinely unresolved contradiction`.
-
-Diese Liste ist Discovery-/Falsifikationsmaterial, keine akzeptierte universelle Taxonomie.
-
-### Routing
-
-- konkrete Quellen-/Claim-Discrepancy → C6/#34/CAP-10;
-- Begriffe/Gegenstandsmodelle → CAP-01 + jeweilige Fachdomäne;
-- Modelle/Theorien/Forschungstraditionen → #60 Domain Method Profiles + Historiographie/jeweilige Sachdomäne;
-- transdisziplinäre Integration unter Alternativerhalt → CAP-16;
-- Forschungsfragen/Antworten als dokumentierter Research State → weiterer Acceptance-/Architecture-Test, nicht automatisch Requirement.
-
----
 ## Search / Coverage Boundary
 
 Diese Discovery-Baseline ist **keine externe Literaturrecherche**. Abgedeckt ist der aktuelle kanonische Histo-Orla-Konzeptstand aus README, Research-Design und den aktiven fachlichen/technischen Issues, mit internen Prior-Art-Issues #12/#21 als gekennzeichnetem Input. Externe Validierung erfolgt erst in #31–#39.
