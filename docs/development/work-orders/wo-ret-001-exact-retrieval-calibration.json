@@ -49,7 +49,7 @@
     "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one",
     "Project Assurance environment setup from .github/workflows/project-assurance.yml and tools/requirements/requirements.txt"
   ],
-  "current_executable_action": "Implement only the synthetic Exact Retrieval baseline permitted by #53: use the existing synthetic provider-neutral state with its text-bearing excerpt, add the smallest read-only exact word/phrase retrieval function, reproducible query log, and known-hit/no-hit/provenance-roundtrip tests. Do not use the real Sachenbacher projection as a searchable corpus. Persist the real-corpus dependency as unresolved. Stop if implementation requires new research-state semantics rather than consuming the existing synthetic roles. Before running formal local validators, mirror CI setup with `python -m pip install -r tools/requirements/requirements.txt`; if package installation itself is unavailable, report that as environment-degraded while still relying on PR Project Assurance for canonical CI verification.",
+  "current_executable_action": "Run the current-stage admission preflight first: load this work order with tools/operational/context_spec.py and confirm CurrentContext.status == `ready` with all declared basis fingerprints unchanged. Only then implement the synthetic Exact Retrieval baseline permitted by #53: use the existing synthetic provider-neutral state with its text-bearing excerpt, add the smallest read-only literal exact word/phrase retrieval function, reproducible query log, and known-hit/no-hit/provenance-roundtrip tests. Do not use the real Sachenbacher projection as a searchable corpus. Before formal local validators, mirror CI setup with `python -m pip install -r tools/requirements/requirements.txt`. If any current-stage admission condition fails, return HANDOFF/UNRESOLVED before implementation.",
   "prerequisites": [
     {
       "ref": "accepted-retrieval-requirements-stable",
@@ -100,21 +100,6 @@
       "note": "Keep #63 traceability and #59 coverage rules intact."
     },
     {
-      "ref": "real-text-bearing-corpus-admission",
-      "status": "unresolved",
-      "basis": [
-        {
-          "path": "tools/operational/tests/test_audit.py",
-          "git_blob_sha": "c5417e55ae90d5ac41cde25cddcc34d18b6d0b53"
-        },
-        {
-          "path": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json",
-          "git_blob_sha": "d1c9527e3e18ce50cf4530e66eecbf5288685511"
-        }
-      ],
-      "note": "The real #55 Sachenbacher projection and #51 locator manifest preserve IDs/findspots/geometry but do not provide a text-bearing retrieval corpus. A later real #53 slice requires admitted bytes/fulltext/text derivative with preserved findspot mapping; #49 explicitly lists retrieval against the real library as downstream of its resolver work."
-    },
-    {
       "ref": "local-assurance-dependency-setup-declared",
       "status": "pass",
       "basis": [
@@ -131,10 +116,7 @@
     }
   ],
   "open_blockers": [],
-  "unresolved": [
-    "real #53 U2/U4 falsification is blocked until an admitted text-bearing retrieval input can be resolved without inventing a second truth store",
-    "the exact provider for the later real corpus may be inspected bytes/text extraction, Zotero fulltext, or another existing derivative; #49/#48 must discriminate it from real capability evidence"
-  ],
+  "unresolved": [],
   "may": [
     "inspect the full clean repository checkout and current tests",
     "add the smallest retrieval implementation and tests under existing technical boundaries",
@@ -162,7 +144,7 @@
     "a requirement/authority conflict is discovered",
     "tests can only pass by weakening provenance, unresolved preservation or no-LLM exact-search constraints"
   ],
-  "return_condition": "A clean branch contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM exact search, reproducible query/corpus logging, known-hit/no-hit behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; all runnable relevant tests pass; the missing real text-bearing corpus remains explicit and no real-source verification is claimed. #53/#59 trace/coverage is updated only to the level actually demonstrated.",
+  "return_condition": "Current-stage preflight is READY; the branch then contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM literal exact search, reproducible query/corpus logging, known-hit/no-hit behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; all runnable relevant tests and Project Assurance pass; downstream real-corpus dependencies remain separately recorded and no real-source verification is claimed. #53/#59 trace/coverage is updated only to the demonstrated level.",
   "persistence_target": "Implementation/tests/trace on branch and PR owned by issue:#53 under #48/#59; no new work-owner issue. Calibration result is summarized in issue:#53 or #48; only materially general learning returns to the existing #64/PR #118 review path.",
   "source_refs": [
     "issue:#53",
@@ -191,6 +173,62 @@
         "21 relevant tests passed in Work; local formal validators were not run because the Work environment had not installed the repo-declared dependency from tools/requirements/requirements.txt. This is an execution-setup omission; CI declares and installs it."
       ],
       "disposition": "Narrow this work order to the synthetic exact-retrieval baseline already allowed by issue #53. Route the real-corpus prerequisite to #48/#49/#53 instead of inventing it."
+    },
+    {
+      "date": "2026-09-20",
+      "outcome": "planning-review correction",
+      "interpretation": "The first repair still mixed downstream unresolved dependencies into the current executable context. `tools/operational/context.py` makes any unresolved item set CurrentContext.status to `unresolved`, so a second run would have stopped before implementation.",
+      "disposition": "Separate current-stage prerequisites/unresolved from downstream deferred dependencies; require a deterministic CurrentContext.status == ready admission check before any implementer is released."
     }
-  ]
+  ],
+  "downstream_deferred_dependencies": [
+    {
+      "ref": "real-text-bearing-corpus-admission",
+      "owner_refs": [
+        "issue:#49",
+        "issue:#51",
+        "issue:#53",
+        "issue:#57"
+      ],
+      "status": "not-authorized-in-current-stage",
+      "reason": "The real Sachenbacher provenance chain is not yet a text-bearing retrieval corpus. This is a downstream dependency for real-source falsification, not a prerequisite for the current synthetic calibration.",
+      "evidence_refs": [
+        "docs/architecture/integrations/zotero-onedrive.md",
+        "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json",
+        "tools/operational/tests/test_audit.py"
+      ],
+      "admission_condition": "A concrete text-bearing derivative/input is actually accessible in the execution context, has explicit parent Instance/Derivative identity and findspot mapping, and can be regenerated or revalidated without becoming a second truth store."
+    },
+    {
+      "ref": "real-provider-byte-resolution",
+      "owner_refs": [
+        "issue:#49",
+        "issue:#57"
+      ],
+      "status": "not-authorized-in-current-stage",
+      "reason": "Local Zotero metadata capability exists, but device-independent OneDrive/Zotero byte resolution is not yet established.",
+      "evidence_refs": [
+        "docs/architecture/integrations/zotero-onedrive.md"
+      ],
+      "admission_condition": "An authorized read-only context resolves the concrete source bytes/provider identity and distinguishes identified/retrievable/accessible/inspectable/rights-admissible states."
+    }
+  ],
+  "execution_admission": {
+    "stage": "synthetic-exact-retrieval-calibration",
+    "required_status": "ready",
+    "rule": "All entries in `prerequisites` must be pass and `open_blockers`/`unresolved` must be empty before implementation. Downstream dependencies must never be placed in current `prerequisites` or `unresolved`.",
+    "checked_against": [
+      "tools/operational/context.py",
+      "tools/operational/context_spec.py"
+    ],
+    "preflight_checks": [
+      "clean checkout on declared branch",
+      "fresh repository bootstrap",
+      "all prerequisite basis fingerprints match checkout",
+      "CurrentContext.status == ready",
+      "declared local test dependency setup is executable or CI fallback is explicit",
+      "no hidden need for new Requirement/Method/State semantics",
+      "acceptance and negative tests are specified before code changes"
+    ]
+  }
 }
