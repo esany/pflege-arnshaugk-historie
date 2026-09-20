@@ -1271,21 +1271,32 @@ CI prüft **nicht** historische Richtigkeit oder Owner-Nutzen.
 
 ## O.15 Konkrete Refactoring-Reihenfolge
 
-### R0 – Sofort, ohne neue technische Hypothese
+### R0 – Sofort: Execution Admission vor Implementierung
 
 - PR #118 Review-Evidence dispositionieren;
 - Root README/PROJECT_STATE auf Handoff/Front-Door-Funktion entdoppeln;
 - keine weitere Expansion von #61/#55 ohne reale Friktion;
 - Vertical-Slice-PR statt Subsystem-PR als Delivery-Regel unter #48/#59 anwenden;
-- #53 gegen den realen #51/#55-State beginnen.
+- vor jedem Agent-/Implementation-Slice aktuelle Prerequisites, Evidence Availability, Testbarkeit und Execution Environment **deterministisch** prüfen;
+- current-stage `unresolved` blockiert; nur echte downstream Dependencies dürfen separat deferred bleiben;
+- kein Implementer startet, bevor der abgeleitete Current Context `ready` ist.
 
-### R1 – Erster integrierter Runtime-Pfad
+### R1 – Retrieval in getrennten Admission-Stufen
 
-- #53 Exact/Variant Retrieval implementieren;
-- gemeinsamen provider-neutralen State-Reader nur soweit nötig extrahieren;
-- #55 View konsumiert denselben Reader;
-- #57 Resume/Availability konsumiert denselben Reader;
-- sobald dies real in einem Slice geschieht, `src/histo_orla/`-Trigger neu bewerten und Product Runtime aus `tools/` herausziehen.
+1. #53 Exact-/Query-Log-Vertrag zunächst gegen vorhandene synthetische, texttragende provider-neutrale Fixtures implementieren und kalibrieren;
+2. für einen **realen** #53-Slice separat einen texttragenden, findspot-gebundenen Retrieval-Input admitten:
+   - Source/Representation/Instance geklärt;
+   - Bytes/Derivat im aktuellen autorisierten Context tatsächlich verfügbar;
+   - Parentage/Version/Fingerprint rekonstruierbar;
+   - Findspot-Mapping erhalten;
+   - Rights/Processing für die konkrete Operation zulässig;
+3. erst danach reales Exact Retrieval gegen #51/#55-Provenienzpfad falsifizieren;
+4. historische Varianten anschließend mit fachlich kontrollierter Varianten-Provenienz ergänzen;
+5. gemeinsamen provider-neutralen State-Reader nur bei mindestens zwei realen Runtime-Consumern extrahieren;
+6. #55 View und #57 Resume/Availability erst dann auf denselben Reader ziehen, wenn diese Wiederverwendung real belegt ist;
+7. erst danach `src/histo_orla/`-Trigger neu bewerten.
+
+**Correction evidence 2026-09-20:** Der erste #53-Agent-Calibration-Lauf stoppte korrekt, weil die reale Sachenbacher-Kette zwar Source/Instance/Findspot-Provenienz und eine regenerierbare Audit-Projektion besitzt, aber im aktuellen Repo-/Execution-State keinen admitted texttragenden Retrieval-Korpus. Der frühere Schritt „#53 gegen realen #51/#55-State beginnen“ war daher als Execution-Anweisung zu grob und wird durch die Admission-Stufen oben ersetzt.
 
 ### R2 – Heterogener #47-Slice
 
