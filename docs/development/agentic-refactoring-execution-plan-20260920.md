@@ -1,0 +1,445 @@
+# Histo-Orla – Agentic Refactoring Execution Plan
+
+**Status:** execution-preparation / reviewed after failed admission / no new requirement-or-method authority  
+**Work Owners:** #48 Technical Lead, #59 Development & Verification  
+**Current calibration lane:** #53 / PR #119  
+**Review input:** #64 / PR #118  
+**Stand:** 2026-09-20
+
+## 1. Purpose
+
+This plan turns the Deep-Research findings into an execution sequence that is safe to hand to bounded implementation agents.
+
+It does **not** create new product scope, Requirement authority, Method Truth, historical Findings, Research Selection or a new agent framework.
+
+The immediate correction is mandatory:
+
+> **No implementation agent is released until the current-stage prerequisites are proven executable in the actual checkout and execution environment.**
+
+The first #53 calibration exposed that the earlier plan had confused:
+
+1. a real Source/Instance/Findspot provenance chain;
+2. a text-bearing retrieval corpus;
+3. current execution-context availability.
+
+Those are not equivalent.
+
+## 2. Non-loss contract
+
+Every stage preserves the full accepted Histo-Orla requirement set. A bounded increment may implement only a subset, but it may not weaken or silently defer the rest.
+
+Hard cross-cutting invariants include:
+
+- Source != Representation != Instance != Derivative != Findspot/Excerpt != Finding != Claim;
+- AI output is not Evidence and not independent validation;
+- unresolved, contradiction, missing and unavailable are valid states;
+- Retrieval Hit != Finding/Claim;
+- exact/auditable retrieval must work without LLM/semantic retrieval;
+- query/corpus conditions must be reconstructable;
+- curated/canonical state must remain distinct from regenerable indexes/views;
+- provider IDs/paths are references, not sufficient internal identity;
+- direct source inspection requires actual current Evidence Availability;
+- material technical work remains traceable to accepted Requirements and G/N/P drivers.
+
+## 3. Admission model
+
+### 3.1 Current-stage prerequisites
+
+A Work Order is executable only if **all** prerequisites required for its current action are pass.
+
+The existing context core defines:
+
+~~~text
+prerequisite fail       -> CurrentContext.status = blocked
+prerequisite unresolved -> CurrentContext.status = unresolved
+unresolved[] non-empty  -> CurrentContext.status = unresolved
+otherwise                -> CurrentContext.status = ready
+~~~
+
+Therefore:
+
+> Downstream research/development dependencies that are not required for the current bounded action must **not** be stored as current prerequisites or unresolved.
+
+They are recorded separately as downstream/deferred dependencies.
+
+### 3.2 Mandatory preflight before any implementer
+
+Before code mutation:
+
+1. checkout is the intended repository and branch;
+2. working tree is clean or contains only explicitly owned changes;
+3. fresh bootstrap according to AGENTS.md;
+4. current Work Order is loaded from the checkout;
+5. all prerequisite basis fingerprints match;
+6. CurrentContext.status == ready;
+7. required input is actually present at the required evidence level;
+8. required dependencies/tooling can be installed or CI fallback is explicitly known;
+9. acceptance + negative tests are defined;
+10. no Requirement/Method/Architecture/Selection decision is being smuggled into implementation;
+11. branch/PR/trace/coverage persistence target is known.
+
+If any condition fails, **no implementation begins**.
+
+## 4. Evidence-availability ladder
+
+For every real-source stage, record these separately:
+
+~~~text
+IDENTIFIED
+RETRIEVABLE / RESOLVABLE
+ACCESSIBLE NOW
+INSPECTABLE IN CURRENT CONTEXT
+TEXT/DERIVATIVE AVAILABLE FOR REQUESTED OPERATION
+FINDSPOT-MAPPED
+RIGHTS-ADMISSIBLE
+VERSION/FINGERPRINT REVALIDATED
+~~~
+
+A PASS at one level does not imply a PASS at the next.
+
+Current Sachenbacher path:
+
+- bibliographic/source identity: available;
+- inspected complete PDF identity/hash: established historically under #51;
+- locator geometry: established;
+- real audit projection: available;
+- current general byte resolver: not established;
+- text-bearing searchable corpus in repository/runtime: not established;
+- therefore real #53 retrieval: **not admitted yet**.
+
+## 5. Current dependency truth
+
+### #49 Zotero / OneDrive
+
+Established:
+
+- local Zotero read-only metadata;
+- item/tag/note reads;
+- attachment metadata;
+- one legacy local file locator and filesystem-entry reachability.
+
+Not established:
+
+- target OneDrive/device-independent resolver;
+- remote Zotero/OneDrive authorization in generic execution context;
+- concrete provider-stable byte identity;
+- general byte availability/hydration;
+- Zotero fulltext as admitted Histo-Orla retrieval derivative.
+
+Consequence: real-library retrieval remains downstream.
+
+### #51 Document / Findspot
+
+Established for one real Sachenbacher instance:
+
+- concrete PDF fingerprint/hash/size/page count;
+- owner-reviewed locators;
+- page/region geometry;
+- real Source/Representation/Instance/Findspot provenance;
+- fail-closed byte-fingerprint roundtrip when bytes are supplied.
+
+Not established:
+
+- generic text extraction/corpus admission;
+- generic resolver from current work context to those bytes.
+
+### #55 Audit View
+
+Established:
+
+- deterministic read-only audit renderer;
+- real Sachenbacher provenance chain can be represented via a regenerable test projection;
+- missing method state remains missing/unresolved.
+
+Not established:
+
+- a canonical or searchable real text corpus.
+
+### #57 Availability / Restartability
+
+Still planned. This is the correct owner for distinguishing identity from actual research-ready availability in later real slices.
+
+## 6. Execution waves and gates
+
+### Wave 0 — Planning/Admission repair
+
+**Model:** Sol High / strong planner-reviewer.  
+**Implementation:** none.
+
+Required outputs:
+
+- this execution plan;
+- corrected #53 work-order admission semantics;
+- corrected Deep-Research sequencing where it implied real #53 readiness too early;
+- #55 clarification that its real audit chain is not itself a text-bearing retrieval corpus;
+- Project Assurance green for planning changes.
+
+Exit gate:
+
+~~~text
+all current calibration prerequisites PASS
+CurrentContext.status == ready
+downstream real-corpus gaps isolated outside current context
+~~~
+
+### Wave 1 — Synthetic Exact Retrieval calibration
+
+**Owner:** #53/#59 under #48.  
+**Implementer:** Terra only after Wave-0 admission.  
+**Reviewer:** Sol High.
+
+Input:
+
+- existing synthetic provider-neutral state in tools/operational/tests/test_audit.py;
+- existing text-bearing synthetic excerpt;
+- existing Source/Representation/Instance/Derivative/Findspot links.
+
+Scope:
+
+- literal exact word/phrase retrieval;
+- explicit query parameters;
+- reproducible corpus boundary;
+- known-hit;
+- no-hit;
+- hit -> excerpt/findspot -> instance/source roundtrip;
+- no LLM/semantic layer.
+
+Forbidden:
+
+- real-source verification claim;
+- historical variant expansion;
+- schema/state invention;
+- database/index persistence;
+- src/histo_orla extraction.
+
+Exit criteria:
+
+1. preflight READY;
+2. exact-search unit tests pass;
+3. negative tests pass;
+4. existing operational/document/requirements/assurance suites pass;
+5. #63 trace + #59 coverage updated only to demonstrated level;
+6. PR Project Assurance green;
+7. Sol review finds no semantic/authority drift.
+
+Calibration decision:
+- PASS -> Terra admitted for equivalent bounded Tier-B implementation;
+- FAIL-semantic -> stronger model or tighter contract;
+- FAIL-environment -> fix execution environment, do not change Requirements;
+- FAIL-contract -> return to #48 planning, not to implementer improvisation.
+
+### Wave 2 — Real Evidence/Corpus Admission
+
+No retrieval implementation yet.
+
+**Owners:** #49/#51/#57 with #48.
+
+Goal: make one real source operation-ready without creating a second truth store.
+
+Empirically discriminate the smallest sufficient path:
+
+- existing fingerprinted PDF bytes in an authorized local context;
+- native PDF text layer extracted as regenerable derivative;
+- Zotero indexed fulltext if provider semantics/findspot fidelity are sufficient;
+- OCR/HTR only if required by the chosen source.
+
+Admission record must prove:
+
+~~~text
+source_id
+representation_id
+instance_id
+byte/version fingerprint
+derivative identity + parent
+text availability
+page/findspot mapping
+rights/admission
+regeneration/revalidation method
+~~~
+
+No provider path becomes canonical identity.
+
+**Exit gate:** one concrete real text-bearing derivative can be opened/rebuilt and maps hits back to the accepted instance/findspot model.
+
+### Wave 3 — Real Exact Retrieval falsification
+
+**Owner:** #53.  
+**Implementer:** Terra if Wave 1 passed and Work Order is fully bounded.  
+**Reviewer:** Sol High.
+
+Tests:
+
+- known real query hit;
+- no-hit with explicit search boundary;
+- query/corpus/version log;
+- result -> derivative -> findspot -> instance -> source roundtrip;
+- source bytes/derivative changed -> stale/revalidation path;
+- no hit automatically becomes Finding.
+
+Only after this stage may REQ-RET-001/003/SRC-004 coverage advance beyond synthetic implementation.
+
+### Wave 4 — Controlled historical variants
+
+**Owners:** #53 + #60/domain authority for real historical expansions.
+
+First synthetic contract, then real domain-owned variants.
+
+Each expansion records:
+
+- original user query;
+- expanded variant;
+- provenance/rationale for variant;
+- filters/corpus;
+- results;
+- no automatic entity merge.
+
+A variant list generated only by a model is not promoted to authoritative historical equivalence.
+
+### Wave 5 — Shared runtime reader / product-code trigger
+
+Do **not** extract a shared product package merely because retrieval exists.
+
+Trigger requires at least two real runtime consumers, for example:
+
+~~~text
+retrieval + audit view
+or
+retrieval + evidence availability/resume
+~~~
+
+using the same provider-neutral state access.
+
+Then #48 reviews actual duplicated responsibility, stable I/O contract and the smallest extraction path. Only then consider src/histo_orla/.
+
+### Wave 6 — Restartability / Availability integration
+
+**Owner:** #57.
+
+Tests:
+
+- provider unavailable -> explicit degraded/unavailable;
+- internal identities remain usable;
+- regenerable search/index loss does not destroy research meaning;
+- fresh context can determine next allowed action;
+- if direct inspection is required, unavailable bytes block truthfully.
+
+### Wave 7 — Heterogeneous #47 Vertical Research Slice
+
+Only after real retrieval + availability are proven on at least one source chain.
+
+A small owner-selected #47 question uses:
+
+~~~text
+question
+-> context
+-> source/instance resolve
+-> admitted evidence
+-> retrieval
+-> findspot inspection
+-> method application
+-> research finding/unresolved
+-> research-first view
+-> restart
+~~~
+
+Historical Research Output and Product/System Learning remain separate.
+
+### Wave 8 — Read-model probe only if measured pain remains
+
+SQLite/FTS or similar is admitted only if Wave 3/7 show concrete navigation/query friction.
+
+Hard criteria:
+
+- delete/rebuild;
+- no read-model-only research truth;
+- no canonical writeback;
+- stable ID/provenance roundtrip;
+- measurable owner benefit.
+
+### Wave 9 — Thin skill/MCP/UI adapter
+
+Only after stable capabilities exist. The adapter routes calls; it does not copy Requirements/Method Truth or own state.
+
+## 7. Model allocation
+
+### Sol High
+
+Required for:
+
+- prerequisite/architecture reconciliation;
+- ambiguous evidence/corpus semantics;
+- Requirement/Method/Authority boundaries;
+- material cross-cutting refactor review;
+- independent review of Terra output.
+
+### Terra
+
+Allowed only for:
+
+- Work Order CurrentContext.status == ready;
+- bounded implementation with settled semantics;
+- explicit tests/negative tests;
+- no material architecture decision;
+- no historical/method promotion.
+
+### Luna
+
+Deferred until Terra calibration has produced stable task classes. Use only for mechanical edits where correct output is deterministically testable and no semantics are inferred.
+
+## 8. Mandatory test matrix
+
+| Test | Purpose | Gate |
+|---|---|---|
+| Work Order loads | no malformed execution packet | pre-implementation |
+| Basis fingerprints current | no stale PASS | pre-implementation |
+| Context status = READY | no hidden blocker | pre-implementation |
+| Known hit | positive retrieval behavior | implementation |
+| No hit | no fabricated result | implementation |
+| Findspot/source roundtrip | provenance retention | implementation |
+| Missing/unresolved retained | no epistemic filling | regression |
+| AI not required | REQ-RET-001 | regression |
+| Changed bytes/derivative detected | stale result safety | real-source stage |
+| Provider unavailable -> degraded | availability honesty | #57 |
+| Existing Project Assurance | non-regression | every PR |
+| Fresh-context restart | no chat dependency | integrated slice |
+| Owner workflow acceptance | actual product value | vertical slice |
+
+## 9. Review checklist
+
+An independent material review must answer:
+
+1. Did the implementer obey the current Work Order rather than infer downstream intent?
+2. Was any downstream dependency silently converted into a current assumption?
+3. Did any fixture become a second truth store?
+4. Did any derived/test projection get mistaken for canonical state?
+5. Did a provider locator become internal identity?
+6. Did any Hit become Finding/Claim?
+7. Did any missing/unresolved state disappear?
+8. Is query/corpus/version provenance sufficient to explain reruns?
+9. Did the change introduce product architecture without the required reuse trigger?
+10. Are Coverage/Trace claims exactly proportional to what was tested?
+11. Can a fresh agent resume from Git without this chat?
+12. Does the change remove owner work rather than add another required meta-step?
+
+Any no blocks promotion.
+
+## 10. Current admission matrix (2026-09-20)
+
+| Stage | Admission | Reason |
+|---|---|---|
+| Wave 1 synthetic exact retrieval | **READY after corrected Work Order preflight** | text-bearing synthetic fixture + provider-neutral provenance already exist |
+| Real Sachenbacher exact retrieval | **NOT READY** | real chain has locators/provenance, but no admitted current text-bearing corpus/byte resolver |
+| Historical variants on real corpus | **NOT READY** | depends on real corpus + domain-owned variant evidence |
+| Shared runtime reader extraction | **NOT READY** | two real runtime consumers not yet demonstrated |
+| SQLite/FTS read model | **NOT READY** | no measured post-runtime query/navigation pain |
+| #47 vertical slice | **NOT READY** | first real retrieval/availability path must exist |
+| thin Skill/MCP/UI | **NOT READY** | stable product capabilities not yet proven |
+
+## 11. Immediate next action
+
+Do **not** release an implementation agent until:
+
+1. PR #119 Work Order deterministically derives CurrentContext.status == ready;
+2. corrected planning files pass Project Assurance;
+3. a Sol-level review confirms current prerequisites are sufficient and downstream dependencies are isolated;
+4. only then run Terra on Wave 1.
