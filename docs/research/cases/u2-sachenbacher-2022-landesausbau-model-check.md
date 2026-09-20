@@ -3,9 +3,9 @@
 **Status:** `working-research / model-check / secondary-publication-integration / bounded-systematic-pass`  
 **Work Owner:** #46  
 **Methodik:** #45, `docs/research/source-identity-protocol.md`, #60  
-**Stand:** 2026-09-03  
-**Branch:** `research/sachenbacher-clean-room-20260903`  
-**Current focus:** Dieses Artefakt ist die maßgebliche Sachenbacher-Leseführung im PR #76. Der frühere Ranis-Slice ist als überholter erster Testlauf archiviert.
+**Stand:** 2026-09-20  
+**Origin:** merged from PR #76 / branch `research/sachenbacher-clean-room-20260903`  
+**Current focus:** Dieses Artefakt ist der kanonische Sachenbacher-Modellcheck unter #46. Der frühere Ranis-Slice ist als überholter erster Testlauf archiviert; die 2026-09-20-Cross-Pilot-Präzisierung zu Saalfeld 1056→1057 ergänzt den integrierten Stand.
 
 ---
 
@@ -86,7 +86,7 @@ Sachenbacher beschreibt den Orlagau nicht als lineare Abfolge `slawische Wildnis
 ```text
 frühmittelalterliche slawisch-fränkisch/karolingische Kontakt- und Herrschaftszone
 → Saalfeld als frühes Herrschafts-, Wirtschafts- und Kirchenzentrum
-→ 10./11. Jh. ottonisch-salische, ezzonisch-richezanische, kölnische und mainzische Einbindung
+→ 10./11. Jh. ottonisch-salische, ezzonisch-richezanische, kölnische und mainzische Einbindung (Saalfeld/Coburg: 1056 Absprache/Schenkungstradition → Sommer 1057 endgültige Durchführung nach Hlawitschka)
 → 1071/1074 verdichtete Kirchen-, Besitz- und Grenzüberlieferung
 → 12. Jh. kölnisches Dienstrecht, staufische Rückbindung, Burgen, Kirchen, Orte und lokale Herrschaftsträger
 → Ende 12./13. Jh. Erreichen des heutigen Siedlungsstandes, weitere Ausdehnung in Randräume
@@ -108,7 +108,7 @@ Methodisch wichtig: Sachenbacher sagt ausdrücklich, dass `Orlagau` in dieser Dr
 | `Landesausbau` statt `Kolonisation` | ca. S. 15, 40 ff. | Begriffswahl und Forschungsgeschichte | Germania-Slavica-Debatte, Gringmuth-Dallmer, Thieme u. a. | Begriff macht slawische Beteiligung unter deutscher Herrschaft sichtbar | `extern fachlich gestützt`; kein Einzelquellenbefund |
 | Ethnizitätsvorsicht bei Sachkultur | ca. S. 40 ff.; ca. S. 155, 277–278, 302 | `slawische Keramik` ist fachliche Abkürzung, nicht Ethnos der Keramik | aktuelle archäologische Methodenkritik; Brather als Kontrollanker | Herstellung/Gebrauch können funktional/ökonomisch statt ethnisch differenziert sein | `histo-kompatible Schutzregel`; #60-Profil nötig |
 | Unterschied links/rechts der Saale | ca. S. 158–163, 310 ff. | Orlagau liegt in Kontaktzone zweier Entwicklungen | Wandsleb, Rempel, Auerbach, Fischer/Elbracht, neue Grabungen | links eher lockere Kontinuität + slawische Zuwanderung; rechts nach germanischer Entsiedlung slawische Landnahme + baldige fränkisch/deutsche Einbindung | `method hypothesis`; archäologische Search Boundaries nötig |
-| Saalfeld als Zentrum | ca. S. 262–267, 321–322 | 899 `curtis`, 1013 `provincia`/`castellum`, 1056/1071 Richeza/Köln/Kloster | Gockel, Königspfalzenforschung, Richeza-/Köln-Überlieferung | Saalfeld als Mittelpunkt und Ausgangspunkt des Landesausbaus | `strong working model`; Reichweite pro Quelle prüfen |
+| Saalfeld als Zentrum | ca. S. 262–267, 321–322 | 899 `curtis`, 1013 `provincia`/`castellum`, 1056→1057 Richeza/Köln, 1071 Kloster | Gockel, Königspfalzenforschung, Richeza-/Köln-Überlieferung | Saalfeld als Mittelpunkt und Ausgangspunkt des Landesausbaus | `strong working model`; Reichweite pro Quelle prüfen |
 | Grenzbeschreibung um 1071 | ca. S. 262, 267, 321–322 | nur 15.-Jh.-Kopie; wahrscheinlich gefälschte Coburger Copialbuch-Urkunde | Gerhard Werner / Gockel / ältere Grenzrekonstruktion | trotz Fälschungsstatus entspreche sie zeitgenössischen Gegebenheiten | `high-risk / high-value`; keine Polygon-Promotion |
 | Kirchenorganisation | ca. S. 286–292 | 968 Zeitz-Argument; 1071 Krölpa, Neunhofen, Langenschade; Sedessprengel Pößneck/Remda | Bünz, Hannappel, Eberhard, Gockel, Müller | Mission und Pfarrorganisation im 11. Jh. bereits fortgeschritten | `extern fachlich gestützt`; 1071-Quelle offen |
 | 12./13. Jh. Kirchen-/Burgennetz | ca. S. 282–298 | lokale Burgen, romanische Kirchen, Ortsneugründungen | Queck, Spazier, R. Müller, Wysburg-Dissertation, Dehio | Landesausbau erzeugt lokale Burg-/Kirchen-/Ortsnetze | gutes Testset; Einzeldatierungen häufig relativ |
@@ -119,7 +119,7 @@ Methodisch wichtig: Sachenbacher sagt ausdrücklich, dass `Orlagau` in dieser Dr
 
 | Modellannahme | Erwartbares Muster | Sachenbachers Material | Passung / Lücke / Widerspruch | Konkurrierende Erklärung |
 |---|---|---|---|---|
-| Saalfeld ist früher Mittelpunkt | sehr frühe Schriftlichkeit, Burg-/Pfalz-/Klosterfolge, wirtschaftliches Dienstrecht, Ausstrahlung in Orla/Saale | 899, 1013, 1056/1071, 1074, Dienstrecht, Saalfelder Archäologie | **stark passend**, aber konkrete Reichweite pro Quelle offen | Zentralort ja; lokale Räume können eigenlogisch über Pfarrei, Kleinadel, Kloster oder spätere Herrschaften laufen |
+| Saalfeld ist früher Mittelpunkt | sehr frühe Schriftlichkeit, Burg-/Pfalz-/Klosterfolge, wirtschaftliches Dienstrecht, Ausstrahlung in Orla/Saale | 899, 1013, 1056→1057/1071, 1074, Dienstrecht, Saalfelder Archäologie | **stark passend**, aber konkrete Reichweite pro Quelle offen | Zentralort ja; lokale Räume können eigenlogisch über Pfarrei, Kleinadel, Kloster oder spätere Herrschaften laufen |
 | Rechts der Saale nur kurzes Zeitfenster eigenständiger slawischer Entwicklung | frühe slawische Funde setzen spät ein; bald fränkisch/deutsche Herrschaftsindikatoren | Ranis/Ludwigshof, Weltwitz, Oberwellenborn, Friedhöfe; 968 Mainz; 899/1013/1071 Saalfeld | **teilweise passend**, aber fundlagenabhängig | Fundlücken/Altfundqualität; Kirchensprengel ≠ politische Kontrolle jedes Orts |
 | `slawische` Sachkultur im Hochmittelalter zeigt Beteiligung, nicht zwingend Autonomie | slawische Keramik auf Burgen/Orten unter deutscher Herrschaft | Ranis, Weltwitz, Saalfeld, Ludwigshof | **methodisch stark**, weil Sachenbacher selbst begrenzt | Handel, Nachnutzung, lokale Produktion, soziale Rolle, sekundäre Verlagerung |
 | Naturpunkte in Grenzbeschreibung zeigen dünne Randbesiedlung | Grenze über Gewässer/Landschaftspunkte; Ortsdichte bei Saalfeld/Orla höher | 1071/1074, Loquitz, Rennsteig, Gösselborn, Birkert/Triptis | **plausibel, aber riskant** wegen Fälschungs-/Kopialstatus und Dokumentzweck | Grenzsprache kann juristisch/formularisch sein; fehlende Ortsnamen ≠ fehlende Siedlungen |
@@ -138,12 +138,31 @@ Methodisch wichtig: Sachenbacher sagt ausdrücklich, dass `Orlagau` in dieser Dr
 | 899 | `curtis Salauelda` / Saalfeld als Hofzentrum | ca. S. 267, 321–322; Arnulf-Urkunde nach Gockel/Diplomatik | Urkunde direkt zu prüfen | frühes Herrschafts-/Hofzentrum Saalfeld | kein `pagus Orla`; keine spätere Orlagau-Grenze |
 | 9./10. Jh. archäologisch | Saalfeld-Burg/Pfalz/Petersberg/Schlosspark | ca. S. 268–272, 321–322 | archäologische Forschung | materielle Zentralität | keine Rechts-/Grenzaussage |
 | 1013 | `provincia Salaveld`; `castellum salaueldon` | ca. S. 267, Fn. 223 | Urkunde direkt zu prüfen | Saalfeld-Umland als Besitz-/Raumkomplex | `provincia` ≠ automatisch `Gau`, `comitatus`, späterer Orlagau |
-| 1056/1057 | `Saalfeld ... in Orla` / Richeza-Köln-Komplex | Histo-State: Rheinisches UB I Nr. 97; Sachenbacher ca. S. 267 | direkte Kollation offen | `in Orla` als räumliche Relation | keine polygonale Einheit |
+| 1056 Absprache / Sommer 1057 endgültige Durchführung | `Saalfeld ... in Orla` / Richeza-Köln-Komplex | `SRC-LIT-0001` (Sachenbacher ca. S. 267) + #103 `ARS-017` Hlawitschka S. 242–243; Hlawitschka verweist auf Brauweiler `Fundatio` + Rheinisches UB I Nr. 97 | scholarly cross-check; direkte Kollation von `Fundatio` und RUB I Nr. 97 offen | `in Orla` als räumliche Relation und mehrphasige Transferchronologie | weder polygonale Einheit noch Reduktion auf einen einzigen konfliktfreien Datumswert |
 | 1071 | `in pago ultra Salam, qui dicitur Salavelt` / Grenz- und Klosterkomplex | Histo-Begriffskritik + Sachenbacher ca. S. 262/267/321–322 | spät überliefert, wahrscheinlich gefälscht | Kölner/Saalfelder Besitz- und Grenzmodell | nicht als unmittelbarer Originalbeleg nutzbar |
 | 1074 | Besitzübersicht des Kölner Erzbistums | ca. S. 310–312, Fn. 296/302-Kontext | Quelle offen | Orts-/Besitzübersicht, Hufenhinweise | keine vollständige Siedlungskarte |
 | 1120/1136 | `pagus Orla` | vorhandene Histo-Begriffskritik; Edition offen | source-resolution-open | 12.-Jh.-Beleg für `pagus Orla` | keine Rückprojektion auf 899/1013/1071 |
 | 12. Jh. | `terra Orla` / `Land Orla` | Histo-Begriffskritik; Sachenbacher Missions-/Kirchenkontext | uneinheitlicher Status | eigener Raum-/Herrschaftsbezug | nicht still mit `pagus`, `provincia`, `Orlagau` gleichsetzen |
 | moderne Forschung | `Orlagau` | Sachenbacher ca. S. 262 ff.; Wandsleb, Kaufmann, Rempel, Eberhard, Landschaften, Werner, Bünz | historiographische Rekonstruktion / Arbeitsterminus | sinnvoller Forschungs- und Suchraum | keine zeitlose historische Ontologie |
+
+### 5.1a Cross-Pilot-Präzisierung: 1056/1057 als Phasen, nicht als Datumswiderspruch
+
+Der frühere Tabellenwert `1056/1057` war für einen Router brauchbar, aber epistemisch zu flach. Im #103-Quellenpfad zeigt Hlawitschka (S. 242–243), dass die Saalfeld/Coburg-Vergabe nach seiner quellenkritischen Rekonstruktion bereits 1056 verabredet und im Sommer 1057 endgültig durchgeführt wurde. Sachenbachers DDE-Repräsentation formuliert kompatibel eine Schenkung 1056 und eine Bestätigung Annos II. 1057.
+
+Für #46 folgt daraus **nicht**, dass damit die Diplomatik erledigt wäre. Der räumliche Modellcheck darf:
+
+- Saalfeld/Coburg/Orla als berichteten Besitzkomplex weiter als Such- und Modellanker verwenden;
+- die zeitliche Folge `1056 → 1057` als offenen mehrstufigen Vorgang erhalten;
+- `in Orla` als quellen-/forschungsbezogene räumliche Relation auswerten.
+
+Er darf **nicht**:
+
+- 1056 oder 1057 ohne Quellenkontext als den einen „richtigen“ Datumswert wählen;
+- Hlawitschkas Rekonstruktion an die Stelle der direkten Kollation von Brauweiler `Fundatio` und Rheinischem Urkundenbuch I Nr. 97 setzen;
+- aus `in Orla` eine zeitlose polygonale `Orlagau`-Einheit ableiten.
+
+Diese Präzisierung ist historischer Research-Fortschritt; sie ist kein neues Zeitmodell und keine Systemtaxonomie.
+
 
 ### 5.2 Sachenbachers Grenzmodell
 
@@ -307,7 +326,7 @@ Die Matrix erfasst Orte und Raumanker, die Sachenbacher für seinen Orlagau-/Lan
 |---|---|---|
 | Arnulf-Urkunde 899 zu `curtis Salauelda` | Frühester Zentralortbeleg; Grundlage Saalfeld-Modell | `source-collation-open`; Gockel/Diplomata prüfen |
 | Heinrich-II.-Urkunde 1013 zu `provincia Salaveld` / `castellum salaueldon` | Raumbegriff `provincia`; ezzonischer Besitz | `source-collation-open` |
-| Richeza/Köln 1056/1057, `in Orla` | Schlüssel zu Raumbegriff und Kölner Besitz | `source-collation-open`; Rheinisches UB I Nr. 97 priorisiert |
+| Richeza/Köln 1056→1057, `in Orla` | Schlüssel zu Raumbegriff, Kölner Besitz und mehrphasiger Transferchronologie | `source-collation-open`; Brauweiler `Fundatio` + Rheinisches UB I Nr. 97 priorisiert; #103 `ARS-017` als source-critical Router |
 | Coburger Copialbuch / 1071er Grenz- und Klosterkomplex | Grenzmodell, `pagus Salavelt`, Kölner Besitz, Klostergründung | `high-risk / high-value`; diplomatisch direkt prüfen |
 | Besitzübersicht 1074 | Orts-/Siedlungsdichte, Hufenangaben, Kirchen/Orte | `source-collation-open` |
 | Saalfelder Dienstrecht | Wirtschafts-/Rechtskomplex, Wald/Rodung/Fischerei/Mühlen/Markt | `source-collation-open`; Jahrhundertschichtung prüfen |
