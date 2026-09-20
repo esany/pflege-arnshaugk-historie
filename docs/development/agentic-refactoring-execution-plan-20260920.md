@@ -443,3 +443,71 @@ Do **not** release an implementation agent until:
 2. corrected planning files pass Project Assurance;
 3. a Sol-level review confirms current prerequisites are sufficient and downstream dependencies are isolated;
 4. only then run Terra on Wave 1.
+
+
+## 12. Pre-implementation review evidence – 2026-09-20
+
+The planning/admission repair was reviewed before releasing another implementation agent.
+
+### Repository freshness
+
+- current `main`: `ff2bc993d959afd594dff2acf772e0e608963f97`;
+- PR #119 base: exact same commit;
+- PR #119 current head at review start: `0fcf3d75915c1f8ab4a04e3be0c360d4bfbe88f9`;
+- no newer `main` commit existed at the review point.
+
+### Work-order admission check
+
+Current Work Order:
+
+`docs/development/work-orders/wo-ret-001-exact-retrieval-calibration.json`
+
+Deterministic check against the actual `tools/operational/context.py` semantics:
+
+- all current-stage prerequisites: `pass`;
+- all declared basis Git blob SHAs: exact match;
+- `open_blockers = []`;
+- `unresolved = []`;
+- derived `CurrentContext.status = ready`;
+- real byte/corpus questions are isolated under `downstream_deferred_dependencies` and therefore do not falsely block the synthetic stage.
+
+### Current prerequisite evidence
+
+| Prerequisite | Result |
+|---|---|
+| accepted retrieval requirements basis | PASS |
+| provider-neutral research-state contract basis | PASS |
+| synthetic text-bearing fixture availability | PASS |
+| delivery/trace/coverage basis | PASS |
+| local assurance dependency setup declared | PASS |
+
+### CI
+
+- PR #119 Project Assurance Run #256 (`35541719983`): **success** on head `0fcf3d75915c1f8ab4a04e3be0c360d4bfbe88f9`;
+- PR #118 sequencing correction Project Assurance Run #254 (`35541677959`): **success** on head `642d7aa01a0807aecba4f2d2360fa15124def46c`.
+
+### Review findings corrected before release
+
+1. Initial calibration wrongly assumed the real #55 audit projection was sufficient retrieval input.
+2. First repair still put a downstream real-corpus gap into current `prerequisites/unresolved`, which would have forced another correct stop.
+3. #55 Work-Owner text overstated readiness of real #53 retrieval; corrected.
+4. PR #118 O.15 overstated readiness of real #53 retrieval; corrected to staged admission.
+5. Work Order lacked explicit G/N/P drivers, acceptance tests, negative tests and forbidden-loss list; added.
+6. Local `jsonschema` absence was an execution-environment setup omission; the repository already declares and CI installs `tools/requirements/requirements.txt`.
+
+### Remaining review boundary
+
+This review admits **only Wave 1 synthetic Exact Retrieval calibration**.
+
+It does not admit:
+
+- real Sachenbacher retrieval;
+- real historical variant expansion;
+- a shared runtime state reader;
+- a product package boundary;
+- SQLite/FTS;
+- the #47 vertical slice;
+- a Skill/MCP/UI layer.
+
+Those remain gated by the earlier sections of this plan.
+
