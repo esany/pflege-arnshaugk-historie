@@ -188,50 +188,42 @@ Kernräume sind Ostthüringen/Orla, Vogtland, Saalfeld und angrenzende thüringi
 
 Kanonische Vertiefung: #13, #14, #16.
 
-### 4.4 Working User-Research Hypothesis: transformierbarer Wissensraum
+### 4.4 Working User-Research Hypothesis: perspektivisch transformierbarer Forschungsraum
 
-**Status:** `user-research signal / working model / not an accepted Requirement / not an ontology`.
+**Status:** `user-research synthesis / working meta-model / not an accepted Requirement / not an ontology`.
 
-Der Research Owner beschreibt den gewünschten Forschungsarbeitsplatz als einen **gemeinsamen Wissensraum, der je nach Frage unterschiedlich projiziert, geschnitten und transformiert werden kann**. Diese Formulierung wird hier ausdrücklich nicht 1:1 als Datenmodell oder Featureliste übernommen, sondern als User-Research-Signal für weitere fachliche und technische Prüfung.
+Aus den bisherigen Owner-Inputs ergibt sich auf Metaebene **nicht** primär eine Liste von Objektklassen oder Analyseachsen, sondern ein gewünschtes Grundverhalten des gesamten Forschungssystems:
 
-Das beobachtete Mental Model umfasst derzeit u. a. mehrere teilweise orthogonal gedachte Analyseachsen:
+> **Es soll keinen privilegierten fachlichen, zeitlichen, räumlichen oder relationalen Hauptblick geben. Derselbe belastbare Forschungszustand soll unter wechselnden Forschungsfragen und Fachperspektiven unterschiedlich organisiert, begrenzt, verfolgt und dargestellt werden können, ohne dass dafür getrennte Wahrheiten oder Case-Silos entstehen.**
 
-- **Zeit:** Zeitschnitt, Zeitintervall, Entwicklung eines Gegenstands über Zeit;
-- **Raum:** Ort, Landschaft, Gebiet, räumlicher Zusammenhang und Scale Shift;
-- **Akteure:** Personen, Gruppen, Rollen, Beziehungen und biographische/kontextuelle Zustände;
-- **Institution/Herrschaft/Struktur:** Herrschafts-, Rechts-, Verwaltungs-, Kirchen-, Besitz- oder Organisationszusammenhänge mit eigener fachlicher Logik;
-- **Quelle/Evidenz:** globale projektweite Quellenidentität, Instanz, Fundstelle, Beobachtung und Evidenzstatus;
-- **Objekt-/Materialperspektive:** z. B. Gebäude, Wüstung, Flur, Fundplatz, Gewässer oder Infrastruktur mit zeitabhängigen Zuständen.
+Die wiederkehrenden Beispiele – rund 2000 Jahre Regionalgeschichte, wechselnde Maßstäbe, Personen und Herrschaftsstrukturen, Häuser/Wüstungen/Flurnamen/Gewässer, archäologische und bauhistorische Befunde, globale Quellenverwaltung, widersprüchliche Aussagen und mehrere parallele Forschungspiloten – werden deshalb als **Falsifikationsmaterial für dieses Meta-Prinzip** gelesen, nicht als direkt zu implementierende Taxonomie.
 
-`orthogonal` ist dabei zunächst **Nutzersprache / Arbeitsmetapher**, keine Behauptung mathematischer oder ontologischer Unabhängigkeit. Gerade historische Raum-, Akteurs-, Herrschafts- und Objektlogiken können sich überschneiden und werden fachlich nicht durch eine einheitliche Graphlogik ersetzt.
+### Invarianten des beobachteten Mental Models
 
-Die Beispiele `Gemeinde`, `Region`, `Wüstung`, `Haus`, `Flurname`, `Fundplatz`, `Gewässer`, `Altstraße` usw. sind daher **Coverage-/Falsifikationsbeispiele aus User Research**, keine abschließend akzeptierte Objektklassifikation.
+1. **Ein gemeinsamer epistemischer Untergrund:** Quellennahe Beobachtungen, Provenienz, Identitätsannahmen, Findings, Widersprüche und Forschungsstatus sollen wiederverwendbar sein und nicht einer einzelnen Frage gehören.
+2. **Keine privilegierte Zerlegung:** Zeit, Raum, Akteur, Institution/Herrschaft, Objekt, Ereignis, Relation oder Quelle können je nach Frage Vordergrund oder Kontext sein. Keine dieser Perspektiven soll die anderen ontologisch dominieren.
+3. **Komponierbare Perspektiven:** Forschung soll denselben State z. B. als Zeitschnitt, Entwicklung eines Gegenstands, Akteurskontext, institutionelle Struktur, räumlichen Zusammenhang, Quellenweg oder Evidenzkontroverse betrachten können.
+4. **Fachlogiken bleiben eigenständig:** Die Möglichkeit gemeinsamer Projektionen bedeutet nicht, dass Raumgeschichte, Prosopographie, Verfassungs-/Rechtsgeschichte, Archäologie oder Bauforschung dieselbe Semantik erhalten. Gemeinsamer State und domänenspezifische Interpretation sind getrennte Verantwortlichkeiten.
+5. **Transformation ist nicht automatisch Mutation:** Umsortieren, Filtern, Skalieren, Vergleichen und Re-Kontextualisieren sollen grundsätzlich als abgeleitete Forschungssichten denkbar sein. Änderung kanonischer Identität, Evidenzbewertung oder wissenschaftlicher Promotion ist ein anderer Vorgang.
+6. **Widerspruch und Mehrdeutigkeit bleiben erhalten:** Eine Projektion darf konkurrierende Datierungen, Lokalisierungen, Identitäten oder Interpretationen nicht durch Auswahl eines scheinbar kanonischen Werts unsichtbar machen.
 
-### Fachliche Routing-Hypothese
+`orthogonal`, `Netz`, `kneten` und ähnliche Owner-Begriffe werden daher als **Arbeitsmetaphern für Perspektivfreiheit und Transformierbarkeit** behandelt, nicht wortwörtlich als mathematische, Graph- oder UI-Spezifikation.
 
-Vor einer technischen Operationalisierung wird dieses Mental Model gegen bestehende Fach-/SOTA-Stränge geroutet:
+### Fachliche und technische Sondierung
 
-- Zeit/Raum/Scale → C4 / #36 / CAP-13 sowie einschlägige historische Geographie, Landes-/Territorialgeschichte und Spatial Humanities;
-- Personen/Akteure → C5 / #37 / CAP-14 sowie Prosopographie, Sozial-/Politikgeschichte und problemabhängige Fachdomänen;
-- Herrschafts-/Institutionenlogik → jeweils zuständige Rechts-, Verfassungs-, Verwaltungs-, Kirchen-, Territorial- oder Sozialgeschichte unter #60;
-- Quellen-/Evidenzachse → #45, Source-Identity-Protokoll, CAP-04/CAP-08 und #50;
-- abgeleitete Timeline-/Map-/Network-/Audit-Sichten → C8 / #38 / CAP-17; Views dürfen keine zweite Research Truth erzeugen.
+Die konkrete Semantik bleibt problemabhängig geroutet: Zeit/Raum/Scale zu C4/#36/CAP-13, Akteurs-/Situationslogik zu C5/#37/CAP-14, Herrschaft/Recht/Institution zu den zuständigen Fachdomänen unter #60, Evidence Layering zu CAP-08/#45/#50 und abgeleitete Research Views zu C8/#38/CAP-17.
 
-### Offene Discovery-/Requirement-Fragen
+Technisch ist erst später zu diskriminieren, welche minimale Repräsentation und Abfrage-/Projektionslogik dieses Verhalten trägt. Graph, relationale Modelle, Event-/Assertion-Modelle, GIS, Dokumentmodelle oder Mischformen bleiben Lösungshypothesen.
 
-Vor einer Promotion in #42 bzw. einer technischen Ableitung unter #48/#50 sind mindestens zu klären:
+### Offene User-Research-/Capability-Fragen
 
-1. Welche Teile dieses Mental Models sind ein **Need/Job-to-be-done**, welche nur eine anschauliche Metapher?
-2. Welche Achsen besitzen tatsächlich gemeinsame generische Semantik, und wo verlangen Fachdomänen eigene Modelle/Methoden?
-3. Was bedeutet `kneten/transformieren` praktisch: filtern, projizieren, aggregieren, re-kontextualisieren, vergleichen oder den kanonischen State mutieren?
-4. Welche Transformationen dürfen nur abgeleitete Views sein, damit Provenienz, Widerspruch und zeitliche Geltung erhalten bleiben?
-5. Welche Objektarten werden durch reale Forschungsfälle benötigt, statt vorsorglich als Ontologie festgeschrieben zu werden?
-6. Welche Capability ist fachliche Analyse, welche Research UX, welche Datenhaltung und welche technische Funktion?
+1. Welche wiederkehrenden Transformationen braucht der Research Owner tatsächlich in realer Forschung?
+2. Welche Information muss invariant im gemeinsamen Research State bleiben, damit unterschiedliche Sichten verlustfrei ableitbar sind?
+3. Welche Perspektiven lassen sich generisch kombinieren, und wo beginnt zwingend domänenspezifische Methodik?
+4. Was muss eine Projektion offenlegen, damit Auswahl-, Filter-, Aggregations- und Proxy-Effekte wissenschaftlich auditierbar bleiben?
+5. Welche aktuellen Piloten können denselben Befund in bewusst unterschiedlichen Perspektiven verwenden und dadurch dieses Meta-Prinzip falsifizieren oder schärfen?
 
-Bis diese Punkte diskriminiert sind, gilt:
-
-> **User-Research-Input beschreibt Zielerleben, Pains, Mental Models und Beispiele. Er wird nicht unmittelbar zu Requirement, Fachmethode, Ontologie oder Architektur.**
-
+> **User-Research-Input beschreibt hier primär das gewünschte epistemische Arbeitsverhalten. Erst nach fachlicher und workflowbezogener Diskriminierung darf daraus Capability-, Requirement- oder Architektursemantik entstehen.**
 
 ### 4.5 Quellengattungen und materielle Evidenz
 
