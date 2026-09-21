@@ -516,3 +516,133 @@ It does not admit:
 
 Those remain gated by the earlier sections of this plan.
 
+
+
+## 13. Second pre-implementation hardening review – 2026-09-21
+
+The user explicitly challenged the earlier preparation as too assumption-driven. A second review therefore re-opened Wave-1 admission instead of relying on the prior READY result.
+
+### 13.1 Revalidated prerequisite chain
+
+Freshly re-read:
+
+- root governance / project handoff / README;
+- #42 Requirements authority;
+- #48 Technical Lead;
+- #49 Zotero/OneDrive capability boundary;
+- #50 canonical research-state contract;
+- #51 real Document/Findspot result;
+- #53 Retrieval owner;
+- #55 audit-view boundary;
+- #57 availability/restartability;
+- #59 delivery/verification;
+- #63 traceability;
+- #64 review findings;
+- #92 architecture re-baseline;
+- current PR #119 Work Order and admission regression.
+
+The earlier suspicion is now explicit dependency truth:
+
+```text
+real Source/Instance/Findspot path
+!= text-bearing retrieval input
+!= currently available retrieval corpus
+!= provider-independent byte resolver
+```
+
+Therefore no later stage may infer one level from another.
+
+### 13.2 Requirements/driver review
+
+Wave 1 is bounded by:
+
+- REQ-RET-001;
+- REQ-RET-003;
+- REQ-SRC-004;
+- REQ-EPI-004/005;
+- REQ-WF-001;
+- REQ-STATE-002;
+- REQ-TRACE-001;
+- REQ-LEAN-001.
+
+Upstream driver references were rechecked in `problem-baseline.md`:
+
+- G-004 concrete source/findspot traceability;
+- G-008 restartable/provider-independent research state;
+- N-006 exact findspot preservation;
+- N-008 exact search + controlled historical variants;
+- N-015 versioned non-duplicated research state;
+- N-018 capability-specific acceptance criteria;
+- P-004 search-hit loss of findspots.
+
+No Requirement change is needed for Wave 1.
+
+### 13.3 Additional ambiguity removed before Terra
+
+The prior Work Order was directionally correct but still left several reversible choices to the implementation model. These are now fixed:
+
+1. **Mutation boundary:** only retrieval implementation/test + exact trace/coverage files may change; fixture extraction is conditional and bounded.
+2. **Trace contract:** reserve `IMP-RET-001`; initial state `implemented`, never `verified` before canonical CI + independent Sol review.
+3. **Coverage ceiling:** only REQ-RET-001/003 may move `not-started -> in-progress`; REQ-SRC-004 remains `partial`; no other RET status may change.
+4. **Deterministic result order:** hits sorted by `excerpt_id`.
+5. **Malformed-state handling:** duplicate IDs, malformed relevant collections/records, and non-string non-empty text fail closed.
+6. **Environment admission:** repository-declared Python dependency installation must succeed before code mutation. Failure is `HANDOFF/ENVIRONMENT`, not a reason to weaken checks.
+7. **Corpus fingerprint policy:** Wave 1 fingerprints the complete supplied JSON-compatible state conservatively. This may over-invalidate after unrelated state changes, but avoids hidden corpus drift; narrowing is deferred to real-corpus evidence.
+8. **Out-of-scope file need:** any need to edit outside the declared mutation boundary is a handoff, not implementer discretion.
+
+### 13.4 Expanded Wave-1 test gate
+
+Before release, the Work Order now specifies **9 acceptance** and **9 negative** tests, including:
+
+- known hit / no hit;
+- query/filter/corpus reproducibility;
+- provenance roundtrip;
+- no AI dependency;
+- equality filter behavior;
+- fingerprint stability/change;
+- deterministic hit order;
+- exact mutation/trace/coverage boundary;
+- case/normalization non-equivalence;
+- missing ancestry;
+- no real-corpus laundering;
+- no persistent state/index;
+- unknown filter / empty query;
+- duplicate IDs;
+- malformed structures;
+- invalid text type.
+
+The Work Order admission regression must assert these contracts exist before implementation.
+
+### 13.5 Stage-by-stage prerequisite register
+
+| Stage | Required evidence/capability before release | Current status | Owner |
+|---|---|---|---|
+| Wave 1 synthetic exact | accepted REQ basis; provider-neutral synthetic text fixture; READY Work Order; local assurance setup; fixed tests/mutation boundary | **admitted after CI + this review** | #53/#59 |
+| Wave 2 real corpus admission | actual bytes or admitted text derivative; parent Instance/Derivative; findspot mapping; rights; rebuild/revalidation path | **not ready** | #49/#51/#57/#48 |
+| Wave 3 real exact | Wave 1 pass + Wave 2 admitted real corpus + known real query/search boundary | **not ready** | #53 |
+| Wave 4 variants | Wave 3 + domain-owned variant rationale/evidence + expansion logging | **not ready** | #53/#60 |
+| Wave 5 shared runtime reader | at least two real runtime consumers with demonstrated duplicated state-access responsibility | **not ready** | #48/#59 |
+| Wave 6 availability/restart | real provider loss/degraded-state scenario + portable curated state | **not ready** | #57 |
+| Wave 7 #47 vertical slice | owner-selected bounded question + real retrieval/availability path + applicable methods/evidence | **not ready** | #47/#60/#59 |
+| Wave 8 read model | measured query/navigation pain after real integrated use | **not ready** | #48 |
+| Wave 9 Skill/MCP/UI | stable product APIs/capabilities proven by real consumers | **not ready** | #48/#59 |
+
+### 13.6 Release rule
+
+Terra is **not** being trusted to resolve any prerequisite or design ambiguity.
+
+Terra may be released only when all of the following are simultaneously true on the exact implementation checkout:
+
+```text
+clean intended branch
++ fresh bootstrap
++ repo dependency install succeeds
++ all Work Order basis fingerprints match
++ CurrentContext.status == ready
++ mutation boundary understood
++ 9 acceptance + 9 negative tests present
++ trace/coverage contract fixed
++ no hidden semantic/architecture decision
+```
+
+A failure before code mutation is a successful fail-closed admission result, not permission to improvise.
