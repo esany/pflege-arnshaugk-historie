@@ -856,7 +856,7 @@
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Pre-implementation admission and second hardening review for PR #119: the calibration Work Order must load as CurrentContext.status=ready with current prerequisite bases unchanged; current-stage environment setup, mutation boundary, exact trace/coverage ceiling, deterministic result ordering, malformed/duplicate-state fail-closed behavior, 9 acceptance tests and 9 negative tests are fixed before Terra may mutate code. Downstream real-corpus/provider gaps remain explicitly non-authorized. This record verifies planning/admission mechanics only, not Retrieval functionality or scientific correctness."
+      "notes": "Pre-implementation admission and second hardening review for PR #119: repository-side inputs/contracts must derive CurrentContext.status=ready with current prerequisite bases unchanged, while execution-environment readiness remains explicitly pending until the actual Work runtime proves clean checkout + dependency installation + work-order preflight. Mutation boundary, exact trace/coverage ceiling, deterministic result ordering, malformed/duplicate-state fail-closed behavior, 9 acceptance tests and 9 negative tests are fixed before Terra may mutate code. Downstream real-corpus/provider gaps remain explicitly non-authorized. This record verifies planning/admission mechanics only, not Retrieval functionality or scientific correctness."
     }
   ]
 }
