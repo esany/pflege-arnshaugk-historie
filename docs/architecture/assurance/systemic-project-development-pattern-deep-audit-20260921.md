@@ -822,7 +822,7 @@ ISO 29148 ist kein HCI- oder Research-Workflow-Modell.
 ### Quelle
 
 ISO 9241-210 – Human-centred design for interactive systems  
-https://www.iso.org/standard/52075.html
+https://www.iso.org/standard/77520.html
 
 ### Relevanz
 
@@ -962,7 +962,7 @@ Cantu et al. (2020): Interventions and measurements of highly reliable/resilient
 
 AHRQ PSNet: High Reliability primer.
 
-Near-miss management review: Safety Science 91 (2017), 154–167.
+Gnoni, M. G.; Saleh, J. H. (2017): Near-miss management systems and observability-in-depth: Handling safety incidents and accident precursors in light of safety principles. Safety Science 91, 154–167. DOI 10.1016/j.ssci.2016.08.012.
 
 ### Kernaussage
 
@@ -992,7 +992,7 @@ HRO-Forschung zeigt zugleich, dass Umsetzung schwierig ist und neue Kommunikatio
 
 ### Quellen
 
-Lehman, M. M. – Laws of Software Evolution; spätere empirische Replikations-/Diskussionsliteratur.
+Lehman, M. M. – Laws of Software Evolution; als empirische Gegenprüfung u. a. Oliveira et al. (2017), *Evaluating Lehman’s Laws of software evolution within software product lines industrial projects*, Journal of Systems and Software 131, 347–365, DOI 10.1016/j.jss.2016.07.038. Die Literatur zeigt gemischte Unterstützung einzelner Laws statt einer universell harten Gesetzmäßigkeit.
 
 Langzeitstudien zu Lehman’s Laws formulieren u. a. die Beobachtung, dass E-Type-Systeme kontinuierlich angepasst werden und Komplexität ohne aktive Reduktionsarbeit steigt.
 
@@ -1235,7 +1235,7 @@ Der rote Lauf ist kein Projektversagen, sondern Evidence, dass das Gate tatsäch
 
 Der zentrale professionelle Fehlerkultur-Befund ist:
 
-> Ein Projekt darf nicht nur zählen, ob ein Fehler rechtzeitig blockiert wurde. Es muss zusätzlich beobachten, welche Bedingungen den Fehler wiederholt erzeugen.
+> Für eine systemische Fehleranalyse reicht der Befund „rechtzeitig blockiert“ nicht aus; analytisch relevant bleiben zusätzlich die Bedingungen, unter denen derselbe Fehlertyp wiederholt entstehen kann.
 
 ---
 
@@ -1522,7 +1522,7 @@ Ob das Muster generisch ist, kann erst sauber bewertet werden, wenn andere Repos
 11. AHRQ PSNet. High Reliability.  
     https://psnet.ahrq.gov/primer/high-reliability
 
-12. Near-miss management systems and observability-in-depth. Safety Science 91 (2017), 154–167.  
+12. Gnoni, M. G.; Saleh, J. H. (2017). Near-miss management systems and observability-in-depth: Handling safety incidents and accident precursors in light of safety principles. Safety Science 91, 154–167.  
     DOI: 10.1016/j.ssci.2016.08.012
 
 13. Horvitz, E. (1999). Principles of Mixed-Initiative User Interfaces. CHI 1999.  
@@ -1539,16 +1539,16 @@ Ob das Muster generisch ist, kann erst sauber bewertet werden, wenn andere Repos
 17. W3C PROV-O Recommendation.  
     https://www.w3.org/TR/prov-o/
 
-18. Becker, J.; Rush, N.; Barnes, E.; Rein, D. (2025). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.  
+19. Becker, J.; Rush, N.; Barnes, E.; Rein, D. (2025). Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity.  
     https://metr.org/Early_2025_AI_Experienced_OS_Devs_Study-paper.pdf
 
-19. METR (2026). We are Changing our Developer Productivity Experiment Design.  
+20. METR (2026). We are Changing our Developer Productivity Experiment Design.  
     https://metr.org/blog/2026-02-24-uplift-update/
 
-20. OpenAI (2026). Why SWE-bench Verified no longer measures frontier coding capabilities.  
+21. OpenAI (2026). Why SWE-bench Verified no longer measures frontier coding capabilities.  
     https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/
 
-21. Deng, X. et al. (2025/2026). SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?  
+22. Deng, X. et al. (2025/2026). SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?  
     https://arxiv.org/abs/2509.16941
 
 ---
