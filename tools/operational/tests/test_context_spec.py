@@ -38,7 +38,9 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertEqual("ready", context.status)
         self.assertEqual((), context.open_blockers)
         self.assertEqual((), context.unresolved)
-        self.assertTrue(context.current_executable_action.startswith("Run the current-stage admission preflight first"))
+        self.assertIn("full current-stage admission preflight before any code mutation", context.current_executable_action)
+        self.assertIn("HANDOFF/ENVIRONMENT", context.current_executable_action)
+        self.assertIn("mutation_boundary", context.current_executable_action)
         self.assertIn("treat AI/model output as evidence or retrieval ground truth", context.must_not)
 
         states = {item.ref: item.status for item in context.prerequisites}
