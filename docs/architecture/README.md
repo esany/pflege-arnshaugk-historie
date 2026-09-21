@@ -32,6 +32,7 @@ Assurance:
 - `assurance/value-decision-delivery-assurance.md` – #63 Goal/Need/Pain → Requirement → Decision → Delivery → Feedback
 - `assurance/shared-research-state-audit-20260919.md` – #64/#92 current-main audit of shared Research State, cross-pilot reuse and gaps
 - `assurance/chat-operationalization-self-audit-20260920.md` – #64 corrective self-audit of Owner/User-Research interpretation and chat→repo operationalization
+- `assurance/systemic-project-development-pattern-deep-audit-20260921.md` – #64 unabhängiger transdisziplinärer Deep Audit wiederkehrender Need→System-, Koordinations-, Governance-, Persistenz- und Admission-Muster; Research-/Analysegrundlage ohne Lösungs-, Requirement- oder Architecture-Authority
 - `../tools/requirements/README.md`
 - `../tools/assurance/`
 
