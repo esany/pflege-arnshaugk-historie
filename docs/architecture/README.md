@@ -32,6 +32,8 @@ Assurance:
 - `assurance/value-decision-delivery-assurance.md` – #63 Goal/Need/Pain → Requirement → Decision → Delivery → Feedback
 - `assurance/shared-research-state-audit-20260919.md` – #64/#92 current-main audit of shared Research State, cross-pilot reuse and gaps
 - `assurance/chat-operationalization-self-audit-20260920.md` – #64 corrective self-audit of Owner/User-Research interpretation and chat→repo operationalization
+- `assurance/generic-system-problem-analysis-prompt-v1-20260921.md` – eingefrorener generischer Analyse-/Research-Prompt als experimenteller Stimulus, ohne Projekt-Authority
+- `assurance/system-analysis-prompt-experiment-register-20260921.md` – #64 Pre-Comparison-Provenienzregister: trennt Self-Audit, seeded/contaminated Runs und den noch nicht eingelesenen Fresh-Chat-Versuch
 - `../tools/requirements/README.md`
 - `../tools/assurance/`
 
