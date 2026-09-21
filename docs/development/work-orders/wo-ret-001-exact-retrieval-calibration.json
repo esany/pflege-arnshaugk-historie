@@ -49,7 +49,7 @@
     "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one",
     "Project Assurance environment setup from .github/workflows/project-assurance.yml and tools/requirements/requirements.txt"
   ],
-  "current_executable_action": "Run the current-stage admission preflight first: load this work order with tools/operational/context_spec.py and confirm CurrentContext.status == `ready` with all declared basis fingerprints unchanged. Then implement exactly the bounded `implementation_shape` in this work order: `tools/operational/retrieval.py` plus `tools/operational/tests/test_retrieval.py` (and only if needed a shared synthetic test fixture helper under `tools/operational/tests/fixtures.py`). Implement case-sensitive literal substring/phrase matching over explicit `excerpts[*].text`, the listed equality filters, returned query-log metadata, and fail-closed provenance resolution. Do not use the real Sachenbacher projection as a searchable corpus. Before formal local validators, mirror CI setup with `python -m pip install -r tools/requirements/requirements.txt`. If any current-stage admission condition fails or the exact shape requires new research-state semantics, return HANDOFF/UNRESOLVED before implementation.",
+  "current_executable_action": "Run the full current-stage admission preflight before any code mutation: (1) confirm clean checkout on branch dev/calibration-exact-retrieval-20260920; (2) install the repo-declared local assurance dependency with `python -m pip install -r tools/requirements/requirements.txt`; if this fails, return HANDOFF/ENVIRONMENT without implementing; (3) load this work order with tools/operational/context_spec.py and confirm CurrentContext.status == `ready` with every declared basis fingerprint unchanged; (4) confirm the mutation_boundary, trace_and_coverage_contract, acceptance_tests and negative_tests below are satisfiable without semantic invention. Only then implement exactly `tools/operational/retrieval.py` plus `tools/operational/tests/test_retrieval.py` (and only if required to avoid test-to-product imports, a shared synthetic helper at `tools/operational/tests/fixtures.py` with corresponding mechanical update to `test_audit.py`). Implement case-sensitive literal substring/phrase matching over explicit `excerpts[*].text`, equality filters, deterministic hit ordering, returned query-log metadata, deterministic corpus fingerprint and fail-closed provenance resolution. Apply exactly the proportional trace/coverage updates defined below. Do not use the real Sachenbacher projection as a searchable corpus. Any need outside the declared mutation boundary or for new research-state semantics returns HANDOFF/UNRESOLVED before that change.",
   "prerequisites": [
     {
       "ref": "accepted-retrieval-requirements-stable",
@@ -139,12 +139,15 @@
     "change accepted requirements, method truth, research selection or historical findings"
   ],
   "stop_handoff_when": [
+    "the repo-declared local assurance dependency cannot be installed before implementation",
+    "CurrentContext.status is not ready or any prerequisite basis fingerprint is stale",
     "even the synthetic exact-retrieval function requires a new research-state semantic field/object instead of consuming existing roles",
+    "implementation requires changing any path outside mutation_boundary",
     "a material architecture decision or persistent storage choice becomes necessary",
     "a requirement/authority conflict is discovered",
-    "tests can only pass by weakening provenance, unresolved preservation or no-LLM exact-search constraints"
+    "tests can only pass by weakening provenance, unresolved preservation, literal-exact semantics or no-LLM constraints"
   ],
-  "return_condition": "Current-stage preflight is READY; the branch then contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM literal exact search, reproducible query/corpus logging, known-hit/no-hit behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; all runnable relevant tests and Project Assurance pass; downstream real-corpus dependencies remain separately recorded and no real-source verification is claimed. #53/#59 trace/coverage is updated only to the demonstrated level.",
+  "return_condition": "Preflight is READY and local assurance dependency setup succeeded before mutation; implementation stays inside mutation_boundary; the branch contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM literal exact search, deterministic hit ordering, reproducible query/filter/corpus logging, known-hit/no-hit behavior, malformed/duplicate-state fail-closed behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; required trace/coverage updates match trace_and_coverage_contract and remain within coverage_claim_limit; all relevant local suites/validators pass and canonical PR Project Assurance is requested. Downstream real-corpus dependencies remain separately recorded and no real-source verification is claimed.",
   "persistence_target": "Implementation/tests/trace on branch and PR owned by issue:#53 under #48/#59; no new work-owner issue. Calibration result is summarized in issue:#53 or #48; only materially general learning returns to the existing #64/PR #118 review path.",
   "source_refs": [
     "issue:#53",
@@ -190,6 +193,12 @@
       "outcome": "pre-implementation ambiguity reduction",
       "interpretation": "Independent review found that module placement, fixture reuse, filter semantics and query-log/result shape were still unnecessarily left to the implementation model.",
       "disposition": "Fix the reversible calibration implementation shape explicitly so Terra is evaluated on implementation quality rather than on open design choices."
+    },
+    {
+      "date": "2026-09-21",
+      "outcome": "second pre-implementation review hardening",
+      "interpretation": "The corrected plan was directionally sound but still left mutation scope, trace/coverage mutation, hit ordering and malformed/duplicate-state behavior to implementer discretion.",
+      "disposition": "Freeze those reversible choices in the Work Order and regression-test their presence before releasing Terra."
     }
   ],
   "downstream_deferred_dependencies": [
@@ -233,16 +242,16 @@
       "tools/operational/context_spec.py"
     ],
     "preflight_checks": [
-      "clean checkout on declared branch",
-      "fresh repository bootstrap",
+      "clean checkout on declared repository and branch; no foreign/uncommitted files",
+      "fresh repository bootstrap and current issue #53 read",
+      "repo-declared Python assurance dependency installs successfully before code mutation",
       "all prerequisite basis fingerprints match checkout",
       "CurrentContext.status == ready",
-      "declared local test dependency setup is executable or CI fallback is explicit",
-      "no hidden need for new Requirement/Method/State semantics",
-      "acceptance and negative tests are specified before code changes",
-      "acceptance_tests and negative_tests are present and understood",
+      "acceptance_tests and negative_tests are present, understood and implementable without semantic invention",
+      "mutation_boundary allows every planned file change; otherwise stop",
+      "trace_and_coverage_contract is applicable without broadening claims",
       "coverage_claim_limit is preserved",
-      "implementation_shape can be implemented without adding any semantic field or persistent state"
+      "implementation_shape can be implemented without adding semantic fields, persistence or provider assumptions"
     ]
   },
   "upstream_driver_refs": [
@@ -305,6 +314,16 @@
       "ref": "RET-CAL-A07",
       "statement": "The same JSON-compatible input state deterministically yields the same corpus_fingerprint; a changed input state yields a different fingerprint.",
       "expected": "SHA-256 corpus fingerprint makes rerun boundary explicit without becoming canonical research identity"
+    },
+    {
+      "ref": "RET-CAL-A08",
+      "statement": "Equivalent matching/filtering over the same records returns hits in deterministic excerpt_id order even if input excerpt order differs.",
+      "expected": "stable lexicographic hit order independent of fixture list order"
+    },
+    {
+      "ref": "RET-CAL-A09",
+      "statement": "Implementation changes remain within mutation_boundary and trace/coverage changes match trace_and_coverage_contract exactly.",
+      "expected": "no unrelated repository files or Requirement statuses changed"
     }
   ],
   "negative_tests": [
@@ -337,6 +356,21 @@
       "ref": "RET-CAL-N06",
       "statement": "An empty query is rejected rather than treated as matching every excerpt.",
       "expected": "fail closed with an explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N07",
+      "statement": "Duplicate IDs in any relevant provenance collection are not resolved by first/last-write behavior.",
+      "expected": "fail closed with explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N08",
+      "statement": "Malformed relevant collection/record structure is not silently skipped when it is required for search/provenance.",
+      "expected": "fail closed with explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N09",
+      "statement": "A present non-empty excerpt text value that is not a string is not coerced into searchable text.",
+      "expected": "fail closed with explicit retrieval error"
     }
   ],
   "environment_setup": {
@@ -398,5 +432,109 @@
     "persistence": "none beyond code/tests/required #63 trace and proportional #59 coverage",
     "corpus_fingerprint_rule": "Return sha256 over UTF-8 bytes of deterministic JSON serialization of the complete input state using ensure_ascii=false, sort_keys=true and compact separators. This is run/corpus provenance only, not canonical Source/Instance identity.",
     "implementation_version": "exact-literal-v0.1"
+  },
+  "mutation_boundary": {
+    "rule": "Only the listed paths may be changed in this calibration. Any need to modify another path is a stop/handoff condition, not implementer discretion.",
+    "allowed_required": [
+      "tools/operational/retrieval.py",
+      "tools/operational/tests/test_retrieval.py",
+      "tools/assurance/data/trace-records.json",
+      "docs/development/requirements-coverage.md"
+    ],
+    "allowed_conditional": [
+      {
+        "path": "tools/operational/tests/fixtures.py",
+        "condition": "only if needed to share the existing synthetic fixture without product code importing tests"
+      },
+      {
+        "path": "tools/operational/tests/test_audit.py",
+        "condition": "only the mechanical import/use change paired with fixture extraction; no audit semantics change"
+      }
+    ],
+    "forbidden_examples": [
+      "AGENTS.md",
+      "PROJECT_STATE.md",
+      "README.md",
+      "docs/research/synthesis/requirements-baseline.md",
+      "docs/research/synthesis/requirements-extensions.md",
+      "docs/architecture/contracts/canonical-research-state.md",
+      "docs/architecture/integrations/zotero-onedrive.md",
+      "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json"
+    ]
+  },
+  "trace_and_coverage_contract": {
+    "trace_record": {
+      "id": "IMP-RET-001",
+      "initial_status": "implemented",
+      "may_be_marked_verified_when": "only after implementation tests pass, canonical PR Project Assurance succeeds on the implementation head, and independent Sol High review finds no material semantic/authority drift",
+      "requirement_refs": [
+        "REQ-RET-001",
+        "REQ-RET-003",
+        "REQ-SRC-004",
+        "REQ-WF-001",
+        "REQ-STATE-002",
+        "REQ-TRACE-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-004",
+        "G-008",
+        "N-006",
+        "N-008",
+        "N-015",
+        "N-018",
+        "P-004"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
+      "implementation_files_rule": "List only files actually changed for retrieval implementation/tests plus the trace/coverage files; conditional fixture files only if actually used.",
+      "notes_boundary": "State explicitly that this is synthetic literal-exact calibration only; no real-source retrieval, historical variant, corpus-provider, owner-workflow acceptance or scholarly verification claim."
+    },
+    "coverage_updates": [
+      {
+        "requirement": "REQ-RET-001",
+        "from": "not-started",
+        "to": "in-progress",
+        "note": "synthetic literal exact-search baseline implemented/tested without LLM; real-source falsification remains pending"
+      },
+      {
+        "requirement": "REQ-RET-003",
+        "from": "not-started",
+        "to": "in-progress",
+        "note": "synthetic query/filter/corpus-fingerprint provenance implemented/tested; real corpus/index/version reproducibility remains pending"
+      },
+      {
+        "requirement": "REQ-SRC-004",
+        "from": "partial",
+        "to": "partial",
+        "note": "retain existing #51 real findspot evidence and add only that synthetic retrieval hits preserve provider-neutral findspot/source ancestry; no real retrieval roundtrip claim"
+      }
+    ],
+    "forbidden_coverage_changes": [
+      "REQ-RET-002",
+      "REQ-RET-004",
+      "REQ-RET-005"
+    ],
+    "rule": "Do not change any other Requirement status in this calibration."
+  },
+  "determinism_contract": {
+    "hit_order": "Sort returned hits lexicographically by excerpt_id after matching/filtering; input list order must not control result order.",
+    "duplicate_ids": "Duplicate non-empty IDs within any relevant collection (excerpts, derivatives, instances, representations, sources) are invalid and fail closed.",
+    "collection_shape": "Relevant collections, when present, must be lists of mappings; malformed collections/records fail closed.",
+    "excerpt_text": "Absent or empty text makes an excerpt non-searchable and is skipped. If a non-empty text field is present but is not a string, fail closed.",
+    "filter_values": "Supported filter values must be non-empty strings. Unknown keys or invalid values fail closed.",
+    "fingerprint_tradeoff": "For this calibration fingerprint the complete JSON-compatible input state exactly as supplied. This deliberately over-invalidates on unrelated state changes rather than risking hidden corpus drift; a narrower real-corpus fingerprint is deferred to the real-source stage."
+  },
+  "environment_failure_classification": {
+    "dependency_install_failure": "HANDOFF/ENVIRONMENT; no implementation mutation",
+    "work_order_not_ready_or_basis_stale": "HANDOFF/UNRESOLVED; no implementation mutation",
+    "semantic_or_architecture_need": "HANDOFF/UNRESOLVED; no out-of-scope change",
+    "test_failure_after_in_scope_implementation": "fix only within mutation_boundary if the contract remains unchanged; otherwise handoff",
+    "canonical_ci_failure": "do not mark trace verified or advance beyond declared in-progress/partial coverage"
   }
 }
