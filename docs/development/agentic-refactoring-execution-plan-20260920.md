@@ -617,7 +617,7 @@ The Work Order admission regression must assert these contracts exist before imp
 
 | Stage | Required evidence/capability before release | Current status | Owner |
 |---|---|---|---|
-| Wave 1 synthetic exact | accepted REQ basis; provider-neutral synthetic text fixture; READY Work Order; local assurance setup; fixed tests/mutation boundary | **admitted after CI + this review** | #53/#59 |
+| Wave 1 synthetic exact | accepted REQ basis; provider-neutral synthetic text fixture; repo-ready Work Order; declared assurance setup; fixed tests/mutation boundary; actual Work runtime still must pass clean-checkout + dependency-install preflight | **repository-ready; implementation release conditional on runtime preflight** | #53/#59 |
 | Wave 2 real corpus admission | actual bytes or admitted text derivative; parent Instance/Derivative; findspot mapping; rights; rebuild/revalidation path | **not ready** | #49/#51/#57/#48 |
 | Wave 3 real exact | Wave 1 pass + Wave 2 admitted real corpus + known real query/search boundary | **not ready** | #53 |
 | Wave 4 variants | Wave 3 + domain-owned variant rationale/evidence + expansion logging | **not ready** | #53/#60 |
@@ -628,6 +628,16 @@ The Work Order admission regression must assert these contracts exist before imp
 | Wave 9 Skill/MCP/UI | stable product APIs/capabilities proven by real consumers | **not ready** | #48/#59 |
 
 ### 13.6 Release rule
+
+Two readiness states are deliberately separate:
+
+```text
+repository admission = READY
+execution environment admission = PENDING until the actual Work runtime proves it
+implementation release = CONDITIONAL
+```
+
+A green repository/CI state therefore never claims that the concrete Work checkout, dependency installation or local writable environment has already been tested.
 
 Terra is **not** being trusted to resolve any prerequisite or design ambiguity.
 
