@@ -77,6 +77,9 @@ class WorkOrderContextTests(unittest.TestCase):
             "HANDOFF/ENVIRONMENT; no implementation mutation",
             raw["environment_failure_classification"]["dependency_install_failure"],
         )
+        self.assertEqual("ready", raw["release_state"]["repository_admission"])
+        self.assertEqual("pending-until-actual-work-runtime-preflight", raw["release_state"]["execution_environment_admission"])
+        self.assertEqual("conditional", raw["release_state"]["implementation_release"])
         self.assertTrue(any("mutation_boundary" in item for item in raw["execution_admission"]["preflight_checks"]))
         self.assertTrue(any("local assurance dependency" in item for item in raw["stop_handoff_when"]))
 
