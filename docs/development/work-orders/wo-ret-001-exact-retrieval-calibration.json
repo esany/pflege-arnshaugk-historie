@@ -199,6 +199,12 @@
       "outcome": "second pre-implementation review hardening",
       "interpretation": "The corrected plan was directionally sound but still left mutation scope, trace/coverage mutation, hit ordering and malformed/duplicate-state behavior to implementer discretion.",
       "disposition": "Freeze those reversible choices in the Work Order and regression-test their presence before releasing Terra."
+    },
+    {
+      "date": "2026-09-21",
+      "outcome": "admission-state clarification",
+      "interpretation": "Static review found that a single READY label could again conflate repository sufficiency with actual Work-runtime executability.",
+      "disposition": "Separate repository_admission from execution_environment_admission; implementation release remains conditional until runtime preflight succeeds."
     }
   ],
   "downstream_deferred_dependencies": [
@@ -236,7 +242,7 @@
   "execution_admission": {
     "stage": "synthetic-exact-retrieval-calibration",
     "required_status": "ready",
-    "rule": "All entries in `prerequisites` must be pass and `open_blockers`/`unresolved` must be empty before implementation. Downstream dependencies must never be placed in current `prerequisites` or `unresolved`.",
+    "rule": "All repository-side prerequisites must be pass and open_blockers/unresolved empty for repository_admission=ready. This does not imply execution_environment_admission. The actual Work runtime must still pass clean-checkout + dependency-install + work-order-load/basis checks before any code mutation. Downstream dependencies must never be placed in current prerequisites/unresolved.",
     "checked_against": [
       "tools/operational/context.py",
       "tools/operational/context_spec.py"
@@ -536,5 +542,11 @@
     "semantic_or_architecture_need": "HANDOFF/UNRESOLVED; no out-of-scope change",
     "test_failure_after_in_scope_implementation": "fix only within mutation_boundary if the contract remains unchanged; otherwise handoff",
     "canonical_ci_failure": "do not mark trace verified or advance beyond declared in-progress/partial coverage"
+  },
+  "release_state": {
+    "repository_admission": "ready",
+    "execution_environment_admission": "pending-until-actual-work-runtime-preflight",
+    "implementation_release": "conditional",
+    "rule": "Repository READY means canonical inputs/contracts are sufficient. It does not assert that the concrete Work runtime is clean, dependency-complete or writable. Code mutation is released only after the runtime preflight in current_executable_action succeeds in that same checkout."
   }
 }
