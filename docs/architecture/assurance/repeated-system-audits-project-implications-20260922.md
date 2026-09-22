@@ -1168,7 +1168,118 @@ It should **not** output the target architecture.
 Architecture/design synthesis occurs only after this research is reconciled with current project state under #48/#42/#59 authority.
 
 
-# 9. Handoff
+
+# 9. Decision at the Analysis/Research → Rebuild interface
+
+The owner clarified that the sequencing question is specifically about the boundary between:
+
+1. the generic **system-analysis + problem-driven Deep Research** phase; and
+2. the subsequent **project rebuild / architecture / implementation** phase that the earlier run had already begun to plan.
+
+## Disposition
+
+**Preferred sequence: finish the current Analysis + Deep Research cycle first, then re-derive the rebuild.**
+
+Do **not** start a provisional “first rebuild round” in parallel merely to avoid waiting.
+
+Reason:
+
+- the current rebuild plan was materially derived from the first, more solution-oriented Deep Research;
+- repeated audits have since split, weakened and reframed several of its causal premises;
+- the next Deep Research is explicitly intended to close theoretical/methodological/related-work gaps that bear directly on workflow, partitioning, coordination, formalization, controls, restartability and AI role allocation;
+- PR #119 still contains **no retrieval implementation code**;
+- current project state remains **selection-open**;
+- therefore there is little sunk implementation cost that would justify a provisional intermediate architecture.
+
+A parallel intermediate rebuild would create a new anchoring structure and likely require a second architectural correction immediately after research.
+
+## What may happen before the research finishes
+
+Only **non-solution housekeeping / preservation**:
+
+- preserve already established loss-boundary contracts and working code;
+- do not roll back #50/#51 or settled fail-closed/unresolved semantics;
+- mark solution-shaped downstream plan elements as provisional / not authorized;
+- keep open PRs and evidence intact;
+- correct documentation that would otherwise misstate the current problem model;
+- perform ordinary maintenance / bugfixes only when independently justified.
+
+This is **not** a first rebuild phase.
+
+## What should wait
+
+Until the problem-driven Deep Research is complete and reconciled, do not newly execute or finalize as part of the rebuild:
+
+- R5 as the intended primary delivery shape;
+- R6 as the intended operational-core shape;
+- shared runtime/product package extraction;
+- read-model / SQLite/FTS direction;
+- Skill/MCP/UI direction;
+- owner/handoff topology changes;
+- architecture intended to absorb or expose operational uncertainty;
+- fixed model of the research workflow;
+- AI/agent role allocation.
+
+Even a bounded technical capability such as PR #119 Wave 1 should not be interpreted or selected **because it is the next rebuild step**. It remains independently executable only if separately owner-selected for its accepted capability value.
+
+## Required transition after Deep Research
+
+The sequence should be:
+
+```text
+A. CURRENT SYSTEM ANALYSIS
+   → pointwise findings / competing explanations / gaps
+
+B. FINDING-DRIVEN DEEP RESEARCH
+   → theory
+   → research methods
+   → empirical evidence
+   → related work / real systems
+   → best-practice conditions
+   → counterevidence
+   → transfer limits
+   → unresolved
+
+C. RESEARCH RECONCILIATION
+   → for each Histo-Orla finding:
+      strengthen | weaken | split | reframe | falsify | unresolved
+
+---------------- HARD PHASE BOUNDARY ----------------
+
+D. REBUILD CONCEPTION
+   accepted Requirements
+   + current repository reality
+   + reconciled problem model
+   + external research
+   → architecture concerns
+   → solution hypotheses
+   → technical SOTA/options
+   → trade-offs / reversibility
+   → target change set
+
+E. IMPLEMENTATION
+   → smallest sufficient increments
+   → real research falsification
+   → adapt / retain / remove
+```
+
+The earlier #92 / PR #119 solution plan is an **input and prior hypothesis for phase D**, not the default plan to continue and patch.
+
+## Why not parallel rebuild?
+
+Parallel rebuild would be justified if:
+- substantial implementation were already underway and stopping would be costly;
+- the parallel work were required to obtain evidence needed by the research;
+- or the work were logically independent of the unresolved problem mechanisms.
+
+Current repository state does not show the first condition. The second should be decided case-by-case by the Research Agenda, not assumed. The third may justify isolated maintenance/capability work, but not a “first rebuild round”.
+
+Thus the clean project-level sequence is:
+
+> **Research first at this interface; rebuild once from the reconciled evidence, rather than build an interim architecture and knowingly plan a second rebuild.**
+
+
+# 10. Handoff
 
 This file is the current #64 **finding-disposition layer**.
 
