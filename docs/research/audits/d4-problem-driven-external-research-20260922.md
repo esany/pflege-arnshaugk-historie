@@ -1,10 +1,10 @@
 # D4 — Problem-driven external Deep Research: project findings F1–F14
 
-**Repository basis:** `review/repeated-audit-project-implications-20260922` @ `f5dd6b013af1064e039148f25a8c4e4ccf813165`
-**Date:** 2026-09-22
-**Work owner:** #64 (review input); re-entry interface: #92
-**Research protocol:** #45 and `docs/research/source-identity-protocol.md`
-**Status:** `external-research evidence / finding-by-finding reconciliation input / no Requirement, Method, Architecture, Selection, Roadmap or Delivery authority`
+- **Repository basis:** `review/repeated-audit-project-implications-20260922` @ `f5dd6b013af1064e039148f25a8c4e4ccf813165`
+- **Date:** 2026-09-22
+- **Work owner:** #64 (review input); re-entry interface: #92
+- **Research protocol:** #45 and `docs/research/source-identity-protocol.md`
+- **Status:** `external-research evidence / finding-by-finding reconciliation input / no Requirement, Method, Architecture, Selection, Roadmap or Delivery authority`
 
 > **EXECUTION MODE INSUFFICIENT FOR REQUESTED DEEP RESEARCH:** the dedicated ChatGPT Deep Research product workflow was not available in this execution context. This is a transparent, browser-assisted, multi-surface research run, not a substitute silently presented as that product mode. It uses inspected full texts where accessible, otherwise publisher abstracts/metadata; the source trail marks that distinction. It is adequate as a bounded reconciliation input, not an exhaustive systematic review or independent expert validation.
 
