@@ -39,7 +39,7 @@ Bis zur Research-Reconciliation:
 - bereits etablierte Loss-Boundaries und settled Invariants (#50/#51, Source/Instance/Derivative/Findspot, `unresolved`, Readiness/Admission) bleiben gültig;
 - eigenständig Requirement-backed technische Arbeit ist dadurch nicht verboten, benötigt aber weiterhin explizite Auswahl und darf nicht als „Umbaufortsetzung“ interpretiert werden.
 
-Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125.
+Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125. Der vorbereitete Research-Handoff liegt in `docs/research/audits/problem-driven-deep-research-prompt-20260922.md`.
 
 Verbindlich gilt:
 
