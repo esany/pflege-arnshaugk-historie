@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-22  
 **Review owner:** #64  
-**Evidence inputs:** PR #118, PR #120, #121 / PR #122, prompt-experiment provenance and reviews on PR #123  
+**Evidence inputs:** PR #118, PR #120, #121 / PR #122, dedicated Deep Research mode run PR #124, prompt-experiment provenance and reviews on PR #123  
 **Status:** project finding disposition / no Requirement, Method, Architecture, Selection or Delivery authority
 
 ## 1. Purpose
@@ -859,6 +859,206 @@ The repeated runs do not currently establish:
 The material change is in the **problem model and the research agenda**.
 
 ---
+
+
+# 7. Impact on the already-started architecture/refactoring plan
+
+This section answers whether #92 / PR #119 should be stopped because the repeated audits changed the problem model.
+
+## Overall disposition
+
+**NO BLANKET STOP.**
+
+The current plan contains two different classes of work:
+
+1. **loss-boundary / readiness / reversible capability work** that is now better supported by the repeated audits;
+2. **solution-structure / integration-shape hypotheses** that must no longer be treated as an automatic downstream roadmap.
+
+The correct disposition is therefore:
+
+```text
+keep implemented protective boundaries
++ continue bounded requirement-backed capability tests
++ freeze automatic progression into later architecture waves
++ reframe evidence-led integration steps
++ revalidate solution-shaped downstream waves before release
+```
+
+No rollback of #50/#51 or existing deterministic safety work is justified by the new findings.
+
+## 7.1 #92 Re-Baseline Roadmap
+
+| Roadmap element | Disposition | Reason |
+|---|---|---|
+| R0 fresh baseline / freeze on invention | **KEEP** | directly compatible with anti-promotion / evidence-first findings |
+| R1 inventory + disposition | **KEEP / historical-completed** | reconciliation mechanism, not research partition |
+| R2 objective reconciliation | **KEEP** | preserves accepted authority; does not solve research structure |
+| R3 Product/Research/Tool responsibility view | **KEEP WITH BOUNDARY** | useful as architecture reading model only; must not become the researcher's fixed work ontology |
+| R4 minimal repo/code topology | **HOLD UNTIL TRIGGER** | current `no product-code move yet` is reinforced by new findings |
+| R5 Thin Vertical Product Slice | **REFRAME** | useful only as bounded evidence-led experiment; must not be a fixed primary research partition or pre-sized pilot |
+| R6 Operational Core consolidation | **CONDITIONAL KEEP** | only settled loss-boundaries / real shared consumers; no expansion because “core completeness” looks attractive |
+| R7 pilot/legacy cleanup | **KEEP** | reduces representation ratchet if disposition removes stale active surfaces |
+| R8 fresh-context + owner acceptance | **KEEP + EXTEND ANALYTICALLY** | must test not only resume/acceptance but whether the system permits evidence-led reframing without new meta-work |
+
+### Required R5 reinterpretation
+
+Old risk:
+```text
+predefined vertical slice
+→ treated as correct unit of work
+→ real evidence forced to fit slice
+```
+
+Required interpretation:
+```text
+bounded current question
+→ real evidence interaction
+→ slice may narrow / widen / reframe
+→ research output and system learning remain distinct
+→ no automatic architecture promotion
+```
+
+Thus **Vertical Slice is an experimental envelope, not a canonical partition of historical inquiry**.
+
+## 7.2 PR #119 Agentic Refactoring / #53 Retrieval Plan
+
+### Wave 0 — Planning/admission repair
+**CONTINUE / KEEP.**
+
+The new F7 readiness/admission finding strongly validates the distinction:
+
+`provenance exists != text-bearing input != current availability != admitted corpus != fit-for-operation`.
+
+This repair is not obsolete; it is one of the best-supported corrections.
+
+### Wave 1 — Synthetic Exact Retrieval
+**CONTINUE WHEN EXPLICITLY SELECTED AND PREFLIGHT-READY.**
+
+Reason:
+- accepted REQ-RET basis exists;
+- bounded/reversible;
+- no architecture commitment;
+- exact retrieval without LLM remains a valid capability requirement;
+- tests protect Source/Derivative/Findspot boundaries.
+
+Important: passing Wave 1 must not be interpreted as evidence for the later architecture.
+
+### Wave 2 — Real Evidence/Corpus Admission
+**CONTINUE / KEEP.**
+
+This is a direct operationalization of F3 loss-boundary formalization + F7 readiness/admission.
+
+It should remain a distinct stage.
+
+### Wave 3 — Real Exact Retrieval falsification
+**CONTINUE CONDITIONALLY.**
+
+Still a valid capability falsification after Wave 2. No automatic product-architecture inference follows.
+
+### Wave 4 — Controlled historical variants
+**CONTINUE CONDITIONALLY / DOMAIN-OWNED.**
+
+Compatible with evidence-led research only if variant generation remains a search decision with provenance and can change as evidence changes.
+
+### Wave 5 — Shared runtime reader / product-code trigger
+**HOLD AS HYPOTHESIS.**
+
+The existing “two real consumers” trigger is good, but this wave is no longer a presumed next architectural step. Revalidate actual duplicated responsibility after Waves 2–4.
+
+### Wave 6 — Restartability / Availability integration
+**CONTINUE, BUT MINIMIZE REPRESENTATION.**
+
+Restartability is an accepted need and F9 confirms the tension. The task is not to maximize handoff structure; it is to find the minimum durable context that preserves truthful resumption.
+
+### Wave 7 — Heterogeneous #47 Vertical Research Slice
+**REFRAME / NO AUTOMATIC RELEASE.**
+
+The current plan already says “owner-selected bounded question”; that is essential.
+
+New requirement for interpretation:
+- the slice may be reframed by live evidence;
+- success is not “the predesigned chain ran end-to-end”;
+- success includes whether the system can preserve state when the useful research partition changes.
+
+No #47 selection follows from this review.
+
+### Wave 8 — Read-model probe
+**HOLD / EVIDENCE-TRIGGERED ONLY.**
+
+The existing “only if measured pain remains” condition is strengthened. Do not treat SQLite/FTS/read-model as the destination implied by earlier solution synthesis.
+
+### Wave 9 — Thin Skill/MCP/UI adapter
+**DOWNGRADE FROM ROADMAP DESTINATION TO OPTIONAL LATER HYPOTHESIS.**
+
+This step is solution-shaped and not entailed by the replicated problem findings.
+
+It may be reconsidered only after stable capabilities and a demonstrated interaction/integration need exist.
+
+## 7.3 Existing work that should NOT be rolled back
+
+### #50 Canonical Research State / Source Identity
+**KEEP.**
+
+The repeated audits and PR #124 strengthen this architecture contract as a positive example of loss-boundary formalization.
+
+### #51 Document / Findspot
+**KEEP.**
+
+Its concrete separation of Source / Representation / Instance / Derivative / Findspot is one of the clearest project successes under the new problem model.
+
+### Existing fail-closed / unresolved semantics
+**KEEP.**
+
+The new research treats visible correction, NOT PASS and unresolved as recovery capacity, not waste by default.
+
+### Requirements/Assurance safety already encoding settled invariants
+**KEEP, but freeze expansion without a demonstrated loss.**
+
+The question is not whether these controls exist; it is whether each additional control has a known protected loss and acceptable secondary work.
+
+## 7.4 Work that should be paused before further expansion
+
+The following should **not** advance merely because they are listed downstream in #92/#119:
+
+- new product-package topology;
+- shared runtime abstraction without real duplication;
+- generic capability/core expansion without multiple real consumers or a settled cross-cutting invariant;
+- additional Work-Context/Handoff fields not tied to a demonstrated information-loss/restart failure;
+- read-model/index infrastructure without measured post-capability navigation pain;
+- Skill/MCP/UI layer without stable product interfaces and observed interaction need;
+- any fixed pilot/module/work partition treated as the “correct” research structure before evidence contact.
+
+## 7.5 Stop condition for the plan itself
+
+A **full stop/re-baseline** would be justified if any of the following becomes true:
+
+1. an accepted Requirement that materially motivates the plan is withdrawn or contradicted;
+2. Source/Instance/Findspot separation is shown to damage rather than protect the live research workflow;
+3. current capability work requires a new durable ontology/problem partition not supported by evidence;
+4. bounded capability increments repeatedly add more owner coordination than they remove;
+5. the plan cannot accommodate evidence-led reframing without rewriting its own architecture;
+6. downstream waves begin to execute because of roadmap sequence rather than fresh prerequisite/evidence checks.
+
+Current evidence does **not** establish any of 1–5 as already true. #119 explicitly protects against 6 at the current stage.
+
+## 7.6 Current recommendation
+
+The project should **not stop the entire rebuild**.
+
+It should stop treating the plan as a single committed transformation sequence.
+
+The active interpretation should become:
+
+```text
+protect proven loss boundaries
+→ execute only bounded accepted capabilities
+→ let real evidence challenge the work partition
+→ re-evaluate architecture after each material real-use result
+→ promote shared/product structure only from demonstrated reuse / stable responsibility
+```
+
+This is a narrower and more evidence-responsive continuation of the existing plan, not a restart from zero.
+
 
 # 8. Handoff
 
