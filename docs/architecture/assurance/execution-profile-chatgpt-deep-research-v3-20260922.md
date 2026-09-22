@@ -16,3 +16,5 @@ Use this profile when executing the Core in ChatGPT and the task requires deep m
 6. The final report must follow the Core's stop boundary; Deep Research mode does not authorize solution synthesis.
 
 Current OpenAI product documentation is the authority for how Deep research is activated and which sources it can access. Product UI and availability may change; do not copy those details into the Core method.
+
+Reference checked 2026-09-22: https://help.openai.com/en/articles/10500283-deep-research
