@@ -1060,7 +1060,115 @@ protect proven loss boundaries
 This is a narrower and more evidence-responsive continuation of the existing plan, not a restart from zero.
 
 
-# 8. Handoff
+
+# 8. Sequencing: what should change now, what should wait for the next Deep Research
+
+The project should **not** choose between “research first, everything else stops” and “continue redesign in parallel”.
+
+The correct sequence is asymmetric:
+
+## Lane A — immediate research-independent correction
+
+These changes follow directly from already replicated evidence and do not depend on resolving the open theoretical research programme.
+
+They can be made **now**:
+
+1. **Planning semantics:** remove any implication that #92/#119 are a committed end-to-end transformation sequence.
+2. **Roadmap state:** mark solution-shaped downstream waves as hypotheses / evidence-triggered only.
+3. **R5 / vertical slice semantics:** redefine the slice as a bounded experimental envelope that may be reframed by live evidence, not as the canonical unit of research work.
+4. **R6 / core semantics:** shared Core growth requires a demonstrated cross-cutting invariant or real repeated consumer; no “complete the core” objective.
+5. **Wave 5 / product package:** no product-code/shared-runtime promotion before demonstrated duplicated responsibility.
+6. **Wave 8 / read model:** measured pain remains a hard prerequisite.
+7. **Wave 9 / Skill/MCP/UI:** optional later interaction hypothesis, not roadmap destination.
+8. **Assurance / Work Context expansion:** no new fields/controls without a concrete protected loss or reproduced failure.
+9. **Finding vocabulary:** use the pointwise F1–F14 dispositions; do not plan from superseded bundled diagnoses.
+10. **Preserve protective work already built:** Source/Instance/Derivative/Findspot boundaries, explicit unresolved, admission/readiness separation, bounded deterministic guards.
+
+These are **corrections of interpretation and release conditions**, not a new architecture.
+
+They reduce the risk that current implementation accidentally outruns the evidence while the next research is being performed.
+
+## Lane B — bounded implementation that can continue independently
+
+A technical increment may continue in parallel **only if all of the following hold**:
+
+- it is already justified by an accepted Requirement / explicit owner constraint;
+- it is reversible and bounded;
+- it preserves a demonstrated loss boundary or tests an already accepted capability;
+- it does not select a new research partition, product topology or generalized architecture;
+- success does not imply authorization for later waves;
+- it has its own prerequisite/admission gate.
+
+Under current state this includes, subject to explicit work selection and preflight:
+- #119 Wave 1 synthetic Exact Retrieval calibration;
+- later Wave 2 real Evidence/Corpus Admission once its prerequisites exist;
+- bounded #50/#51/#57 loss-boundary / availability work;
+- deterministic guards for already settled invariants.
+
+This lane is not the “rebuild continuing”. It is **bounded capability/evidence work**.
+
+## Lane C — research-dependent redesign; hold until research reconciliation
+
+Do **not** finalize or broadly implement the following before the next problem-driven Deep Research has been reconciled:
+
+- overall target workflow / product interaction model;
+- fixed decomposition of the historical research process;
+- final owner/handoff topology;
+- degree and shape of Operational Core consolidation;
+- shared runtime/product package structure;
+- architecture for adaptive/evidence-led reframing;
+- balance between progressive disclosure and provenance/state visibility;
+- how much context/restart state should be durable vs derived;
+- AI/agent role allocation;
+- any claim that interface/orchestration is the dominant optimization target.
+
+These choices depend directly on unresolved mechanisms in the external research agenda.
+
+## Why this order matters
+
+Waiting for research before doing **Lane A** would preserve known planning errors unnecessarily.
+
+Doing **Lane C** before research would convert current hypotheses into another premature problem partition.
+
+Therefore:
+
+```text
+NOW
+  correct the plan's semantics and gates
+  + preserve/continue only bounded accepted capabilities
+  + start problem-driven Deep Research
+        ↓
+RESEARCH RECONCILIATION
+  update strength / limits / competing mechanisms per finding
+        ↓
+THEN
+  design the next target architecture/workflow deliberately
+  from accepted Requirements + current project evidence + external research
+        ↓
+IMPLEMENT
+  incrementally, with real evidence allowed to reframe the plan
+```
+
+## Research output required before Lane C
+
+The next Deep Research should return, for the material problem clusters:
+
+- theoretical mechanism(s);
+- methodological approaches used to study them;
+- empirical evidence and boundary conditions;
+- competing explanations / counterevidence;
+- related systems / documented cases;
+- best-practice conditions and failure modes;
+- transferability to Histo-Orla;
+- what project finding is strengthened, weakened, split or reframed;
+- what remains unresolved.
+
+It should **not** output the target architecture.
+
+Architecture/design synthesis occurs only after this research is reconciled with current project state under #48/#42/#59 authority.
+
+
+# 9. Handoff
 
 This file is the current #64 **finding-disposition layer**.
 
