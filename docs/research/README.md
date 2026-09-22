@@ -87,6 +87,9 @@ docs/research/
     domain-method-profile-contract.md
     ... reale Profile erst bei tatsächlichem Research
 
+  audits/
+    d4-problem-driven-external-research-20260922.md
+
   cases/
     u2-knau-orlagau-quellenbefunde.md
     u2-orlagau-suchraum-quellenexzerpte.md
@@ -119,6 +122,7 @@ Keine Future-Proof-Leerstruktur.
 | #103 | Anno II. / Richeza / St. Peter und Paul Saalfeld / Köln–Mainz–Siegburg–Bamberg-Netz | `cases/anno-richeza-saalfeld-netzwerk.md`, `cases/anno-richeza-saalfeld-source-ledger.md` |
 | #46/#47 | gemeinsamer Source Ledger | `cases/orlagau-source-ledger.md` |
 | #60 | Domain Method Profiles / Method Truth | `methods/README.md`, `methods/domain-method-profile-contract.md`, reale Profiles |
+| #64 / #92 | problemgetriebene externe Research-Reconciliation vor Rebuild | `audits/d4-problem-driven-external-research-20260922.md` — Research-Evidenz, keine Requirement-/Method-/Architektur-/Delivery-Authority |
 
 Technische Artefakte ab #48ff werden über `docs/architecture/README.md` und `docs/development/requirements-coverage.md` indexiert.
 

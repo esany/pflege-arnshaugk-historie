@@ -41,6 +41,8 @@ Bis zur Research-Reconciliation:
 
 Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125. Der vorbereitete Research-Handoff liegt in `docs/research/audits/problem-driven-deep-research-prompt-20260922.md`.
 
+Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Er ist Research-Evidenz und eine Finding-by-Finding-Reconciliation-**Eingabe**, keine Gate-Freigabe: #92 bleibt `hold-for-research-reconciliation`, bis #64 die ausstehende projektseitige Disposition ausdrücklich verarbeitet hat.
+
 Verbindlich gilt:
 
 - die gesamte bereits akzeptierte Requirements-/Quality-/Governance-Basis bleibt aktiv;
