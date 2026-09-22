@@ -1,338 +1,875 @@
-# Histo-Orla — project implications from repeated system-analysis runs
+# Histo-Orla — pointwise disposition of repeated system-analysis findings
 
 **Date:** 2026-09-22  
 **Review owner:** #64  
-**Evidence inputs:** PR #118, PR #120, #121 / PR #122, prompt-experiment provenance and depth/core reviews on PR #123  
-**Status:** project review synthesis / no Requirement, Method, Architecture, Selection or Delivery authority
+**Evidence inputs:** PR #118, PR #120, #121 / PR #122, prompt-experiment provenance and reviews on PR #123  
+**Status:** project finding disposition / no Requirement, Method, Architecture, Selection or Delivery authority
 
 ## 1. Purpose
 
-This artifact answers one bounded question:
+This artifact does **not** average the repeated audits into one smoother narrative.
 
-> What do the repeated system-analysis / research runs materially change for the current Histo-Orla project, and where does documentation, analysis or research need to be corrected or extended?
+It preserves the identity of each material finding and decides, point by point, whether it should be:
 
-It does **not** select a solution, architecture, roadmap, implementation order or current research case.
+- **KEEP** — substantively retained;
+- **STRENGTHEN** — retained with stronger evidence status;
+- **REFRAME** — same empirical core, different interpretation;
+- **SPLIT** — one former point actually contains multiple mechanisms;
+- **DOWNGRADE** — evidence supports only a narrower/weaker claim;
+- **NEW** — materially new analytical point;
+- **RESOLVED / HISTORICAL** — important historically, not evidence of a current active problem;
+- **UNRESOLVED** — not enough evidence for disposition.
 
-## 2. What is now more strongly established
+“Research” below means **external theoretical / methodological / empirical research into the observed problem mechanism**. It does **not** mean user research, usability research, or measurement work unless those are explicitly the research object.
 
-The repeated runs materially strengthen the evidence status of the following project-level observations:
+No solution, architecture, roadmap or implementation recommendation is created here.
 
-1. **Core owner needs were visible early.**  
-   The main problem is not adequately explained by missing or late need elicitation.
+---
 
-2. **Need→system translation and operational integration are recurring risk surfaces.**  
-   The project can understand a need correctly at a high level and still operationalize it into structures that add coordination or fail to reduce owner burden.
+# 2. Finding-by-finding disposition
 
-3. **Formal correctness and owner-facing utility can diverge.**  
-   This is no longer only a self-diagnosis; it converges across independent reconstruction and real owner/workflow feedback.
+## F1 — Core needs were visible early
 
-4. **Semantically correct decomposition can create real coordination work.**  
-   Separate authorities, owners, artefacts and controls can be scientifically justified while still increasing integration burden.
+**Disposition: STRENGTHEN**
 
-5. **Premature promotion of owner language / mental models into durable structure occurred.**  
-   The observed failure is the promotion lifecycle, not user involvement itself.
+### Empirical core
 
-6. **Governance and assurance are both protective and work-producing.**  
-   A one-factor story such as “governance is the problem” is not supported.
+The repeated runs converge that the owner’s major needs — rigorous research, complexity absorption, restartability, provenance, understandable interaction, preservation of uncertainty — were visible early.
 
-7. **Live source work is a strong corrective signal for system adequacy.**  
-   Real historical evidence has repeatedly changed not only findings but the useful partition of research work.
+### What changes
 
-8. **Single-cause explanations are not supported.**  
-   “Too much governance”, “bad requirements”, “LLMs”, or “not enough automation” are each too coarse.
+Do **not** explain the project’s repeated difficulty primarily as a failure of need elicitation or as “requirements were missing”.
 
-## 3. Important counterfindings that should change project language
+The sharper problem is downstream:
 
-### 3.1 Formalization is not one homogeneous risk
+```text
+need present
+→ interpretation
+→ representation / requirement / work partition
+→ operationalization
+→ integration
+→ actual owner/research experience
+```
 
-The repeated audits identify a useful distinction:
+### What does not follow
 
-- **loss-boundary formalization** preserves non-equivalence, provenance, identity, uncertainty or evidence boundaries;
-- **problem-partition formalization** decides in advance how research questions, modules, phases, categories or mental models should organize the work.
+This does not prove that all current requirements are sufficient or correctly prioritized.
 
-The strongest positive counterexample is the Source → Representation/Instance → Derivative → Findspot → Finding separation. It appears to protect research quality rather than distort it.
+### External research agenda
 
-**Project implication:** avoid broad wording such as “formalization causes the problem”. The concern is more specifically premature or poorly evidenced **problem partitioning**, not protective loss boundaries.
+Investigate:
+- Requirements Engineering: requirements transformation, requirements drift, requirements-to-design translation;
+- design rationale and traceability;
+- boundary between elicitation quality and downstream interpretation;
+- empirical research on user involvement where high involvement still fails to guarantee system success;
+- design fixation / premature commitment where relevant.
 
-This is currently a Researcher Inference, not a new Requirement or governance rule.
+**Research question:** How can well-understood needs still be transformed into operational structures that do not deliver the intended value?
 
-### 3.2 Visible churn is partly recovery evidence
+---
 
-Reverts, `NOT PASS`, unresolved states, layer removal and owner corrections are not only signs of instability. They are also evidence that the project can detect and undo errors.
+## F2 — “Need-to-Structure Inversion” was too coarse
 
-**Project implication:** audits should distinguish:
-- failure occurrence;
-- failure persistence;
-- failure detection;
-- recovery quality.
+**Disposition: SPLIT**
 
-Counting corrections alone is not a meaningful project-health metric.
+The earlier single mechanism should become two distinct findings.
 
-### 3.3 AI-specific causal claims should be weakened
+### F2a — Premature problem-partition promotion
 
-The independent audit reproduces fast structuralization and coordination effects but does not isolate AI as the primary cause.
+**Disposition: STRENGTHEN / REFRAME**
 
-Confounders include:
-- project novelty;
-- real scientific complexity;
-- GitHub/connector constraints;
-- issue/owner topology;
-- human product choices;
-- restartability requirements.
+Observed examples support a recurring pattern in which a plausible mental model, module, phase, category or conceptual partition is promoted into durable project structure before situated evidence has established that it is the right unit of work.
 
-**Project implication:** keep “AI may amplify/accelerate structural production” as a hypothesis, not a root-cause conclusion.
+The important problem is not “structure” itself.
 
-### 3.4 “Interface/orchestration is the dominant bottleneck” is not yet measured
+It is:
 
-The mechanism is well supported. Its **rank** as the single dominant bottleneck is not.
+```text
+plausible interpretation
+→ promoted problem partition
+→ real work must conform to it
+→ later evidence forces reframing
+```
 
-**Project implication:** use wording such as:
-- observed major friction;
-- recurring interface/orchestration burden;
-- candidate dominant bottleneck;
+This covers the owner-mental-model promotion and the rejected U2/module framing more precisely than “Need-to-Structure Inversion”.
 
-not:
-- measured primary bottleneck.
+### F2b — Representation ratchet / representation-maintenance burden
 
-## 4. Documentation — concrete steering points
+**Disposition: KEEP, but distinct from F2a**
 
-### D1 — Reconcile the audit stack; do not create a fifth competing diagnosis
+Once an idea becomes a durable artefact, owner, issue, schema or canonical representation, new work appears:
+- synchronization;
+- consistency maintenance;
+- handoff/context requirements;
+- lifecycle/status management;
+- reconciliation when reality changes.
 
-Current review evidence is distributed across:
-- #64;
-- PR #118;
-- PR #120;
-- #121 / PR #122;
-- PR #123.
+This can happen even when the original representation was reasonable.
 
-These have different provenance and authority:
-- seeded deep research;
-- informed second-order audit;
-- source-blinded independent reconstruction;
-- later reconciliation;
-- prompt-method/provenance review.
+### Why the split matters
 
-**Need:** one short current #64-facing disposition/index that states:
-- what is replicated;
-- what is only partial;
-- what was not reproduced;
-- what is historical/resolved;
-- what remains unresolved;
-- which artefact contains detail.
+F2a is about **premature semantic/problem partitioning**.
 
-This file provides that review layer and should replace any temptation to add another full meta-report.
+F2b is about **secondary work created by durable representation**.
 
-### D2 — Add temporal status to system findings
+They have different causes and need different research.
 
-Project-wide audit statements should distinguish:
+### External research agenda
 
-- `current-active`;
-- `recurring`;
-- `historical-resolved`;
-- `historical-with-latent-risk`;
-- `protective/recovery-mechanism`;
-- `one-off/tool-specific`;
-- `unresolved`.
-
-Reason: an older failure may remain analytically important without describing current operation.
-
-### D3 — Preserve provenance/independence labels
-
-PR #120 must not be treated as an independent replication. PR #122 is the source-blinded independent run with documented contamination.
-
-**Need:** future summaries must carry experimental provenance so convergence is not overstated.
-
-### D4 — Avoid adding more root-level meta text before resolving current review artefacts
-
-The current root/handoff already foregrounds meta-state heavily. The repeated audits do not justify adding another explanatory layer to README/PROJECT_STATE.
-
-**Need:** prefer concise pointers and disposition of existing audit artefacts over copying their conclusions into root files.
-
-### D5 — Audit navigation is newer than PROJECT_STATE's 2026-09-18 snapshot
-
-`PROJECT_STATE.md` does not currently expose #121 / PR #122 / PR #123. Because these reviews do not change Selection, Requirements, Architecture or Delivery authority, this is primarily a **review-navigation staleness**, not a project-state change.
-
-**Disposition:** after the open audit PRs are reviewed/disposed, update the root snapshot once with the accepted review pointer rather than serially adding every transient audit PR.
-
-## 5. Analysis — concrete steering points
-
-### A1 — Replace broad “governance/formalization” diagnoses with discriminating mechanisms
-
-Use narrower observables:
-- representation maintenance burden;
-- coordination edges;
-- premature problem partitioning;
-- formal-value gap;
-- workflow integration burden;
-- readiness/admission assumption error;
-- source/evidence loss prevention;
-- recovery instrumentation.
-
-This reduces explanatory overreach.
-
-### A2 — Every future system finding should state current vs historical relevance
-
-A project-analysis finding should answer:
-- did this happen?
-- does it still happen?
-- was it fixed?
-- did it recur elsewhere?
-- is the risk latent?
-- what evidence would show closure?
-
-### A3 — Sample current implementation incidents as well as project-history narratives
-
-The blind audit missed #119.
-
-**Lesson:** a high-quality reconstruction can still miss a material failure class if evidence sampling emphasizes history/owner feedback but under-samples recent implementation calibration.
-
-Future project audits should deliberately cover:
-- early intent/needs;
-- live research;
-- owner/workflow feedback;
-- current implementation/calibration incidents;
-- recovery/corrections.
-
-### A4 — Treat live research evidence as a system-model falsifier
-
-Live historical work is not merely a downstream acceptance test.
-
-It has repeatedly revealed:
-- useful concepts;
-- inappropriate partitions;
-- new evidence demands;
-- changed search vocabulary;
-- changed analytical units.
-
-This role should be explicit in system-analysis reasoning.
-
-### A5 — Do not promote “Human as Semantic Compiler” beyond the evidence
-
-“Owner as workflow integrator” has direct qualitative support.
-
-“Owner as semantic compiler” is a stronger role-wide causal claim and remains only partially reproduced.
-
-Use the narrower language unless task-level evidence supports the stronger one.
-
-## 6. Research — concrete steering points
-
-### R1 — Quantify owner burden before ranking the dominant bottleneck
-
-This is the largest empirical gap shared by the audits.
-
-Relevant observable classes include:
-- historical judgement work;
-- mechanical retrieval/file work;
-- meta-artifact maintenance;
-- cross-owner/handoff work;
-- chat/tool/repo orchestration;
-- correction/rework;
-- restart/context reconstruction.
-
-No new telemetry platform is implied. The research question is first whether existing real slices can provide proportionate evidence.
-
-### R2 — Test which meta artefacts are actually used
-
-Open question:
-- which artefacts materially help research/restart/review?
-- which are mainly maintained because the project structure expects them?
-
-This is necessary before concluding that coordination cost is structural rather than transitional.
-
-### R3 — Directly test the two #64 claims that were not independently reproduced
-
-If they remain important:
-- U1–U4 “pilot cut” / oversized DoD;
-- “5-minute handoff” usability.
-
-They currently remain prior findings, not independently reproduced facts.
-
-A direct usability/artefact test is the appropriate evidence route; more conceptual analysis would not close this gap.
-
-### R4 — Deepen the situated/evidence-contingent research line
-
-The independent run added a meaningful explanatory route through:
+For F2a:
 - situated action;
+- exploratory search / berrypicking;
+- sensemaking;
+- information-search-process research;
+- design fixation / premature commitment;
+- evolutionary requirements;
+- adaptive / emergent work structures;
+- scientific model formation and revision.
+
+For F2b:
+- articulation work;
+- coordination theory;
+- information/representation maintenance;
+- documentation and knowledge-maintenance cost;
+- organizational routines;
+- technical / organizational debt;
+- distributed cognition and external representations.
+
+**Research questions:**
+1. When should exploratory work resist early partitioning?
+2. When does durable representation reduce complexity, and when does it create a maintenance ratchet?
+
+---
+
+## F3 — Formalization is not one homogeneous phenomenon
+
+**Disposition: NEW; replaces broad anti-formalization language**
+
+The independent audit supplied a discriminating counterexample.
+
+### F3a — Loss-boundary formalization
+
+Examples:
+- Source ≠ Instance/Representation;
+- Instance ≠ Derivative;
+- Derivative ≠ Findspot;
+- Findspot ≠ Finding;
+- AI output ≠ Evidence;
+- unresolved ≠ false.
+
+These formal distinctions appear to **prevent epistemic loss** while leaving interpretation open.
+
+**Current status:** protective / positive mechanism.
+
+### F3b — Problem-partition formalization
+
+Examples:
+- predefining modules;
+- turning a mental model into a project ontology/work structure;
+- fixing research phases/categories before evidence stabilizes them.
+
+These are the formalizations most strongly associated with later correction.
+
+### Consequence for analysis
+
+Do not use:
+> “formalization is causing the problem”.
+
+Use:
+> “formalization has different functions; observed failures cluster around premature problem partitioning, while loss-boundary formalization is a strong protective counterexample.”
+
+### External research agenda
+
+Investigate:
+- boundary objects;
+- information-loss / provenance preservation;
+- schema evolution;
+- scientific pluralism;
+- formalization in knowledge work;
+- boundary infrastructures;
+- cognitive dimensions, especially viscosity / closeness of mapping;
+- when classification supports vs constrains discovery.
+
+**Research question:** Which kinds of formalization preserve epistemic optionality, and which prematurely constrain the problem space?
+
+---
+
+## F4 — Semantic decomposition creates coordination rebound
+
+**Disposition: STRENGTHEN**
+
+### Empirical core
+
+Separating:
+- Domain Authority;
+- Requirement Lifecycle;
+- Technical Delivery;
+- Verification;
+- Work Owners;
+- evidence/state responsibilities
+
+can be scientifically and organizationally correct while introducing real dependency edges and integration work.
+
+### Important correction
+
+Do not infer:
+> decomposition is wrong.
+
+The problem is the non-equivalence:
+
+```text
+semantic correctness of boundaries
+≠
+low operational coordination cost
+```
+
+### External research agenda
+
+Investigate:
+- coordination theory;
+- articulation work;
+- socio-technical congruence;
+- modularity vs coordination cost;
+- Conway-type organizational coupling;
+- transaction-cost perspectives where applicable;
+- boundary objects / trading zones;
+- team cognition / distributed cognition;
+- coordination in AI-mediated work where empirical literature exists.
+
+**Research question:** Under what conditions does semantic specialization reduce complexity overall, and under what conditions does it export integration work to a central actor?
+
+---
+
+## F5 — Governance / assurance accretion is not a single established root cause
+
+**Disposition: SPLIT + DOWNGRADE**
+
+The earlier “Governance Accretion through Error Response” is too broad as one causal explanation.
+
+### F5a — Controls create secondary operational surfaces
+
+**Disposition: KEEP**
+
+Controls can require:
+- context;
+- status;
+- review;
+- handoff;
+- synchronization;
+- recovery.
+
+That work is real and independently reproduced.
+
+### F5b — Recursive error → rule → complexity → new error loop
+
+**Disposition: DOWNGRADE to partially supported hypothesis**
+
+PR #70 documents this genealogy in specific episodes, but the independent audit did not reproduce the complete recursive mechanism.
+
+It should remain a bounded historical/project hypothesis, not the global explanatory model.
+
+### F5c — Controls can be protective and worth their cost
+
+**Disposition: STRENGTHEN as counterfinding**
+
+Source identity, fail-closed states, NOT PASS, reversals and explicit unresolved states prevented silent escalation.
+
+The correct question is therefore not:
+> “how much governance is too much?”
+
+but:
+> “which control prevents which loss, at what secondary coordination cost, under which conditions?”
+
+### External research agenda
+
+Investigate:
+- resilience engineering;
+- Safety-I / Safety-II traditions;
+- high-reliability organizations;
+- defense-in-depth and control overhead;
+- safety bureaucracy / proceduralization research;
+- organizational routines;
+- error-management culture;
+- normalization of deviance / control failure where applicable;
+- software assurance economics / compliance burden where evidence exists.
+
+**Research question:** How do protective controls change failure probability, recovery ability and coordination burden simultaneously?
+
+---
+
+## F6 — Local verification / global utility gap
+
+**Disposition: STRENGTHEN; keep as independent point**
+
+### Empirical core
+
+Formal PASS, green CI, traceability completeness or locally correct components do not establish:
+- research usefulness;
+- end-to-end workflow adequacy;
+- cognitive relief;
+- correct problem framing;
+- successful integration.
+
+This finding converges strongly across audits.
+
+### Why it must remain separate
+
+This is not reducible to governance burden.
+
+A system can have low governance burden and still optimize local proxies that miss global utility.
+
+### External research agenda
+
+Investigate:
+- Goodhart-like proxy effects;
+- local vs system optimization;
+- socio-technical systems evaluation;
+- outcome vs process metrics;
+- software quality models vs actual utility;
+- human-centered evaluation of expert knowledge systems;
+- DevOps/DORA-type metric transfer limits to research software;
+- verification vs validation distinctions in systems engineering.
+
+**Research question:** Which forms of local correctness are valid proxies for end-to-end research value, and where do they systematically fail?
+
+---
+
+## F7 — Readiness conflation / assumption laundering
+
+**Disposition: KEEP AS SEPARATE FAILURE CLASS**
+
+### Empirical core
+
+PR #119 exposed a distinct error:
+a valid provenance path or available upstream object was treated as if it implied admitted, current, text-bearing retrieval input / corpus readiness.
+
+The independent blind audit missed this.
+
+### Why this must not be averaged into F2/F5/F6
+
+The failure is specifically:
+
+```text
+state/evidence A exists
+→ unstated assumption
+→ prerequisite B is treated as satisfied
+→ execution proceeds on false readiness
+```
+
+This is neither merely premature abstraction nor merely governance burden.
+
+It is a **precondition / admission / state-validity failure**.
+
+### External research agenda
+
+Investigate:
+- design by contract / precondition enforcement;
+- typestate and state-machine validity;
+- admission control;
+- workflow/data-pipeline readiness;
+- provenance vs availability vs fitness-for-use distinctions;
+- state freshness / stale validity;
+- TOCTOU-style assumption gaps where conceptually relevant;
+- safety cases / assurance cases for prerequisite claims;
+- epistemic status and evidence-to-action transitions.
+
+**Research question:** How should systems distinguish “exists”, “is traceable”, “is available”, “is admitted”, “is current”, and “is fit for this operation” without collapsing them into one readiness state?
+
+---
+
+## F8 — Premature promotion of owner language is established; “mirroring” is not
+
+**Disposition: REFRAME + DOWNGRADE causal label**
+
+### Established finding
+
+Owner language / mental models were in at least one material case promoted too quickly into durable semantics/project structure.
+
+### Not established strongly enough
+
+The stronger conversational explanation:
+- mirroring;
+- affirmative abstraction bias;
+- agreement language as primary cause
+
+was not independently reconstructed.
+
+### New canonical wording for analysis
+
+Prefer:
+
+> **premature semantic promotion of owner language / mental models**
+
+Treat “mirroring / affirmative abstraction” as one candidate mechanism, not the finding itself.
+
+### External research agenda
+
+Investigate:
+- requirements elicitation and interpretation;
+- confirmation bias;
+- anchoring;
+- conversational alignment / accommodation;
+- AI sycophancy / agreement bias where empirical work supports it;
+- collaborative sensemaking;
+- design-by-metaphor;
+- mental models in HCI;
+- semantic commitment in participatory/co-design processes.
+
+**Research question:** Through which interaction mechanisms does provisional user language become over-authoritative design structure?
+
+---
+
+## F9 — Context/handoff protection can become context/handoff work
+
+**Disposition: KEEP, but do not merge with F4**
+
+### Distinction from F4
+
+F4 is coordination caused by **semantic decomposition**.
+
+F9 is secondary work caused by mechanisms intended to preserve:
+- restartability;
+- state continuity;
+- authority boundaries;
+- reproducibility;
+- cross-chat handoff.
+
+These overlap but are not identical.
+
+### Empirical status
+
+The tension is independently reproduced:
+restartability/context protection is valuable, but maintaining those protections can itself become work.
+
+### External research agenda
+
+Investigate:
+- interruption/resumption;
+- distributed cognition;
+- external memory;
+- handoff design;
+- cognitive offloading;
+- context reconstruction;
+- knowledge continuity;
+- provenance and reproducibility overhead;
+- coordination cost in transient/rotating teams;
+- AI-agent context persistence and handoff research where mature evidence exists.
+
+**Research question:** What is the minimum representation needed to preserve high-fidelity restartability without turning restart protection into a parallel work system?
+
+---
+
+## F10 — Live evidence does more than validate; it reframes the unit of work
+
+**Disposition: NEW / STRENGTHEN**
+
+### Empirical core
+
+Live source encounters repeatedly changed:
+- terminology;
+- search direction;
+- relevant entities;
+- evidence demands;
+- useful analytical units;
+- the appropriateness of pre-existing modules/partitions.
+
+### Important reinterpretation
+
+Some “churn” may not be a process defect.
+
+It may be intrinsic to exploratory historical inquiry:
+the useful problem structure is partly discovered **through evidence interaction**.
+
+This does not excuse arbitrary churn; it creates a competing explanation that must be retained.
+
+### External research agenda
+
+Investigate deeply:
+- situated action;
+- exploratory search;
 - berrypicking;
-- information-search process;
-- sensemaking.
+- information search process;
+- sensemaking;
+- abductive reasoning;
+- hermeneutic iteration;
+- scientific discovery / model revision;
+- exploratory data analysis;
+- inquiry-driven workflow systems;
+- adaptive workflow / case management vs prescriptive workflow.
 
-Research question:
+**Research question:** Which project reframings are avoidable design errors, and which are normal evidence-driven evolution of an exploratory research problem?
 
-> To what extent is repeated reframing a project-design defect, and to what extent is it an inherent property of exploratory historical inquiry that the system must support?
+---
 
-This distinction is central because it changes how project churn and pre-structure should be interpreted.
+## F11 — Visible correction/churn is partly evidence of recovery capability
 
-### R5 — Study governance/control effects control-by-control, not globally
+**Disposition: NEW**
 
-Because source/provenance formalization is a positive counterexample, research should ask for each relevant control:
-- what loss does it prevent?
-- what coordination does it add?
-- what evidence shows real use/value?
-- what failure modes does it introduce?
-- is the cost one-time, recurring or unknown?
+### Empirical core
 
-### R6 — Keep AI causality as a bounded research question
+The project records:
+- NOT PASS;
+- reversals;
+- rejected abstractions;
+- unresolved states;
+- layer removal;
+- corrected assumptions.
 
-Do not spend project research effort trying to prove a generic “AI causes governance proliferation” narrative unless new project evidence makes that discrimination material.
+A less instrumented project could retain the same errors silently.
 
-The current evidence supports mixed causality.
+### Why this matters
 
-### R7 — Cross-case generality remains unresolved
+“Number of corrections” cannot be interpreted directly as “project instability”.
 
-The current project has multiple heterogeneous research cases, but no completed independent cross-case replication establishes a general mechanism across them.
+At minimum distinguish:
+- error creation;
+- detection latency;
+- propagation;
+- recovery;
+- recurrence.
 
-No new case should be selected by this audit. When an existing case is owner-selected for real work, it can provide additional system evidence.
+### External research agenda
 
-## 7. Requirements / Architecture / Delivery disposition
+Investigate:
+- resilience engineering;
+- error management;
+- learning organizations;
+- high-reliability organizations;
+- incident learning;
+- software rollback/recovery;
+- observability of failure;
+- safety culture;
+- antifragility claims only if empirically grounded.
 
-The repeated audits do **not** currently establish a new Requirement gap.
+**Research question:** When does visible correction indicate healthy error detection and recovery rather than uncontrolled project churn?
 
-They also do **not** justify:
-- a new architecture;
-- a new governance layer;
+---
+
+## F12 — AI may amplify structure generation, but AI-primary causality is not established
+
+**Disposition: DOWNGRADE**
+
+### Retained narrower claim
+
+AI/LLM tooling can plausibly make generation of:
+- coherent prose;
+- schemas;
+- issue structures;
+- abstractions;
+- implementation artefacts
+
+cheap relative to semantic validation.
+
+### Not established
+
+Current evidence does not isolate AI as the primary cause of:
+- governance growth;
+- coordination burden;
+- premature abstraction;
+- project loops.
+
+### External research agenda
+
+Investigate:
+- empirical AI-assisted software engineering;
+- automation bias;
+- human-AI joint performance;
+- AI-generated specification quality;
+- calibration and overtrust;
+- productivity vs review/rework cost;
+- agentic context/handoff error;
+- task-dependent differences between bounded coding and complex long-lived knowledge work.
+
+**Research question:** Does AI materially change the ratio between artefact-generation speed and validation/integration capacity in complex research-software development?
+
+---
+
+## F13 — “Owner as workflow integrator” is supported; “Human as Semantic Compiler” is stronger than the evidence
+
+**Disposition: SPLIT / DOWNGRADE stronger label**
+
+### F13a — Owner as workflow/integration point
+
+**Disposition: KEEP**
+
+Direct qualitative evidence supports that the owner has had to integrate across:
+- chat;
+- repository;
+- tools;
+- research artefacts;
+- work owners;
+- technical/fachliche states.
+
+### F13b — Human as Semantic Compiler
+
+**Disposition: DOWNGRADE to open hypothesis**
+
+This implies a stronger, stable role:
+the human repeatedly performs semantic compilation that the system ought to perform.
+
+The independent evidence is insufficient to establish that across the project.
+
+### External research agenda
+
+Investigate:
+- articulation work;
+- invisible work;
+- human-in-the-loop role allocation;
+- distributed cognition;
+- mixed-initiative systems;
+- boundary spanning;
+- coordination load;
+- orchestration in multi-tool / AI-assisted work;
+- semantic mediation / knowledge integration.
+
+**Research question:** Which integration activities genuinely require human scholarly judgement, and which are accidental coordination work created by the system’s boundaries?
+
+---
+
+## F14 — Interface/orchestration friction is real; “dominant bottleneck” is not established
+
+**Disposition: KEEP mechanism / DOWNGRADE rank claim**
+
+### Retained
+
+Interface and orchestration friction is repeatedly observed.
+
+### Removed from current confident language
+
+Do not call it:
+> the measured primary or dominant bottleneck.
+
+There is insufficient comparative evidence to rank it against:
+- source access/retrieval;
+- method uncertainty;
+- historical complexity;
+- implementation defects;
+- documentation/state burden;
+- other workflow costs.
+
+### External research agenda
+
+This is a **cross-cutting synthesis question**, not a standalone literature field.
+
+Relevant research comes from F4, F6, F9, F13 plus:
+- bottleneck theory;
+- Theory of Constraints where transferable;
+- cognitive work analysis;
+- work-system analysis;
+- socio-technical performance evaluation.
+
+**Research question:** Under what evidence could interface/orchestration friction legitimately be ranked as a dominant system constraint rather than one important friction class among several?
+
+---
+
+# 3. What should no longer be one finding
+
+The following earlier compressions should be explicitly retired:
+
+| Old bundled wording | New disposition |
+|---|---|
+| “Need-to-Structure Inversion” | split into F2a problem-partition promotion + F2b representation ratchet |
+| “Formalization problem” | replaced by F3a protective loss-boundary formalization + F3b problem-partition formalization |
+| “Governance Accretion” | split into F5a control work surface + F5b recursive rule loop + F5c protective control |
+| “Mirroring / Affirmative Abstraction Bias” as finding | finding becomes F8 premature semantic promotion; mirroring remains candidate cause |
+| “Human as Semantic Compiler / Workflow Engine” | split into F13a supported workflow integrator + F13b unresolved semantic-compiler hypothesis |
+| “Interface/orchestration bottleneck” | mechanism retained; bottleneck ranking downgraded |
+| “Churn / repeated correction” | split into failure occurrence and F11 recovery visibility |
+| “readiness” as part of generic assumption error | F7 remains its own admission/precondition failure class |
+
+---
+
+# 4. New aspects that must remain visible
+
+The repeated runs add four material analytical advances that should not be absorbed into older labels:
+
+1. **F3 — formalization-type discrimination:** protective loss boundaries vs constraining problem partitions.
+2. **F7 — readiness/admission is a distinct failure class:** existence/provenance does not imply operational fitness/readiness.
+3. **F10 — evidence-led reframing:** live evidence can change the correct unit of work, not merely validate it.
+4. **F11 — correction visibility:** visible reversals are partly evidence of recovery capacity, not simply project failure.
+
+These are not wording refinements. They change the problem model.
+
+---
+
+# 5. External research programme implied by the findings
+
+This is a **problem-research agenda**, not a user-research agenda and not a solution programme.
+
+## R-A — Exploratory inquiry vs premature problem partitioning
+
+Driven by F2a, F3b, F10.
+
+Research domains:
+- situated action;
+- exploratory search / berrypicking;
+- information search process;
+- sensemaking;
+- abductive reasoning;
+- hermeneutic iteration;
+- design fixation;
+- evolutionary requirements;
+- adaptive case/workflow management.
+
+Core question:
+> How should systems support inquiry whose meaningful structure emerges during evidence interaction?
+
+## R-B — Representation, formalization and epistemic loss
+
+Driven by F2b, F3a/F3b.
+
+Research domains:
+- provenance;
+- schema evolution;
+- boundary objects;
+- scientific pluralism;
+- cognitive dimensions;
+- information-loss prevention;
+- knowledge representation under uncertainty.
+
+Core question:
+> Which representations stabilize necessary loss boundaries without prematurely stabilizing interpretation or work partition?
+
+## R-C — Decomposition, specialization and coordination rebound
+
+Driven by F4, F13.
+
+Research domains:
+- coordination theory;
+- articulation work;
+- socio-technical congruence;
+- modularity;
+- Conway-type coupling;
+- distributed cognition;
+- boundary spanning;
+- knowledge integration.
+
+Core question:
+> When do correct responsibility boundaries reduce overall complexity, and when do they merely relocate integration cost?
+
+## R-D — Controls, assurance, recovery and secondary work
+
+Driven by F5 and F11.
+
+Research domains:
+- resilience engineering;
+- HRO;
+- Safety-I / Safety-II;
+- error management;
+- incident learning;
+- control/procedural overhead;
+- software assurance;
+- organizational routines.
+
+Core question:
+> How can the project distinguish protective control, wasteful proceduralization, and healthy recovery instrumentation?
+
+## R-E — Local correctness vs global utility
+
+Driven by F6.
+
+Research domains:
+- systems validation;
+- proxy metrics / Goodhart effects;
+- human-centered evaluation;
+- socio-technical performance;
+- software verification vs validation;
+- expert knowledge-system evaluation.
+
+Core question:
+> What evidence is required before local technical/formal success can be treated as evidence of end-to-end research value?
+
+## R-F — Readiness, preconditions and assumption laundering
+
+Driven by F7.
+
+Research domains:
+- design by contract;
+- typestate/state machines;
+- admission control;
+- data/workflow readiness;
+- freshness/staleness;
+- provenance vs fitness-for-use;
+- assurance cases.
+
+Core question:
+> How should multi-stage research/software systems represent and verify prerequisite status without silently promoting weaker evidence into stronger readiness claims?
+
+## R-G — Human-AI interaction as promotion/amplification mechanism
+
+Driven by F8 and F12.
+
+Research domains:
+- AI sycophancy / agreement bias;
+- automation bias;
+- human-AI calibration;
+- AI-generated specifications;
+- AI-assisted software engineering;
+- mixed-initiative interaction;
+- conversational alignment;
+- review/rework economics.
+
+Core question:
+> Where does AI specifically alter promotion, validation or integration dynamics, and where is it only one accelerator inside a broader socio-technical mechanism?
+
+## R-H — Restartability, handoffs and external memory
+
+Driven by F9.
+
+Research domains:
+- interruption/resumption;
+- cognitive offloading;
+- distributed cognition;
+- knowledge continuity;
+- provenance/reproducibility overhead;
+- handoff design;
+- transient-team / agent context transfer.
+
+Core question:
+> What is the minimum sufficient durable context for high-fidelity restart without creating a parallel coordination system?
+
+---
+
+# 6. Documentation changes implied now
+
+These are narrow documentation corrections, not new project machinery.
+
+1. **#64:** current reconciliation must supersede its older “Hauptrisiko = Governance-/Operationalisierungskomplexität” wording as present diagnosis; old wording remains historical.
+2. **PR #120:** retain as informed second-order audit, not independent replication.
+3. **PR #122:** retain as the independent/source-blinded replication artifact with its misses explicitly preserved.
+4. **PR #118:** retain its broad SOTA/related-work value, but do not carry its solution/architecture recommendations forward as findings.
+5. **Current finding vocabulary:** use F1–F14 / their semantic distinctions in future audit synthesis rather than reusing the old bundled labels without qualification.
+6. **PROJECT_STATE:** update only after audit PR disposition, with one concise accepted review pointer rather than copying this full model into the root handoff.
+
+No new governance document is required beyond this disposition.
+
+---
+
+# 7. What does not need to change now
+
+The repeated runs do not currently establish:
+
+- a new accepted Requirement;
+- a new Domain Method Truth;
+- a new Architecture Decision;
+- a new technical framework;
 - a new owner topology;
-- a new framework;
-- a new agent model;
 - a new current-work selection.
 
-Most observed needs are already represented in existing Goals/Needs/Pains and accepted Requirements.
+The material change is in the **problem model and the research agenda**.
 
-The principal delta is in:
-- **evidence status**;
-- **diagnostic precision**;
-- **current-vs-historical classification**;
-- **measurement/research gaps**;
-- **audit/documentation reconciliation**.
+---
 
-Any later technical consequence must still route through #42/#48/#58/#59 and real owner/workflow evidence.
+# 8. Handoff
 
-## 8. Practical review disposition
+This file is the current #64 **finding-disposition layer**.
 
-### Can be corrected/documented now without new authority
+It does not replace the evidence-bearing source audits.
 
-- classify prior audit provenance correctly;
-- use narrower causal language;
-- distinguish protective vs problem-partition formalization;
-- distinguish current vs historical findings;
-- index one review synthesis rather than replicate full reports;
-- preserve unresolved/non-reproduced findings.
-
-### Requires empirical evidence before stronger conclusion
-
-- dominant bottleneck ranking;
-- net owner burden;
-- U1–U4 pilot-cut claim;
-- five-minute handoff claim;
-- AI-specific causality;
-- cross-case/project generality;
-- net value of individual governance controls.
-
-## 9. Handoff
-
-Canonical detailed evidence remains in the source audits.
-
-This artifact is the project-level review/disposition layer for #64. It should not become another independent truth store.
+A fresh reviewer should use it to understand:
+- which old claims survive;
+- which were split or weakened;
+- which new mechanisms appeared;
+- which external research programmes are now justified by specific project findings.
 
 No #44 blocker is created.
-
