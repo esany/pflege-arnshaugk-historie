@@ -32,6 +32,14 @@ Assurance:
 - `assurance/value-decision-delivery-assurance.md` – #63 Goal/Need/Pain → Requirement → Decision → Delivery → Feedback
 - `assurance/shared-research-state-audit-20260919.md` – #64/#92 current-main audit of shared Research State, cross-pilot reuse and gaps
 - `assurance/chat-operationalization-self-audit-20260920.md` – #64 corrective self-audit of Owner/User-Research interpretation and chat→repo operationalization
+- `assurance/generic-system-problem-analysis-prompt-v1-20260921.md` – eingefrorener generischer Analyse-/Research-Prompt als experimenteller Stimulus, ohne Projekt-Authority
+- `assurance/generic-system-problem-analysis-prompt-v2-20260921.md` – optimierte generische Fassung mit explizitem Deep-Research-Ausführungsvertrag, Research-Plan-Gate, adversarial search, citation chaining, Sättigung und Execution-Metadata
+- `assurance/generic-system-analysis-research-core-review-20260921.md` – ganzheitlicher Review des Prompt-Kerns: Systemanalyse muss die Research-Agenda erzeugen; finding-driven Deep Research statt bloß feldweiser SOTA, ohne Lösungssynthese
+- `assurance/generic-system-analysis-deep-research-prompt-v3-20260922.md` – kompakter vendor-neutraler Core: empirische Systemanalyse → Research Agenda Gate → finding-driven Deep Research → analytische Rückbindung → unresolved/STOP
+- `assurance/generic-system-analysis-deep-research-v3-refactoring-20260922.md` – Refactoring-Diagnose, Change Map, Trade-offs, bewusst entfernte/verschobene Elemente und Qualitäts-Selbsttest
+- `assurance/generic-system-analysis-deep-research-v3-appendices-20260922.md` – optionale späte Challenge-Checklist, Disciplinary Discovery Map und Multi-Repository-Erweiterung
+- `assurance/execution-profile-chatgpt-deep-research-v3-20260922.md` – separates produktspezifisches Execution Profile; nicht Teil des vendor-neutralen Core
+- `assurance/system-analysis-prompt-experiment-register-20260921.md` – #64 Pre-Comparison-Provenienzregister: trennt Self-Audit, seeded/contaminated Runs und den noch nicht eingelesenen Fresh-Chat-Versuch
 - `../tools/requirements/README.md`
 - `../tools/assurance/`
 
