@@ -923,6 +923,52 @@
       "requires_delta": false,
       "delta_refs": [],
       "notes": "WP1-STATE-SPINE-V0 verified and integrated via PR #132 / merge d33828441c5333341af2794574d2a31dda47845b. The implementation is the admitted minimal identity/role/canonical_ref spine plus exact canonical target validation, read-only Source/Finding owner resolution, #51 Representation/Instance/Findspot resolution, and #55 derived audit roundtrip without the former manually assembled real Sachenbacher projection. AT-01..AT-10 and NT-01..NT-10 passed within Project Assurance on implementation heads 35908337523 and 35908493477. Technical/formal verification does not establish scholarly validity, Method Truth, Research Selection or owner-workflow usefulness; owner/workflow feedback remains open."
+    },
+    {
+      "id": "FB-20260923-004",
+      "kind": "feedback",
+      "status": "open",
+      "materiality": "material",
+      "requirement_refs": [
+        "REQ-UX-001",
+        "REQ-UX-003",
+        "REQ-SRC-004",
+        "REQ-STATE-001",
+        "REQ-STATE-002",
+        "REQ-LEAN-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-006",
+        "N-015",
+        "N-018",
+        "N-020",
+        "P-008",
+        "P-016"
+      ],
+      "governance_refs": [],
+      "decision_refs": [],
+      "implementation_refs": [
+        "IMP-DOC-EVIDENCE-001",
+        "IMP-AUDIT-001",
+        "IMP-STATE-SPINE-001"
+      ],
+      "implementation_files": [],
+      "verification_refs": [],
+      "source_ref": "issue:#63 comment:5802074059",
+      "feedback_outcome": "pain-persists",
+      "requires_delta": true,
+      "delta_refs": [
+        "issue:#48",
+        "issue:#55",
+        "issue:#92",
+        "docs/architecture/fresh-rebuild-conception-20260923.md"
+      ],
+      "notes": "Owner/workflow evidence, not historical evidence. The fresh-context WP1 result reconstructed provenance correctly but was too cryptic/machine-oriented as a research-facing surface. For the early Sachenbacher pilot, the Owner needs a derived visual research composition that presents the relevant extracted text passages together with the complete published map and concise scholarly framing; provenance/identity/findspot detail should remain available as supporting drill-down, not dominate the primary view. This does not invalidate WP1, change Requirements, or admit WP4/UI. The next discriminator is a smallest-possible visual Derived View test from existing #51 evidence + WP1 state."
     }
   ]
 }
