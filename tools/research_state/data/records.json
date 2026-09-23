@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "records": [
+    {
+      "id": "SRC-LIT-0001",
+      "role": "source",
+      "canonical_ref": "docs/research/cases/orlagau-source-ledger.md#heading=SRC-LIT-0001"
+    },
+    {
+      "id": "REP-SACHENBACHER-2022-COMPLETE-PDF",
+      "role": "representation",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#representation_id=REP-SACHENBACHER-2022-COMPLETE-PDF"
+    },
+    {
+      "id": "DI-SACHENBACHER-2022-COMPLETE-PDF-20260914",
+      "role": "instance",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#instance_id=DI-SACHENBACHER-2022-COMPLETE-PDF-20260914"
+    },
+    {
+      "id": "L51-04-TEXT-D",
+      "role": "findspot",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#locator_id=L51-04-TEXT-D"
+    },
+    {
+      "id": "L51-04-MAP-A",
+      "role": "findspot",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#locator_id=L51-04-MAP-A"
+    },
+    {
+      "id": "L51-04-CAPTION-C",
+      "role": "findspot",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#locator_id=L51-04-CAPTION-C"
+    },
+    {
+      "id": "L51-04-ZONE-EXPLANATION",
+      "role": "findspot",
+      "canonical_ref": "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json#locator_id=L51-04-ZONE-EXPLANATION"
+    },
+    {
+      "id": "F-U2-009",
+      "role": "finding",
+      "canonical_ref": "docs/research/cases/u2-knau-orlagau-quellenbefunde.md#heading=F-U2-009"
+    }
+  ]
+}
