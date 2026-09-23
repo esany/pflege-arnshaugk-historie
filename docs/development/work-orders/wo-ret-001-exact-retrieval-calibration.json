@@ -1,0 +1,552 @@
+{
+  "schema_version": "0.1",
+  "work_order_ref": "WO-RET-001-CALIBRATION",
+  "primary_function": "Architecture / Development / Research Software Engineering",
+  "work_owner_ref": "issue:#53",
+  "objective": "Implement the smallest auditable synthetic exact-retrieval baseline over the existing provider-neutral test state as a calibration task and a legitimate first #53 increment. Do not claim a real-source retrieval slice until a text-bearing, findspot-bound corpus/input is admitted.",
+  "scope": [
+    "reuse the existing synthetic provider-neutral research-state fixture in tools/operational/tests/test_audit.py or extract only the minimum shared fixture mechanics needed for test reuse",
+    "implement read-only exact word/phrase retrieval over text-bearing excerpt/derivative content already present in that synthetic fixture",
+    "return stable hit records retaining existing excerpt/findspot/derivative/instance/source references",
+    "record a reproducible query log with exact query, filters, corpus/state boundary and implementation/version identifier",
+    "add deterministic known-hit, no-hit and provenance-roundtrip tests",
+    "record the real Sachenbacher path as a later falsification blocked on an admitted text-bearing input; do not manufacture that input in this task"
+  ],
+  "exclusions": [
+    "no claim of real Sachenbacher/source retrieval verification in this work order",
+    "no historical-variant expansion yet",
+    "no semantic search, embeddings, RAG or LLM-dependent retrieval",
+    "no new ontology, generic research-state schema or object class",
+    "no new corpus truth store or database",
+    "no src/histo_orla package solely for architectural neatness",
+    "no mutation of canonical historical findings, claims, source identities or method truth",
+    "no owner-selection, requirement or architecture authority change"
+  ],
+  "leading_domains": [
+    "Information Retrieval / Research Software Engineering",
+    "Research Data Management / Provenance"
+  ],
+  "method_quality_frame": [
+    "AGENTS.md",
+    "issue:#53",
+    "issue:#48",
+    "issue:#59",
+    "REQ-RET-001 exact/auditable search without LLM",
+    "REQ-RET-003 reproducible query/corpus provenance",
+    "REQ-SRC-004 lossless findspot round-trip",
+    "REQ-EPI-004 preserve unresolved/nonknowledge",
+    "REQ-EPI-005 AI output is not evidence",
+    "REQ-WF-001 deterministic enforcement of settled invariants",
+    "REQ-TRACE-001 Goal/Need/Pain -> Requirement -> Decision/Delivery/Feedback trace",
+    "docs/architecture/contracts/canonical-research-state.md",
+    "docs/architecture/assurance/value-decision-delivery-assurance.md"
+  ],
+  "required_evidence": [
+    "current issue #53 scope and DoD, which explicitly permits synthetic Precision/Recall/Known-hit tests before the later real U2/U4 falsification",
+    "existing synthetic text-bearing provider-neutral fixture in tools/operational/tests/test_audit.py",
+    "accepted requirement text for REQ-RET-001, REQ-RET-003 and REQ-SRC-004",
+    "existing #50 provider-neutral Source/Representation/Instance/Derivative/Findspot/Finding separation",
+    "the 2026-09-20 calibration handoff showing that the real Sachenbacher #55 projection has locators but no text-bearing corpus and must not be silently upgraded into one",
+    "Project Assurance environment setup from .github/workflows/project-assurance.yml and tools/requirements/requirements.txt"
+  ],
+  "current_executable_action": "Run the full current-stage admission preflight before any code mutation: (1) confirm clean checkout on branch dev/calibration-exact-retrieval-20260920; (2) install the repo-declared local assurance dependency with `python -m pip install -r tools/requirements/requirements.txt`; if this fails, return HANDOFF/ENVIRONMENT without implementing; (3) load this work order with tools/operational/context_spec.py and confirm CurrentContext.status == `ready` with every declared basis fingerprint unchanged; (4) confirm the mutation_boundary, trace_and_coverage_contract, acceptance_tests and negative_tests below are satisfiable without semantic invention. Only then implement exactly `tools/operational/retrieval.py` plus `tools/operational/tests/test_retrieval.py` (and only if required to avoid test-to-product imports, a shared synthetic helper at `tools/operational/tests/fixtures.py` with corresponding mechanical update to `test_audit.py`). Implement case-sensitive literal substring/phrase matching over explicit `excerpts[*].text`, equality filters, deterministic hit ordering, returned query-log metadata, deterministic corpus fingerprint and fail-closed provenance resolution. Apply exactly the proportional trace/coverage updates defined below. Do not use the real Sachenbacher projection as a searchable corpus. Any need outside the declared mutation boundary or for new research-state semantics returns HANDOFF/UNRESOLVED before that change.",
+  "prerequisites": [
+    {
+      "ref": "accepted-retrieval-requirements-stable",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/research/synthesis/requirements-baseline.md",
+          "git_blob_sha": "e70ef55a87716ca3eed94f4f61f7c2d33fc910a6"
+        }
+      ],
+      "note": "REQ-RET-001/003 and REQ-SRC-004 are accepted and sufficient for this bounded implementation."
+    },
+    {
+      "ref": "provider-neutral-research-state-contract-stable",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/architecture/contracts/canonical-research-state.md",
+          "git_blob_sha": "d6998957056b5cddce26c5c055d034eaa1ce2860"
+        }
+      ],
+      "note": "Consume existing state roles; do not invent a replacement ontology."
+    },
+    {
+      "ref": "synthetic-text-bearing-retrieval-fixture-available",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "tools/operational/tests/test_audit.py",
+          "git_blob_sha": "c5417e55ae90d5ac41cde25cddcc34d18b6d0b53"
+        }
+      ],
+      "note": "The existing synthetic fixture contains text-bearing excerpt content and full Source/Representation/Instance/Derivative/Findspot links, sufficient for #53 synthetic known-hit/no-hit calibration."
+    },
+    {
+      "ref": "delivery-trace-and-coverage-current",
+      "status": "pass",
+      "basis": [
+        {
+          "path": "docs/architecture/assurance/value-decision-delivery-assurance.md",
+          "git_blob_sha": "77487b8515fc5643d1e84e1da358c6e1d29f04bb"
+        },
+        {
+          "path": "docs/development/requirements-coverage.md",
+          "git_blob_sha": "d1479a33bb8034fa8642be7b24f975cf8bb810c5"
+        }
+      ],
+      "note": "Keep #63 traceability and #59 coverage rules intact."
+    },
+    {
+      "ref": "local-assurance-dependency-setup-declared",
+      "status": "pass",
+      "basis": [
+        {
+          "path": ".github/workflows/project-assurance.yml",
+          "git_blob_sha": "faf43a64cd1dcb0fd2396e56656c212a017c882a"
+        },
+        {
+          "path": "tools/requirements/requirements.txt",
+          "git_blob_sha": "d1cfec3aeefd5dc8c157e12c27cc2468bc925b6e"
+        }
+      ],
+      "note": "Before local formal validators, install the declared validator dependency with python -m pip install -r tools/requirements/requirements.txt. Missing jsonschema in the prior Work environment was an execution-setup omission, not a repository blocker."
+    }
+  ],
+  "open_blockers": [],
+  "unresolved": [],
+  "may": [
+    "inspect the full clean repository checkout and current tests",
+    "add the smallest retrieval implementation and tests under existing technical boundaries",
+    "reuse existing data structures and fixtures",
+    "add/update implementation trace and delivery coverage required by #63/#59",
+    "refactor only mechanics needed to avoid direct local duplication discovered during this bounded task"
+  ],
+  "must_not": [
+    "treat AI/model output as evidence or retrieval ground truth",
+    "claim the synthetic calibration as real-source retrieval verification",
+    "convert the real #55 locator-only projection into invented searchable text",
+    "merge historical variants or homonyms as entities",
+    "promote a retrieval hit into a Finding or Claim",
+    "collapse Source, Representation, Instance, Derivative, Findspot, Finding or Claim roles",
+    "replace unresolved/missing state with inferred values",
+    "create semantic/RAG/vector retrieval",
+    "create a new persistent truth store or database",
+    "create a generic agent/workflow framework",
+    "create src/histo_orla unless a concrete two-consumer/runtime responsibility trigger is demonstrated and escalated before implementation",
+    "change accepted requirements, method truth, research selection or historical findings"
+  ],
+  "stop_handoff_when": [
+    "the repo-declared local assurance dependency cannot be installed before implementation",
+    "CurrentContext.status is not ready or any prerequisite basis fingerprint is stale",
+    "even the synthetic exact-retrieval function requires a new research-state semantic field/object instead of consuming existing roles",
+    "implementation requires changing any path outside mutation_boundary",
+    "a material architecture decision or persistent storage choice becomes necessary",
+    "a requirement/authority conflict is discovered",
+    "tests can only pass by weakening provenance, unresolved preservation, literal-exact semantics or no-LLM constraints"
+  ],
+  "return_condition": "Preflight is READY and local assurance dependency setup succeeded before mutation; implementation stays inside mutation_boundary; the branch contains the smallest synthetic exact-retrieval baseline plus deterministic tests demonstrating no-LLM literal exact search, deterministic hit ordering, reproducible query/filter/corpus logging, known-hit/no-hit behavior, malformed/duplicate-state fail-closed behavior and hit-to-findspot/source round-trip on existing provider-neutral fixture roles; required trace/coverage updates match trace_and_coverage_contract and remain within coverage_claim_limit; all relevant local suites/validators pass and canonical PR Project Assurance is requested. Downstream real-corpus dependencies remain separately recorded and no real-source verification is claimed.",
+  "persistence_target": "Implementation/tests/trace on branch and PR owned by issue:#53 under #48/#59; no new work-owner issue. Calibration result is summarized in issue:#53 or #48; only materially general learning returns to the existing #64/PR #118 review path.",
+  "source_refs": [
+    "issue:#53",
+    "issue:#48",
+    "issue:#59",
+    "issue:#55",
+    "docs/research/synthesis/requirements-baseline.md#REQ-RET-001",
+    "docs/research/synthesis/requirements-baseline.md#REQ-RET-003",
+    "docs/research/synthesis/requirements-baseline.md#REQ-SRC-004",
+    "docs/research/synthesis/requirements-baseline.md#REQ-EPI-004",
+    "docs/research/synthesis/requirements-baseline.md#REQ-EPI-005",
+    "docs/architecture/contracts/canonical-research-state.md",
+    "docs/architecture/assurance/value-decision-delivery-assurance.md",
+    "docs/development/requirements-coverage.md",
+    "tools/operational/audit.py",
+    "docs/development/agentic-refactoring-execution-plan-20260920.md",
+    "docs/architecture/integrations/zotero-onedrive.md",
+    "tools/operational/tests/test_audit.py",
+    ".github/workflows/project-assurance.yml",
+    "tools/requirements/requirements.txt"
+  ],
+  "calibration_history": [
+    {
+      "date": "2026-09-20",
+      "outcome": "HANDOFF/UNRESOLVED",
+      "interpretation": "PASS on agent boundary discipline; original productive-real-slice premise was invalid.",
+      "observed": [
+        "real Sachenbacher chain exists only as a regenerable locator/audit projection in tools/operational/tests/test_audit.py",
+        "the #51 reference manifest preserves instance/locator geometry but is not a searchable text corpus",
+        "implementing real exact retrieval at this point would require new corpus/state semantics or an unavailable bytes/fulltext path",
+        "21 relevant tests passed in Work; local formal validators were not run because the Work environment had not installed the repo-declared dependency from tools/requirements/requirements.txt. This is an execution-setup omission; CI declares and installs it."
+      ],
+      "disposition": "Narrow this work order to the synthetic exact-retrieval baseline already allowed by issue #53. Route the real-corpus prerequisite to #48/#49/#53 instead of inventing it."
+    },
+    {
+      "date": "2026-09-20",
+      "outcome": "planning-review correction",
+      "interpretation": "The first repair still mixed downstream unresolved dependencies into the current executable context. `tools/operational/context.py` makes any unresolved item set CurrentContext.status to `unresolved`, so a second run would have stopped before implementation.",
+      "disposition": "Separate current-stage prerequisites/unresolved from downstream deferred dependencies; require a deterministic CurrentContext.status == ready admission check before any implementer is released."
+    },
+    {
+      "date": "2026-09-20",
+      "outcome": "pre-implementation ambiguity reduction",
+      "interpretation": "Independent review found that module placement, fixture reuse, filter semantics and query-log/result shape were still unnecessarily left to the implementation model.",
+      "disposition": "Fix the reversible calibration implementation shape explicitly so Terra is evaluated on implementation quality rather than on open design choices."
+    },
+    {
+      "date": "2026-09-21",
+      "outcome": "second pre-implementation review hardening",
+      "interpretation": "The corrected plan was directionally sound but still left mutation scope, trace/coverage mutation, hit ordering and malformed/duplicate-state behavior to implementer discretion.",
+      "disposition": "Freeze those reversible choices in the Work Order and regression-test their presence before releasing Terra."
+    },
+    {
+      "date": "2026-09-21",
+      "outcome": "admission-state clarification",
+      "interpretation": "Static review found that a single READY label could again conflate repository sufficiency with actual Work-runtime executability.",
+      "disposition": "Separate repository_admission from execution_environment_admission; implementation release remains conditional until runtime preflight succeeds."
+    }
+  ],
+  "downstream_deferred_dependencies": [
+    {
+      "ref": "real-text-bearing-corpus-admission",
+      "owner_refs": [
+        "issue:#49",
+        "issue:#51",
+        "issue:#53",
+        "issue:#57"
+      ],
+      "status": "not-authorized-in-current-stage",
+      "reason": "The real Sachenbacher provenance chain is not yet a text-bearing retrieval corpus. This is a downstream dependency for real-source falsification, not a prerequisite for the current synthetic calibration.",
+      "evidence_refs": [
+        "docs/architecture/integrations/zotero-onedrive.md",
+        "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json",
+        "tools/operational/tests/test_audit.py"
+      ],
+      "admission_condition": "A concrete text-bearing derivative/input is actually accessible in the execution context, has explicit parent Instance/Derivative identity and findspot mapping, and can be regenerated or revalidated without becoming a second truth store."
+    },
+    {
+      "ref": "real-provider-byte-resolution",
+      "owner_refs": [
+        "issue:#49",
+        "issue:#57"
+      ],
+      "status": "not-authorized-in-current-stage",
+      "reason": "Local Zotero metadata capability exists, but device-independent OneDrive/Zotero byte resolution is not yet established.",
+      "evidence_refs": [
+        "docs/architecture/integrations/zotero-onedrive.md"
+      ],
+      "admission_condition": "An authorized read-only context resolves the concrete source bytes/provider identity and distinguishes identified/retrievable/accessible/inspectable/rights-admissible states."
+    }
+  ],
+  "execution_admission": {
+    "stage": "synthetic-exact-retrieval-calibration",
+    "required_status": "ready",
+    "rule": "All repository-side prerequisites must be pass and open_blockers/unresolved empty for repository_admission=ready. This does not imply execution_environment_admission. The actual Work runtime must still pass clean-checkout + dependency-install + work-order-load/basis checks before any code mutation. Downstream dependencies must never be placed in current prerequisites/unresolved.",
+    "checked_against": [
+      "tools/operational/context.py",
+      "tools/operational/context_spec.py"
+    ],
+    "preflight_checks": [
+      "clean checkout on declared repository and branch; no foreign/uncommitted files",
+      "fresh repository bootstrap and current issue #53 read",
+      "repo-declared Python assurance dependency installs successfully before code mutation",
+      "all prerequisite basis fingerprints match checkout",
+      "CurrentContext.status == ready",
+      "acceptance_tests and negative_tests are present, understood and implementable without semantic invention",
+      "mutation_boundary allows every planned file change; otherwise stop",
+      "trace_and_coverage_contract is applicable without broadening claims",
+      "coverage_claim_limit is preserved",
+      "implementation_shape can be implemented without adding semantic fields, persistence or provider assumptions"
+    ]
+  },
+  "upstream_driver_refs": [
+    "G-004",
+    "G-008",
+    "N-006",
+    "N-008",
+    "N-015",
+    "N-018",
+    "P-004"
+  ],
+  "current_stage_search_contract": {
+    "mode": "literal-exact-calibration",
+    "rule": "The calibration must perform literal matching against the text value already present in the synthetic excerpt. No implicit case folding, stemming, fuzzy matching, spelling normalization, historical variant expansion or semantic expansion is allowed.",
+    "query_provenance": "Record the user/query string exactly as executed plus explicit match mode, filters, corpus boundary and implementation/version.",
+    "corpus_boundary": "The calibration corpus is only the explicitly supplied synthetic provider-neutral state/fixture. The test fixture is not promoted into canonical Research State.",
+    "result_boundary": "A hit reports existing provenance references; it is not a Finding, Claim or entity assertion."
+  },
+  "forbidden_loss": [
+    "loss or conflation of Source/Representation/Instance/Derivative/Findspot/Excerpt/Finding/Claim distinctions",
+    "loss of missing/unresolved state",
+    "loss of query/corpus/version provenance needed to explain a rerun",
+    "implicit normalization or variant expansion presented as exact matching",
+    "promotion of test/derived fixture content into canonical research truth",
+    "promotion of hit/no-hit into historical Finding or completeness claim",
+    "introduction of provider path/key as canonical internal identity"
+  ],
+  "acceptance_tests": [
+    {
+      "ref": "RET-CAL-A01",
+      "statement": "The existing synthetic excerpt text is found by a literal exact query that occurs in it.",
+      "expected": "one or more stable hit records with the existing excerpt/findspot and parent provenance references"
+    },
+    {
+      "ref": "RET-CAL-A02",
+      "statement": "A literal query absent from the synthetic corpus returns no hits.",
+      "expected": "empty hit set; no Finding/Claim/negative historical conclusion is created"
+    },
+    {
+      "ref": "RET-CAL-A03",
+      "statement": "The same query against the same declared corpus boundary produces the same query-log parameters and equivalent hit provenance.",
+      "expected": "reproducible query/corpus/version record"
+    },
+    {
+      "ref": "RET-CAL-A04",
+      "statement": "Each hit round-trips from excerpt/findspot through derivative/instance/representation/source using only existing fixture relations.",
+      "expected": "no inferred IDs or newly invented state"
+    },
+    {
+      "ref": "RET-CAL-A05",
+      "statement": "Exact search runs with no LLM/semantic retrieval dependency.",
+      "expected": "tests succeed with only local deterministic Python code"
+    },
+    {
+      "ref": "RET-CAL-A06",
+      "statement": "An allowed equality filter (for example source_id or instance_id) deterministically restricts the hit set and is reproduced in the query log.",
+      "expected": "only hits satisfying the explicit existing-ID filter; no inferred identity"
+    },
+    {
+      "ref": "RET-CAL-A07",
+      "statement": "The same JSON-compatible input state deterministically yields the same corpus_fingerprint; a changed input state yields a different fingerprint.",
+      "expected": "SHA-256 corpus fingerprint makes rerun boundary explicit without becoming canonical research identity"
+    },
+    {
+      "ref": "RET-CAL-A08",
+      "statement": "Equivalent matching/filtering over the same records returns hits in deterministic excerpt_id order even if input excerpt order differs.",
+      "expected": "stable lexicographic hit order independent of fixture list order"
+    },
+    {
+      "ref": "RET-CAL-A09",
+      "statement": "Implementation changes remain within mutation_boundary and trace/coverage changes match trace_and_coverage_contract exactly.",
+      "expected": "no unrelated repository files or Requirement statuses changed"
+    }
+  ],
+  "negative_tests": [
+    {
+      "ref": "RET-CAL-N01",
+      "statement": "Different case or other normalization is not silently treated as the same literal query.",
+      "expected": "no match unless that exact character sequence exists; any future normalization requires a separate explicit mode/decision"
+    },
+    {
+      "ref": "RET-CAL-N02",
+      "statement": "A hit with missing/invalid provenance cannot be silently repaired by inference.",
+      "expected": "fail closed or surface explicit missing/unresolved according to existing contract"
+    },
+    {
+      "ref": "RET-CAL-N03",
+      "statement": "Real Sachenbacher audit projection is not accepted as searchable corpus merely because its provenance chain is real.",
+      "expected": "no real-source verification claim or real-corpus fixture added"
+    },
+    {
+      "ref": "RET-CAL-N04",
+      "statement": "Implementation does not create persistent index/database/state.",
+      "expected": "all retrieval output is read-only/regenerable"
+    },
+    {
+      "ref": "RET-CAL-N05",
+      "statement": "An unknown filter key or a matching excerpt whose required provenance cannot be resolved is not silently accepted.",
+      "expected": "fail closed with an explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N06",
+      "statement": "An empty query is rejected rather than treated as matching every excerpt.",
+      "expected": "fail closed with an explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N07",
+      "statement": "Duplicate IDs in any relevant provenance collection are not resolved by first/last-write behavior.",
+      "expected": "fail closed with explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N08",
+      "statement": "Malformed relevant collection/record structure is not silently skipped when it is required for search/provenance.",
+      "expected": "fail closed with explicit retrieval error"
+    },
+    {
+      "ref": "RET-CAL-N09",
+      "statement": "A present non-empty excerpt text value that is not a string is not coerced into searchable text.",
+      "expected": "fail closed with explicit retrieval error"
+    }
+  ],
+  "environment_setup": {
+    "python": "3.12-compatible; mirror Project Assurance where possible",
+    "dependency_install": "python -m pip install -r tools/requirements/requirements.txt",
+    "required_local_checks": [
+      "python -m unittest discover -s tools/operational/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/document_evidence/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/requirements/tests -p 'test_*.py' -v",
+      "python -m unittest discover -s tools/assurance/tests -p 'test_*.py' -v",
+      "python tools/requirements/validate.py",
+      "python tools/assurance/validate.py --changed-from <merge-base/main>"
+    ],
+    "canonical_ci": ".github/workflows/project-assurance.yml"
+  },
+  "coverage_claim_limit": "At most mark the literal exact-search/filter/query-provenance implementation as partial/in-progress until the real source falsification stage succeeds. Do not mark REQ-RET-001, REQ-RET-003 or REQ-SRC-004 verified from the synthetic calibration alone.",
+  "implementation_shape": {
+    "status": "bounded calibration choice; reversible; not a durable product-package decision",
+    "implementation_file": "tools/operational/retrieval.py",
+    "test_file": "tools/operational/tests/test_retrieval.py",
+    "test_fixture_rule": "Product code must not import from tests. If reuse of the existing full synthetic audit state is needed, move only that synthetic fixture construction into tools/operational/tests/fixtures.py and make both audit/retrieval tests consume it; do not create a new canonical state or product schema.",
+    "input_contract": {
+      "state": "existing provider-neutral mapping with collections already used by audit.py; JSON-compatible for this calibration so the input can be deterministically fingerprinted",
+      "searchable_records": "only excerpts with an explicit non-empty `text` value",
+      "query": "non-empty string; exact codepoint sequence",
+      "corpus_ref": "non-empty caller-supplied identifier for the current synthetic corpus boundary",
+      "filters": "optional equality filters over existing provenance IDs only"
+    },
+    "supported_filter_keys": [
+      "excerpt_id",
+      "derivative_id",
+      "instance_id",
+      "representation_id",
+      "source_id"
+    ],
+    "filter_rule": "Equality only. Unknown filter keys fail closed. Filters do not infer missing ancestry.",
+    "matching_rule": "Calibration mode is case-sensitive literal substring/phrase matching over excerpt.text. No tokenization, Unicode normalization, case folding, stemming, fuzzy matching or historical expansion. This deliberately proves only the deterministic literal baseline and does not claim full final word-search semantics.",
+    "output_contract": {
+      "query_log": [
+        "query",
+        "match_mode",
+        "filters",
+        "corpus_ref",
+        "corpus_fingerprint",
+        "implementation_version"
+      ],
+      "hit": [
+        "excerpt_id",
+        "findspot",
+        "derivative_id",
+        "instance_id",
+        "representation_id",
+        "source_id"
+      ],
+      "side_effects": "none; query log and hits are returned values, not persisted state"
+    },
+    "provenance_rule": "A matching excerpt is a valid hit only when the required explicit findspot and ancestry can be resolved through existing state links. Missing required provenance fails closed with a retrieval error; it is never repaired by inference.",
+    "cli": "none in this calibration",
+    "persistence": "none beyond code/tests/required #63 trace and proportional #59 coverage",
+    "corpus_fingerprint_rule": "Return sha256 over UTF-8 bytes of deterministic JSON serialization of the complete input state using ensure_ascii=false, sort_keys=true and compact separators. This is run/corpus provenance only, not canonical Source/Instance identity.",
+    "implementation_version": "exact-literal-v0.1"
+  },
+  "mutation_boundary": {
+    "rule": "Only the listed paths may be changed in this calibration. Any need to modify another path is a stop/handoff condition, not implementer discretion.",
+    "allowed_required": [
+      "tools/operational/retrieval.py",
+      "tools/operational/tests/test_retrieval.py",
+      "tools/assurance/data/trace-records.json",
+      "docs/development/requirements-coverage.md"
+    ],
+    "allowed_conditional": [
+      {
+        "path": "tools/operational/tests/fixtures.py",
+        "condition": "only if needed to share the existing synthetic fixture without product code importing tests"
+      },
+      {
+        "path": "tools/operational/tests/test_audit.py",
+        "condition": "only the mechanical import/use change paired with fixture extraction; no audit semantics change"
+      }
+    ],
+    "forbidden_examples": [
+      "AGENTS.md",
+      "PROJECT_STATE.md",
+      "README.md",
+      "docs/research/synthesis/requirements-baseline.md",
+      "docs/research/synthesis/requirements-extensions.md",
+      "docs/architecture/contracts/canonical-research-state.md",
+      "docs/architecture/integrations/zotero-onedrive.md",
+      "tools/document_evidence/data/sachenbacher-2022-reference-v0.3.json"
+    ]
+  },
+  "trace_and_coverage_contract": {
+    "trace_record": {
+      "id": "IMP-RET-001",
+      "initial_status": "implemented",
+      "may_be_marked_verified_when": "only after implementation tests pass, canonical PR Project Assurance succeeds on the implementation head, and independent Sol High review finds no material semantic/authority drift",
+      "requirement_refs": [
+        "REQ-RET-001",
+        "REQ-RET-003",
+        "REQ-SRC-004",
+        "REQ-WF-001",
+        "REQ-STATE-002",
+        "REQ-TRACE-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-004",
+        "G-008",
+        "N-006",
+        "N-008",
+        "N-015",
+        "N-018",
+        "P-004"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
+      "implementation_files_rule": "List only files actually changed for retrieval implementation/tests plus the trace/coverage files; conditional fixture files only if actually used.",
+      "notes_boundary": "State explicitly that this is synthetic literal-exact calibration only; no real-source retrieval, historical variant, corpus-provider, owner-workflow acceptance or scholarly verification claim."
+    },
+    "coverage_updates": [
+      {
+        "requirement": "REQ-RET-001",
+        "from": "not-started",
+        "to": "in-progress",
+        "note": "synthetic literal exact-search baseline implemented/tested without LLM; real-source falsification remains pending"
+      },
+      {
+        "requirement": "REQ-RET-003",
+        "from": "not-started",
+        "to": "in-progress",
+        "note": "synthetic query/filter/corpus-fingerprint provenance implemented/tested; real corpus/index/version reproducibility remains pending"
+      },
+      {
+        "requirement": "REQ-SRC-004",
+        "from": "partial",
+        "to": "partial",
+        "note": "retain existing #51 real findspot evidence and add only that synthetic retrieval hits preserve provider-neutral findspot/source ancestry; no real retrieval roundtrip claim"
+      }
+    ],
+    "forbidden_coverage_changes": [
+      "REQ-RET-002",
+      "REQ-RET-004",
+      "REQ-RET-005"
+    ],
+    "rule": "Do not change any other Requirement status in this calibration."
+  },
+  "determinism_contract": {
+    "hit_order": "Sort returned hits lexicographically by excerpt_id after matching/filtering; input list order must not control result order.",
+    "duplicate_ids": "Duplicate non-empty IDs within any relevant collection (excerpts, derivatives, instances, representations, sources) are invalid and fail closed.",
+    "collection_shape": "Relevant collections, when present, must be lists of mappings; malformed collections/records fail closed.",
+    "excerpt_text": "Absent or empty text makes an excerpt non-searchable and is skipped. If a non-empty text field is present but is not a string, fail closed.",
+    "filter_values": "Supported filter values must be non-empty strings. Unknown keys or invalid values fail closed.",
+    "fingerprint_tradeoff": "For this calibration fingerprint the complete JSON-compatible input state exactly as supplied. This deliberately over-invalidates on unrelated state changes rather than risking hidden corpus drift; a narrower real-corpus fingerprint is deferred to the real-source stage."
+  },
+  "environment_failure_classification": {
+    "dependency_install_failure": "HANDOFF/ENVIRONMENT; no implementation mutation",
+    "work_order_not_ready_or_basis_stale": "HANDOFF/UNRESOLVED; no implementation mutation",
+    "semantic_or_architecture_need": "HANDOFF/UNRESOLVED; no out-of-scope change",
+    "test_failure_after_in_scope_implementation": "fix only within mutation_boundary if the contract remains unchanged; otherwise handoff",
+    "canonical_ci_failure": "do not mark trace verified or advance beyond declared in-progress/partial coverage"
+  },
+  "release_state": {
+    "repository_admission": "ready",
+    "execution_environment_admission": "pending-until-actual-work-runtime-preflight",
+    "implementation_release": "conditional",
+    "rule": "Repository READY means canonical inputs/contracts are sufficient. It does not assert that the concrete Work runtime is clean, dependency-complete or writable. Code mutation is released only after the runtime preflight in current_executable_action succeeds in that same checkout."
+  }
+}

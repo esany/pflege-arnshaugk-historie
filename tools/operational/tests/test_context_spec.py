@@ -29,6 +29,62 @@ class WorkOrderContextTests(unittest.TestCase):
         self.assertEqual("unresolved", states["modern-archive-concordance"])
         self.assertEqual("unresolved", states["grune-modern-identification-independent-collation"])
 
+    def test_ret_001_calibration_work_order_is_ready_before_implementation(self):
+        path = Path("docs/development/work-orders/wo-ret-001-exact-retrieval-calibration.json")
+        context = load_work_order(path, root=Path("."))
+
+        self.assertEqual("issue:#53", context.work_owner_ref)
+        self.assertEqual("WO-RET-001-CALIBRATION", context.work_order_ref)
+        self.assertEqual("ready", context.status)
+        self.assertEqual((), context.open_blockers)
+        self.assertEqual((), context.unresolved)
+        self.assertIn("full current-stage admission preflight before any code mutation", context.current_executable_action)
+        self.assertIn("HANDOFF/ENVIRONMENT", context.current_executable_action)
+        self.assertIn("mutation_boundary", context.current_executable_action)
+        self.assertIn("treat AI/model output as evidence or retrieval ground truth", context.must_not)
+
+        states = {item.ref: item.status for item in context.prerequisites}
+        self.assertTrue(states)
+        self.assertTrue(all(status == "pass" for status in states.values()))
+
+        raw = json.loads(path.read_text(encoding="utf-8"))
+        self.assertEqual("ready", raw["execution_admission"]["required_status"])
+        self.assertEqual(9, len(raw["acceptance_tests"]))
+        self.assertEqual(9, len(raw["negative_tests"]))
+        self.assertTrue(raw["forbidden_loss"])
+        self.assertTrue(raw["upstream_driver_refs"])
+        self.assertTrue(raw["downstream_deferred_dependencies"])
+        self.assertTrue(all(
+            item["status"] == "not-authorized-in-current-stage"
+            for item in raw["downstream_deferred_dependencies"]
+        ))
+        self.assertIn("Do not mark REQ-RET-001", raw["coverage_claim_limit"])
+        self.assertEqual("tools/operational/retrieval.py", raw["implementation_shape"]["implementation_file"])
+        self.assertEqual("none in this calibration", raw["implementation_shape"]["cli"])
+        self.assertEqual("exact-literal-v0.1", raw["implementation_shape"]["implementation_version"])
+        self.assertIn("corpus_fingerprint", raw["implementation_shape"]["output_contract"]["query_log"])
+        self.assertEqual(["excerpt_id", "derivative_id", "instance_id", "representation_id", "source_id"], raw["implementation_shape"]["supported_filter_keys"])
+        self.assertEqual(
+            ["tools/operational/retrieval.py", "tools/operational/tests/test_retrieval.py", "tools/assurance/data/trace-records.json", "docs/development/requirements-coverage.md"],
+            raw["mutation_boundary"]["allowed_required"],
+        )
+        self.assertEqual("IMP-RET-001", raw["trace_and_coverage_contract"]["trace_record"]["id"])
+        self.assertEqual(
+            {"REQ-RET-001": "in-progress", "REQ-RET-003": "in-progress", "REQ-SRC-004": "partial"},
+            {item["requirement"]: item["to"] for item in raw["trace_and_coverage_contract"]["coverage_updates"]},
+        )
+        self.assertIn("excerpt_id", raw["determinism_contract"]["hit_order"])
+        self.assertIn("fail closed", raw["determinism_contract"]["duplicate_ids"])
+        self.assertEqual(
+            "HANDOFF/ENVIRONMENT; no implementation mutation",
+            raw["environment_failure_classification"]["dependency_install_failure"],
+        )
+        self.assertEqual("ready", raw["release_state"]["repository_admission"])
+        self.assertEqual("pending-until-actual-work-runtime-preflight", raw["release_state"]["execution_environment_admission"])
+        self.assertEqual("conditional", raw["release_state"]["implementation_release"])
+        self.assertTrue(any("mutation_boundary" in item for item in raw["execution_admission"]["preflight_checks"]))
+        self.assertTrue(any("local assurance dependency" in item for item in raw["stop_handoff_when"]))
+
     def test_changed_pass_basis_is_downgraded_to_unresolved(self):
         with TemporaryDirectory() as tmp:
             root = Path(tmp)
