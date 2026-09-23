@@ -75,6 +75,16 @@ The conversation did contain this planning logic.
 
 as the canonical start/resume context under existing #92/#48/#42/#59 authority.
 
+
+### KM-5 — final Handoff-Test and blocker prose still implied active W1/parallel rebuild execution
+
+After the first corrective handoff PR, `PROJECT_STATE.md` still contained one residual Handoff-Test bullet referring to the “current W1 path”, and the #44 blocker paragraph still said #49–#57 product/integration work remained “parallel executable” without restating the new rebuild boundary.
+
+**Risk:** a fresh chat could correctly read the main Next Action as Fresh Rebuild Conception but still infer that the old W1 chain was an active parallel/default rebuild track.
+
+**Disposition:** mark W1 explicitly as historical prior art in the Handoff-Test and state that existing technical owners are only resumable under their own authority/selection/admission; they do not form a parallel default rebuild execution path.
+
+
 ## 4. Conversation statements explicitly superseded and not to persist as current truth
 
 Earlier conversation stages considered whether bounded implementation should continue in parallel with research.
@@ -89,7 +99,7 @@ Likewise, earlier tentative `CONTINUE / HOLD / REFRAME` dispositions of individu
 
 ## 5. No remaining chat-only substantive findings after corrective changes
 
-After KM-1 through KM-4 are corrected:
+After KM-1 through KM-5 are corrected:
 
 - no substantive Research finding remains chat-only;
 - no F1–F14 disposition remains chat-only;
@@ -126,7 +136,7 @@ It must not use this closing conversation as authority.
 
 The audit is complete when:
 
-- `PROJECT_STATE.md` no longer describes old W1 as the active critical rebuild path;
+- `PROJECT_STATE.md` no longer describes old W1 as the active critical rebuild path, including in its final Handoff-Test;
 - active rebuild next actions no longer execute old R4–R8/PR #119 by sequence;
 - #92's old DoD is clearly historical/prior-art;
 - the fresh rebuild-conception work context is versioned and discoverable from the Handoff view;

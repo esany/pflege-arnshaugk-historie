@@ -492,7 +492,7 @@ Aktuell aktiv:
 
 - `DD-20260903-001` – **GitHub Required-PR / Branch-Protection Admission**: D1 schützt den lokalen Operational-Write-Pfad und PR #74 bereitet `Project Assurance` als globalen Required Check vor. `main` ist jedoch weiterhin unprotected, Rulesets sind leer und der aktuell autorisierte GitHub-Connector besitzt keine Ruleset-/Branch-Protection-Schreibfunktion. Empfohlene Auflösung durch Repository-Admin: Required Pull Request für `main` + Required Status Check `Project Assurance`. Danach End-to-End-Negativtest unter #59: direct main write muss abgewiesen werden; normaler PR mit grünem Check bleibt zulässig.
 
-Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research, #49–#57 Product-/Integration-Arbeit, #61 Current Context sowie weitere technische/researchseitige Arbeit bleiben parallel ausführbar. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research sowie #49–#63 behalten ihren jeweiligen Owner-Scope und können nur nach ihrer eigenen Authority, Selection und Admission resumiert werden; daraus folgt **keine parallele Default-Rebuild-Ausführung** neben der aktuell alleinigen Rebuild-Next-Action `Fresh rebuild conception`. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
 
 ## 12. Handoff-Test
 
@@ -505,7 +505,7 @@ ohne alten Chat erkennen können:
 - **Current Work Selection ist `selection-open`; `resumable`, `integrated`, aktiver Work Owner, Method Work, PR-/CI-Status oder Architecture Roadmap begründen keine Auswahl;**
 - welche Arbeit `governing/project`, `domain/research`, `product capability`, `operational support`, `pilot/testfixture` oder `superseded/archive` ist;
 - dass `src/histo_orla/` aktuell nicht eingeführt ist und Product-Code-Struktur bedarfsgetrieben aus realer Runtime-Produktlogik entstehen muss;
-- den aktuellen W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance`, ohne daraus Research Selection abzuleiten;
+- dass der frühere W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance` **nur Historical Prior Art / frühere Lösungshypothese** ist und kein aktueller kritischer Pfad; die aktive Rebuild-Next-Action kommt ausschließlich aus `docs/architecture/fresh-rebuild-conception-work-context-20260923.md`;
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
