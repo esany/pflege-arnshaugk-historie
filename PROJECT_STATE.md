@@ -447,49 +447,47 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 ### Rebuild
 
 **Fresh Rebuild Conception = COMPLETE.**  
-**WP1-STATE-SPINE-V0 = IMPLEMENTED + TECHNICALLY VERIFIED + INTEGRATED.**
+**WP1-STATE-SPINE-V0 = IMPLEMENTED + TECHNICALLY VERIFIED + INTEGRATED.**  
+**Owner-/Workflow-Feedback = PAIN PERSISTS for the research-facing surface.**
 
 Kanonische Basis / Delivery:
 
 - Conception: `docs/architecture/fresh-rebuild-conception-20260923.md`
 - Admission/Work Order: `docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md`
 - Implementation: PR #132 → `d33828441c5333341af2794574d2a31dda47845b`
-- #63 Trace: `DEC-STATE-SPINE-001` / `IMP-STATE-SPINE-001` = `verified`
-- Project Assurance: Runs `35908337523` and `35908493477` = success
+- #63 Trace: `DEC-STATE-SPINE-001` / `IMP-STATE-SPINE-001=verified`
+- Owner feedback: `FB-20260923-004` / #63 comment `5802074059`
 
-WP1 liefert innerhalb seines Coverage Ceiling:
+WP1 bleibt als technischer Unterbau bestätigt: provider-neutrale Identität, exakte Owner-/Findspot-Auflösung, explizites `unresolved` und regenerierbarer Auditpfad funktionieren innerhalb des Coverage Ceiling.
 
-- minimale Git-native Identity/Role/`canonical_ref`-Registry für Source, Representation, Instance, Findspot und Finding;
-- exakte Fail-Closed-Auflösung auf bestehende kanonische Owner statt Inhaltsduplikation;
-- Source/Finding read-only aus ihren Research-Artefakten;
-- Representation/Instance/Findspots aus dem bestehenden #51-v0.3-Manifest;
-- #55 Derived Audit ohne die frühere manuell assemblierte reale Sachenbacher-Projektion;
-- expliziten Erhalt von `unresolved`/fehlender Method-/Alternative-Semantik;
-- deterministische AT-01..AT-10 + NT-01..NT-10;
-- keine Research-Content-, #51-Review-, Method-, Selection-, Provider-, Retrieval-, UI-, Datenbank- oder Package-Migration.
+Der reale Fresh-Context-Nutzungstest zeigt aber, dass **die Audit-/Provenienz-Darstellung selbst nicht die benötigte Research-Owner-Oberfläche ist**:
+
+- die Ausgabe ist für den Owner zu kryptisch / maschinenorientiert;
+- der frühe Sachenbacher-Pilot soll nicht still den inzwischen geschärften Produkt-/Research-Scope definieren;
+- für diesen Fall ist die nützliche Forschungsdarstellung eine **visuelle Derived Research Composition** aus den relevanten extrahierten Textstellen + der vollständigen publizierten Karte + knapper fachlicher Einordnung;
+- Provenienz, IDs, Findspots, Instance-Hash und Auditdetails bleiben wichtig, sollen die Primärdarstellung aber unterstützen bzw. per Drill-down erreichbar sein statt sie zu dominieren.
+
+Das Feedback ist Product-/Workflow-Evidence, keine historische Evidenz. Es ändert weder #42-Requirements noch #60-Method Truth und invalidiert WP1 nicht.
 
 **Exakt nächste ausführbare Rebuild-Aktion:**
 
-> **WP1 als reales Owner-/Workflow-Inkrement unter #55/#63 benutzen und den noch offenen Nutzen-/Burden-Nachweis erfassen: kann der Owner Evidenzpfad, Unsicherheit und exakte Instanz ohne Chat-Rekonstruktion verstehen/navigieren, und wurde manuelle Projektion/Koordination tatsächlich reduziert?**
+> **Unter #48/#55/#63 den kleinsten visuellen Derived-View-Test aus bestehender #51-Evidenz + WP1-State ableiten und mit dem Owner prüfen: Textpassagen und vollständige Karte gemeinsam forschungsnah präsentieren, knappe Aussagegrenze/Unsicherheit sichtbar halten und technische Provenienz nur unterstützend/drill-down zeigen.**
 
-Das ist Product-/Workflow-Evidence, keine historische Evidenz. Technischer PASS ersetzt diese Rückmeldung nicht.
-
-Erst danach bzw. parallel nur nach eigener expliziter Admission darf ein weiterer Kandidat aus der Conception geöffnet werden. Candidate WP2 (Evidence resolver / availability slice) ist die dependency-logische nächste **Proposal**-Option, aber aktuell **nicht admitted** und erzeugt keine Implementation Authority.
+Vor einer Implementation ist zu klären, ob dieser bounded Test mit vorhandenen Derived-View-/Artefaktmitteln durchgeführt werden kann oder eine eigene kleine Admission benötigt. **Kein breiter WP4-/UI-Stack ist dadurch admitted.**
 
 Verbindliche Grenzen:
 
-- `selection-open` bleibt bestehen; WP1 hat keinen historischen Research Case als `selected-current` erzeugt;
-- kein Folgepaket wird aus Reihenfolge, grünem CI oder WP1-Erfolg automatisch aktiviert;
-- Provider Availability/Removal bleibt #49/#57;
-- Retrieval bleibt #53;
-- Workplace/UI bleibt späterer WP4-Kandidat und braucht reale Owner-Akzeptanz;
-- Method/Promotion/Rights bleiben #60/#54/#56;
-- `src/histo_orla/`, Datenbank, Workflow Engine und MCP/Skill/UI-Stack bleiben nicht vorab gesetzt;
-- der bestehende GitHub-Branch-Protection-Blocker in #44 bleibt separat.
+- #51s vollständige publizierte Karte bleibt das Evidenz-/Referenzobjekt; Highlights/Ausschnitte sind regenerierbare Derived Views;
+- keine neue historische Interpretation aus Visualisierung erzeugen;
+- `R51-06`, fehlende Method Application und fehlende Alternatives bleiben sichtbar;
+- kein neuer Canonical Research State nur für Präsentationszwecke;
+- `selection-open` bleibt bestehen;
+- Candidate WP2, WP3, WP4 und WP5 bleiben ohne eigene Admission nicht implementierungsautorisiert;
+- ein visueller Prototyp dient zuerst als Owner-/Workflow-Falsifikation, nicht als Vorentscheidung für eine UI-Technologie.
 
 ### Andere bestehende Owner
 
-#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. WP1 verändert keine Research Selection, Method Truth oder andere Owner-Authority. Requirement-Coverage-Notizen wurden für die technisch demonstrierten WP1-Eigenschaften nachgezogen; neue Lifecycle-Promotionen auf `partial` wurden nicht allein aus dem bounded Increment erzeugt. Bestehende aktive/strukturierte Status bleiben unverändert.
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. Das Feedback routet die Darstellungs-/Workflow-Frage an #48/#55/#63; falls daraus ein echter Requirement-Delta entsteht, geht er separat an #42.
 
 Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
 
