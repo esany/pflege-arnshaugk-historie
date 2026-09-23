@@ -50,7 +50,7 @@ Regeln:
 | REQ-EPI-001 | #60/#54/#55/#59 | not-started | Domain method + evidence standard traceability |
 | REQ-EPI-002 | #60/#59 | not-started | professional problem translation |
 | REQ-EPI-003 | #50/#60/#59 | not-started | terminology layers/context |
-| REQ-EPI-004 | #50/#54/#55 | partial | WP1 bounded resolver/audit preserves `R51-06` and missing Method/alternative state explicitly as `unresolved`; general contradiction/competing-interpretation handling remains open |
+| REQ-EPI-004 | #50/#54/#55 | not-started | WP1 provides bounded technical evidence that `R51-06` and missing Method/alternative state remain explicit; general Requirement delivery is not formally activated/migrated yet |
 | REQ-EPI-005 | #54/#55 | not-started | AI ≠ evidence/independent validation |
 | REQ-SRC-001 | #50/#51 | partial | #51 + WP1 keep Source, Representation and fingerprinted Instance distinct; the resolver rejects provider URL/path substitution for internal identity; general cross-case persistence/integration remains open |
 | REQ-SRC-002 | #49/#50/#51 | partial | one fingerprinted reviewed Instance plus WP1 exact canonical-target resolution/content hash are reproducible; general provider/current-availability resolution remains open |
@@ -73,14 +73,14 @@ Regeln:
 | REQ-ACT-001 | #50/#55/#60 | not-started | action/motive/attribution/structure separation |
 | REQ-SYN-001 | #50/#55/#60 | not-started | evidence axes remain distinct |
 | REQ-SYN-002 | #55/#60/#59 | not-started | synthesis preserves alternatives |
-| REQ-UX-001 | #55/#59 | partial | bounded real Finding→Findspot→Instance/Source audit is now derived from canonical owners; missing Method remains explicit and broader owner-workflow usefulness/coverage is still open |
+| REQ-UX-001 | #55/#59 | not-started | WP1 provides a bounded real Finding→Findspot→Instance/Source audit implementation; broader Requirement delivery and owner-workflow usefulness remain formally open |
 | REQ-UX-002 | #54/#55/#59 | not-started | challenge/correct/demote without micromanagement |
 | REQ-VAL-001 | #54/#55/#60 | not-started | consequence-based validation levels |
 | REQ-VAL-002 | #55/#60 | not-started | honest independent specialist validation status |
 | REQ-WF-001 | #54/#59/#62/#63 | partial | Requirements-/Trace-/Enforcement-Map-Invarianten plus WP1 ID/role/canonical-ref integrity are deterministic and regression-tested; Research-State-Promotion/Transition and further settled guards remain under #54 |
 | REQ-WF-002 | #57/#59 | not-started | reproducible/restartable processing/search |
-| REQ-STATE-001 | #50/#57/#59 | partial | WP1 verifies bounded provider-neutral IDs/owner refs and fresh-repo resolution without chat for the Sachenbacher chain; provider-removal/portable export and wider cases remain #57 work |
-| REQ-STATE-002 | #50/#57 | partial | WP1 keeps the canonical ID/owner registry separate from regenerable audit root/excerpts and verifies derived deletion safety in the bounded chain; wider curated/regenerable classification remains open |
+| REQ-STATE-001 | #50/#57/#59 | not-started | WP1 provides bounded provider-neutral ID/owner-ref and fresh-repo resolution evidence; portable/provider-removal Requirement delivery remains formally open under #57 |
+| REQ-STATE-002 | #50/#57 | not-started | WP1 demonstrates bounded canonical-registry vs regenerable-audit separation; general curated/regenerable-state Requirement delivery remains formally open |
 | REQ-INT-001 | #49/#57 | not-started | integration escape hatch |
 | REQ-LEAN-001 | #48 | in-progress | WP1 reused existing JSON/JSON-Schema/Python/audit mechanisms with no database, new dependency, package split or platform; architecture remains evidence-driven beyond this bounded increment |
 | REQ-RGT-001 | #56 | not-started | external-processing rights admission |
@@ -93,7 +93,7 @@ Regeln:
 
 | Requirement | Primary owner/work packages | Status | Notes |
 |---|---|---|---|
-| REQ-EPI-006 | #50/#59 | partial | WP1 registry/resolver keeps Source, Representation, Instance, Findspot and Finding as distinct bounded roles; Derivative/Excerpt/Claim/Method/History remain external or deferred |
+| REQ-EPI-006 | #50/#59 | not-started | WP1 demonstrates bounded role separation for Source, Representation, Instance, Findspot and Finding; general semantic research-state Requirement delivery is not formally activated/migrated yet |
 | REQ-INT-002 | #49/#50 | not-started | OneDrive/Zotero/Histo-Orla responsibility boundary |
 | REQ-MTH-001 | #60/#50/#59 | research-needed | versioned Domain Method Profiles |
 | REQ-MTH-002 | #60/#50 | research-needed | profile expressiveness derives from fachlicher SOTA |
