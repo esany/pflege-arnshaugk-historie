@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
-- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. **Rebuild conception is currently on hold pending problem-driven Deep Research + finding reconciliation.** R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
+- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. Die D4-Reconciliation bewertet das #92-Gate epistemisch als `READY`, bleibt aber bis zur Integration der gestapelten PRs #125 → #126 `REPO-INTEGRATION-PENDING`. R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
@@ -31,15 +31,19 @@ Systemanalyse / aktuelle Findings
 → Implementation nur nach expliziter Selection / Admission
 ```
 
-Bis zur Research-Reconciliation:
+**Historischer Pre-Reconciliation-Stand (vor D4; nicht mehr aktiv):**
 
-- #92 ist `hold-for-research-reconciliation`;
-- die bestehende Roadmap und PR #119 sind **Prior Art / Planungshypothesen**, nicht Default-Next-Action;
+Bis zum Abschluss der Research-Reconciliation galt:
+
+- #92 war `hold-for-research-reconciliation`;
+- die bestehende Roadmap und PR #119 waren bereits **Prior Art / Planungshypothesen**, nicht Default-Next-Action;
 - kein Shared Runtime/Product Package, Read Model, Skill/MCP/UI, Owner-/Handoff-Redesign oder fixes Research-Workflow-Modell wird aus der alten Roadmap weitergezogen;
 - bereits etablierte Loss-Boundaries und settled Invariants (#50/#51, Source/Instance/Derivative/Findspot, `unresolved`, Readiness/Admission) bleiben gültig;
 - eigenständig Requirement-backed technische Arbeit ist dadurch nicht verboten, benötigt aber weiterhin explizite Auswahl und darf nicht als „Umbaufortsetzung“ interpretiert werden.
 
 Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125. Der vorbereitete Research-Handoff liegt in `docs/research/audits/problem-driven-deep-research-prompt-20260922.md`.
+
+Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Seine punktweise projektseitige Disposition und Gate-Entscheidung liegt in `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`: `Research Reconciliation = COMPLETE`, `Rebuild Re-entry = READY`, jedoch `REPO-INTEGRATION-PENDING`, solange PR #125 → PR #126 offen sind. Diese Entscheidung ist keine Architecture-/Implementation-Authority und reaktiviert R4–R8 nicht.
 
 Verbindlich gilt:
 
@@ -256,7 +260,7 @@ Kanonische technische Einordnung: `docs/architecture/prior-art-development-input
 - #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
 - #70 AI-Resilience Root-Cause-Audit – **completed / retire-active**; historischer Snapshot `docs/architecture/assurance/ai-resilience-root-cause-audit.md`, keine Requirement-/Implementation-Authority. D1/D2 und realer Lampe-420-Slice sind an bestehende Owner überführt; kein neuer Requirement-Gap. Der im Closure-Lauf erneut belegte Connector-write-Restpunkt liegt bei #48/#59, serverseitige Admission bei #44.
-- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 bleiben historische/reconciliierte Prior Art. **Aktuell `hold-for-research-reconciliation`**; R4–R8 werden nicht aus Sequenz fortgesetzt. Neue Umbaukonzeption erst nach problemgetriebenem Deep Research + Finding-Reconciliation.
+- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 bleiben historische/reconciliierte Prior Art. **Aktiver Re-entry-Status:** `research-reconciled / rebuild-reentry-ready / no implementation authority`; `REPO-INTEGRATION-PENDING` gilt nur, solange der Stack PR #125 → PR #126 noch nicht vollständig nach `main` integriert ist. R4–R8 werden nicht aus Sequenz fortgesetzt; nach Integration ist die nächste erlaubte Phase eine frische Umbaukonzeption unter #48/#42/#59.
 
 Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nutzungsbefunde präzisiert.
 
@@ -273,7 +277,7 @@ Aktuelle Dispositionen ohne Prioritätsableitung:
 - #47 → `active-independent-not-selected`;
 - #103 → `active-independent-not-selected` – user-requested Research zu Anno II., Richeza und St. Peter und Paul Saalfeld; eigener Work Owner, keine Selection Authority;
 - #60 → `supporting` Method Truth;
-- #92/#94 → `architecture-hold-for-research-reconciliation`, keine Research Selection und keine automatische Rebuild-Fortsetzung.
+- #92/#94 → `architecture-supporting / research-reconciled / rebuild-reentry-ready / no implementation authority`; `REPO-INTEGRATION-PENDING` gilt nur bis zur vollständigen Integration von PR #125 → PR #126. Keine Research Selection und keine automatische Rebuild-Fortsetzung.
 
 `selected-current` entsteht nur durch explizite Research/Product-Owner-Autorisierung. Reconciliation-Anker: `docs/architecture/assurance/work-selection-reconciliation-20260910.md` / PR #97. Weder ein resumable Work Order noch ein gemergter/offener PR, grünes CI, ein aktiver Work Owner, Method Work oder die Architecture Roadmap erzeugt eine Current-Work-Auswahl.
 
@@ -423,6 +427,8 @@ Histo-Orla = wissenschaftlicher Research State
 Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ## 10. Aktuelle nächste Aktionen
+
+**Research→Rebuild-Handoff:** `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`. Solange PR #125 → PR #126 noch nicht vollständig nach `main` integriert sind, gilt ausschließlich für diesen Integrationsrest `REPO-INTEGRATION-PENDING`; nach vollständiger Integration ist dieser Marker historisch und kein aktiver Zustand mehr. Die nächste erlaubte Rebuild-Phase ist dann **Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled F1–F14 project findings + D4 external research**. Die bisherige #92-Roadmap und PR #119 bleiben Prior Art / frühere Lösungshypothesen; daraus entstehen weder Current-Work-Selection noch Implementation Authority.
 
 ### Fachlich verfügbare Owner-Arbeit — keine Current-Work-Auswahl
 
