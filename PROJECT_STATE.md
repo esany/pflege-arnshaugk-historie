@@ -64,12 +64,15 @@ Kanonisch:
 - `docs/research/synthesis/requirements-structure.md`
 - `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
+- `docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
 - `docs/architecture/rebaseline-roadmap.md`
 - `docs/architecture/operational-execution-architecture.md`
 - `docs/architecture/prior-art-development-inputs.md`
 - `docs/architecture/assurance/work-selection-reconciliation-20260910.md`
 - `docs/architecture/assurance/requirements-assurance-harness.md`
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
+- `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`
+- `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260923.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
@@ -400,7 +403,9 @@ Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA
 - #62 – Requirements Assurance Harness / deterministische Requirements-QA
 - #63 – Goal/Need/Pain → Requirement → Decision → Delivery → Feedback Assurance Spine
 
-### Re-Baseline W1 – aktueller kritischer Product Path
+### Historical Re-Baseline W1 — Prior Art / frühere Lösungshypothese, nicht aktiver kritischer Pfad
+
+Die frühere Sequenz
 
 ```text
 #50 semantic Source/Instance contract
@@ -412,9 +417,16 @@ Bei materieller technischer Arbeit gelten #62/#63 als reproduzierbare formale QA
 -> reale Owner-Workflow-Akzeptanz
 ```
 
-Cross-cutting: #54 Transition Safety, #56 Rights/Admission, #60 Method Truth, #61 Context sowie #62/#63 formale Assurance/Traceability.
+bleibt als **historische Dependency-/Lösungshypothese** nachvollziehbar, ist aber nach der D4-Reconciliation **kein aktueller kritischer Product Path und keine Ausführungsreihenfolge**.
 
-Aktuell ist #49 der technische Enabler. PR #96 hat zusätzliche Zotero-Local-API-Read-Evidenz integriert; der nächste #49-Schritt bleibt AQ-ZO-03/AQ-ZO-04: device-independent/read-only Source-/Byte-Resolution gegen #50. Diese technische Reihenfolge ist **keine** Research-Selection.
+Insbesondere gilt aktuell nicht automatisch:
+
+- #49 ist der nächste technische Enabler;
+- #51/#53/#55/#57 folgen aus Sequenz;
+- ein R5-/Vertical-Slice muss als nächster Rebuild-Schritt ausgewählt werden;
+- alte W1-/R4–R8-Arbeit ist parallel zur frischen Umbaukonzeption auszuführen.
+
+Die frische Umbaukonzeption muss diese Elemente aus accepted Requirements + aktueller Repo-Realität + F1–F14 + D4 erneut als `RETAIN | ADAPT | REJECT | DEFER | TEST` disponieren.
 
 ## 9. Source / Storage Responsibility
 
@@ -426,40 +438,51 @@ Histo-Orla = wissenschaftlicher Research State
 
 Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
-## 10. Aktuelle nächste Aktionen
+## 10. Aktuelle nächste Aktion
 
-**Research→Rebuild-Handoff:** `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; PR #125 und #126 sind nach `main` integriert; `REPO-INTEGRATION-PENDING` ist nicht mehr aktiv. Die nächste erlaubte Rebuild-Phase ist **Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled F1–F14 project findings + D4 external research**. Die bisherige #92-Roadmap und PR #119 bleiben Prior Art / frühere Lösungshypothesen; daraus entstehen weder Current-Work-Selection noch Implementation Authority.
+### Rebuild
 
-### Fachlich verfügbare Owner-Arbeit — keine Current-Work-Auswahl
+**Exakt nächste erlaubte Rebuild-Phase:**
 
-1. **Current Work Selection bleibt `selection-open`.** Vor einer expliziten Research/Product-Owner-Auswahl wird keine fachliche Option als `selected-current` behandelt. #46/Lampe ist resumable, Sachenbacher integriert, #47 aktiv eigenständig und #60 supporting; daraus folgt keine globale Priorität.
-2. #60 den ersten SOTA-basierten Domain-Method-Block Diplomatik/Urkundenlehre + Editionswissenschaft/Textkritik erarbeiten und an realen NHUB-/Deutschordensfällen testen.
-3. danach Archivistik/Provenienz/Registraturkunde und historische Philologie/Semantik.
-4. neue Systemanforderungen aus diesen Arbeiten als Requirement-Deltas unter #42 konsolidieren.
-5. #65 nicht pauschal promoten: einzelne Candidate-Punkte nur dann durch Domain-/Product-/Requirements-Owner dispositionieren, wenn reale Arbeit sie benötigt.
+> **Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled F1–F14 project findings + D4 external research.**
 
-### Requirements / Struktur / Assurance
+Kanonischer Start-/Resume-Context:
 
-6. neue/materiell bearbeitete Requirements nach `requirements-structure.md` führen.
-7. zuerst cross-cutting Cluster Source/Provenance, State/Restartability, Method/Research, Audit/Validation und Retrieval strukturieren, sobald #42/#48 sie aktiv benötigt.
-8. Dependencies nicht nur als statische Priorität, sondern als `requires/refines/constrains/conflicts` sichtbar machen.
-9. Requirement→Enforcement-Map und #62-Harness bei aktiven Requirements inkrementell um Records/Rules/Fixtures erweitern; keine Big-Bang-Migration.
-10. #63 für neue materielle technische Arbeit real verwenden: aktueller Decision/Implementation Trace, Requirements + `G/N/P` + Governance, danach Verification/Feedback.
-11. jede neue Hard Rule braucht Rule-ID + negativen Regressionstest und darf keine fachliche Wahrheit simulieren.
-12. bei generierten/komprimierten Work Contexts Material-/Reference-Coverage und `unresolved`-Fidelity als eigene Assurance-Frage behandeln; der Lampe-420-Slice hat diesen Contract erstmals real erfüllt.
+`docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
 
-### Technisch parallel
+Der Work Context verpflichtet den nächsten Bearbeiter insbesondere zu:
 
-13. **Re-Baseline W1:** #49 device-independent/read-only Source-/Byte-Resolution gegen #50 weiterführen; danach #51/#53/#55/#57 als zusammenhängenden Product-Capability-Pfad integrieren. Keine neue Parallelowner-Landschaft.
-14. **Product-Code-Grenze bewusst deferred:** kein leeres `src/histo_orla/`, kein Wholesale-Move aus `tools/`. Bounded Extraction erst, wenn reale dauerhafte Runtime-Produktlogik oder eine konkrete Product-vs-Operational-Responsibility-Kollision belegt ist.
-15. `esany/Wissensarbeit` für diesen Schnitt frisch als konkrete Prior Art verwenden: vorhandene Building Blocks, Context-/Trace-/Derive-Patterns, Standards, Templates und GitHub-Workflows auf `reuse → configure → integrate → thin custom layer` prüfen, statt die Semantik erneut in Histo-Orla-Prosa zu beschreiben.
-16. Weitere Governance-/Architecture-Markdown-Verträge nur ergänzen, wenn sie eine unmittelbar ausführbare Capability, Guard, Datenstruktur oder Derived View freischalten; keine Textschicht als Ersatz für Bedienbarkeit/Automation.
-17. #55 Human-readable Audit ist kein späterer UI-Feinschliff mehr: früh gegen reale, **explizit owner-ausgewählte** Research-Daten einen generierten, drill-down-fähigen Research View liefern; keine manuell gepflegte zweite Wahrheit.
-18. #61 Work Context/Handoff für diesen Slice nicht weiter abstrakt modellieren: D2 und der reale Lampe-420-Adapter sind implementiert und abgenommen. Weitere Context-Arbeit nur bei neuer realer Friktion; technische Priorisierung fällt an bestehende Owner wie #54 Transition, #57 Evidence Availability/Restartability und #55 Derived Research View zurück.
-19. #50/#51 den realen Research State so strukturieren, dass Source/Instance/Findspot/Excerpt/Finding/Hook/Uncertainty maschinenlesbar und verlustfrei referenzierbar sind, ohne Fachsemantik zu flatten.
-20. #53 Exact Search und der kombinierte lokale-PDF→institutionelle-Fundstelle-Pfad an diesen strukturierten State anbinden; #49/#57 dort weiterführen, wo Availability/Restartability den Slice real blockieren.
-21. Nach expliziter Research-Owner-Auswahl eines R5-Slices Owner-Feedback über #63 als `confirms | pain-persists | regression | new-pain | new-need | requirement-change` routen; Erfolg ist erst dauerhaft bestätigt, wenn reale Nutzung weniger manuelle Orchestrierung und bessere Menschenlesbarkeit bestätigt.
-22. B1-Restgrenze unter #48/#59 schließen: direkte GitHub-Connector-/Contents-API-Writes müssen den Safe-Mutation-Preflight konsumieren oder eine äquivalente bounded/diff-checked Write-Operation verwenden. Der #70-Closure-Lauf liefert dafür reale Negativ-Evidence; #70 selbst bleibt abgeschlossen. GitHub-Admission wird separat nach Auflösung von `DD-20260903-001` end-to-end verifiziert.
+```text
+fresh current-state inventory
+→ Requirement / Goal / Need / Pain
+→ System Responsibility
+→ Architecture Concern / Quality Attribute
+→ Technical Research Question
+→ current technical SOTA / Existing Tools / Standards
+→ Candidate Approaches
+→ Trade-offs / Loss / Reversibility
+→ pointwise disposition of old #92 / PR #119 plan
+→ fresh target conception
+→ dependency-driven implementation proposal
+→ STOP before implementation
+```
+
+Verbindliche Grenzen:
+
+- die alte #92-Roadmap, R4–R8, W1 und PR #119 sind Prior Art / frühere Lösungshypothesen;
+- keine davon ist aktuelle Ausführungsreihenfolge;
+- kein `src/`, Operational Core, Shared Runtime, Read Model, SQLite/FTS, Skill/MCP/UI oder Vertical Slice ist vorab gesetzt;
+- die D4-Unknowns bleiben explizit und werden nicht aus Architekturplausibilität „gelöst“;
+- die Conception darf Architektur/Optionen/Trade-offs und eine spätere Implementierungsfolge ableiten, startet aber **keine Implementierung**;
+- `selection-open` bleibt bestehen; dieser Handoff wählt keinen historischen Research Case als `selected-current`.
+
+### Andere bestehende Owner
+
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope und können nach eigener Authority/Selection resumable sein. Daraus folgt **keine parallele Default-Rebuild-Ausführung**. Die zentrale Rebuild-Next-Action ist derzeit ausschließlich die frische Conception.
+
+Chat-Closure-/Wissensmonopol-Audit:
+
+`docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260923.md`
 
 ## 11. Blocker / Decisions
 
