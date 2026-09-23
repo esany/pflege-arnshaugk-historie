@@ -11,9 +11,11 @@ Dieses Verzeichnis enthält technische Research-, Delivery-, Architecture-, Assu
 
 Architecture ist kein separates Vorab-Gate. Sie entsteht just in time aus **akzeptierten Requirements, technischen Risiken, Goals/Needs/Pains und realer Nutzung**.
 
-Aktuelle Architecture-Reconciliation / Roadmap:
+Aktueller Rebuild-Handoff:
 
-- `rebaseline-roadmap.md` – #92; Review-Candidate zur ganzheitlichen Einordnung von Product Capability, Domain/Research, Operational Tooling, Integrationen und Piloten. Keine Requirement-, Method-, Historical- oder Selection-Authority.
+- `fresh-rebuild-conception-work-context-20260923.md` – kanonischer Start-/Resume-Context für die nach D4 freigegebene frische Umbaukonzeption unter #92/#48/#42/#59; Conception-only, keine Implementation Authority.
+- `assurance/d4-project-reconciliation-rebuild-reentry-20260923.md` – finale F1–F14-Projektreconciliation und Re-entry-Entscheidung: `COMPLETE / READY`.
+- `rebaseline-roadmap.md` – #92; **Prior Art / frühere Lösungshypothese**, keine aktuelle Ausführungsroadmap und keine automatische R4–R8-Reaktivierung.
 
 Kanonische Requirements:
 
@@ -33,6 +35,7 @@ Assurance:
 - `assurance/shared-research-state-audit-20260919.md` – #64/#92 current-main audit of shared Research State, cross-pilot reuse and gaps
 - `assurance/chat-operationalization-self-audit-20260920.md` – #64 corrective self-audit of Owner/User-Research interpretation and chat→repo operationalization
 - `assurance/repeated-system-audits-project-implications-20260922.md` – #64 project-level disposition of repeated system-analysis runs: replicated findings, counterfindings, documentation/analysis/research steering, no solution authority
+- `assurance/chat-closure-knowledge-monopoly-audit-20260923.md` – closure audit ensuring no continuation-critical rebuild planning remains chat-only; records corrected stale W1/next-action surfaces.
 - `../tools/requirements/README.md`
 - `../tools/assurance/`
 
