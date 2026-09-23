@@ -50,12 +50,12 @@ Regeln:
 | REQ-EPI-001 | #60/#54/#55/#59 | not-started | Domain method + evidence standard traceability |
 | REQ-EPI-002 | #60/#59 | not-started | professional problem translation |
 | REQ-EPI-003 | #50/#60/#59 | not-started | terminology layers/context |
-| REQ-EPI-004 | #50/#54/#55 | not-started | unresolved/contradiction first-class |
+| REQ-EPI-004 | #50/#54/#55 | not-started | WP1 provides bounded technical evidence that `R51-06` and missing Method/alternative state remain explicit; general Requirement delivery is not formally activated/migrated yet |
 | REQ-EPI-005 | #54/#55 | not-started | AI ≠ evidence/independent validation |
-| REQ-SRC-001 | #50/#51 | partial | #51 Sachenbacher v0 keeps Source, Representation and fingerprinted Instance distinct; general persistence/integration remains open |
-| REQ-SRC-002 | #49/#50/#51 | partial | concrete OA-PDF inspection status, bytes and scope are reproducible for one bounded instance; general resolver remains open |
+| REQ-SRC-001 | #50/#51 | partial | #51 + WP1 keep Source, Representation and fingerprinted Instance distinct; the resolver rejects provider URL/path substitution for internal identity; general cross-case persistence/integration remains open |
+| REQ-SRC-002 | #49/#50/#51 | partial | one fingerprinted reviewed Instance plus WP1 exact canonical-target resolution/content hash are reproducible; general provider/current-availability resolution remains open |
 | REQ-SRC-003 | #50/#51/#55 | not-started | editorial/normalization separation |
-| REQ-SRC-004 | #51/#55 | partial | #51 mechanically reproduced the original locator baseline; the current reference model keeps the published map intact and records owner visual corrections, while exact-instance confirmation and the general document path/UI remain open |
+| REQ-SRC-004 | #51/#55 | partial | WP1 verifies the bounded real `F-U2-009 → #51 locators → inspected Instance → Source` audit roundtrip from canonical owners; broader document paths/cases and UI remain open |
 | REQ-SRC-005 | #60/#59 | not-started | archive provenance/function routing |
 | REQ-OCR-001 | #52/#51 | not-started | OCR/HTR derivative + parentage |
 | REQ-OCR-002 | #52/#51 | partial | mechanical page-region mapping is demonstrated for one bounded instance; current human-reviewed reference corrections still require exact-instance confirmation; OCR/text transformation not exercised |
@@ -73,16 +73,16 @@ Regeln:
 | REQ-ACT-001 | #50/#55/#60 | not-started | action/motive/attribution/structure separation |
 | REQ-SYN-001 | #50/#55/#60 | not-started | evidence axes remain distinct |
 | REQ-SYN-002 | #55/#60/#59 | not-started | synthesis preserves alternatives |
-| REQ-UX-001 | #55/#59 | not-started | finding→source/findspot→method audit |
+| REQ-UX-001 | #55/#59 | not-started | WP1 provides a bounded real Finding→Findspot→Instance/Source audit implementation; broader Requirement delivery and owner-workflow usefulness remain formally open |
 | REQ-UX-002 | #54/#55/#59 | not-started | challenge/correct/demote without micromanagement |
 | REQ-VAL-001 | #54/#55/#60 | not-started | consequence-based validation levels |
 | REQ-VAL-002 | #55/#60 | not-started | honest independent specialist validation status |
-| REQ-WF-001 | #54/#59/#62/#63 | partial | Requirements-/Trace-/Enforcement-Map-Invarianten sind implementiert und regression-getestet; Research-State-Promotion/Transition und weitere formal geklärte Guards bleiben unter #54 offen. |
+| REQ-WF-001 | #54/#59/#62/#63 | partial | Requirements-/Trace-/Enforcement-Map-Invarianten plus WP1 ID/role/canonical-ref integrity are deterministic and regression-tested; Research-State-Promotion/Transition and further settled guards remain under #54 |
 | REQ-WF-002 | #57/#59 | not-started | reproducible/restartable processing/search |
-| REQ-STATE-001 | #50/#57/#59 | not-started | provider-/chat-independent portable state |
-| REQ-STATE-002 | #50/#57 | not-started | curated vs regenerable state |
+| REQ-STATE-001 | #50/#57/#59 | not-started | WP1 provides bounded provider-neutral ID/owner-ref and fresh-repo resolution evidence; portable/provider-removal Requirement delivery remains formally open under #57 |
+| REQ-STATE-002 | #50/#57 | not-started | WP1 demonstrates bounded canonical-registry vs regenerable-audit separation; general curated/regenerable-state Requirement delivery remains formally open |
 | REQ-INT-001 | #49/#57 | not-started | integration escape hatch |
-| REQ-LEAN-001 | #48 | in-progress | smallest sufficient components; SOTA/existing tools first |
+| REQ-LEAN-001 | #48 | in-progress | WP1 reused existing JSON/JSON-Schema/Python/audit mechanisms with no database, new dependency, package split or platform; architecture remains evidence-driven beyond this bounded increment |
 | REQ-RGT-001 | #56 | not-started | external-processing rights admission |
 | REQ-RGT-002 | #56 | not-started | privacy screening |
 | REQ-BND-001 | #50/#59 | not-started | mediation cannot back-write research state |
@@ -93,7 +93,7 @@ Regeln:
 
 | Requirement | Primary owner/work packages | Status | Notes |
 |---|---|---|---|
-| REQ-EPI-006 | #50/#59 | not-started | semantic research-state roles remain distinct |
+| REQ-EPI-006 | #50/#59 | not-started | WP1 demonstrates bounded role separation for Source, Representation, Instance, Findspot and Finding; general semantic research-state Requirement delivery is not formally activated/migrated yet |
 | REQ-INT-002 | #49/#50 | not-started | OneDrive/Zotero/Histo-Orla responsibility boundary |
 | REQ-MTH-001 | #60/#50/#59 | research-needed | versioned Domain Method Profiles |
 | REQ-MTH-002 | #60/#50 | research-needed | profile expressiveness derives from fachlicher SOTA |
@@ -106,7 +106,7 @@ Regeln:
 | REQ-RSCH-004 | #60/#50/#55 | research-needed | multi-method/domain handoff |
 | REQ-STATE-003 | #49/#57 | not-started | research-ready evidence availability |
 | REQ-UX-003 | #55/#59 | not-started | progressive disclosure without epistemic hiding |
-| REQ-TRACE-001 | #42/#48/#59/#63 | in-progress | Goal/Need/Pain → Requirement → Decision → Delivery/Verification → real owner feedback/delta; changed-code guard implemented |
+| REQ-TRACE-001 | #42/#48/#59/#63 | in-progress | WP1 closes Goal/Need/Pain → Requirement → `DEC-STATE-SPINE-001` → `IMP-STATE-SPINE-001` → technical verification; real owner/workflow feedback remains the open loop |
 
 **Extensions:** 14 / 14 represented.
 

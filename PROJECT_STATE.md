@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
-- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; die Fresh Rebuild Conception ist abgeschlossen. WP1 `Canonical Research State Spine v0 + derived audit roundtrip` ist unter #48/#59/#63 als bounded, reversible Implementation **ADMITTED**; die Authority gilt nur für den im Admission-Artefakt und `IMP-STATE-SPINE-001` abgegrenzten technischen Scope. `selection-open` bleibt unverändert; R4–R8/PR #119 bleiben ohne Execution Authority.
+- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; die Fresh Rebuild Conception ist abgeschlossen. WP1 `Canonical Research State Spine v0 + derived audit roundtrip` ist über PR #132 als bounded Increment **IMPLEMENTED + TECHNICALLY VERIFIED**; `IMP-STATE-SPINE-001` ist verified. Owner-/Workflow-Nutzen bleibt separat offen. `selection-open` bleibt unverändert; kein WP2/WP3/WP4/WP5 ist dadurch admitted.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
@@ -45,7 +45,7 @@ Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-i
 
 Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Seine punktweise projektseitige Disposition und Gate-Entscheidung liegt in `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`: `Research Reconciliation = COMPLETE`, `Rebuild Re-entry = READY`. PR #125 und #126 sind in `main` integriert; `REPO-INTEGRATION-PENDING` ist nicht mehr aktiv. Diese Entscheidung ist keine Architecture-/Implementation-Authority und reaktiviert R4–R8 nicht.
 
-Die daraus frisch abgeleitete Zielkonzeption liegt in `docs/architecture/fresh-rebuild-conception-20260923.md`. Sie re-deriviert den Rebuild aus aktuellem Repo-Zustand, Requirements, F1–F14/D4 und aktuellem Technical SOTA/Prior Art. Ergebnis: Git-native kleine Research-State-Spine + rebuildbare Views/Indizes + dünne Provider-Adapter; kein Datenbank-/Workflow-/UI-/MCP-/`src/`-Stack wird vorab autorisiert. Der erste Implementation-Kandidat `Canonical Research State Spine v0 + derived audit roundtrip` ist inzwischen durch `docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md` bounded admitted; seine Implementation Authority reicht nicht über den dort und in `IMP-STATE-SPINE-001` definierten Scope hinaus.
+Die daraus frisch abgeleitete Zielkonzeption liegt in `docs/architecture/fresh-rebuild-conception-20260923.md`. Der erste Kandidat WP1 ist inzwischen bounded implementiert und technisch verifiziert: minimale Identity/Role/`canonical_ref`-Registry, read-only Resolver, realer #51/#46→#55-Audit-Roundtrip ohne manuell assemblierte zweite Real-State-Projektion sowie AT-01..AT-10/NT-01..NT-10. Das verifiziert nur den Coverage Ceiling von WP1; Provider Availability, Retrieval, Workplace/UI, Method/Promotion und Owner-Akzeptanz bleiben offen.
 
 Verbindlich gilt:
 
@@ -267,7 +267,7 @@ Kanonische technische Einordnung: `docs/architecture/prior-art-development-input
 - #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
 - #70 AI-Resilience Root-Cause-Audit – **completed / retire-active**; historischer Snapshot `docs/architecture/assurance/ai-resilience-root-cause-audit.md`, keine Requirement-/Implementation-Authority. D1/D2 und realer Lampe-420-Slice sind an bestehende Owner überführt; kein neuer Requirement-Gap. Der im Closure-Lauf erneut belegte Connector-write-Restpunkt liegt bei #48/#59, serverseitige Admission bei #44.
-- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 und die frühere R4–R8-Sequenz bleiben Prior Art / frühere Lösungshypothese. **Aktiver Re-entry-Status:** `fresh-rebuild-conception-complete / wp1-implementation-admitted / bounded implementation authority`. R4–R8 werden nicht aus Sequenz fortgesetzt; der aktuelle technische Rebuild-Scope ist ausschließlich WP1 gemäß Admission-Artefakt + `IMP-STATE-SPINE-001`.
+- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 und die frühere R4–R8-Sequenz bleiben Prior Art / frühere Lösungshypothese. **Aktiver Re-entry-Status:** `fresh-rebuild-conception-complete / wp1-implemented-and-technically-verified / owner-workflow-evidence-pending`. Kein Folgepaket ist automatisch admitted; Candidate WP2 bleibt Proposal bis zu eigener #48/#59/#42/#63-Admission.
 
 Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nutzungsbefunde präzisiert.
 
@@ -284,7 +284,7 @@ Aktuelle Dispositionen ohne Prioritätsableitung:
 - #47 → `active-independent-not-selected`;
 - #103 → `active-independent-not-selected` – user-requested Research zu Anno II., Richeza und St. Peter und Paul Saalfeld; eigener Work Owner, keine Selection Authority;
 - #60 → `supporting` Method Truth;
-- #92/#94 → `architecture-supporting / fresh-rebuild-conception-complete / wp1-implementation-admitted / bounded-authority`; keine Research Selection und keine automatische Ausweitung über WP1.
+- #92/#94 → `architecture-supporting / fresh-rebuild-conception-complete / wp1-implemented-verified / owner-use-pending`; keine Research Selection und keine automatische Ausweitung auf WP2+.
 
 `selected-current` entsteht nur durch explizite Research/Product-Owner-Autorisierung. Reconciliation-Anker: `docs/architecture/assurance/work-selection-reconciliation-20260910.md` / PR #97. Weder ein resumable Work Order noch ein gemergter/offener PR, grünes CI, ein aktiver Work Owner, Method Work oder die Architecture Roadmap erzeugt eine Current-Work-Auswahl.
 
@@ -447,40 +447,49 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 ### Rebuild
 
 **Fresh Rebuild Conception = COMPLETE.**  
-**WP1 Implementation Admission = ADMITTED.**
+**WP1-STATE-SPINE-V0 = IMPLEMENTED + TECHNICALLY VERIFIED + INTEGRATED.**
 
-Kanonische Basis:
+Kanonische Basis / Delivery:
 
-- `docs/architecture/fresh-rebuild-conception-20260923.md`
-- `docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md`
-- #63 Trace: `DEC-STATE-SPINE-001` / `IMP-STATE-SPINE-001`
+- Conception: `docs/architecture/fresh-rebuild-conception-20260923.md`
+- Admission/Work Order: `docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md`
+- Implementation: PR #132 → `d33828441c5333341af2794574d2a31dda47845b`
+- #63 Trace: `DEC-STATE-SPINE-001` / `IMP-STATE-SPINE-001` = `verified`
+- Project Assurance: Runs `35908337523` and `35908493477` = success
 
-Admitted Work Package:
+WP1 liefert innerhalb seines Coverage Ceiling:
 
-> **WP1-STATE-SPINE-V0 — Canonical Research State identity/owner/reference spine + derived audit roundtrip**
-
-Die Admission ist absichtlich enger als ein allgemeines Research-State-Datenmodell: WP1 darf stabile maschinenrelevante IDs/Rollen auf ihre bestehenden kanonischen Owner auflösen und den realen #51/#46-Pfad ohne manuell assemblierte zweite Real-State-Projektion in #55 ableiten. Source-/Finding-/Work-Order-Inhalte werden nicht in einen neuen Truth Store kopiert.
+- minimale Git-native Identity/Role/`canonical_ref`-Registry für Source, Representation, Instance, Findspot und Finding;
+- exakte Fail-Closed-Auflösung auf bestehende kanonische Owner statt Inhaltsduplikation;
+- Source/Finding read-only aus ihren Research-Artefakten;
+- Representation/Instance/Findspots aus dem bestehenden #51-v0.3-Manifest;
+- #55 Derived Audit ohne die frühere manuell assemblierte reale Sachenbacher-Projektion;
+- expliziten Erhalt von `unresolved`/fehlender Method-/Alternative-Semantik;
+- deterministische AT-01..AT-10 + NT-01..NT-10;
+- keine Research-Content-, #51-Review-, Method-, Selection-, Provider-, Retrieval-, UI-, Datenbank- oder Package-Migration.
 
 **Exakt nächste ausführbare Rebuild-Aktion:**
 
-> **Fresh implementation Work Context für WP1-STATE-SPINE-V0 starten, Preflight gegen das Admission-Artefakt und `IMP-STATE-SPINE-001` durchführen und ausschließlich den bounded Scope implementieren.**
+> **WP1 als reales Owner-/Workflow-Inkrement unter #55/#63 benutzen und den noch offenen Nutzen-/Burden-Nachweis erfassen: kann der Owner Evidenzpfad, Unsicherheit und exakte Instanz ohne Chat-Rekonstruktion verstehen/navigieren, und wurde manuelle Projektion/Koordination tatsächlich reduziert?**
+
+Das ist Product-/Workflow-Evidence, keine historische Evidenz. Technischer PASS ersetzt diese Rückmeldung nicht.
+
+Erst danach bzw. parallel nur nach eigener expliziter Admission darf ein weiterer Kandidat aus der Conception geöffnet werden. Candidate WP2 (Evidence resolver / availability slice) ist die dependency-logische nächste **Proposal**-Option, aber aktuell **nicht admitted** und erzeugt keine Implementation Authority.
 
 Verbindliche Grenzen:
 
-- `selection-open` bleibt bestehen; WP1 erzeugt keine historische Research Case Selection;
-- Implementation Authority gilt nur für die im Admission-Artefakt und #63-Trace genannten technischen Pfade und Acceptance-/Negative Tests;
-- kein `src/histo_orla/`, keine Datenbank, kein Shared Runtime Framework, keine Workflow Engine, kein Skill/MCP/UI-Stack;
-- keine Provider-, OCR-/HTR- oder Retrieval-Implementation;
-- keine neue Method Truth, Method Application oder allgemeine Promotion-/History-State-Machine;
-- #51 reviewed Instance/Locator-Entscheidungen und kanonische Research-Artefakte werden nicht still umgeschrieben;
-- `requirements-coverage.md` wird durch Admission allein nicht auf `in-progress` gesetzt;
-- jeder Bedarf außerhalb des admitted Scope löst STOP/HANDOFF statt Scope-Erweiterung aus.
-
-Der Admission-Work-Cycle selbst enthält **keine Implementation**. Die eigentliche Code-Arbeit beginnt nur in einem neuen frisch gebootstrappten Work Context.
+- `selection-open` bleibt bestehen; WP1 hat keinen historischen Research Case als `selected-current` erzeugt;
+- kein Folgepaket wird aus Reihenfolge, grünem CI oder WP1-Erfolg automatisch aktiviert;
+- Provider Availability/Removal bleibt #49/#57;
+- Retrieval bleibt #53;
+- Workplace/UI bleibt späterer WP4-Kandidat und braucht reale Owner-Akzeptanz;
+- Method/Promotion/Rights bleiben #60/#54/#56;
+- `src/histo_orla/`, Datenbank, Workflow Engine und MCP/Skill/UI-Stack bleiben nicht vorab gesetzt;
+- der bestehende GitHub-Branch-Protection-Blocker in #44 bleibt separat.
 
 ### Andere bestehende Owner
 
-#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope und können nur nach eigener Authority/Selection/Admission resumable sein. Daraus folgt keine parallele Default-Rebuild-Ausführung und keine automatische Erweiterung von WP1.
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. WP1 verändert keine Research Selection, Method Truth oder andere Owner-Authority. Requirement-Coverage-Notizen wurden für die technisch demonstrierten WP1-Eigenschaften nachgezogen; neue Lifecycle-Promotionen auf `partial` wurden nicht allein aus dem bounded Increment erzeugt. Bestehende aktive/strukturierte Status bleiben unverändert.
 
 Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
 
@@ -498,7 +507,7 @@ Aktuell aktiv:
 
 - `DD-20260903-001` – **GitHub Required-PR / Branch-Protection Admission**: D1 schützt den lokalen Operational-Write-Pfad und PR #74 bereitet `Project Assurance` als globalen Required Check vor. `main` ist jedoch weiterhin unprotected, Rulesets sind leer und der aktuell autorisierte GitHub-Connector besitzt keine Ruleset-/Branch-Protection-Schreibfunktion. Empfohlene Auflösung durch Repository-Admin: Required Pull Request für `main` + Required Status Check `Project Assurance`. Danach End-to-End-Negativtest unter #59: direct main write muss abgewiesen werden; normaler PR mit grünem Check bleibt zulässig.
 
-Der Blocker betrifft nur die repo-weite GitHub-Prevention. #46/#47 Live Research sowie #49–#63 behalten ihren jeweiligen Owner-Scope und können nur nach eigener Authority/Selection/Admission resumiert werden; daraus folgt **keine parallele Default-Rebuild-Ausführung** neben dem jetzt admitted WP1. Der direkte Connector-write-Restpunkt ist kein zusätzlicher #44-Blocker, sondern ein bestehender B1-Delivery-Gap unter #48/#59. `FB-20260902-003` ist weiterhin kein Scope-Konflikt, sondern ein Delivery-/Priorisierungsdelta innerhalb bereits akzeptierter Requirements. #65 bleibt Review Input und ändert weder fachliche Requirement Truth noch Method Truth oder Architektur automatisch.
+Der Blocker betrifft nur die repo-weite GitHub-Prevention. WP1 ist trotz dieses bestehenden serverseitigen Restpunkts über Branch/PR + Project Assurance technisch verifiziert integriert; daraus folgt keine Aussage, dass Direct-Main-Prevention gelöst wäre. #46/#47 Live Research sowie #49–#63 behalten ihren jeweiligen Owner-Scope. Der direkte Connector-write-Restpunkt bleibt B1-Delivery-Gap unter #48/#59; serverseitige Required-PR/Required-Check-Admission bleibt #44. `FB-20260902-003` bleibt Product-/Workflow-Evidence, keine historische Evidenz.
 
 ## 12. Handoff-Test
 
@@ -511,7 +520,7 @@ ohne alten Chat erkennen können:
 - **Current Work Selection ist `selection-open`; `resumable`, `integrated`, aktiver Work Owner, Method Work, PR-/CI-Status oder Architecture Roadmap begründen keine Auswahl;**
 - welche Arbeit `governing/project`, `domain/research`, `product capability`, `operational support`, `pilot/testfixture` oder `superseded/archive` ist;
 - dass `src/histo_orla/` aktuell nicht eingeführt ist und Product-Code-Struktur bedarfsgetrieben aus realer Runtime-Produktlogik entstehen muss;
-- dass der frühere W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance` **nur Historical Prior Art / frühere Lösungshypothese** ist und kein aktueller kritischer Pfad; die Fresh Rebuild Conception liegt in `docs/architecture/fresh-rebuild-conception-20260923.md`; WP1 ist bounded admitted und die nächste Aktion ist ausschließlich dessen frisch gebootstrapptes Implementation-Work-Context gemäß Admission-Artefakt + `IMP-STATE-SPINE-001`;
+- dass der frühere W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance` **nur Historical Prior Art / frühere Lösungshypothese** ist und kein aktueller kritischer Pfad; WP1 ist implementiert/technisch verifiziert; aktuell offen ist der separate Owner-/Workflow-Nutzencheck; Candidate WP2 ist nur Proposal und nicht automatisch admitted;
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;

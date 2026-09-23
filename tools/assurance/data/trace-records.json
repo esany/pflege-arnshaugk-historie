@@ -860,7 +860,7 @@
     {
       "id": "IMP-STATE-SPINE-001",
       "kind": "implementation",
-      "status": "implemented",
+      "status": "verified",
       "materiality": "local-reversible",
       "requirement_refs": [
         "REQ-SRC-001",
@@ -912,6 +912,8 @@
         "docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md",
         "pull-request:#132",
         "github-actions-run:35908337523",
+        "github-actions-run:35908493477",
+        "merge-commit:d33828441c5333341af2794574d2a31dda47845b",
         "tools/operational/tests/test_audit.py",
         "issue:#48",
         "issue:#59",
@@ -920,7 +922,7 @@
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "WP1-STATE-SPINE-V0 implemented on PR #132: minimal identity/role/canonical_ref registry; exact canonical target validation; read-only Source/Finding resolution from existing Markdown owners; #51 Representation/Instance/Findspot resolution; #55 derived audit roundtrip without the previous manually assembled real Sachenbacher projection; explicit instance content hash; AT-01..AT-10 and NT-01..NT-10 regressions. Project Assurance Run #35908337523 passed on the first full implementation head. No research-content, #51 reviewed-reference, Method Truth, Research Selection, provider/OCR/retrieval/UI, database, package or general promotion/history change is claimed. Owner/workflow usefulness remains separate post-integration evidence."
+      "notes": "WP1-STATE-SPINE-V0 verified and integrated via PR #132 / merge d33828441c5333341af2794574d2a31dda47845b. The implementation is the admitted minimal identity/role/canonical_ref spine plus exact canonical target validation, read-only Source/Finding owner resolution, #51 Representation/Instance/Findspot resolution, and #55 derived audit roundtrip without the former manually assembled real Sachenbacher projection. AT-01..AT-10 and NT-01..NT-10 passed within Project Assurance on implementation heads 35908337523 and 35908493477. Technical/formal verification does not establish scholarly validity, Method Truth, Research Selection or owner-workflow usefulness; owner/workflow feedback remains open."
     }
   ]
 }
