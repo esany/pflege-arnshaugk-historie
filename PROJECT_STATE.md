@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-23  
+**Stand:** 2026-09-24  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
