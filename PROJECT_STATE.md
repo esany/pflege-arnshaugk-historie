@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
-- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`. PR #125 und #126 sind nach `main` integriert; `REPO-INTEGRATION-PENDING` ist nicht mehr aktiv. R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
+- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; die Fresh Rebuild Conception ist als `docs/architecture/fresh-rebuild-conception-20260923.md` abgeschlossen. R4–R8/PR #119 bleiben ohne Execution Authority. Der nächste Rebuild-Schritt ist ausschließlich eine explizite Implementation Admission / bounded execution planning für den dort vorgeschlagenen ersten Work-Package-Kandidaten; es besteht weiterhin keine Implementation Authority.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
@@ -45,6 +45,8 @@ Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-i
 
 Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Seine punktweise projektseitige Disposition und Gate-Entscheidung liegt in `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`: `Research Reconciliation = COMPLETE`, `Rebuild Re-entry = READY`. PR #125 und #126 sind in `main` integriert; `REPO-INTEGRATION-PENDING` ist nicht mehr aktiv. Diese Entscheidung ist keine Architecture-/Implementation-Authority und reaktiviert R4–R8 nicht.
 
+Die daraus frisch abgeleitete Zielkonzeption liegt in `docs/architecture/fresh-rebuild-conception-20260923.md`. Sie re-deriviert den Rebuild aus aktuellem Repo-Zustand, Requirements, F1–F14/D4 und aktuellem Technical SOTA/Prior Art. Ergebnis: Git-native kleine Research-State-Spine + rebuildbare Views/Indizes + dünne Provider-Adapter; kein Datenbank-/Workflow-/UI-/MCP-/`src/`-Stack wird vorab autorisiert. Der erste spätere Implementation-Kandidat ist `Canonical Research State Spine v0 + derived audit roundtrip`, jedoch nur nach eigener expliziter Admission.
+
 Verbindlich gilt:
 
 - die gesamte bereits akzeptierte Requirements-/Quality-/Governance-Basis bleibt aktiv;
@@ -65,6 +67,7 @@ Kanonisch:
 - `docs/research/synthesis/requirements-responsibility-dependency-map.md`
 - `docs/architecture/requirements-derivation.md`
 - `docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
+- `docs/architecture/fresh-rebuild-conception-20260923.md`
 - `docs/architecture/rebaseline-roadmap.md`
 - `docs/architecture/operational-execution-architecture.md`
 - `docs/architecture/prior-art-development-inputs.md`
@@ -442,43 +445,41 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 ### Rebuild
 
-**Exakt nächste erlaubte Rebuild-Phase:**
+**Fresh Rebuild Conception = COMPLETE.**
 
-> **Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled F1–F14 project findings + D4 external research.**
+Kanonisches Ergebnis:
 
-Kanonischer Start-/Resume-Context:
+`docs/architecture/fresh-rebuild-conception-20260923.md`
 
-`docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
+Die Conception hat aktuelle Repo-Realität, accepted Requirements, F1–F14/D4, aktuellen technischen SOTA und die Related Systems `Wissensarbeit` / `paleo-type` als nicht-authoritative Prior Art neu abgeleitet. Die alte #92-/PR-#119-Planung bleibt punktweise Prior Art.
 
-Der Work Context verpflichtet den nächsten Bearbeiter insbesondere zu:
+**Exakt nächster erlaubter Rebuild-Übergang:**
 
-```text
-fresh current-state inventory
-→ Requirement / Goal / Need / Pain
-→ System Responsibility
-→ Architecture Concern / Quality Attribute
-→ Technical Research Question
-→ current technical SOTA / Existing Tools / Standards
-→ Candidate Approaches
-→ Trade-offs / Loss / Reversibility
-→ pointwise disposition of old #92 / PR #119 plan
-→ fresh target conception
-→ dependency-driven implementation proposal
-→ STOP before implementation
-```
+> **Explicit Implementation Admission / bounded execution planning under #48/#59, traced to #42, for the first implementation candidate proposed by the Fresh Rebuild Conception.**
+
+Vorgeschlagener erster Work-Package-Kandidat:
+
+> **Canonical Research State Spine v0 + derived audit roundtrip**
+
+Das ist **noch kein aktiver Implementation Work Package und keine Implementation Authority**. Vor Code, Migration oder neuer Product-Code-Struktur müssen #48/#59 den Scope explizit admitten und der aktuelle #63-Implementation-Trace hergestellt werden.
 
 Verbindliche Grenzen:
 
-- die alte #92-Roadmap, R4–R8, W1 und PR #119 sind Prior Art / frühere Lösungshypothesen;
-- keine davon ist aktuelle Ausführungsreihenfolge;
-- kein `src/`, Operational Core, Shared Runtime, Read Model, SQLite/FTS, Skill/MCP/UI oder Vertical Slice ist vorab gesetzt;
-- die D4-Unknowns bleiben explizit und werden nicht aus Architekturplausibilität „gelöst“;
-- die Conception darf Architektur/Optionen/Trade-offs und eine spätere Implementierungsfolge ableiten, startet aber **keine Implementierung**;
-- `selection-open` bleibt bestehen; dieser Handoff wählt keinen historischen Research Case als `selected-current`.
+- `selection-open` bleibt bestehen; die Conception wählt keinen historischen Research Case als `selected-current`;
+- R4–R8, W1 und PR #119 bleiben Prior Art / frühere Lösungshypothesen;
+- kein `src/histo_orla/`, SQLite als canonical store, Shared Runtime, Workflow Engine, Skill/MCP oder UI-Stack ist durch die Conception vorab gesetzt;
+- SQLite FTS5 ist nur ein späterer derived-index Benchmark-Kandidat;
+- Work Order / CurrentContext und derived Audit werden als bewährte Muster retained/adapted, nicht zu einer universellen Workflow-Plattform erweitert;
+- D4-Unknowns bleiben explizit und besitzen benannte spätere Discriminators;
+- Implementation beginnt erst nach separater Admission.
 
 ### Andere bestehende Owner
 
-#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope und können nach eigener Authority/Selection resumable sein. Daraus folgt **keine parallele Default-Rebuild-Ausführung**. Die zentrale Rebuild-Next-Action ist derzeit ausschließlich die frische Conception.
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope und können nur nach eigener Authority/Selection/Admission resumable sein. Daraus folgt **keine parallele Default-Rebuild-Ausführung**. Die zentrale Rebuild-Next-Action ist jetzt die explizite Admission/Planung des vorgeschlagenen ersten Work-Package-Kandidaten, nicht dessen Implementierung.
+
+Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
+
+`docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
 
 Chat-Closure-/Wissensmonopol-Audit:
 
@@ -505,7 +506,7 @@ ohne alten Chat erkennen können:
 - **Current Work Selection ist `selection-open`; `resumable`, `integrated`, aktiver Work Owner, Method Work, PR-/CI-Status oder Architecture Roadmap begründen keine Auswahl;**
 - welche Arbeit `governing/project`, `domain/research`, `product capability`, `operational support`, `pilot/testfixture` oder `superseded/archive` ist;
 - dass `src/histo_orla/` aktuell nicht eingeführt ist und Product-Code-Struktur bedarfsgetrieben aus realer Runtime-Produktlogik entstehen muss;
-- dass der frühere W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance` **nur Historical Prior Art / frühere Lösungshypothese** ist und kein aktueller kritischer Pfad; die aktive Rebuild-Next-Action kommt ausschließlich aus `docs/architecture/fresh-rebuild-conception-work-context-20260923.md`;
+- dass der frühere W1-Pfad `#50 -> #49 -> #51 -> #53 -> #55 -> #57 -> Owner Acceptance` **nur Historical Prior Art / frühere Lösungshypothese** ist und kein aktueller kritischer Pfad; die Fresh Rebuild Conception liegt in `docs/architecture/fresh-rebuild-conception-20260923.md`, und der nächste Rebuild-Übergang ist ausschließlich die explizite Admission/Planung des dort vorgeschlagenen ersten Implementation-Kandidaten;
 - aktuelle historische und methodische Arbeit;
 - vollständige aktive Requirements;
 - Motivation/Origin/Authority/Scope/Dependencies eines aktiv bearbeiteten Requirements;
