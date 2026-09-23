@@ -448,7 +448,7 @@ Provider-ID, Pfad oder Zotero-Key ersetzen nicht Source-/Instance-Identität.
 
 **Fresh Rebuild Conception = COMPLETE.**  
 **WP1-STATE-SPINE-V0 = IMPLEMENTED + TECHNICALLY VERIFIED + INTEGRATED.**  
-**Owner-/Workflow-Feedback = PAIN PERSISTS for the research-facing surface.**
+**Owner-/Workflow-Feedback = PAIN PERSISTS for the research-facing workflow.**
 
 Kanonische Basis / Delivery:
 
@@ -456,38 +456,76 @@ Kanonische Basis / Delivery:
 - Admission/Work Order: `docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md`
 - Implementation: PR #132 → `d33828441c5333341af2794574d2a31dda47845b`
 - #63 Trace: `DEC-STATE-SPINE-001` / `IMP-STATE-SPINE-001=verified`
-- Owner feedback: `FB-20260923-004` / #63 comment `5802074059`
+- Owner feedback: `FB-20260923-004`; initial comment #63/5802074059, refined by #63/5802389782
 
 WP1 bleibt als technischer Unterbau bestätigt: provider-neutrale Identität, exakte Owner-/Findspot-Auflösung, explizites `unresolved` und regenerierbarer Auditpfad funktionieren innerhalb des Coverage Ceiling.
 
-Der reale Fresh-Context-Nutzungstest zeigt aber, dass **die Audit-/Provenienz-Darstellung selbst nicht die benötigte Research-Owner-Oberfläche ist**:
+Der reale Fresh-Context-/Owner-Test zeigt aber zwei Ebenen:
 
-- die Ausgabe ist für den Owner zu kryptisch / maschinenorientiert;
-- der frühe Sachenbacher-Pilot soll nicht still den inzwischen geschärften Produkt-/Research-Scope definieren;
-- für diesen Fall ist die nützliche Forschungsdarstellung eine **visuelle Derived Research Composition** aus den relevanten extrahierten Textstellen + der vollständigen publizierten Karte + knapper fachlicher Einordnung;
-- Provenienz, IDs, Findspots, Instance-Hash und Auditdetails bleiben wichtig, sollen die Primärdarstellung aber unterstützen bzw. per Drill-down erreichbar sein statt sie zu dominieren.
+1. **Audit/Provenienz allein ist zu maschinenorientiert als Forschungsarbeitsfläche.**
+2. Die anschließende Verkürzung auf eine bloße „visuelle Zusammenstellung“ war ebenfalls zu eng.
+
+Die bereits bestehende fachliche/technische Arbeitsteilung bleibt leitend:
+
+```text
+Zotero
+= bibliographische/archivische Verwaltung + Attachment-Referenz
+
+Source-/Byte-Layer
+= konkrete Datei / exakte inspizierte Instanz / Derivate
+
+Histo-Orla Research State
+= Findspot / Excerpt / Finding / Interpretation / Unsicherheit /
+  methodische und evidenzielle Provenienz
+
+Owner-facing View
+= abgeleitete Darstellung dieses Research State
+```
+
+Für Quellenarbeit ist der relevante wissenschaftliche Arbeitsgegenstand deshalb **nicht eine Summary Card**, sondern ein **provenienzgebundenes Exzerpt/Fundstellen-Paket**:
+
+- Originalausschnitt bzw. vollständige visuelle Evidenzeinheit;
+- textlicher Exzerpt-/Transkriptionsinhalt soweit vorhanden;
+- exakte Source/Representation/Instance/Derivative/Findspot-Rückbindung;
+- bibliographische/archivische Referenz aus der zuständigen Verwaltungsschicht;
+- Finding/Beobachtung getrennt vom Exzerpt;
+- Interpretation getrennt vom Finding;
+- Unsicherheit, Widerspruch und Aussagegrenze sichtbar;
+- Method-/Review-Status proportional zur Konsequenz;
+- daraus ableitbare visuelle/vergleichende Sichten ohne neue Wahrheitsschicht.
+
+Für den Sachenbacher-Pilot bedeutet das: Karte + relevante Textstellen müssen als prüfbare, auf die exakte PDF-Instanz rückführbare Exzerpte/Fundstellen zusammenspielen. Eine freie Zusammenfassung oder bloße Locator-Kette erfüllt den Forschungsworkflow nicht.
 
 Das Feedback ist Product-/Workflow-Evidence, keine historische Evidenz. Es ändert weder #42-Requirements noch #60-Method Truth und invalidiert WP1 nicht.
 
 **Exakt nächste ausführbare Rebuild-Aktion:**
 
-> **Unter #48/#55/#63 den kleinsten visuellen Derived-View-Test aus bestehender #51-Evidenz + WP1-State ableiten und mit dem Owner prüfen: Textpassagen und vollständige Karte gemeinsam forschungsnah präsentieren, knappe Aussagegrenze/Unsicherheit sichtbar halten und technische Provenienz nur unterstützend/drill-down zeigen.**
+> **Unter #48/#49/#50/#51/#55/#63 einen bounded excerpt-zentrierten Research-Workflow-Test für den Sachenbacher-Fall ableiten: Zotero-/Bibliographie-Referenz, exakte Instance/Findspots, visuelle Evidenz und Text-Exzerpte zu einem wissenschaftlich transparenten, prüfbaren Owner-View zusammenführen, ohne die Ebenen zu verschmelzen.**
 
-Vor einer Implementation ist zu klären, ob dieser bounded Test mit vorhandenen Derived-View-/Artefaktmitteln durchgeführt werden kann oder eine eigene kleine Admission benötigt. **Kein breiter WP4-/UI-Stack ist dadurch admitted.**
+Der Test soll zuerst zeigen:
+
+- ob der Owner von der Quelle/Exzerpt-Ebene aus sinnvoll arbeiten kann;
+- ob Provenienz und exakte Instanz ohne technische Dominanz jederzeit prüfbar bleiben;
+- ob Finding/Interpretation/Unsicherheit sauber getrennt und nachvollziehbar sind;
+- ob Zotero seine Verwaltungsrolle behält, ohne Research State zu besitzen;
+- ob die Ansicht vollständig regenerierbar bleibt und kein zweiter Truth Store entsteht.
+
+Vor einer Implementation ist zu klären, ob der Test mit vorhandenen Artefakt-/Derived-View-Mitteln ausführbar ist oder eine kleine eigene Admission benötigt. **Kein breiter WP4-/UI-Stack ist dadurch admitted.**
 
 Verbindliche Grenzen:
 
-- #51s vollständige publizierte Karte bleibt das Evidenz-/Referenzobjekt; Highlights/Ausschnitte sind regenerierbare Derived Views;
-- keine neue historische Interpretation aus Visualisierung erzeugen;
+- keine freie Zusammenfassung als Ersatz für ein Exzerpt;
+- keine unstrukturierte Forschungsfragen-Sammeldatei als primäre Research-Truth;
+- #51s vollständige publizierte Karte bleibt die visuelle Evidenzeinheit; Highlights/Ausschnitte sind regenerierbare Derived Views;
+- keine Verschmelzung von Source, Instance, Derivative, Findspot, Excerpt, Finding und Interpretation;
+- keine neue historische Interpretation allein aus der Darstellung;
 - `R51-06`, fehlende Method Application und fehlende Alternatives bleiben sichtbar;
-- kein neuer Canonical Research State nur für Präsentationszwecke;
 - `selection-open` bleibt bestehen;
-- Candidate WP2, WP3, WP4 und WP5 bleiben ohne eigene Admission nicht implementierungsautorisiert;
-- ein visueller Prototyp dient zuerst als Owner-/Workflow-Falsifikation, nicht als Vorentscheidung für eine UI-Technologie.
+- Candidate WP2, WP3, WP4 und WP5 bleiben ohne eigene Admission nicht implementierungsautorisiert.
 
 ### Andere bestehende Owner
 
-#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. Das Feedback routet die Darstellungs-/Workflow-Frage an #48/#55/#63; falls daraus ein echter Requirement-Delta entsteht, geht er separat an #42.
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. Das Feedback routet die Workflow-/Darstellungsfrage nun ausdrücklich auch an #49/#50/#51, weil die Owner-Nützlichkeit von der vollständigen Arbeitsteilung zwischen Bibliographie, Bytes, Exzerpt/Research State und Derived View abhängt. Falls daraus ein echter Requirement-Delta entsteht, geht er separat an #42.
 
 Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
 

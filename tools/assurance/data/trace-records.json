@@ -968,7 +968,7 @@
         "issue:#92",
         "docs/architecture/fresh-rebuild-conception-20260923.md"
       ],
-      "notes": "Owner/workflow evidence, not historical evidence. The fresh-context WP1 result reconstructed provenance correctly but was too cryptic/machine-oriented as a research-facing surface. For the early Sachenbacher pilot, the Owner needs a derived visual research composition that presents the relevant extracted text passages together with the complete published map and concise scholarly framing; provenance/identity/findspot detail should remain available as supporting drill-down, not dominate the primary view. This does not invalidate WP1, change Requirements, or admit WP4/UI. The next discriminator is a smallest-possible visual Derived View test from existing #51 evidence + WP1 state."
+      "notes": "Owner/workflow evidence, not historical evidence. WP1 provenance resolution worked, but the owner-facing output was too machine-oriented. The follow-up must be excerpt-centered, not presentation-first: Zotero remains bibliographic/archival management and attachment reference; the source-file layer supplies exact bytes; Histo-Orla owns scientific Research State. The useful research unit is a provenance-bound Excerpt/Findspot tied to the exact inspected Instance/Derivative and Source, preserving original text/image context, uncertainty and links to Finding/Interpretation. A visual composition is only a derived projection of that state. The next discriminator is an excerpt-centered owner-facing workflow/view using the existing #49/#50/#51/#55 boundaries plus WP1."
     }
   ]
 }
