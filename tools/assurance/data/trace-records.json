@@ -6,13 +6,42 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-SRC-001", "REQ-SRC-002", "REQ-SRC-004", "REQ-OCR-002", "REQ-TRACE-001"],
-      "driver_refs": ["G-004", "G-006", "N-006", "P-004"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "requirement_refs": [
+        "REQ-SRC-001",
+        "REQ-SRC-002",
+        "REQ-SRC-004",
+        "REQ-OCR-002",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-004",
+        "G-006",
+        "N-006",
+        "P-004"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
       "decision_refs": [],
       "implementation_refs": [],
-      "implementation_files": ["tools/document_evidence/**", "tools/requirements/data/records.json", ".github/workflows/project-assurance.yml", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md", "docs/research/cases/orlagau-source-ledger.md", "docs/research/cases/u2-lampe-420-work-order.json", "docs/development/requirements-coverage.md", "PROJECT_STATE.md"],
-      "verification_refs": ["issue:#51", "pull-request:#90", "pull-request:#76", "tools/document_evidence/tests/test_roundtrip.py", "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md"],
+      "implementation_files": [
+        "tools/document_evidence/**",
+        "tools/requirements/data/records.json",
+        ".github/workflows/project-assurance.yml",
+        "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md",
+        "docs/research/cases/orlagau-source-ledger.md",
+        "docs/research/cases/u2-lampe-420-work-order.json",
+        "docs/development/requirements-coverage.md",
+        "PROJECT_STATE.md"
+      ],
+      "verification_refs": [
+        "issue:#51",
+        "pull-request:#90",
+        "pull-request:#76",
+        "tools/document_evidence/tests/test_roundtrip.py",
+        "docs/architecture/experiments/sachenbacher-evidence-model-falsification-v0.md"
+      ],
       "decision_not_required_reason": "Bounded, local and reversible falsification spike using the existing #50 contract and a replaceable renderer; it makes no architecture or requirement decision.",
       "feedback_outcome": null,
       "requires_delta": false,
@@ -24,13 +53,32 @@
       "kind": "decision",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
-      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": [],
-      "verification_refs": ["docs/architecture/assurance/requirements-assurance-harness.md", "issue:#62"],
+      "verification_refs": [
+        "docs/architecture/assurance/requirements-assurance-harness.md",
+        "issue:#62"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -41,13 +89,37 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
-      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-ASSURANCE-001"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-001"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/requirements/**", ".github/workflows/requirements-assurance.yml"],
-      "verification_refs": ["github-actions-run:33476962793", "tools/requirements/tests/test_validate.py"],
+      "implementation_files": [
+        "tools/requirements/**",
+        ".github/workflows/requirements-assurance.yml"
+      ],
+      "verification_refs": [
+        "github-actions-run:33476962793",
+        "tools/requirements/tests/test_validate.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -58,17 +130,38 @@
       "kind": "feedback",
       "status": "open",
       "materiality": "material",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-002", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "P-008"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-002",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "P-008"
+      ],
       "governance_refs": [],
       "decision_refs": [],
-      "implementation_refs": ["IMP-ASSURANCE-001"],
+      "implementation_refs": [
+        "IMP-ASSURANCE-001"
+      ],
       "implementation_files": [],
       "verification_refs": [],
       "source_ref": "issue:#63 owner-feedback 2026-09-01: assurance must close Goal/Need/Pain → Requirement → Decision → Delivery → real use/feedback, not stop at requirement records",
       "feedback_outcome": "requirement-change",
       "requires_delta": true,
-      "delta_refs": ["issue:#63", "REQ-TRACE-001", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
+      "delta_refs": [
+        "issue:#63",
+        "REQ-TRACE-001",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md"
+      ],
       "notes": "Product/workflow feedback. It is not historical/scientific evidence."
     },
     {
@@ -76,13 +169,34 @@
       "kind": "decision",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": [],
-      "verification_refs": ["issue:#63", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
+      "verification_refs": [
+        "issue:#63",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -93,13 +207,39 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-ASSURANCE-002"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-002"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/assurance/**", ".github/workflows/project-assurance.yml"],
-      "verification_refs": ["github-actions-run:33479262738", "tools/assurance/tests/test_validate.py"],
+      "implementation_files": [
+        "tools/assurance/**",
+        ".github/workflows/project-assurance.yml"
+      ],
+      "verification_refs": [
+        "github-actions-run:33479262738",
+        "tools/assurance/tests/test_validate.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -110,13 +250,40 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-TRACE-001", "REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001"],
-      "driver_refs": ["G-001", "G-008", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-ASSURANCE-002"],
+      "requirement_refs": [
+        "REQ-TRACE-001",
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-002"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/requirements/data/records.json"],
-      "verification_refs": ["github-actions-run:33479807679", "github-actions-run:33479807761", "tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py"],
+      "implementation_files": [
+        "tools/requirements/data/records.json"
+      ],
+      "verification_refs": [
+        "github-actions-run:33479807679",
+        "github-actions-run:33479807761",
+        "tools/requirements/tests/test_validate.py",
+        "tools/assurance/tests/test_validate.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -127,17 +294,38 @@
       "kind": "feedback",
       "status": "open",
       "materiality": "material",
-      "requirement_refs": ["REQ-TRACE-001", "REQ-LEAN-001", "REQ-WF-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-009"],
+      "requirement_refs": [
+        "REQ-TRACE-001",
+        "REQ-LEAN-001",
+        "REQ-WF-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-009"
+      ],
       "governance_refs": [],
       "decision_refs": [],
-      "implementation_refs": ["IMP-ASSURANCE-002", "IMP-ASSURANCE-003"],
+      "implementation_refs": [
+        "IMP-ASSURANCE-002",
+        "IMP-ASSURANCE-003"
+      ],
       "implementation_files": [],
       "verification_refs": [],
       "source_ref": "issue:#63 owner-feedback 2026-09-01: GitHub Actions failure notifications created unwanted email spam; coupled assurance changes must not expose intentionally inconsistent intermediate commits and duplicate workflow runs should be minimized",
       "feedback_outcome": "new-pain",
       "requires_delta": true,
-      "delta_refs": ["issue:#63", "docs/architecture/assurance/value-decision-delivery-assurance.md", ".github/workflows/project-assurance.yml"],
+      "delta_refs": [
+        "issue:#63",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md",
+        ".github/workflows/project-assurance.yml"
+      ],
       "notes": "Delivery/workflow feedback. It concerns project CI ergonomics and notification noise, not historical/scientific evidence."
     },
     {
@@ -145,13 +333,37 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-TRACE-001", "REQ-LEAN-001", "REQ-WF-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-ASSURANCE-002"],
+      "requirement_refs": [
+        "REQ-TRACE-001",
+        "REQ-LEAN-001",
+        "REQ-WF-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-002"
+      ],
       "implementation_refs": [],
-      "implementation_files": [".github/workflows/project-assurance.yml", "docs/architecture/assurance/value-decision-delivery-assurance.md"],
-      "verification_refs": ["github-actions-run:33519611643"],
+      "implementation_files": [
+        ".github/workflows/project-assurance.yml",
+        "docs/architecture/assurance/value-decision-delivery-assurance.md"
+      ],
+      "verification_refs": [
+        "github-actions-run:33519611643"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -162,13 +374,37 @@
       "kind": "decision",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
       "decision_refs": [],
       "implementation_refs": [],
       "implementation_files": [],
-      "verification_refs": ["issue:#48", "issue:#59", "docs/architecture/operational-execution-architecture.md", "docs/architecture/prior-art-development-inputs.md"],
+      "verification_refs": [
+        "issue:#48",
+        "issue:#59",
+        "docs/architecture/operational-execution-architecture.md",
+        "docs/architecture/prior-art-development-inputs.md"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -179,13 +415,44 @@
       "kind": "implementation",
       "status": "verified",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/operational/**", "tools/requirements/validate.py", "tools/assurance/**", ".github/workflows/**"],
-      "verification_refs": ["github-actions-run:33629069493", "tools/requirements/tests/test_validate.py", "tools/assurance/tests/test_validate.py", "tools/operational/tests/test_enforcement.py"],
+      "implementation_files": [
+        "tools/operational/**",
+        "tools/requirements/validate.py",
+        "tools/assurance/**",
+        ".github/workflows/**"
+      ],
+      "verification_refs": [
+        "github-actions-run:33629069493",
+        "tools/requirements/tests/test_validate.py",
+        "tools/assurance/tests/test_validate.py",
+        "tools/operational/tests/test_enforcement.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -196,17 +463,46 @@
       "kind": "feedback",
       "status": "open",
       "materiality": "material",
-      "requirement_refs": ["REQ-UX-001", "REQ-UX-002", "REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
+      "requirement_refs": [
+        "REQ-UX-001",
+        "REQ-UX-002",
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
       "governance_refs": [],
       "decision_refs": [],
-      "implementation_refs": ["IMP-OPCORE-001"],
+      "implementation_refs": [
+        "IMP-OPCORE-001"
+      ],
       "implementation_files": [],
       "verification_refs": [],
       "source_ref": "owner-feedback 2026-09-02 after Lampe PDF pilot: current research operation is the opposite of the intended Wissensarbeit model — manual Markdown text walls, old annotations, little workflow automation, no generated human-readable research workspace, and too much orchestration left to chat/human",
       "feedback_outcome": "pain-persists",
       "requires_delta": true,
-      "delta_refs": ["issue:#48", "issue:#55", "issue:#61", "issue:#63", "docs/architecture/operational-execution-architecture.md", "docs/architecture/prior-art-development-inputs.md"],
+      "delta_refs": [
+        "issue:#48",
+        "issue:#55",
+        "issue:#61",
+        "issue:#63",
+        "docs/architecture/operational-execution-architecture.md",
+        "docs/architecture/prior-art-development-inputs.md"
+      ],
       "notes": "Product/workflow feedback, not historical/scientific evidence. Existing requirements already cover the needed direction; primary delta is delivery/architecture prioritization toward structured research state, automated context/trace/derive operations, and generated human-readable views rather than further manual prose workflows."
     },
     {
@@ -214,13 +510,37 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-TRACE-001", "REQ-LEAN-001"],
-      "driver_refs": ["G-007", "G-008", "G-011", "G-012", "N-017", "N-020", "P-008"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-ASSURANCE-001", "DEC-ASSURANCE-002"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-TRACE-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-017",
+        "N-020",
+        "P-008"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-ASSURANCE-001",
+        "DEC-ASSURANCE-002"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/requirements/data/records.json", "tools/assurance/data/trace-records.json"],
-      "verification_refs": ["issue:#62", "issue:#70"],
+      "implementation_files": [
+        "tools/requirements/data/records.json",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "issue:#62",
+        "issue:#70"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -231,13 +551,43 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-WF-002",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/operational/mutation.py", "tools/operational/tests/test_mutation.py", "tools/assurance/data/trace-records.json"],
-      "verification_refs": ["tools/operational/tests/test_mutation.py", "issue:#70", "pull-request:#72"],
+      "implementation_files": [
+        "tools/operational/mutation.py",
+        "tools/operational/tests/test_mutation.py",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "tools/operational/tests/test_mutation.py",
+        "issue:#70",
+        "pull-request:#72"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -248,13 +598,42 @@
       "kind": "implementation",
       "status": "active",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-011", "G-012", "N-015", "N-017", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001", "DEC-ASSURANCE-002"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-LEAN-001",
+        "REQ-STATE-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001",
+        "DEC-ASSURANCE-002"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/assurance/data/trace-records.json", ".github/workflows/project-assurance.yml"],
-      "verification_refs": ["issue:#48", "issue:#59", "issue:#70"],
+      "implementation_files": [
+        "tools/assurance/data/trace-records.json",
+        ".github/workflows/project-assurance.yml"
+      ],
+      "verification_refs": [
+        "issue:#48",
+        "issue:#59",
+        "issue:#70"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -265,13 +644,46 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-STATE-001", "REQ-TRACE-001", "REQ-UX-001", "REQ-LEAN-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-WF-002",
+        "REQ-STATE-001",
+        "REQ-TRACE-001",
+        "REQ-UX-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/operational/context.py", "tools/operational/tests/test_context.py", "tools/assurance/data/trace-records.json"],
-      "verification_refs": ["tools/operational/tests/test_context.py", "issue:#61", "issue:#70"],
+      "implementation_files": [
+        "tools/operational/context.py",
+        "tools/operational/tests/test_context.py",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "tools/operational/tests/test_context.py",
+        "issue:#61",
+        "issue:#70"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -282,13 +694,53 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-STATE-001", "REQ-TRACE-001", "REQ-UX-001", "REQ-LEAN-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001"],
-      "implementation_refs": ["IMP-CONTEXT-001"],
-      "implementation_files": ["tools/operational/context.py", "tools/operational/context_spec.py", "tools/operational/tests/test_context.py", "tools/operational/tests/test_context_spec.py", "docs/research/cases/u2-lampe-420-work-order.json", "tools/assurance/data/trace-records.json"],
-      "verification_refs": ["issue:#46", "issue:#61", "issue:#70", "tools/operational/tests/test_context.py", "tools/operational/tests/test_context_spec.py"],
+      "requirement_refs": [
+        "REQ-WF-001",
+        "REQ-WF-002",
+        "REQ-STATE-001",
+        "REQ-TRACE-001",
+        "REQ-UX-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
+      "implementation_refs": [
+        "IMP-CONTEXT-001"
+      ],
+      "implementation_files": [
+        "tools/operational/context.py",
+        "tools/operational/context_spec.py",
+        "tools/operational/tests/test_context.py",
+        "tools/operational/tests/test_context_spec.py",
+        "docs/research/cases/u2-lampe-420-work-order.json",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "issue:#46",
+        "issue:#61",
+        "issue:#70",
+        "tools/operational/tests/test_context.py",
+        "tools/operational/tests/test_context_spec.py"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
@@ -299,17 +751,172 @@
       "kind": "implementation",
       "status": "implemented",
       "materiality": "local-reversible",
-      "requirement_refs": ["REQ-UX-001", "REQ-UX-003", "REQ-EPI-004", "REQ-EPI-005", "REQ-SRC-004", "REQ-MTH-003", "REQ-STATE-001", "REQ-STATE-002", "REQ-WF-001", "REQ-TRACE-001", "REQ-LEAN-001"],
-      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
-      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
-      "decision_refs": ["DEC-OPCORE-001"],
+      "requirement_refs": [
+        "REQ-UX-001",
+        "REQ-UX-003",
+        "REQ-EPI-004",
+        "REQ-EPI-005",
+        "REQ-SRC-004",
+        "REQ-MTH-003",
+        "REQ-STATE-001",
+        "REQ-STATE-002",
+        "REQ-WF-001",
+        "REQ-TRACE-001",
+        "REQ-LEAN-001"
+      ],
+      "driver_refs": [
+        "G-001",
+        "G-007",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-008",
+        "P-009"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-OPCORE-001"
+      ],
       "implementation_refs": [],
-      "implementation_files": ["tools/operational/audit.py", "tools/operational/tests/test_audit.py", "tools/assurance/data/trace-records.json"],
-      "verification_refs": ["tools/operational/tests/test_audit.py", "issue:#55", "issue:#50", "issue:#57"],
+      "implementation_files": [
+        "tools/operational/audit.py",
+        "tools/operational/tests/test_audit.py",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "tools/operational/tests/test_audit.py",
+        "issue:#55",
+        "issue:#50",
+        "issue:#57"
+      ],
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
       "notes": "Bounded #55 synthetic Derived Audit View: a deterministic read-only Markdown projection follows explicit Claim→Finding→Excerpt/Findspot→Derivative/Instance/Representation/Source and Method Application references, exposes provider refs/availability without substituting identity, preserves input uncertainty/demotion history, and marks missing links as missing/unresolved. No provider access, historical finding, method truth, canonical mutation, persistence choice, owner-workflow acceptance, or Product Runtime is claimed."
+    },
+    {
+      "id": "DEC-STATE-SPINE-001",
+      "kind": "decision",
+      "status": "active",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-SRC-001",
+        "REQ-SRC-002",
+        "REQ-SRC-004",
+        "REQ-EPI-004",
+        "REQ-EPI-006",
+        "REQ-STATE-001",
+        "REQ-STATE-002",
+        "REQ-WF-001",
+        "REQ-UX-001",
+        "REQ-LEAN-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-004",
+        "G-006",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-005",
+        "N-006",
+        "N-014",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-004",
+        "P-010",
+        "P-016"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [],
+      "implementation_refs": [],
+      "implementation_files": [],
+      "verification_refs": [
+        "docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md",
+        "docs/architecture/fresh-rebuild-conception-20260923.md",
+        "issue:#48",
+        "issue:#59",
+        "issue:#63"
+      ],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Admit the smallest reversible WP1 as an identity/owner/reference spine over existing canonical homes plus read-only resolution and derived audit roundtrip. It is not a new research-content truth store and does not authorize database, package reorganization, provider/OCR/retrieval/UI, Method Truth, Promotion semantics, Research Selection or broad migration."
+    },
+    {
+      "id": "IMP-STATE-SPINE-001",
+      "kind": "implementation",
+      "status": "active",
+      "materiality": "local-reversible",
+      "requirement_refs": [
+        "REQ-SRC-001",
+        "REQ-SRC-002",
+        "REQ-SRC-004",
+        "REQ-EPI-004",
+        "REQ-EPI-006",
+        "REQ-STATE-001",
+        "REQ-STATE-002",
+        "REQ-WF-001",
+        "REQ-UX-001",
+        "REQ-LEAN-001",
+        "REQ-TRACE-001"
+      ],
+      "driver_refs": [
+        "G-004",
+        "G-006",
+        "G-008",
+        "G-009",
+        "G-011",
+        "G-012",
+        "N-005",
+        "N-006",
+        "N-014",
+        "N-015",
+        "N-017",
+        "N-018",
+        "N-020",
+        "P-004",
+        "P-010",
+        "P-016"
+      ],
+      "governance_refs": [
+        "GOV-AGENTS",
+        "GOV-NONREG"
+      ],
+      "decision_refs": [
+        "DEC-STATE-SPINE-001"
+      ],
+      "implementation_refs": [],
+      "implementation_files": [
+        "tools/research_state/**",
+        "tools/operational/audit.py",
+        "tools/operational/tests/test_audit.py",
+        "tools/assurance/data/trace-records.json"
+      ],
+      "verification_refs": [
+        "docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md",
+        "issue:#48",
+        "issue:#59",
+        "issue:#63"
+      ],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Current bounded implementation trace for WP1-STATE-SPINE-V0. No code, schema implementation, migration or fixture rewrite occurred in the admission cycle. Status active means separately started implementation may change only the listed technical surfaces after fresh preflight. Any research-content, #51 reviewed-reference, provider, package, persistence-platform or semantic-boundary change requires STOP/HANDOFF and trace reconciliation."
     }
   ]
 }
