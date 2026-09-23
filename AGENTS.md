@@ -382,6 +382,17 @@ Schnittstellen bestehen zu #50 Canonical State, #54 Promotion/Invariants, #55 Au
 
 Technologie wird gegen State of the Art / Best Practice und die kleinste hinreichende Lösung geprüft. Maschinenlesbare Contracts, Provenance-/Research-Object-Standards, Policy-/Transition-Enforcement oder Validatoren sind Kandidaten; kein Standard/Framework wird allein wegen Vollständigkeit eingeführt.
 
+### 13.9 Bounded Rebuild Execution
+
+Für technische Rebuild-Aufträge unter #48/#59/#61 kann der
+`docs/development/work-orders/codex-rebuild-execution-contract.md` als
+modellagnostischer Owner Execution Constraint verwendet werden. Er operationalisiert
+bereits bindende Regeln; er ist kein neues Requirement, kein Product-/Multi-Agent-
+Design und keine zusätzliche Authority. Ein solcher Auftrag muss mindestens
+Driver-Slice, akzeptierte Requirements mit Acceptance/Verification, Authority,
+exakte Dateien/Scope, minimalen Kontext, positive und negative Tests,
+Stop/Handoff, Persistence Target und delta-only Return enthalten.
+
 ## 14. Verbindliche Value-/Decision-/Delivery-/Feedback-Traceability
 
 Die eigentliche Projektursache bleibt **Nutzer-/Forschungswert**: Goals, Needs, Pains, Erkenntnisprobleme, wissenschaftliche Constraints und reale Research-Friktion. Requirements operationalisieren daraus das erwartete Systemverhalten; technische Entscheidungen bestimmen nur die Mittel.

@@ -458,3 +458,29 @@ Sie stellt jedoch einen hinreichend belegten Integrationsbefund fest:
 > **Vor weiteren unabhängigen Assurance-/Context-/Evidence-/Transition-Skripten soll Histo-Orla die bereits vorhandenen #62/#63-Mechanismen durch eine Requirement→Enforcement-Sicht und einen kleinen gemeinsamen Operational Core zusammenführen.**
 
 Das ist eine evolutionäre Refactoring-/Integration-Richtung unter #48. Konkrete schwer reversible Entscheidungen bleiben #58/#44 vorbehalten.
+
+## 19. Bounded Rebuild Execution Contract
+
+Technische Rebuild-Aufträge unter #48/#59/#61 können einen kleinen,
+modellagnostischen Execution Contract verwenden. Er ist eine Delivery- und
+Assurance-Projektion bestehender Governance, Requirements und Work-Context-
+Grenzen; er ist keine neue Requirement-, Product-, Selection- oder Agenten-
+Authority.
+
+Der Contract erzwingt deterministisch nur mechanisch prüfbare Eigenschaften:
+
+- kausaler Goal/Need/Pain-Slice und bekannte accepted Requirement IDs;
+- getrennte semantische und Acceptance-Authority;
+- exakte, sichere Dateiliste mit ausgeschlossenen Pfaden;
+- begrenzten Pflichtkontext;
+- positive und negative Checks;
+- Stop/Handoff, Persistence Target und vollständiges delta-only Return;
+- Modell-/Provider-Agnostik sowie Ausschluss einer Product-Multi-Agent-/Workflow-
+  Architektur.
+
+Kanonische Artefakte sind der Contract, sein Schema und
+`tools/operational/execution_order.py`. Der Validator entscheidet weder
+historische Wahrheit noch Method Truth, wissenschaftliche Suffizienz oder
+Owner-Akzeptanz. Ein fehlender Authority-, Acceptance-, Evidence- oder Scope-
+Baustein führt zu Handoff/`unresolved`, nicht zu einer plausibilitätsbasierten
+Rekonstruktion.

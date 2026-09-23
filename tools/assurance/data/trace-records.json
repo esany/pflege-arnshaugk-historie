@@ -925,6 +925,23 @@
       "notes": "WP1-STATE-SPINE-V0 verified and integrated via PR #132 / merge d33828441c5333341af2794574d2a31dda47845b. The implementation is the admitted minimal identity/role/canonical_ref spine plus exact canonical target validation, read-only Source/Finding owner resolution, #51 Representation/Instance/Findspot resolution, and #55 derived audit roundtrip without the former manually assembled real Sachenbacher projection. AT-01..AT-10 and NT-01..NT-10 passed within Project Assurance on implementation heads 35908337523 and 35908493477. Technical/formal verification does not establish scholarly validity, Method Truth, Research Selection or owner-workflow usefulness; owner/workflow feedback remains open."
     },
     {
+      "id": "IMP-EXECORDER-001",
+      "kind": "implementation",
+      "status": "implemented",
+      "materiality": "local-reversible",
+      "requirement_refs": ["REQ-WF-001", "REQ-WF-002", "REQ-LEAN-001", "REQ-STATE-001", "REQ-TRACE-001"],
+      "driver_refs": ["G-001", "G-007", "G-008", "G-009", "G-011", "G-012", "N-015", "N-017", "N-018", "N-020", "P-008", "P-009"],
+      "governance_refs": ["GOV-AGENTS", "GOV-NONREG"],
+      "decision_refs": ["DEC-OPCORE-001"],
+      "implementation_refs": ["IMP-CONTEXT-001"],
+      "implementation_files": ["tools/operational/execution_order.py", "tools/operational/tests/test_execution_order.py", "docs/development/work-orders/codex-rebuild-execution-contract.md", "docs/development/work-orders/codex-rebuild-execution-contract.schema.json", "AGENTS.md", "PROJECT_STATE.md", "docs/architecture/operational-execution-architecture.md", "tools/assurance/data/trace-records.json"],
+      "verification_refs": ["tools/operational/tests/test_execution_order.py", "issue:#48", "issue:#59", "issue:#61", "docs/development/work-orders/codex-rebuild-execution-contract.md"],
+      "feedback_outcome": null,
+      "requires_delta": false,
+      "delta_refs": [],
+      "notes": "Model-agnostic bounded Rebuild Execution Contract under #48/#59/#61. Deterministic checks cover causal driver slice, known accepted Requirement IDs, authority alignment, exact file scope, minimal context, positive/negative tests, stop/handoff, persistence target, delta-only return, model/provider agnosticism and explicit exclusion of Product Multi-Agent/Workflow architecture. No #42 Requirement Truth or scholarly meaning changed."
+    },
+    {
       "id": "FB-20260923-004",
       "kind": "feedback",
       "status": "open",
