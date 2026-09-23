@@ -16,7 +16,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
-- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. **Rebuild conception is currently on hold pending problem-driven Deep Research + finding reconciliation.** R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
+- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. Die D4-Reconciliation bewertet das #92-Gate epistemisch als `READY`, bleibt aber bis zur Integration der gestapelten PRs #125 → #126 `REPO-INTEGRATION-PENDING`. R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
@@ -41,7 +41,7 @@ Bis zur Research-Reconciliation:
 
 Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125. Der vorbereitete Research-Handoff liegt in `docs/research/audits/problem-driven-deep-research-prompt-20260922.md`.
 
-Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Er ist Research-Evidenz und eine Finding-by-Finding-Reconciliation-**Eingabe**, keine Gate-Freigabe: #92 bleibt `hold-for-research-reconciliation`, bis #64 die ausstehende projektseitige Disposition ausdrücklich verarbeitet hat.
+Der externe Research-Lauf D4 ist als `docs/research/audits/d4-problem-driven-external-research-20260922.md` persistiert. Seine punktweise projektseitige Disposition und Gate-Entscheidung liegt in `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`: `Research Reconciliation = COMPLETE`, `Rebuild Re-entry = READY`, jedoch `REPO-INTEGRATION-PENDING`, solange PR #125 → PR #126 offen sind. Diese Entscheidung ist keine Architecture-/Implementation-Authority und reaktiviert R4–R8 nicht.
 
 Verbindlich gilt:
 
