@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-18  
+**Stand:** 2026-09-22  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -15,8 +15,31 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 
 ### Aktuelle strukturelle Review-/Audit-Inputs
 
-- **#64** – Product-/Research-Value gegen Governance-Komplexität: aktuelles Owner-Feedback bewertet Root-/Handoff-Sicht als zu meta-lastig und U1–U4 als breite Research Journeys statt praktisch scharf geschnittene Piloten. Künftige praktische Tests sollen als kleine Vertical Research Slices historischen Research Output und System-Learning sichtbar trennen.
-- **#92 / PR #94** – Architecture/Product Re-Baseline ist als Roadmap-Sicht integriert. Sie ordnet bestehende Arbeit als `governing/project | domain/research | product capability | operational support | pilot/testfixture | superseded/archive`, ohne neue Requirement-, Method-, Historical- oder Selection-Authority zu schaffen. `src/histo_orla/` ist kein Pflichtziel; eine Product-Code-Grenze entsteht erst bei realer dauerhafter Runtime-Produktlogik oder nachgewiesener Responsibility-Kollision mit `tools/`.
+- **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
+- **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. **Rebuild conception is currently on hold pending problem-driven Deep Research + finding reconciliation.** R4–R8 sind keine automatisch fortzusetzende Transformationssequenz.
+
+### Aktuelles Analysis→Research→Rebuild Gate
+
+Für den aktuell untersuchten Umbau gilt verbindlich die Reihenfolge:
+
+```text
+Systemanalyse / aktuelle Findings
+→ problemgetriebener Deep Research
+→ Reconciliation je Finding
+   strengthen | weaken | split | reframe | falsify | unresolved
+→ erst dann neue Umbaukonzeption unter #48/#42/#59
+→ Implementation nur nach expliziter Selection / Admission
+```
+
+Bis zur Research-Reconciliation:
+
+- #92 ist `hold-for-research-reconciliation`;
+- die bestehende Roadmap und PR #119 sind **Prior Art / Planungshypothesen**, nicht Default-Next-Action;
+- kein Shared Runtime/Product Package, Read Model, Skill/MCP/UI, Owner-/Handoff-Redesign oder fixes Research-Workflow-Modell wird aus der alten Roadmap weitergezogen;
+- bereits etablierte Loss-Boundaries und settled Invariants (#50/#51, Source/Instance/Derivative/Findspot, `unresolved`, Readiness/Admission) bleiben gültig;
+- eigenständig Requirement-backed technische Arbeit ist dadurch nicht verboten, benötigt aber weiterhin explizite Auswahl und darf nicht als „Umbaufortsetzung“ interpretiert werden.
+
+Detailbegründung: `docs/architecture/assurance/repeated-system-audits-project-implications-20260922.md` / PR #125. Der vorbereitete Research-Handoff liegt in `docs/research/audits/problem-driven-deep-research-prompt-20260922.md`.
 
 Verbindlich gilt:
 
@@ -233,7 +256,7 @@ Kanonische technische Einordnung: `docs/architecture/prior-art-development-input
 - #42 Requirements Baseline + accepted Extensions + Requirements Structure – aktiver Requirements Owner
 - #43 historisches Architecture-Readiness-Gate; kein aktuelles Blocking-Gate
 - #70 AI-Resilience Root-Cause-Audit – **completed / retire-active**; historischer Snapshot `docs/architecture/assurance/ai-resilience-root-cause-audit.md`, keine Requirement-/Implementation-Authority. D1/D2 und realer Lampe-420-Slice sind an bestehende Owner überführt; kein neuer Requirement-Gap. Der im Closure-Lauf erneut belegte Connector-write-Restpunkt liegt bei #48/#59, serverseitige Admission bei #44.
-- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 als Reconciliation-Sicht abgeschlossen, R4 aktuell `no product-code move yet`; Operationalisierung läuft über bestehende Owner.
+- #92 Architecture/Product Re-Baseline – Roadmap via PR #94 integriert; R0–R3 bleiben historische/reconciliierte Prior Art. **Aktuell `hold-for-research-reconciliation`**; R4–R8 werden nicht aus Sequenz fortgesetzt. Neue Umbaukonzeption erst nach problemgetriebenem Deep Research + Finding-Reconciliation.
 
 Die Baselines bleiben gültig und werden durch reale Research-, Methoden- und Nutzungsbefunde präzisiert.
 
@@ -250,7 +273,7 @@ Aktuelle Dispositionen ohne Prioritätsableitung:
 - #47 → `active-independent-not-selected`;
 - #103 → `active-independent-not-selected` – user-requested Research zu Anno II., Richeza und St. Peter und Paul Saalfeld; eigener Work Owner, keine Selection Authority;
 - #60 → `supporting` Method Truth;
-- #92/#94 → `architecture-supporting`, keine Research Selection.
+- #92/#94 → `architecture-hold-for-research-reconciliation`, keine Research Selection und keine automatische Rebuild-Fortsetzung.
 
 `selected-current` entsteht nur durch explizite Research/Product-Owner-Autorisierung. Reconciliation-Anker: `docs/architecture/assurance/work-selection-reconciliation-20260910.md` / PR #97. Weder ein resumable Work Order noch ein gemergter/offener PR, grünes CI, ein aktiver Work Owner, Method Work oder die Architecture Roadmap erzeugt eine Current-Work-Auswahl.
 
