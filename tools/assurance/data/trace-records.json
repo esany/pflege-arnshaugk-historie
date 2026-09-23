@@ -860,7 +860,7 @@
     {
       "id": "IMP-STATE-SPINE-001",
       "kind": "implementation",
-      "status": "active",
+      "status": "implemented",
       "materiality": "local-reversible",
       "requirement_refs": [
         "REQ-SRC-001",
@@ -902,13 +902,17 @@
       ],
       "implementation_refs": [],
       "implementation_files": [
-        "tools/research_state/**",
+        "tools/research_state/registry.schema.json",
+        "tools/research_state/data/records.json",
+        "tools/research_state/state.py",
         "tools/operational/audit.py",
-        "tools/operational/tests/test_audit.py",
-        "tools/assurance/data/trace-records.json"
+        "tools/operational/tests/test_audit.py"
       ],
       "verification_refs": [
         "docs/development/canonical-research-state-spine-v0-implementation-admission-20260923.md",
+        "pull-request:#132",
+        "github-actions-run:35908337523",
+        "tools/operational/tests/test_audit.py",
         "issue:#48",
         "issue:#59",
         "issue:#63"
@@ -916,7 +920,7 @@
       "feedback_outcome": null,
       "requires_delta": false,
       "delta_refs": [],
-      "notes": "Current bounded implementation trace for WP1-STATE-SPINE-V0. No code, schema implementation, migration or fixture rewrite occurred in the admission cycle. Status active means separately started implementation may change only the listed technical surfaces after fresh preflight. Any research-content, #51 reviewed-reference, provider, package, persistence-platform or semantic-boundary change requires STOP/HANDOFF and trace reconciliation."
+      "notes": "WP1-STATE-SPINE-V0 implemented on PR #132: minimal identity/role/canonical_ref registry; exact canonical target validation; read-only Source/Finding resolution from existing Markdown owners; #51 Representation/Instance/Findspot resolution; #55 derived audit roundtrip without the previous manually assembled real Sachenbacher projection; explicit instance content hash; AT-01..AT-10 and NT-01..NT-10 regressions. Project Assurance Run #35908337523 passed on the first full implementation head. No research-content, #51 reviewed-reference, Method Truth, Research Selection, provider/OCR/retrieval/UI, database, package or general promotion/history change is claimed. Owner/workflow usefulness remains separate post-integration evidence."
     }
   ]
 }

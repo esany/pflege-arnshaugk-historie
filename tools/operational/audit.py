@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 from collections.abc import Mapping
+from pathlib import Path
 from typing import Any
 
 
@@ -174,6 +175,7 @@ def render_audit_view(state: Mapping[str, Any], claim_id: str) -> str:
                 continue
 
             _append_if_present(lines, "inspection_status", instance, "inspection_status")
+            _append_if_present(lines, "content_hash", instance, "content_hash")
             _append_mapping(lines, "instance.provider_ref", instance.get("provider_refs"))
             _append_mapping(lines, "instance.availability", instance.get("availability"))
 
@@ -259,3 +261,12 @@ def render_audit_view(state: Mapping[str, Any], claim_id: str) -> str:
         lines.append("- reference gaps: []")
 
     return "\n".join(lines) + "\n"
+
+
+def render_research_state_audit(repo_root: str | Path, finding_id: str) -> str:
+    """Resolve admitted canonical references, then render the derived audit view."""
+
+    from tools.research_state.state import build_audit_state
+
+    state, claim_id = build_audit_state(Path(repo_root), finding_id)
+    return render_audit_view(state, claim_id)
