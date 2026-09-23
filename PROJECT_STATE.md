@@ -489,7 +489,7 @@ Verbindliche Grenzen:
 
 ### Andere bestehende Owner
 
-#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. WP1 verändert keine Research Selection, Method Truth oder andere Owner-Authority. Requirement-Coverage wurde nur für die konkret technisch demonstrierten bounded Eigenschaften auf `partial` nachgezogen.
+#46/#47/#60 sowie #49–#63 behalten ihren jeweiligen kanonischen Scope. WP1 verändert keine Research Selection, Method Truth oder andere Owner-Authority. Requirement-Coverage-Notizen wurden für die technisch demonstrierten WP1-Eigenschaften nachgezogen; neue Lifecycle-Promotionen auf `partial` wurden nicht allein aus dem bounded Increment erzeugt. Bestehende aktive/strukturierte Status bleiben unverändert.
 
 Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
 
