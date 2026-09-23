@@ -133,15 +133,15 @@ The exact #92 condition is met epistemically: D4 is persisted and admissible for
 
 `READY` does **not** authorize architecture conception in this task, requirements changes, delivery selection, implementation, or resurrection of R4–R8. It does not assert that the unknowns are resolved.
 
-**Repo / PR Integration Status:** `REPO-INTEGRATION-PENDING`.
+**Repo / PR Integration Status:** `COMPLETE`.
 
-- PR #125 is open, mergeable, targets `main`, and its `project-assurance` run `35779487893` succeeded.
-- PR #126 is open, mergeable, targets the PR-#125 branch, and its D4-head assurance runs `35783759160` and `35783755019` succeeded.
-- The branch relationship is correct and linear: PR #125 must merge before PR #126 can merge to `main`.
-- `PROJECT_STATE.md` on `main` is stale for this decision: it records the reconciliation as pending. The state update in this stacked PR is a pending handoff update, not merged project truth.
+- PR #125 was merged to `main` as `ec9736c8649fd1f94e053f863efcd0d2de07d09e` after successful `Project Assurance` run `35779487893`.
+- PR #126 was rebased semantically onto the integrated PR-#125 state and merged to `main` as `09b938dc56b3db3795f40232375991e90f3cb195` after successful `Project Assurance` run `35864983824`.
+- The stacked Research→Rebuild evidence is therefore integrated. `REPO-INTEGRATION-PENDING` is no longer an active project state.
+- `PROJECT_STATE.md` now carries the integrated handoff state.
 
-**Exact next allowed phase, after the stacked review evidence is integrated:** `Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled project findings + D4 external research.` It begins with concern derivation and retains every constraint and unknown above. It is not implementation authority.
+**Exact next allowed phase:** `Fresh rebuild conception under #48/#42/#59 from accepted Requirements + current repository reality + reconciled F1–F14 project findings + D4 external research.` It begins with concern derivation and retains every constraint and unknown above. It is not implementation authority.
 
 ## 8. Handoff check
 
-Material change: the D4 input is now pointwise reconciled with F1–F14 and #92's epistemic re-entry decision is explicit. Its canonical home is this #64/#92 review/assurance artifact; #64 and #92 receive only concise pointer/status updates. D4 evidence, project evidence and RI remain separated. No new issue is required. The pending stacked-PR state is visible, and a new work context can continue from this artifact without using this chat.
+Material change: the D4 input is pointwise reconciled with F1–F14 and #92's epistemic re-entry decision is explicit. Its canonical home is this #64/#92 review/assurance artifact; #64 and #92 carry concise pointer/status updates. D4 evidence, project evidence and RI remain separated. No new issue is required. The stacked PRs are integrated, `REPO-INTEGRATION-PENDING` is no longer active, and a new work context can continue from this artifact without using this chat.
