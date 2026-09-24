@@ -629,3 +629,197 @@ Externe Quellen für diese Fassung:
 - ICA ISAD(G): https://www.ica.org/en/isadg-general-international-standard-archival-description-second-edition
 - METR 2025 RCT: https://metr.org/Early_2025_AI_Experienced_OS_Devs_Study-paper.pdf
 - Digital Humanities Quarterly sustainability review: https://www.digitalhumanities.org/dhq/vol/14/3/000484/000484.html
+
+
+---
+
+# 11. Abgleich mit projektinternen Audits – Phase 7
+
+**Regel:** Dieser Abschnitt wurde erst nach der Fixierung der Abschnitte 1–10 erstellt. Er ändert die unabhängige Analyse nicht.
+
+## 11.1 Übereinstimmungen
+
+### A. Meta-/Governance-Komplexität
+
+#64 beschreibt das Risiko, dass das Meta-System den Value Stream überholt, zu viele Work Owner operative Handoffs erzeugen und Assurance-Erfolg mit Produkt-Erfolg verwechselt wird. Das stimmt eng mit den unabhängig formulierten Befunden 2, 4, SW-03, DEV-03 und Hypothese H3 überein.
+
+**Abgleich:** starke Konvergenz.
+
+### B. Korrekturkaskade / Fehler→Regel-Schleife
+
+#70 formuliert explizit die Gefahr `KI macht Fehler → neue Regel → mehr Governance → mehr Kontext/Handoffs → neue Orientierungsfehler`. Die unabhängige Analyse beschreibt denselben Mechanismus vorsichtiger als „Assurance Ratchet“ und Korrekturkaskade.
+
+**Abgleich:** starke Konvergenz, aber #70 ist kausal expliziter. Die unabhängige Fassung hält die Kausalität nur bei mittlerer Konfidenz, weil nicht jede neue Regel nachweislich denselben Mechanismus hat.
+
+### C. reale Forschung als Delivery-/Falsifikationseinheit
+
+#64 empfiehlt vollständige Vertical Research Slices. Die unabhängige Analyse kommt ohne Nutzung dieses Audits zu H4: Live Research ist die verlässlichste Quelle für echte Requirements.
+
+**Abgleich:** starke Konvergenz.
+
+### D. formale Qualität ≠ wissenschaftlicher/Owner-Nutzen
+
+#64 trennt technische Verification von Research/Product Acceptance. #70 trennt lokale formale Ziele von globalem Owner-Nutzen. Die unabhängige Analyse beobachtet dasselbe an WP1 und den Validatorgrenzen.
+
+**Abgleich:** sehr starke Konvergenz.
+
+### E. Prior-Art-/AI-Muster
+
+#70 analysiert AI-spezifische Mechanismen, lokale Objective Functions, Persistenzträgheit und die niedrigeren Produktionskosten kohärenter Strukturen gegenüber realer Falsifikation. Die unabhängige Analyse findet ebenfalls Prior-Art-Attraktion, KI-Kontextkompensation und hohe Strukturproduktionsdichte.
+
+**Abgleich:** mittlere bis starke Konvergenz. Die interne Analyse ist hier detaillierter; die unabhängige Analyse kann die AI-spezifische Kausalität nicht direkt messen.
+
+## 11.2 Abweichungen
+
+### A. Historische Fachqualität
+
+Die internen Audits #64/#70 konzentrieren sich primär auf Product/Governance/AI-Resilience. Die unabhängige Analyse legt deutlich mehr Gewicht auf die **fachhistorische Stichprobe**, die teilweise gute Quellenkritik bestätigt, aber bei 4/7 geprüften U2-Aussagen keine unabhängige Online-Verifikation der Editionsstellen erreichen konnte.
+
+**Nur in dieser Analyse stärker:** konkrete Trennung zwischen methodischer Vorsicht und noch fehlender externer fachwissenschaftlicher Validierung.
+
+### B. Software-Supply-Chain und statische Analyse
+
+Die unabhängige Analyse markiert Major-Tag-Actions statt immutable SHA-Pinning sowie fehlende sichtbare Linter/Type-Checker im inspizierten Workflow. Diese Punkte sind in den gelesenen internen Audits nicht zentral.
+
+### C. Transdisziplinäre Ergebnisqualität
+
+Die unabhängige Analyse trennt Prozessqualität von Ergebnisqualität anhand ISOE/Belcher/Boix Mansilla und bewertet die Integration derzeit eher als gut strukturierte Mehrperspektivität als als bereits extern validierte transdisziplinäre Erkenntnis. Die internen Audits behandeln stärker Projekt-/Systemintegration.
+
+### D. Blindheitsproblem
+
+#121 selbst definiert bereits ein Blind-Replication-Verfahren, scheint nach dem zugänglichen Issue-Stand aber seine angekündigten Artefakte an den dort genannten Pfaden nicht bereitgestellt zu haben. #138 definiert nahezu denselben aktuellen Auftrag wie #142; #142 wurde deshalb als Duplicate geschlossen.
+
+## 11.3 Was die internen Audits zusätzlich sichtbar machen
+
+1. #64 differenziert später zwischen schützender Loss-Boundary-Formalization und potenziell problematischer Problem-Partition-Formalization. Diese feinere Typisierung ist nützlich und verhindert die zu grobe Formel „weniger Formalisierung = besser“.
+2. #70 macht deutlich, dass **dokumentiertes Wissen kein Control Mechanism** ist: Ein Anti-Pattern kann bekannt sein und an einer konkreten Admission-Grenze trotzdem erneut auftreten.
+3. #70 beschreibt lokale Objective Functions als möglichen Mechanismus: lokale Vollständigkeit/Traceability ist leichter prüfbar als globale Owner-Entlastung.
+4. Interne Audits dokumentieren Recovery-Fälle und Near Misses ausführlicher als die unabhängige Fassung.
+
+## 11.4 Wie Abweichungen erklärbar sind
+
+- Die internen Audits hatten Zugang zu einer dichteren Projektgenealogie und fokussierten AI-/Governance-Mechanismen.
+- Die unabhängige Analyse wurde absichtlich breiter über historische Fachqualität, transdisziplinäre Standards und Software Engineering angelegt.
+- Gleiche KI-/Sprachfamilien können zu ähnlichen Taxonomien und Diagnosen führen; Konvergenz ist daher **kein unabhängiger Wahrheitsbeweis**.
+- Die starke Übereinstimmung erhöht die Plausibilität der beobachteten Muster, ersetzt aber weder quantitative Prozessmessung noch externe Fachreview.
+
+---
+
+# 12. Empfehlungen – getrennt vom Befund
+
+Jede Empfehlung ist als Handlungsvorschlag, nicht als neue Requirement-/Governance-Truth zu lesen.
+
+## R1 – Für eine begrenzte Zeit keine neue Governance-Schicht ohne empirischen Failure Case
+
+**Basis:** Befund 2, H3, DEV-03; Konvergenz mit #64/#70.
+
+Neue Regeln/Owner/Validatoren nur dann, wenn ein konkreter wiederholbarer Fehler nicht bereits durch vorhandene Mechanismen abgedeckt ist. Bevor eine neue Regel entsteht, zuerst prüfen: bestehende Regel vereinfachen, ableiten, automatisieren oder entfernen.
+
+## R2 – Fortschritt primär an 3–5 vollständigen historischen Research Slices messen
+
+**Basis:** H4, HIST-Befunde, Owner-Feedback WP1.
+
+Für jeden Slice messen:
+- Startfrage in Owner-Sprache;
+- Zeit bis zu prüfbarem Ergebnis;
+- Zahl manueller Handoffs/Meta-Schritte;
+- Anteil der Claims mit direkt prüfbarer Fundstelle;
+- Zahl notwendiger Owner-Korrekturen;
+- offene Unsicherheit;
+- tatsächlicher Forschungsnutzen.
+
+Damit wird „funktioniert das System?“ nicht durch Repo-/CI-Reife ersetzt.
+
+## R3 – Externe Fachprüfung jetzt klein, aber real durchführen
+
+**Basis:** HIST-09, TD-03, AI-DEV-02.
+
+Nicht das ganze Projekt reviewen lassen. 10 zufällig gezogene consequential Findings aus #46/#103 an eine qualifizierte Person für mittelalterliche Landesgeschichte/Diplomatik/Quellenkunde geben. Fehlerklassen dokumentieren. Das hat derzeit höheren Erkenntniswert als weitere interne Methodenaudits.
+
+## R4 – Research-facing Oberfläche vor weiterer Assurance-Ausweitung validieren
+
+**Basis:** reales Owner-Feedback 2026-09-23; Zentralbefund 4.
+
+Den excerpt-zentrierten Workflow mit realen Quellen testen: Exzerpt/Text/Bild zuerst, Provenienz und epistemischer Status drill-down-fähig, technische Traceability im Hintergrund. Erst wenn dies im Alltag trägt, breitere UI-/Workflow-Infrastruktur erwägen.
+
+## R5 – Semantische Ownership von operativer Work-Topologie entkoppeln
+
+**Basis:** DEV-03, #64-Abgleich.
+
+Viele fachliche Authorities dürfen existieren, ohne dass jede einen separaten manuellen Handoff erzeugt. Wo State deterministisch ableitbar ist, automatisch zusammenführen. Owner nur für echte Bedeutung/Priorität/Fachurteil/Acceptance beanspruchen.
+
+## R6 – Requirements-Bestand empirisch challengen
+
+**Basis:** 53 accepted Requirements, H4, offene Frage 3.
+
+Nicht pauschal reduzieren. Stattdessen jeden Requirement-Cluster gegen reale Research Slices markieren:
+- wiederholt gebraucht;
+- einmalig gebraucht;
+- noch nie in realer Forschung ausgelöst;
+- rein schützende Invariante;
+- potenziell durch Standardtool/Format ersetzbar.
+
+Das ist eine Evidenzprüfung, keine automatische De-Scope-Aktion.
+
+## R7 – kleine technische Hygiene-Deltas
+
+**Basis:** SW-07/SW-08.
+
+Proportional prüfen:
+- GitHub Actions auf immutable Commit-SHAs pinnen;
+- einen leichten Linter/Type-Check ergänzen, sofern er ohne nennenswerte Pflegekosten läuft;
+- Dependency-/License-/Vulnerability-Check für tatsächlich verwendete Python-Abhängigkeiten;
+- Backup/Restore/Export-Test erst dort, wo persistenter Runtime-State existiert.
+
+## R8 – Audit-Sättigung definieren
+
+**Basis:** #64/#70/#121/#138 plus diese Analyse.
+
+Weitere ganzheitliche Meta-Audits sollten erst stattfinden, wenn neue **empirische** Evidenz vorliegt: externe Fachreview, mehrere neue Research Slices, messbarer Owner-Aufwand oder ein materieller Failure. Sonst droht Audit über Audit ohne neue diskriminierende Information.
+
+---
+
+# 13. Reflexion der eigenen Analyse
+
+## 13.1 Befangenheit
+
+Dieser Review wurde von einem KI-System durchgeführt, das strukturell ähnliche Fähigkeiten und Sprachmuster besitzt wie die Systeme, die das Repository erzeugt haben. Risiken:
+
+- gleiche Präferenz für Taxonomien, Trennungen und Governance;
+- gleiche Tendenz, Kohärenz als Qualität zu überschätzen;
+- gleiche Blindstellen bei fachhistorischen Details;
+- gleiche Neigung, komplexe Probleme in strukturierte Frameworks zu überführen.
+
+Gegenmaßnahmen waren: Primärspuren vor Synthesen, externe Standards, konkrete Source-/Code-Stichproben, Gegenhypothesen und die Audit-Quarantäne.
+
+## 13.2 Verfahrensgrenze
+
+Die Blindheit war **nicht perfekt**: Ein #9-Kommentar-Abruf lieferte vor Fixierung unbeabsichtigt einen internen Audit-Kommentar. Dessen Diagnosen wurden nicht als Evidenz der Abschnitte 1–10 verwendet. Trotzdem ist ein vollständig blindes Experiment damit nicht mehr behauptbar.
+
+## 13.3 Messgrenzen
+
+- keine vollständige Repository-Tree-/LOC-Auswertung;
+- keine echte Zufallsstichprobe aller historischen Claims;
+- keine lokale Ausführung der Tests in dieser Chat-Umgebung;
+- keine vollständige PR-/CI-Statistik;
+- keine unabhängige Spezialistenprüfung;
+- keine sichere Trennung menschlich formulierter von KI-formulierter GitHub-Prosa.
+
+## 13.4 Schlussgrenze
+
+Die belastbarste Aussage ist nicht „Histo-Orla ist gut/schlecht“, sondern:
+
+> Histo-Orla besitzt ungewöhnlich starke explizite epistemische und formale Schutzmechanismen und zeigt reale Lernfähigkeit. Gleichzeitig ist empirisch sichtbar, dass diese Schutzmechanismen und ihre Koordination selbst zu einem erheblichen Teil der Arbeit geworden sind, während unabhängige fachhistorische Validierung und research-facing End-to-End-Nutzen noch weniger stark belegt sind. Die nächste Qualitätssteigerung ist daher vor allem durch reale Forschungsnutzung und externe Stichprobenprüfung zu erwarten, nicht durch eine weitere Verfeinerung der Selbstbeschreibung.
+
+---
+
+# Handoff-Check
+
+1. **Materiell geändert:** unabhängige Gesamtanalyse erstellt; Phase-7-Abgleich und getrennte Empfehlungen ergänzt.
+2. **Kanonischer Ort:** dieses Artefakt; Work Owner #138.
+3. **Work-Owner-Status:** muss nach Integration auf `review-complete`/äquivalent aktualisiert werden.
+4. **Evidenz/Begründung/Trade-offs:** in Abschnitten 1–13.
+5. **Offene Punkte:** externe Fachreview, quantitative Repository-/Workflow-Metrik, vollständige Claim-Stichprobe.
+6. **#44-Blocker:** kein neuer echter Owner-Blocker festgestellt.
+7. **PROJECT_STATE.md:** dieser Review ändert keine Phase, Selection, Requirement, Method oder Architecture; eine Current-State-Änderung ist daher nicht automatisch erforderlich. Ein Pointer kann bei Integration sinnvoll sein, falls #138 als handoff-relevanter Review geführt wird.
+8. **Restartability:** #138 + dieses Artefakt reichen für Fortsetzung ohne Chat; #142 ist als Duplicate geschlossen.
