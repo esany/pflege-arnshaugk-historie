@@ -1,9 +1,11 @@
 # U2 – Modulares Forschungs- und Suchinventar Orlagau
 
-**Status:** `working-research / modular-research-inventory / case-specific`  
+**Status:** `superseded / not-pass / historical prior art / case-specific`
 **Work Owner:** #46  
 **Research Protocol:** #45 + `docs/research/source-identity-protocol.md`  
 **Stand:** 2026-09-03
+
+> **Disposition:** Das statische Modulkonzept wurde im Owner-Feedback ausdrücklich als `NOT PASS` verworfen. Dieses Artefakt bleibt als historische Forschungsprovenienz erhalten, ist aber kein aktueller Work-Owner-Status, kein Produktmodell und keine Architektur- oder Selection-Authority. Der aktuelle Handoff-/Disposition-Kontext liegt in `PROJECT_STATE.md` und `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260924.md`; der aktuelle Workflow-Schwerpunkt ist excerpt-/fundstellenzentriert und muss separat autorisiert werden.
 
 ## 1. Zweck
 

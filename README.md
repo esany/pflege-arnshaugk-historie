@@ -45,6 +45,7 @@ Kanonisch:
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
+- `docs/research/discovery/intent-bestandsaufnahme-2026-09-24.md` – read-only Intent-/Erkenntnislücken-Bestandsaufnahme; keine Promotion oder neue Authority
 
 ## Aktueller Arbeitsfluss
 

@@ -17,6 +17,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
 - **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; die Fresh Rebuild Conception ist abgeschlossen. WP1 `Canonical Research State Spine v0 + derived audit roundtrip` ist über PR #132 als bounded Increment **IMPLEMENTED + TECHNICALLY VERIFIED**; `IMP-STATE-SPINE-001` ist verified. Owner-/Workflow-Nutzen bleibt separat offen. `selection-open` bleibt unverändert; kein WP2/WP3/WP4/WP5 ist dadurch admitted.
+- **Intent-/Erkenntnislücken-Bestandsaufnahme 2026-09-24** – read-only Analyse ohne Promotion; gegen `main@9b9dd31` revalidiert. Sie ist die aktuelle kanonische Lesesicht für die jüngsten Intent-Signale, während Intent und Erkenntnislücke ausdrücklich ungelöste Modellierungs-/Owner-Fragen bleiben.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
@@ -77,6 +78,8 @@ Kanonisch:
 - `docs/architecture/assurance/value-decision-delivery-assurance.md`
 - `docs/architecture/assurance/d4-project-reconciliation-rebuild-reentry-20260923.md`
 - `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260923.md`
+- `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260924.md`
+- `docs/research/discovery/intent-bestandsaufnahme-2026-09-24.md`
 - `docs/governance/lean-agile-non-regression.md`
 - `docs/development/requirements-coverage.md`
 - `docs/research/synthesis/phase-reconciliation.md`
