@@ -499,9 +499,12 @@ Für den Sachenbacher-Pilot bedeutet das: Karte + relevante Textstellen müssen 
 
 Das Feedback ist Product-/Workflow-Evidence, keine historische Evidenz. Es ändert weder #42-Requirements noch #60-Method Truth und invalidiert WP1 nicht.
 
-**Exakt nächste ausführbare Rebuild-Aktion:**
+**Nächste Rebuild-Aktion (Auswahl bleibt offen):**
 
-> **Unter #48/#49/#50/#51/#55/#63 einen bounded excerpt-zentrierten Research-Workflow-Test für den Sachenbacher-Fall ableiten: Zotero-/Bibliographie-Referenz, exakte Instance/Findspots, visuelle Evidenz und Text-Exzerpte zu einem wissenschaftlich transparenten, prüfbaren Owner-View zusammenführen, ohne die Ebenen zu verschmelzen.**
+1. **Pilotquelle und konkreten Pilotauftrag zuerst explizit durch den zuständigen Research-/Product-Owner autorisieren bzw. auswählen.** Sachenbacher ist hierfür ein plausibler, bereits integrierter Testkandidat, aber nicht automatisch ausgewählt.
+2. **Erst nach dieser Autorisierung** unter #48/#49/#50/#51/#55/#63 einen bounded excerpt-zentrierten Research-Workflow-Test durchführen: Zotero-/Bibliographie-Referenz, exakte Instance/Findspots, visuelle Evidenz und Text-Exzerpte zu einem wissenschaftlich transparenten, prüfbaren Owner-View zusammenführen, ohne die Ebenen zu verschmelzen.
+
+Die Auswahlentscheidung ist ein eigener Owner-Schritt; der anschließende Test ist keine globale Research Selection.
 
 Der Test soll zuerst zeigen:
 
@@ -532,9 +535,10 @@ Der frühere Fresh-Rebuild-Startkontext bleibt als Provenienz erhalten:
 
 `docs/architecture/fresh-rebuild-conception-work-context-20260923.md`
 
-Chat-Closure-/Wissensmonopol-Audit:
+Chat-/Wissensmonopol-Audits:
 
-`docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260923.md`
+- `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260923.md`
+- `docs/architecture/assurance/chat-closure-knowledge-monopoly-audit-20260924.md`
 
 ## 11. Blocker / Decisions
 
