@@ -84,4 +84,4 @@ A fresh chat must:
 
 ## 7. Verification boundary
 
-This audit changes only a versioned assurance artefact and the handoff wording in `PROJECT_STATE.md). It does not alter accepted Requirements, research findings, Method Truth, selection authority, product architecture, WP2–WP5 admission or historical case state.
+This audit changes only a versioned assurance artefact and the handoff wording in `PROJECT_STATE.md`. It does not alter accepted Requirements, research findings, Method Truth, selection authority, product architecture, WP2–WP5 admission or historical case state.
