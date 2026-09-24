@@ -1,7 +1,8 @@
 # Histo-Orla – Bestandsaufnahme Intent, Erkenntnislücken und offene Punkte
 
 **Stand:** 2026-09-24  
-**Basis:** main@65b8e8f27658e4a2480f59503eaa9064fe4c5c58 plus ausdrücklich gekennzeichnete nicht gemergte Branch-/PR-Inputs  
+**Basis-Snapshot:** main@65b8e8f27658e4a2480f59503eaa9064fe4c5c58 plus ausdrücklich gekennzeichnete nicht gemergte Branch-/PR-Inputs
+**Revalidiert gegen:** main@9b9dd31 am 2026-09-24; die Revalidierung ändert die Analyse nicht materiell, bestätigt aber die Handoff-/Discoverability-Korrekturen aus dem aktuellen Chat-Knowledge-Monopoly-Audit.
 **Status:** Bestandsaufnahme / read-only Analyse / keine Promotion  
 **Auftrag:** Owner-Auftrag vom 2026-09-24; kein neuer Work Owner, kein Requirement-, Method-, Architecture- oder Governance-Delta  
 **Einziges Persistenzziel dieses Auftrags:** diese Datei
