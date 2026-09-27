@@ -1,0 +1,225 @@
+{
+  "schema_version": "0.2",
+  "manifest_type": "bounded-preservation-execution-plan",
+  "run_id": "competence-analysis-preservation-2026-09-27-v1",
+  "status": "planning-freeze",
+  "purpose": "Preserve the owner-confirmed competence-analysis working state with semantic fidelity, completeness, reviewability and restartability without method, requirement, architecture or historical-finding promotion.",
+  "authority": {
+    "preservation_work_owner": "#150",
+    "competence_inventory_owner": "#22",
+    "domain_method_truth_owner": "#60",
+    "research_quality_owner": "#45",
+    "requirements_owner": "#42",
+    "semantic_source_authority": "owner-confirmed-analysis-input",
+    "material_promotion_authority": "unchanged-existing-owners"
+  },
+  "canonical_refs": {
+    "original_planning_prompt": "docs/research/discovery/competence-analysis/planning/p0-planning-prompt-2026-09-27.md",
+    "source_lock": "docs/research/discovery/competence-analysis/inputs/owner-confirmed-analysis-2026-09-27.md",
+    "execution_plan": "docs/research/discovery/competence-analysis/planning/preservation-execution-plan-2026-09-27.md",
+    "assurance_contract": "docs/research/discovery/competence-analysis/planning/assurance-contract-2026-09-27.md",
+    "current_map": "docs/research/discovery/competence-analysis/README.md",
+    "final_baseline": "docs/research/discovery/competence-analysis/analysis-baseline-2026-09-27.md",
+    "run_assurance": "docs/research/discovery/competence-analysis/runs/2026-09-27-preservation/run-assurance.md"
+  },
+  "execution_authorization": {
+    "start_gate": "explicit-owner-approval-and-merge-of-P0-planning-freeze",
+    "authorization_scope": "W1-through-W7 exactly as frozen, conditional on PASS/REVISE transitions and global STOP rules",
+    "does_not_authorize": [
+      "method promotion",
+      "requirement changes",
+      "architecture changes",
+      "historical findings",
+      "profile taxonomy finalization",
+      "new skill/runtime/framework implementation"
+    ]
+  },
+  "controller": {
+    "worker": "W0",
+    "semantics": "deterministic-transition-only",
+    "non_deterministic_transition": "STOP-CONTROLLER-NONDETERMINISM",
+    "may_not": [
+      "interpret scholarly meaning",
+      "choose material alternatives",
+      "invent repair content",
+      "expand authority",
+      "set priority"
+    ]
+  },
+  "allowed_results": [
+    "PASS",
+    "REVISE",
+    "STOP"
+  ],
+  "steps": {
+    "W1": {
+      "packet_ref": "planning/work-packets/W1-material-inventory.md",
+      "depends_on": [],
+      "required_evidence": [
+        "inventory",
+        "coverage-class-summary"
+      ],
+      "independence_required": false,
+      "on_pass": "W2",
+      "on_revise": "STOP",
+      "on_stop": "HUMAN"
+    },
+    "W2": {
+      "packet_ref": "planning/work-packets/W2-baseline-authoring.md",
+      "depends_on": [
+        "W1"
+      ],
+      "required_evidence": [
+        "baseline-draft",
+        "inventory-to-baseline-map"
+      ],
+      "independence_required": false,
+      "on_pass": "W3",
+      "on_revise": "STOP",
+      "on_stop": "HUMAN"
+    },
+    "W3": {
+      "packet_ref": "planning/work-packets/W3-coverage-loss-review.md",
+      "depends_on": [
+        "W1",
+        "W2"
+      ],
+      "required_evidence": [
+        "coverage-loss-matrix",
+        "qc-verdict"
+      ],
+      "independence_required": true,
+      "on_pass": "W4",
+      "on_revise": "W2",
+      "on_stop": "HUMAN"
+    },
+    "W4": {
+      "packet_ref": "planning/work-packets/W4-repository-reconciliation.md",
+      "depends_on": [
+        "W3"
+      ],
+      "required_evidence": [
+        "reconciliation-matrix",
+        "current-repo-readset"
+      ],
+      "independence_required": false,
+      "on_pass": "W5",
+      "on_revise": "W4",
+      "on_stop": "HUMAN"
+    },
+    "W5": {
+      "packet_ref": "planning/work-packets/W5-independent-adversarial-review.md",
+      "depends_on": [
+        "W3",
+        "W4"
+      ],
+      "required_evidence": [
+        "adversarial-review",
+        "qc-verdict",
+        "independence-statement"
+      ],
+      "independence_required": true,
+      "on_pass": "W6",
+      "on_revise": "DECLARED_REPAIR_ROUTE",
+      "on_stop": "HUMAN"
+    },
+    "W6": {
+      "packet_ref": "planning/work-packets/W6-final-integration.md",
+      "depends_on": [
+        "W5"
+      ],
+      "required_evidence": [
+        "final-baseline",
+        "current-map",
+        "run-assurance",
+        "pointer-deltas"
+      ],
+      "independence_required": false,
+      "on_pass": "W7",
+      "on_revise": "STOP",
+      "on_stop": "HUMAN"
+    },
+    "W7": {
+      "packet_ref": "planning/work-packets/W7-fresh-restart-test.md",
+      "depends_on": [
+        "W6"
+      ],
+      "required_evidence": [
+        "restart-reconstruction",
+        "restart-oracle-matrix",
+        "restart-verdict"
+      ],
+      "independence_required": true,
+      "on_pass": "DONE",
+      "on_revise": "W6",
+      "on_stop": "HUMAN"
+    }
+  },
+  "revision_policy": {
+    "max_automatic_revision_cycles_per_gate": 1,
+    "same_material_failure_twice": "STOP-REPEATED-FAILURE",
+    "severity_S3": "STOP",
+    "W3_revise_route": [
+      "W2",
+      "W3"
+    ],
+    "W5_repair_routes": {
+      "representation_or_semantic_failure": [
+        "W2",
+        "W3",
+        "W4",
+        "W5"
+      ],
+      "reconciliation_only_failure": [
+        "W4",
+        "W5"
+      ]
+    },
+    "W7_revise_scope": "navigation-or-handoff-only",
+    "W7_material_semantic_failure": "STOP-ASSURANCE-ESCAPE"
+  },
+  "global_stop_conditions": [
+    "STOP-SEMANTIC",
+    "STOP-CONFLICT",
+    "STOP-PROMOTION",
+    "STOP-LOSS",
+    "STOP-REVIEW-DISAGREEMENT",
+    "STOP-AUTHORITY",
+    "STOP-CAPABILITY",
+    "STOP-SCOPE",
+    "STOP-STRUCTURE",
+    "STOP-PROVENANCE",
+    "STOP-INDEPENDENCE",
+    "STOP-REPEATED-FAILURE",
+    "STOP-ASSURANCE-ESCAPE",
+    "STOP-CONTROLLER-NONDETERMINISM"
+  ],
+  "completion_condition": {
+    "required": [
+      "W3 PASS",
+      "W4 PASS",
+      "W5 PASS",
+      "W7 PASS",
+      "all material inventory items represented or explicitly dispositioned",
+      "all QC criteria satisfied",
+      "final analysis baseline exists",
+      "current map points to canonical baseline",
+      "#22 and #60 authority boundaries unchanged",
+      "PR #147 and PR #148 correctly dispositioned by reference",
+      "open SOTA/profile-boundary/method-validation states visible",
+      "no unauthorized promotion occurred"
+    ]
+  },
+  "non_goals": [
+    "domain SOTA research",
+    "historical Herrmann research",
+    "method profile promotion",
+    "requirement change",
+    "architecture change",
+    "technical agent architecture",
+    "workflow engine",
+    "ontology or graph database",
+    "generic skill implementation"
+  ],
+  "source_lock_blob_sha": "85d3b7cd38dd14c8f23af8350b4c585828934018"
+}
