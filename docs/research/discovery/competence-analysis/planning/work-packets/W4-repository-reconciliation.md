@@ -21,7 +21,7 @@
 **MUST PRESERVE** — #22/#60/#45/#42/#23 authority; one fact/one home; history.  
 **MUST NOT** — import missing content into baseline; rewrite historical PRs; delete provenance; promote methods.  
 **AUTHORITY BOUNDARY** — routine reconciliation may classify; material authority conflict triggers STOP.  
-**APPLICABLE METHOD / QUALITY FRAME** — AGENTS, system/reconciliation prior art, QC-09/10/11/14.  
+**APPLICABLE METHOD / QUALITY FRAME** — Histo-Orla `AGENTS.md`; `esany/Wissensarbeit/system/reconciliation.json` only as prior-art reconciliation semantics; QC-09/10/11/14 remain the governing assurance contract.  
 **REQUIRED EVIDENCE** — fresh repo refs/status + reconciliation matrix.  
 **QUALITY CRITERIA** — all impacted surfaces explicit, including `unchanged`; no silent owner change.  
 **EXPECTED OUTPUT** — object/current role/relation/disposition/rationale/future action/non-change/authority.  
