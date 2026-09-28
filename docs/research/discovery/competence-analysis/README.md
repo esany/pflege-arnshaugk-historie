@@ -1,6 +1,6 @@
 # Competence Analysis Preservation
 
-**Status:** `P0 planning freeze / preservation work package / no W1 yet`  
+**Status:** `P0 preservation work package / owner-gated source-plan-assurance freeze / W1 not started`  
 **Work Owner:** #150  
 **Content / competence inventory:** #22  
 **Domain Method Truth:** #60  
@@ -19,13 +19,17 @@
 
 The execution manifest binds the same SHA.
 
-## Current step
+## Current gate / transition
 
-`P0 repository freeze and concrete diff review`
+The canonical live gate is recorded in Work Owner #150.
 
-**Next permitted action:** Owner review / merge decision for the P0 pull request.
+For PR #151 the transition is fixed:
 
-W1 has **not** started. After an explicitly approved P0 merge, W1 is the next permitted step but still requires separate execution authorization.
+- **before merge:** Owner Merge Gate for the concrete P0 diff;
+- **on an explicitly approved merge:** P0 becomes `FROZEN` and W1 becomes the next permitted execution step;
+- **after merge:** W1 remains **NOT STARTED** and still requires a separate explicit execution authorization.
+
+A P0 merge therefore freezes source, plan and assurance; it does not execute the preservation run.
 
 ## Prior derivatives
 
