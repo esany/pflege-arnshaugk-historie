@@ -1,98 +1,89 @@
 # Process Learning 2026-09-28 – AI-orchestrierte Capability-Integration / PR #149
 
-**Status:** `critical self-review / process learning / no new Requirement, Architecture or Implementation authority`  
-**Scope:** der vollständige verfügbare Arbeitsverlauf zur Planung von PR #149 – von `implementation ready` über Independent Review, Review-Reconciliation und Closure Review bis zur Owner-Korrektur, dass Assurance/Chat-Orchestrierung selbst zum Fortschrittshemmnis geworden ist.  
+**Status:** `critical self-review / process learning / corrected after Owner feedback / no new Requirement, Architecture or Implementation authority`  
+**Scope:** kompletter verfügbare Arbeitsverlauf zu PR #149 – von `implementation ready` über Independent Review, Reconciliation, Closure Review und Owner-Korrekturen bis zum Exit aus der Assurance-/Planungsschleife.  
 **Primary technical owner:** #48  
-**Related:** PR #149, #57, #59, #61, #63  
-**Important boundary:** Dieses Artefakt bewertet den Entwicklungs-/Orchestrierungsprozess und hält daraus abgeleitete Learnings fest. Es entscheidet weder den offenen PR-#149-Plan noch einen Work Order, keine Architecture Promotion, keine Implementation Admission und keine fachliche Research Selection.
+**Related:** PR #149, #42, #57, #59, #61, #63  
+
+> Dieses Artefakt bewertet den Entwicklungs-/Orchestrierungsprozess. Es erzeugt keine neue Requirement-, Method-, Architecture-, Merge-, Research-Selection- oder Operational-Admission-Authority.
 
 ---
 
-## 1. Warum dieses Learning existiert
+## 1. Ausgangsproblem dieses Workstreams
 
-Der Arbeitsauftrag dieses Chats war **technisches Enablement**, nicht historische Fachforschung und nicht eine neue Rekonstruktion des gesamten Histo-Orla-Systembilds.
+Der Auftrag dieses Chats war **foundational technical enablement**, nicht historische Fachforschung und nicht die erneute Rekonstruktion des gesamten Histo-Orla-Systembilds.
 
-Das Systembild ist das übergeordnete Warum: Histo-Orla soll als private, transdisziplinäre historische Forschungsassistenz belastbare Quellenarbeit, fachliche Problemübersetzung, Methoden, Analyse und restartbaren Research State unterstützen.
+Das übergeordnete Systembild erklärt das Warum. Der konkrete technische Pain war:
 
-Der konkrete technische Pain dieses Arbeitsstrangs war enger:
+> Histo-Orla braucht belastbare Grundstrukturen, durch die die KI externe bzw. evolvierende Fähigkeiten selbständig, aktuell, authority-sauber, restartbar und ressourceneffizient nutzen und orchestrieren kann, damit der Human Owner nicht Skills, Chats, Versionen, Kontexte und Ausführungswege manuell koordinieren muss.
 
-> Histo-Orla benötigt belastbare Grundstrukturen, durch die die KI externe bzw. evolvierende Fähigkeiten selbständig, aktuell, authority-sauber, restartbar und ressourceneffizient nutzen und orchestrieren kann, damit der Human Owner nicht länger Skills, Chats, Versionen, Kontexte und Ausführungswege manuell koordinieren muss.
+Der reale erste Pilot ist der in `esany/Wissensarbeit` entwickelte Skill `system-analysis-deep-research`.
 
-Der reale erste Pilot hierfür war der in `esany/Wissensarbeit` entwickelte Skill `system-analysis-deep-research`.
-
-Dieses Learning wurde notwendig, weil der Planungs-/Assurance-Prozess genau die Owner-Belastung reproduzierte, die die technische Capability eigentlich reduzieren sollte.
-
----
-
-## 2. Was am Anfang korrekt verstanden war
-
-### 2.1 Capability statt einzelner Dateikopie
-
-Das technische Ziel war nicht lediglich, einen externen Skill lokal zu speichern.
-
-Der angestrebte Capability-Pfad war sinngemäß:
+Der gewünschte Capability-Pfad war von Anfang an ungefähr:
 
 ```text
-externe Capability existiert
-→ Histo kann sie eindeutig identifizieren
-→ relevanten / zulässigen Stand bestimmen
-→ Histo-Authority und Scope binden
-→ Capability im Work Context benutzen
-→ KI orchestriert die Ausführung
-→ Ergebnis kontrolliert zurückführen
-→ Zustand restartbar halten
-→ Upstream-Delta / Unavailability sichtbar behandeln
+external capability exists
+→ Histo identifies the relevant exact basis
+→ Histo binds task / authority / STOP
+→ AI uses the capability without owner relay work
+→ result returns under Histo authority
+→ state remains restartable
+→ upstream delta / unavailability remain visible
 ```
 
-Damit ist der externe Skill ein **realer Integrationspilot für foundational technical enablement**, nicht das Produktziel selbst.
+Der Skill ist damit Integrationspilot für eine grundlegende technische Fähigkeit, nicht Produktziel und nicht fachlicher Forschungsgegenstand.
 
-### 2.2 User GO, Assistant Initiative
+---
 
-Richtig war auch die Authority-Idee:
+## 2. Was am Anfang richtig war
 
-- die KI soll Analyse, Routing, Vorbereitung und Orchestrierung übernehmen;
-- der Human Owner soll materielle GO-/Admission-Grenzen behalten;
-- ein Analyse- oder Review-Auftrag darf nicht still Implementation/Merge/Folgephasen autorisieren;
-- der Owner soll aber auch nicht für deterministisch lösbare Routing-, Chat-, Skill-, Pfad- oder Validatorentscheidungen zum Operator werden.
+### 2.1 User GO, Assistant Initiative
 
-### 2.3 Capability-first und Ressourcenökonomie
+Richtig war die Trennung:
+
+- KI besitzt Initiative für Analyse, Routing, Vorbereitung und Orchestrierung;
+- der Human Owner behält materielle GO-/Admission-Grenzen;
+- Analyse-/Review-Auftrag erzeugt keine stille Implementation-/Merge-/Folgephasen-Authority;
+- der Owner soll aber nicht für deterministisch lösbare Routing-, Chat-, Skill-, Pfad- oder Validatorentscheidungen zum Operator werden.
+
+### 2.2 Capability-first / Kosten
 
 Richtig war ebenfalls:
 
 ```text
-normaler Chat / verfügbare Connectoren
-= Analyse, Planung, Review, Reconciliation, Fresh-State-Checks
+normaler Chat + verfügbare Connectoren
+= Analyse, Planung, Review, Fresh-State-Checks, Reconciliation
 
 scarce / isolierter Executor
-= nur dort, wo nicht substituierbare Filesystem-/Git-Isolation, Mutation und lokale Tests benötigt werden
+= nur nicht substituierbare filesystem/Git-Isolation, Mutation, lokale Tests
 ```
 
-Das sollte knappe Execution-Ressourcen sparen und gleichzeitig unnötige Context Switches vermeiden.
+Das Problem entstand später nicht aus dieser Trennung selbst, sondern daraus, dass wir Executor-Tokens stärker optimierten als Owner-Aufwand und Time-to-Working-Capability.
+
+### 2.3 Ein realer Pilot statt abstrakter Plattform
+
+Richtig war, einen konkreten reviewed-but-unmerged Skill-Stand aus Wissensarbeit zu verwenden und dabei Histo-Authority, upstream maturity und Generic Fit strikt zu trennen.
 
 ---
 
-## 3. Entwickelte Lösungsansätze und heutige Einordnung
+## 3. Entwickelte Lösungsansätze und heutige Disposition
 
-### 3.1 Generischer External-Skill Binding Core
+### 3.1 Generischer Binding-/Compatibility-Core
 
 Frühe Hypothese:
 
 - Binding Contract;
 - JSON Schema;
 - Compatibility Evaluator;
-- persistenter Binding Record / Registry-artige Projektion.
+- persistenter Binding/Registry-State.
 
-Ziel war, Tracking Identity, exact upstream basis, lokale Review-Basis und Delta/Compatibility sichtbar zu halten.
+**Review-Ergebnis:** zu früh generalisiert. Existing Histo Work Context / Work Order deckt bereits Owner, Scope, Refs, MAY/MUST NOT, STOP, Persistence und Basis-Revalidation ab.
 
-**Review-Learning:** für den ersten Pilot übergeneralisiert. Existing Histo Work Context / Work Order kann bereits Authority, Scope, Refs, MAY/MUST NOT, STOP, Persistence und Basis-Revalidation tragen. Ein generischer Registry-/Evaluator-Layer war nicht als kleinstes notwendiges Mittel bewiesen.
-
-**Disposition im bisherigen Plan:** `reject/defer`.
+**Disposition:** `reject/defer`.
 
 ### 3.2 Trial Admission vs. Operational Admission
 
-Der erste Plan enthielt eine zirkuläre Semantik: ein noch nicht lokal geprüfter Skill sollte durch genau den Trial lokal legitimiert werden, für dessen Start er scheinbar bereits positive Compatibility benötigte.
-
-Die korrigierte Trennung ist wertvoll:
+Wertvolle Korrektur:
 
 ```text
 UPSTREAM REVIEWED
@@ -102,57 +93,58 @@ UPSTREAM REVIEWED
 → LOCAL OPERATIONAL ADMISSION | adapt | reject | unresolved
 ```
 
-Upstream Review bleibt externe Evidence und erzeugt keine Histo-Authority. Trial Admission darf genau den Test erlauben, ohne vorher Operational/Generic Compatibility zu behaupten.
+Upstream Review ist Evidence über den Upstream, keine Histo-Authority. Trial Admission erlaubt Prüfung, ohne positive Operational/Generic Compatibility vorwegzunehmen.
 
 ### 3.3 Fresh upstream statt pseudo-current State
 
-Ebenfalls beizubehalten:
+Beibehalten:
 
 - Tracking Identity darf persistent sein;
-- dated Observation darf persistent sein;
+- datierte Observation darf persistent sein;
 - `current upstream` wird bei consequential use frisch resolved;
-- Ref-/Status-Delta kann deterministisch sichtbar werden;
-- positive semantische Compatibility/Admission bleibt Review-/Authority-Evidence.
+- Delta/Staleness kann deterministisch erkannt werden;
+- semantische Compatibility/Admission bleibt Review-/Authority-Sache.
 
-### 3.4 Immutable Availability Derivative
+### 3.4 Exact Availability Derivative
 
-Aus der Restartability-/Provider-Loss-Frage entstand die Hypothese, einen exact frozen, execution-sufficient Upstream-Basisstand lokal mit Provenienz zu erhalten.
+Die Restartability-Frage führte zu einer kleinen lokalen, provenance-erhaltenden Kopie des exact reviewed Runtime-Pakets.
 
-Der Closure Review bewertete die Grundidee positiv, präzisierte aber:
+Der Closure Review bestätigte die Grundidee, aber schärfte ihre Reichweite:
 
-- sie garantiert recoverable **Skill/source-package basis**, nicht die fortdauernde Verfügbarkeit eines AI-/Research-Providers;
-- local integrity kann mit vorhandener Git-Blob-Basis-Revalidation geschützt werden;
-- der environment-specific ChatGPT profile bleibt aus exact reviewed-package fidelity erhalten, nicht weil er vendor-neutral Core wäre.
+- sie sichert die **recoverable Skill/source-package basis**;
+- sie sichert nicht AI-/Research-Provider, Credentials, Quoten oder externe Quellen;
+- lokale Integrität soll über vorhandene Git-Blob-Basis-Revalidation geprüft werden;
+- alle drei Dateien bleiben aus exact reviewed-package fidelity erhalten, nicht weil das ChatGPT-Profil vendor-neutral Core wäre.
 
-**Wichtiges Prozess-Learning:** selbst eine technisch plausible Restartability-Maßnahme darf nicht automatisch zur zwingenden Precondition für jeden ersten reversiblen Capability-Trial werden. Ihre Stellung muss gegen den tatsächlich benötigten Increment geprüft werden.
+**Disposition:** als konkreter Pilotbestandteil beibehalten; keine Vendor-/Mirror-/Registry-Plattform daraus ableiten.
 
-### 3.5 P0 / generische Create-Target-Erweiterung
+### 3.5 E0/P0 – generische Create-Target-Erweiterung
 
-Aus einer Einschränkung des bounded execution validators – deklarierte Scope-Dateien müssen heute bereits existieren – wurde P0 abgeleitet: generische `create_files`-Semantik in Contract/Schema/Validator/Tests.
+Aus einer Einschränkung des optionalen bounded-execution Validators wurde fälschlich ein vorgelagerter Infrastrukturbedarf abgeleitet.
 
 Der Closure Review zeigte:
 
-> Diese Einschränkung des optionalen Validators ist keine Projektinvariante und macht generische Create-Target-Infrastruktur für einen einzelnen E1-Run nicht automatisch notwendig.
+> Die Validator-Grenze ist keine Projektinvariante. Ein konkreter reversibler Create-Slice kann über Owner Authority / Work Context + isolierte Git-Surface + exact absent target paths + changed-file/diff checks gebunden werden.
 
-Ein konkreter reversibler Create-Run kann durch bestehenden Work Context / Owner Authority plus isolierte Git-/Filesystem-Surface, exact pre-bound absent target paths, fail-if-present, exact changed-file check und Diff Review gebunden werden.
+**Disposition:** `remove from critical path`.
 
-**Learning:** ein bestehender Hilfsmechanismus darf nicht unbemerkt zum mandatory gateway werden, nur weil der geplante Slice sonst nicht durch genau diesen Mechanismus passt.
+Kein generischer Create-Target-Contract/Schema/Validator wird für diesen Pilot gebaut.
 
 ### 3.6 Isolierte Implementation Surface
 
-Weiterhin ein valider technischer Schutz:
+Beibehalten:
 
 ```text
 fresh isolated checkout/worktree oder nachweislich äquivalent
 → exact admitted basis
 → branch-scoped mutation
-→ same-checkout tests
+→ same-checkout verification
 → exact changed-file check
 → diff review
 → delta-only return
 ```
 
-Dies adressiert ein reales Risiko: direkte GitHub-Contents-/Connector-Writes können lokale Mutation Guards umgehen. Isolation ist daher eine echte Capability-/Safety-Eigenschaft und kein bloßes Meta-Gate.
+Das adressiert ein reales Safety-Problem und ist keine bloße Meta-Zeremonie.
 
 ---
 
@@ -160,11 +152,11 @@ Dies adressiert ein reales Risiko: direkte GitHub-Contents-/Connector-Writes kö
 
 ### 4.1 Goal Substitution
 
-Das eigentliche technische Acceptance-Ziel hätte durchgehend lauten müssen:
+Das Outcome hätte durchgehend sichtbar bleiben müssen:
 
-> Histo kann eine externe Capability ohne manuelle Owner-Orchestrierung kontrolliert benutzen und den Zustand nachvollziehbar/restartbar weiterführen.
+> Histo kann eine externe Capability ohne manuelle Owner-Orchestrierung kontrolliert benutzen und restartbaren State hinterlassen.
 
-Stattdessen wurde der jeweils aktuelle Teilmechanismus schrittweise zum neuen Hauptproblem:
+Stattdessen wurde der jeweils aktuelle Teilmechanismus nacheinander zum Hauptproblem:
 
 ```text
 Capability Integration
@@ -176,251 +168,228 @@ Capability Integration
 → Validator
 ```
 
-Jeder Schritt war lokal begründbar. Global sank jedoch `time-to-working-capability`.
+Lokale technische Sauberkeit nahm zu; `time-to-working-capability` nahm ab.
 
 ### 4.2 Assurance Recursion
 
-Die ursprüngliche sinnvolle Idee war:
+Sinnvoll war ein einmaliger unabhängiger Challenge vor teurer Implementation.
 
-> einmal unabhängig challengen, damit teure Implementation nicht auf einer grob falschen Annahme startet.
-
-Tatsächliche Dynamik:
+Entgleist ist daraus:
 
 ```text
 Plan A
 → Independent Review
 → Plan B
-
-Plan B ist materiell neu
+→ Plan B ist neu
 → Closure Review
-→ Finding gegen Plan B
 → Plan C nötig
-
-Plan C wäre erneut materiell verändert
-→ potentiell weiterer Review
+→ potentiell wieder Review
 ```
 
-Es fehlte ein Closure-Kriterium für Assurance selbst.
+Assurance hatte kein eigenes Kosten-/Stop-Kriterium.
 
-### 4.3 Risk Flattening
+### 4.3 Owner-Burden-Blindheit
 
-Reversible Unsicherheit und echte irreversible/kritische Zustände wurden zu ähnlich behandelt.
-
-Dadurch wanderte zu viel Arbeit vor die Implementation.
-
-Besserer Unterschied:
-
-**Pre-Implementation-Blocker** nur wenn Nichtklärung u. a. zu folgendem führen kann:
-
-- nicht akzeptabler irreversibler State-/Datenverlust;
-- unautorisierte consequential Mutation/Promotion;
-- nicht rekonstruierbarer oder nicht aussagekräftiger Versuch;
-- nicht beherrschbarer Scope-/Rights-/Security-Schaden.
-
-**Pilot-/Acceptance-Frage**, wenn:
-
-- der Zustand reversibel ist;
-- der Versuch observierbar/falsifizierbar ist;
-- die Unsicherheit gerade durch reale Nutzung besser beantwortbar ist als durch weitere Planung.
-
-### 4.4 Owner-Burden-Blindheit
-
-Der Prozess optimierte knappe Work/Codex-/Executor-Ressourcen, aber zu wenig:
-
-- Human Attention;
-- Context Switching;
-- Chat-Orchestrierung;
-- Time-to-Working-Capability.
-
-Der Human Owner wurde faktisch zum Postboten:
+Der Owner wurde faktisch zum Postboten:
 
 ```text
 Handoff-Prompt holen
-→ frischen Chat starten
-→ Review ausführen lassen
-→ Ergebnis zurücktransportieren
-→ Reconciliation triggern
+→ neuen Chat starten
+→ Review transportieren
+→ Reconciliation auslösen
 → nächsten Review transportieren
 ```
 
-Damit reproduzierte der Prozess den Pain, den die Capability reduzieren soll.
+Damit reproduzierte der Prozess genau den Orchestrierungs-Pain, den die technische Capability reduzieren soll.
 
-### 4.5 Falsche Auslegung eines Owner-Angebots
+Die Bereitschaft des Owners, gelegentlich kleine Handoff-Prompts zu nutzen, wurde fälschlich als Präferenz für dauerhaftes Human-in-the-loop Chat-Routing interpretiert.
 
-Der Owner sagte sinngemäß, dass kleine Handoff-Prompts für neue normale Chats bei überschaubarer Arbeit akzeptabel seien.
+### 4.4 Falsche Überkorrektur
 
-Das wurde zu stark als allgemeines Orchestrierungsmodell interpretiert.
+Nach der Kritik an der Meta-Schleife wurde der Scope anschließend zu weit zum gesamten Systembild bzw. sogar zu historischen Fachfragen verschoben.
 
-**Learning:** Bereitschaft zu gelegentlichen manuellen Handoffs ist keine Präferenz, dauerhaft Human-in-the-loop Chat-Routing zu übernehmen.
+Das war erneut Abstraktionsdrift.
 
-### 4.6 Überkorrektur nach Owner-Kritik
+**Korrekte Arbeitsebene:** foundational technical enablement.
 
-Nach der Kritik an Review-/Planungsschleifen wurde zunächst korrekt erkannt, dass Assurance selbst zum Blocker geworden war.
+### 4.5 Closure Pressure
 
-Danach erfolgte jedoch eine falsche Abstraktionsverschiebung zum gesamten Histo-Orla-Systembild und sogar zur Idee, wieder einen historischen Forschungsfall zu wählen.
+Ein zusätzlicher Root Cause war der Drang, einen scheinbar vollständigen, entscheidungsreifen Plan präsentieren zu wollen.
 
-Das war erneut Scope Drift.
-
-**Korrekte Ebene:** foundational technical enablement.
-
-Das Systembild erklärt das Warum; dieser Workstream soll belastbare technische Grundstrukturen liefern, damit spätere Fachforschung nicht weiterhin an Tooling-/Orchestrierungsproblemen hängen bleibt.
+Dadurch wurden offene Stellen zu oft durch neue Interpretation, zusätzliche Architektur oder weitere Review-Gates gefüllt, statt sie als offene Stellen sichtbar zu lassen.
 
 ---
 
-## 5. Root Causes des Assistenz-/Planungsfehlers
+## 5. Owner-Korrektur zur Unsicherheit
+
+Die frühere Formulierung, Unsicherheit müsse „beherrschbar gemacht“ werden, war falsch.
+
+Der Owner hat ausdrücklich korrigiert:
+
+> Es geht nicht darum, Unsicherheit zu beherrschen. Sie soll transparent gemacht und zugelassen werden. Sie darf nicht mit Interpretationen gefüllt werden, nur damit eine Lösung präsentiert werden kann.
+
+Daraus folgt für diesen Prozess:
+
+```text
+Unsicherheit
+→ sichtbar machen
+→ Herkunft / Reichweite benennen
+→ konkurrierende Lesarten erhalten
+→ unresolved zulassen
+→ Claim-/Handlungsreichweite entsprechend begrenzen
+→ nur durch zusätzliche Evidenz / explizite Authority weiter verdichten
+```
+
+Wichtig:
+
+- `unresolved` ist kein Prozessversagen;
+- fehlende Evidenz ist kein Auftrag, eine plausible Lücke zu füllen;
+- konkurrierende Lesarten müssen nicht harmonisiert werden;
+- eine offene reversible Frage ist nicht automatisch ein Implementation-Blocker;
+- ein Pilot darf offene Fragen **mitführen und sichtbar testen**, ohne vorab eine Antwort zu behaupten;
+- Planung darf nicht aus dem Wunsch nach Closure zusätzliche Semantik erfinden.
+
+Der richtige Gegensatz ist daher nicht `uncertainty → control`, sondern:
+
+> **false closure vermeiden; Unsicherheit transparent erhalten.**
+
+---
+
+## 6. Root Causes
 
 ### RC-01 – Abstraktionsdrift
 
-Systembild, technischer Capability-Increment und konkrete Implementierungsmechanismen wurden nicht stabil getrennt.
+Systembild, Capability-Increment und Implementierungsmechanismus wurden nicht stabil getrennt.
 
 ### RC-02 – Goal Substitution
 
-Der aktuelle Submechanismus wurde zum neuen Hauptziel, ohne ihn erneut gegen den ursprünglichen technischen Outcome zu prüfen.
+Teilmechanismen ersetzten schrittweise das End-to-End-Ziel.
 
-### RC-03 – Assurance ohne eigenes Budget/Stop-Kriterium
+### RC-03 – Assurance ohne Stop-Kriterium
 
-Review wurde als grundsätzlich risikosenkende Maßnahme behandelt, ohne dessen eigene Kosten und Rekursionsrisiko zu begrenzen.
+Review wurde als grundsätzlich risikosenkend behandelt, ohne Rekursions- und Owner-Kosten zu berücksichtigen.
 
-### RC-04 – Blockerbegriff zu breit
+### RC-04 – Unknowns wurden zu leicht zu Blockern
 
-`unknown` wurde zu oft in `must resolve before implementation` übersetzt.
+Offene Fragen wurden zu oft in `must resolve before implementation` übersetzt.
 
-### RC-05 – lokale Optimierung
+### RC-05 – Closure Pressure / Interpretation Fill
 
-Einzelne technische Semantiken wurden immer sauberer, während der Gesamtpfad zu einer funktionierenden Capability langsamer wurde.
+Offene Stellen wurden mit plausibler technischer Semantik gefüllt, um einen vollständigen Plan zu erzeugen.
 
-### RC-06 – falsche Ressourcenmetrik
+### RC-06 – lokale Optimierung
 
-Scarce executor tokens wurden stark optimiert; Human Attention / Owner Routing Burden / Time-to-Value zu schwach.
+Teilsemantik wurde sauberer, während das funktionierende End-to-End-Increment weiter wegrückte.
 
-### RC-07 – fehlende End-to-End-Outcome-Revalidation
+### RC-07 – falsche Ressourcenmetrik
 
-Nach jeder größeren Planrevision fehlte die harte Frage:
+Scarce Executor Tokens wurden stark optimiert; Human Attention, Context Switching, Owner Routing und Time-to-Value zu schwach.
+
+### RC-08 – fehlende Outcome-Revalidation
+
+Nach Revisionen fehlte wiederholt die Frage:
 
 > Was kann Histo nach diesem Increment real, was es vorher nicht konnte?
 
 ---
 
-## 6. Zukünftige Arbeitsheuristiken aus diesem Learning
+## 7. Prozessheuristiken – Review Input, keine neue Governance
 
-**Status:** Prozessheuristiken / Review Input; keine neue Governance oder Requirement Authority.
+### L-01 – Outcome Anchor
 
-### L-01 – Outcome Anchor vor Submechanismus
+Jeder technische Workstream behält einen sichtbaren end-to-end Outcome. Teilmechanismen dürfen ihn nicht ersetzen.
 
-Jeder technische Workstream braucht einen sichtbaren End-to-End Outcome.
+### L-02 – Unsicherheit transparent, nicht künstlich schließen
 
-Für diesen Strang:
+Ein Unknown wird beschrieben, begrenzt und – falls nötig – als `unresolved` mitgeführt. Es wird nicht durch Interpretation gefüllt, nur um einen scheinbar vollständigen Plan zu erzeugen.
 
-> Ein frischer Histo-Kontext kann eine konkrete externe Capability identifizieren, zulässigen Stand/Authority binden, sie ohne manuellen Skill-/Kontexttransport des Owners benutzen und restartbaren kontrollierten State zurücklassen.
+### L-03 – Blocker nur bei echter Vorbedingung
 
-Teilmechanismen sind nur dann blocking, wenn sie für genau diesen Outcome vor dem nächsten sicheren realen Versuch tatsächlich erforderlich sind.
+Vor Implementation muss eine Frage nur dann geklärt werden, wenn ihr Offenlassen den nächsten Versuch unaussagekräftig macht oder nicht akzeptablen irreversiblen, Authority-, Rights-, Security- oder State-Loss-Schaden erzeugen kann.
 
-### L-02 – Assurance Budget / Stop Rule
+Andere offene Fragen dürfen als explizite Acceptance-/Falsification-Fragen in einen kleinen reversiblen Pilot gehen.
 
-Ein Independent Review kann vor consequential/teurer Implementation sinnvoll sein.
+### L-04 – Assurance Budget / Stop Rule
 
-Nach Review-Reconciliation gilt jedoch standardmäßig:
+Nach einem hinreichenden Independent Review und dessen Disposition löst eine subtraktive oder klar non-blocking Revision **nicht automatisch** einen weiteren Fresh Review aus.
 
-- neue **subtraktive** oder klar non-blocking Refinements lösen nicht automatisch einen neuen unabhängigen Review aus;
-- ein weiterer Fresh Review braucht einen konkreten neuen catastrophic/irreversible-risk trigger;
-- Assurance selbst muss gegen Owner Burden und Time-to-Working-Capability gerechtfertigt werden.
+Ein weiterer unabhängiger Review braucht einen konkreten neuen materiellen irreversiblen/Authority-/Safety-Risikotyp.
 
-### L-03 – Reversible Unknowns in den Pilot
+### L-05 – Tooling ist Mittel, nicht Gateway
 
-Wenn ein Unknown durch einen kleinen isolierten/reversiblen Versuch besser beantwortet wird und kein unacceptable-loss-Risiko erzeugt, wird er als Acceptance-/Falsification-Frage in den Pilot verschoben statt als Planungsblocker behandelt.
+Eine Grenze eines vorhandenen Validators/Contracts wird nicht automatisch zur Projektvoraussetzung.
 
-### L-04 – Tooling ist Mittel, nicht Gateway
+### L-06 – Owner Burden ist Qualitätsdimension
 
-Bestehende Validatoren/Contracts sind Hilfsmittel. Ihre aktuelle technische Grenze darf nicht ohne separate Begründung zur Projektvoraussetzung werden.
-
-### L-05 – Owner Burden ist eine echte Qualitätsdimension
-
-Ressourcenökonomie muss mindestens gleichzeitig betrachten:
+Ressourcenökonomie betrachtet gemeinsam:
 
 - scarce execution cost;
 - Human Attention;
-- Anzahl manueller Handoffs;
+- manuelle Handoffs;
 - Context loss;
 - Rework risk;
 - Time-to-Working-Capability.
 
-### L-06 – Handoff nur bei echtem Mehrwert
+### L-07 – Handoff nur bei echtem Mehrwert
 
-Ein neuer Chat/Executor ist nur gerechtfertigt durch:
+Handoff nur bei realer Capability-Lücke, notwendiger Isolation, Rights-/Safety-Grenze oder materialer unabhängiger Review-Wirkung.
 
-- echte Capability-Lücke;
-- notwendige Isolation;
-- unabhängige Review-Eigenschaft mit materialer Risikoreduktion;
-- Rechte-/Safety-Grenze.
+### L-08 – Foundational technical enablement bleibt technical enablement
 
-Nicht allein, weil die Aufgabe theoretisch in einem anderen Kontext sauberer aussehen würde.
+Der unmittelbare Output muss keine historische Erkenntnis sein. Er muss aber eine reale technische Fähigkeit liefern, die für das Systembild nötig ist.
 
-### L-07 – Foundational Technical Enablement ≠ Fachforschung
+### L-09 – End-to-End Acceptance
 
-Für technische Grundstrukturen ist reale fachliche Erkenntnis nicht zwingend der unmittelbare Increment-Output.
+Für diesen Strang ist ein technisches Inkrement erst aussagekräftig, wenn ein frischer Kontext:
 
-Der Increment muss aber eine **reale technische Fähigkeit** liefern, die für das Systembild erforderlich ist und die vorher nicht belastbar vorhanden war.
-
-### L-08 – Trial/Use ist Teil von Delivery
-
-Ein Capability-Increment endet nicht bei Dokument/Schema/Snapshot/Validator.
-
-Es braucht einen realen technischen Gebrauchstest:
-
-```text
-identify
-→ bind
-→ execute
-→ return
-→ resume
-→ detect delta/failure
-```
-
-Erst dieser Pfad kann zeigen, ob die Grundstruktur funktioniert.
+1. die externe Capability aus Repo-State identifiziert;
+2. exact Basis / Currentness / Authority korrekt unterscheidet;
+3. die Capability ohne manuellen Skill-/Prompt-/Kontexttransport des Owners nutzt;
+4. ihre STOP-/Authority-Grenzen wahrt;
+5. kontrollierten restartbaren State hinterlässt;
+6. Upstream-Delta oder Unavailability sichtbar behandelt;
+7. offene Fragen nicht durch Interpretation schließt.
 
 ---
 
-## 7. Was aus PR #149 als wertvoll erhalten bleibt
+## 8. No-loss disposition des bisherigen PR-#149-Learnings
 
-Die bisherigen Schleifen waren nicht vollständig verlorene Arbeit. Sie haben mehrere übergroße Kandidaten eliminiert und echte Invarianten geschärft.
+**Beibehalten:**
 
-Beibehalten bzw. ernsthaft weiterzuverwenden:
+- exact upstream identity;
+- fresh upstream resolution;
+- Trial Admission ≠ Operational Admission;
+- Skill-/Upstream-Review ≠ Histo Authority;
+- keine Generic-Fit-Behauptung;
+- isolated implementation surface;
+- exact source provenance / package fidelity;
+- Git-Blob-Revalidation vorhandener lokaler Basis;
+- AI-owned Orchestration als Acceptance-Dimension.
 
-- kein generischer Binding-/Registry-/Compatibility-Core ohne reale wiederholte Friktion;
-- `upstream reviewed ≠ local trial admitted ≠ local operationally admitted`;
-- current upstream bei consequential use fresh resolve;
-- Ref-/Lineage-/Staleness-Checks dürfen deterministisch sein, semantische Compatibility nicht;
-- isolierte Git-/Filesystem-Execution bei echter Mutation;
-- AI-owned Orchestration / Owner nicht als Chat Router;
-- Trial/Resume/Delta/Unavailable-Falsifikation als echte Capability-Acceptance.
+**Verworfen/deferred:**
 
-Nicht allein aufgrund dieses Learning-Artefakts entschieden:
+- generische Binding Registry;
+- Compatibility Evaluator;
+- pseudo-current Upstream Store;
+- generischer Agent-/Workflow-Layer;
+- E0/P0 Create-Target-Infrastruktur für diesen Pilot;
+- weitere Review-Kaskade ohne neuen materiellen Risikotyp.
 
-- ob/wann eine lokale Availability Derivative zwingend vor dem ersten Trial benötigt wird;
-- die endgültige PR-#149-Readiness;
-- konkrete Implementation Scope/Work Order;
-- Trial Admission oder Operational Admission.
+**Offen und zulässig:**
 
----
+- ob der lokale Availability Derivative langfristig die richtige Preservation-Form bleibt;
+- welche zusätzliche Generalisierung erst nach weiteren realen Consumern sinnvoll wird;
+- welche Provider-/Execution-Limits beim Trial auftreten;
+- ob der Skill für den konkreten lokalen Einsatz nach Trial beibehalten, angepasst, verworfen oder `unresolved` bleibt.
 
-## 8. Aktueller Handoff nach diesem Learning
-
-Dieses Artefakt selbst verändert den aktuellen Implementation-/Readiness-State **nicht**.
-
-Zum Zeitpunkt seiner Erstellung gilt weiterhin der auf PR #149 persistierte Stand; der zuletzt im Chat gelieferte Closure Review ist separate Review-Evidence und muss vor einer kanonischen Plan-/Readiness-Änderung noch projektseitig dispositioniert werden.
-
-Die nächste Reconciliation soll deshalb nicht erneut den gesamten System-/Intent-Raum aufrollen, sondern drei Dinge gleichzeitig bewahren:
-
-1. **technischer Workstream bleibt foundational capability enablement**;
-2. **bereits gewonnene Review-Evidence reduziert unnötige Infrastruktur**;
-3. **Assurance darf den realen, reversiblen Capability-Lernzyklus nicht erneut verdrängen**.
-
-Leitfrage für den nächsten Schritt:
-
-> Welche kleinste sichere technische Änderung erlaubt jetzt einen aussagekräftigen end-to-end Capability-Trial, ohne den Human Owner wieder zum Orchestrator zu machen?
+Diese offenen Punkte sind bewusst **nicht** mit vorweggenommenen Lösungen gefüllt.
 
 ---
 
-## 9. Learning in einem Satz
+## 9. Abschluss-Learning
 
-> **Blockerprävention ist nur dann Fortschritt, wenn sie einen realen technischen Lern-/Delivery-Schritt sicherer macht; sobald Assurance selbst den Owner zum Workflow-Router macht oder reversible Unknowns dauerhaft vor die Implementation zieht, reproduziert sie den Pain, den das technische Enablement eigentlich beseitigen soll.**
+Der zentrale Fehler dieses Workstreams war nicht zu wenig Governance, sondern die Kombination aus Goal Substitution, Assurance-Rekursion und Closure Pressure.
+
+Die Korrektur lautet:
+
+> **Nicht Unsicherheit beseitigen oder beherrschen. Unsicherheit transparent erhalten. Nur die Vorbedingungen schließen, die für den nächsten sicheren und aussagekräftigen Schritt tatsächlich notwendig sind. Dann reale technische Fähigkeit liefern und anhand realer Nutzung lernen.**
