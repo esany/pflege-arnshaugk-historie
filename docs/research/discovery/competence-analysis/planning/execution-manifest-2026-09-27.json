@@ -53,7 +53,7 @@
   ],
   "steps": {
     "W1": {
-      "packet_ref": "planning/work-packets/W1-material-inventory.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W1-material-inventory.md",
       "depends_on": [],
       "required_evidence": [
         "inventory",
@@ -65,7 +65,7 @@
       "on_stop": "HUMAN"
     },
     "W2": {
-      "packet_ref": "planning/work-packets/W2-baseline-authoring.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W2-baseline-authoring.md",
       "depends_on": [
         "W1"
       ],
@@ -79,7 +79,7 @@
       "on_stop": "HUMAN"
     },
     "W3": {
-      "packet_ref": "planning/work-packets/W3-coverage-loss-review.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W3-coverage-loss-review.md",
       "depends_on": [
         "W1",
         "W2"
@@ -94,7 +94,7 @@
       "on_stop": "HUMAN"
     },
     "W4": {
-      "packet_ref": "planning/work-packets/W4-repository-reconciliation.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W4-repository-reconciliation.md",
       "depends_on": [
         "W3"
       ],
@@ -108,7 +108,7 @@
       "on_stop": "HUMAN"
     },
     "W5": {
-      "packet_ref": "planning/work-packets/W5-independent-adversarial-review.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W5-independent-adversarial-review.md",
       "depends_on": [
         "W3",
         "W4"
@@ -116,15 +116,20 @@
       "required_evidence": [
         "adversarial-review",
         "qc-verdict",
-        "independence-statement"
+        "independence-statement",
+        "repair-route-if-revise"
       ],
       "independence_required": true,
       "on_pass": "W6",
-      "on_revise": "DECLARED_REPAIR_ROUTE",
+      "on_revise": "RETURN.repair_route",
+      "allowed_revise_routes": {
+        "representation_or_semantic_failure": "W2",
+        "reconciliation_only_failure": "W4"
+      },
       "on_stop": "HUMAN"
     },
     "W6": {
-      "packet_ref": "planning/work-packets/W6-final-integration.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W6-final-integration.md",
       "depends_on": [
         "W5"
       ],
@@ -140,7 +145,7 @@
       "on_stop": "HUMAN"
     },
     "W7": {
-      "packet_ref": "planning/work-packets/W7-fresh-restart-test.md",
+      "packet_ref": "docs/research/discovery/competence-analysis/planning/work-packets/W7-fresh-restart-test.md",
       "depends_on": [
         "W6"
       ],
@@ -163,6 +168,7 @@
       "W2",
       "W3"
     ],
+    "W4_revise_scope": "reconciliation-only-local-repair",
     "W5_repair_routes": {
       "representation_or_semantic_failure": [
         "W2",
