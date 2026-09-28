@@ -1,666 +1,403 @@
-# Histo-Orla – Execution Plan: AI-orchestrierte externe Skill-Integration
+# Histo-Orla – Revised Execution Plan: AI-orchestrierte externe Capability-Integration
 
-**Stand:** 2026-09-27  
-**Status:** `pre-implementation plan / PARTIAL / no implementation admission`  
-**Parent Readiness:** `docs/architecture/assurance/ai-orchestrated-skill-integration-readiness-20260927.md`  
+**Stand:** 2026-09-28  
+**Status:** `pre-implementation / PARTIAL / closure-review-required / no implementation admission`  
+**Parent:** `docs/architecture/assurance/ai-orchestrated-skill-integration-readiness-20260927.md`  
+**Independent findings:** `docs/architecture/assurance/ai-orchestrated-skill-integration-independent-review-findings-20260928.md`  
 **Technical Owner:** #48  
 **Development / Verification:** #59  
 **Work Context / Handoff:** #61  
-**Requirements / Constraints:** #42 + bindende Governance + explizite Owner Constraints des Planungsauftrags  
-**Current planning basis:** `main@00891652761d479cc98d0752ea8d11a2ac61dcc3`  
+**Current Histo basis:** `main@00891652761d479cc98d0752ea8d11a2ac61dcc3`
 
-> Ziel dieses Plans ist eine spätere Ausführung mit möglichst geringer Gesamtressource und hoher Ersttrefferwahrscheinlichkeit. Kein Work Package in diesem Dokument ist durch seine Beschreibung admitted.
+> Der frühere feste Graph `P0 → generic P1 core → P2 → P3` ist verworfen. Dieser Plan enthält nur den nach Independent Review verbleibenden problem-schließenden Delta. Kein Schritt ist durch dieses Dokument admitted.
 
 ---
 
-# 1. Delivery Principle
-
-Der Implementation-Slice wird nicht auf „kleinste technisch mögliche Änderung“ optimiert, sondern auf den **kleinsten problem-schließenden End-to-End-Umfang**:
+## 1. Revised Delivery Graph
 
 ```text
-gebundene Authority
-+ aktuelle externe Skill-Identität/Maturity
-+ exact consumer basis
-+ fail-closed update handling
-+ bounded AI-owned execution
-+ restartable provenance
-+ real-use problem closure
+R-CLOSE  fresh closure review of revised delta
+        ↓ if READY
+OWNER GO binds exact implementation stages
+        ↓
+E0  conditional create-target support
+    condition: E1 requires legitimate new files
+        ↓ tests + same-checkout revalidation
+E1  concrete immutable Availability Derivative of frozen pilot package
+        ↓ full tests + diff + STOP
+NORMAL-CHAT REVIEW of E0/E1 delta
+        ↓ separate trial admission
+T1  real #48-owned bounded Skill trial
+        ↓ review
+V1  fresh-context / upstream-delta / source-unavailable / owner-burden falsification
+        ↓
+OWNER / LOCAL ADMISSION DECISION
+keep | adapt | reject | unresolved
 ```
 
-Ein kleinerer Slice ist unzulässig, wenn er nur einen Validator, ein Manifest oder einen Prompt erzeugt, ohne den realen Skill unter Histo-Orla-Authority sicher nutzen zu können.
+E0 und E1 dürfen später in **einem** isolierten executor run laufen, wenn ein einzelner Owner GO beide Stufen ausdrücklich und separat bindet. E1 erhält keine Authority allein aus E0-PASS.
+
+T1/V1 werden nicht in diesen scarce implementation run vorgezogen.
 
 ---
 
-# 2. Architektur-Schnitt: vorhandene Strukturen zuerst
+## 2. What was removed
 
-Der geplante Slice integriert sich in:
+Nicht mehr geplant:
 
-- `AGENTS.md` – Work-Context-/Handoff-Governance;
-- `docs/architecture/operational-execution-architecture.md` – Operational Core + dünne Adapter;
-- `docs/architecture/prior-art-development-inputs.md` – Cross-Repo Prior Art;
-- `docs/architecture/assurance/method-conformance-work-context.md` – Work Context / Authority / STOP;
-- `docs/development/work-orders/codex-rebuild-execution-contract.*` – bounded model-agnostic execution;
-- `tools/operational/execution_order.py` – deterministic Work-Order checks;
-- `tools/operational/mutation.py` – mechanical bounded-write/no-op protection;
-- `tools/operational/core.py` – common loader/schema infrastructure;
-- `tools/operational/tests/` – deterministic positive/negative regression;
-- `.github/workflows/project-assurance.yml` – existing operational test discovery;
-- #63 trace only when an actual implementation is admitted.
+- generisches `external_skill_binding.schema.json`;
+- generischer Compatibility Evaluator;
+- persistente External-Skill Registry;
+- persistierter `current upstream`-/`latest compatible`-State;
+- automatisches semantisches Compatibility-Scoring;
+- Product Skill Manager / Workflow Engine / Multi-Agent Runtime.
 
-Nicht vorgesehen ist ein neuer Product Runtime / `src/histo_orla/`-Move. Der Slice ist Operational Support, solange kein realer dauerhafter Product Consumer einen anderen Boundary erzwingt.
+Grund: Existing Work Context / bounded Work Order deckt Authority, Scope, refs, STOP, fresh basis und handoff bereits ab. Für den Pilot blieb nur recoverable Availability als echter Gap.
 
 ---
 
-# 3. Work-Package Graph
+# 3. E0 — Conditional exact create-target support
 
-```text
-WO-SKILL-P0  Safe create-target support for bounded Work Orders
-        ↓
-WO-SKILL-P1  External Skill Source Binding + compatibility core
-        ↓
-WO-SKILL-P2  Frozen real Skill pilot / Histo execution profile
-        ↓
-WO-SKILL-P3  Fresh-context + incompatible-update + owner-burden acceptance
-        ↓
-OWNER ADMISSION FOR KEEP/ADAPT/DERIVATIVE/REJECT
-```
+## 3.1 Why E0 is now legitimately required
 
-P0 ist nur deshalb eingeplant, weil der reale P1-Slice neue Dateien benötigt und `tools/operational/execution_order.py` heute jeden `scope.included_files[*].path` als bereits existente Datei verlangt. P0 ist **kein allgemeiner Workflow-Ausbau**.
+Der Minimality Discriminator wurde ausgeführt:
 
----
+- reference-only schließt Authority/Freshness/Trial-Binding;
+- er schließt nicht recoverable execution availability;
+- E1 benötigt deshalb vier legitime neue snapshot files;
+- `tools/operational/execution_order.py` blockiert heute jeden execution target, der beim Preflight nicht bereits als Datei existiert.
 
-# 4. WO-SKILL-P0 — Bounded Work Orders dürfen explizite Create Targets deklarieren
+Damit ist die ursprünglich konditionale E0-Bedingung **für diesen Pilot erfüllt**.
 
-## 4.1 Problem / Gap
+E0 bleibt Enabler, kein eigenständiger Produktzweck.
 
-Der bestehende bounded Execution Contract kann existierende Dateien exakt begrenzen, aber keine legitime neue Datei als Execution Target deklarieren. Dadurch wären für den realen P1-Slice nur schlechte Alternativen möglich:
+## 3.2 Exact modify scope candidate
 
-- neue Integrationsverantwortung in bestehende unpassende Dateien pressen;
-- Work-Order-Guard umgehen;
-- Scope nach Start erweitern.
-
-Das wäre Scope Laundering bzw. Safety Regression.
-
-## 4.2 Causal Driver
-
-- Owner Constraint: kritische Zustände und vermeidbare Planungs-/Implementierungsfehler präventiv verhindern;
-- `REQ-WF-001`;
-- `REQ-WF-002`;
-- `REQ-STATE-001`;
-- `REQ-LEAN-001`;
-- bestehender bounded Execution Contract unter #48/#59/#61.
-
-## 4.3 Exact Implementation Scope Candidate
-
-**Modify only:**
+Nur:
 
 1. `docs/development/work-orders/codex-rebuild-execution-contract.md`
 2. `docs/development/work-orders/codex-rebuild-execution-contract.schema.json`
 3. `tools/operational/execution_order.py`
 4. `tools/operational/tests/test_execution_order.py`
 
-Kein anderes File ohne neue Admission.
+Kein anderes File ohne erneute Admission.
 
-## 4.4 Minimal Contract Delta
+## 3.3 Required semantics
 
-Versionierte, rückwärtskompatible Ergänzung eines Create-Target-Konzepts, z. B. semantisch:
+Der Contract muss exact new-file targets von exact existing-file targets unterscheiden können.
 
-```text
-scope.included_files = existing exact files allowed to change
-scope.create_files   = exact new paths allowed to be created
-```
-
-Harte Regeln:
-
-- jeder `create_files`-Pfad ist safe-relative;
-- `sources/` bleibt verboten;
-- create target **muss beim Preflight fehlen**;
-- existing target **muss beim Preflight existieren**;
-- `check_changed_files()` erlaubt nur die Union beider Mengen;
-- nach Erstellung ist ein create target kein impliziter Freibrief für andere Dateien;
-- keine Glob-/Directory-Scopes;
-- keine automatische Scope-Erweiterung;
-- alte Work Orders bleiben semantisch unverändert gültig.
-
-Die endgültige Feldform darf leicht variieren, wenn Review/Tests eine einfachere rückwärtskompatible Lösung ergeben; die Safety-Semantik darf nicht geschwächt werden.
-
-## 4.5 Acceptance
-
-- P0-A01: bestehender 0.1 Work Order bleibt PASS;
-- P0-A02: exakt deklarierter fehlender create path PASS;
-- P0-A03: create path, der bereits existiert, BLOCK;
-- P0-A04: undeclared created file wird als scope drift BLOCK;
-- P0-A05: `sources/**` create BLOCK;
-- P0-A06: absolute / traversal path BLOCK;
-- P0-A07: included existing path, der fehlt, bleibt BLOCK;
-- P0-A08: create target erzeugt keine downstream Authority.
-
-## 4.6 Negative / Hazard Tests
-
-- duplicate path in included + create → BLOCK;
-- target appears between preflight and mutation → refetch/revalidation required;
-- directory/glob target → BLOCK;
-- no-op existing change bleibt NO_CHANGE in mutation layer;
-- create support darf `mutation.py`-Authority-Grenze nicht umdeuten.
-
-## 4.7 Rollback
-
-P0 ändert nur Contract/Validator/Tests auf Branch. Bei Regression kompletter Commit-Revert; kein Research State betroffen.
-
-## 4.8 Execution Class
-
-`EC-MECHANICAL` für Implementierung, **nach** Sol/Judgement-Level Review des Contract-Deltas. Stark deterministisch testbar.
-
-## 4.9 STOP
-
-STOP wenn:
-
-- rückwärtskompatible Semantik nicht erreichbar ist;
-- Create-Target-Support zu generischem File-Operation-DSL ausufert;
-- ein einfacherer bestehender Mechanismus entdeckt wird;
-- Änderung andere Authority-/Persistence-Semantik erzwingt.
-
----
-
-# 5. WO-SKILL-P1 — External Skill Source Binding + Compatibility Core
-
-## 5.1 Problem / Gap
-
-Histo-Orla kann externes Prior Art frisch lesen, besitzt aber noch keinen kleinen ausführbaren Integrationsvertrag, der bei **einem tatsächlich konsumierten externen Skill** gleichzeitig erhält:
-
-- konkrete upstream Identität;
-- nicht-main exact ref;
-- Work Owner / Review/Maturity;
-- latest observed vs locally reviewed/used basis;
-- compatibility disposition;
-- derivative lineage;
-- fail-closed update semantics.
-
-Ein Issue-Kommentar oder Git-Pin allein schließt diese Lücke nicht.
-
-## 5.2 Architekturform
-
-Kleinste vorgesehene Form: **ein machine-readable source-binding record + JSON Schema + kleiner provider-neutraler evaluator + Tests + kurzer Contract**.
-
-Kein Netzwerkclient gehört in den Core. Ein Execution Adapter (z. B. aktuell GitHub-Connector in Work/Codex) liefert einen frisch gelesenen `observed upstream snapshot`. Der Core beurteilt nur formale Identität/Delta-/Disposition-Invarianten.
-
-Damit bleibt:
-
-- Live-Providerzugriff austauschbar;
-- Histo Core testbar;
-- Credential/Tooling keine Authority;
-- Semantic Compatibility ein sichtbares Judgement, nicht erfundener Determinismus.
-
-## 5.3 Exact File Topology Candidate
-
-**Create:**
-
-1. `docs/architecture/contracts/external-skill-source-binding.md`
-2. `tools/operational/external_skill_binding.schema.json`
-3. `tools/operational/external_skill.py`
-4. `tools/operational/external-skills.json`
-5. `tools/operational/tests/test_external_skill.py`
-
-**Modify only if required by existing test/index conventions:**
-
-6. `docs/architecture/README.md`
-
-`.github/workflows/project-assurance.yml` muss voraussichtlich **nicht** geändert werden, weil `tools/operational/tests/test_*.py` bereits vollständig entdeckt wird. Eine Workflow-Änderung ist nur bei nachgewiesenem Test-Discovery-Gap zulässig.
-
-## 5.4 Binding Record – minimale Semantik
-
-Der Record soll nur Integrationsmetadaten besitzen, keine kopierte Skill Truth. Mindestens:
+Semantisch erforderlich:
 
 ```text
-binding_id
-source_repository
-source_owner_refs
-tracking_ref
-last_observed_ref
-last_observed_status
-last_observed_maturity
-consumer_capability
-locally_reviewed_basis_ref
-compatibility_state
-compatibility_evidence_refs
-local_derivative_ref?          # optional
-local_derivative_reason?       # optional
-reconciliation_policy_ref
+existing change target
+= path must exist at preflight
+
+create target
+= exact path must not exist at preflight
 ```
 
-### Bedeutungen
+Harte Invarianten:
 
-- `tracking_ref`: wie der relevante Upstream-State gefunden wird, z. B. PR/Issue/branch selector; kein automatisches Trust-Signal.
-- `last_observed_ref`: zuletzt frisch beobachteter Upstream-Ref.
-- `locally_reviewed_basis_ref`: exact Ref, gegen den Histo Compatibility/Use tatsächlich geprüft hat.
-- `compatibility_state`: mindestens `unreviewed | compatible | incompatible | unresolved | stale`.
-- `local_derivative_*`: nur wenn wirklich vorhanden; keine prophylaktische Kopie.
+- safe relative paths only;
+- keine Globs/Directories;
+- `sources/**` bleibt verboten;
+- included + create dürfen sich nicht überschneiden;
+- existing target missing → BLOCK;
+- create target already exists → BLOCK/revalidation;
+- changed-file check erlaubt nur explizit gebundene existing + create targets;
+- keine Scope-Erweiterung nach Start;
+- alte Work Orders bleiben gültig;
+- create support erzeugt keine neue Authority.
 
-Nicht im Record:
+Schema-Versionierung muss beim Closure-/Implementation-Review sauber entschieden werden; additive Backward Compatibility ist Pflicht. Kein stilles inkompatibles Reinterpretieren vorhandener 0.1 Work Orders.
 
-- Histo Requirements-Prosa;
-- Histo Method Truth;
-- vollständige Upstream Skill-Inhalte;
-- Model/Providerwahl;
-- Projektpriorität;
-- Implementation Admission.
+## 3.4 Acceptance
 
-## 5.5 Observed Upstream Snapshot
+- E0-A01 existing current work-order fixtures bleiben PASS;
+- E0-A02 exact missing create path PASS;
+- E0-A03 create path already present BLOCK;
+- E0-A04 undeclared new file BLOCK;
+- E0-A05 duplicate existing/create path BLOCK;
+- E0-A06 absolute/traversal/source path BLOCK;
+- E0-A07 existing target missing BLOCK;
+- E0-A08 stale path state between preflight/mutation → revalidation required;
+- E0-A09 no model/provider fields introduced;
+- E0-A10 no downstream authority implied.
 
-Der adapterseitig frisch gelesene Snapshot muss für den Pilot mindestens enthalten:
+## 3.5 STOP
 
-```text
-source_repository
-work_owner/status
-runtime_pr/status
-exact_head_ref
-base_ref
-review/maturity markers
-source_paths
-observed_at
-```
+STOP if:
 
-Die konkrete Snapshot-Repräsentation kann transient bleiben; nur material veränderte Binding-/Review-Ergebnisse müssen persistent werden.
-
-## 5.6 Deterministische vs judgement-basierte Disposition
-
-### Deterministisch
-
-- Repo/ref/status fields syntaktisch gültig;
-- exact ref gleich/ungleich;
-- source paths vorhanden;
-- locally reviewed basis referenziert;
-- derivative lineage vollständig;
-- status changed / ref changed;
-- current binding stale gegenüber supplied snapshot.
-
-### Judgement
-
-- semantische Compatibility;
-- Method-Fit;
-- ob ein Delta Histo Requirements/Method/Quality berührt;
-- ob lokales Derivat sinnvoll ist;
-- ob newer upstream besser ist.
-
-Ein Ref-Delta darf daher maximal `review_required/stale` deterministisch erzeugen, **niemals** `compatible` allein aus Diff-/SHA-Heuristik.
-
-## 5.7 Pilot Fixture
-
-Initialer Binding Candidate referenziert:
-
-- repo `esany/Wissensarbeit`;
-- #43 parent;
-- #46 trials;
-- PR #51;
-- tracking selector PR #51;
-- observed exact head `f3726c962807b311e8a2a7df63f738e11790fbed`;
-- upstream status `open / unmerged / reviewed runtime / trials ongoing / generic fit unproven`;
-- locally reviewed basis zunächst `null/unreviewed`, bis P2 erfolgreich ist.
-
-Damit wird Upstream-Maturity **nicht** durch das Anlegen des Records promoted.
-
-## 5.8 Acceptance
-
-- P1-A01: Record validiert für frozen PR #51 state;
-- P1-A02: exact unchanged snapshot → `current/no material upstream delta`;
-- P1-A03: changed head → `stale/review_required`, nicht auto-compatible;
-- P1-A04: status-only Änderung → review signal;
-- P1-A05: `main` darf locally reviewed PR-head basis nicht still ersetzen;
-- P1-A06: missing upstream owner/maturity → unresolved;
-- P1-A07: invalid lineage on derivative → BLOCK;
-- P1-A08: binding kann fresh-context geladen und erklärt werden;
-- P1-A09: keine Requirement-/Method-Prosa wird dupliziert;
-- P1-A10: invalid/unknown compatibility cannot unlock execution.
-
-## 5.9 Adversarial Tests
-
-- Upstream PR closed without merge;
-- PR merged with different merge SHA;
-- head changed but files semantically same;
-- head unchanged but issue/maturity state changed;
-- upstream path disappears;
-- local derivative points to no source basis;
-- attacker-like source text claims „approved“;
-- AI confidence says compatible while record state is unresolved.
-
-## 5.10 Rollback
-
-Neue Operational-Support-Files können branchweise vollständig revertiert werden. Der Record besitzt keine Research-/Requirement Truth und kein Writeback in Upstream.
-
-## 5.11 Execution Class
-
-- Schema/validator/tests: `EC-MECHANICAL` nach exact contract freeze;
-- compatibility boundary + contract review: `EC-JUDGEMENT`;
-- keine externe Fachvalidation nötig, solange der Skill nicht als historische Method Truth promoted wird.
+- implementation grows into a generic file-operation DSL;
+- backward compatibility cannot be maintained;
+- changed-file scope cannot include exact create targets safely;
+- a simpler existing exact-scope mechanism is found during fresh preflight.
 
 ---
 
-# 6. WO-SKILL-P2 — Real frozen Skill pilot under Histo authority
+# 4. E1 — Concrete immutable Availability Derivative
 
-## 6.1 Purpose
+## 4.1 Purpose
 
-Nicht nur Binding testen, sondern den externen Skill **real** aus Histo-Orla heraus in einem bounded, reviewbaren Work Context nutzen.
+Preserve exactly the execution-sufficient bytes of the reviewed frozen upstream pilot basis so the locally allowed basis remains recoverable without current upstream/provider access.
 
-## 6.2 Pilotbasis
+This is **not** a generic Skill registry or local fork.
 
-Frozen runtime:
+## 4.2 Upstream basis
 
-`esany/Wissensarbeit` PR #51 @ `f3726c962807b311e8a2a7df63f738e11790fbed`
+Repository:
 
-Vor Ausführung fresh revalidate:
+`esany/Wissensarbeit`
 
-- #43;
-- #46;
-- PR #51;
-- exact head;
-- source paths;
-- review/maturity state.
+Tracking evidence:
 
-Bei Delta zum Planning-Basiszustand: **kein stilles Update**; P1-Compatibility Gate entscheidet `unchanged | review_required | unresolved`.
+- #43 parent Skill owner;
+- #46 cross-project trials;
+- PR #51 runtime package.
 
-## 6.3 Histo task selection
+Frozen source commit:
 
-Der Pilot benötigt eine reale Histo-Systemanalyse-/Deep-Research-Aufgabe, aber **keine automatische Research Selection**. Die spätere Implementation Admission muss den konkreten bounded Pilot Task explizit benennen.
+`f3726c962807b311e8a2a7df63f738e11790fbed`
 
-Geeignet ist nur ein bereits autorisierter System-/Architecture-/Assurance-Analysefall, bei dem:
+Current planning observation on 2026-09-28:
 
-- externe Research Capability tatsächlich benötigt wird;
-- der Skill-Trigger passt;
-- sein STOP vor Solution Development erhalten werden kann;
-- keine historische Finding-Promotion als Nebenwirkung entsteht.
+- PR #51 open/unmerged;
+- #43 R2 closed / #46 owner-authorized;
+- #46 trials ongoing / generic fit not established.
 
-Nicht aus diesem Plan automatisch auswählen.
+This is dated observation evidence only. Consequential execution must resolve upstream fresh again.
 
-## 6.4 Runtime orchestration
+## 4.3 Exact create scope candidate
 
-Parent-Orchestrator:
+Root:
 
-1. lädt Histo Work Context;
-2. liest Binding;
-3. liest upstream fresh über verfügbaren authorised Adapter;
-4. revalidiert exact source basis/maturity;
-5. lädt Skill-Dateien by exact ref;
-6. erstellt bounded task context;
-7. routet mechanische Vorarbeit möglichst billig;
-8. hält systemische/semantic judgement in starker Execution Class;
-9. sammelt Resultate;
-10. führt deterministic checks aus;
-11. STOP am Skill-/Work-Order-Ende;
-12. persistiert nur im admitted Persistence Target.
+`docs/development/external-capability-snapshots/wissensarbeit-system-analysis-deep-research/f3726c962807b311e8a2a7df63f738e11790fbed/`
 
-Der Owner muss keine Worker-Chats manuell erstellen/verbinden.
+Create exactly:
 
-## 6.5 Current execution-surface candidates
+1. `PROVENANCE.json`
+2. `skill.md`
+3. `references/core-method.md`
+4. `references/execution-profiles/chatgpt-deep-research.md`
 
-Stand Sep 2026 sind ChatGPT Work, Codex und – abhängig von Plan/Workspace – Workspace Agents aktuelle mögliche Execution Surfaces. Diese Namen sind **nicht** Teil des Work Orders.
+No generic index/registry is created.
 
-Preflight muss aktuell prüfen:
+## 4.4 Exact source identities
 
-- GitHub read/write capability;
-- ability to load exact refs/files;
-- available model/reasoning classes;
-- ability to keep orchestration AI-owned;
-- approval controls for consequential actions;
-- inspectability/audit trail;
-- quotas/cost constraints.
-
-Wenn kein aktueller Modus AI-owned multi-worker orchestration hinreichend bietet, darf der Parent die Arbeit selbst/sequenziell ausführen oder mechanische Teile in Tools auslagern. **Kein Fallback auf Human-as-router.**
-
-## 6.6 Pilot Evidence to persist
-
-- exact Histo basis SHA;
-- exact Binding version;
-- fresh upstream snapshot refs/status;
-- exact Skill ref/source paths;
-- selected Histo Work Order;
-- execution capability/mode class (not authority);
-- bounded context refs;
-- output;
-- source/evidence boundaries;
-- STOP result;
-- failure/limitations;
-- owner-burden observation;
-- Problem Closure assessment.
-
-## 6.7 Acceptance
-
-- P2-A01: Skill can be loaded/usefully executed by exact ref;
-- P2-A02: Histo authority remains controlling;
-- P2-A03: Skill STOP is preserved; no solution/implementation cascade;
-- P2-A04: upstream candidate maturity remains visible;
-- P2-A05: result is restartable from repo;
-- P2-A06: no Histo semantic truth copied into Skill binding;
-- P2-A07: owner does not manually orchestrate worker contexts;
-- P2-A08: result materially advances the selected real Histo question;
-- P2-A09: execution cost/context is captured sufficiently for later routing calibration;
-- P2-A10: any failure is classifiable as source-binding / execution-surface / model / Skill-method / host-context / authority issue.
-
----
-
-# 7. WO-SKILL-P3 — Falsification / restart / incompatible evolution
-
-P3 is part of problem closure, not optional polish.
-
-## 7.1 Required scenarios
-
-### F1 — Fresh-context restart
-
-New execution context receives only repo bootstrap + binding + Work Order and resumes correctly.
-
-### F2 — Upstream head changed
-
-Synthetic or real snapshot with different exact head must trigger `review_required`, not auto-update.
-
-### F3 — Maturity-only change
-
-Same SHA, changed PR/owner/trial status must remain semantically visible.
-
-### F4 — Incompatible semantic change
-
-Adversarial fixture changes an authority/STOP/method boundary. Histo must retain last reviewed basis and refuse auto-adoption.
-
-### F5 — Local derivative candidate
-
-Without actually creating a permanent fork unless needed, prove the lineage contract can represent:
-
-- source repo;
-- source basis ref;
-- local delta reason;
-- incompatibility reason;
-- reconciliation/rebase policy;
-- continuing upstream tracking.
-
-### F6 — Owner-GO no-cascade
-
-A bounded pilot admission cannot authorize follow-on adapter/derivative/merge work.
-
-### F7 — Platform boundary
-
-Demonstrate honestly which actions are repo-enforced versus platform approval/procedural only.
-
-### F8 — Owner burden
-
-Compare AI-owned orchestration against manual multi-chat routing. If owner still has to courier context/results, Problem Closure fails.
-
-## 7.2 Kill / correction criteria
-
-Shrink/adapt/reject the integration if:
-
-- a simple fresh-read-by-reference approach gives equivalent safety/restartability without persistent binding record;
-- compatibility state cannot be made reviewable without large framework machinery;
-- owner meta-work is not reduced;
-- source binding duplicates upstream or Histo truth;
-- resource savings depend on context starvation;
-- agent orchestration adds more maintenance than it removes;
-- exact ref/maturity cannot be reconstructed reliably;
-- provider-specific code becomes dominant without demonstrated need.
-
----
-
-# 8. Work-Order Preparation Rules
-
-No machine-readable Implementation Work Order should be marked ready/admitted until:
-
-1. this plan has fresh independent adversarial review;
-2. P0 design is accepted as the minimal create-target fix;
-3. exact implementation branch basis is refreshed;
-4. current requirements/owner constraints are revalidated;
-5. exact file list/create list is frozen;
-6. all required tests are named;
-7. no current critical `unresolved` remains;
-8. runtime environment can install/run test dependencies;
-9. current execution surface/capabilities are checked;
-10. separate Owner Implementation GO exists.
-
-## Draft Work-Order identities
-
-Reserve semantic identities only; these are **not admitted Work Orders**:
-
-- `WO-SKILL-P0-CREATE-TARGETS`
-- `WO-SKILL-P1-SOURCE-BINDING`
-- `WO-SKILL-P2-REAL-PILOT`
-- `WO-SKILL-P3-FALSIFICATION`
-
-After Owner GO, instantiate the currently selected package in JSON against the then-current Work-Order schema and current basis SHAs. Do not pre-create an `admitted` JSON artifact that could later be mistaken for live authority.
-
----
-
-# 9. Model-/Token-Economy Plan
-
-Canonical Work Orders remain model-agnostic.
-
-At execution time, use current capability discovery and classify each subtask:
-
-| Task | Default class | Escalate when |
+| Local file | Upstream source path | Expected Git blob SHA |
 |---|---|---|
-| repo/file inventory, ref checks | EC-MECHANICAL | conflicting source identity/status |
-| schema/test implementation | EC-MECHANICAL | contract ambiguity/architecture drift |
-| repetitive fixture generation | EC-MECHANICAL | fixture encodes judgement semantics |
-| source-binding status comparison | EC-MECHANICAL | semantic compatibility unclear |
-| compatibility review | EC-JUDGEMENT | specialist domain semantics implicated |
-| architecture reconciliation | EC-JUDGEMENT | material owner decision required |
-| independent adversarial plan/code review | EC-JUDGEMENT | critical specialist validation needed |
-| owner acceptance | Human Owner | never delegated as AI judgement |
+| `skill.md` | `skills/system-analysis-deep-research/skill.md` | `845f5cfa9d224384f7d81c79fd7829b8d26cbf06` |
+| `references/core-method.md` | `skills/system-analysis-deep-research/references/core-method.md` | `4a1aa371e0a7da30e7f98834cee58aa03ccc4821` |
+| `references/execution-profiles/chatgpt-deep-research.md` | `skills/system-analysis-deep-research/references/execution-profiles/chatgpt-deep-research.md` | `77fa8cfc31fdace2a928f3b936a21687d81de297` |
 
-Cost optimisation target:
+Copied content must be byte-equivalent to these source blobs. No normalization or local editing.
 
-```text
-strong enough planning/specification
-→ bounded cheap/mechanical execution where safe
-→ deterministic tests
-→ strong independent review
-→ real-use acceptance
-```
+## 4.5 `PROVENANCE.json` minimum fields
 
-Do not optimise a single worker token budget at the cost of extra failed runs or owner orchestration.
+Concrete artifact only; no generic schema introduced.
 
----
-
-# 10. Pre-Implementation Safety Gate
-
-Before any code mutation, derive:
+Must record at least:
 
 ```text
-repo state ready?
-runtime environment ready?
-upstream source state revalidated?
-work order scope exact?
-create targets safe?
-authority/admission current?
-critical unresolved = none?
-positive + negative tests declared?
-rollback known?
-persistence target exact?
+artifact_role = immutable-availability-derivative
+source_repository
+source_commit
+tracking_refs
+preserved_at
+source_observation_at_preservation
+source_observation_summary
+files[]:
+  local_path
+  source_path
+  source_blob_sha
+fresh_upstream_resolution_required = true
+authority_effect = none
+semantic_compatibility_effect = none
+local_edit_policy = immutable; derivative required for any modification
 ```
 
-Any `no` → `BLOCKED` or `UNRESOLVED`, no code mutation.
+The manifest must explicitly state that preservation itself grants neither local trial admission nor operational admission.
 
-This explicitly preserves the historical #119 learning:
+## 4.6 Acceptance
 
-> `repo-ready != Work-runtime-ready`.
+- E1-A01 source commit fresh-revalidated before copy;
+- E1-A02 tracking refs #43/#46/PR #51 freshly resolved;
+- E1-A03 each local runtime file `git hash-object` equals expected source blob SHA;
+- E1-A04 only four exact create targets exist;
+- E1-A05 manifest calls artifact an Availability Derivative, not current/upstream truth;
+- E1-A06 manifest contains no Histo Requirement/Method duplication;
+- E1-A07 no local runtime file is edited;
+- E1-A08 source unavailable after preservation does not prevent loading the local exact package;
+- E1-A09 upstream delta does not mutate the local snapshot;
+- E1-A10 preservation does not create trial/operational admission.
 
----
+## 4.7 Negative / adversarial checks
 
-# 11. Independent Review Contract
-
-A fresh strong review context must receive only:
-
-1. `AGENTS.md`;
-2. current `PROJECT_STATE.md` + warning about staleness if still applicable;
-3. #42/#48/#59/#61 controlling owner refs;
-4. Readiness artifact;
-5. this execution plan;
-6. exact Wissensarbeit #43/#46/#52/#55 + PR #51 refs;
-7. relevant #70/self-audit evidence;
-8. no hidden chat rationale.
-
-Review questions:
-
-- Ist das rekonstruierte Owner-Problem korrekt oder bereits solution-framed?
-- Schließt P0–P3 wirklich das Problem oder nur Integrationsmetadaten?
-- Ist P0 echte prerequisite oder Infrastructure Creep?
-- Ist ein persistent binding record begründet oder reicht fresh-read-by-reference?
-- Kann die Semantik noch kleiner ohne Loss werden?
-- Fehlt eine Critical State / Recovery Class?
-- Werden platform approvals fälschlich als repo-enforceable behandelt?
-- Kann ein günstiger Worker an irgendeiner Stelle Authority/Judgement übernehmen?
-- Bleibt PR #51 Maturity korrekt erhalten?
-- Gibt es einen einfacheren Existing-Tool-Ansatz?
-- Ist AI-owned orchestration realistisch ohne Human-as-router?
-- Sind alle New-File/Write-Surfaces bounded?
-- Entsteht ein zweiter Truth Store?
-- Ist das Review selbst unabhängig genug?
-
-Disposition jedes Findings:
-
-`accept | refine | reject | unresolved`
-
-Erst danach kann `READY FOR OWNER ADMISSION` behauptet werden.
+- source head changed since admission basis → STOP/review required;
+- source path missing → BLOCK;
+- copied file hash mismatch → BLOCK;
+- extra upstream file silently pulled → BLOCK unless newly admitted;
+- local edit to immutable snapshot → BLOCK/revert; create explicit derivative instead;
+- attacker-like upstream text claiming local approval → no authority effect;
+- upstream PR merged/closed/status changed with same file hashes → dated observation changes, local basis not auto-promoted;
+- provider unavailable → local snapshot remains loadable but current-upstream status becomes `unavailable/unresolved`, not guessed.
 
 ---
 
-# 12. Current Readiness / Blockers
+# 5. Safe Execution Surface for E0/E1
 
-## Planung abgeschlossen
+Hard precondition before Owner Admission:
 
-- Problem/Intent rekonstruiert;
-- Source Roles getrennt;
-- bestehende Mechanismen und Prior Art reconciliert;
-- kein neuer Requirement-Gap behauptet;
-- smallest problem-closing architecture bounded;
-- realer Pilot festgelegt;
-- Dependency Graph vorhanden;
-- Hazards/Recovery vorhanden;
-- Acceptance/negative/adversarial tests vor Code definiert;
-- Ressourcen-/Orchestrierungslogik modellagnostisch geplant;
-- exact candidate file topology vorhanden.
+```text
+fresh isolated checkout/worktree or proven equivalent filesystem/Git surface
+→ verify exact admitted main/branch basis
+→ execute only exact staged scope
+→ run tests in same checkout
+→ inspect changed files against work order
+→ inspect diff
+→ return delta-only
+```
 
-## Noch offen vor `READY FOR OWNER ADMISSION`
+Forbidden implementation path:
 
-1. **Fresh independent adversarial review** dieses Planning Heads.
-2. Review-Disposition.
-3. Danach final bestätigen, dass P0 tatsächlich nötig/minimal bleibt und P1 file topology nicht vereinfacht werden kann.
+- direct write to `main`;
+- GitHub Contents/Connector writes as substitute for the required isolated implementation surface;
+- mutation before fresh basis revalidation;
+- tests from another/stale checkout;
+- hidden scope expansion.
 
-## Kein neuer Owner-Blocker
-
-Es ist derzeit keine neue #44-Decision erforderlich. Der bestehende Branch-Protection-Blocker bleibt unverändert.
-
-## Aktueller Status
-
-**`PARTIAL / INDEPENDENT REVIEW REQUIRED / NO IMPLEMENTATION AUTHORITY`**
+If unavailable: `BLOCKED`.
 
 ---
 
-# 13. Handoff
+# 6. Owner-GO / staged one-run design
 
-Ein neuer Planning Reviewer soll ohne Chat fortsetzen können aus:
+To minimize scarce execution cost, one later Owner GO may bind both E0 and E1 **explicitly**:
 
-- `AGENTS.md`
-- `PROJECT_STATE.md`
-- `README.md`
-- #42/#48/#59/#61/#63
-- `docs/architecture/assurance/ai-orchestrated-skill-integration-readiness-20260927.md`
-- diesem Plan
-- Wissensarbeit #43/#46/#48/#52/#53/#55 und PR #51 frisch gelesen.
+```text
+GO scope:
+Stage A = E0 exact four modify targets
+Stage B = E1 exact four create targets
 
-**STOP: Keine Implementierung vor separatem Owner-GO.**
+Stage B may run iff:
+- Stage A tests PASS;
+- same checkout is revalidated;
+- Stage B exact source basis remains unchanged;
+- no STOP condition fired.
+```
+
+This is not authority cascade: both stages are named in the GO before the run. Stage A PASS merely satisfies a technical prerequisite.
+
+No T1/V1 authority is included.
+
+---
+
+# 7. T1 — Real bounded trial after E0/E1 review
+
+T1 is **not** part of the implementation executor run.
+
+## Trial basis states
+
+```text
+upstream-reviewed
+→ local-trial-admitted
+→ trial evidence
+→ review
+→ local-operationally-admitted | adapt | reject | unresolved
+```
+
+The local snapshot can exist before Trial Admission because preservation has `authority_effect = none`.
+
+## Candidate #48-owned pilot object
+
+Investigate the implemented external-capability consumption path itself as a bounded socio-technical system:
+
+- authority/no-cascade behavior;
+- source/currentness separation;
+- recoverability/provider loss;
+- owner burden;
+- restartability;
+- evidence/assurance boundaries.
+
+The external Skill may derive external research from material findings but must obey its own STOP before solution development.
+
+No historical Research Selection is created.
+
+## Trial Work Context must freeze
+
+- exact local snapshot basis;
+- fresh upstream observation;
+- exact investigation object;
+- Scope/Exclusions;
+- evidence available;
+- trial-only authority;
+- MAY/MUST NOT;
+- STOP;
+- output/persistence target;
+- review target;
+- explicit statement: `trial success != operational admission`.
+
+---
+
+# 8. V1 — Falsification after T1
+
+Normal-Chat-first tests:
+
+1. fresh context can reconstruct tracking identity, trial basis, source lineage and authority from repo only;
+2. simulated/current source-unavailable state still permits loading the preserved local basis;
+3. changed upstream head/status yields `review_required`, never auto-upgrade;
+4. same upstream SHA but changed maturity/status is noticed through fresh observation;
+5. local snapshot cannot claim current upstream state;
+6. new worker does not require Human Owner to relay context between agents/chats;
+7. Skill STOP prevents solution development under T1;
+8. no operational admission appears without explicit post-trial review/authority;
+9. local snapshot remains immutable;
+10. actual owner problem is re-tested: current + durable usable basis with minimal owner meta-work.
+
+Only after V1 may a keep/adapt/reject/operational-admission decision be requested.
+
+---
+
+# 9. Resource Plan
+
+### Normal Chat / GitHub
+
+Use for:
+
+- all remaining plan/review reconciliation;
+- fresh upstream inspection;
+- Work Context generation;
+- T1 analysis/research if available capability is quality-equivalent;
+- V1/fresh-context review;
+- admission decision support.
+
+### Scarce isolated executor
+
+Use only for:
+
+- E0/E1 filesystem/Git mutation;
+- same-checkout tests;
+- exact diff/scoped return.
+
+Expected scarce runs before T1: **one**, if closure review approves the topology.
+
+No model/provider name is canonical.
+
+---
+
+# 10. Current Gate
+
+`PARTIAL / REVISED DELTA READY FOR FRESH CLOSURE REVIEW / NO IMPLEMENTATION AUTHORITY`
+
+The earlier broad independent review is complete. A short independent closure review is still required because the new immutable Availability-Derivative topology did not exist in the reviewed plan.
+
+The closure review must answer only:
+
+1. Does the concrete snapshot solve recoverable availability with less architecture than the rejected generic Binding Core?
+2. Is it genuinely a derivative/availability artifact rather than a second Skill Truth?
+3. Does this make E0 legitimately necessary?
+4. Are exact paths/blob identities/immutability tests sufficient?
+5. Is isolated one-run E0→E1 safe under one pre-bound Owner GO?
+6. Is there any already-existing smaller Histo mechanism that closes the same availability gap?
+
+If the answer is `READY` or only non-blocking refinements remain, the next state may become `READY FOR OWNER ADMISSION` and exact final Work-Order candidates can be materialized. Until then: STOP.
