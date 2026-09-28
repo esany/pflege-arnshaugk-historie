@@ -1,7 +1,7 @@
 # Histo-Orla – Project State / Handoff
 
 **Status:** active handoff snapshot  
-**Stand:** 2026-09-24  
+**Stand:** 2026-09-28  
 **State Owner:** #1; Governance #9/#23  
 **Arbeitsregel:** `AGENTS.md` zuerst lesen.
 
@@ -18,6 +18,7 @@ Histo-Orla ist ein privates, leanes und agiles Forschungssystem.
 - **#64 / PR #125** – die wiederholten Systemanalysen sind punktweise reconciliiert. Frühere Sammeldiagnosen wurden gesplittet/abgeschwächt; insbesondere sind Loss-Boundary-Formalisierung und Readiness/Admission eigenständige positive bzw. separate Mechanismen. PR #125 ist die aktuelle Dispositionssicht, nicht neue Requirement-/Architecture-Authority.
 - **#92 / PR #94** – die bestehende Architecture/Product-Re-Baseline bleibt Prior Art / frühere Lösungshypothese. `Research Reconciliation = COMPLETE`; `Rebuild Re-entry = READY`; die Fresh Rebuild Conception ist abgeschlossen. WP1 `Canonical Research State Spine v0 + derived audit roundtrip` ist über PR #132 als bounded Increment **IMPLEMENTED + TECHNICALLY VERIFIED**; `IMP-STATE-SPINE-001` ist verified. Owner-/Workflow-Nutzen bleibt separat offen. `selection-open` bleibt unverändert; kein WP2/WP3/WP4/WP5 ist dadurch admitted.
 - **Intent-/Erkenntnislücken-Bestandsaufnahme 2026-09-24** – read-only Analyse ohne Promotion; gegen `main@9b9dd31` revalidiert. Sie ist die aktuelle kanonische Lesesicht für die jüngsten Intent-Signale, während Intent und Erkenntnislücke ausdrücklich ungelöste Modellierungs-/Owner-Fragen bleiben.
+- **#150 / PR #151 — Competence-analysis Preservation P0** – temporäres bounded Preservation Work Package. Status auf diesem Branch: `P0 planning freeze / no W1`. Kanonische Current Map: `docs/research/discovery/competence-analysis/README.md`; Source Lock und Plan/Assurance liegen darunter. Dies ist keine neue Projektphase, keine Current-Work-Selection und keine Method-/Requirement-/Architecture-Promotion. Nächste zulässige Aktion ist ausschließlich der Review-/Merge-Gate für PR #151; W1 darf vor expliziter Merge- und Ausführungsfreigabe nicht starten.
 
 ### Aktuelles Analysis→Research→Rebuild Gate
 
