@@ -21,7 +21,7 @@
 **MUST PRESERVE** — wording-dependent distinctions, uncertainty, P6 boundary, case-vs-general, non-promotion.  
 **MUST NOT** — author baseline; perform SOTA; infer missing profile content; import PR147 richness; decide split/merge; create historical findings.  
 **AUTHORITY BOUNDARY** — inventory judgement only; cannot establish domain truth or modify owner meaning.  
-**APPLICABLE METHOD / QUALITY FRAME** — #53 Semantic Fidelity as candidate aid; #5 Harvest/material-state prior art; QC-01/02/03/04/08/09/17/18.  
+**APPLICABLE METHOD / QUALITY FRAME** — `esany/Wissensarbeit#53` Semantic Fidelity and `esany/Wissensarbeit#5` Harvest/material-state only as candidate/prior-art aids; QC-01/02/03/04/08/09/17/18 remain the frozen Histo-Orla assurance authority for this run.  
 **REQUIRED EVIDENCE** — Source anchors and full inventory table.  
 **QUALITY CRITERIA** — all Cross-cutting/Meta/Profile/Interface/Activation classes represented; no unsupported additions.  
 **EXPECTED OUTPUT** — `INV_ID | source_anchor | type | meaning_to_preserve | must_preserve_distinctions | explicit_relations | epistemic_status | open_state | explicit_non_conclusion`.  
