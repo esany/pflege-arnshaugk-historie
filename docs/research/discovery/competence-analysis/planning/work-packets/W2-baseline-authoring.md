@@ -21,7 +21,7 @@
 **MUST PRESERVE** — QC-01…08, 15…18; all Oracle items.  
 **MUST NOT** — SOTA-correct; add literature; merge/split profiles as conclusion; invent Fachregeln; create technical roles; promote cases.  
 **AUTHORITY BOUNDARY** — editorial transformation only.  
-**APPLICABLE METHOD / QUALITY FRAME** — W1 inventory + Assurance Contract; #55-like bounded task fidelity as candidate prior art.  
+**APPLICABLE METHOD / QUALITY FRAME** — W1 inventory + Histo-Orla Assurance Contract; bounded-task fidelity from `esany/Wissensarbeit#55` only as candidate prior art, with no transferred authority.  
 **REQUIRED EVIDENCE** — INV→baseline mapping.  
 **QUALITY CRITERIA** — readable and complete; no added claims; explicit non-promotions/open debt.  
 **EXPECTED OUTPUT** — draft `analysis-baseline-2026-09-27.md` with status/provenance, source-role model, operational competence, architecture, profiles, activation, interfaces, QA, open debt.  
