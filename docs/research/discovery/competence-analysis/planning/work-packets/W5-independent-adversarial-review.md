@@ -21,7 +21,7 @@
 **MUST PRESERVE** — reviewer independence and possibility of FAIL/STOP.  
 **MUST NOT** — improve model, choose profile boundary, invent SOTA, normalize divergence away.  
 **AUTHORITY BOUNDARY** — review verdict only; no acceptance/promotion beyond plan.  
-**APPLICABLE METHOD / QUALITY FRAME** — all QC, Independent Review Prior Art from #43/PR47.  
+**APPLICABLE METHOD / QUALITY FRAME** — all Histo-Orla QC; independent-review/assurance design from `esany/Wissensarbeit#43` and its PR #47 only as prior art, with no transferred authority.  
 **REQUIRED EVIDENCE** — finding IDs with source evidence/artifact evidence/severity/determinism/repair target.  
 **QUALITY CRITERIA** — zero S2/S3 unresolved; challenge suite executed.  
 **EXPECTED OUTPUT** — adversarial review + overall `PASS|REVISE|STOP`.  
