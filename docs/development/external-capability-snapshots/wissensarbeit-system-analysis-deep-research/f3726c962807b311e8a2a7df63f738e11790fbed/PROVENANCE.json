@@ -1,0 +1,31 @@
+{
+  "artifact_role": "immutable-availability-derivative",
+  "source_repository": "esany/Wissensarbeit",
+  "source_commit": "f3726c962807b311e8a2a7df63f738e11790fbed",
+  "tracking_refs": ["#43", "#46", "PR #51"],
+  "preserved_at": "2026-09-28T22:07:49Z",
+  "source_observation_at_preservation": "2026-09-28T22:07:49Z",
+  "source_observation_summary": "PR #51 open/unmerged at exact frozen head f3726c962807b311e8a2a7df63f738e11790fbed; #43 records R2 closed and #46 owner-authorized; #46 remains open with the frozen trial baseline and next-trial-selection-pending; Generic Fit is not established.",
+  "fresh_upstream_resolution_required": true,
+  "authority_effect": "none",
+  "semantic_compatibility_effect": "none",
+  "local_edit_policy": "immutable; explicit new derivative required for modification",
+  "package_fidelity": "exact reviewed PR #51 runtime package",
+  "files": [
+    {
+      "local_path": "skill.md",
+      "source_path": "skills/system-analysis-deep-research/skill.md",
+      "source_blob_sha": "845f5cfa9d224384f7d81c79fd7829b8d26cbf06"
+    },
+    {
+      "local_path": "references/core-method.md",
+      "source_path": "skills/system-analysis-deep-research/references/core-method.md",
+      "source_blob_sha": "4a1aa371e0a7da30e7f98834cee58aa03ccc4821"
+    },
+    {
+      "local_path": "references/execution-profiles/chatgpt-deep-research.md",
+      "source_path": "skills/system-analysis-deep-research/references/execution-profiles/chatgpt-deep-research.md",
+      "source_blob_sha": "77fa8cfc31fdace2a928f3b936a21687d81de297"
+    }
+  ]
+}
