@@ -210,6 +210,8 @@ Die Analyse adressiert unter Diplomatik insbesondere:
 
 Eine Authentizitäts- oder Funktionsbehauptung darf nicht allein aus einem Editionstext abgeleitet werden. Text, Form, institutioneller Produktionskontext und Überlieferungsstatus sind nicht austauschbar.
 
+Die diplomatische Beurteilung kann Archivprovenienz- und Materialprüfung erfordern. Ihre Status-/Funktionsbefunde können nachgelagerte sachhistorische Interpretation begrenzen, entscheiden den nachgelagerten sachhistorischen Claim aber nicht selbst.
+
 **OPEN / NOT YET ESTABLISHED:** SOTA-basierte diplomatische Operations-/Inference-/QA-Regeln.
 
 ### P6b — Editionswissenschaft / Textkritik
@@ -388,6 +390,31 @@ P15 besitzt **keine** eigene historische Evidence-/Truth-Superauthority. Koordin
 
 **OPEN / NOT YET ESTABLISHED:** fachlich tragfähige Routing-/Kompositionsregeln über die hier gesicherten Schnittstellenanforderungen hinaus.
 
+### Operational-Coverage-Status der Profile — R-01
+
+Diese Matrix ist ausschließlich Repräsentations-/Coverage-Bookkeeping für die 26 Fragen aus §3. `REPRESENTED` bedeutet: Der eingefrorene Source Lock/W1 trägt eine profilspezifische Aussage zu dieser Dimension; der vorhandene Profiltext bzw. die dort genannten `INV-*` repräsentieren sie. `OPEN / NOT YET ESTABLISHED` bedeutet: Der eingefrorene Analysezustand trägt für dieses Profil keine profilspezifische Antwort. `OPEN` ist keine negative Fachbehauptung und wird hier nicht durch Modell-/SOTA-Wissen gefüllt.
+
+| Profil | REPRESENTED — source-supported OC dimensions | OPEN / NOT YET ESTABLISHED — remaining OC dimensions | Source/W1 basis |
+|---|---|---|---|
+| P1 | OC-07, OC-08, OC-09, OC-10, OC-11, OC-12, OC-14, OC-15, OC-17 | OC-01, OC-02, OC-03, OC-04, OC-05, OC-06, OC-13, OC-16, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-049–053 |
+| P2 | OC-04, OC-05, OC-06, OC-11, OC-14, OC-15, OC-19 | OC-01, OC-02, OC-03, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-16, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-054–058 |
+| P3 | OC-05, OC-11, OC-14, OC-15 | OC-01, OC-02, OC-03, OC-04, OC-06, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-16, OC-17, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-059–063 |
+| P4 | OC-05, OC-11, OC-14, OC-15, OC-16 | OC-01, OC-02, OC-03, OC-04, OC-06, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-17, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-064–068 |
+| P5 | OC-05, OC-11, OC-14, OC-15, OC-19 | OC-01, OC-02, OC-03, OC-04, OC-06, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-16, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-069–073 |
+| P6a | OC-03, OC-04, OC-05, OC-06, OC-07, OC-11, OC-14, OC-15, OC-19 | OC-01, OC-02, OC-08, OC-09, OC-10, OC-12, OC-13, OC-16, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-074–078 |
+| P6b | OC-05, OC-06, OC-11, OC-14, OC-15 | OC-01, OC-02, OC-03, OC-04, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-16, OC-17, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-079–083 |
+| P7 | OC-03, OC-04, OC-05, OC-06, OC-07, OC-10, OC-11, OC-14, OC-15, OC-19 | OC-01, OC-02, OC-08, OC-09, OC-12, OC-13, OC-16, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-084–088 |
+| P8 | OC-01, OC-05, OC-11, OC-12, OC-14, OC-15, OC-19 | OC-02, OC-03, OC-04, OC-06, OC-07, OC-08, OC-09, OC-10, OC-13, OC-16, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-089–093 |
+| P9 | OC-03, OC-04, OC-05, OC-06, OC-11, OC-12, OC-14, OC-15, OC-16, OC-19 | OC-01, OC-02, OC-07, OC-08, OC-09, OC-10, OC-13, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-094–098 |
+| P10 | OC-01, OC-05, OC-11, OC-14, OC-15, OC-16, OC-17 | OC-02, OC-03, OC-04, OC-06, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-099–103 |
+| P11 | OC-03, OC-04, OC-05, OC-06, OC-08, OC-11, OC-14, OC-15, OC-16, OC-19 | OC-01, OC-02, OC-07, OC-09, OC-10, OC-12, OC-13, OC-17, OC-18, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-104–108 |
+| P12 | OC-05, OC-06, OC-10, OC-11, OC-12, OC-14, OC-15, OC-17 | OC-01, OC-02, OC-03, OC-04, OC-07, OC-08, OC-09, OC-13, OC-16, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-109–113 |
+| P13 | OC-01, OC-10, OC-11, OC-14, OC-15, OC-17, OC-18 | OC-02, OC-03, OC-04, OC-05, OC-06, OC-07, OC-08, OC-09, OC-12, OC-13, OC-16, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-114–118 |
+| P14 | OC-01, OC-03, OC-04, OC-05, OC-11, OC-12, OC-14, OC-15, OC-16, OC-17 | OC-02, OC-06, OC-07, OC-08, OC-09, OC-10, OC-13, OC-18, OC-19, OC-20, OC-21, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-119–123 |
+| P15 | OC-01, OC-04, OC-11, OC-16, OC-19, OC-20, OC-21 | OC-02, OC-03, OC-05, OC-06, OC-07, OC-08, OC-09, OC-10, OC-12, OC-13, OC-14, OC-15, OC-17, OC-18, OC-22, OC-23, OC-24, OC-25, OC-26 | INV-124–128 |
+
+Die Matrix entscheidet keine Profile, keine SOTA und keine Method Truth. Insbesondere bleiben OC-23…OC-26 dort `OPEN`, wo der eingefrorene Analysezustand keine profilspezifische Antwort trägt; die spätere Klärung gehört weiterhin zu den zuständigen Fach-/Method-Ownern.
+
 ## 6. Schnittstellen und Handoff/Return als methodische Objekte
 
 Ein fachlicher Handoff besteht mindestens aus:
@@ -530,7 +557,7 @@ Die folgenden Mapping-Blöcke decken jedes W1-Item ohne semantische Fremdquelle 
 | INV-059–063 | §5 P3 | Historiographie / Forschungsschichten |
 | INV-064–068 | §5 P4 | Aussage/Beleg/Schluss / Inferenzkette |
 | INV-069–073 | §5 P5 | historische Semantik / Form-Normalisierung-Übersetzung-Termrolle |
-| INV-074–078 | §5 P6a | Diplomatik / Status-/Funktionsgrenzen |
+| INV-074–078 | §5 P6a | Diplomatik / Status-/Funktionsgrenzen / INV-078 Archiv-/Materialprüfung und downstream sachhistorische Begrenzung ohne Domain-Entscheid |
 | INV-079–083 | §5 P6b | Edition/Textkritik / Regest-Original-/Ergänzungsgrenzen |
 | INV-084–088 | §5 P7 | Archivistik / Provenienz / negative Evidenz |
 | INV-089–093 | §5 P8 | sachhistorische Relationstypen / kein Mediävistik-Sammelmodell |
@@ -546,6 +573,7 @@ Die folgenden Mapping-Blöcke decken jedes W1-Item ohne semantische Fremdquelle 
 | INV-142–153 | §7 | initiale vs claim-getriebene Aktivierung / Explorationstiefe |
 | INV-154–159 | §8 | Case-as-stress-case / keine Historical-Finding-Promotion |
 | INV-160–163 | §§8–10 | SOTA-/Boundary-/Validation-/External-Validation-/REQ-/Architecture-Debt |
+| Profile-level OC-01…OC-26 status (R-01 bookkeeping) | §5 `Operational-Coverage-Status der Profile` | profilspezifisch explizites `REPRESENTED` vs `OPEN / NOT YET ESTABLISHED`; keine zusätzliche Fachsemantik |
 
 ## 12. Editorial additions and unresolved
 
@@ -556,23 +584,31 @@ Nur repräsentationsbezogen:
 - Überschriften und Baseline-Abschnittsstruktur;
 - explizite `OPEN / NOT YET ESTABLISHED`-Marker dort, wo die Source-Lock-Analyse bewusst keine SOTA-validierte Antwort trägt;
 - kompakte Wiederholungen der bereits eingefrorenen Non-Promotion-/Authority-Grenzen;
-- Mapping-Tabelle zwischen W1 und Baseline.
+- Mapping-Tabelle zwischen W1 und Baseline;
+- R-01: profilspezifische OC-01…OC-26-Statusmatrix als explizites Coverage-Bookkeeping aus Source Lock/W1;
+- R-02: Wiederherstellung der source-backed INV-078-Schnittstellenrelation in P6a;
+- R-03: Mapping-/Return-Bookkeeping für diesen bounded Repair-Zyklus.
 
 Diese Ergänzungen behaupten keine neue Fachsemantik.
 
 ### Unresolved
 
-- keine Source-Lock-Ambiguität aus W1;
-- Representation Fidelity der W2-Baseline ist **noch nicht** verifiziert und bleibt bis W3/W5 offen;
+- keine Source-Lock-Ambiguität aus W1 oder dem ersten W3;
+- Representation Fidelity der reparierten W2-Baseline ist **noch nicht** verifiziert und bleibt bis zum erneuten fresh W3 sowie W5 offen;
 - alle fachlichen SOTA-/Profilgrenzen-/Methodenvalidierungszustände bleiben offen.
 
 ## 13. W2 return
 
 ```text
 verdict: PASS
+mode: bounded repair cycle after W3 REVISE
+repair_cycle: 1 of 1 consumed
+repairs_applied: R-01, R-02, R-03
 baseline_ref: docs/research/discovery/competence-analysis/analysis-baseline-2026-09-27.md
-INV_map: §11 covers INV-001 through INV-163 without gaps
-editorial_additions: headings; OPEN markers; repeated non-promotion/authority labels; mapping table
-unresolved: representation fidelity awaits mandatory fresh W3; SOTA/profile-boundary/method-validation debt remains open
-next_allowed_transition: W3
+INV_map: §11 covers INV-001 through INV-163 without gaps; R-01 profile OC status is explicitly mapped
+editorial_additions: profile OC coverage/status matrix; INV-078 interface restoration; bounded mapping/return bookkeeping
+unauthorized_semantic_additions: none claimed by W2; fresh W3 must independently verify
+unresolved: representation fidelity awaits mandatory fresh W3 re-review; SOTA/profile-boundary/method-validation debt remains open
+next_allowed_transition: W3 fresh re-review
+W4_allowed: no
 ```
