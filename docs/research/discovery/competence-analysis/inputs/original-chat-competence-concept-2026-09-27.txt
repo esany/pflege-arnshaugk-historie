@@ -1,0 +1,756 @@
+Nimm das zurück
+
+2m 41s nachgedacht
+Zurückgenommen.
+
+PR #146 hat die beiden fälschlich angelegten Herrmann-Dateien vollständig aus main entfernt und ist gemergt; Merge-SHA cd2c06fc17095c2c6d430287734e92061d434173. Beide Pfade sind auf main nicht mehr vorhanden.
+
+Die beiden von mir in #46 hinterlassenen Handoff-/Research-Kommentare habe ich außerdem ausdrücklich als RETRACTED markiert, damit daraus kein Research-Cursor oder Finding-Status fortwirkt. Project Assurance für den Revert ist erfolgreich durchgelaufen.
+
+Den ursprünglich gemeinten methodischen Sicherungsauftrag habe ich dabei nicht neu ausgeführt.
+
+Also welche Kompetenzen braucht oder nutzt der historiker beim erschließen der quelle
+
+47s nachgedacht
+Bei genau diesem Herrmann-Aufsatz braucht der Historiker nicht nur „Geschichtswissen“, sondern ein Bündel verschiedener Kompetenzen. Und wichtig: Diese Kompetenzen werden nicht alle gleich stark und nicht gleichzeitig gebraucht. Einige führen die Erschließung, andere werden erst aktiviert, wenn ein bestimmtes Problem auftaucht.
+
+Für diesen Quellentyp würde ich die Kompetenzstruktur so sehen:
+
+Historische Quellenkritik und Quellenkunde – die Basiskompetenz.
+Zuerst muss erkannt werden, was für eine Quelle vorliegt: kein mittelalterliches Zeugnis, sondern ein wissenschaftlicher Aufsatz des 20. Jahrhunderts, der wiederum ältere Quellen verarbeitet. Der Historiker trennt deshalb Herrmanns Aussage, Herrmanns Quellenreferat, die von ihm benutzte Edition, das eventuell dahinterliegende Original und die heutige Interpretation. Genau diese Unterscheidung von Quelle, Instanz, Fundstelle, Finding und Interpretation ist auch im aktuellen Histo-Orla-Rahmen grundlegend.
+
+Historiographie und Forschungsgeschichte.
+Der Historiker muss Herrmann als Forscher seiner Zeit lesen. Begriffe und Modelle wie „Urpfarrei“, „Gaupfarrei“, „deutsche Kolonisation“ oder die Vorstellung langfristig stabiler Gaugrenzen sind zunächst Herrmanns wissenschaftliche Kategorien und nicht einfach mittelalterliche Tatsachen. Herrmann entwickelt beispielsweise selbst ein Stufenmodell von frühen „Urpfarreien“ über Großpfarreien zu Kleinpfarreien. 
+
+Dafür braucht man Wissen über ältere landesgeschichtliche Forschungsparadigmen und darüber, wie sie sich verändert haben.
+
+Hermeneutik und Argumentationsanalyse.
+Das ist etwas anderes als Quellenkritik. Hier fragt man: Wie baut der Autor seinen Beweis? Welche Prämisse führt zu welchem Schluss? Herrmann stellt ausdrücklich alte politische Grenzen (a), spätmittelalterliche Bistumsgrenzen (b) und spätere politische Grenzen (c) gegenüber. 
+
+Der Historiker muss erkennen, wo Herrmann beobachtet, wo er identifiziert, wo er analogisiert und wo er rückschließt. Ohne diese Kompetenz würde man sein Ergebnis übernehmen, ohne seinen Beweisgang zu verstehen.
+
+Kirchengeschichte und historische Kirchenorganisation.
+Bei diesem Aufsatz ist das eine zentrale Sachkompetenz. Man muss verstehen, was Bistum, Archidiakonat, Dekanat/Sedes, Pfarrei, Filiale, Patronat usw. bedeuten und dass diese Ebenen nicht dasselbe sind. Herrmann rekonstruiert Grenzen wesentlich über Pfarr- und Filialbeziehungen, Subsidienregister und Visitationsakten. 
+ 
+
+Ohne diese Kompetenz kann man seine kirchlichen Grenzargumente kaum sachgerecht beurteilen.
+
+Landes-, Herrschafts- und Verfassungsgeschichte.
+Sobald Herrmann von Orlagau, Amt Arnshaugk, Ziegenrück, Herrschaft Schleiz, Lobenstein, Hirschberg oder Regnitzland spricht, reicht allgemeine Mediävistik nicht mehr. Man muss wissen, was diese politischen Räume jeweils zu einem bestimmten Zeitpunkt überhaupt waren, welche Rechte eine Herrschaft ausmachten und wie sich territoriale Zugehörigkeit verändern konnte. Das ist nötig, um beispielsweise Herrmanns a=b=c-Schluss – alte Grenze = Bistumsgrenze = spätere Herrschaftsgrenze – überhaupt beurteilen zu können. 
+
+Historische Geographie und Kartenkritik.
+Hier wird die Quelle räumlich gelesen: Flüsse, Bäche, Höhenzüge, Siedlungen, Grenzverläufe, Verkehrs- und Landschaftsbeziehungen. Herrmann arbeitet stark mit Gewässern und topographischen Linien und legt seinem Aufsatz eine Karte bei. Die Karte unterscheidet Bistums-, Sedes-/Dekanats- und Herrschaftsgrenzen; zugleich erklärt Herrmann, dass ältere politische Grenzen teilweise gerade aus diesen Grenzverläufen erschlossen werden. 
+
+Kartenkompetenz bedeutet deshalb auch: erkennen, wann eine Karte Evidenz zeigt und wann sie eine Interpretation visualisiert.
+
+Onomastik/Toponymie und historische Sprachkompetenz.
+Ein großer Teil solcher Rekonstruktionen hängt daran, ob ein historischer Name wirklich mit einem heutigen Ort, Bach oder Flurnamen identifiziert werden kann. Herrmann diskutiert etwa Birckenheide, Wisinta, Mezschawe, Visbach oder Goztinia. 
+
+Dazu braucht es Kenntnisse historischer Laut- und Schreibvarianten, regionaler Namenentwicklung und eine hohe Sensibilität dafür, dass Namensähnlichkeit noch keine Identität beweist.
+
+Diplomatik, Editionswissenschaft, Archivistik und historische Philologie – sobald man Herrmanns Belege zurückverfolgt.
+Beim ersten Lesen des Aufsatzes stehen diese Kompetenzen noch nicht immer im Vordergrund. Sie werden aber entscheidend, sobald der Historiker fragt: Stimmt Herrmanns Beleg wirklich? Bei Hirschberg etwa hängt viel an der Form Nurimbergensis diocesis; Herrmann erwägt eine Lesung Nuwenburgensis und diskutiert Lesefehler bzw. Kanzleifehler. 
+
+Dann braucht man Editionskritik, gegebenenfalls Mittellatein, Kenntnisse der Überlieferung und letztlich eventuell Paläographie zur Prüfung eines Originals. Genau deshalb priorisiert das aktuelle Methodenpaket des Projekts Diplomatik/Urkundenlehre, Editionswissenschaft, Archivistik und historische Philologie als eigene Fachkompetenzen.
+
+Siedlungsgeschichte und gegebenenfalls Archäologie.
+Herrmann benutzt Siedlungsentwicklung selbst als Argument: Wenn eine Grenze mitten durch eine spätere Siedlung läuft, kann das für ihn bedeuten, dass die Grenze älter als diese Siedlungsstruktur ist. Beim geteilten Spielmes beispielsweise wird genau so argumentiert. 
+
+Ob dieser Schluss trägt, ist aber keine reine Textfrage. Dafür können Siedlungschronologie, Archäologie, Wüstungsforschung und historische Geographie als Kontrolldisziplinen nötig werden.
+
+Epistemologische Urteilskompetenz – wahrscheinlich die wichtigste übergreifende Fähigkeit.
+Der Historiker muss ständig einschätzen: Was weiß ich tatsächlich? Was weiß Herrmann? Was vermutet er? Wie viele inferentielle Schritte liegen zwischen Beleg und Behauptung? Was würde die These falsifizieren? Herrmann selbst kennzeichnet manche Abschnitte als direkt belegt und andere nur in Klammern als erschlossen. 
+
+Diese Fähigkeit verhindert die typische Verkürzung: „Herrmann schreibt es, also war es so.“
+
+Der entscheidende Punkt ist deshalb: „der Historiker“ ist hier eigentlich ein Kompetenzverbund. Ein guter Mediävist muss nicht zugleich der beste Kirchenhistoriker, Toponomastiker, Diplomatiker, Archäologe und historische Geograph sein. Seine zentrale professionelle Kompetenz besteht auch darin, zu erkennen, wann seine eigene Kompetenz reicht und wann eine andere Fachdomäne kontrollieren muss. Genau so ist die aktuelle Histo-Orla-Kompetenzlandkarte gedacht: Quellen-/Überlieferungskompetenzen, Mittelalter/Herrschaft, Raum/Siedlung/Materialität, Akteurs-/Netzwerkkompetenzen und Regionalkompetenz werden problemabhängig geroutet, nicht zu einer fiktiven „Superexpertise“ verschmolzen.
+
+Für die erste Erschließung dieses Herrmann-Aufsatzes wären also führend:
+
+Quellenkritik + Historiographie + Hermeneutik/Argumentationsanalyse + Kirchengeschichte + historische Geographie/Landesgeschichte.
+
+Diplomatik, Editionswissenschaft, Archivistik, Philologie, Onomastik und Archäologie kommen dann gezielt hinzu, sobald Herrmanns einzelne Beweisketten überprüft werden.
+
+Das ist auch ein wichtiger Unterschied zu meiner vorherigen Antwort: Erschließen heißt zunächst noch nicht, jede Urkunde nachzuprüfen. Es heißt zuerst, kompetent zu erkennen, aus welchen fachlichen Operationen der Text überhaupt besteht und welche Expertise man für seine verschiedenen Aussagen benötigt.
+
+Was haben wir denn für einen quellentyp?
+
+Welche Prinzipien und qualitätsstandards bzw. Wissensbereiche stecken hinter jeder Kompetenz? Welche Grundlagen.. alles generalisiert gemeint jenseits der konkreten quelle.. kannst du detaillierte Profile der Kompetenzen erarbeiten, wo und welchen Schnittstellen gibt es unter ihnen, woran zeigt sich das, was muss jede Kompetenz hierfür mitbringen?
+
+5m 25s nachgedacht
+Ja. Und dabei ist eine wichtige Korrektur gegenüber einer einfachen Liste von „Fächern“ nötig: Eine Kompetenz ist nicht dadurch operationalisiert, dass man „Diplomatik“, „Kirchengeschichte“ oder „historische Geographie“ draufschreibt. Sie muss ein eigenes Wissensmodell, eine Quellenlogik, zulässige und unzulässige Inferenzen, Qualitätsregeln und definierte Schnittstellen besitzen. Genau das verlangt auch der bestehende #60-Profilvertrag.
+
+1. Was haben wir überhaupt für einen Quellentyp?
+Der konkrete Ausgangstext ist ein wissenschaftlicher historischer Fachaufsatz, also eine Forschungspublikation / Sekundärliteratur. Titel, Autor und Publikationsform machen das eindeutig. 
+
+Aber „Primärquelle“ und „Sekundärliteratur“ sind keine absoluten Eigenschaften eines Gegenstands. Sie hängen von der Forschungsfrage ab:
+
+Für die Frage „Wie verliefen mittelalterliche Grenzen?“ ist der Aufsatz Sekundärliteratur. Seine Aussagen sind Forschungsclaims und müssen gegebenenfalls bis zu den von ihm verwendeten Urkunden, Registern, Karten usw. zurückverfolgt werden.
+Für die Frage „Wie dachte die Landesgeschichtsforschung der 1930er Jahre über Gau, Urpfarrei, Kolonisation und Grenzkontinuität?“ wird derselbe Aufsatz zur Primärquelle der Historiographiegeschichte.
+Eine Karte innerhalb des Aufsatzes ist eine wissenschaftliche Repräsentation bzw. Rekonstruktion des Autors, nicht automatisch unabhängige historische Evidenz.
+Fußnoten, Bibliographie, Archiv- und Editionsangaben sind zunächst Quellenrouter: Sie zeigen, wohin weitergeprüft werden muss.
+Das ergibt einen wichtigen allgemeinen Grundsatz:
+
+Quellentyp = Materialart × Entstehungsfunktion × Forschungsfrage × beabsichtigte Aussage.
+
+Ein Dokument ist also nicht einfach „eine Sekundärquelle“. Man muss immer fragen: Sekundärquelle wofür? Primärquelle wofür?
+
+2. Was muss überhaupt in einem Kompetenzprofil stecken?
+Bevor wir die einzelnen Kompetenzen betrachten, brauchen sie alle dieselbe Grundstruktur. Das bestehende Histo-Orla-Profilmodell fordert im Kern genau diese Ebenen: Geltungsbereich, Fachbegriffe, Quellenmodell, Playbook, Inferenzvertrag, Evidence Appetite, SOTA, QA, Schnittstellen und AI-/Automation-Grenze.
+
+Eine belastbare Kompetenz muss beantworten können:
+
+Was kann sie entscheiden?
+Nicht „weiß viel über Mittelalter“, sondern beispielsweise: „Kann beurteilen, ob aus einer Pfarrzugehörigkeit auf eine bestimmte kirchenrechtliche Relation geschlossen werden darf.“
+
+Welche Wissensbasis braucht sie?
+Fachbegriffe, Institutionen, Quellenarten, Überlieferungsmechanismen, Methodenliteratur, Forschungskontroversen, regionale und zeitliche Besonderheiten.
+
+Welche Evidenz erkennt sie überhaupt als relevant?
+Urkunde, Kopie, Karte, Flurname, archäologischer Befund, Visitationsprotokoll usw. haben jeweils verschiedene Beobachtungsmöglichkeiten.
+
+Welche Operationen beherrscht sie?
+Lesen, klassifizieren, vergleichen, datieren, identifizieren, kontextualisieren, kollationieren, kartieren, argumentativ zerlegen usw.
+
+Welche Schlussarten erlaubt bzw. verbietet sie?
+
+Woran erkennt man fachgerechte Arbeit?
+
+Wann muss sie an eine andere Kompetenz übergeben?
+
+Welche Information muss dabei erhalten bleiben?
+
+Und entscheidend: Nicht alles davon ist ein „Standard“ im engen Sinn. Historische Disziplinen haben eine Mischung aus formalisierten Fachstandards, etablierten methodischen Prinzipien, Handbuchwissen, Quellenkonventionen, Forschungspraxis und fachlichem Urteil. Ein künftiges SOTA-Profil muss diese Ebenen ausdrücklich unterscheiden.
+
+3. Die Kompetenzarchitektur
+Ich würde die Kompetenzen in vier Schichten ordnen:
+
+A  Identität und Überlieferung
+   Bibliographie / Source Identity
+   Archivistik
+   Diplomatik / Edition / Textkritik
+   Paläographie / Materialität
+
+B  Text, Bedeutung und Forschung
+   Quellenkritik
+   historische Philologie / Semantik
+   Hermeneutik / Argumentationsanalyse
+   Historiographie
+
+C  historische Wirklichkeit / Gegenstandsdomänen
+   Sachhistorische Fachdomänen
+   historische Geographie / Kartographie
+   Onomastik
+   Archäologie / materielle Evidenz
+
+D  Suche und epistemische Integration
+   historische Heuristik / Retrieval
+   historische Epistemologie / Forschungsdesign
+   transdisziplinäres Expertise Routing
+Das ist keine lineare Pipeline. Je nach Material beginnt man an einer anderen Stelle.
+
+Bei einer Handschrift kann Paläographie führen. Bei einer Urkunde Diplomatik. Bei einem Forschungsaufsatz eher Quellenkritik + Historiographie + Hermeneutik + Fachgeschichte. Bei einer Karte historische Geographie und Kartenkritik.
+
+4. Detaillierte Kompetenzprofile
+A. Quellenkunde und historische Quellenkritik
+Aufgabe
+Sie beantwortet zunächst:
+
+Was ist dieses Material eigentlich? Warum existiert es? Wer erzeugte es für wen, zu welchem Zweck und unter welchen Bedingungen?
+
+Das ist die fundamentale Kompetenz hinter historischer Forschung.
+
+Wissensgrundlagen
+Sie braucht Wissen über Quellengattungen, Kommunikationssituationen, institutionelle Entstehungsbedingungen, Überlieferung, Selektionsprozesse, Perspektivität, Abhängigkeit zwischen Quellen und über äußere bzw. innere Quellenkritik.
+
+Grundprinzipien
+Eine Quelle ist niemals einfach ein Behälter voller Fakten.
+
+Der Entstehungszweck beeinflusst, was überhaupt beobachtbar wird. Ein Steuerregister sieht andere Dinge als eine Chronik. Ein Visitationsprotokoll andere als eine Schenkungsurkunde. Ein archäologischer Befund andere als beide.
+
+Ebenso wichtig:
+
+Nicht erwähnt bedeutet nur dann etwas, wenn man begründen kann, dass etwas unter den gegebenen Bedingungen erwartbar erwähnbar bzw. nachweisbar gewesen wäre.
+
+Qualitätsmaßstab
+Gute Quellenkritik macht mindestens sichtbar:
+
+Entstehung → Funktion → Perspektive → Überlieferung → Aussagepotenzial → Aussagegrenze.
+
+Sie erkennt außerdem Abhängigkeiten. Zehn Publikationen, die dieselbe ältere Quelle abschreiben, sind keine zehn unabhängigen Bestätigungen.
+
+Woran erkennt man Kompetenz?
+Daran, dass jemand nicht nur sagt:
+
+„Hier steht X.“
+
+sondern:
+
+„Diese Quelle kann X unter diesen Bedingungen beobachten; für Y reicht sie nicht.“
+
+Schnittstellen
+Sie übergibt an Diplomatik, sobald Urkundenform oder Authentizität relevant werden; an Archivistik bei Provenienzfragen; an Philologie bei Bedeutungsproblemen; an Historiographie bei Forschungsliteratur und an die Sachdomäne bei fachhistorischen Aussagen.
+
+B. Bibliographie, Source Identity und wissenschaftliche Publikationskompetenz
+Das wirkt zunächst technisch, ist aber wissenschaftlich fundamental.
+
+Aufgabe
+Sie unterscheidet:
+
+Werk → Ausgabe → Auflage → Band → Beitrag → konkrete Instanz → Digitalisat → Fundstelle.
+
+Wissensbasis
+Bibliographie, Periodika, Reihen, Editionsgeschichte, Normdaten, Kataloge, DOI/URN/Handle usw., Reprints, Digitalisate, Seitensysteme, wissenschaftliche Zitierpraxis.
+
+Grundprinzipien
+Ein Dateiname ist keine bibliographische Identität.
+
+Eine URL ist keine Quellenidentität.
+
+Eine Edition ist nicht automatisch dieselbe wie eine andere Edition desselben Textes.
+
+Qualität
+Ein anderer Forscher muss genau rekonstruieren können:
+
+welches Werk,
+welche Ausgabe,
+welche konkrete Repräsentation
+und welche Seite bzw. Fundstelle
+benutzt wurde.
+
+Das bestehende Source-Identity-Protokoll verlangt deshalb ausdrücklich die Trennung:
+
+historische Quelle → Edition/Katalog/Reproduktion → digitale Instanz → Fundstelle → Exzerpt → Finding.
+
+Schnittstellen
+Sehr enge Verbindung zu Editionswissenschaft, Archivistik und Retrieval.
+
+Sie entscheidet jedoch nicht, ob eine historische Behauptung stimmt. Sie stellt zunächst sicher, dass wir überhaupt wissen, womit wir arbeiten.
+
+C. Historiographie und Geschichte der Forschung
+Aufgabe
+Sie liest Forschung selbst historisch.
+
+Ein Buch von 1880, 1930, 1970 und 2025 ist nicht nur unterschiedlich alt. Die Autoren können mit völlig verschiedenen Vorstellungen darüber arbeiten, was etwa „Volk“, „Stamm“, „Gau“, „Territorium“, „Feudalismus“, „Kolonisation“ oder „Kirchenorganisation“ bedeutet.
+
+Wissensbasis
+Geschichte der Geschichtswissenschaft, Wissenschaftsgeschichte, Fachtraditionen, Schulen, Paradigmen, Begriffsgeschichte, politische und gesellschaftliche Kontexte wissenschaftlicher Wissensproduktion, Rezeptionsgeschichte.
+
+Prinzipien
+Ältere Forschung kann gleichzeitig:
+
+hervorragende Quellenkenntnis besitzen,
+bis heute unersetzbare Archivinformationen enthalten,
+aber mit einem heute verworfenen Interpretationsmodell arbeiten.
+Neuere Forschung wiederum ist nicht automatisch richtig.
+
+Qualität
+Die Kompetenz muss mindestens trennen können:
+
+Autorenbeobachtung
+Autoreninterpretation
+damaliges Forschungsmodell
+spätere Rezeption
+heutiger Forschungsstand.
+
+Woran zeigt sie sich?
+Ein Historiker sagt nicht einfach:
+
+„Herrmann zeigt, dass …“
+
+sondern eventuell:
+
+„Herrmann interpretiert diesen Befund innerhalb eines damals verbreiteten Modells von X; dessen heutiger Status muss separat geprüft werden.“
+
+Schnittstellen
+Sehr eng mit Hermeneutik, Begriffsgeschichte/Philologie und sämtlichen Sachdomänen.
+
+D. Hermeneutik, Argumentations- und Evidenzanalyse
+Das ist die Kompetenz, die einen Fachtext nicht nur zusammenfasst, sondern seinen Erkenntnisapparat zerlegt.
+
+Aufgabe
+Sie fragt:
+
+Was ist der Claim?
+Was ist sein Beleg?
+Welche Prämissen werden benötigt?
+Welche Zwischenschritte liegen dazwischen?
+Was wird nur angenommen?
+Wo wird analogisiert?
+Wo wird rückgeschlossen?
+Wo liegt ein Gegenargument?
+Wissensbasis
+Hermeneutik, historische Kontextualisierung, Argumentationsanalyse, Inferenzlogik, Kausalitätsprobleme, Analogie, Induktion, Abduktion, Narrativität.
+
+Grundprinzip
+Aussage ≠ Beleg ≠ Schluss.
+
+Ein wissenschaftlicher Text kann in einer einzigen scheinbar einfachen Aussage eine lange Inferenzkette verstecken.
+
+Beispielhaft:
+
+späte Grenze beobachtet
+→ Kontinuität angenommen
+→ älterer Raum identifiziert
+→ politische Zugehörigkeit erschlossen
+Jeder Pfeil braucht eine eigene Rechtfertigung.
+
+Qualitätsmaßstab
+Eine gute Erschließung kann eine These in prüfbare Teilclaims zerlegen und zu jedem Teilclaim angeben:
+
+Evidence | inference | assumptions | alternatives | confidence.
+
+Schnittstellen
+Quellenkritik liefert Evidenzstatus.
+Philologie klärt Wörter.
+Historiographie klärt Modelle.
+Sachhistorische Fachdomänen prüfen Prämissen.
+Epistemologie beurteilt die Gesamtinferenz.
+
+E. Historische Philologie, Semantik und Terminologiekritik
+Aufgabe
+Sie verhindert, dass wir historischen Text so behandeln, als wäre er heute geschrieben.
+
+Wissensbasis
+Historische Sprachwissenschaft, Mittellatein oder historische Volkssprachen, Syntax, Lexikographie, Pragmatik, Fach- und Formelsprache, Bedeutungswandel, Übersetzungstheorie.
+
+Kernprinzipien
+Ein historisches Wort hat keinen zeitlosen Wörterbucheintrag.
+
+Dasselbe Wort kann in zwei Jahrhunderten, zwei Kanzleien oder zwei Institutionen etwas anderes bedeuten.
+
+Und:
+
+Originalwort → Normalisierung → Übersetzung → moderne analytische Kategorie
+
+sind vier verschiedene Ebenen.
+
+Qualität
+Historische Form erhalten; Normalisierung markieren; Übersetzung begründen; Mehrdeutigkeit bewahren.
+
+Besonders wichtig ist die Typisierung eines Begriffs:
+
+source term | contemporary institutional term | editorial term | modern analytic term | historiographic term.
+
+Schnittstellen
+Diplomatik für Urkundenformeln; Onomastik für Eigennamen; Rechts- und Kirchengeschichte für institutionelle Semantik; Historiographie für moderne Forschungsterminologie.
+
+F. Diplomatik, Editionswissenschaft und Textkritik
+Diese Kompetenzen gehören eng zusammen, sind aber nicht identisch.
+
+Diplomatik
+Fragt nach Entstehung, Form und Funktion von Urkunden:
+
+Aussteller, Empfänger, Formular, Kanzlei, Datierung, Beglaubigung, Siegel, Zeugen, Original/Kopie, Fälschung, Transsumpt usw.
+
+Editionswissenschaft/Textkritik
+Fragt:
+
+Welcher Textzeuge liegt vor?
+Welche Variante?
+Was hat der Editor ergänzt?
+Wie wurde normalisiert?
+Was steht im Apparat?
+
+Zentrale Prinzipien
+Regest ≠ Urkunde
+
+Edition ≠ Original
+
+editorische Ergänzung ≠ historischer Wortlaut
+
+Registeridentifikation ≠ Quellenidentifikation.
+
+Qualität
+Ein Historiker muss zeigen können:
+
+Dieses Wort steht tatsächlich im Textzeugen.
+
+versus
+
+Dieses Wort wurde vom Editor ergänzt.
+
+versus
+
+Diese moderne Ortsidentifikation stammt aus dem Register.
+
+Das kann die ganze historische Interpretation verändern.
+
+Schnittstellen
+Archivistik → Woher stammt die Überlieferung?
+
+Paläographie → Wie ist die Handschrift zu lesen?
+
+Philologie → Was bedeutet der Text?
+
+Rechtsgeschichte → Was bedeutet der Rechtsakt?
+
+Quellenkritik → Was trägt er für die Forschungsfrage?
+
+G. Archivistik, Provenienz und Überlieferungsgeschichte
+Aufgabe
+Sie erklärt nicht nur, wo ein Dokument heute liegt, sondern warum es dort liegt und was seine Überlieferungsgeschichte bedeutet.
+
+Wissensbasis
+Provenienzprinzip, Archivtektonik, Registraturbildung, Fonds/Bestände, Aktenbildung, Kassation, Umlagerung, Repertorien, Signaturgeschichte.
+
+Prinzipien
+Archiv = nicht Vergangenheit eins zu eins.
+
+Ein Bestand ist das Resultat historischer Verwaltungs- und späterer Archivierungsprozesse.
+
+Nicht im Archiv gefunden bedeutet daher niemals ohne Weiteres hat nie existiert.
+
+Qualitätsstandard
+Es muss unterschieden werden:
+
+historischer Registraturzusammenhang
+spätere Bestandsbildung
+heutiger Bestand
+heutige Signatur
+alter Editionsnachweis.
+
+Schnittstellen
+Besonders eng mit Diplomatik, Bibliographie/Source Identity und institutioneller Geschichte.
+
+5. Die eigentlichen Sachdomänen
+Bis hierher haben wir Kompetenzen betrachtet, die grundsätzlich für viele historische Gegenstände nötig sind.
+
+Danach kommen die inhaltlich führenden historischen Spezialdomänen.
+
+H. Sachhistorische Domain-Expertise
+„Mediävistik“ allein wäre dafür viel zu grob.
+
+Je nach Frage können beispielsweise führen:
+
+Herrschafts- und Verfassungsgeschichte, Rechtsgeschichte, Kirchen- und Klostergeschichte, Ordensgeschichte, Sozialgeschichte, Adels- und Ministerialitätsforschung, Familiengeschichte, Wirtschafts- und Agrargeschichte oder Verwaltungsgeschichte.
+
+Was muss eine solche Kompetenz mitbringen?
+Vor allem ein Gegenstandsmodell.
+
+Ein Herrschaftshistoriker muss zum Beispiel wissen, dass
+
+Besitz
+
+Grundherrschaft
+
+Gericht
+
+Lehen
+
+Vogtei
+
+Patronat
+
+Abgabe
+
+Amt
+
+Territorialhoheit
+
+keine austauschbaren Beziehungen sind.
+
+Eine generische KI könnte alle als:
+
+„A hatte Kontrolle über B“
+
+zusammenfassen.
+
+Fachlich wäre das fatal.
+
+Qualität
+Jede Relation braucht:
+
+historischen Typ,
+zeitliche Geltung,
+institutionelle Bedeutung,
+passende Belegart,
+und Grenzen.
+Schnittstellen
+Diplomatik liefert Rechtsakte; Philologie die Terminologie; historische Geographie den Raum; Prosopographie die Personen; Archäologie kann materielle Strukturen kontrollieren.
+
+I. Historische Geographie und Kartenkritik
+Aufgabe
+Historische Räume rekonstruieren, ohne heutige Kartenlogik in die Vergangenheit zu projizieren.
+
+Wissensbasis
+Historische Geographie, territoriale Raumkonzepte, Grenzgeschichte, Siedlungsgeographie, historische Topographie, Kartographiegeschichte, Maßstab und Generalisierung.
+
+Grundprinzipien
+Ein historischer Raum muss nicht das gewesen sein, was heute ein Verwaltungsgebiet ist.
+
+Eine Grenze kann:
+
+linear,
+zonal,
+umstritten,
+funktional unterschiedlich,
+saisonal
+oder überhaupt nur an einzelnen Punkten belegt
+sein.
+
+Qualitätsmaßstab
+Eine moderne Karte darf nicht epistemisch präziser aussehen als ihre Quellen.
+
+Gute historische Kartierung unterscheidet:
+
+directly attested
+reconstructed
+interpolated
+candidate
+unresolved.
+
+Kartenkritik
+Eine historische oder wissenschaftliche Karte ist selbst eine Repräsentation. Man fragt:
+
+Wer kartiert?
+Wann?
+Wozu?
+Nach welchen Quellen?
+Welche Generalisierung?
+Welche Unsicherheit wird unsichtbar gemacht?
+
+Schnittstellen
+Onomastik, Archäologie, Herrschaftsgeschichte, Archivistik und Kartographie/GIS.
+
+J. Onomastik und Toponymie
+Aufgabe
+Namen identifizieren, ohne Namensähnlichkeit mit Identität zu verwechseln.
+
+Wissensbasis
+Historische Lautentwicklung, Schreibvarianten, Dialekte, lateinische und volkssprachliche Formen, Namenbildung, Belegserien, regionale Namenslandschaften.
+
+Kernprinzip
+Ähnlich klingend ist noch nicht identisch.
+
+Eine gute Identifikation kombiniert:
+
+Form
++ Chronologie
++ Raum
++ institutionellen Kontext
++ Belegserie
++ Ausschluss konkurrierender Homonyme
+Qualität
+Eine Entität darf legitim candidate oder unresolved bleiben.
+
+Gerade hier ist übermäßige Normalisierung extrem gefährlich.
+
+Schnittstellen
+Philologie, historische Geographie, Prosopographie, Editionswissenschaft.
+
+K. Paläographie, Kodikologie und materielle Textkompetenz
+Nicht bei jeder Quelle notwendig, aber sobald man auf Handschrift oder Original zurückgeht, zentral.
+
+Wissensbasis
+Schriftentwicklung, Abkürzungen, Hände, Schreibmaterial, Wasserzeichen, Lagen, Nachträge, Rasuren, Marginalien, Layout.
+
+Prinzipien
+OCR ≠ Transkription ≠ Bildseite.
+
+Eine scheinbar eindeutige Lesung kann in Wirklichkeit unsicher sein.
+
+Auch können verschiedene Hände oder Nachträge aus verschiedenen Zeiten stammen.
+
+Qualität
+Unsichere Zeichen markieren.
+Bildfundstelle sichern.
+Materielle Schichten trennen.
+Keine scheinpräzise Lesung aus schlechtem Digitalisat.
+
+Schnittstellen
+Diplomatik, Textkritik, Archivistik und Philologie.
+
+L. Archäologie und materielle Cross-Evidence
+Diese Kompetenz wird besonders wichtig, wenn schriftliche Forschung Aussagen über Siedlungsalter, Landschaft, Gebäude, Wirtschaftsweise oder Nutzung macht.
+
+Grundprinzip
+Ersterwähnung ≠ Entstehung.
+
+Aber auch:
+
+Kein archäologischer Fund ≠ Nichtvorhandensein.
+
+Denn archäologische Evidenz hängt von Erhaltungsbedingungen und Untersuchungsintensität ab.
+
+Wissensbasis
+Stratigraphie, Fundkontext, Typologie, Datierung, Taphonomie, Siedlungsarchäologie, Landschaftsarchäologie.
+
+Qualität
+Schriftliche und materielle Evidenz bleiben zunächst getrennte Evidenzlinien.
+
+Sie dürfen sich bestätigen, widersprechen oder gegenseitig begrenzen.
+
+Schnittstellen
+Historische Geographie, Siedlungsgeschichte, Umweltgeschichte, Onomastik und Sachgeschichte.
+
+6. Retrieval und Forschungsheuristik ist ebenfalls eine Fachkompetenz
+Das wird häufig unterschätzt.
+
+M. Historische Heuristik / Information Retrieval
+Aufgabe
+Nicht nur „etwas googeln“, sondern fachlich entscheiden:
+
+Wo müsste ich überhaupt suchen, wenn diese Hypothese stimmt?
+
+Wissensbasis
+Editionen, Regesten, Archivstrukturen, Bibliographien, historische Namensvarianten, Fachvokabular, Suchräume, Citation Chaining.
+
+Prinzipien
+Treffer ≠ Evidenz.
+
+Kein Treffer ≠ Nichtvorhandensein.
+
+Qualität
+Ein negativer Suchbefund braucht:
+
+welche Datenbank / welches Archiv / welcher Bestand / welche Schreibvarianten / welcher Zeitraum / welche Zugriffsgrenzen.
+
+Das ist auch explizit Teil des bestehenden #45-Protokolls.
+
+Schnittstelle
+Jede Fachdomäne besitzt ihre eigene Evidence Appetite.
+
+Ein Diplomatiker sucht anders als ein Archäologe.
+Ein Onomastiker anders als ein Kirchenhistoriker.
+
+Deshalb kann Retrieval keine fachneutrale Universalroutine sein.
+
+7. Epistemologie und Forschungsdesign
+N. Historische Epistemologie / Inferenzkontrolle
+Das ist die Kompetenz, die am Ende verhindert, dass aus vielen korrekten Einzelbeobachtungen ein falscher Gesamtbefund gebaut wird.
+
+Wissensbasis
+Evidenztheorie, Kausalität, Hypothesenprüfung, Abduktion, Vergleich, Triangulation, Evidenzabhängigkeit, negative evidence, Unsicherheit, Falsifikation.
+
+Kernprinzipien
+Mehr Quellen sind nicht automatisch mehr unabhängige Evidenz.
+
+Übereinstimmung beweist keine gemeinsame historische Ursache.
+
+Widerspruch muss nicht aufgelöst werden.
+
+unresolved ist ein wissenschaftlich valider Zustand.
+
+Qualität
+Ein belastbares Finding sollte nachvollziehbar machen:
+
+Claim
+→ Evidenz
+→ verwendete Methode
+→ Inferenz
+→ Scope
+→ Confidence
+→ konkurrierende Erklärung
+→ möglicher Gegenbeleg
+Die repo-weite Research-QA fasst dies als Domain-, Evidence-, Inference-, Terminology-, Provenance- und Falsification-Fit.
+
+8. Transdisziplinäre Koordination ist eine eigene Kompetenz – aber keine Superwissenschaft
+O. Expertise Routing / Forschungskoordination
+Sie muss erkennen:
+
+Welche Fachkompetenz ist gerade führend?
+
+Aber sie darf deren Urteil nicht ersetzen.
+
+Beispielsweise:
+
+unklare lateinische Form
+→ Philologie
+
+Lesung des Textzeugen strittig
+→ Paläographie / Textkritik
+
+historischer Ortsname unsicher
+→ Onomastik
+
+räumliche Zuordnung unsicher
+→ historische Geographie
+
+Rechtsstatus unklar
+→ Rechts-/Herrschaftsgeschichte
+
+Siedlungsalter fraglich
+→ Archäologie
+Die Koordination darf anschließend die Ergebnisse zusammenführen, aber nicht still glätten.
+
+Das Projekt hat genau hierfür bereits die Regel, dass mehrere Fachkompetenzen aktiv sein dürfen, ohne mehrere inkompatible epistemische Autoritäten miteinander zu verschmelzen.
+
+9. Die Schnittstellen sind eigentlich genauso wichtig wie die Kompetenzen selbst
+Ein gutes System würde nicht einfach sagen:
+
+„Onomastik konsultieren.“
+
+Sondern eine fachliche Übergabe erzeugen.
+
+Beispiel:
+
+Philologie
+Input:
+  historische Form „X“
+
+liefert:
+  mögliche Lesungen
+  sprachliche Varianten
+  semantische Grenzen
+
+        ↓
+
+Onomastik
+Frage:
+  Welche Personen-/Ortsidentitäten sind damit vereinbar?
+
+liefert:
+  Kandidaten
+  ausgeschlossene Kandidaten
+  confidence / unresolved
+
+        ↓
+
+historische Geographie
+Frage:
+  Sind diese Kandidaten räumlich und chronologisch kompatibel?
+
+        ↓
+
+Domain History
+Frage:
+  Passt die institutionelle/herrschaftliche Konstellation?
+
+        ↓
+
+Epistemische Integration
+Ergebnis:
+  confirmed | candidate | competing candidates | unresolved
+Das ist viel stärker als ein fiktiver „Historiker-Agent“, der alles in einem einzigen Denkprozess zusammenschmeißt.
+
+10. Woran erkennt man am Ende eine wirklich ausgearbeitete Kompetenz?
+Eine Kompetenz ist erst operational, wenn sie beantworten kann:
+
+WAS darf ich entscheiden?
+WANN bin ich zuständig?
+WANN bin ich nur Kontrollkompetenz?
+WELCHE Begriffe muss ich unterscheiden?
+WELCHE Evidenztypen verstehe ich?
+WIE entstehen diese Evidenztypen?
+WAS können sie nicht beobachten?
+WELCHE Arbeitsschritte führe ich durch?
+WELCHEN Mindestbeleg brauche ich für einen Schluss?
+WELCHE Schlussfolgerungen sind verboten?
+WELCHE Fehler sind typisch?
+WIE erkenne ich einen Gegenbeleg?
+WANN lautet das Ergebnis „unresolved“?
+WANN muss ich eine andere Kompetenz aktivieren?
+WELCHE Frage gebe ich ihr?
+WAS brauche ich von ihr zurück?
+WELCHE Fachliteratur / Standards tragen meine Methode?
+AN WELCHEN Gegenbeispielen wurde sie getestet?
+WELCHER Teil ist mechanisierbar?
+WELCHER Teil bleibt wissenschaftliches Urteil?
+Erst danach ist ein „Diplomatik-Profil“ wirklich eine Kompetenz und nicht bloß das Wort Diplomatik in einem Prompt.
+
+Und genau hier liegt meines Erachtens der entscheidende Entwicklungsschritt für Histo-Orla: Die bestehende Kompetenzlandkarte #22 sagt bereits welche Fachkompetenzen gebraucht werden; #60 verlangt nun explizit die Operationalisierung durch Quellenmodelle, Playbooks, Inferenzverträge, QA und Schnittstellen.
+
+Ich habe diese heutige Konkretisierung deshalb nicht als fertige Method Truth behandelt, sondern als Scoping der Kompetenzprofile unter #60 persistiert. PR #147 enthält 15 solcher Profile mit Wissensbasis, Prinzipien, Qualitätskriterien, beobachtbaren Outputs, Schnittstellen und Stop-/Handoff-Regeln; ausdrücklich mit Status scoping / not-a-working-method.
+
+Der nächste fachlich saubere Schritt wäre jetzt, jedes dieser Profile einzeln gegen den State of the Art seiner Disziplin zu prüfen. Erst dann könnten wir z. B. für „Diplomatik + Editionswissenschaft“ wirklich sagen: Das sind die tragenden Methodenwerke/Standards, das ist das verbindliche Playbook, diese Inferenz ist erlaubt, jene verboten, und an diesen positiven sowie adversarialen Fällen hat das Profil bestanden. Das wäre dann der Übergang vom jetzigen Kompetenz-Scoping zu echten method-candidate- und später working-method-Profilen.
