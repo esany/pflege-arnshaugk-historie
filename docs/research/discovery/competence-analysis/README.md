@@ -1,63 +1,73 @@
-# Competence Analysis Preservation
+# Competence Analysis / Concept State
 
-**Status:** `P0 preservation work package / owner-gated source-plan-assurance freeze / W1 not started`  
-**Work Owner:** #150  
-**Content / competence inventory:** #22  
+**Status:** `owner-provided original concept transcript preserved for review / no promotion`  
+**Content / competence semantics:** #22  
+**Historical preservation work package:** #150 / PR #152  
 **Domain Method Truth:** #60  
 **Cross-cutting Research Quality:** #45
 
-## Canonical P0 artifacts
+## Primary owner-provided concept material
 
-- Source Lock: `inputs/owner-confirmed-analysis-2026-09-27.md`
-- Original P0 acceptance prompt: `planning/p0-planning-prompt-2026-09-27.md`
-- Preservation execution plan: `planning/preservation-execution-plan-2026-09-27.md`
-- Assurance contract: `planning/assurance-contract-2026-09-27.md`
-- Execution manifest: `planning/execution-manifest-2026-09-27.json`
-- Work packets: `planning/work-packets/W1-...` through `W7-...`
+The complete workshop material supplied by the Human Owner is preserved verbatim at:
 
-**Frozen Source Lock blob SHA:** `85d3b7cd38dd14c8f23af8350b4c585828934018`
+- `inputs/original-chat-competence-concept-2026-09-27.txt`
+- provenance/integrity manifest: `inputs/original-chat-competence-concept-2026-09-27.yaml`
 
-The execution manifest binds the same SHA.
+This transcript is the primary material for reconstructing the concept/scoping state developed in that conversation. It preserves user turns, assistant turns and their sequence without OC-matrix normalization, SOTA correction or Method-Truth promotion.
 
-## Current gate / transition
+Any later reconstruction must keep Human-Owner wording distinct from assistant proposals and must cite back to this transcript rather than silently backfilling from later derivatives.
 
-The canonical live gate is recorded in Work Owner #150.
+## Historical #150 preservation run
 
-For PR #151 the transition is fixed:
+The earlier #150 / PR #152 preservation run remains historical process/assurance evidence. Its live gate is:
 
-- **before merge:** Owner Merge Gate for the concrete P0 diff;
-- **on an explicitly approved merge:** P0 becomes `FROZEN` and W1 becomes the next permitted execution step;
-- **after merge:** W1 remains **NOT STARTED** and still requires a separate explicit execution authorization.
+`STOP_REPEATED_FAILURE / HUMAN_WORK_OWNER_REQUIRED / W4_NOT_ADMITTED`
 
-A P0 merge therefore freezes source, plan and assurance; it does not execute the preservation run.
+The stopped run is not continued or repaired by preservation of the original transcript.
+
+P0 artifacts remain available for provenance:
+
+- prior Source Lock: `inputs/owner-confirmed-analysis-2026-09-27.md`
+- P0 acceptance prompt: `planning/p0-planning-prompt-2026-09-27.md`
+- preservation execution plan: `planning/preservation-execution-plan-2026-09-27.md`
+- assurance contract: `planning/assurance-contract-2026-09-27.md`
+- execution manifest: `planning/execution-manifest-2026-09-27.json`
+- work packets: `planning/work-packets/W1-...` through `W7-...`
+
+Frozen prior Source Lock blob SHA: `85d3b7cd38dd14c8f23af8350b4c585828934018`.
 
 ## Prior derivatives
 
-- PR #147 — closed unmerged historical working derivative; not Method Truth and not Source of Meaning.
-- PR #148 — merged prior chat-audit derivative / reconciliation target; not the Source Lock for this preservation run.
+- PR #147 — closed unmerged historical working derivative; not Method Truth and not primary transcript evidence.
+- PR #148 — merged prior chat-audit derivative; useful as later audit/provenance, not as a replacement for the owner-provided original transcript.
+- W1/W2/W3 artifacts under PR #152 — historical preservation/assurance evidence; they do not rewrite the original transcript.
 
-## Open debt that P0 intentionally does not close
+## Open debt / non-promotions
 
-- domain SOTA / methods literature / standards;
-- profile boundary `retain | split | merge | reframe`, including Diplomatics vs Edition/Textual Criticism;
-- positive, counterexample, evidence-starved and adversarial method tests;
-- external qualified validation where later required;
-- any Requirement or Architecture implication until its proper owner gate.
-
-## Explicit non-promotions
-
-This P0 is not:
+The preserved concept state is not:
 
 - Method Truth;
 - a validated competence taxonomy;
-- historical evidence or historical finding;
+- historical evidence or a historical finding;
 - an accepted Requirement;
-- an Architecture Decision;
-- a workflow engine or multi-agent product architecture;
-- proof that an epistemic/open-state question is closed.
+- an Architecture Decision.
+
+Still open are, among other things:
+
+- disciplined reconstruction of owner-confirmed vs assistant-proposed content from the transcript;
+- domain SOTA / methods literature / standards under #60;
+- profile-boundary questions;
+- positive, counterexample, evidence-starved and adversarial method tests;
+- external qualified validation where later required.
 
 ## Restart path
 
-`AGENTS.md → PROJECT_STATE.md → README.md → #150 → this map → Source Lock / Plan / Assurance / Manifest`
+For the competence concept itself:
+
+`AGENTS.md → PROJECT_STATE.md → README.md → #22 → this map → original transcript + manifest`
+
+For the historical stopped preservation run:
+
+`#150 → PR #152 → #44 / DD-20260929-001`
 
 One fact / one canonical home: this README is navigation only and must not become a second full truth store.
