@@ -1,0 +1,25 @@
+id: original-chat-competence-concept-2026-09-27
+status: concept-scoping-source
+source_role: owner-provided original workshop transcript
+semantic_authority: transcript content only; no later derivative may silently redefine it
+work_owner: "#22"
+related_preservation_work_owner: "#150"
+related_stopped_execution_pr: "#152"
+related_blocker: "#44 / DD-20260929-001"
+path: docs/research/discovery/competence-analysis/inputs/original-chat-competence-concept-2026-09-27.txt
+line_count: 756
+byte_count: 32924
+sha256: 0f26d7d653cb7304f654bd11a4ef58a4cea02852caf92f675ec358808233ae50
+git_blob_sha: b83e5e019d7bfd4c671fd46d201aa6f65aa193bd
+preservation_mode: verbatim
+content_transformations: none
+not_method_truth: true
+not_historical_evidence: true
+not_requirement: true
+not_architecture_decision: true
+not_final_profile_taxonomy: true
+notes:
+  - The transcript is preserved as supplied by the Human Owner, without normalization or OC-matrix projection.
+  - User turns, assistant turns and conversational development remain in the original sequence.
+  - PR #147, PR #148, the prior Source Lock and W1/W2/W3 artifacts remain later derivatives/process evidence and are not used to rewrite this transcript.
+  - Any later reconstruction or synthesis must cite back to this preserved transcript and keep owner wording distinct from assistant proposals.
